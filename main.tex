@@ -1,8 +1,53 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{esint}
+\usepackage{graphicx}
+\allowdisplaybreaks[2]
+\usepackage[left=3.5cm,right=3.5cm]{geometry}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+
+\pgfplotsset{compat=1.18}
+\pgfplotsset{
+    every axis/.append style={
+        axis on top=true,
+        axis x line=middle,
+        axis y line=middle,
+        axis equal,
+        axis line style={<->,color=black}, 
+        xlabel={$x$},
+        ylabel={$y$},
+    }
+}
+\definecolor{pinkplester}{rgb}{0.733, 0.02, 0.502}
+\newcommand\getcurrentref[1]{%
+ \ifnumequal{\value{#1}}{0}
+  {??}
+  {\the\value{#1}}%
+}
+\newtcbtheorem[number within = section]{Theorem}{Theorem}{
+    opacityback=1,
+    colback=blue!7!white,
+    colframe=pinkplester,
+    fonttitle=\bfseries
+}{thm}
+
+
+\newtcbtheorem[no counter]{Solution}{Solution}{
+    colback=white,
+    colframe=blue!25,
+    fonttitle=\bfseries
+}{prf}
 
 \title{Complex Analysis}
-\author{Mason Shu}
+\author{Slipper King}
 \date{July 2024}
 
 \begin{document}
