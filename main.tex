@@ -82,16 +82,16 @@ In normal calculus, we worked with functions $f: \mathbb{R}\to\mathbb R$. In com
 \end{align*}
 Approaching the function from the real axis,
 \begin{align*}
-    \left.\frac{df}{dz}\right|_{z=z_0}&=\lim_{h\to0} \frac{u(x+h,y)+iv(x+h,y)-u(x,y)-iv(x,y)}{h}\\
-    &=\frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i\text{.}
+    \left.\frac{df}{dz}\right|_{z=z_0}&=\lim_{h\to0} \frac{u(x_0+h,y_0)+iv(x_0+h,y_0)-u(x_0,y_0)-iv(x_0,y_0)}{h}\\
+    &=\left.\frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i\right|_{\substack{x=x_0\\y=y_0}}
 \end{align*}
-If the limit above exists, the function is \textit{complex differentiable} at the point $z$.
+If the limit above exists, the function is \textit{complex differentiable} at the point $z_0$.
 The following equations set the necessary criteria for a complex function to be holomorphic:
 \[
     \frac{df}{dz}=\frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i=\frac{\partial v}{\partial y}-\frac{\partial u}{\partial y}i
 \]
-\begin{Theorem}{}{e}
-    A complex function is holomorphic if it has continuous first-order derivatives and satisfies the Cauchy-Riemann Equations:
+\begin{Theorem}{Holomorphic Function Condition}{e}
+    A complex function is holomorphic at point $z_0$ if it has continuous first-order derivatives at a local neighborhood of $z_0$ (complex-differentiable) and satisfies the Cauchy-Riemann Equations:
     \begin{align*}
         \dfrac{\partial u}{\partial x}=\dfrac{\partial v}{\partial y};\dfrac{\partial v}{\partial x}=-\dfrac{\partial u}{\partial y}
     \end{align*}
