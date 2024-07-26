@@ -77,14 +77,17 @@ The multiplication of two complex numbers is equal to their magnitudes multiplie
 \section{Complex Functions}
 In normal calculus, we worked with functions $f: \mathbb{R}\to\mathbb R$. In complex analysis the focus is functions of the form $f: \mathbb C\to\mathbb C$. The criteria for functions to be \textit{analytic} is that the direction of approach for calculating the derivative does not affect the result. To demonstrate this, set a complex function $f(z)=u(x,y)+v(x,y)i$ where $z=x+yi$. Approaching the function from the complex axis where $h$ is real:
 \begin{align*}
-    \frac{\partial f}{\partial z}=\lim_{h=0} \frac{f(z+hi)-f(z)}{hi}&=\lim_{h=0} \frac{u(x,y+h)+iv(x,y+h)-u(x,y)-iv(x,y)}{hi}\\
+    \frac{df}{dz}=\lim_{h=0} \frac{f(z+hi)-f(z)}{hi}&=\lim_{h=0} \frac{u(x,y+h)+iv(x,y+h)-u(x,y)-iv(x,y)}{hi}\\
     &=\frac{\partial v}{\partial y}-\frac{\partial u}{\partial y}i\text{.}
 \end{align*}
 Approaching the function from the real axis,
 \begin{align*}
-    \frac{\partial f}{\partial z}=\lim_{h=0} \frac{f(z+h)-f(z)}{h}&=\lim_{h=0} \frac{u(x+h,y)+iv(x+h,y)-u(x,y)-iv(x,y)}{h}\\
-    &=\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}\text{.}
+    \frac{df}{dz}=\lim_{h=0} \frac{f(z+h)-f(z)}{h}&=\lim_{h=0} \frac{u(x+h,y)+iv(x+h,y)-u(x,y)-iv(x,y)}{h}\\
+    &=\frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i\text{.}
 \end{align*}
 If the limit above exists, the function is \textit{complex differentiable} at the point $z$.
-The above equations set the necessary criteria for a complex function to be 
+The following equations set the necessary criteria for a complex function to be holomorphic:
+\begin{align*}
+    \frac{df}{dz}=\frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i=\frac{\partial v}{\partial y}-\frac{\partial u}{\partial y}i
+\end{align*}
 \end{document}
