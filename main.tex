@@ -75,14 +75,14 @@ Euler's Formula allows every complex number to be expressed in polar form, a mod
 \[re^{i\theta}=r\left(\cos(\theta)+i\sin(\theta)\right)\]
 The multiplication of two complex numbers is equal to their magnitudes multiplied together and the unit complex number containing the sum of both angles.
 \section{Complex Functions}
-In normal calculus, we worked with functions $f: \mathbb{R}\to\mathbb R$. In complex analysis the focus is functions of the form $f: \mathbb C\to\mathbb C$. The criteria for functions to be \textit{analytic} is that the direction of approach for calculating the derivative does not affect the result. To demonstrate this, set a complex function $f(z)=u(x,y)+v(x,y)i$ where $z=x+yi$. Approaching the function from the complex axis where $h$ is real:
+In normal calculus, we worked with functions $f: \mathbb{R}\to\mathbb R$. In complex analysis the focus is functions of the form $f: \mathbb C\to\mathbb C$. The criteria for functions to be \textit{analytic} is that the direction of approach for calculating the derivative does not affect the result. To demonstrate this, set a complex function $f(z)=u(x,y)+v(x,y)i$ where $z=x+yi$. Approaching the point $z_0$ from the complex axis where $h$ is real:
 \begin{align*}
-    \frac{df}{dz}=\lim_{h=0} \frac{f(z+hi)-f(z)}{hi}&=\lim_{h=0} \frac{u(x,y+h)+iv(x,y+h)-u(x,y)-iv(x,y)}{hi}\\
-    &=\frac{\partial v}{\partial y}-\frac{\partial u}{\partial y}i\text{.}
+    \left.\frac{df}{dz}\right|_{z=z_0}&=\lim_{h\to0} \frac{u\left(x_0,y_0+h\right)+iv\left(x_0,y_0+h\right)-u\left(x_0,y_0\right)-iv\left(x_0,y_0\right)}{hi}\\
+    &=\left.\frac{\partial v}{\partial y}-\frac{\partial u}{\partial y}i\right|_{\substack{x=x_0\\y=y_0}}
 \end{align*}
 Approaching the function from the real axis,
 \begin{align*}
-    \frac{df}{dz}=\lim_{h=0} \frac{f(z+h)-f(z)}{h}&=\lim_{h=0} \frac{u(x+h,y)+iv(x+h,y)-u(x,y)-iv(x,y)}{h}\\
+    \left.\frac{df}{dz}\right|_{z=z_0}&=\lim_{h\to0} \frac{u(x+h,y)+iv(x+h,y)-u(x,y)-iv(x,y)}{h}\\
     &=\frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i\text{.}
 \end{align*}
 If the limit above exists, the function is \textit{complex differentiable} at the point $z$.
