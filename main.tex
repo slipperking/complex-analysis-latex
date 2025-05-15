@@ -2,14 +2,20 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{tikz}
-\usepackage[most]{tcolorbox}
-\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{cancel}
 \usepackage{esint}
 \usepackage{graphicx}
+\usepackage{tgpagella}
+\usepackage[hidelinks]{hyperref}
+
 \allowdisplaybreaks[2]
 \usepackage[left=3.5cm,right=3.5cm]{geometry}
 
+\usepackage[english]{babel}
 \usepackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
 \usetikzlibrary{patterns}
@@ -26,78 +32,28 @@
         ylabel={$y$},
     }
 }
-\definecolor{pinkplester}{rgb}{0.733, 0.02, 0.502}
-\newcommand\getcurrentref[1]{%
- \ifnumequal{\value{#1}}{0}
-  {??}
-  {\the\value{#1}}%
-}
-\newtcbtheorem[number within = section]{Theorem}{Theorem}{
-    opacityback=1,
-    colback=blue!7!white,
-    colframe=pinkplester,
-    fonttitle=\bfseries
-}{thm}
-
-
-\newtcbtheorem[no counter]{Solution}{Solution}{
-    colback=white,
-    colframe=blue!25,
-    fonttitle=\bfseries
-}{prf}
 
 \title{Complex Analysis}
 \author{Slipper King}
-\date{July 2024}
+\date{May 2025}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+%\renewcommand\qedsymbol{$\blacksquare$}
+
+\theoremstyle{remark}
+\newtheorem{example}{Example}[subsection]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\reseteqcounter}{\setcounter{equation}{0}}
 
 \begin{document}
-
 \maketitle
-
-\section{Complex Numbers}
-The value of $\sqrt{-1}$ is denoted as $i$ and is the fundamental unit of complex numbers. It can be combined with elements from $\mathbb R$ to form $\mathbb C$. Complex numbers have the form $a+bi$ where $a,b\in \mathbb R$. Complex numbers $a+bi$ and $c+di$ have the same fundamental operations:
-\begin{align*}
-    (a+bi)+(c+di)=(a+c)+(b+d)i&&(a+bi)(c+di)=(ac-bd)+(ad+bc)i
-\end{align*}
-\[\left.\frac{a+bi}{c+di}=\frac{(a+bi)(c-di)}{(c+di)(c-di)}=\frac{(ac+bd)+(bc-ad)i}{c^2+d^2}\right|c,d\neq 0\]
-The operation described in the division above uses the operation of multiplying the fraction by its conjugate on both sides; the conjugate of a complex number $z$ is denoted as $\overline{z}$ and is the complex number with the property that $\Re(z)=\Re\left(\bar{z}\right)$ and $\Im(z)=-\Im\left(\overline{z}\right)$ where $\Re$ and $\Im$ denote the real and imaginary parts of the complex number. The following identities hold for complex $a$ and $b$:
-\begin{align*}
-    \overline{\bar{a}}=a&&\Re(a)=\frac{a+\bar a}{2}&&\Im(a)=\frac{a-\bar a}{2i}\\
-    \overline{a+b}=\bar a+\bar b&&\overline{ab}=\bar a \cdot \bar b && \overline{\left(\frac{a}{b}\right)}=\frac{\bar a}{\bar b}
-\end{align*}
-Imaginary units and real units do not combine and can be described as orthogonal to each other in the complex plane, where the $y$-axis denotes the complex part and the $x$-axis denotes the real part. The conjugate is equal to the reflection of a point across the real axis, and the absolute value of a complex number is the real number describing the distance to the origin.
-We can derive easily that for complex $a=\alpha+\beta i$ and $b$:
-\begin{align*}
-    |a|^2=\alpha^2+\beta^2&&|ab|=|a|\cdot|b|&&\left|\frac{a}{b}\right|=\frac{|a|}{|b|}&&|a+b|\leq|a|+|b|
-\end{align*}
-\[|a+b|^2=|a|^2+|b|^2+2\Re \left(a\bar b\right)\]
-Euler's Formula allows every complex number to be expressed in polar form, a modulus (or the magnitude), and the argument (or the angle). Euler's formula states:
-\[re^{i\theta}=r\left(\cos(\theta)+i\sin(\theta)\right)\]
-The multiplication of two complex numbers is equal to their magnitudes multiplied together and the unit complex number containing the sum of both angles.
-\section{Complex Functions}
-In normal calculus, we worked with functions $f: \mathbb{R}\to\mathbb R$. In complex analysis the focus is functions of the form $f: \mathbb C\to\mathbb C$. The criteria for functions to be \textit{analytic} is that the direction of approach for calculating the derivative does not affect the result. To demonstrate this, set a complex function $f(z)=u(x,y)+v(x,y)i$ where $z=x+yi$. Approaching the point $z_0$ from the complex axis where $h$ is real:
-\begin{align*}
-    \left.\frac{df}{dz}\right|_{z=z_0}&=\lim_{h\to0} \frac{u\left(x_0,y_0+h\right)+iv\left(x_0,y_0+h\right)-u\left(x_0,y_0\right)-iv\left(x_0,y_0\right)}{hi}\\
-    &=\left.\frac{\partial v}{\partial y}-\frac{\partial u}{\partial y}i\right|_{\substack{x=x_0\\y=y_0}}
-\end{align*}
-Approaching the function from the real axis,
-\begin{align*}
-    \left.\frac{df}{dz}\right|_{z=z_0}&=\lim_{h\to0} \frac{u(x_0+h,y_0)+iv(x_0+h,y_0)-u(x_0,y_0)-iv(x_0,y_0)}{h}\\
-    &=\left.\frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i\right|_{\substack{x=x_0\\y=y_0}}
-\end{align*}
-If the limit above exists, the function is \textit{complex differentiable} at the point $z_0$.
-The following equations set the necessary criteria for a complex function to be holomorphic:
-\[
-    \frac{df}{dz}=\frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i=\frac{\partial v}{\partial y}-\frac{\partial u}{\partial y}i
-\]
-\begin{Theorem}{Holomorphic Function Condition}{e}
-    A complex function is holomorphic at point $z_0$ if it has continuous first-order derivatives at a local neighborhood of $z_0$ (complex-differentiable) and satisfies the Cauchy-Riemann Equations:
-    \begin{align*}
-        \dfrac{\partial u}{\partial x}=\dfrac{\partial v}{\partial y};\dfrac{\partial v}{\partial x}=-\dfrac{\partial u}{\partial y}
-    \end{align*}
-\end{Theorem}
-Since the first-order derivatives are holomorphic, their second partial derivatives are:
-\[\frac{\partial^2u}{\partial x\partial y}=\frac{\partial^2 v}{\partial y^2};\frac{\partial^2 v}{\partial x^2}=-\frac{\partial^2 u}{\partial y\partial x}\]
-\[\frac{\partial^2u}{\partial x^2}=\frac{\partial^2 v}{\partial y\partial x};\frac{\partial^2 v}{\partial x\partial y}=-\frac{\partial^2 u}{\partial y^2}\]
-Since the second-order derivatives are holomorphic, the order of differentiation is unimportant, the Laplacian of the real and complex parts of the complex function are 0 (harmonic functions): $\dfrac{\partial^2 v}{\partial y^2}+\dfrac{\partial^2 v}{\partial x^2}=0$ and $\dfrac{\partial^2 u}{\partial y^2}+\dfrac{\strut\partial^2 u}{\partial x^2\strut}=0$. In Laplacian representation, $\Delta u=0$ and $\Delta v=0$, where $\Delta=\nabla\cdot\nabla$. The real and imaginary parts of all holomorphic functions are harmonic functions.
+\tableofcontents
+\section{}
 \end{document}
