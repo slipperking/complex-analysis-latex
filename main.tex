@@ -61,6 +61,9 @@
 \section{Prerequisites}
 \subsection{Calculus}
 \subsection{}
+\begin{definition}[Closure of a Set]\label{def:closure}
+For a set $A\in\mathbb{C}^n$, define the closure of $A$, or $\overline{A}$ to be the intersection of all closed sets containing $A$. In other words, it is the union of $A$ and its boundary.
+\end{definition}
 \begin{definition}[Compactness of a Set]\label{def:compactsets}
     A set $X\in\mathbb{C}^n$ is compact if and only if $X$ is closed and bounded.
 \end{definition}
@@ -70,13 +73,10 @@
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
 
-    First we will show that $X$ is bounded. Suppose that $\forall R>0$, $\exists x\in X$ where $|x|>R$. Consider the collection of open sets \[U=\{B(0,k)\mid k\in\mathbb{N}\}\] where $B(a,b)$ is the open ball with radius $b$ centered at $a$. $U$ forms an open cover of $X$. Then there exists a finite subcover $\{B(0,k_1),\ldots,B(0,k_m)\}$ covering $X$. Then, \[X\subseteq\bigcup_{i=1}^mB(0,k_i)=B(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
+    First we will show that $X$ is bounded. Suppose that $\forall R>0$, $\exists x\in X$ where $\|x\|>R$. Consider the collection of open sets \[U=\{B(0,k)\mid k\in\mathbb{N}\}\] where $B(a,b)$ is the open ball with radius $b$ centered at $a$. $U$ forms an open cover of $X$. Then there exists a finite subcover $\{B(0,k_1),\ldots,B(0,k_m)\}$ covering $X$. Then, \[X\subseteq\bigcup_{i=1}^mB(0,k_i)=B(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
 
-    
+    $X$ must also be a closed set. For the sake of contradiction, assume that there exists a point $x_0\in X\setminus\overline{X}\neq\emptyset$
 \end{proof}
-\begin{definition}[Closure of a Set]\label{def:closure}
-For a set $A\in\mathbb{C}^n$, define the closure of $A$, or $\overline{A}$ to be the intersection of all closed sets containing $A$. In other words, it is the union of $A$ and its boundary.
-\end{definition}
 \begin{definition}[Support]\label{def:support}
     For a set $X$ and a function $f:X\to\mathbb{C}$, the support, denoted as \(\supp(f)=\overline{\{x\in X\mid f(x)\neq 0\}}\), or the closure of the set for which $f$ is non-zero.
 \end{definition}
