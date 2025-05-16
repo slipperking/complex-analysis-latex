@@ -32,6 +32,8 @@
         ylabel={$y$},
     }
 }
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\supp}{\operatorname{supp}}
 
 \title{Complex Analysis}
 \author{Slipper King}
@@ -61,14 +63,14 @@
 For a set $A$, define the closure of $A$, or $\overline{A}$ to be the intersection of all closed sets containing $A$. In other words, it is the union of $A$ and its boundary.
 \end{definition}
 \begin{definition}[Support]\label{def:support}
-    For a set $X$ and a function $f:X\to\mathbb{C}$, the support, denoted as \(\sup(f)={x\in X|f(x)\neq 0}\).
+    For a set $X$ and a function $f:X\to\mathbb{C}$, the support, denoted as \(\supp(f)=\overline{\{x\in X|f(x)\neq 0\}}\), or the closure of the set for which $f$ is non-zero.
 \end{definition}
 \begin{theorem}[Green's Theorem]\label{theorem:complexgreen}
     
 \end{theorem}
 \begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
     Let \(U\subseteq\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\), where $\overline{U}$ represents the closure of \(U\). Then $\forall z\in U$, \begin{equation}
-        f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}d\zeta-\int_{U}\frac{\partial f(\zeta)}{\partial\overline{\zeta}}\frac{d\overline{\zeta}\wedge d\zeta}{\zeta-z}\right).
+        f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd\zeta-\int_{U}\frac{\partial f(\zeta)}{\partial\overline{\zeta}}\frac{\dd\overline{\zeta}\wedge \dd\zeta}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
 \begin{proof}
