@@ -75,9 +75,11 @@ For a set $A\in\mathbb{C}^n$, define the closure of $A$, or $\overline{A}$ to be
 
     First we will show that $X$ is bounded. Suppose that $\forall R>0$, $\exists x\in X$ where $\|x\|>R$. Consider the collection of open sets \[\mathcal{U}=\{B(0,k)\mid \forall k\in\mathbb{N}\}\] where $B(a,b)$ is the open ball with radius $b$ centered at $a$. $\mathcal{U}$ forms an open cover of $X$. Then there exists a finite subcover $\{B(0,k_1),\ldots,B(0,k_m)\}$ covering $X$. Then, \[X\subseteq\bigcup_{i=1}^mB(0,k_i)=B(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
 
-    $X$ must also be a closed set. For the sake of contradiction, assume that there exists a point $x_0\in\overline{X}\setminus X$. Construct a collection of open sets covering $X$:
+    $X$ must also be a closed set. For the sake of contradiction, assume that there exists a point $x_0\in\overline{X}\setminus X$. Since \(x_0\notin X\), the following open collection of sets covers $X$:
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(x_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\] By assumption, there exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B}\left(x_0,\frac{1}{k_i}\right)\;\middle|\; i=1,2,\ldots,m\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B}\left(x_0,\frac{1}{\max(k_1,\ldots,k_m)}\right),\]
-    and that $X\cap\overline{B}\left(x_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset$. However, by the definition of the 
+    and that $X\cap\overline{B}\left(x_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset$. However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect $X$. Therefore, by contradiction, $X$ is closed.
+
+    To prove the converse statement,
 \end{proof}
 \begin{definition}[Support]\label{def:support}
     For a set $X$ and a function $f:X\to\mathbb{C}$, the support, denoted as \(\supp(f)=\overline{\{x\in X\mid f(x)\neq 0\}}\), or the closure of the set for which $f$ is non-zero.
@@ -89,7 +91,7 @@ For a set $A\in\mathbb{C}^n$, define the closure of $A$, or $\overline{A}$ to be
     
 \end{theorem}
 \begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
-    Let \(U\subseteq\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\), where $\overline{U}$ represents the closure of \(U\). Then $\forall z\in U$, \begin{equation}
+    Let \(U\subseteq\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U$, \begin{equation}
         f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd\zeta-\int_{U}\frac{\partial f(\zeta)}{\partial\overline{\zeta}}\frac{\dd\overline{\zeta}\wedge \dd\zeta}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
