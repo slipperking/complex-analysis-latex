@@ -136,7 +136,13 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \begin{theorem}[Gauss' Theorem]\label{theorem:divergencegauss}
     
 \end{theorem}
-In 3 dimensional $\mathbb{R}^3$ space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dv{y}\), and \(\dd{z}\) to be a 1-form, Green's, Stokes', and Gauss' Theorems can be generalized into:
+In 3 dimensional $\mathbb{R}^3$ space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination between \(\dd{x}\wedge\dd{y}\), \(\dd{y}\wedge\dd{z}\), and \(\dd{z}\wedge\ddx\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where $\wedge$ denotes an anti-commutative and associative product, where for any two differential forms $\omega_1$ and $\omega_2$
+\[\omega_1\wedge\omega_2=-\omega_2\wedge\omega_1.\]
+Then consequently, for any differential form \(\omega\), \[\omega\wedge\omega=0.\]
+We can generalize the operator $\dd$ into an operator that increases the degree of a differential form. For instance,
+\[df=\pdv{f}{x}\ddx+\pdv{f}{y}\dd{y}+\pdv{f}{z}\dd{z},\]
+which is the definition of
+Then, Green's, Stokes', and Gauss' Theorems can be generalized into:
 \begin{theorem}[Stokes-Cartan Theorem]
     For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a compactly supported smooth differential $(n-1)$-form $\omega$ on $M$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
 \end{theorem}
