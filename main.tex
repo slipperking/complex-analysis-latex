@@ -32,7 +32,8 @@
         ylabel={$y$},
     }
 }
-\newcommand{\dd}{\mathrm{d}}
+
+\newcommand{\dd}[1]{\mathop{\mathit{d}#1}}
 \newcommand{\supp}{\operatorname{supp}}
 
 \title{Complex Analysis}
@@ -114,7 +115,7 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
 \end{theorem}
 \begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
     Let \(U\subseteq\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U$, \begin{equation}
-        f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd\zeta-\int_{U}\frac{\partial f(\zeta)}{\partial\overline{\zeta}}\frac{\dd\overline{\zeta}\wedge \dd\zeta}{\zeta-z}\right).
+        f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\frac{\partial f(\zeta)}{\partial\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\dd{\zeta}}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
 \begin{proof}
