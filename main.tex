@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{tikz}
-\usepackage{physics}
+\usepackage[italicdiff]{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -34,7 +34,7 @@
     }
 }
 
-\newcommand{\ddx}{\mathop{\mathit{dx}}}
+\newcommand{\ddx}{\dd{x}}
 \newcommand{\supp}{\operatorname{supp}}
 
 \title{Complex Analysis}
@@ -123,7 +123,9 @@ It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a p
     \[\int_a^xf(t)\dd{t}=\Phi(x)-\Phi(a).\]
 \end{theorem}
 The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed before differentiating oftentimes can be done before integrating. For instance,
-\[\frac{\dd{(f(x)+g(x))}}{\ddx}\]
+\[\dv{(f(x)\pm g(x))}{x}=\dv{f(x)}{x}\pm\dv{g(x)}{x}\]
+corresponds to
+\[\int_a^b(f(x)\pm g(x))\ddx=\int_a^bf(x)\ddx\pm\int_a^bg(x)\ddx\]
 \begin{theorem}[Green's Theorem]\label{theorem:realgreen}
     
 \end{theorem}
@@ -146,7 +148,7 @@ Green's, Stokes', and Gauss' Theorems can be generalized into:
 \end{theorem}
 \begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
     Let \(U\subseteq\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U$, \begin{equation}
-        f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\frac{\partial f(\zeta)}{\partial\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\dd{\zeta}}{\zeta-z}\right).
+        f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\dd{\zeta}}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
 \begin{proof}
