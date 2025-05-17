@@ -73,25 +73,15 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
 \begin{proof}
     Since \(X\) is bounded, there exists a closed cube \(Q\subset\mathbb{C}^n\) such that \(A\subseteq X\subset Q\).
 
-    Bisect \(Q\) into \(2^{2n}\) congruent sub-cubes. Since \(A\) is infinite and the sub-cubes are finite in number, at least one of the sub-cubes contains infinitely many points of \(A\), and choose one to be \(Q_1\).
+    Bisect \(Q_0=Q\) into \(2^{2n}\) congruent sub-cubes. Since \(A\) is infinite and the sub-cubes are finite in number, at least one of the sub-cubes contains infinitely many points of \(A\), and choose one to be \(Q_1\).
 
-    Bisect \(Q_1\) into \(2^{2n}\) sub-cubes, and choose a sub-cube \(Q_2\subset Q_1\) that contains infinitely many points of \(A\). Continue this process inductively, constructing a nested sequence of closed cubes
-    \[
-    Q_0 \supset Q_1 \supset Q_2 \supset \cdots
-    \]
-    such that:
-    \begin{itemize}
-        \item each \(Q_k\) contains infinitely many points of \(A\),
-        \item the side length of \(Q_k\) tends to zero as \(k \to \infty\).
-    \end{itemize}
+    Bisect \(Q_1\) into \(2^{2n}\) sub-cubes, and choose a sub-cube \(Q_2\subset Q_1\) that contains infinitely many points of \(A\). We then obtain the recursive sequence \[Q_0\supset Q_1 \supset Q_2\supset\ldots.\]
 
     Because the side lengths shrink to zero and the cubes are nested, the intersection
-    \[
-    \bigcap_{k=0}^{\infty} Q_k
-    \]
-    consists of exactly one point. Call this point \(z_\infty \in \mathbb{C}^n\).
+    \[\bigcap_{k=0}^{\infty} Q_k\]
+    consists of exactly one point. Call this point \(z_\infty\in\mathbb{C}^n\).
 
-    We claim that \(z_\infty\) is an accumulation point of \(A\). To see this, observe that for each \(k\), \(Q_k\) contains infinitely many points of \(A\), and \(Q_k\) is a neighborhood of \(z_\infty\) for sufficiently small \(k\). Moreover, since the side length of \(Q_k\) tends to zero, for any \(\varepsilon > 0\), there exists \(N\) such that for all \(k \geq N\), \(Q_k \subset D(z_\infty, \varepsilon)\). Therefore, \(D(z_\infty, \varepsilon)\) contains infinitely many points of \(A\), proving that \(z_\infty\) is indeed an accumulation point of \(A\).
+    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k \subset D(z_\infty, \varepsilon)\). Then, \(D(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, proving that \(z_\infty\) is indeed an accumulation point of \(A\).
 
     It remains to show that \(z_\infty \in X\). Since each \(Q_k \cap A \subset X\), and \(X\) is closed, any limit of a sequence in \(X\) must lie in \(X\). In particular, choose any point \(z_k \in Q_k \cap A\) for each \(k\). Then \((z_k)\) is a sequence in \(X\) converging to \(z_\infty\), so \(z_\infty \in X\) because \(X\) is closed.
 
