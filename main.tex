@@ -68,16 +68,14 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
     A set \(X\in\mathbb{C}^n\) is compact if and only if $X$ is closed and bounded.
 \end{definition}
 \begin{theorem}[Bolzano-Weierstrass Theorem]\label{theorem:bolzanoweierstrass}
-    Every infinite subset of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
+    Every infinite subset \(A\) of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
 \end{theorem}
 \begin{proof}
-Let \(X \subset \mathbb{C}^n\) be compact, and let \(A \subset X\) be an infinite subset. Since \(X\) is bounded, there exists a closed cube \(Q \subset \mathbb{C}^n\) that contains \(X\), and hence also contains \(A\).
+    Since \(X\) is bounded, there exists a closed cube \(Q\subset\mathbb{C}^n\) such that \(A\subseteq X\subset Q\).
 
-    We will use a bisection argument similar to the one used in the Heine–Borel theorem.
+    Bisect \(Q\) into \(2^{2n}\) congruent sub-cubes. Since \(A\) is infinite and the sub-cubes are finite in number, at least one of the sub-cubes contains infinitely many points of \(A\), and choose one to be \(Q_1\).
 
-    Divide \(Q\) into \(2^{2n}\) congruent subcubes by bisecting each real and imaginary coordinate axis. Since \(A\) is infinite and the subcubes are finite in number, by the pigeonhole principle, at least one of the subcubes contains infinitely many points of \(A\). Call this subcube \(Q_1\).
-
-    Repeat the process: bisect \(Q_1\) into \(2^{2n}\) subcubes, and choose a subcube \(Q_2 \subset Q_1\) that contains infinitely many points of \(A\). Continue this process inductively, constructing a nested sequence of closed cubes
+    Bisect \(Q_1\) into \(2^{2n}\) sub-cubes, and choose a sub-cube \(Q_2\subset Q_1\) that contains infinitely many points of \(A\). Continue this process inductively, constructing a nested sequence of closed cubes
     \[
     Q_0 \supset Q_1 \supset Q_2 \supset \cdots
     \]
