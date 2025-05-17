@@ -135,13 +135,13 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \begin{theorem}[Mean Value Theorem, Integral Form]
     If $f(x)$ is continuous over $[a,b]$, then \(\exists \xi\in[a,b]\) such that \[\int_a^bf(x)dx=f(\xi)(b-a).\]
 \end{theorem}
-Generalizations of the differential and integral exists in multiple variables. The partial differentials of \(f(x,y,z)\), $\pdv{f}{x}\ddx$, $\pdv{f}{y}\ddy$, and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
+Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), $\pdv{f}{x}\ddx$, $\pdv{f}{y}\ddy$, and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
 \begin{theorem}[Gradient Theorem]\label{theorem:gradient}
 Let \(C\) be a oriented smooth curve in \(\mathbb{R}^3\) with boundary points $A$ to $B$. Then
-\[\int_C \pdv{f}{x} \ddx + \pdv{f}{y} \ddy + \pdv{f}{z} \ddz = f(B) - f(A).\]
+\[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
 \end{theorem}
 \begin{theorem}[Green's Theorem]\label{theorem:realgreen}
-    Let \(\partial R\) be a positively oriented, piecewise smooth, simple closed curve embedded in $\mathbb{R}^2$, and let \(R\) be the positively oriented region bounded by \(\partial R\). For \(P(x,y),Q(x,y)\in C^1\left(\overline{R}\right)\),
+    Let \(\partial R\) be a positively oriented, piecewise smooth, simple closed curve embedded in $\mathbb{R}^2$, and let \(R\subset\mathbb{R}^2\) be the positively oriented region bounded by \(\partial R\). For \(P(x,y),Q(x,y)\in C^1\left(\overline{R}\right)\),
     \[\oint_{\partial R} P\ddx+Q\ddy=\iint_R\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{theorem:kelvinstokes}
@@ -150,7 +150,7 @@ Let \(C\) be a oriented smooth curve in \(\mathbb{R}^3\) with boundary points $A
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{theorem:divergencegauss}
     Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively-oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\left(\overline{V}\right)\). Then,
-    \[\iiint_V  = \iint_S \vec{F} \cdot d\vec{S}.\]
+    \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\ddy\ddz.\]
 \end{theorem}
 In 3 dimensional $\mathbb{R}^3$ space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination between \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where $\wedge$ denotes an anti-commutative and associative product, where for any two differential forms $\omega_1$ and $\omega_2$
 \[\omega_1\wedge\omega_2=-\omega_2\wedge\omega_1.\]
