@@ -60,23 +60,6 @@
 \maketitle
 \tableofcontents
 \section{Prerequisites}
-\subsection{Calculus}
-It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a point $x\in(a,b)$ if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by $f'(x)$ or $\frac{\dd{f}}{\dd{x}}$. The value \(\dd{f}=f'(x)\dd{x}\) is the differential of $f(x)$. Partition $[a,b]$ into \(a=x_0<x_1<x_2<\cdots<x_n=b\). Such that the length of the intervals $[x_i,x_{i-1}]$ tends to 0 as $n\to\infty$. If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value $\forall\xi_i\in[x_{i-1},x_i]$, then the function can be roughly said to be integrable over $[a,b]$. The full details of Riemann integrability relates to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
-\begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
-    Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
-    \[\Phi(x)=\int_a^xf(t)\dd{t}.\]
-    Then \(\Phi(x)\) is differentiable over \([a,b]\), \(\Phi'(x)=f(x)\), and \(\dd{\Phi(x)}=f'(x)\dd{x}\).
-\end{theorem}
-\begin{theorem}[Fundamental Theorem of Calculus, Integral Form]
-    Let \(\Phi(x)\) be a function differentiable over \([a,b]\). Let \(f(x)=\Phi'(x)\) over \([a,b]\). Then,
-    \[\int_a^xf(t)\dd{t}=\Phi(x)-\Phi(a).\]
-\end{theorem}
-The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed before differentiating oftentimes can be done before integrating:
-\[\]
-For multivariate functions, the Fundamental Theorem of Calculus extends to:
-\begin{theorem}[Stokes-Cartan Theorem]
-    For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a compactly supported smooth differential $(n-1)$-form $\omega$ on $M$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
-\end{theorem}
 \subsection{Topological Preliminaries}
 We will provide a rough, informal notion of important topological concepts tailored specifically towards complex analysis.
 \begin{definition}[Closure of a Set]\label{def:closure}
@@ -127,6 +110,35 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
 \begin{remark}
     We are primarily concerned when the support of a function is compact, or if the support is bounded. For smooth functions, functions that are compactly supported are called bump functions.
 \end{remark}
+\subsection{Calculus}
+It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a point $x\in(a,b)$ if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by $f'(x)$ or $\frac{\dd{f}}{\dd{x}}$. The value \(\dd{f}=f'(x)\dd{x}\) is the differential of $f(x)$. Partition $[a,b]$ into \(a=x_0<x_1<x_2<\cdots<x_n=b\). Such that the length of the intervals $[x_i,x_{i-1}]$ tends to 0 as $n\to\infty$. If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value $\forall\xi_i\in[x_{i-1},x_i]$, then the function can be roughly said to be integrable over $[a,b]$. The full details of Riemann integrability relates to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
+\begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
+    Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
+    \[\Phi(x)=\int_a^xf(t)\dd{t}.\]
+    Then \(\Phi(x)\) is differentiable over \([a,b]\), \(\Phi'(x)=f(x)\), and \(\dd{\Phi(x)}=f'(x)\dd{x}\).
+\end{theorem}
+\begin{theorem}[Fundamental Theorem of Calculus, Integral Form]
+    Let \(\Phi(x)\) be a function differentiable over \([a,b]\). Let \(f(x)=\Phi'(x)\) over \([a,b]\). Then,
+    \[\int_a^xf(t)\dd{t}=\Phi(x)-\Phi(a).\]
+\end{theorem}
+The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed before differentiating oftentimes can be done before integrating:
+\[\]
+\begin{theorem}[Green's Theorem]\label{theorem:realgreen}
+    
+\end{theorem}
+\begin{theorem}[Stokes' Theorem]\label{theorem:stokes}
+    
+\end{theorem}
+\begin{theorem}[Gauss' Theorem]\label{theorem:divergencegauss}
+    
+\end{theorem}
+Green's, Stokes', and Gauss' Theorems can be generalized into:
+\begin{theorem}[Stokes-Cartan Theorem]
+    For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a compactly supported smooth differential $(n-1)$-form $\omega$ on $M$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
 \section{Complex Integration}
 \begin{theorem}[Green's Theorem]\label{theorem:complexgreen}
     
