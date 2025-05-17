@@ -115,6 +115,8 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
     We are primarily concerned when the support of a function is compact, or if the support is bounded. For smooth functions, functions that are compactly supported are called bump functions.
 \end{remark}
 \subsection{Calculus}
+Since complex analysis is essentially the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for real functions. 
+
 It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a point $x\in(a,b)$ if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by $f'(x)$ or $\frac{\dd{f}}{\dd{x}}$. The value \(\dd{f}=f'(x)\dd{x}\) is the differential of $f(x)$. Partition $[a,b]$ into \(a=x_0<x_1<x_2<\cdots<x_n=b\). Such that the length of the intervals $[x_i,x_{i-1}]$ tends to 0 as $n\to\infty$. If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value $\forall\xi_i\in[x_{i-1},x_i]$, then the function can be roughly said to be integrable over $[a,b]$. The full details of Riemann integrability relates to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
 \begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
     Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
@@ -135,7 +137,8 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \end{theorem}
 Generalizations of the differential and integral exists in multiple variables. The partial differentials of \(f(x,y,z)\), $\pdv{f}{x}\ddx$, $\pdv{f}{y}\ddy$, and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). Three classical theorems exist, relating line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
 \begin{theorem}[Green's Theorem]\label{theorem:realgreen}
-    
+    Let \(\partial R\) be a positively oriented, piecewise smooth, simple closed curve in the plane, and let \(R\) be the region bounded by \(\partial R\). If \(P(x,y)\) and \(Q(x,y)\) are functions defined on an open region containing \(R\) and have continuous partial derivatives there, then:
+    \[\oint_{\partial R} P\ddx+Q\ddy=\iint_R\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{theorem:stokes}
     
