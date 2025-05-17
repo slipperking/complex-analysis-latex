@@ -35,6 +35,9 @@
 }
 
 \newcommand{\ddx}{\dd{x}}
+\newcommand{\ddy}{\dd{y}}
+\newcommand{\ddz}{\dd{z}}
+\newcommand{\ddzeta}{\dd{\zeta}}
 \newcommand{\supp}{\operatorname{supp}}
 
 \title{Complex Analysis}
@@ -144,11 +147,11 @@ We can generalize the operator $\dd$ to increase the degree of a differential fo
 which is the definition of the total differential. For a 1-form $\omega_1=P\ddx+Q\dd{y}+R\dd{z}$, we can define the exterior derivative in a similar way: \begin{align*}
     \dd{\omega_1}&=\dd{P}\wedge\ddx+\dd{Q}\wedge\dd{y}+\dd{R}\wedge\dd{z}\\
     &=\left(\pdv{P}{x}\ddx+\pdv{P}{y}\dd{y}+\pdv{P}{z}\dd{z}\right)\wedge\ddx\\
-    &\qquad+\left(\pdv{Q}{x}\ddx+\pdv{Q}{y}\dd{y}+\pdv{Q}{z}\dd{z}\right)\wedge\dd{y}\\
+    &\qquad+\left(\pdv{Q}{x}\ddx+\pdv{Q}{y}\dd{y}+\pdv{Q}{z}\dd{z}\right)\wedge\ddy\\
     &\qquad\qquad+\left(\pdv{R}{x}\ddx+\pdv{R}{y}\dd{y}+\pdv{R}{z}\dd{z}\right)\wedge\dd{z}\\
-    &=\left(\right)\dd{y}\wedge\dd{z}
+    &=\left(\pdv{R}{y}-\pdv{Q}{z}\right)\dd{y}\wedge\dd{z}+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\wedge\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\wedge\ddy.
 \end{align*}
-
+Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}\)
 \begin{lemma}\label{lemma:poincare}
     For any differential form \(\omega\), the exterior derivative applied twice satisfies: \[dd\omega=0.\]
 \end{lemma}
