@@ -144,17 +144,22 @@ In 3 dimensional $\mathbb{R}^3$ space, define a scalar valued function to be a 0
 Then consequently, for any differential form \(\omega\), \[\omega\wedge\omega=0.\]
 We can generalize the operator $\dd$ to increase the degree of a differential form. For instance,
 \[df=\pdv{f}{x}\ddx+\pdv{f}{y}\dd{y}+\pdv{f}{z}\dd{z},\]
-which is the definition of the total differential. For a 1-form $\omega_1=P\ddx+Q\dd{y}+R\dd{z}$, we can define the exterior derivative in a similar way: \begin{align*}
+which is the definition of the total differential. For a 1-form in 3 dimensional space, $\omega_1=P\ddx+Q\dd{y}+R\dd{z}$, we can define the exterior derivative in a similar way: \begin{align*}
     \dd{\omega_1}&=\dd{P}\wedge\ddx+\dd{Q}\wedge\dd{y}+\dd{R}\wedge\dd{z}\\
     &=\left(\pdv{P}{x}\ddx+\pdv{P}{y}\dd{y}+\pdv{P}{z}\dd{z}\right)\wedge\ddx\\
     &\qquad+\left(\pdv{Q}{x}\ddx+\pdv{Q}{y}\dd{y}+\pdv{Q}{z}\dd{z}\right)\wedge\ddy\\
     &\qquad\qquad+\left(\pdv{R}{x}\ddx+\pdv{R}{y}\dd{y}+\pdv{R}{z}\dd{z}\right)\wedge\dd{z}\\
     &=\left(\pdv{R}{y}-\pdv{Q}{z}\right)\dd{y}\wedge\dd{z}+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\wedge\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\wedge\ddy.
 \end{align*}
-Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}\)
+Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
+\[\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\wedge\ddy\wedge\ddz.\]
+The two results above resemble the curl and divergence of \(\begin{pmatrix}
+    P\\Q\\R
+\end{pmatrix}\).
 \begin{lemma}\label{lemma:poincare}
     For any differential form \(\omega\), the exterior derivative applied twice satisfies: \[dd\omega=0.\]
 \end{lemma}
+With the same analogy, the above result means that if \(\omega\) is a 0-form, then $\nabla(\nabla\omega)$
 Then, Green's, Stokes', and Gauss' Theorems can be generalized into:
 \begin{theorem}[Stokes-Cartan Theorem]
     For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a compactly supported smooth differential $(n-1)$-form $\omega$ on $M$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
@@ -171,7 +176,7 @@ Before we start, it is important to know the differential 2-forms even for a sin
 \end{theorem}
 \begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
     Let \(U\subseteq\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U$, \begin{equation}
-        f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\dd{\zeta}}{\zeta-z}\right).
+        f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
 \begin{proof}
