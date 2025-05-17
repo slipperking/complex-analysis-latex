@@ -68,10 +68,10 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
     A set \(X\in\mathbb{C}^n\) is compact if and only if $X$ is closed and bounded.
 \end{definition}
 \begin{theorem}[Bolzano-Weierstrass Theorem]\label{theorem:bolzanoweierstrass}
-    Every 
+    Every infinite subset of a compact set \(X\) has an accumulation point in \(X\).
 \end{theorem}
 \begin{theorem}[Heine-Borel Theorem]\label{theorem:heineborel}
-    A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has a finite subcover.
+    A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has finite subcovering.
 \end{theorem}
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
@@ -86,7 +86,7 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
 
     Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect $Q_0=Q$ into $2^{2n}$ sub-cubes. Choose $Q_1$ such that $Q_1\cup X$ has no finite subcover of $\mathcal{U}$. Under the previous assumptions, this is possible since if every $\text{sub-cube}\cap X$ had finite subcovering, then $Q_0\cap X=X$ would have finite subcovering. Similarly, choose $Q_2$ by bisecting $Q_1$ in a similar way, and recursively obtain a sequence of cubes:
     \[Q_0\supset Q_1\supset Q_2\supset\ldots\]
-    Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point $z_{\infty}\in\mathbb{C}^n$. By the Bolzano-Weierstrass Theorem, because \(\forall i\in\mathbb{N}\), $Q_i\cap X\neq\emptyset$, select a point \(z_{i}\in Q_i\cap X\), forming a sequence ${z_k}\in X$ convergent to \(z_\infty\in X\) as $X$ is closed. Therefore, $\exists U\in\mathcal{U}$ where $z_\infty\in U$. Since $U$ is open, $\exists\varepsilon>0$ such that $D(z_\infty,\varepsilon)\subset U$. $\exists N\in\mathbb{N}$ such that $\forall k>N$, \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that each cube had no finite subcovering. However, $U$ is a superset of $Q_k\cap X$
+    Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point $z_{\infty}\in\mathbb{C}^n$. By the Bolzano-Weierstrass Theorem, because \(\forall i\in\mathbb{N}\), $Q_i\cap X\neq\emptyset$, select a point \(z_{i}\in Q_i\cap X\), forming a sequence ${z_k}\in X$ convergent to \(z_\infty\in X\) as $X$ is closed. Therefore, $\exists U\in\mathcal{U}$ where $z_\infty\in U$. Since $U$ is open, $\exists\varepsilon>0$ such that $D(z_\infty,\varepsilon)\subset U$. $\exists N\in\mathbb{N}$ such that $\forall k>N$, \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that each cube had no finite subcovering. However, $U$ covers $Q_k\cap X$, which is a finite collection. Therefore by contradiction, every open cover has finite subcovering.
 \end{proof}
 \begin{definition}[Support]\label{def:support}
     For a set $X$ and a function $f:X\to\mathbb{C}$, the support, denoted as \(\supp(f)=\overline{\{x\in X\mid f(x)\neq 0\}}\), or the closure of the set for which $f$ is non-zero.
