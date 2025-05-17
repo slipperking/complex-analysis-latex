@@ -71,17 +71,33 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
     Every infinite subset of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
 \end{theorem}
 \begin{proof}
-     Let \( A \subset X \) be an infinite subset. We aim to show that \( A \) has an accumulation point in \( X \).
+Let \(X \subset \mathbb{C}^n\) be compact, and let \(A \subset X\) be an infinite subset. Since \(X\) is bounded, there exists a closed cube \(Q \subset \mathbb{C}^n\) that contains \(X\), and hence also contains \(A\).
 
-    Suppose, for contradiction, that \( A \) has no accumulation point in \( X \). Then every point \( x \in X \) has a neighborhood \( U_x \) such that \( U_x \cap A \) is finite (possibly empty). The collection \( \{U_x\}_{x \in X} \) forms an open cover of \( X \).
+    We will use a bisection argument similar to the one used in the Heine–Borel theorem.
 
-    Since \( X \) is compact, there exists a finite subcover \( \{U_{x_1}, U_{x_2}, \ldots, U_{x_n}\} \). Then,
+    Divide \(Q\) into \(2^{2n}\) congruent subcubes by bisecting each real and imaginary coordinate axis. Since \(A\) is infinite and the subcubes are finite in number, by the pigeonhole principle, at least one of the subcubes contains infinitely many points of \(A\). Call this subcube \(Q_1\).
+
+    Repeat the process: bisect \(Q_1\) into \(2^{2n}\) subcubes, and choose a subcube \(Q_2 \subset Q_1\) that contains infinitely many points of \(A\). Continue this process inductively, constructing a nested sequence of closed cubes
     \[
-    A \subset \bigcup_{i=1}^n (U_{x_i} \cap A).
+    Q_0 \supset Q_1 \supset Q_2 \supset \cdots
     \]
-    But each \( U_{x_i} \cap A \) is finite by assumption, and a finite union of finite sets is finite. Therefore, \( A \) is finite, which contradicts our assumption that \( A \) is infinite.
+    such that:
+    \begin{itemize}
+        \item each \(Q_k\) contains infinitely many points of \(A\),
+        \item the side length of \(Q_k\) tends to zero as \(k \to \infty\).
+    \end{itemize}
 
-    Hence, our assumption was false, and \( A \) must have at least one accumulation point in \( X \).
+    Because the side lengths shrink to zero and the cubes are nested, the intersection
+    \[
+    \bigcap_{k=0}^{\infty} Q_k
+    \]
+    consists of exactly one point. Call this point \(z_\infty \in \mathbb{C}^n\).
+
+    We claim that \(z_\infty\) is an accumulation point of \(A\). To see this, observe that for each \(k\), \(Q_k\) contains infinitely many points of \(A\), and \(Q_k\) is a neighborhood of \(z_\infty\) for sufficiently small \(k\). Moreover, since the side length of \(Q_k\) tends to zero, for any \(\varepsilon > 0\), there exists \(N\) such that for all \(k \geq N\), \(Q_k \subset D(z_\infty, \varepsilon)\). Therefore, \(D(z_\infty, \varepsilon)\) contains infinitely many points of \(A\), proving that \(z_\infty\) is indeed an accumulation point of \(A\).
+
+    It remains to show that \(z_\infty \in X\). Since each \(Q_k \cap A \subset X\), and \(X\) is closed, any limit of a sequence in \(X\) must lie in \(X\). In particular, choose any point \(z_k \in Q_k \cap A\) for each \(k\). Then \((z_k)\) is a sequence in \(X\) converging to \(z_\infty\), so \(z_\infty \in X\) because \(X\) is closed.
+
+    Thus, every infinite subset of a compact set \(X\) has an accumulation point in \(X\).
 \end{proof}
 \begin{theorem}[Heine-Borel Theorem]\label{theorem:heineborel}
     A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has finite subcovering.
