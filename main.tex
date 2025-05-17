@@ -99,7 +99,7 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\] By assumption, there exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k_i}\right)\;\middle|\; i=1,2,\ldots,m\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right),\]
     and that $X\cap\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset$. However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect $X$. Therefore, by contradiction, $X$ is closed.
 
-    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the $X$ is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\left|\Re(z_i)\right|\le R,\max_{i\in\{1,\ldots,n\}}\left|\Im(z_i)\right|\le R\right\}.\] 
+    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the $X$ is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\left|\real(z_i)\right|\le R,\max_{i\in\{1,\ldots,n\}}\left|\imaginary(z_i)\right|\le R\right\}.\] 
 
     Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect $Q_0=Q$ into $2^{2n}$ sub-cubes (for real and complex parts). Choose $Q_1$ such that $Q_1\cup X$ has no finite subcover of $\mathcal{U}$. Under the previous assumptions, this is possible since if every $\text{sub-cube}\cap X$ had finite subcovering, then $Q_0\cap X=X$ would have finite subcovering. Similarly, choose $Q_2$ by bisecting $Q_1$ in a similar way, and recursively obtain a sequence of cubes:
     \[Q_0\supset Q_1\supset Q_2\supset\ldots\]
@@ -122,10 +122,8 @@ It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a p
     Let \(\Phi(x)\) be a function differentiable over \([a,b]\). Let \(f(x)=\Phi'(x)\) over \([a,b]\). Then,
     \[\int_a^xf(t)\dd{t}=\Phi(x)-\Phi(a).\]
 \end{theorem}
-The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed before differentiating oftentimes can be done before integrating. For instance,
-\[\dv{(f(x)\pm g(x))}{x}=\dv{f(x)}{x}\pm\dv{g(x)}{x}\]
-corresponds to
-\[\int_a^b(f(x)\pm g(x))\ddx=\int_a^bf(x)\ddx\pm\int_a^bg(x)\ddx\]
+The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed before differentiating oftentimes can be done before integrating. For instance, \[\dv{(f(x)\pm g(x))}{x}=\dv{f(x)}{x}\pm\dv{g(x)}{x}\] corresponds to \[\int(f(x)\pm g(x))\ddx=\int f(x)\ddx\pm\int g(x)\ddx,\]
+and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx=f(x)g(x)-\int f'(x)g(x)\ddx,\]
 \begin{theorem}[Green's Theorem]\label{theorem:realgreen}
     
 \end{theorem}
