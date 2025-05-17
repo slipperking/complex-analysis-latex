@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{tikz}
+\usepackage{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -33,7 +34,7 @@
     }
 }
 
-\newcommand{\dd}[1]{\mathop{\mathit{d}#1}}
+\newcommand{\ddx}{\mathop{\mathit{dx}}}
 \newcommand{\supp}{\operatorname{supp}}
 
 \title{Complex Analysis}
@@ -102,7 +103,7 @@ For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be
 
     Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect $Q_0=Q$ into $2^{2n}$ sub-cubes (for real and complex parts). Choose $Q_1$ such that $Q_1\cup X$ has no finite subcover of $\mathcal{U}$. Under the previous assumptions, this is possible since if every $\text{sub-cube}\cap X$ had finite subcovering, then $Q_0\cap X=X$ would have finite subcovering. Similarly, choose $Q_2$ by bisecting $Q_1$ in a similar way, and recursively obtain a sequence of cubes:
     \[Q_0\supset Q_1\supset Q_2\supset\ldots\]
-    Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point $z_{\infty}\in\mathbb{C}^n$. By the Bolzano-Weierstrass Theorem, because \(\forall i\in\mathbb{N}\), $Q_i\cap X\neq\emptyset$, select a point \(z_{i}\in Q_i\cap X\), forming a sequence ${z_k}\in X$ convergent to \(z_\infty\in X\) as $X$ is closed. Therefore, $\exists U\in\mathcal{U}$ where $z_\infty\in U$. Since $U$ is open, $\exists\varepsilon>0$ such that $D(z_\infty,\varepsilon)\subset U$. $\exists N\in\mathbb{N}$ such that $\forall k>N$, \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that each cube had no finite subcovering. However, $U$ covers $Q_k\cap X$, which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
+    Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point $z_{\infty}\in\mathbb{C}^n$. By the Bolzano-Weierstrass Theorem, because \(\forall i\in\mathbb{N}\), $Q_i\cap X\neq\emptyset$, select a point \(z_{i}\in Q_i\cap X\), forming a sequence ${z_k}\in X$ convergent to \(z_\infty\in X\) as $X$ is closed. Therefore, $\exists U\in\mathcal{U}$ where $z_\infty\in U$. Since $U$ is open, $\exists\varepsilon>0$ such that $D(z_\infty,\varepsilon)\subset U$. $\exists N\in\mathbb{N}$ such that $\forall k>N$, \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every $k$, $Q_k\cap X$ has no finite subcovering. However, $U$ covers $Q_k\cap X$, which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
 \end{proof}
 \begin{definition}[Support of a Function]\label{def:support}
     For a set $X$ and a function $f:X\to\mathbb{C}$, the support, denoted as \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), or the closure of the set for which $f$ is non-zero.
@@ -121,8 +122,8 @@ It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a p
     Let \(\Phi(x)\) be a function differentiable over \([a,b]\). Let \(f(x)=\Phi'(x)\) over \([a,b]\). Then,
     \[\int_a^xf(t)\dd{t}=\Phi(x)-\Phi(a).\]
 \end{theorem}
-The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed before differentiating oftentimes can be done before integrating:
-\[\]
+The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed before differentiating oftentimes can be done before integrating. For instance,
+\[\frac{\dd{(f(x)+g(x))}}{\ddx}\]
 \begin{theorem}[Green's Theorem]\label{theorem:realgreen}
     
 \end{theorem}
