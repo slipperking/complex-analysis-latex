@@ -127,8 +127,8 @@ It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a p
 \end{theorem}
 The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed for differentiating oftentimes have a corresponding inverse operation that can be done for integrating. For instance, \[\dv{(f(x)\pm g(x))}{x}=\dv{f(x)}{x}\pm\dv{g(x)}{x}\] corresponds to \[\int(f(x)\pm g(x))\ddx=\int f(x)\ddx\pm\int g(x)\ddx,\]
 and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx=f(x)g(x)-\int f'(x)g(x)\ddx,\] and \[\dv{f(g(x))}{x}=\dv{f(g)}{g}\cdot\dv{g(x)}{x}\] corresponds to \[\int_a^bf(g(x))g'(x)dx=\int_{g(a)}^{g(b)}f(u)du.\] Another correspondence is the Mean Value Theorem:
-\begin{theorem}
-    
+\begin{theorem}[Mean Value Theorem, Differential Form]
+    If $f(x)$ is differentiable over $[a,b]$, then \(\exists c\in[a,b]\) such that \[f(b)-f(a)=f'(c)(b-a).\]
 \end{theorem}
 \begin{theorem}[Green's Theorem]\label{theorem:realgreen}
     
@@ -159,7 +159,7 @@ The two results above resemble the curl and divergence of \(\begin{pmatrix}
 \begin{lemma}\label{lemma:poincare}
     For any differential form \(\omega\), the exterior derivative applied twice satisfies: \[dd\omega=0.\]
 \end{lemma}
-With the same analogy, the above result means that if \(\omega\) is a 0-form, then $\nabla(\nabla\omega)$
+With the same analogy, the above result means that if \(\omega\) is a 0-form, then $\nabla\times(\nabla\omega)=0$, and if \(\omega\) is a 1-form, \(\nabla\cdot(\nabla\times v)=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\).
 Then, Green's, Stokes', and Gauss' Theorems can be generalized into:
 \begin{theorem}[Stokes-Cartan Theorem]
     For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a compactly supported smooth differential $(n-1)$-form $\omega$ on $M$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
