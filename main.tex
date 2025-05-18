@@ -175,7 +175,7 @@ The two results above resemble the curl and divergence of \(\begin{pmatrix}
 With the same analogy, the above result means that if \(\omega\) is a 0-form, then $\nabla\times(\nabla\omega)=0$, and if \(\omega\) is a 1-form, \(\nabla\cdot(\nabla\times v)=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\) (there are no correlations for higher degree forms since in 3 dimensional space, the highest degree possible for any differential form is 3).
 
 Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes', and Gauss' Theorems can be generalized into:
-\begin{theorem}[Stokes-Cartan Theorem]
+\begin{theorem}[Stokes-Cartan Theorem]\label{theorem:stokescartan}
     For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a compactly supported smooth differential $(n-1)$-form $\omega$ on $M$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
 \end{theorem}
 \section{Complex Differentiation}
@@ -215,12 +215,12 @@ It is important to know the differential 2-forms even for a single variable comp
 
 \end{theorem}
 \begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
-    Let \(U\subseteq\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U$, \begin{equation}
+    Let \(U\subset\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U$, \begin{equation}
         f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
 \begin{proof}
     Let \(D(z,\varepsilon)\) denote the open disc centered around \(z\) with a radius of $\varepsilon$. Consider the complex differential form \[\frac{f(\zeta)\ddzeta}{\zeta-z}\]
-    with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying the 
+    with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying the Theorem~\ref{theorem:stokescartan}
 \end{proof}
 \end{document}
