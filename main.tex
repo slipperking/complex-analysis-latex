@@ -47,19 +47,15 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
 \providecommand*{\lemmaautorefname}{Lemma}
-%\renewcommand\qedsymbol{$\blacksquare$}
-
 \theoremstyle{remark}
 \newtheorem{example}{Example}[subsection]
-
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
-
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
-
 \numberwithin{equation}{section}
 \newcommand{\reseteqcounter}{\setcounter{equation}{0}}
+\DeclarePairedDelimiter{\paren}{(}{)}
 
 \begin{document}
 \maketitle
@@ -103,7 +99,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\] By assumption, there exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k_i}\right)\;\middle|\; i=1,2,\ldots,m\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right),\]
     and that $X\cap\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset$. However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect $X$. Therefore, by contradiction, $X$ is closed.
 
-    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the $X$ is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\left|\real(z_i)\right|\le R,\max_{i\in\{1,\ldots,n\}}\left|\imaginary(z_i)\right|\le R\right\}.\]
+    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the $X$ is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\abs*{\real(z_i)}\le R,\max_{i\in\{1,\ldots,n\}}\abs{\imaginary(z_i)}\le R\right\}.\]
 
     Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect $Q_0=Q$ into $2^{2n}$ sub-cubes (for real and complex parts). Choose $Q_1$ such that $Q_1\cup X$ has no finite subcover of $\mathcal{U}$. Under the previous assumptions, this is possible since if every $\text{sub-cube}\cap X$ had finite subcovering, then $Q_0\cap X=X$ would have finite subcovering. Similarly, choose $Q_2$ by bisecting $Q_1$ in a similar way, and recursively obtain a sequence of cubes:
     \[Q_0\supset Q_1\supset Q_2\supset\ldots\]
@@ -142,15 +138,15 @@ Generalizations of the differential and integral exist for multivariate function
     \[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
 \end{theorem}
 \begin{theorem}[Green's Theorem]\label{theorem:realgreen}
-    Let \(R\) be a positively oriented, multiply connected region in $\mathbb{R}^2$ with a piecewise smooth oriented boundary \(\partial R\). For \(P(x,y),Q(x,y)\in C^1\left(\overline{R}\right)\),
-    \[\oint_{\partial R} P\ddx+Q\ddy=\iint_R\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.\]
+    Let \(R\) be a positively oriented, multiply connected region in $\mathbb{R}^2$ with a piecewise smooth oriented boundary \(\partial R\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{R}}\),
+    \[\oint_{\partial R} P\ddx+Q\ddy=\iint_R\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{theorem:kelvinstokes}
-    Let \(S\) be a positively oriented, smooth surface in \(\mathbb{R}^3\) with positively oriented boundary curve \(\partial S\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\left(\overline{S}\right)\). Then,
+    Let \(S\) be a positively oriented, smooth surface in \(\mathbb{R}^3\) with positively oriented boundary curve \(\partial S\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
     \[\oint_{\partial S}P\ddx+Q\ddy+R\ddz = \iint_S\left(\pdv{R}{y}-\pdv{Q}{z}\right)\dd{y}\dd{z}+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{theorem:divergencegauss}
-    Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively-oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\left(\overline{V}\right)\). Then,
+    Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively-oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
     \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\ddy\ddz.\]
 \end{theorem}
 In 3 dimensional $\mathbb{R}^3$ space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination of \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where $\wedge$ denotes an anti-commutative and associative product, where for any two differential forms $\omega_1$ and $\omega_2$
