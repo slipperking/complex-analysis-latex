@@ -222,12 +222,12 @@ It is important to know the differential 2-forms even for a single variable comp
 \begin{proof}
     Let \(D(z,\varepsilon)\) denote the open disc centered around \(z\) with a radius of $\varepsilon$. Consider the complex differential form \[\frac{f(\zeta)\ddzeta}{\zeta-z}\]
     with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying the Stokes--Cartan Theorem (\autoref{theorem:stokescartan}), \begin{equation}
-        \int_{U\setminus D(z,\varepsilon)}\dd(\frac{f(\zeta)\ddzeta}{\zeta-z})=\int_U\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}.\label{eq:pompeiuproofdirectintermediate}
+        \int_{U\setminus D(z,\varepsilon)}\dd(\frac{f(\zeta)\ddzeta}{\zeta-z})=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}.\label{eq:pompeiuproofdirectintermediate}
     \end{equation}
     By properties of $\dd$, the expression is equal to \[\int_{U\setminus D(z,\varepsilon)}\left(\partial\ddzeta+\overline{\partial}\dd{\overline{\zeta}}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{}{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.\]
     The first term in the integrand vanishes as it contains \(\ddzeta\wedge\ddzeta\). The second term can be simplified using the fact that \(\pdv{\overline{\zeta}}(\frac{1}{\zeta-z})=0\), leading to
     \[\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{f(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta.\]
-    The rightmost term in equation \eqref{eq:pompeiuproofdirectintermediate} can be parameterized with \(\zeta=z+\varepsilon e^{it}\), \(t\in[0,2\pi)\). Then, \[\int_{D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f(z+\varepsilon e^{it})}{\varepsilon e^{it}}\cdot i\varepsilon e^{it}\dd{t}=i\int_0^{2\pi}f(z+\varepsilon e^{it})\dd{t}.\]
-    By combining and rearranging, we take the limit as \(\varepsilon\to0\): \[i\lim_{\varepsilon\to0}\int_0^{2\pi}f(z+\varepsilon e^{it})\dd{t}=\int_U\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{f(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta.\] Because $f$ is continuous, 
+    The rightmost term in equation \eqref{eq:pompeiuproofdirectintermediate} can be parameterized with \(\zeta=z+\varepsilon e^{it}\), \(t\in[0,2\pi)\). Then, \[\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f(z+\varepsilon e^{it})}{\varepsilon e^{it}}\cdot i\varepsilon e^{it}\dd{t}=i\int_0^{2\pi}f(z+\varepsilon e^{it})\dd{t}.\]
+    By combining and rearranging, we take the limit as \(\varepsilon\to0\): \[i\lim_{\varepsilon\to0}\int_0^{2\pi}f(z+\varepsilon e^{it})\dd{t}=\int_U\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{f(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta.\] Because $f$ is continuous, $\exists\delta(\varepsilon)$ such that 
 \end{proof}
 \end{document}
