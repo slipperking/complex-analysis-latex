@@ -256,13 +256,13 @@ It is important to know the differential 2-forms even for a single variable comp
 
 \end{theorem}
 \begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
-    Let \(U\subset\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U$, \begin{equation}
+    Let \(U\subset\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U\setminus\partial U$, \begin{equation}
         f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
 \begin{proof}
     Let \(D(z,\varepsilon)\) denote the open disc centered around \(z\) with a radius of $\varepsilon$. Consider the complex differential form \[\frac{f(\zeta)\ddzeta}{\zeta-z}\]
-    with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying the Stokes--Cartan Theorem (\autoref{theorem:stokescartan}), \begin{equation}
+    with a singularity at \(\zeta=z\). Since \(z\in U\), \(\exists\) \(U\setminus D(z,\varepsilon)\). Applying the Stokes--Cartan Theorem (\autoref{theorem:stokescartan}), \begin{equation}
         \int_{U\setminus D(z,\varepsilon)}\dd(\frac{f(\zeta)\ddzeta}{\zeta-z})=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}.\label{eq:pompeiuproofdirectintermediate}
     \end{equation}
     By properties of $\dd$, the expression is equal to \[\int_{U\setminus D(z,\varepsilon)}\left(\partial\ddzeta+\overline{\partial}\dd{\overline{\zeta}}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{}{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.\]
@@ -272,6 +272,6 @@ It is important to know the differential 2-forms even for a single variable comp
         \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f(z+\varepsilon e^{it})}{\varepsilon e^{it}}\cdot i\varepsilon e^{it}\dd{t}=i\int_0^{2\pi}f(z+\varepsilon e^{it})\dd{t}\\
         =i\int_0^{2\pi}\left(f(z+\varepsilon e^{it})-f(z)\right)\dd{t}+i\int_0^{2\pi}f(z)\dd{t}
     \end{gather*} Because $f\in C^1\left(\overline{U}\right)$, by \autoref{lemma:c1lipschitz}, \(\exists\) a finite Lipschitz constant \(M\ge0\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren*{z_1}-f\paren*{z_0}}\le M\abs{z_1-z_0}\). In particular, \(\abs{f(z+\varepsilon e^{it})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\pi}\left(f(z+\varepsilon e^{it})-f(z)\right)\dd{t}}\leq\int_0^{2\pi}\abs{f(z+\varepsilon e^{it})-f(z)}\dd{t}\leq 2M\pi\varepsilon,\] which approaches 0 as $\varepsilon\to0$. Taking this limit, we obtain \[2\pi if(z)=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\lim_{\varepsilon\to0}\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\]
-    We then aim to prove that \[\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}=0.\] Notice that since \(f\in C^1\paren*{\overline{U}}\), \(\exists N\in\pdv{f}{\overline{\zeta}}\)
+    We then aim to prove that \[\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}=0.\] Notice that since \(f\in C^1\paren*{\overline{U}}\), by \autoref{theorem:continuousfunctionbounded}, \(\exists M'\in\mathbb{R}_{>0}\) such that \(\forall\zeta\in\overline{U}\), \(\abs{\pdv{f}{\overline{\zeta}}}\leq M'\). Then,
 \end{proof}
 \end{document}
