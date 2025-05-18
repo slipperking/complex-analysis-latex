@@ -152,7 +152,7 @@ Generalizations of the differential and integral exist for multivariate function
     Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively-oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\left(\overline{V}\right)\). Then,
     \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\ddy\ddz.\]
 \end{theorem}
-In 3 dimensional $\mathbb{R}^3$ space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination between \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where $\wedge$ denotes an anti-commutative and associative product, where for any two differential forms $\omega_1$ and $\omega_2$
+In 3 dimensional $\mathbb{R}^3$ space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination of \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where $\wedge$ denotes an anti-commutative and associative product, where for any two differential forms $\omega_1$ and $\omega_2$
 \[\omega_1\wedge\omega_2=-\omega_2\wedge\omega_1.\]
 Then consequently, for any differential form \(\omega\), \[\omega\wedge\omega=0.\]
 We can generalize the operator $\dd$ to increase the degree of a differential form. For instance,
@@ -172,7 +172,8 @@ The two results above resemble the curl and divergence of \(\begin{pmatrix}
 \begin{lemma}\label{lemma:poincare}
     For any differential form \(\omega\), the exterior derivative applied twice satisfies: \[\dd[2]{\omega}=dd\omega=0.\]
 \end{lemma}
-With the same analogy, the above result means that if \(\omega\) is a 0-form, then $\nabla\times(\nabla\omega)=0$, and if \(\omega\) is a 1-form, \(\nabla\cdot(\nabla\times v)=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\).
+With the same analogy, the above result means that if \(\omega\) is a 0-form, then $\nabla\times(\nabla\omega)=0$, and if \(\omega\) is a 1-form, \(\nabla\cdot(\nabla\times v)=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\) (there are no correlations for higher degree forms since in 3 dimensional space, the highest degree possible is 3).
+
 Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes', and Gauss' Theorems can be generalized into:
 \begin{theorem}[Stokes-Cartan Theorem]
     For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a compactly supported smooth differential $(n-1)$-form $\omega$ on $M$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
@@ -200,7 +201,7 @@ The necessary and sufficient criterion for condition for differentiability is:
 \begin{theorem}
     
 \end{theorem}
-If a function \(f(z)\) is complex differentiable over an open disc $z\in D(z_0,\varepsilon)$, then 
+If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is holomorphic at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\).
 \subsection{Wirtinger Derivatives}
 We have previously introduced the concept of expressing a complex function as a function of \(x\) and \(y\). It can also be expressed in terms of $z$ and $\overline{z}$, where $z=x+iy$ and \(\overline{z}=x-iy\). Then \(|z|=z\overline{z}\), \(x=\frac{z+\overline{z}}{2}\), and \(y=\frac{z-\overline{z}}{2i}\). By the rules of the derivative, \begin{equation}
     \pdv{}{z}=\pdv{}{x}\pdv{x}{z}+\pdv{}{y}\pdv{y}{z}=\frac{1}{2}\left(\pdv{}{x}-i\pdv{}{y}\right)\label{eq:wirtingerderivative1}
