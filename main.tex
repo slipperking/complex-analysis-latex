@@ -192,7 +192,9 @@ By multiplying the second equation by $i$ and adding it to the first, we obtain 
 \begin{equation}
     \pdv{f}{x}=-i\pdv{f}{y}\label{eq:cauchyriemanneqs2}
 \end{equation}
-Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are known as the Cauchy-Riemann equations. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\real(z)\imaginary(z)\right|}\). If \(\Delta z=\Delta x+i\Delta y\), by definition, at $z=0$, the derivative is equal to \[\lim_{\Delta z\to0}\frac{f(\Delta z)}{\Delta z}=\]
+Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are known as the Cauchy-Riemann equations. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\real(z)\imaginary(z)\right|}\). Let $z=x+yi$, \(x=\alpha t\), and \(y=\beta t\). Then
+\[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+i\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+i\beta}.\]
+The derivative along $\alpha=1$, \(\beta=0\) (or the real axis) is indeed 0. Along $\alpha=0$, \(\beta=1\) (or the imaginary axis), it is also 0. However the limit is different for any other direction of approach
 \section{Complex Integration}
 Before we start, it is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy.\)
 \begin{theorem}[Green's Theorem]\label{theorem:complexgreen}
