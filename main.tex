@@ -72,7 +72,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 \begin{definition}[Compactness of a Set]\label{def:compactsets}
     A set \(X\in\mathbb{C}^n\) is compact if and only if $X$ is closed and bounded.
 \end{definition}
-\begin{theorem}[Bolzano-Weierstrass Theorem]\label{theorem:bolzanoweierstrass}
+\begin{theorem}[Bolzano--Weierstrass Theorem]\label{theorem:bolzanoweierstrass}
     Every infinite subset \(A\) of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
 \end{theorem}
 \begin{proof}
@@ -194,7 +194,9 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     Any continuous function over a compact set \(U\) is bounded over \(U\).
 \end{theorem}
 \begin{proof}
-    
+    Suppose for contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(U\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in U\) such that \(|f(x_n)|>n\). The sequence \((x_n)\) lies in \(U\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{theorem:bolzanoweierstrass}), there exists a convergent subsequence \((x_{n_k})\) with \(x_{n_k}\to x^*\in U\).
+
+    Since \(f\) is continuous, \(f(x_{n_k})\to f(x^*)\), so the sequence \((f(x_{n_k}))\) is bounded. But this contradicts \(|f(x_{n_k})|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
 \end{proof}
 \begin{definition}[Uniform Continuity]\label{def:continuity}
     A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous if and only if $\forall\varepsilon>0$, $\exists\delta>0$ such that $\forall t,s\in U$ where \(|t-s|<\delta\), \(\left|f(t)-f(s)\right|<\varepsilon\).
@@ -203,16 +205,24 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     A continuous function over a compact set $U$ is uniformly continuous over $U$.
 \end{lemma}
 \begin{proof}
-    
+    Suppose for contradiction that \(f:U\to\mathbb{R}\) is continuous but not uniformly continuous on compact \(U\). Then \(\exists\varepsilon_0>0\) such that \(\forall\delta>0\), \(\exists x,y\in U\) with \(|x-y|<\delta\) and \(|f(x)-f(y)|\geq\varepsilon_0\).
+
+    In particular, \(\forall n\in\mathbb{N}\), let \(\delta=\frac{1}{n}\). Then \(\exists x_n,y_n\in U\) such that \(|x_n-y_n|<\frac{1}{n}\) and \(|f(x_n)-f(y_n)|\geq\varepsilon_0\). Since \(U\) is compact, the sequence \((x_n)\) has a convergent subsequence \(x_{n_k}\to x^*\in U\). Because \(|x_{n_k}-y_{n_k}|<\frac{1}{n_k}\to 0\), we also have \(y_{n_k}\to x^*\).
+
+    By continuity of \(f\), \(f(x_{n_k})\to f(x^*)\) and \(f(y_{n_k})\to f(x^*)\), so \(|f(x_{n_k})-f(y_{n_k})|\to 0\), contradicting \(|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon_0\). Therefore, \(f\) is uniformly continuous on \(U\).
 \end{proof}
 \begin{definition}
-    A function \(f\) is Lipschitz continuous over \(U\) if
+    A function \(f\) is Lipschitz continuous over \(U\) if \(\exists C>0\) such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq C|x-y|\).
 \end{definition}
+
 \begin{lemma}
     A \(C^1\) function over a compact set $U$ is Lipschitz continuous over $U$.
 \end{lemma}
+
 \begin{proof}
-    
+    Let \(f:U\to\mathbb{R}\) be \(C^1\). Since \(U\) is compact and \(f'\) is continuous, \(\exists M>0\) such that \(\forall x\in U\), \(|f'(x)| \leq M\).
+
+    By the Mean Value Theorem, \(\forall x,y\in U\), \(\exists c\) between \(x\) and \(y\) such that \(f(x)-f(y) = f'(c)(x-y)\). Taking absolute values gives \(|f(x)-f(y)| = |f'(c)||x-y| \leq M|x-y|\), proving \(f\) is Lipschitz continuous with Lipschitz constant \(M\).
 \end{proof}
 \section{Complex Differentiation}
 For \(U\subseteq \mathbb{C}\) and a complex function $f:\mathbb{U}\to\mathbb{C}$, $f(z)$ is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
