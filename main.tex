@@ -290,7 +290,10 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     \end{gather*} Because $f\in C^1\left(\overline{U}\right)$, by \autoref{lemma:c1lipschitz}, \(\exists\) a finite Lipschitz constant \(M\ge0\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). In particular, \(\abs{f(z+\varepsilon e^{it})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\pi}\left(f(z+\varepsilon e^{it})-f(z)\right)\dd{t}}\leq\int_0^{2\pi}\abs{f(z+\varepsilon e^{it})-f(z)}\dd{t}\leq 2M\pi\varepsilon,\] which approaches 0 as $\varepsilon\to0$. Taking this limit, we obtain \begin{equation}
         2\pi if(z)=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}+\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}. \label{eq:pompeiuproofepsilonlimitintermediate}
     \end{equation}
-    We then aim to prove that \[\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}=0.\] Notice that since \(f\in C^1\paren{\overline{U}}\), by \autoref{theorem:continuousfunctionbounded}, \(\exists M'\in\mathbb{R}_{>0}\) such that \(\forall\zeta\in\overline{U}\), \(\abs{\pdv{f}{\overline{\zeta}}}\leq M'\). Then,
+    We then aim to prove that \begin{equation}
+        \lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}=0.\label{eq:pompeiuproofareadiscstatement}
+    \end{equation}
+    Notice that since \(f\in C^1\paren{\overline{U}}\), by \autoref{theorem:continuousfunctionbounded}, \(\exists M'\in\mathbb{R}_{>0}\) such that \(\forall\zeta\in\overline{U}\), \(\abs{\pdv{f}{\overline{\zeta}}}\leq M'\). Then,
     \[\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}\leq M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}.\]
     By a change of variables to a polar coordinate system centered around \(z\), we obtain
     \[M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{re^{i\theta}}\dd{\paren{z+re^{-i\theta}}}\wedge\dd{\paren{z+re^{i\theta}}}},\] and by expansion of the wedge product,
@@ -302,5 +305,5 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     Then from rearranging \eqref{eq:pompeiuproofepsilonlimitintermediate}, we obtain:
     \[f(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
 \end{proof}
-In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disc of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\).
+In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disc of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\). As in the proof above, the steps calculating the integral in equation \eqref{eq:pompeiuproofareadiscstatement} are still necessary in confirming . 
 \end{document}
