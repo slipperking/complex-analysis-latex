@@ -281,7 +281,11 @@ It is important to know the differential 2-forms even for a single variable comp
     By a change of variables to a polar coordinate system centered around \(z\), we obtain
     \[M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{re^{i\theta}}\dd{\paren{z+re^{-i\theta}}}\wedge\dd{\paren{z+re^{i\theta}}}},\] and by expansion of the wedge product,
     \begin{align*}
-        M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{re^{i\theta}}(2ir)\dd{r}\wedge\dd{\theta}}
+        M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{2i}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}&=2M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}\\
+        &=2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\pi}\int_0^\varepsilon e^{-i\theta}\dd{r}\dd{\theta}}\\
+        &=0.
     \end{align*}
+    Then from rearranging \eqref{eq:pompeiuproofepsilonlimitintermediate}, we obtain:
+    \[f(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
 \end{proof}
 \end{document}
