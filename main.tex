@@ -258,7 +258,7 @@ It is important to know the differential 2-forms even for a single variable comp
 
 \end{theorem}
 \begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
-    Let \(U\subset\mathbb{C}\) where $\partial U$ is piecewise smooth. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U\setminus\partial U$, \begin{equation}
+    Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary $\partial U$. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U\setminus\partial U$, \begin{equation}
         f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
@@ -267,7 +267,7 @@ It is important to know the differential 2-forms even for a single variable comp
     with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying the Stokes--Cartan Theorem (\autoref{theorem:stokescartan}), \begin{equation}
         \int_{U\setminus D(z,\varepsilon)}\dd(\frac{f(\zeta)\ddzeta}{\zeta-z})=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}.\label{eq:pompeiuproofdirectintermediate}
     \end{equation}
-    By properties of $\dd$, the expression is equal to \[\int_{U\setminus D(z,\varepsilon)}\left(\partial\ddzeta+\overline{\partial}\dd{\overline{\zeta}}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{}{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.\]
+    By properties of $\dd$, the expression is equal to \[\int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{}{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.\]
     The first term in the integrand vanishes as it contains \(\ddzeta\wedge\ddzeta\). The second term can be simplified using the fact that \(\pdv{\overline{\zeta}}(\frac{1}{\zeta-z})=0\), leading to
     \[\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\]
     The rightmost term in equation \eqref{eq:pompeiuproofdirectintermediate} can be parameterized with \(\zeta=z+\varepsilon e^{it}\), \(t\in[0,2\pi)\). Then, \begin{gather*}
