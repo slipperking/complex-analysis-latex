@@ -261,7 +261,7 @@ Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are know
 \[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+i\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+i\beta}.\]
 The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
 
-If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\).
+If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\). A function is \textit{entire} if it is holomorphic over \(\mathbb{C}\).
 \begin{theorem}
     A sufficient criterion for a function \(f(z)\) to be holomorphic on a region \(D\) is if \(f(z)\in C^1(D)\) and satisfy the Cauchy--Riemann equations.
 \end{theorem}
@@ -338,7 +338,7 @@ From the above result, we can directly obtain the following theorem:
 \begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
     Let \(U\subset\mathbb{C}\) be bounded with piecewise smooth boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
     \begin{equation}
-        f(z)=\frac{1}{2\pi i}\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
+        f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
     \end{equation}
 \end{theorem}
 \begin{proof}
@@ -348,6 +348,10 @@ From the above result, we can directly obtain the following theorem:
     
 \end{theorem}
 \begin{theorem}\label{thm:onedimensionalpartialconjugateproblemsolution}
-    For a compactly supported function \(\psi(z)\in C^1\paren{\mathbb{C}}\), a solution satisfying \(u(z)\in C^1\paren{\mathbb{C}}\) to the differential equation \[\pdv{u(z)}{\overline{z}}=\psi(z)\] is \[\frac{1}{2\pi i}\int_{\mathbb C}\frac{\psi(\zeta)}{\zeta-z}\ddzeta\wedge \dd{\overline{\zeta}}.\]
+    For a compactly supported function \(\psi(z)\in C^1\paren{\mathbb{C}}\), a solution satisfying \(u(z)\in C^1\paren{\mathbb{C}}\) to the differential equation \[\pdv{u(z)}{\overline{z}}=\psi(z)\] is \[u(z)=\frac{1}{2\pi i}\int_{\mathbb C}\frac{\psi(\zeta)}{\zeta-z}\ddzeta\wedge \dd{\overline{\zeta}}+f(z),\]
+    where \(f(z)\) is any entire function.
 \end{theorem}
+\begin{proof}
+    
+\end{proof}
 \end{document}
