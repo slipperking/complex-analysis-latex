@@ -181,9 +181,9 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
 \begin{definition}[Epsilon-Delta]\label{def:epsilondelta}
     Let \(f:U\to\mathbb{R}\) be a function defined on an open set \(U\subseteq\mathbb{R}\) such that \(a\) is a limit point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if for every \(\varepsilon > 0\), there exists \(\delta > 0\) such that for all \(x\in U\) with \(0<|x-a|<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
-    Similarly, we define the \textit{right-hand limit** \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(|f(x)-L|<\varepsilon\).
+    Similarly, we define the \textit{right-hand limit} \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
-    Likewise, the **left-hand limit** \(\lim_{x\to a^-}f(x)=L\) exists if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(-\delta<x-a<0\), we have \(|f(x)-L|<\varepsilon\).
+    Likewise, the \textit{left-hand limit} \(\lim_{x\to a^-}f(x)=L\) exists if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(-\delta<x-a<0\), we have \(|f(x)-L|<\varepsilon\).
 \end{definition}
 \begin{definition}[Continuity]\label{def:continuity}
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if
@@ -198,7 +198,7 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     Since \(f\) is continuous, \(f(x_{n_k})\to f(x^*)\), so the sequence \((f(x_{n_k}))\) is bounded. But this contradicts \(|f(x_{n_k})|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
 \end{proof}
 \begin{definition}[Uniform Continuity]\label{def:uniformcontinuity}
-    A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous if and only if $\forall\varepsilon>0$, $\exists\delta>0$ such that $\forall x,y\in U$ where \(|x-y|<\delta\), \(\left|f(x)-f(y)\right|<\varepsilon\).
+    A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous if and only if $\forall\varepsilon>0$, $\exists\delta>0$ such that $\forall x,y\in U$ where \(|x-y|<\delta\), \(\abs{f(x)-f(y)}<\varepsilon\).
 \end{definition}
 \begin{example}
     The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over $(0,1)$.
@@ -302,4 +302,5 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     Then from rearranging \eqref{eq:pompeiuproofepsilonlimitintermediate}, we obtain:
     \[f(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
 \end{proof}
+In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disc of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\).
 \end{document}
