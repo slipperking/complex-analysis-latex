@@ -241,7 +241,7 @@ This correspondence between \(\mathbb{C}\) and \(S^2\setminus\left\{(0,0,1)\righ
 which results in \[x_3=\frac{\abs{z}^2-1}{\abs{z}^2+1},\]
 and consequently,
 \[x_1=\real\paren{z}\paren{1-x_3}=\frac{z+\overline{z}}{\abs{z}^2+1},\quad x_2=\imaginary\paren{z}\paren{1-x_3}=\frac{z-\overline{z}}{i\abs{z}^2+i}.\]
-By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textit{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\). In this representation, \(\infty\in\riemannsphere\) is no longer special.
+By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textit{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\). In this representation, \(\infty\in\riemannsphere\) is no longer considered to be special.
 \section{Complex Differentiation}
 For \(U\subseteq \mathbb{C}\) and a complex function \(f:\mathbb{U}\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
 \[\lim_{h\to0}\frac{f(z+h)-f(z)}{h}.\]
@@ -257,22 +257,24 @@ By multiplying the second equation by \(i\) and adding it to the first, we obtai
 \begin{equation}
     \pdv{f}{x}=-i\pdv{f}{y}\label{eq:cauchyriemanneqs2}
 \end{equation}
-Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are known as the Cauchy-Riemann equations. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\real(z)\imaginary(z)\right|}\). Let \(z=x+yi\), \(x=\alpha t\), and \(y=\beta t\). Then
+Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are known as the \textit{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\real(z)\imaginary(z)\right|}\). Let \(z=x+yi\), \(x=\alpha t\), and \(y=\beta t\). Then
 \[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+i\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+i\beta}.\]
-The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach. 
+The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
 
-The necessary and sufficient criterion for condition for differentiability is:
-\begin{theorem}
-    
-\end{theorem}
 If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\).
+\begin{theorem}
+    The necessary and sufficient criterion for a function \(f(z)\) to be holomorphic on a region \(D\) is if \(f(z)\in C^1(D)\) and satisfy the Cauchy--Riemann equations.
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
 \subsection{Wirtinger Derivatives}
 We have previously introduced the concept of expressing a complex function as a function of \(x\) and \(y\). It can also be expressed in terms of \(z\) and \(\overline{z}\), where \(z=x+iy\) and \(\overline{z}=x-iy\). Then \(|z|=z\overline{z}\), \(x=\frac{z+\overline{z}}{2}\), and \(y=\frac{z-\overline{z}}{2i}\). By the rules of the derivative, \begin{equation}
     \pdv{}{z}=\pdv{}{x}\pdv{x}{z}+\pdv{}{y}\pdv{y}{z}=\frac{1}{2}\left(\pdv{}{x}-i\pdv{}{y}\right)\label{eq:wirtingerderivative1}
 \end{equation} and \begin{equation}
     \pdv{}{\overline{z}}=\pdv{}{x}\pdv{x}{\overline{z}}+\pdv{}{y}\pdv{y}{\overline{z}}=\frac{1}{2}\left(\pdv{}{x}+i\pdv{}{y}\right).\label{eq:wirtingerderivative2}
 \end{equation}
-If equation \eqref{eq:wirtingerderivative1} is set equal to 0, then it is the equivalent form of the homogeneous Cauchy-Riemann Equations. Then for a holomorphic function \(f(z)\), the Wirtinger derivative \(\pdv{f(z)}{z}=\dv{f(z)}{z}\).
+If equation \eqref{eq:wirtingerderivative1} is set equal to 0, then it is the equivalent form of the homogeneous Cauchy--Riemann Equations. Then for a holomorphic function \(f(z)\), the Wirtinger derivative \(\pdv{f(z)}{z}=\dv{f(z)}{z}\).
 \section{Complex Integration}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
 \[\ddz=\ddx+i\ddy,\quad\dd{\overline{z}}=\ddx-i\ddy.\]
