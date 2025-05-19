@@ -269,7 +269,7 @@ The antisymmetric properties of differential forms still hold in complex space. 
 \end{align*}
 Analogous to the real case, a 0-form is defined as a scalar-valued function in the form \(f\paren{z,\overline{z}}\), a 1-form in the form of \(\omega_0\ddz+\omega_1\dd{\overline{z}}\), and a 2-form as \(\omega_0\ddz\wedge\dd{\overline{z}}\). The exterior differential operator is defined as \(\partial+\overline{\partial}\), where \(\partial=\ddz\wedge\pdv{}{z}\) and \(\overline{\partial}=\dd{\overline{z}}\wedge\pdv{}{\overline{z}}\).
 \begin{theorem}[Green's Theorem]\label{thm:complexgreen}
-
+    Let \(\omega_1=\omega_1\paren{z,\overline{z}}\) and \(\omega_2=\omega_2\paren(z,\overline{z}\) satisfy \(\im\)
 \end{theorem}
 \begin{theorem}[Cauchy--Pompeiu Theorem]\label{thm:pompeiu}
     Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary $\partial U$. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U\setminus\partial U$, \begin{equation}
@@ -305,10 +305,10 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     Then from rearranging \eqref{eq:pompeiuproofepsilonlimitintermediate}, we obtain:
     \[f(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
 \end{proof}
-In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disc of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\). As in the proof above, the steps calculating the integral over the removed disc as in equation \eqref{eq:pompeiuproofareadiscstatement} are still necessary in confirming although they are typically implicitly summarized. 
+In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disc of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\). As in the proof above, the steps calculating the integral over the removed disc as in equation \eqref{eq:pompeiuproofareadiscstatement} are still necessary in confirming although they are typically implicitly elided. 
 
 From the above result, we can directly obtain the following theorem:
-\begin{theorem}[Cauchy Integral Formula]\label{thm:cauchyintegralformula}
+\begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
     Let \(U\subset\mathbb{C}\) be bounded with piecewise smooth boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
     \begin{equation}
         f(z)=\frac{1}{2\pi i}\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
@@ -317,4 +317,7 @@ From the above result, we can directly obtain the following theorem:
 \begin{proof}
     By equation \eqref{eq:wirtingerderivative2}, for \(f\paren{\zeta,\overline{\zeta}}\), \(\pdv{f}{\overline{\zeta}}=0\). Applying the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}), the area integral vanishes, and equation \eqref{eq:cauchyintegralformula} consequently follows.
 \end{proof}
+\begin{theorem}[Cauchy--Goursat Theorem]\label{thm:cauchygoursat}
+    
+\end{theorem}
 \end{document}
