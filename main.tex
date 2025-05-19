@@ -29,8 +29,8 @@
         axis y line=middle,
         axis equal,
         axis line style={<->,color=black}, 
-        xlabel={$x$},
-        ylabel={$y$},
+        xlabel={\(x\)},
+        ylabel={\(y\)},
     }
 }
 
@@ -66,7 +66,7 @@
 \subsection{Topological Preliminaries}
 We will provide a rough, informal notion of important topological concepts tailored specifically towards complex analysis.
 \begin{definition}[Closure of a Set]\label{def:closure}
-    For a set $X\in\mathbb{C}^n$, define the closure of $X$, or $\overline{X}$ to be the intersection of all closed sets containing $X$. In other words, it is the union of $X$ and every accumulation point (a point $z\in\mathbb C^n$ is an accumulation point of $X$ if for any open set $U$ containing $z$, \((U\setminus\{z\})\cap X\neq\emptyset\)).
+    For a set \(X\in\mathbb{C}^n\), define the closure of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and every accumulation point (a point \(z\in\mathbb C^n\) is an accumulation point of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)).
 \end{definition}
 \begin{definition}[Compactness of a Set]\label{def:compactsets}
     A set \(X\in\mathbb{C}^n\) is compact if and only if $X$ is closed and bounded.
@@ -274,6 +274,9 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
         \int_{\partial U}\omega=\int_U\dd{\omega}.
     \end{equation}
 \end{theorem}
+\begin{proof}
+    For real-valued functions \(\xi_1,\xi_2,\eta_1,\eta_2\), let \[\omega_1=\xi_1+i\eta_1,\quad\omega_2=\xi_2+i\eta_2.\]
+\end{proof}
 \begin{theorem}[Cauchy--Pompeiu Theorem]\label{thm:pompeiu}
     Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary $\partial U$. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U\setminus\partial U$, \begin{equation}
         f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
