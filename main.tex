@@ -293,18 +293,21 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
 \begin{theorem}[Green's Theorem, Complex Form]\label{thm:complexgreen}
     Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary \(\partial U\). For two scalar functions \(\omega_1=\omega_1\paren{z,\overline{z}}\) and \(\omega_2=\omega_2\paren{z,\overline{z}}\) satisfy \(\omega_1,\omega_2\in C^1\paren{\overline{U}}\), define the 1-form \(\omega=\omega_1\ddz+\omega_2\dd{\overline{z}}\). Then,
     \begin{equation}
-        \int_{\partial U}\omega=\int_U\dd{\omega}.
+        \int_{\partial U}\omega=\int_U\dd{\omega}.\label{eq:complexgreen}
     \end{equation}
 \end{theorem}
 \begin{proof}
     For real-valued functions \(\xi_1,\xi_2,\eta_1,\eta_2\), let \[\omega_1=\xi_1+i\eta_1,\quad\omega_2=\xi_2+i\eta_2.\]
     Then,
-    \begin{align*}
-        \omega&=\paren{\xi_1+i\eta_1}\ddz+\paren{\xi_2+i\eta_2}\dd{\overline{z}}\\
+    \begin{align}
+        \omega&=\paren{\xi_1+i\eta_1}\ddz+\paren{\xi_2+i\eta_2}\dd{\overline{z}}\label{eq:complexgreenomegaexpansionintermediate}\\
         &=\paren{\xi_1+i\eta_1}\paren{\ddx+i\ddy}+\paren{\xi_2+i\eta_2}\paren{\ddx-i\ddy}\\
         &=\xi_1\ddx+i\eta_1\ddx+i\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+i\eta_2\ddx-i\xi_2\ddy+\eta_2\ddy\\
         &=\brackets{\paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy}+i\brackets{\paren{\eta_1+\eta_2}\ddx+\paren{\xi_1-\xi_2}\ddy}
-    \end{align*}
+    \end{align}
+    Each of \(\xi_1,\xi_2,\eta_1,\eta_2\) are real valued functions that can be represented with a domain of \(\mathbb{R}^2\). We then will apply the \(d=\partial+\overline{\partial}\) definition of the exterior derivative and relate it to \eqref{eq:complexgreen}. Starting with equation \eqref{eq:complexgreenomegaexpansionintermediate}, \begin{align}
+        
+    \end{align}
 \end{proof}
 The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref{thm:stokescartan}). However, it proves the validity of the treatment of the \(\partial\) and \(\overline{\partial}\) operators, and the generalization to forms with basis \(\ddz\) and \(\dd{\overline{z}}\).
 \begin{theorem}[Cauchy--Pompeiu Theorem]\label{thm:pompeiu}
