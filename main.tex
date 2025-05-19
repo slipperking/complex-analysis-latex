@@ -69,7 +69,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     For a set \(X\in\mathbb{C}^n\), define the closure of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and every accumulation point (a point \(z\in\mathbb C^n\) is an accumulation point of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)).
 \end{definition}
 \begin{definition}[Compactness of a Set]\label{def:compactsets}
-    A set \(X\in\mathbb{C}^n\) is compact if and only if $X$ is closed and bounded.
+    A set \(X\in\mathbb{C}^n\) is compact if and only if \(X\) is closed and bounded.
 \end{definition}
 \begin{theorem}[Bolzano--Weierstrass Theorem]\label{thm:bolzanoweierstrass}
     Every infinite subset \(A\) of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
@@ -85,9 +85,9 @@ We will provide a rough, informal notion of important topological concepts tailo
     \[\bigcap_{k=0}^{\infty} Q_k\]
     consists of exactly one point. Call this point \(z_\infty\in\mathbb{C}^n\).
 
-    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset D(z_\infty,\varepsilon)\) where $D(a,b)$ is the poly disc with radius $b$ centered at \(a\). Then, \(D(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
+    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset D(z_\infty,\varepsilon)\) where \(D(a,b)\) is the poly disc with radius \(b\) centered at \(a\). Then, \(D(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
 
-    We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and $\exists\delta>0$ such that \[D(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset D(z_\infty, \delta)\), and hence \(Q_k \cap X = \emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
+    We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[D(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset D(z_\infty, \delta)\), and hence \(Q_k \cap X = \emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
 \begin{theorem}[Heine-Borel Theorem]\label{thm:heineborel}
     A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has finite subcovering.
@@ -95,20 +95,20 @@ We will provide a rough, informal notion of important topological concepts tailo
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
 
-    First we will show that \(X\) is bounded. Suppose that $\forall R>0$, $\exists z\in X$ where \(\|z\|>R\). Consider the collection of open sets \[\mathcal{U}=\{D(0,k)\mid \forall k\in\mathbb{N}\}.\] $\mathcal{U}$ forms an open cover of $X$. Then there exists a finite subcover $\{D(0,k_1),\ldots,D(0,k_m)\}$ covering $X$. Then, \[X\subseteq\bigcup_{i=1}^mD(0,k_i)=D(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
+    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\|z\|>R\). Consider the collection of open sets \[\mathcal{U}=\{D(0,k)\mid \forall k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then there exists a finite subcover \(\{D(0,k_1),\ldots,D(0,k_m)\}\) covering \(X\). Then, \[X\subseteq\bigcup_{i=1}^mD(0,k_i)=D(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
 
-    $X$ must also be a closed set. For the sake of contradiction, assume that there exists a point $z_0\in\overline{X}\setminus X$. Since \(z_0\notin X\), the following open collection of sets covers $X$:
+    \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\] By assumption, there exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k_i}\right)\;\middle|\; i=1,2,\ldots,m\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right),\]
-    and that $X\cap\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset$. However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect $X$. Therefore, by contradiction, $X$ is closed.
+    and that \(X\cap\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset\). However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect \(X\). Therefore, by contradiction, \(X\) is closed.
 
-    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the $X$ is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\abs{\real(z_i)}\le R,\max_{i\in\{1,\ldots,n\}}\abs{\imaginary(z_i)}\le R\right\}.\]
+    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the \(X\) is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\abs{\real(z_i)}\le R,\max_{i\in\{1,\ldots,n\}}\abs{\imaginary(z_i)}\le R\right\}.\]
 
-    Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect $Q_0=Q$ into $2^{2n}$ sub-cubes (for real and complex parts). Choose $Q_1$ such that $Q_1\cup X$ has no finite subcover of $\mathcal{U}$. Under the previous assumptions, this is possible since if every $\text{sub-cube}\cap X$ had finite subcovering, then $Q_0\cap X=X$ would have finite subcovering. Similarly, choose $Q_2$ by bisecting $Q_1$ in a similar way, and recursively obtain a sequence of cubes:
+    Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect \(Q_0=Q\) into \(2^{2n}\) sub-cubes (for real and complex parts). Choose \(Q_1\) such that \(Q_1\cup X\) has no finite subcover of \(\mathcal{U}\). Under the previous assumptions, this is possible since if every \(\text{sub-cube}\cap X\) had finite subcovering, then \(Q_0\cap X=X\) would have finite subcovering. Similarly, choose \(Q_2\) by bisecting \(Q_1\) in a similar way, and recursively obtain a sequence of cubes:
     \[Q_0\supset Q_1\supset Q_2\supset\ldots\]
-    Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point $z_{\infty}\in\mathbb{C}^n$. By the Bolzano-Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), because \(\forall i\in\mathbb{N}\), $Q_i\cap X\neq\emptyset$, select a point \(z_{i}\in Q_i\cap X\), forming a sequence ${z_k}\in X$ convergent to \(z_\infty\in X\) as $X$ is closed. Therefore, $\exists U\in\mathcal{U}$ where $z_\infty\in U$. Since $U$ is open, $\exists\varepsilon>0$ such that $D(z_\infty,\varepsilon)\subset U$. $\exists N\in\mathbb{N}$ such that $\forall k>N$, \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every $k$, $Q_k\cap X$ has no finite subcovering. However, $U$ covers $Q_k\cap X$, which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
+    Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point \(z_{\infty}\in\mathbb{C}^n\). By the Bolzano-Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), because \(\forall i\in\mathbb{N}\), \(Q_i\cap X\neq\emptyset\), select a point \(z_{i}\in Q_i\cap X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\) as \(X\) is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in U\). Since \(U\) is open, \(\exists\varepsilon>0\) such that \(D(z_\infty,\varepsilon)\subset U\). \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every \(k\), \(Q_k\cap X\) has no finite subcovering. However, \(U\) covers \(Q_k\cap X\), which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
 \end{proof}
 \begin{definition}[Support of a Function]\label{def:support}
-    For a set $X$ and a function $f:X\to\mathbb{C}$, the support, denoted as \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), or the closure of the set for which $f$ is non-zero.
+    For a set \(X\) and a function \(f:X\to\mathbb{C}\), the support, denoted as \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), or the closure of the set for which \(f\) is non-zero.
 \end{definition}
 \begin{remark}
     We are primarily concerned when the support of a function is compact, or if the support is bounded. For smooth functions, functions that are compactly supported are called bump functions.
@@ -116,7 +116,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 \subsection{Calculus}
 Since complex analysis is essentially the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for real functions.
 
-It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a point $x\in(a,b)$ if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by $f'(x)$ or $\frac{\dd{f}}{\dd{x}}$. The value \(\dd{f}=f'(x)\dd{x}\) is the differential of $f(x)$. Partition $[a,b]$ into \(a=x_0<x_1<x_2<\cdots<x_n=b\). Such that the length of the intervals $[x_i,x_{i-1}]$ tends to 0 as $n\to\infty$. If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value $\forall\xi_i\in[x_{i-1},x_i]$, then the function can be roughly said to be integrable over $[a,b]$. The full details of Riemann integrability relates to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
+It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a point \(x\in(a,b)\) if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by \(f'(x)\) or \(\frac{\dd{f}}{\dd{x}}\). The value \(\dd{f}=f'(x)\dd{x}\) is the differential of \(f(x)\). Partition \([a,b]\) into \(a=x_0<x_1<x_2<\cdots<x_n=b\). Such that the length of the intervals \([x_i,x_{i-1}]\) tends to 0 as \(n\to\infty\). If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\), then the function can be roughly said to be integrable over \([a,b]\). The full details of Riemann integrability relates to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
 \begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
     Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
     \[\Phi(x)=\int_a^xf(t)\dd{t}.\]
@@ -129,20 +129,21 @@ It is well known that a function $f:(a,b)\to\mathbb{R}$ is differentiable at a p
 The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed for differentiating oftentimes have a corresponding inverse operation that can be done for integrating. For instance, \[\dv{(f(x)\pm g(x))}{x}=\dv{f(x)}{x}\pm\dv{g(x)}{x}\] corresponds to \[\int(f(x)\pm g(x))\ddx=\int f(x)\ddx\pm\int g(x)\ddx,\]
 and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx=f(x)g(x)-\int f'(x)g(x)\ddx,\] and \[\dv{f(g(x))}{x}=\dv{f(g)}{g}\cdot\dv{g(x)}{x}\] corresponds to \[\int_a^bf(g(x))g'(x)dx=\int_{g(a)}^{g(b)}f(u)du.\] Another correspondence is the Mean Value Theorem:
 \begin{theorem}[Mean Value Theorem, Differential Form]
-    If $f(x)$ is differentiable over $[a,b]$, then \(\exists c\in[a,b]\) such that \[f(b)-f(a)=f'(c)(b-a).\]
+    If \(f(x)\) is differentiable over \([a,b]\), then \(\exists c\in[a,b]\) such that \[f(b)-f(a)=f'(c)(b-a).\]
 \end{theorem}
 \begin{theorem}[Mean Value Theorem, Integral Form]
-    If $f(x)$ is continuous over $[a,b]$, then \(\exists \xi\in[a,b]\) such that \[\int_a^bf(x)dx=f(\xi)(b-a).\]
+    If \(f(x)\) is continuous over \([a,b]\), then \(\exists \xi\in[a,b]\) such that \[\int_a^bf(x)dx=f(\xi)(b-a).\]
 \end{theorem}
-Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), $\pdv{f}{x}\ddx$, $\pdv{f}{y}\ddy$, and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
+Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
 \begin{theorem}[Gradient Theorem]\label{thm:gradient}
-    Let \(C\) be a oriented smooth curve in \(\mathbb{R}^3\) with boundary points $A$ to $B$. Then
+    Let \(C\) be a oriented smooth curve in \(\mathbb{R}^3\) with boundary points \(A\) to \(B\). Then
     \[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
 \end{theorem}
 \begin{theorem}[Green's Theorem]\label{thm:realgreen}
-    Let \(R\) be a positively oriented, multiply connected region in $\mathbb{R}^2$ with a piecewise smooth oriented boundary \(\partial R\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{R}}\),
+    Let \(R\) be a positively oriented, multiply connected region in \(\mathbb{R}^2\) with a piecewise smooth oriented boundary \(\partial R\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{R}}\),
     \[\oint_{\partial R} P\ddx+Q\ddy=\iint_R\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
+The above theorem is only a specifi
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
     Let \(S\) be a positively oriented, smooth surface in \(\mathbb{R}^3\) with positively oriented boundary curve \(\partial S\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
     \[\oint_{\partial S}P\ddx+Q\ddy+R\ddz = \iint_S\left(\pdv{R}{y}-\pdv{Q}{z}\right)\dd{y}\dd{z}+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.\]
@@ -151,12 +152,12 @@ Generalizations of the differential and integral exist for multivariate function
     Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively-oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
     \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\ddy\ddz.\]
 \end{theorem}
-In 3 dimensional $\mathbb{R}^3$ space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination of \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where $\wedge$ denotes an anti-commutative and associative product, where for any two differential forms $\omega_1$ and $\omega_2$
+In 3 dimensional \(\mathbb{R}^3\) space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination of \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where \(\wedge\) denotes an anti-commutative and associative product, where for any two differential forms \(\omega_1\) and \(\omega_2\)
 \[\omega_1\wedge\omega_2=-\omega_2\wedge\omega_1.\]
 Then consequently, for any differential form \(\omega\), \[\omega\wedge\omega=0.\]
-We can generalize the operator $\dd$ to increase the degree of a differential form. For instance,
+We can generalize the operator \(\dd\) to increase the degree of a differential form. For instance,
 \[df=\pdv{f}{x}\ddx+\pdv{f}{y}\dd{y}+\pdv{f}{z}\dd{z},\]
-which is the definition of the total differential. For a 1-form in 3 dimensional space, $\omega_1=P\ddx+Q\dd{y}+R\dd{z}$, we can define the exterior derivative in a similar way: \begin{align*}
+which is the definition of the total differential. For a 1-form in 3 dimensional space, \(\omega_1=P\ddx+Q\dd{y}+R\dd{z}\), we can define the exterior derivative in a similar way: \begin{align*}
     \dd{\omega_1} & =\dd{P}\wedge\ddx+\dd{Q}\wedge\dd{y}+\dd{R}\wedge\dd{z}                                                                                                    \\
                   & =\left(\pdv{P}{x}\ddx+\pdv{P}{y}\dd{y}+\pdv{P}{z}\dd{z}\right)\wedge\ddx                                                                                   \\
                   & \qquad+\left(\pdv{Q}{x}\ddx+\pdv{Q}{y}\dd{y}+\pdv{Q}{z}\dd{z}\right)\wedge\ddy                                                                             \\
@@ -171,11 +172,11 @@ The two results above resemble the curl and divergence of \(\begin{pmatrix}
 \begin{lemma}\label{lemma:poincare}
     For any differential form \(\omega\), the exterior derivative applied twice satisfies: \[\dd[2]{\omega}=dd\omega=0.\]
 \end{lemma}
-With the same analogy, the above result means that if \(\omega\) is a 0-form, then $\nabla\times(\nabla\omega)=0$, and if \(\omega\) is a 1-form, \(\nabla\cdot(\nabla\times v)=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\) (there are no correlations for higher degree forms since in 3 dimensional space, the highest degree possible for any differential form is 3).
+With the same analogy, the above result means that if \(\omega\) is a 0-form, then \(\nabla\times(\nabla\omega)=0\), and if \(\omega\) is a 1-form, \(\nabla\cdot(\nabla\times v)=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\) (there are no correlations for higher degree forms since in 3 dimensional space, the highest degree possible for any differential form is 3).
 
 Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes', and Gauss' Theorems can be generalized into:
 \begin{theorem}[Stokes--Cartan Theorem]\label{thm:stokescartan}
-    For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a smooth differential $(n-1)$-form $\omega$ over $\overline{M}$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
+    For an oriented smooth \(n\)-dimensional manifold \(M\) with boundary \(\partial M\), for a smooth differential \((n-1)\)-form \(\omega\) over \(\overline{M}\), \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
 \end{theorem}
 A portion of calculus is dedicated on rigorously defining concepts such as limits, continuity, integrability, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), and states:
 \begin{definition}[Epsilon-Delta]\label{def:epsilondelta}
@@ -198,18 +199,18 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     Since \(f\) is continuous, \(f(x_{n_k})\to f(x^*)\), so the sequence \((f(x_{n_k}))\) is bounded. But this contradicts \(|f(x_{n_k})|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
 \end{proof}
 \begin{definition}[Uniform Continuity]\label{def:uniformcontinuity}
-    A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous if and only if $\forall\varepsilon>0$, $\exists\delta>0$ such that $\forall x,y\in U$ where \(|x-y|<\delta\), \(\abs{f(x)-f(y)}<\varepsilon\).
+    A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous if and only if \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y\in U\) where \(|x-y|<\delta\), \(\abs{f(x)-f(y)}<\varepsilon\).
 \end{definition}
 \begin{example}
-    The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over $(0,1)$.
+    The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{example}
 \begin{proof}
-    If \(f(x)\) is not uniformly continuous over $(0,1)$, then $\exists\varepsilon>0$ such that $\forall\delta>0$, \(\exists x,y\in(0,1)\) such that \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\). 
+    If \(f(x)\) is not uniformly continuous over \((0,1)\), then \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) such that \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\). 
     
-    Let $\varepsilon=1$ and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over $(0,1)$.
+    Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{proof}
 \begin{lemma}
-    A continuous function over a compact set $U$ is uniformly continuous over $U$.
+    A continuous function over a compact set \(U\) is uniformly continuous over \(U\).
 \end{lemma}
 \begin{proof}
     Suppose for contradiction that \(f:U\to\mathbb{R}\) is continuous but not uniformly continuous on compact \(U\). Then \(\exists\varepsilon_0>0\) such that \(\forall\delta>0\), \(\exists x,y\in U\) with \(|x-y|<\delta\) and \(|f(x)-f(y)|\geq\varepsilon_0\).
@@ -222,7 +223,7 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     A function \(f\) is Lipschitz continuous over \(U\) if \(\exists C>0\) that is finite such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq C|x-y|\).
 \end{definition}
 \begin{lemma}\label{lemma:c1lipschitz}
-    A \(C^1\) function over a compact set $U$ is Lipschitz continuous over $U$.
+    A \(C^1\) function over a compact set \(U\) is Lipschitz continuous over \(U\).
 \end{lemma}
 \begin{proof}
     Let \(f:U\to\mathbb{R}\) be \(C^1\). By \autoref{thm:continuousfunctionbounded}, since \(U\) is compact and \(f'\) is continuous, \(\exists M>0\) such that \(\forall x\in U\), \(|f'(x)|\leq M\).
@@ -230,23 +231,23 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     By the Mean Value Theorem, \(\forall x,y\in U\), \(\exists c\) between \(x\) and \(y\) such that \(f(x)-f(y)=f'(c)(x-y)\). Then, \(|f(x)-f(y)|=|f'(c)||x-y|\leq M|x-y|\), which means \(f\) is Lipschitz continuous with Lipschitz constant \(M\).
 \end{proof}
 \section{Complex Differentiation}
-For \(U\subseteq \mathbb{C}\) and a complex function $f:\mathbb{U}\to\mathbb{C}$, $f(z)$ is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
+For \(U\subseteq \mathbb{C}\) and a complex function \(f:\mathbb{U}\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
 \[\lim_{h\to0}\frac{f(z+h)-f(z)}{h}.\]
-We can consider \(f(z)\) to be a bivariate function \(f(x,y)\) for \(z=x+iy\). Two main cases we are concerned with are when $h$ approaches 0 from the real and imaginary axes:
-\[\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+h)-f(z)}{h}=\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+ih)-f(z)}{ih}.\] Expressing \(f(z)\) as $f(x,y)=u(x,y)+iv(x,y)$,
+We can consider \(f(z)\) to be a bivariate function \(f(x,y)\) for \(z=x+iy\). Two main cases we are concerned with are when \(h\) approaches 0 from the real and imaginary axes:
+\[\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+h)-f(z)}{h}=\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+ih)-f(z)}{ih}.\] Expressing \(f(z)\) as \(f(x,y)=u(x,y)+iv(x,y)\),
 \[\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+h)-f(z)}{h}=\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(x+h,y)-f(x,y)}{h}=\pdv{u}{x}+i\pdv{v}{x},\]
 \[\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+ih)-f(z)}{ih}=-i\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(x,y+h)-f(x,y)}{h}=\pdv{v}{y}-i\pdv{u}{y}.\]
 By comparing the real and imaginary parts, we obtain necessary conditions for complex differentiability:
 \begin{equation}
     \pdv{u}{x}=\pdv{v}{y}\quad\text{and}\quad\pdv{v}{x}=-\pdv{u}{y}\label{eq:cauchyriemanneqs1}
 \end{equation}
-By multiplying the second equation by $i$ and adding it to the first, we obtain the logical equivalence with:
+By multiplying the second equation by \(i\) and adding it to the first, we obtain the logical equivalence with:
 \begin{equation}
     \pdv{f}{x}=-i\pdv{f}{y}\label{eq:cauchyriemanneqs2}
 \end{equation}
-Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are known as the Cauchy-Riemann equations. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\real(z)\imaginary(z)\right|}\). Let $z=x+yi$, \(x=\alpha t\), and \(y=\beta t\). Then
+Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are known as the Cauchy-Riemann equations. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\real(z)\imaginary(z)\right|}\). Let \(z=x+yi\), \(x=\alpha t\), and \(y=\beta t\). Then
 \[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+i\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+i\beta}.\]
-The derivative along $\alpha=1$, \(\beta=0\) (or the real axis) vanishes. Along $\alpha=0$, \(\beta=1\) (or the imaginary axis), it also vanishes. However the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach. 
+The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach. 
 
 The necessary and sufficient criterion for condition for differentiability is:
 \begin{theorem}
@@ -254,12 +255,12 @@ The necessary and sufficient criterion for condition for differentiability is:
 \end{theorem}
 If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is holomorphic at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\).
 \subsection{Wirtinger Derivatives}
-We have previously introduced the concept of expressing a complex function as a function of \(x\) and \(y\). It can also be expressed in terms of $z$ and $\overline{z}$, where $z=x+iy$ and \(\overline{z}=x-iy\). Then \(|z|=z\overline{z}\), \(x=\frac{z+\overline{z}}{2}\), and \(y=\frac{z-\overline{z}}{2i}\). By the rules of the derivative, \begin{equation}
+We have previously introduced the concept of expressing a complex function as a function of \(x\) and \(y\). It can also be expressed in terms of \(z\) and \(\overline{z}\), where \(z=x+iy\) and \(\overline{z}=x-iy\). Then \(|z|=z\overline{z}\), \(x=\frac{z+\overline{z}}{2}\), and \(y=\frac{z-\overline{z}}{2i}\). By the rules of the derivative, \begin{equation}
     \pdv{}{z}=\pdv{}{x}\pdv{x}{z}+\pdv{}{y}\pdv{y}{z}=\frac{1}{2}\left(\pdv{}{x}-i\pdv{}{y}\right)\label{eq:wirtingerderivative1}
 \end{equation} and \begin{equation}
     \pdv{}{\overline{z}}=\pdv{}{x}\pdv{x}{\overline{z}}+\pdv{}{y}\pdv{y}{\overline{z}}=\frac{1}{2}\left(\pdv{}{x}+i\pdv{}{y}\right).\label{eq:wirtingerderivative2}
 \end{equation}
-If equation \eqref{eq:wirtingerderivative1} is set equal to 0, then it is the equivalent form of the homogeneous Cauchy-Riemann Equations. Then for a holomorphic function \(f(z)\), the Wirtinger derivative $\pdv{f(z)}{z}=\dv{f(z)}{z}$.
+If equation \eqref{eq:wirtingerderivative1} is set equal to 0, then it is the equivalent form of the homogeneous Cauchy-Riemann Equations. Then for a holomorphic function \(f(z)\), the Wirtinger derivative \(\pdv{f(z)}{z}=\dv{f(z)}{z}\).
 \section{Complex Integration}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
 \[\ddz=\ddx+i\ddy,\quad\dd{\overline{z}}=\ddx-i\ddy.\]
@@ -278,7 +279,7 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     For real-valued functions \(\xi_1,\xi_2,\eta_1,\eta_2\), let \[\omega_1=\xi_1+i\eta_1,\quad\omega_2=\xi_2+i\eta_2.\]
 \end{proof}
 \begin{theorem}[Cauchy--Pompeiu Theorem]\label{thm:pompeiu}
-    Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary $\partial U$. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U\setminus\partial U$, \begin{equation}
+    Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary \(\partial U\). Let \(f(z)\in C^1(\overline{U})\). Then \(\forall z\in U\setminus\partial U\), \begin{equation}
         f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
@@ -287,13 +288,13 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying the Stokes--Cartan Theorem (\autoref{thm:stokescartan}), \begin{equation}
         \int_{U\setminus D(z,\varepsilon)}\dd(\frac{f(\zeta)\ddzeta}{\zeta-z})=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}.\label{eq:pompeiuproofdirectintermediate}
     \end{equation}
-    By properties of $\dd$, the expression is equal to \[\int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{}{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.\]
+    By properties of \(\dd\), the expression is equal to \[\int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{}{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.\]
     The first term in the integrand vanishes as it contains \(\ddzeta\wedge\ddzeta\). The second term can be simplified using the fact that \(\pdv{\overline{\zeta}}(\frac{1}{\zeta-z})=0\), leading to
     \[\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\]
     The rightmost term in equation \eqref{eq:pompeiuproofdirectintermediate} can be parameterized with \(\zeta=z+\varepsilon e^{it}\), \(t\in[0,2\pi)\). Then, \begin{gather*}
         \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f(z+\varepsilon e^{it})}{\varepsilon e^{it}}\cdot i\varepsilon e^{it}\dd{t}=i\int_0^{2\pi}f(z+\varepsilon e^{it})\dd{t}\\
         =i\int_0^{2\pi}\left(f(z+\varepsilon e^{it})-f(z)\right)\dd{t}+i\int_0^{2\pi}f(z)\dd{t}
-    \end{gather*} Because $f\in C^1\left(\overline{U}\right)$, by \autoref{lemma:c1lipschitz}, \(\exists\) a finite Lipschitz constant \(M\ge0\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). In particular, \(\abs{f(z+\varepsilon e^{it})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\pi}\left(f(z+\varepsilon e^{it})-f(z)\right)\dd{t}}\leq\int_0^{2\pi}\abs{f(z+\varepsilon e^{it})-f(z)}\dd{t}\leq 2M\pi\varepsilon,\] which approaches 0 as $\varepsilon\to0$. Taking this limit, we obtain \begin{equation}
+    \end{gather*} Because \(f\in C^1\left(\overline{U}\right)\), by \autoref{lemma:c1lipschitz}, \(\exists\) a finite Lipschitz constant \(M\ge0\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). In particular, \(\abs{f(z+\varepsilon e^{it})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\pi}\left(f(z+\varepsilon e^{it})-f(z)\right)\dd{t}}\leq\int_0^{2\pi}\abs{f(z+\varepsilon e^{it})-f(z)}\dd{t}\leq 2M\pi\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain \begin{equation}
         2\pi if(z)=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}+\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}. \label{eq:pompeiuproofepsilonlimitintermediate}
     \end{equation}
     We then aim to prove that \begin{equation}
