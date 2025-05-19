@@ -233,8 +233,9 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
 \section{The Complex Plane}
 All complex numbers form a field that extends the real number field. A complex number \(\alpha+i\beta\) can be visualized on a rectangular plane as the point \((\alpha,\beta)\), with two axes: the real axis, and the imaginary axis. It is well known that any complex number also has the polar form \(re^{i\theta}=r\paren{\cos\theta+i\sin\theta}\).
 
-The infinity point, \(\infty\), extends \(\mathbb{C}\) with \(\riemannsphere=\mathbb{C}\cup\{\infty\}\). There exists a \textit{stereographic projection} of \(\riemannsphere\). Let \(S^2=\left\{\paren{x_1,x_2,x_3}\in\mathbb{R}\,\middle|\,x_1^2+x_2^2+x_3^2=1\right\}\). For every point except for \((0,0,1)\), there is a corresponding complex number \[\frac{x_1+ix_2}{1-x_3}.\]
-This correspondence is injective. 
+The infinity point, \(\infty\), extends \(\mathbb{C}\) with \(\riemannsphere=\mathbb{C}\cup\{\infty\}\). There exists a \textit{stereographic projection} of \(\riemannsphere\). Let \(S^2=\left\{\paren{x_1,x_2,x_3}\in\mathbb{R}\,\middle|\,x_1^2+x_2^2+x_3^2=1\right\}\). For every point except for \((0,0,1)\), there is a corresponding complex number \[z=\frac{x_1+ix_2}{1-x_3}.\]
+This correspondence between \(\mathbb{C}\) and \(S^2\setminus{(0,0,1)}\) is injective. In fact, the inverse can be solved for:
+\[\abs{z}^2=\frac{1-x_3^2}{\paren{1-x_3}^2}=\frac{1+x_3}{1-x_3},\]
 \section{Complex Differentiation}
 For \(U\subseteq \mathbb{C}\) and a complex function \(f:\mathbb{U}\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
 \[\lim_{h\to0}\frac{f(z+h)-f(z)}{h}.\]
@@ -258,7 +259,7 @@ The necessary and sufficient criterion for condition for differentiability is:
 \begin{theorem}
     
 \end{theorem}
-If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is holomorphic at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\).
+If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\).
 \subsection{Wirtinger Derivatives}
 We have previously introduced the concept of expressing a complex function as a function of \(x\) and \(y\). It can also be expressed in terms of \(z\) and \(\overline{z}\), where \(z=x+iy\) and \(\overline{z}=x-iy\). Then \(|z|=z\overline{z}\), \(x=\frac{z+\overline{z}}{2}\), and \(y=\frac{z-\overline{z}}{2i}\). By the rules of the derivative, \begin{equation}
     \pdv{}{z}=\pdv{}{x}\pdv{x}{z}+\pdv{}{y}\pdv{y}{z}=\frac{1}{2}\left(\pdv{}{x}-i\pdv{}{y}\right)\label{eq:wirtingerderivative1}
