@@ -58,6 +58,9 @@
 \DeclarePairedDelimiter{\paren}{(}{)}
 \let\parendefault\paren
 \renewcommand{\paren}{\parendefault*}
+\DeclarePairedDelimiter{\brackets}{[}{]}
+\let\bracketsdefault\brackets
+\renewcommand{\brackets}{\bracketsdefault*}
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
 
 \begin{document}
@@ -299,8 +302,8 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     \begin{align*}
         \omega&=\paren{\xi_1+i\eta_1}\ddz+\paren{\xi_2+i\eta_2}\dd{\overline{z}}\\
         &=\paren{\xi_1+i\eta_1}\paren{\ddx+i\ddy}+\paren{\xi_2+i\eta_2}\paren{\ddx-i\ddy}\\
-        &=\xi_1\ddx+i\eta_1\ddx+i\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+i\eta_2\ddx-i\xi_2\ddy+\eta_2\ddy
-        &=\paren{\paren{\xi_1+\xi_2}+i{}}\ddx+
+        &=\xi_1\ddx+i\eta_1\ddx+i\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+i\eta_2\ddx-i\xi_2\ddy+\eta_2\ddy\\
+        &=\brackets{\paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy}+i\brackets{\paren{}\ddx+\paren{}\ddy}
     \end{align*}
 \end{proof}
 The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref{thm:stokescartan}). However, it proves the validity of the treatment of the \(\partial\) and \(\overline{\partial}\) operators, and the generalization to forms with basis \(\ddz\) and \(\dd{\overline{z}}\).
