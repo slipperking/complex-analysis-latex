@@ -71,7 +71,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 \begin{definition}[Compactness of a Set]\label{def:compactsets}
     A set \(X\in\mathbb{C}^n\) is compact if and only if $X$ is closed and bounded.
 \end{definition}
-\begin{theorem}[Bolzano--Weierstrass Theorem]\label{theorem:bolzanoweierstrass}
+\begin{theorem}[Bolzano--Weierstrass Theorem]\label{thm:bolzanoweierstrass}
     Every infinite subset \(A\) of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
 \end{theorem}
 \begin{proof}
@@ -89,7 +89,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 
     We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and $\exists\delta>0$ such that \[D(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset D(z_\infty, \delta)\), and hence \(Q_k \cap X = \emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
-\begin{theorem}[Heine-Borel Theorem]\label{theorem:heineborel}
+\begin{theorem}[Heine-Borel Theorem]\label{thm:heineborel}
     A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has finite subcovering.
 \end{theorem}
 \begin{proof}
@@ -105,7 +105,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 
     Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect $Q_0=Q$ into $2^{2n}$ sub-cubes (for real and complex parts). Choose $Q_1$ such that $Q_1\cup X$ has no finite subcover of $\mathcal{U}$. Under the previous assumptions, this is possible since if every $\text{sub-cube}\cap X$ had finite subcovering, then $Q_0\cap X=X$ would have finite subcovering. Similarly, choose $Q_2$ by bisecting $Q_1$ in a similar way, and recursively obtain a sequence of cubes:
     \[Q_0\supset Q_1\supset Q_2\supset\ldots\]
-    Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point $z_{\infty}\in\mathbb{C}^n$. By the Bolzano-Weierstrass Theorem (\autoref{theorem:bolzanoweierstrass}), because \(\forall i\in\mathbb{N}\), $Q_i\cap X\neq\emptyset$, select a point \(z_{i}\in Q_i\cap X\), forming a sequence ${z_k}\in X$ convergent to \(z_\infty\in X\) as $X$ is closed. Therefore, $\exists U\in\mathcal{U}$ where $z_\infty\in U$. Since $U$ is open, $\exists\varepsilon>0$ such that $D(z_\infty,\varepsilon)\subset U$. $\exists N\in\mathbb{N}$ such that $\forall k>N$, \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every $k$, $Q_k\cap X$ has no finite subcovering. However, $U$ covers $Q_k\cap X$, which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
+    Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point $z_{\infty}\in\mathbb{C}^n$. By the Bolzano-Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), because \(\forall i\in\mathbb{N}\), $Q_i\cap X\neq\emptyset$, select a point \(z_{i}\in Q_i\cap X\), forming a sequence ${z_k}\in X$ convergent to \(z_\infty\in X\) as $X$ is closed. Therefore, $\exists U\in\mathcal{U}$ where $z_\infty\in U$. Since $U$ is open, $\exists\varepsilon>0$ such that $D(z_\infty,\varepsilon)\subset U$. $\exists N\in\mathbb{N}$ such that $\forall k>N$, \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every $k$, $Q_k\cap X$ has no finite subcovering. However, $U$ covers $Q_k\cap X$, which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
 \end{proof}
 \begin{definition}[Support of a Function]\label{def:support}
     For a set $X$ and a function $f:X\to\mathbb{C}$, the support, denoted as \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), or the closure of the set for which $f$ is non-zero.
@@ -135,19 +135,19 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
     If $f(x)$ is continuous over $[a,b]$, then \(\exists \xi\in[a,b]\) such that \[\int_a^bf(x)dx=f(\xi)(b-a).\]
 \end{theorem}
 Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), $\pdv{f}{x}\ddx$, $\pdv{f}{y}\ddy$, and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
-\begin{theorem}[Gradient Theorem]\label{theorem:gradient}
+\begin{theorem}[Gradient Theorem]\label{thm:gradient}
     Let \(C\) be a oriented smooth curve in \(\mathbb{R}^3\) with boundary points $A$ to $B$. Then
     \[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
 \end{theorem}
-\begin{theorem}[Green's Theorem]\label{theorem:realgreen}
+\begin{theorem}[Green's Theorem]\label{thm:realgreen}
     Let \(R\) be a positively oriented, multiply connected region in $\mathbb{R}^2$ with a piecewise smooth oriented boundary \(\partial R\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{R}}\),
     \[\oint_{\partial R} P\ddx+Q\ddy=\iint_R\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
-\begin{theorem}[Stokes' Theorem]\label{theorem:kelvinstokes}
+\begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
     Let \(S\) be a positively oriented, smooth surface in \(\mathbb{R}^3\) with positively oriented boundary curve \(\partial S\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
     \[\oint_{\partial S}P\ddx+Q\ddy+R\ddz = \iint_S\left(\pdv{R}{y}-\pdv{Q}{z}\right)\dd{y}\dd{z}+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.\]
 \end{theorem}
-\begin{theorem}[Gauss' Theorem]\label{theorem:divergencegauss}
+\begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
     Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively-oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
     \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\ddy\ddz.\]
 \end{theorem}
@@ -174,7 +174,7 @@ The two results above resemble the curl and divergence of \(\begin{pmatrix}
 With the same analogy, the above result means that if \(\omega\) is a 0-form, then $\nabla\times(\nabla\omega)=0$, and if \(\omega\) is a 1-form, \(\nabla\cdot(\nabla\times v)=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\) (there are no correlations for higher degree forms since in 3 dimensional space, the highest degree possible for any differential form is 3).
 
 Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes', and Gauss' Theorems can be generalized into:
-\begin{theorem}[Stokes--Cartan Theorem]\label{theorem:stokescartan}
+\begin{theorem}[Stokes--Cartan Theorem]\label{thm:stokescartan}
     For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a smooth differential $(n-1)$-form $\omega$ over $\overline{M}$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
 \end{theorem}
 A portion of calculus is dedicated on rigorously defining concepts such as limits, continuity, integrability, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), and states:
@@ -189,11 +189,11 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if
     \[\lim_{x\to a}f(x)=f(a).\]
 \end{definition}
-\begin{theorem}\label{theorem:continuousfunctionbounded}
+\begin{theorem}\label{thm:continuousfunctionbounded}
     Any continuous function over a compact set \(U\) is bounded over \(U\).
 \end{theorem}
 \begin{proof}
-    Suppose for contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(U\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in U\) such that \(|f(x_n)|>n\). The sequence \((x_n)\) lies in \(U\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{theorem:bolzanoweierstrass}), there exists a convergent subsequence \((x_{n_k})\) with \(x_{n_k}\to x^*\in U\).
+    Suppose for contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(U\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in U\) such that \(|f(x_n)|>n\). The sequence \((x_n)\) lies in \(U\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), there exists a convergent subsequence \((x_{n_k})\) with \(x_{n_k}\to x^*\in U\).
 
     Since \(f\) is continuous, \(f(x_{n_k})\to f(x^*)\), so the sequence \((f(x_{n_k}))\) is bounded. But this contradicts \(|f(x_{n_k})|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
 \end{proof}
@@ -225,7 +225,7 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     A \(C^1\) function over a compact set $U$ is Lipschitz continuous over $U$.
 \end{lemma}
 \begin{proof}
-    Let \(f:U\to\mathbb{R}\) be \(C^1\). By \autoref{theorem:continuousfunctionbounded}, since \(U\) is compact and \(f'\) is continuous, \(\exists M>0\) such that \(\forall x\in U\), \(|f'(x)|\leq M\).
+    Let \(f:U\to\mathbb{R}\) be \(C^1\). By \autoref{thm:continuousfunctionbounded}, since \(U\) is compact and \(f'\) is continuous, \(\exists M>0\) such that \(\forall x\in U\), \(|f'(x)|\leq M\).
 
     By the Mean Value Theorem, \(\forall x,y\in U\), \(\exists c\) between \(x\) and \(y\) such that \(f(x)-f(y)=f'(c)(x-y)\). Then, \(|f(x)-f(y)|=|f'(c)||x-y|\leq M|x-y|\), which means \(f\) is Lipschitz continuous with Lipschitz constant \(M\).
 \end{proof}
@@ -268,17 +268,17 @@ The antisymmetric properties of differential forms still hold in complex space. 
     &=2i\ddx\wedge\ddy.
 \end{align*}
 Analogous to the real case, a 0-form is defined as a scalar-valued function in the form \(f\paren{z,\overline{z}}\), a 1-form in the form of \(\omega_0\ddz+\omega_1\dd{\overline{z}}\), and a 2-form as \(\omega_0\ddz\wedge\dd{\overline{z}}\). The exterior differential operator is defined as \(\partial+\overline{\partial}\), where \(\partial=\ddz\wedge\pdv{}{z}\) and \(\overline{\partial}=\dd{\overline{z}}\wedge\pdv{}{\overline{z}}\).
-\begin{theorem}[Green's Theorem]\label{theorem:complexgreen}
+\begin{theorem}[Green's Theorem]\label{thm:complexgreen}
 
 \end{theorem}
-\begin{theorem}[Pompeiu's Theorem]\label{theorem:pompeiu}
+\begin{theorem}[Cauchy--Pompeiu Theorem]\label{thm:pompeiu}
     Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary $\partial U$. Let \(f(z)\in C^1(\overline{U})\). Then $\forall z\in U\setminus\partial U$, \begin{equation}
         f(z)=\frac{1}{2\pi i}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
     \end{equation}
 \end{theorem}
 \begin{proof}
     Since \(z\in U\setminus\partial U\), \(\exists\varepsilon>0\) such that \(D(z,\varepsilon)\subset U\). Consider the complex differential form \[\frac{f(\zeta)\ddzeta}{\zeta-z}\]
-    with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying the Stokes--Cartan Theorem (\autoref{theorem:stokescartan}), \begin{equation}
+    with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying the Stokes--Cartan Theorem (\autoref{thm:stokescartan}), \begin{equation}
         \int_{U\setminus D(z,\varepsilon)}\dd(\frac{f(\zeta)\ddzeta}{\zeta-z})=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}.\label{eq:pompeiuproofdirectintermediate}
     \end{equation}
     By properties of $\dd$, the expression is equal to \[\int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{}{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.\]
@@ -293,7 +293,7 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     We then aim to prove that \begin{equation}
         \lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}=0.\label{eq:pompeiuproofareadiscstatement}
     \end{equation}
-    Notice that since \(f\in C^1\paren{\overline{U}}\), by \autoref{theorem:continuousfunctionbounded}, \(\exists M'\in\mathbb{R}_{>0}\) such that \(\forall\zeta\in\overline{U}\), \(\abs{\pdv{f}{\overline{\zeta}}}\leq M'\). Then,
+    Notice that since \(f\in C^1\paren{\overline{U}}\), by \autoref{thm:continuousfunctionbounded}, \(\exists M'\in\mathbb{R}_{>0}\) such that \(\forall\zeta\in\overline{U}\), \(\abs{\pdv{f}{\overline{\zeta}}}\leq M'\). Then,
     \[\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}\leq M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}.\]
     By a change of variables to a polar coordinate system centered around \(z\), we obtain
     \[M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{re^{i\theta}}\dd{\paren{z+re^{-i\theta}}}\wedge\dd{\paren{z+re^{i\theta}}}},\] and by expansion of the wedge product,
@@ -308,10 +308,13 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
 In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disc of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\). As in the proof above, the steps calculating the integral over the removed disc as in equation \eqref{eq:pompeiuproofareadiscstatement} are still necessary in confirming although they are typically implicitly summarized. 
 
 From the above result, we can directly obtain the following theorem:
-\begin{theorem}[Cauchy Integral Formula]\label{theorem:cauchyintegralformula}
-    Let \(U\subset\mathbb{C}\) be bounded with piecewise smooth boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\), \[f(z)=\frac{1}{2\pi i}\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\]
+\begin{theorem}[Cauchy Integral Formula]\label{thm:cauchyintegralformula}
+    Let \(U\subset\mathbb{C}\) be bounded with piecewise smooth boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
+    \begin{equation}
+        f(z)=\frac{1}{2\pi i}\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
+    \end{equation}
 \end{theorem}
 \begin{proof}
-    By equation \eqref{eq:wirtingerderivative2}, for \(f\paren{\zeta,\overline{\zeta}}\), \(\pdv{f}{\o}\)
+    By equation \eqref{eq:wirtingerderivative2}, for \(f\paren{\zeta,\overline{\zeta}}\), \(\pdv{f}{\overline{\zeta}}=0\). Applying the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}), the area integral vanishes, and equation \eqref{eq:cauchyintegralformula} consequently follows.
 \end{proof}
 \end{document}
