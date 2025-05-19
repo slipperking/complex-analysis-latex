@@ -178,12 +178,12 @@ Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes
     For an oriented smooth $n$-dimensional manifold $M$ with boundary $\partial M$, for a smooth differential $(n-1)$-form $\omega$ over $\overline{M}$, \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
 \end{theorem}
 A portion of calculus is dedicated on rigorously defining concepts such as limits, continuity, integrability, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), and states:
-\begin{definition}[Epsilon Delta]\label{def:epsilondelta}
-    Let a function \(f:U\to\mathbb{R}\) be defined on an open set \(U\subseteq\mathbb{R}\) around \(a\) (not necessarily containing \(a\) itself). If \(\exists L\in\mathbb{R}\) such that $\forall\varepsilon>0$, \(\exists\delta>0\) such that $\forall |x-a|<\delta$ where \(x\in U\) and \(|f(x)-L|<\varepsilon\), then \(\lim_{x\to a}f(x)=L\).
+\begin{definition}[Epsilon-Delta]\label{def:epsilondelta}
+    Let \(f:U\to\mathbb{R}\) be a function defined on an open set \(U\subseteq\mathbb{R}\) such that \(a\) is a limit point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if for every \(\varepsilon > 0\), there exists \(\delta > 0\) such that for all \(x\in U\) with \(0<|x-a|<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
-    If $U\in\mathbb{R}$ is any open set such that \(\exists x\in U\) such that \(x-a>0\), then if \(\exists L\in\mathbb{R}\) such that $\forall\varepsilon>0$, \(\exists\delta>0\) such that $\forall 0<x-a<\delta$ where \(x\in U\) and \(|f(x)-L|<\varepsilon\), then \(\lim_{x\to a^+}f(x)=L\).
-    
-    Similarly, if $U\in\mathbb{R}$ is any open set such that \(\exists x\in U\) such that \(x-a<0\), then if \(\exists L\in\mathbb{R}\) such that $\forall\varepsilon>0$, \(\exists\delta>0\) such that $\forall{-\delta}<x-a<0$ where \(x\in U\) and \(|f(x)-L_1|<\varepsilon\), then \(\lim_{x\to a^-}f(x)=L_1\).
+    Similarly, we define the \textit{right-hand limit** \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(|f(x)-L|<\varepsilon\).
+
+    Likewise, the **left-hand limit** \(\lim_{x\to a^-}f(x)=L\) exists if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(-\delta<x-a<0\), we have \(|f(x)-L|<\varepsilon\).
 \end{definition}
 \begin{definition}[Continuity]\label{def:continuity}
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if
@@ -204,7 +204,9 @@ A portion of calculus is dedicated on rigorously defining concepts such as limit
     The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over $(0,1)$.
 \end{example}
 \begin{proof}
-    If \(f(x)\) is not uniformly continuous over $(0,1)$, then $\exists\varepsilon>0$ such that $\forall\delta>0$, \(\exists x,y\in(0,1)\) such that \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\). Choose $\varepsilon=1$ and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta\), \(\exists n>1\) where \(\abs{x-y}<\delta\).
+    If \(f(x)\) is not uniformly continuous over $(0,1)$, then $\exists\varepsilon>0$ such that $\forall\delta>0$, \(\exists x,y\in(0,1)\) such that \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\). 
+    
+    Let $\varepsilon=1$ and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over $(0,1)$.
 \end{proof}
 \begin{lemma}
     A continuous function over a compact set $U$ is uniformly continuous over $U$.
