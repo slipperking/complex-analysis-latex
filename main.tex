@@ -357,7 +357,7 @@ In complex analysis, when integrating over a region that contains a singularity,
 
 From the above result, we can directly obtain the following theorem:
 \begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with piecewise smooth boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise smooth boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
     \begin{equation}
         f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
     \end{equation}
@@ -366,10 +366,10 @@ From the above result, we can directly obtain the following theorem:
     By equation \eqref{eq:wirtingerderivative2}, for \(f\paren{\zeta,\overline{\zeta}}\), \(\pdv{f}{\overline{\zeta}}=0\). Applying the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}), the area integral vanishes, and equation \eqref{eq:cauchyintegralformula} consequently follows.
 \end{proof}
 \begin{theorem}[Cauchy's Integral Theorem]\label{thm:cauchyintegraltheorem}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a \(C^1\) boundary \(\partial U\). For a function \(f(z)\in C^1\paren{\overline{U}}\) holomorphic over \(U\), \[\int_{\partial U}f(\zeta)\ddzeta=0.\]
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U\). For a function \(f(z)\in C^1\paren{\overline{U}}\) holomorphic over \(U\), \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
-    
+    Let \(\psi(\zeta)=zf(\zeta)\). Applying \autoref{thm:cauchyintegralformula} on \(\psi(\zeta)\) with \(z=0\), we obtain \[0=\frac{1}{2\pi i}\oint\zeta f(\zeta)\ddzeta\]
 \end{proof}
 \begin{theorem}\label{thm:onedimensionalpartialconjugatesolution}
     For a compactly supported function \(\psi(z)\in C^1\paren{\mathbb{C}}\), a solution satisfying \(u(z)\in C^1\paren{\mathbb{C}}\) to the non-homogeneous Cauchy--Riemann equation \[\pdv{u(z)}{\overline{z}}=\psi(z)\] is \begin{equation}
