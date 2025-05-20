@@ -183,7 +183,7 @@ Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes
 \end{theorem}
 A portion of calculus is dedicated to rigorously defining concepts such as limits, continuity, integrability, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), and states:
 \begin{definition}[Epsilon-Delta]\label{def:epsilondelta}
-    Let \(f:U\to\mathbb{R}\) be a function defined in an open set \(U\subseteq\mathbb{R}\) such that \(a\) is a limit point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if for every \(\varepsilon > 0\), there exists \(\delta > 0\) such that for all \(x\in U\) with \(0<|x-a|<\delta\), we have \(|f(x)-L|<\varepsilon\).
+    Let \(f:U\to\mathbb{R}\) be a function defined over an open set \(U\subseteq\mathbb{R}\) such that \(a\) is a limit point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if for every \(\varepsilon > 0\), there exists \(\delta > 0\) such that for all \(x\in U\) with \(0<|x-a|<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
     Similarly, we define the \textit{right-handed limit} \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
@@ -268,7 +268,7 @@ If a function \(f(z)\) is complex differentiable over an open neighborhood of \(
     The necessary and sufficient criterion for a function \(f(z)\) to be holomorphic on a region \(D\) is if \(f(z)\in C^1(D)\) and it satisfies the Cauchy--Riemann equations.
 \end{theorem}
 \begin{proof}
-    The first part is to prove that any holomorphic function over \(D\) has continuous first-order partial derivatives over \(D\). This requires an argument that will be covered later, which claims that the complex derivative of any holomorphic function is also holomorphic over the region, 
+    The first part is to prove that any holomorphic function over \(D\) has continuous first-order partial derivatives over \(D\). This requires an argument that will be covered later, which claims that the complex derivative of any holomorphic function is also holomorphic over the region. 
 
     For the second part, let \(f(z)=f(x,y)=u(x,y)+iv(x,y)\). Assume that \(u,v\in C^1\paren{\{z_0\}}\) and satisfy the Cauchy--Riemann equations at \(z_0=x_0+iy_0\). Let \[\alpha=\pdv{u}{x}\paren{x_0,y_0}=\pdv{v}{y}\paren{x_0,y_0},\quad\beta=\pdv{v}{x}\paren{x_0,y_0}=-\pdv{u}{y}\paren{x_0,y_0}.\]
 
@@ -277,12 +277,12 @@ If a function \(f(z)\) is complex differentiable over an open neighborhood of \(
     \[v\paren{x,y}-v\paren{x_0,y_0}=\beta\paren{x-x_0}+\alpha\paren{y-y_0}+o_2\paren{\abs{\Delta z}},\]
     where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\) and \(o_1\paren{\abs{\Delta z}}\) and \(o_2\paren{\abs{\Delta z}}\) are functions that are of higher infinitesimal order to \(\Delta z\), satisfying \(\lim_{\Delta z\to0}\frac{o_1\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\) and \(\lim_{\Delta z\to0}\frac{o_2\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\). Then letting \(\Delta z=x-x_0+i\paren{y-y_0}\),
     \[f\paren{z}-f\paren{z_0}=\alpha{\Delta z}+i\beta{\Delta z}+o_1\paren{\abs{\Delta z}}+o_2\paren{\abs{\Delta z}},\]
-    \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta+\frac{o_1\paren{\abs{\Delta z}}}{\abs{\Delta z}}+\frac{o_2\paren{\abs{\Delta z}}}{\abs{\Delta z}}.\]
+    \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta+\frac{o_1\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}+\frac{o_2\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
     Taking the limit as \(\Delta z\to0\), the infinitesimal terms on the right vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta.\]
 \end{proof}
 An extension that is much harder to prove gives a subtle result:
 \begin{theorem}[Looman--Menchoff Theorem]\label{thm:loomanmenchoff}
-    A function \(f(z)\) is holomorphic on an open set \(U\subset\mathbb{C}\) if and only if it is continuous on \(U\), differentiable on \(U\setminus N\) for some set \(N\) with measure zero, and satisfies the \textit{Cauchy–Riemann equations}.
+    A function \(f(z)\) is holomorphic over an open set \(U\subset\mathbb{C}\) if and only if it is continuous on \(U\), differentiable on \(U\setminus N\) for some set \(N\) with measure zero, and satisfies the \textit{Cauchy–Riemann equations}.
 \end{theorem}
 Clearly, any function satisfying the criteria in \autoref{thm:holomorphycondition} will also satisfy the criteria for the Looman--Menchoff Theorem (\autoref{thm:loomanmenchoff}). However, the first theorem is a logical equivalence for holomorphy. This implies that any holomorphic function over \(U\) with existent partial derivatives except for on a set with measure zero has the property that those partial derivatives are automatically continuous.
 \subsection{Wirtinger Derivatives}
