@@ -348,11 +348,11 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
     \[\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}\leq M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}.\]
     By a change of variables to a polar coordinate system centered around \(z\), we obtain
     \[M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{re^{i\theta}}\dd{\paren{z+re^{-i\theta}}}\wedge\dd{\paren{z+re^{i\theta}}}},\] and by expansion of the wedge product,
-    \begin{align*}
-        M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{2i}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}&=2M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}\\
-        &=2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\pi}\int_0^\varepsilon e^{-i\theta}\dd{r}\dd{\theta}}\\
-        &=0.
-    \end{align*}
+    \begin{align}
+        M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{2i}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}&=2M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}\label{eq:pompeiu_weaksingularityvanishes}\\
+        &=2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\pi}\int_0^\varepsilon e^{-i\theta}\dd{r}\dd{\theta}}\nonumber\\
+        &=0.\nonumber
+    \end{align}
     Then from rearranging \eqref{eq:pompeiu_epsilonlimitintermediate}, we obtain:
     \[f(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
 \end{proof}
@@ -378,14 +378,14 @@ From the above result, we can directly obtain the following theorem:
 \end{proof}
 \begin{theorem}\label{thm:onedimensionalpartialconjugatesolution}
     For a compactly supported function \(\psi(z)\in C^1\paren{\mathbb{C}}\), a solution satisfying \(u(z)\in C^1\paren{\mathbb{C}}\) to the non-homogeneous Cauchy--Riemann equation \[\pdv{u(z)}{\overline{z}}=\psi(z)\] is \begin{equation}
-        u(z)=-\frac{1}{2\pi i}\int_{\mathbb C}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta.\label{eq:onedimensionalpartialconjugatesolution}
+        u(z)=-\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta.\label{eq:onedimensionalpartialconjugatesolution}
     \end{equation}
 \end{theorem}
 \begin{proof}
     We aim to prove the theorem in three parts: the continuity of \(u(z)\), the continuous differentiability of \(u(z)\), and the fact that it satisfies the differential equation \(\pdv{u(z)}{\overline{z}}=\psi(z)\).
+    
+    Because \(\psi(\zeta)\) is compactly supported and continuous, by \ref{thm:continuousfunctionbounded}, it is bounded. Bisect \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(D\paren{z,\varepsilon}\). \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\pi i}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\supp\paren{\psi(\zeta)}\) is bounded, pompeiu_weaksingularityvanishes
 \end{proof}
 \subsection{The Cauchy--Goursat Theorem}
 When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives and this condition was dropped by Goursat using a broken line argument.
-
-Because \(\psi(\zeta)\) is compactly supported and continuous, by \ref{thm:continuousfunctionbounded}, it is bounded. Bisect \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(D\paren{z,\varepsilon}\). 
 \end{document}
