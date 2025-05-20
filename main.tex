@@ -273,10 +273,11 @@ If a function \(f(z)\) is complex differentiable over an open neighborhood of \(
 
     For the second part, let \(f(z)=f(x,y)=u(x,y)+iv(x,y)\). Assume that \(u,v\in C^1\paren{\{z_0\}}\) and satisfy the Cauchy Riemann equations at \(z_0=x_0+iy_0\). Let \[\alpha=\pdv{u}{x}\paren{x_0,y_0}=\pdv{v}{y}\paren{x_0,y_0},\quad\beta=\pdv{v}{x}\paren{x_0,y_0}=-\pdv{u}{y}\paren{x_0,y_0}.\]
 
-    Then, \(\forall x,y\in D\):
+    Then because \(u\) and \(v\) have continuous partial derivatives, \(\forall x,y\in D\):
     \[u\paren{x,y}-u\paren{x_0,y_0}=\alpha\paren{x-x_0}-\beta\paren{y-y_0}+o_1\paren{\abs{\Delta z}},\]
     \[v\paren{x,y}-v\paren{x_0,y_0}=\beta\paren{x-x_0}+\alpha\paren{y-y_0}+o_2\paren{\abs{\Delta z}},\]
-    where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\)
+    where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\) and \(o_1\paren{\abs{\Delta z}}\) and \(o_2\paren{\abs{\Delta z}}\) are functions that are of higher infinitesimal order to \(\Delta z\), satisfying \(\lim_{\Delta z\to0}\frac{o_1\paren{\Delta z}}{\Delta z}=0\) and \(\lim_{\Delta z\to0}\frac{o_2\paren{\Delta z}}{\Delta z}=0\). Then,
+    \[\Delta z=\alpha\paren{x-x_0}-\beta\paren{y-y_0}+o_1\paren{\abs{\Delta z}}+i\]
 \end{proof}
 An extension that is much harder to prove gives a subtle result:
 \begin{theorem}[Looman--Menchoff Theorem]\label{thm:loomanmenchoff}
