@@ -70,7 +70,7 @@
 \subsection{Topological Preliminaries}
 We will provide a rough, informal notion of important topological concepts tailored specifically towards complex analysis.
 \begin{definition}[Closure of a Set]\label{def:closure}
-    For a set \(X\in\mathbb{C}^n\), define the closure of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and every accumulation point (a point \(z\in\mathbb C^n\) is an accumulation point of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)).
+    For a set \(X\in\mathbb{C}^n\), define the closure of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and every accumulation point (a point \(z\in\mathbb{C}^n\) is an accumulation point of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)).
 \end{definition}
 \begin{definition}[Compactness of a Set]\label{def:compactsets}
     A set \(X\in\mathbb{C}^n\) is compact if and only if \(X\) is closed and bounded.
@@ -217,9 +217,9 @@ A portion of calculus is dedicated to rigorously defining concepts such as limit
 \begin{proof}
     Suppose for contradiction that \(f:U\to\mathbb{R}\) is continuous but not uniformly continuous on compact \(U\). Then \(\exists\varepsilon_0>0\) such that \(\forall\delta>0\), \(\exists x,y\in U\) with \(|x-y|<\delta\) and \(|f(x)-f(y)|\geq\varepsilon_0\).
 
-    In particular, \(\forall n\in\mathbb{N}\), let \(\delta=\frac{1}{n}\). Then \(\exists x_n,y_n\in U\) such that \(|x_n-y_n|<\frac{1}{n}\) and \(|f(x_n)-f(y_n)|\geq\varepsilon_0\). Since \(U\) is compact, the sequence \((x_n)\) has a convergent subsequence \(x_{n_k}\to x^*\in U\). Because \(|x_{n_k}-y_{n_k}|<\frac{1}{n_k}\to 0\), we also have \(y_{n_k}\to x^*\).
+    In particular, \(\forall n\in\mathbb{N}\), let \(\delta=\frac{1}{n}\). Then \(\exists x_n,y_n\in U\) such that \(|x_n-y_n|<\frac{1}{n}\) and \(|f(x_n)-f(y_n)|\geq\varepsilon_0\). Since \(U\) is compact, the sequence \((x_n)\) has a convergent subsequence \(x_{n_k}\to x_{\infty}\in U\). Because \(|x_{n_k}-y_{n_k}|<\frac{1}{n_k}\to 0\), we also have \(y_{n_k}\to x_{\infty}\).
 
-    By continuity of \(f\), \(f(x_{n_k})\to f(x^*)\) and \(f(y_{n_k})\to f(x^*)\), so \(|f(x_{n_k})-f(y_{n_k})|\to 0\), contradicting \(|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon_0\). Therefore, \(f\) is uniformly continuous on \(U\).
+    By continuity of \(f\), \(f(x_{n_k})\to f\paren{x_\infty}\) and \(f(y_{n_k})\to f\paren{x_\infty}\), so \(|f(x_{n_k})-f(y_{n_k})|\to 0\), contradicting \(|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon_0\). Therefore, \(f\) is uniformly continuous on \(U\).
 \end{proof}
 \begin{definition}
     A function \(f\) is Lipschitz continuous over \(U\) if \(\exists C\in\mathbb{R}_{>0}\) such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq C|x-y|\).
@@ -413,7 +413,7 @@ From the above result, we can directly obtain the following theorem:
     Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(D\paren{z,\varepsilon}\). \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\pi i}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\pi i}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\] Therefore, \eqref{eq:onedimensionalpartialconjugatesolution} is continuous. Let \(\xi=\zeta-z\) and observe that \[u(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z)}{\xi}\dd{\xi}\wedge\dd{\overline{\xi}}\] Then, \begin{equation}
         \frac{u(z+h)-u\paren{z}}{h}=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h\xi}\dd{\xi}\wedge\dd{\overline{\xi}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
-    For a fixed \(z\), the value of \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}\] tends to \(\pdv{\psi(\xi+z)}{(\xi+z)}\) as \(h\to0\). Because \(\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{thm:continuousfunctionboundedoncompact}, it is Lipschitz continuous for a constant \(M\). Then, \[\abs{\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}}\leq M,\] and when \(\xi+z\notin\supp(\psi)\), \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}=0.\]
+    For a fixed \(z\), the value of \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}\] tends to \(\pdv{\psi(\xi+z)}{(\xi+z)}\) as \(h\to0\). Because \(\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{lemma:c1lipschitz}, it is Lipschitz continuous for a constant \(M\). Then, \[\abs{\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}}\leq M,\] and when \(\xi+z\notin\supp(\psi)\), \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}=0.\]
     Since the integrand is dominated by a function that has a convergent integral (\(\int_{\supp(\psi)}M\dd{\xi}\wedge\dd{\overline{\xi}}\)), equation \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr} uniformly converges and the limit \(h\to0\) may commute with the integral. Let \(\zeta=\alpha+i\beta\). From the real axis, \begin{equation}
         \pdv{u}{x}(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\alpha}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\pi i}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\alpha}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
     \end{equation}
