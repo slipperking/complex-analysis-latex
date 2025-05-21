@@ -211,7 +211,7 @@ A portion of calculus is dedicated to rigorously defining concepts such as limit
     
     Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{lemma:uniformcontinuousovercompactset}
     A continuous function over a compact set \(U\) is uniformly continuous over \(U\).
 \end{lemma}
 \begin{proof}
@@ -441,9 +441,9 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{lemma}
-    Let \(f:G\to\mathbb{C}\) be a continuous function defined for a region \(G\subseteq\mathbb{C}\). Let \(\Gamma\subset G\) be a piecewise smooth curve. Then \(\forall\varepsilon>0\), there exists a polygonal chain \(P\subset G\) inscribing \(G\) (each vertex lies on \(\Gamma\)) where \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\]
+    Let \(f:G\to\mathbb{C}\) be a continuous function defined for a region \(G\subseteq\mathbb{C}\). Let \(\Gamma\subset G\) be a rectifiable piecewise smooth curve. Then \(\forall\varepsilon>0\), there exists a polygonal chain \(P\subset G\) inscribing \(G\) (each vertex lies on \(\Gamma\)) where \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
-    
+    Because \(f\in C^0(G)\), there is a compact set \(D\subseteq G\) that \(f\) is continuous over. By \autoref{lemma:uniformcontinuousovercompactset}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z_0,z_1\in D\) satisfying \(\abs{z_1-z_0}<\delta\), \(\abs{f\paren{z_1}-f\paren{z_0}}<\varepsilon\). Dissect \(\Gamma\) into points such that 
 \end{proof}
 \end{document}
