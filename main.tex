@@ -310,6 +310,7 @@ The Laplacian is equal to \begin{align*}
     &=\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}\\
     &=4\pdv[2]{}{z}{\overline{z}}.
 \end{align*}
+\subsection{Complex Power Series}
 \section{Complex Integration}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
 \[\ddz=\ddx+i\ddy,\quad\dd{\overline{z}}=\ddx-i\ddy.\]
@@ -413,7 +414,7 @@ From the above result, we can directly obtain the following theorem:
         \frac{u(z+h)-u\paren{z}}{h}=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h\xi}\dd{\xi}\wedge\dd{\overline{\xi}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
     For a fixed \(z\), the value of \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}\] tends to \(\pdv{\psi(\xi+z)}{\xi}\) as \(h\to0\). Because \(\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{thm:continuousfunctionboundedoncompact}, it is Lipschitz continuous for a constant \(M\). Then, \[\abs{\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}}\leq M,\] and when \(\xi+z\notin\supp(\psi)\), \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}=0.\]
-    Since the integrand is dominated by a function that has a convergent integral (\(\int_{\supp(\psi)}M\dd{\xi}\wedge\dd{\overline{\xi}}\)), equation \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr} uniformly converges and the limit \(h\to0\) may commute with the double integral. Let \(\zeta=\alpha+i\beta\). From the real axis, \begin{equation}
+    Since the integrand is dominated by a function that has a convergent integral (\(\int_{\supp(\psi)}M\dd{\xi}\wedge\dd{\overline{\xi}}\)), equation \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr} uniformly converges and the limit \(h\to0\) may commute with the integral. Let \(\zeta=\alpha+i\beta\). From the real axis, \begin{equation}
         \pdv{u}{x}(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\alpha}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\pi i}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\alpha}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
     \end{equation}
     From the imaginary axis, \begin{equation}
@@ -430,4 +431,7 @@ From the above result, we can directly obtain the following theorem:
 \end{remark}
 \subsection{The Cauchy--Goursat Theorem}
 When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives, and this condition was dropped by Goursat using a broken line argument.
+\begin{theorem}[Cauchy--Goursat Integral Theorem]
+    
+\end{theorem}
 \end{document}
