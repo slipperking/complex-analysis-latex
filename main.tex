@@ -302,11 +302,13 @@ If equation \eqref{eq:wirtingerderivative1} is set equal to 0, then it is the eq
 Conversely, by the rules of the derivative, \begin{equation*}
     \pdv{}{x}=\pdv{}{z}\pdv{z}{x}+\pdv{}{\overline{z}}\pdv{\overline{z}}{x}=\pdv{}{z}+\pdv{}{\overline{z}}
 \end{equation*} and \begin{equation*}
-    \pdv{}{y}=\pdv{}{z}\pdv{z}{y}+\pdv{}{\overline{z}}\pdv{\overline{z}}{y}=i\pdv{}{z}-i\overline{z}
+    \pdv{}{y}=\pdv{}{z}\pdv{z}{y}+\pdv{}{\overline{z}}\pdv{\overline{z}}{y}=i\pdv{}{z}-i\pdv{}{\overline{z}}.
 \end{equation*}
 
 The Laplacian is equal to \begin{align*}
-    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y}=\paren{\pdv{}{z}+\pdv{}{\overline{z}}}^2+\paren{\frac{1}{i}\paren{\pdv{}{\overline{z}}-\pdv{}{z}}}^2
+    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y}&=\paren{\pdv{}{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{}{z}-i\pdv{}{\overline{z}}}^2\\
+    &=\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}\\
+    &=4\pdv[2]{}{z}{\overline{z}}.
 \end{align*}
 \section{Complex Integration}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
