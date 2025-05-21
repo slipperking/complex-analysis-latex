@@ -386,7 +386,7 @@ In complex analysis, when integrating over a region that contains a singularity,
 
 From the above result, we can directly obtain the following theorem:
 \begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise smooth boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
     \begin{equation}
         f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
     \end{equation}
@@ -431,7 +431,13 @@ From the above result, we can directly obtain the following theorem:
 \end{remark}
 \subsection{The Cauchy--Goursat Theorem}
 When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives, and this condition was dropped by Goursat using a broken line argument.
-\begin{theorem}[Cauchy--Goursat Integral Theorem]
-    
+\begin{theorem}[Cauchy--Goursat Integral Formula]\label{thm:cauchygoursatformula}
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U \), and let \(f:U\to\mathbb{C}\) be a holomorphic function. Then for all \(z\in U\),
+    \begin{equation}
+        f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
+    \end{equation}
+\end{theorem}
+\begin{theorem}[Cauchy--Goursat Integral Theorem]\label{thm:cauchygoursattheorem}
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \end{document}
