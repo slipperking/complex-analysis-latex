@@ -300,7 +300,7 @@ We have previously introduced the concept of expressing a complex function as a 
 If equation \eqref{eq:wirtingerderivative1} is set equal to 0, then it is the equivalent form of the homogeneous Cauchy--Riemann Equations. Then for a holomorphic function \(f(z)\), the Wirtinger derivative \(\pdv{f(z)}{z}=\dv{f(z)}{z}\).
 
 The Laplacian is equal to \begin{align*}
-    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y}=\paren{\pdv{}{z}}
+    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y}=\paren{\pdv{}{z}+\pdv{}{\overline{z}}}^2+\paren{\pdv{}{\overline{z}}-\pdv{}{z}}^2
 \end{align*}
 \section{Complex Integration}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
@@ -311,7 +311,7 @@ The antisymmetric properties of differential forms still hold in complex space. 
 \end{align*}
 Analogous to the real case, a 0-form is defined as a scalar-valued function in the form \(f\paren{z,\overline{z}}\), a 1-form in the form of \(\omega_0\ddz+\omega_1\dd{\overline{z}}\), and a 2-form as \(\omega_0\ddz\wedge\dd{\overline{z}}\). The exterior differential operator for this one-dimensional case is defined as \(\partial+\overline{\partial}\), where \(\partial=\ddz\wedge\pdv{}{z}\) and \(\overline{\partial}=\dd{\overline{z}}\wedge\pdv{}{\overline{z}}\). Occasionally, people will informally use \(\partial\) and \(\overline{\partial}\) as an abbreviation for \(\pdv{}{z}\) and \(\pdv{}{\overline{z}}\) respectively.
 \begin{theorem}[Green's Theorem, Complex Form]\label{thm:complexgreen}
-    Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary \(\partial U\). For two scalar functions \(\omega_1=\omega_1\paren{z,\overline{z}}\) and \(\omega_2=\omega_2\paren{z,\overline{z}}\) satisfy \(\omega_1,\omega_2\in C^1\paren{\overline{U}}\), define the 1-form \(\omega=\omega_1\ddz+\omega_2\dd{\overline{z}}\). Then,
+    Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary \(\partial U\). For two scalar functions \(\omega_1=\omega_1\paren{z,\overline{z}}\) and \(\omega_2=\omega_2\paren{z,\overline{z}}\) satisfying \(\omega_1,\omega_2\in C^1\paren{\overline{U}}\), define the 1-form \(\omega=\omega_1\ddz+\omega_2\dd{\overline{z}}\). Then,
     \begin{equation}
         \int_{\partial U}\omega=\int_U\dd{\omega}.\label{eq:complexgreen}
     \end{equation}
