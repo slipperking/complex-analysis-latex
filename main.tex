@@ -455,8 +455,10 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Then the sum above can be written as \[S=\sum_{k=0}^{n-1}\int_{\gamma_k}f\paren{z_k}\ddz=\sum_{k=0}^{n-1}\int_{l_k}f\paren{z_k}\ddz,\] and it follows that \[\abs{\int_{\Gamma}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{\gamma_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon \mu(\Gamma)\] and \[\abs{\int_{P}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{l_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon \mu(P)<\varepsilon \mu(\Gamma)\] where \(\mu(\Gamma)\) is the length of \(\Gamma\) and \(\mu(P)\) is the length of \(P\).
     Then, \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}\leq\abs{\int_{\Gamma}f(z)\ddz-S}+\abs{\int_{P}f(z)\ddz-S}\leq 2\varepsilon\mu(\Gamma),\] which proves the result.
 \end{proof}
-\begin{lemma}
-    Given a holomorphic function \(f(z)\) on a simply connected set \(U\subseteq\mathbb{C}\), for any piecewise smooth closed curve \(\Gamma\subset G\), \[\int_\Gamma f(\zeta)\ddzeta=0.\]
+\begin{lemma}\label{lemma:cauchyintegraltheoremoversimplyconnectedset}
+    Given a holomorphic function \(f(z)\) on a simply connected set \(U\subseteq\mathbb{C}\), for any piecewise smooth closed curve \(\Gamma\subset U\), \begin{equation}
+        \int_\Gamma f(\zeta)\ddzeta=0.\label{eq:cauchyintegraltheoremoversimplyconnectedset_statement}
+    \end{equation}
 \end{lemma}
 \begin{proof}
     By \autoref{lemma:integralpiecewisesmoothtopolygonalchain}, \(\forall\varepsilon>0\), there is a polygonal chain \(P\) where \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\] The statement we aim to prove is equivalent to proving that \[\int_{P}f(z)\ddz=0.\]
@@ -497,7 +499,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:closedpolygonalchaintriangulation}. Then, \begin{align*}
         \int_{\partial ABCDE}f(z)\ddz&=\int_{\overrightarrow{AB}}f(z)\ddz+\int_{\overrightarrow{BC}}f(z)\ddz+\int_{\overrightarrow{CD}}f(z)\ddz+\int_{\overrightarrow{DE}}f(z)\ddz+\int_{\overrightarrow{EA}}f(z)\ddz\\
         &\quad+\int_{\overrightarrow{BE}}f(z)\ddz+\int_{\overrightarrow{EB}}f(z)\ddz+\int_{\overrightarrow{CE}}f(z)\ddz+\int_{\overrightarrow{EC}}f(z)\ddz\\
-        &=\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz
-    \end{align*}
+        &=\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
+    \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle 
 \end{proof}
 \end{document}
