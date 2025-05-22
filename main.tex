@@ -493,7 +493,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 
             \node[left] at (A) {\(A\)};
             \node[above, xshift=3pt, yshift=5pt] at (B) {\(B\)};
-            \node[left, xshift=-3pt] at (C) {\(C\)};
+            \node[left, xshift=-4pt, yshift=-1pt] at (C) {\(C\)};
             \node[below left] at (D) {\(D\)};
             \node[left, xshift=-2pt] at (E) {\(E\)};
         \end{tikzpicture}
@@ -516,8 +516,11 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \draw[thick] (A) -- (F) -- (E) -- cycle;
             \draw[thick] (B) -- (D) -- (F) -- cycle;
             \draw[thick] (C) -- (D) -- (E) -- cycle;
+
+            \coordinate (AE) at ($(A)!0.5!(E)$);
+            \coordinate (AF) at ($(A)!0.5!(F)$);
             
-            \node[center] at \(\Delta\) {A};
+            \node[anchor=center] at (\x{AE}, \y{AF}) {\(\Delta\)};
         \end{tikzpicture}
         \caption{Quadrisection of the triangle bounded by \(\Delta\).}
         \label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
