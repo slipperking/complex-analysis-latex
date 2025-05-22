@@ -38,15 +38,16 @@
     }
 }
 
+\newcommand{\halfarrow}[2]{%
+  \path (#1) -- (#2) coordinate[pos=0.25] (Pstart) coordinate[pos=0.75] (Pend);
+  \draw[-{Stealth}, thick, black] (Pstart) -- (Pend);
+}
+
 \newcommand{\ddx}{\dd{x}}
 \newcommand{\ddy}{\dd{y}}
 \newcommand{\ddz}{\dd{z}}
 \newcommand{\ddzeta}{\dd{\zeta}}
 \newcommand{\supp}{\operatorname{supp}}
-
-\title{Complex Analysis}
-\author{Slipper King}
-\date{May 2025}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
@@ -66,6 +67,10 @@
 \let\bracketsdefault\brackets
 \renewcommand{\brackets}{\bracketsdefault*}
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
+
+\title{Complex Analysis}
+\author{Slipper King}
+\date{May 2025}
 
 \begin{document}
 \maketitle
@@ -463,7 +468,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 \begin{proof}
     By \autoref{lemma:integralpiecewisesmoothtopolygonalchain}, \(\forall\varepsilon>0\), there is a polygonal chain \(P\) where 
     \begin{equation}
-        \abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\label{eq:integralpiecewisesmoothtopolygonalchain_chaindefinition}
+        \abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\label{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition}
     \end{equation} The statement we aim to prove is equivalent to proving that \[\int_{P}f(z)\ddz=0.\]
     \begin{figure}
         \centering
@@ -476,10 +481,6 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
             \draw[thick] (B) -- (E);
             \draw[thick] (C) -- (E);
-            \newcommand{\halfarrow}[2]{%
-              \path (#1) -- (#2) coordinate[pos=0.25] (Pstart) coordinate[pos=0.75] (Pend);
-              \draw[-{Stealth}, thick, black] (Pstart) -- (Pend);
-            }
             \halfarrow{[xshift=-7pt]B}{[xshift=-7pt]E}
             \halfarrow{[xshift=7pt]E}{[xshift=7pt]B}
             \halfarrow{[yshift=-11.2pt]E}{[yshift=-11.2pt]A}
@@ -497,9 +498,9 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \node[left, xshift=-2pt] at (E) {E};
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations marked.}
-        \label{fig:closedpolygonalchaintriangulation}
+        \label{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}
     \end{figure}
-    Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:closedpolygonalchaintriangulation}. Then, \begin{align*}
+    Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then, \begin{align*}
         \int_{\partial ABCDE}f(z)\ddz&=\int_{\overrightarrow{AB}}f(z)\ddz+\int_{\overrightarrow{BC}}f(z)\ddz+\int_{\overrightarrow{CD}}f(z)\ddz+\int_{\overrightarrow{DE}}f(z)\ddz+\int_{\overrightarrow{EA}}f(z)\ddz\\
         &\quad+\int_{\overrightarrow{BE}}f(z)\ddz+\int_{\overrightarrow{EB}}f(z)\ddz+\int_{\overrightarrow{CE}}f(z)\ddz+\int_{\overrightarrow{EC}}f(z)\ddz\\
         &=\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
@@ -507,11 +508,13 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            
+            \coordinate (A) at (0, 0);
+            \coordinate (B) at (8, 0);
+            \coordinate (C) at (5, 5);
+            \draw[thick] (A) -- (B) -- (C) -- cycle;
         \end{tikzpicture}
-        \caption{Caption}
-        \label{fig:}
-    \end{figure}
-    Quadrisect the triangle bounded by \(\Delta\) into four triangles with boundaries \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\) as in
+        \caption{Quadrisection of the triangle bounded by \(\Delta\).}
+        \label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
+    \end{figure} Quadrisect the triangle bounded by \(\Delta\) into four triangles with boundaries \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\) as in
 \end{proof}
 \end{document}
