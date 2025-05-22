@@ -519,8 +519,18 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 
             \coordinate (AE) at ($(A)!0.5!(E)$);
             \coordinate (AF) at ($(A)!0.5!(F)$);
+            \coordinate (AD) at ($(A)!0.5!(D)$);
+            \coordinate (BF) at ($(B)!0.5!(F)$);
             
-            \node[anchor=center] at (\x{AE}, \y{AF}) {\(\Delta\)};
+            
+            \path let
+                \p1 = (AE),
+                \p2 = (AF),
+                \p3 = (AD),
+                \p4 = (BF)
+            in
+                node at (\x1, \y2) {\(\Delta_2\)};
+                node at (\x3, \x4) {\(\Delta_1\)};
         \end{tikzpicture}
         \caption{Quadrisection of the triangle bounded by \(\Delta\).}
         \label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
