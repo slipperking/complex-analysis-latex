@@ -470,33 +470,6 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \draw[black, thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
             \draw[black, thick] (B) -- (E);
             \draw[black, thick] (C) -- (E); 
-     \newcommand{\ccwarrow}[2]{
-  \path let 
-    \p1 = ($(#2)-(#1)$),
-    \n1 = {veclen(\x1,\y1)},
-    \n2 = {-\y1/\n1}, % x component of normal
-    \n3 = {\x1/\n1}   % y component of normal
-  in
-    coordinate (Start) at ($(#1)!0.5!(#2) + ({\n2*\offset}, {\n3*\offset})$)
-    coordinate (End)   at ($(#2)!0.5!(#1) + ({\n2*\offset}, {\n3*\offset})$);
-  \draw[->, thick] (Start) -- (End);
-}
-
-
-% Triangle BCE (CCW: B -> C -> E)
-\ccwarrow{B}{C}
-\ccwarrow{C}{E}
-\ccwarrow{E}{B}
-
-% Triangle CDE (CCW: C -> D -> E)
-\ccwarrow{C}{D}
-\ccwarrow{D}{E}
-\ccwarrow{E}{C}
-
-% Triangle ABE (CCW: A -> B -> E)
-\ccwarrow{A}{B}
-\ccwarrow{B}{E}
-\ccwarrow{E}{A}
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations shown.}
         \label{fig:enter-label}
