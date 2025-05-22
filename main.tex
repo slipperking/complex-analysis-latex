@@ -4,6 +4,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc, arrows.meta}
 \usepackage[italicdiff]{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -470,11 +471,12 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (E) at (3, 8);
             \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
             \draw[thick] (B) -- (E);
-            \draw[thick, postaction={decorate},
-                decoration={
-                  markings,
-                  mark=between positions 0.25 and 0.75 step 1cm with {\draw[red, thick] (-0.5pt,0) -- (0.5pt,0);}
-                }] ([xshift=-6pt] B) -- ([xshift=-6pt] E);
+            \newcommand{\middlefifty}[2]{%
+              \path (#1) -- (#2) coordinate[pos=0.25] (Pstart) coordinate[pos=0.75] (Pend);
+              \draw[-{Stealth}, thick, black] (Pstart) -- (Pend);
+            }
+            \middlefifty{[xshift=-8pt]B}{[xshift=-6pt]E}
+            \middlefifty{[xshift=6pt]E}{[yshift=-6pt]A}
             \draw[black, thick] (C) -- (E);
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations shown.}
