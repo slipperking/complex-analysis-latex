@@ -94,7 +94,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[D(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset D(z_\infty, \delta)\), and hence \(Q_k \cap X = \emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
 \begin{theorem}[Heine-Borel Theorem]\label{thm:heineborel}
-    A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has finite subcovering.
+    A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has a finite subcover.
 \end{theorem}
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
@@ -112,7 +112,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point \(z_{\infty}\in\mathbb{C}^n\). By the Bolzano-Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), because \(\forall i\in\mathbb{N}\), \(Q_i\cap X\neq\emptyset\), select a point \(z_{i}\in Q_i\cap X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\) as \(X\) is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in U\). Since \(U\) is open, \(\exists\varepsilon>0\) such that \(D(z_\infty,\varepsilon)\subset U\). \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(Q_k\subset D(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq D(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every \(k\), \(Q_k\cap X\) has no finite subcovering. However, \(U\) covers \(Q_k\cap X\), which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
 \end{proof}
 \begin{definition}[Support of a Function]\label{def:support}
-    For a set \(X\) and a function \(f:X\to\mathbb{C}\), the support, denoted as \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), or the closure of the set for which \(f\) is non-zero.
+    For a set \(X\) and a function \(f:X\to\mathbb{C}\), the support, denoted as \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), is the closure of the set for which \(f\) is non-zero.
 \end{definition}
 \begin{remark}
     We are primarily concerned when the support of a function is compact, or if the support is bounded. For smooth functions, functions that are compactly supported are called bump functions.
@@ -449,6 +449,6 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \int_{\Gamma}f(z)\ddz
     \end{equation*} can be approximated with the Riemann sum \[S=\sum_{k=0}^{n-1}f\paren{z_k}\Delta z_k\] where \[\Delta z_k=z_{k+1}-z_k=\int_{\gamma_k}\ddz=\int_{l_k}\ddz.\]
     Then the sum above can be written as \[S=\sum_{k=0}^{n-1}\int_{\gamma_k}f\paren{z_k}\ddz=\sum_{k=0}^{n-1}\int_{l_k}f\paren{z_k}\ddz,\] and it follows that \[\abs{\int_{\Gamma}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{\gamma_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon\abs{z_n-z_0}\] and \[\abs{\int_{P}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{l_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon\abs{z_n-z_0}.\]
-    Then, \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}\leq\abs{\int_{\Gamma}f(z)\ddz-S}+\abs{\int_{P}f(z)\ddz-S}\]
+    Then, \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}\leq\abs{\int_{\Gamma}f(z)\ddz-S}+\abs{\int_{P}f(z)\ddz-S}\leq 2\varepsilon\abs{z_n-z_0}.\]
 \end{proof}
 \end{document}
