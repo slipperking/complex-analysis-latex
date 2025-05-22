@@ -471,13 +471,14 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (E) at (3, 8);
             \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
             \draw[thick] (B) -- (E);
+            \draw[thick] (C) -- (E);
             \newcommand{\middlefifty}[2]{%
               \path (#1) -- (#2) coordinate[pos=0.25] (Pstart) coordinate[pos=0.75] (Pend);
               \draw[-{Stealth}, thick, black] (Pstart) -- (Pend);
             }
-            \middlefifty{[xshift=-8pt]B}{[xshift=-6pt]E}
-            \middlefifty{[xshift=6pt]E}{[yshift=-6pt]A}
-            \draw[black, thick] (C) -- (E);
+            \middlefifty{[xshift=-7pt]B}{[xshift=-7pt]E}
+            \middlefifty{[yshift=-11.2pt]E}{[yshift=-11.2pt]A}
+            \middlefifty{[xshift=11.2pt]A}{[xshift=11.2pt]B}
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations shown.}
         \label{fig:enter-label}
