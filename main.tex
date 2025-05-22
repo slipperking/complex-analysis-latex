@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \usepackage[italicdiff]{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -460,6 +461,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     \begin{figure}
         \centering
         \begin{tikzpicture}
+            \def\offset{0.05}
             \coordinate (A) at (0, 4);
             \coordinate (B) at (5, 0);
             \coordinate (C) at (8, 3);
@@ -467,8 +469,31 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (E) at (3, 8);
             \draw[black, thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
             \draw[black, thick] (B) -- (E);
-            \draw[black, thick] ([shift = {(-8pt, -8pt)}] B) -- ([shift = {(-8pt, -8pt)}]E);
-            \draw[black, thick] (C) -- (E);
+            \draw[black, thick] (C) -- (E); 
+            
+\newcommand{\ccwarrow}[2]{
+  % Vector perpendicular to side
+  \path let \p1 = ($(#2)-(#1)$), \n1 = {veclen(\x1,\y1)}, 
+             \p2 = ({-\y1/\n1}, {\x1/\n1}) % Unit normal vector (left-hand rule)
+  in coordinate (Start) at ($(#1)!0.5!(#2) + ({\x2*\offset}, {\y2*\offset})$)
+     coordinate (End) at   ($(#2)!0.5!(#1) + ({\x2*\offset}, {\y2*\offset})$);
+  \draw[->, thick] (Start) -- (End);
+}
+
+% Triangle BCE (CCW: B -> C -> E)
+\ccwarrow{B}{C}
+\ccwarrow{C}{E}
+\ccwarrow{E}{B}
+
+% Triangle CDE (CCW: C -> D -> E)
+\ccwarrow{C}{D}
+\ccwarrow{D}{E}
+\ccwarrow{E}{C}
+
+% Triangle ABE (CCW: A -> B -> E)
+\ccwarrow{A}{B}
+\ccwarrow{B}{E}
+\ccwarrow{E}{A}
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations shown.}
         \label{fig:enter-label}
