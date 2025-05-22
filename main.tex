@@ -3,6 +3,7 @@
 \usepackage{parskip}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usetikzlibrary{decorations.markings}
 \usepackage[italicdiff]{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -467,9 +468,14 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (C) at (8, 3);
             \coordinate (D) at (7, 8);
             \coordinate (E) at (3, 8);
-            \draw[black, thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
-            \draw[black, thick] (B) -- (E);
-            \draw[black, thick] (C) -- (E); 
+            \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
+            \draw[thick] (B) -- (E);
+            \draw[thick, postaction={decorate},
+                decoration={
+                  markings,
+                  mark=between positions 0.25 and 0.75 step 1cm with {\draw[red, thick] (-0.5pt,0) -- (0.5pt,0);}
+                }] ([xshift=-6pt] B) -- ([xshift=-6pt] E);
+            \draw[black, thick] (C) -- (E);
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations shown.}
         \label{fig:enter-label}
