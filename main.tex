@@ -15,6 +15,7 @@
 \usepackage{pgfplots}
 \usepackage[left=3.5cm,right=3.5cm]{geometry}
 \usepackage[hidelinks]{hyperref}
+\usepackage[labelfont=bf, textfont=it]{caption}
 
 \allowdisplaybreaks[2]
 
@@ -54,7 +55,7 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \numberwithin{equation}{section}
-\newcommand{\reseteqcounter}{\setcounter{equation}{0}}
+\numberwithin{figure}{section}
 \DeclarePairedDelimiter{\paren}{(}{)}
 \let\parendefault\paren
 \renewcommand{\paren}{\parendefault*}
@@ -466,6 +467,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (E) at (3, 8);
             \draw[black, thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
             \draw[black, thick] (B) -- (E);
+            \draw[black, thick] ([shift = (3pt, 8pt)] B) -- (E);
             \draw[black, thick] (C) -- (E);
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations shown.}
