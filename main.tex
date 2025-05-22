@@ -499,22 +499,25 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations marked.}
         \label{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}
-    \end{figure}
-    Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then, \begin{align*}
+    \end{figure} Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then, \begin{align*}
         \int_{\partial ABCDE}f(z)\ddz&=\int_{\overrightarrow{AB}}f(z)\ddz+\int_{\overrightarrow{BC}}f(z)\ddz+\int_{\overrightarrow{CD}}f(z)\ddz+\int_{\overrightarrow{DE}}f(z)\ddz+\int_{\overrightarrow{EA}}f(z)\ddz\\
         &\quad+\int_{\overrightarrow{BE}}f(z)\ddz+\int_{\overrightarrow{EB}}f(z)\ddz+\int_{\overrightarrow{CE}}f(z)\ddz+\int_{\overrightarrow{EC}}f(z)\ddz\\
         &=\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
-    \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle in \(U\) with boundary \(\Delta\). Then define \(M\) to be \[M=\abs{\int_{\Delta}f(z)\ddz}.\]
-    \begin{figure}
+    \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle in \(U\) with boundary \(\Delta\). \begin{figure}
         \centering
         \begin{tikzpicture}
             \coordinate (A) at (0, 0);
-            \coordinate (B) at (8, 0);
-            \coordinate (C) at (5, 5);
-            \draw[thick] (A) -- (B) -- (C) -- cycle;
+            \coordinate (D) at (4, 0);
+            \coordinate (E) at (2.5, 2.5);
+            \coordinate (C) at (8, 0);
+            \coordinate (F) at (5, 5);
+            \coordinate (D) at (4,0)
+            \draw[thick] (A) -- (D) -- (E) -- cycle;
         \end{tikzpicture}
         \caption{Quadrisection of the triangle bounded by \(\Delta\).}
         \label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
-    \end{figure} Quadrisect the triangle bounded by \(\Delta\) into four triangles with boundaries \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\) as in
+    \end{figure} Then define \(M\) to be \[M=\abs{\int_{\Delta}f(z)\ddz}.\]
+    Quadrisect the triangle bounded by \(\Delta\) into four triangles with boundaries \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\) as in \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}.
+
 \end{proof}
 \end{document}
