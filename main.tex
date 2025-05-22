@@ -458,7 +458,16 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     By \autoref{lemma:integralpiecewisesmoothtopolygonalchain}, \(\forall\varepsilon>0\), there is a polygonal chain \(P\) where \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\] The statement we aim to prove is equivalent to proving that \[\int_{P}f(z)\ddz=0.\]
     \begin{figure}
         \centering
-        \includegraphics[width=0.5\linewidth]{}
+        \begin{tikzpicture}
+            \coordinate (A) at (0, 4);
+            \coordinate (B) at (5, 0);
+            \coordinate (C) at (8, 3);
+            \coordinate (D) at (7, 8);
+            \coordinate (E) at (3, 8);
+            \draw[black, thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
+            \draw[black, thick] (B) -- (E);
+            \draw[black, thick] (C) -- (E);
+        \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations shown.}
         \label{fig:enter-label}
     \end{figure}
