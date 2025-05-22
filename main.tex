@@ -99,7 +99,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
 
-    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\|z\|>R\). Consider the collection of open sets \[\mathcal{U}=\{D(0,k)\mid \forall k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then there exists a finite subcover \(\{D(0,k_1),\ldots,D(0,k_m)\}\) covering \(X\). Then, \[X\subseteq\bigcup_{i=1}^mD(0,k_i)=D(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
+    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\|z\|>R\). Consider the collection of open sets \[\mathcal{U}=\{D(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then there exists a finite subcover \(\{D(0,k_1),\ldots,D(0,k_m)\}\) covering \(X\). Then, \[X\subseteq\bigcup_{i=1}^mD(0,k_i)=D(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
 
     \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\] By assumption, there exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k_i}\right)\;\middle|\; i=1,2,\ldots,m\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right),\]
@@ -140,7 +140,7 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \end{theorem}
 Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
 \begin{theorem}[Gradient Theorem]\label{thm:gradient}
-    Let \(C\) be a oriented smooth curve in \(\mathbb{R}^3\) with boundary points \(A\) to \(B\). Then
+    Let \(C\) be an oriented smooth curve in \(\mathbb{R}^3\) with boundary points \(A\) to \(B\). Then
     \[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
 \end{theorem}
 \begin{theorem}[Green's Theorem]\label{thm:realgreen}
@@ -449,6 +449,9 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \int_{\Gamma}f(z)\ddz
     \end{equation*} can be approximated with the Riemann sum \[S=\sum_{k=0}^{n-1}f\paren{z_k}\Delta z_k\] where \[\Delta z_k=z_{k+1}-z_k=\int_{\gamma_k}\ddz=\int_{l_k}\ddz.\]
     Then the sum above can be written as \[S=\sum_{k=0}^{n-1}\int_{\gamma_k}f\paren{z_k}\ddz=\sum_{k=0}^{n-1}\int_{l_k}f\paren{z_k}\ddz,\] and it follows that \[\abs{\int_{\Gamma}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{\gamma_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon \mu(\Gamma)\] and \[\abs{\int_{P}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{l_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon \mu(P)<\varepsilon \mu(\Gamma)\] where \(\mu(\Gamma)\) is the length of \(\Gamma\) and \(\mu(P)\) is the length of \(P\).
-    Then, \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}\leq\abs{\int_{\Gamma}f(z)\ddz-S}+\abs{\int_{P}f(z)\ddz-S}\leq 2\varepsilon\mu(\Gamma).\]
+    Then, \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}\leq\abs{\int_{\Gamma}f(z)\ddz-S}+\abs{\int_{P}f(z)\ddz-S}\leq 2\varepsilon\mu(\Gamma),\] which proves the result.
 \end{proof}
+\begin{lemma}
+    For a holomorphic function \(f(z)\) on a simply connected set \(U\subseteq\mathbb{C}\).
+\end{lemma}
 \end{document}
