@@ -5,6 +5,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{calc, arrows.meta}
+\usetikzlibrary{hobby}
 \usepackage[italicdiff]{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -569,13 +570,13 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \begin{tikzpicture}
             \coordinate (M) at (0, 3);
             \coordinate (P) at (0, 7);
-            \coordinate (Q) at (3.5, 7);
-            \coordinate (N) at (3.5, 3);
+            \coordinate (Q) at (3.5, 6.5);
+            \coordinate (N) at (3.5, 4);
 
             \draw[thick] (M) -- (P);
-            \draw[thick] plot[smooth] coordinates {
-            
-            };
+            \draw[thick] (P) to[out angle=90, in angle=90, curve through = {([shift={(1, 0.5)}] P) ([shift={(2, 0)}] P)}] (Q);
+            \draw[thick] (Q) -- (N);
+            \draw[thick] (M) to[out angle=270, in angle=270, curve through = {([shift={(1, 0.2)}] M) ([shift={(2, 0)}] M)}] (N);
         \end{tikzpicture}
         \caption{}
         \label{fig:cauchygoursattheorem_simplifiedregion}
