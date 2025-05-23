@@ -551,16 +551,29 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 \begin{proof}
     \begin{figure}
         \centering
-        \begin{tikzpicture}
+        \begin{tikzpicture}[>=stealth,
+            arrow style/.style={
+                postaction={decorate},
+                decoration={markings, mark=at position 0.5 with {\arrow{>}}}
+            }]
+
             \coordinate (M) at (1, 1);
             \coordinate (P) at (1, 3.5);
             \coordinate (Q) at (5, 4);
             \coordinate (N) at (5, 1.5);
+            
+            \draw[->, thick] (0, 0) -- (6, 0);
+            \draw[->, thick] (0, 0) -- (0, 6);
 
-            \draw[thick] (M) -- (P);
-            \draw[thick] (P) to[out angle=90, in angle=90, curve through = {([shift={(1, 0.2)}] P) ([shift={(2, 0)}] P)}] (Q);
-            \draw[thick] (Q) -- (N);
-            \draw[thick] (N) to[out angle=270, in angle=270, curve through = {([shift={(-1, -0.2)}] N) ([shift={(-2, 0)}] N)}] (M);
+            \draw[thick, arrow style] (P) -- (M);
+            \draw[thick, arrow style] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P)}] (P);
+            \draw[thick, arrow style] (N) -- (Q);
+            \draw[thick, arrow style] (M) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2)}] N)}] (N);
+
+            \node[anchor=north east] at (M) {\(M\)};
+            \node[anchor=south east] at (P) {\(P\)};
+            \node[anchor=south west] at (Q) {\(Q\)};
+            \node[anchor=north west] at (N) {\(N\)};
         \end{tikzpicture}
         \caption{}
         \label{fig:cauchygoursattheorem_simplifiedregion}
