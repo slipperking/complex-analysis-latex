@@ -2,10 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{tikz}
-\usetikzlibrary{calc}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{calc, arrows.meta}
-\usetikzlibrary{hobby}
+\usetikzlibrary{decorations.markings, calc, arrows.meta, hobby}
 \usepackage[italicdiff]{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -555,15 +552,20 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \coordinate (M) at (0, 3);
-            \coordinate (P) at (0, 7);
-            \coordinate (Q) at (4, 6.5);
-            \coordinate (N) at (4, 4);
+            orientation indication/.style={
+                postaction={decorate},
+                decoration={markings, mark=at position 0.5 with {\arrow{>}}}
+            }]
+        
+            \coordinate (M) at (1, 1);
+            \coordinate (P) at (1, 5);
+            \coordinate (Q) at (5, 4.5);
+            \coordinate (N) at (5, 2);
 
-            \draw[thick] (M) -- (P);
-            \draw[thick] (P) to[out angle=90, in angle=90, curve through = {([shift={(1, 0.5)}] P) ([shift={(2, 0)}] P)}] (Q);
-            \draw[thick] (Q) -- (N);
-            \draw[thick] (M) to[out angle=270, in angle=270, curve through = {([shift={(1, 0.2)}] M) ([shift={(2, 0)}] M)}] (N);
+            \draw[thick, orientation indication] (M) -- (P);
+            \draw[thick, orientation indication] (P) to[out angle=90, in angle=90, curve through = {([shift={(1, 0.5)}] P) ([shift={(2, 0)}] P)}] (Q);
+            \draw[thick, orientation indication] (Q) -- (N);
+            \draw[thick, orientation indication] (M) to[out angle=270, in angle=270, curve through = {([shift={(1, 0.2)}] M) ([shift={(2, 0)}] M)}] (N);
         \end{tikzpicture}
         \caption{}
         \label{fig:cauchygoursattheorem_simplifiedregion}
