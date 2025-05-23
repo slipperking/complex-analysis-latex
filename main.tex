@@ -554,7 +554,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \begin{tikzpicture}[>=stealth,
             arrow style/.style={
                 postaction={decorate},
-                decoration={markings, mark=at position 0.5 with {\arrow[scale=0.8]{>}}}
+                decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
             }]
 
             \coordinate (M) at (1, 1);
@@ -562,10 +562,12 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (Q) at (5, 4);
             \coordinate (N) at (5, 1.5);
             
-            \draw[->, thick] (0, 0) -- (6, 0);
-            \draw[->, thick] (0, 0) -- (0, 6);
+            \draw[-{Stealth}, thick] (0, 0) -- (6, 0);
+            \draw[-{Stealth}, thick] (0, 0) -- (0, 6);
 
             \draw[thick, arrow style] (P) -- (M);
+            \path let \p1 = (M) in coordinate (Mxint) at (\x1, 0);
+            \draw[dashed, arrow style] (M) -- (Mxint);
             \draw[thick, arrow style] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P)}] (P);
             \draw[thick, arrow style] (N) -- (Q);
             \draw[thick, arrow style] (M) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2)}] N)}] (N);
