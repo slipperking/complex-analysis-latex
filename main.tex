@@ -216,8 +216,8 @@ A portion of calculus is dedicated to rigorously defining concepts such as limit
     The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{example}
 \begin{proof}
-    If \(f(x)\) is not uniformly continuous over \((0,1)\), then \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) such that \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\). 
-    
+    If \(f(x)\) is not uniformly continuous over \((0,1)\), then \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) such that \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\).
+
     Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{proof}
 \begin{lemma}\label{lemma:uniformcontinuousovercompactset}
@@ -278,7 +278,7 @@ If a function \(f(z)\) is complex differentiable over an open neighborhood of \(
     The necessary and sufficient criterion for a function \(f(z)\) to be holomorphic on a region \(D\) is if \(f(z)\in C^1(D)\) and it satisfies the Cauchy--Riemann equations.
 \end{theorem}
 \begin{proof}
-    The first part is to prove that any holomorphic function over \(D\) has continuous first-order partial derivatives over \(D\). This requires an argument that will be covered later, which claims that the complex derivative of any holomorphic function is also holomorphic over the region. 
+    The first part is to prove that any holomorphic function over \(D\) has continuous first-order partial derivatives over \(D\). This requires an argument that will be covered later, which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
 
     For the second part, let \(f(z)=f(x,y)=u(x,y)+iv(x,y)\). Assume that \(u,v\in C^1\paren{\{z_0\}}\) and satisfy the Cauchy--Riemann equations at \(z_0=x_0+iy_0\). Let \[\alpha=\pdv{u}{x}\paren{x_0,y_0}=\pdv{v}{y}\paren{x_0,y_0},\quad\beta=\pdv{v}{x}\paren{x_0,y_0}=-\pdv{u}{y}\paren{x_0,y_0}.\]
 
@@ -315,9 +315,9 @@ Conversely, by the rules of the derivative, \begin{equation*}
 \end{equation*}
 
 The Laplacian is equal to \begin{align*}
-    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y}&=\paren{\pdv{}{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{}{z}-i\pdv{}{\overline{z}}}^2\\
-    &=\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}\\
-    &=4\pdv[2]{}{z}{\overline{z}}.
+    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{}{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{}{z}-i\pdv{}{\overline{z}}}^2                                               \\
+                                     & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \\
+                                     & =4\pdv[2]{}{z}{\overline{z}}.
 \end{align*}
 \subsection{Complex Power Series}
 \subsection{Elementary Functions}
@@ -325,8 +325,8 @@ The Laplacian is equal to \begin{align*}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
 \[\ddz=\ddx+i\ddy,\quad\dd{\overline{z}}=\ddx-i\ddy.\]
 The antisymmetric properties of differential forms still hold in complex space. By taking the wedge product of the two basis complex differential forms, we get \begin{align*}
-    \dd{\overline{z}}\wedge\ddz&=\paren{\ddx-i\ddy}\wedge\paren{\ddx+i\ddy}\\
-    &=2i\ddx\wedge\ddy.
+    \dd{\overline{z}}\wedge\ddz & =\paren{\ddx-i\ddy}\wedge\paren{\ddx+i\ddy} \\
+                                & =2i\ddx\wedge\ddy.
 \end{align*}
 Analogous to the real case, a 0-form is defined as a scalar-valued function in the form \(f\paren{z,\overline{z}}\), a 1-form in the form of \(\omega_0\ddz+\omega_1\dd{\overline{z}}\), and a 2-form as \(\omega_0\ddz\wedge\dd{\overline{z}}\). The exterior differential operator for this one-dimensional case is defined as \(\partial+\overline{\partial}\), where \(\partial=\ddz\wedge\pdv{}{z}\) and \(\overline{\partial}=\dd{\overline{z}}\wedge\pdv{}{\overline{z}}\). Occasionally, people will informally use \(\partial\) and \(\overline{\partial}\) as an abbreviation for \(\pdv{}{z}\) and \(\pdv{}{\overline{z}}\) respectively.
 \begin{theorem}[Green's Theorem, Complex Form]\label{thm:complexgreen}
@@ -339,17 +339,17 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     For real-valued functions \(\xi_1,\xi_2,\eta_1,\eta_2\), let \[\omega_1=\xi_1+i\eta_1,\quad\omega_2=\xi_2+i\eta_2.\]
     Then,
     \begin{align}
-        \omega&=\paren{\xi_1+i\eta_1}\ddz+\paren{\xi_2+i\eta_2}\dd{\overline{z}}\label{eq:complexgreen_omegaexpansionintermediate}\\
-        &=\paren{\xi_1+i\eta_1}\paren{\ddx+i\ddy}+\paren{\xi_2+i\eta_2}\paren{\ddx-i\ddy}\nonumber\\
-        &=\xi_1\ddx+i\eta_1\ddx+i\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+i\eta_2\ddx-i\xi_2\ddy+\eta_2\ddy\nonumber\\
-        &=\brackets{\paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy}+i\brackets{\paren{\eta_1+\eta_2}\ddx+\paren{\xi_1-\xi_2}\ddy}\label{eq:complexgreen_realandcomplexdxdyintermediate}
+        \omega & =\paren{\xi_1+i\eta_1}\ddz+\paren{\xi_2+i\eta_2}\dd{\overline{z}}\label{eq:complexgreen_omegaexpansionintermediate}                                                               \\
+               & =\paren{\xi_1+i\eta_1}\paren{\ddx+i\ddy}+\paren{\xi_2+i\eta_2}\paren{\ddx-i\ddy}\nonumber                                                                                         \\
+               & =\xi_1\ddx+i\eta_1\ddx+i\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+i\eta_2\ddx-i\xi_2\ddy+\eta_2\ddy\nonumber                                                                                 \\
+               & =\brackets{\paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy}+i\brackets{\paren{\eta_1+\eta_2}\ddx+\paren{\xi_1-\xi_2}\ddy}\label{eq:complexgreen_realandcomplexdxdyintermediate}
     \end{align}
     Each of \(\xi_1,\xi_2,\eta_1,\eta_2\) are real valued functions that can be represented with a domain of \(\mathbb{R}^2\). We then will apply the \(d=\partial+\overline{\partial}\) definition of the exterior derivative and relate it to \eqref{eq:complexgreen}. Starting with equation \eqref{eq:complexgreen_omegaexpansionintermediate}, \begin{align}
-        \dd{\omega}&=\paren{\partial+\overline{\partial}}\paren{\xi_1+i\eta_1}\ddz+\paren{\partial+\overline{\partial}}\paren{\xi_2+i\eta_2}\dd{\overline{z}}\nonumber\\
-        &=\paren{\pdv{\xi_1}{\overline{z}}+i\pdv{\eta_1}{\overline{z}}}\dd{\overline{z}}\wedge\ddz+\paren{\pdv{\xi_2}{z}+i\pdv{\eta_2}{z}}\ddz\wedge\dd{\overline{z}}\nonumber\\
-        &=2\paren{i\pdv{\xi_1}{\overline{z}}-\pdv{\eta_1}{\overline{z}}-i\pdv{\xi_2}{z}+\pdv{\eta_2}{z}}\ddx\wedge\ddy\nonumber\\
-        &=\paren{i\pdv{\xi_1}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-i\pdv{\eta_1}{y}-i\pdv{\xi_2}{x}-\pdv{\xi_2}{y}+\pdv{\eta_2}{x}-i\pdv{\eta_2}{y}}\ddx\wedge\ddy\nonumber\\
-        &=\paren{\pdv{\eta_2}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\pdv{\xi_2}{y}}\ddx\wedge\ddy+i\paren{\pdv{\xi_1}{x}-\pdv{\eta_1}{y}-\pdv{\xi_2}{x}-\pdv{\eta_2}{y}}\ddx\wedge\ddy.\label{eq:complexgreen_exteriorderivativeresult}
+        \dd{\omega} & =\paren{\partial+\overline{\partial}}\paren{\xi_1+i\eta_1}\ddz+\paren{\partial+\overline{\partial}}\paren{\xi_2+i\eta_2}\dd{\overline{z}}\nonumber                                                                         \\
+                    & =\paren{\pdv{\xi_1}{\overline{z}}+i\pdv{\eta_1}{\overline{z}}}\dd{\overline{z}}\wedge\ddz+\paren{\pdv{\xi_2}{z}+i\pdv{\eta_2}{z}}\ddz\wedge\dd{\overline{z}}\nonumber                                                      \\
+                    & =2\paren{i\pdv{\xi_1}{\overline{z}}-\pdv{\eta_1}{\overline{z}}-i\pdv{\xi_2}{z}+\pdv{\eta_2}{z}}\ddx\wedge\ddy\nonumber                                                                                                     \\
+                    & =\paren{i\pdv{\xi_1}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-i\pdv{\eta_1}{y}-i\pdv{\xi_2}{x}-\pdv{\xi_2}{y}+\pdv{\eta_2}{x}-i\pdv{\eta_2}{y}}\ddx\wedge\ddy\nonumber                                                            \\
+                    & =\paren{\pdv{\eta_2}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\pdv{\xi_2}{y}}\ddx\wedge\ddy+i\paren{\pdv{\xi_1}{x}-\pdv{\eta_1}{y}-\pdv{\xi_2}{x}-\pdv{\eta_2}{y}}\ddx\wedge\ddy.\label{eq:complexgreen_exteriorderivativeresult}
     \end{align}
     From equation \eqref{eq:complexgreen_realandcomplexdxdyintermediate}, we can apply \autoref{thm:realgreen}. For the real component of \(\omega\), we obtain
     \[\int_{\partial U} \paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy=\iint_U\paren{\pdv{\eta_2}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\pdv{\xi_2}{y}}\ddx\ddy,\]
@@ -385,14 +385,14 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
     By a change of variables to a polar coordinate system centered around \(z\), we obtain
     \[M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{re^{i\theta}}\dd{\paren{z+re^{-i\theta}}}\wedge\dd{\paren{z+re^{i\theta}}}},\] and by expansion of the wedge product,
     \begin{align}
-        M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{2i}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}&=2M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}\label{eq:pompeiu_weaksingularityvanishes}\\
-        &=2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\pi}\int_0^\varepsilon e^{-i\theta}\dd{r}\dd{\theta}}\nonumber\\
-        &=0.\nonumber
+        M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{2i}{e^{i\theta}}\dd{r}\wedge\dd{\theta}} & =2M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{e^{i\theta}}\dd{r}\wedge\dd{\theta}}\label{eq:pompeiu_weaksingularityvanishes} \\
+                                                                                                           & =2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\pi}\int_0^\varepsilon e^{-i\theta}\dd{r}\dd{\theta}}\nonumber                                        \\
+                                                                                                           & =0.\nonumber
     \end{align}
     Then from rearranging \eqref{eq:pompeiu_epsilonlimitintermediate}, we obtain:
     \[f(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
 \end{proof}
-In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disk of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\). As in the proof above, the steps calculating the integral over the removed disk as in equation \eqref{eq:pompeiu_areadiskstatement} are still necessary in confirming although they are typically implicitly elided. 
+In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disk of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\). As in the proof above, the steps calculating the integral over the removed disk as in equation \eqref{eq:pompeiu_areadiskstatement} are still necessary in confirming although they are typically implicitly elided.
 
 From the above result, we can directly obtain the following theorem:
 \begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
@@ -419,7 +419,7 @@ From the above result, we can directly obtain the following theorem:
 \end{theorem}
 \begin{proof}
     We aim to prove the theorem in three parts: the continuity of \(u(z)\), the continuous differentiability of \(u(z)\), and the fact that it satisfies the differential equation \(\pdv{u(z)}{\overline{z}}=\psi(z)\).
-    
+
     Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(D\paren{z,\varepsilon}\). \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\pi i}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\pi i}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\] Therefore, \eqref{eq:onedimensionalpartialconjugatesolution} is continuous. Let \(\xi=\zeta-z\) and observe that \[u(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z)}{\xi}\dd{\xi}\wedge\dd{\overline{\xi}}\] Then, \begin{equation}
         \frac{u(z+h)-u\paren{z}}{h}=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h\xi}\dd{\xi}\wedge\dd{\overline{\xi}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
@@ -436,7 +436,7 @@ From the above result, we can directly obtain the following theorem:
 \begin{remark}
     In the first part, we established that a function \(\psi(z)\in C^0(\mathbb{C})\) with compact support satisfies \[u(z)=-\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\in C^0(\mathbb{C})\]
     If \(\psi(z)\in C^1(\mathbb{C})\), then the first order derivatives of \(u(z)\) can be written in the same form (equations \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative} and \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}) since \(\pdv{\psi}{\alpha},\pdv{\psi}{\beta}\in C^0(\mathbb{C})\) and are also compactly supported. Then they too are continuous functions, and \(u(z)\in C^1(\mathbb{C})\)
-    
+
     Then using the same argument, In general, for \(\psi(z)\in C^k(\mathbb{C})\), the same process can be used recursively to find that \(u(z)\in C^k(\mathbb{C})\) as well.
 \end{remark}
 \subsection{The Cauchy--Goursat Theorem}
@@ -466,18 +466,18 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     \end{equation}
 \end{lemma}
 \begin{proof}
-    By \autoref{lemma:integralpiecewisesmoothtopolygonalchain}, \(\forall\varepsilon>0\), there is a polygonal chain \(P\) where 
+    By \autoref{lemma:integralpiecewisesmoothtopolygonalchain}, \(\forall\varepsilon>0\), there is a polygonal chain \(P\) where
     \begin{equation}
         \abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\label{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition}
     \end{equation} The statement we aim to prove is equivalent to proving that \[\int_{P}f(z)\ddz=0.\]
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \coordinate (A) at (0, 4);
-            \coordinate (B) at (5, 0);
-            \coordinate (C) at (8, 3);
-            \coordinate (D) at (7, 8);
-            \coordinate (E) at (3, 8);
+            \coordinate (A) at (0, 2.67);
+            \coordinate (B) at (3.33, 0);
+            \coordinate (C) at (5.33, 2);
+            \coordinate (D) at (4.67, 5.33);
+            \coordinate (E) at (2, 5.33);
             \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
             \draw[thick] (B) -- (E);
             \draw[thick] (C) -- (E);
@@ -491,18 +491,18 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \halfarrow{[yshift=-7pt]D}{[yshift=-7pt]E}
             \halfarrow{[xshift=-7.14pt]C}{[xshift=-7.14pt]D}
 
-            \node[left] at (A) {\(A\)};
-            \node[above, xshift=3pt, yshift=5pt] at (B) {\(B\)};
-            \node[left, xshift=-4pt, yshift=-1pt] at (C) {\(C\)};
-            \node[below left] at (D) {\(D\)};
-            \node[left, xshift=-2pt] at (E) {\(E\)};
+            \node[anchor=east] at (A) {\(A\)};
+            \node[anchor=north] at (B) {\(B\)};
+            \node[anchor=west] at (C) {\(C\)};
+            \node[anchor=south] at (D) {\(D\)};
+            \node[anchor=south] at (E) {\(E\)};
         \end{tikzpicture}
         \caption{A closed polygonal chain internally triangulated, with orientations marked.}
         \label{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}
-    \end{figure} Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then, \begin{align*}
-        \int_{\partial ABCDE}f(z)\ddz&=\int_{\overrightarrow{AB}}f(z)\ddz+\int_{\overrightarrow{BC}}f(z)\ddz+\int_{\overrightarrow{CD}}f(z)\ddz+\int_{\overrightarrow{DE}}f(z)\ddz+\int_{\overrightarrow{EA}}f(z)\ddz\\
-        &\quad+\int_{\overrightarrow{BE}}f(z)\ddz+\int_{\overrightarrow{EB}}f(z)\ddz+\int_{\overrightarrow{CE}}f(z)\ddz+\int_{\overrightarrow{EC}}f(z)\ddz\\
-        &=\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
+    \end{figure}Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then, \begin{align*}
+        \int_{\partial ABCDE}f(z)\ddz & =\int_{\overrightarrow{AB}}f(z)\ddz+\int_{\overrightarrow{BC}}f(z)\ddz+\int_{\overrightarrow{CD}}f(z)\ddz+\int_{\overrightarrow{DE}}f(z)\ddz+\int_{\overrightarrow{EA}}f(z)\ddz \\
+                                      & \quad+\int_{\overrightarrow{BE}}f(z)\ddz+\int_{\overrightarrow{EB}}f(z)\ddz+\int_{\overrightarrow{CE}}f(z)\ddz+\int_{\overrightarrow{EC}}f(z)\ddz                               \\
+                                      & =\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
     \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle in \(U\) with boundary \(\Delta\). \begin{figure}
         \centering
         \begin{tikzpicture}
@@ -512,7 +512,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (C) at (8, 0);
             \coordinate (B) at (5, 5);
             \coordinate (E) at (4, 0);
-            
+
             \draw[thick] (A) -- (F) -- (E) -- cycle;
             \draw[thick] (B) -- (D) -- (F) -- cycle;
             \draw[thick] (C) -- (D) -- (E) -- cycle;
@@ -526,7 +526,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \halfarrow{[shift={(-4.41pt, -7.64pt)}]D}{[shift={(-4.41pt, -7.64pt)}]B};
             \halfarrow{[shift={(-4.41pt, -7.64pt)}]C}{[shift={(-4.41pt, -7.64pt)}]D};
             \halfarrow{[shift={(4.41pt, 7.64pt)}]F}{[shift={(4.41pt, 7.64pt)}]E};
-            
+
             \halfarrow{[yshift=7.64pt]A}{[yshift=7.64pt]E};
             \halfarrow{[yshift=7.64pt]E}{[yshift=7.64pt]C};
             \halfarrow{[yshift=7.64pt]F}{[yshift=7.64pt]D};
@@ -537,18 +537,18 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (FD) at ($(F)!0.5!(D)$);
             \coordinate (BF) at ($(B)!0.5!(F)$);
             \coordinate (EC) at ($(E)!0.5!(C)$);
-            
+
             \path let
-                \p1 = (FD),
-                \p2 = (BF),
-                \p3 = (AE),
-                \p4 = (AF),
-                \p5 = (EC)
+            \p1 = (FD),
+            \p2 = (BF),
+            \p3 = (AE),
+            \p4 = (AF),
+            \p5 = (EC)
             in
-                node[shift={(5pt,-5pt)}] at (\x1, \y2) {\(\Delta_1\)}
-                node[shift={(5pt,-5pt)}] at (\x3, \y4) {\(\Delta_2\)}
-                node[shift={(5pt,-5pt)}] at (\x5, \y4) {\(\Delta_3\)}
-                node[shift={(-5pt, 5pt)}] at (\x1, \y4) {\(\Delta_3\)};
+            node[shift={(5pt,-5pt)}] at (\x1, \y2) {\(\Delta_1\)}
+            node[shift={(5pt,-5pt)}] at (\x3, \y4) {\(\Delta_2\)}
+            node[shift={(5pt,-5pt)}] at (\x5, \y4) {\(\Delta_3\)}
+            node[shift={(-5pt, 5pt)}] at (\x1, \y4) {\(\Delta_3\)};
         \end{tikzpicture}
         \caption{Quadrisection of the triangle bounded by \(\Delta\).}
         \label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
