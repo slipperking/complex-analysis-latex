@@ -562,20 +562,28 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (Q) at (5, 4);
             \coordinate (N) at (5, 1.5);
             
-            \draw[-{Stealth}, thick] (0, 0) -- (6, 0);
-            \draw[-{Stealth}, thick] (0, 0) -- (0, 6);
+            \draw[-{Stealth}, thick] (-0.5, 0) -- (6, 0);
+            \draw[-{Stealth}, thick] (0, -0.5) -- (0, 6);
 
             \draw[thick, arrow style] (P) -- (M);
-            \path let \p1 = (M) in coordinate (Mxint) at (\x1, 0);
-            \draw[dashed, arrow style] (M) -- (Mxint);
             \draw[thick, arrow style] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P)}] (P);
             \draw[thick, arrow style] (N) -- (Q);
             \draw[thick, arrow style] (M) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2)}] N)}] (N);
 
+            \path let \p1 = (M) in coordinate (Leftxint) at (\x1, 0);
+            \draw[dashed] (M) -- (Leftxint);
+            \path let \p1 = (N) in coordinate (Rightxint) at (\x1, 0);
+            \draw[dashed] (N) -- (Rightxint);
+
             \node[anchor=north east] at (M) {\(M\)};
+            \node[anchor=north] at (Leftxint) {\(a\)};
+            \node[anchor=north] at (Rightxint) {\(b\)};
             \node[anchor=south east] at (P) {\(P\)};
             \node[anchor=south west] at (Q) {\(Q\)};
             \node[anchor=north west] at (N) {\(N\)};
+
+            \node[anchor=north, xshift=-2pt] at (6, 0) {\(x\)};
+            \node[anchor=east, yshift=-2pt] at (0, 6) {\(y\)};
         \end{tikzpicture}
         \caption{}
         \label{fig:cauchygoursattheorem_simplifiedregion}
