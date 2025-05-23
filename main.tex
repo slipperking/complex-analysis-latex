@@ -26,19 +26,6 @@
 \usepgfplotslibrary{fillbetween}
 \usetikzlibrary{patterns}
 
-\pgfplotsset{compat=1.18}
-\pgfplotsset{
-    every axis/.append style={
-        axis on top=true,
-        axis x line=middle,
-        axis y line=middle,
-        axis equal,
-        axis line style={<->,color=black}, 
-        xlabel={\(x\)},
-        ylabel={\(y\)},
-    }
-}
-
 \newcommand{\halfarrow}[2]{%
   \path (#1) -- (#2) coordinate[pos=0.25] (Pstart) coordinate[pos=0.75] (Pend);
   \draw[-{Stealth}, thick, black] (Pstart) -- (Pend);
@@ -570,8 +557,8 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \begin{tikzpicture}
             \coordinate (M) at (0, 3);
             \coordinate (P) at (0, 7);
-            \coordinate (Q) at (3.5, 6.5);
-            \coordinate (N) at (3.5, 4);
+            \coordinate (Q) at (4, 6.5);
+            \coordinate (N) at (4, 4);
 
             \draw[thick] (M) -- (P);
             \draw[thick] (P) to[out angle=90, in angle=90, curve through = {([shift={(1, 0.5)}] P) ([shift={(2, 0)}] P)}] (Q);
