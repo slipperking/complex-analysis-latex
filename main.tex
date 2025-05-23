@@ -441,15 +441,6 @@ From the above result, we can directly obtain the following theorem:
 \end{remark}
 \subsection{The Cauchy--Goursat Theorem}
 When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives, and this condition was dropped by Goursat using an argument involving the triangulation of polygonal chains.
-\begin{theorem}[Cauchy--Goursat Integral Formula]\label{thm:cauchygoursatformula}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U \), and let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then for all \(z\in U\),
-    \begin{equation}
-        f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchygoursatformula}
-    \end{equation}
-\end{theorem}
-\begin{theorem}[Cauchy--Goursat Integral Theorem]\label{thm:cauchygoursattheorem}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
-\end{theorem}
 \begin{lemma}\label{lemma:integralpiecewisesmoothtopolygonalchain}
     Let \(f:G\to\mathbb{C}\) be a continuous function defined for a region \(G\subseteq\mathbb{C}\). Let \(\Gamma\subset G\) be a rectifiable piecewise smooth curve. Then \(\forall\varepsilon>0\), there exists a polygonal chain \(P\subset G\) inscribing \(\Gamma\) (each vertex lies on \(\Gamma\)) where \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\]
 \end{lemma}
@@ -569,4 +560,16 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Because the distance between any two points in the interior of a triangle is always less than its perimeter, using the triangle inequality for complex integrals, \[\int_{\Delta^n}\abs{f(z)}\abs{\ddz}\leq\varepsilon\int_{\Delta^n}\abs{z-z_0}\abs{\ddz}=\frac{\varepsilon L}{2^n}\int_{\Delta^n}\abs{\ddz}=\frac{\varepsilon L^2}{4^n}.\]
     Comparing the above equation with equation \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_trianglelowerbound}, \[\frac{M}{4^n}<\frac{\varepsilon L}{4^n},\quad M<\varepsilon L.\] Since \(\Delta\) is rectifiable, \(L\) is finite, and letting \(\varepsilon\to0\), we find that \(M\to0\). For every triangle in \(U\), the integral vanishes, and equations \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement} and \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition} follow.
 \end{proof}
+\begin{theorem}[Cauchy--Goursat Integral Theorem]\label{thm:cauchygoursattheorem}
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+\begin{theorem}[Cauchy--Goursat Integral Formula]\label{thm:cauchygoursatformula}
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U \), and let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then for all \(z\in U\),
+    \begin{equation}
+        f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchygoursatformula}
+    \end{equation}
+\end{theorem}
 \end{document}
