@@ -557,7 +557,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
-    Since \(\partial U\notin U\), we cannot directly apply. However, \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}
+    Since \(\partial U\notin U\) and \(f(z)\) is not necessarily holomorphic over \(\overline{U}\), we cannot directly apply \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}.
     \begin{figure}
         \centering
         \begin{tikzpicture}[>=stealth,
@@ -623,7 +623,10 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \caption{A simplified region containing two vertical lines and two continuous, rectifiable curves.}
         \label{fig:cauchygoursattheorem_simplifiedregion}
     \end{figure}
+
     First assume \(U\) has the shape of \(MNQP\) in \autoref{fig:cauchygoursattheorem_simplifiedregion}. That is, \(U\) consists of \(x=a\), \(x=b\) for \(a<b\), and two rectifiable \(C^1\) curves \(\overrightarrow{MN}:y=\varphi(x)\) and \(\overrightarrow{QP}:\psi(x)\) such that \(\varphi(x)<\psi(x)\), \(\forall a\le x\le b\).
+
+    For some \(\varepsilon>0\), \(\eta>0\), construct a new curve \(M_1'N_1'Q_1'P_1'\) to be the boundary of the region bounded by \(P_1M_1:x=a+\varepsilon\), \(N_1Q_1:b-\varepsilon\), \(M'N':\varphi(x)+\eta\), and \(Q'P': \psi(x)-\)
 \end{proof}
 \begin{theorem}[Cauchy--Goursat Integral Formula]\label{thm:cauchygoursatformula}
     Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U \), and let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then for all \(z\in U\),
