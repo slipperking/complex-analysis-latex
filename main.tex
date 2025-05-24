@@ -556,14 +556,16 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
                 postaction={decorate},
                 decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
             }]
-            \pgfmathsetmacro{\eta}{1}
+            \pgfmathsetmacro{\eta}{15pt}
 
             \coordinate (M) at (1, 1);
-            \coordinate (Mprime) at ([yshift=\eta] M);
-            \coordinate (Nprime) at ([yshift=\eta] N);
             \coordinate (P) at (1, 3.5);
             \coordinate (Q) at (5, 4);
             \coordinate (N) at (5, 1.5);
+            \coordinate (Mprime) at ([yshift=\eta] M);
+            \coordinate (Pprime) at ([yshift=\eta] P);
+            \coordinate (Qprime) at ([yshift=\eta] Q);
+            \coordinate (Nprime) at ([yshift=\eta] N);
             
             \draw[-{Stealth}, thick] (-0.5, 0) -- (6, 0);
             \draw[-{Stealth}, thick] (0, -0.5) -- (0, 6);
@@ -572,6 +574,8 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \draw[thick, arrow style] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P)}] (P);
             \draw[thick, arrow style] (N) -- (Q);
             \draw[thick, arrow style] (M) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2)}] N)}] (N);
+
+            \draw[thick, arrow style] (Mprime) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] Nprime) ([shift={(-1.5, -0.2)}] Nprime)}] (Nprime);
 
             \path let \p1 = (M) in coordinate (Leftxint) at (\x1, 0);
             \draw[dashed] (M) -- (Leftxint);
