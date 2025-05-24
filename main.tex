@@ -381,7 +381,7 @@ In complex analysis, when integrating over a region that contains a singularity,
 
 From the above result, we can directly obtain the following theorem:
 \begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a \(C^1\) boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
     \begin{equation}
         f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
     \end{equation}
@@ -390,7 +390,7 @@ From the above result, we can directly obtain the following theorem:
     By equation \eqref{eq:wirtingerderivative2}, for \(f\paren{\zeta,\overline{\zeta}}\), \(\pdv{f}{\overline{\zeta}}=0\). Applying the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}), the area integral vanishes, and equation \eqref{eq:cauchyintegralformula} consequently follows.
 \end{proof}
 \begin{theorem}[Cauchy's Integral Theorem]\label{thm:cauchyintegraltheorem}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U\). For a function \(f(z)\in C^1\paren{\overline{U}}\) holomorphic over \(U\), \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a \(C^1\) boundary \(\partial U\). For a function \(f(z)\in C^1\paren{\overline{U}}\) holomorphic over \(U\), \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
     Let \(\psi(z)=zf(z)\). Applying \autoref{thm:cauchyintegralformula} on \(\psi(\zeta)\) with \(z=0\), we obtain \[0=\frac{1}{2\pi i}\oint\frac{\psi(\zeta)}{\zeta}\ddzeta=\frac{1}{2\pi i}\oint f\paren{\zeta}\ddzeta.\]
@@ -546,7 +546,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Comparing the above equation with equation \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_trianglelowerbound}, \[\frac{M}{4^n}<\frac{\varepsilon L}{4^n},\quad M<\varepsilon L.\] Since \(\Delta\) is rectifiable, \(L\) is finite, and letting \(\varepsilon\to0\), we find that \(M\to0\). For every triangle in \(U\), the integral vanishes, and equations \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement} and \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition} follow.
 \end{proof}
 \begin{theorem}[Cauchy--Goursat Integral Theorem]\label{thm:cauchygoursattheorem}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
     \begin{figure}
@@ -558,7 +558,6 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             }]
             \pgfmathsetmacro{\lengtheta}{18pt}
             \pgfmathsetmacro{\lengthepsilon}{20pt}
-
             \coordinate (M) at (1, 1.5);
             \coordinate (P) at (1, 4.2);
             \coordinate (Q) at (5, 4.4);
@@ -567,37 +566,28 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (Pprime) at ([yshift=-\lengtheta] P);
             \coordinate (Qprime) at ([yshift=-\lengtheta] Q);
             \coordinate (Nprime) at ([yshift=\lengtheta] N);
-            
             \draw[-{Stealth}, thick] (-0.5, 0) -- (6, 0);
             \draw[-{Stealth}, thick] (0, -0.5) -- (0, 6);
-
             \draw[thick, arrow style] (P) -- (M);
             \draw[thick, arrow style, name path=curveQP] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P)}] (P);
             \draw[thick, arrow style] (N) -- (Q);
             \draw[thick, arrow style, name path=curveMN] (M) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2)}] N)}] (N);
-
             \path let \p1 = (P) in coordinate (P1x) at ({\x1 + \lengthepsilon}, 0);
             \path let \p1 = (Q) in coordinate (Q1x) at ({\x1 - \lengthepsilon}, 0);
-
             \path[name path=verticalleftmarker](P1x) -- (P1x |- 0, 6);
             \path[name path=verticalrightmarker](Q1x) -- (Q1x |- 0, 6);
-
             \path[name intersections={of=curveQP and verticalleftmarker, by=P1}];
             \path[name intersections={of=curveMN and verticalleftmarker, by=M1}];
             \draw[thin] (M1) -- (P1);
-
             \path[name intersections={of=curveQP and verticalrightmarker, by=Q1}];
             \path[name intersections={of=curveMN and verticalrightmarker, by=N1}];
             \draw[thin] (N1) -- (Q1);
-            
             \draw[thin] (Mprime) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] Nprime) ([shift={(-1.5, -0.2)}] Nprime)}] (Nprime);
             \draw[thin] (Qprime) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] Pprime) ([shift={(1.5, 0.2)}] Pprime)}] (Pprime);
-
             \draw[dashed] (M) -- (M |- 0, 0);
             \draw[dashed] (N) -- (N |- 0, 0);
             \draw[dashed] (M1) -- (P1x);
             \draw[dashed] (N1) -- (Q1x);
-
             \node[anchor=north east] at (M) {\(M\)};
             \node[anchor=south east] at (P) {\(P\)};
             \node[anchor=south west] at (Q) {\(Q\)};
@@ -610,17 +600,14 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \node[anchor=south] at (P1) {\(P_1\)};
             \node[anchor=south] at (Q1) {\(Q_1\)};
             \node[anchor=north east] at (N1) {\(N_1\)};
-            
             \node[anchor=south west] at ([shift={(-2pt, 24pt)}] M1) {\(M'_1\)};
             \node[anchor=north west] at ([yshift=-20pt] P1) {\(P'_1\)};
-            \node[anchor=north east] at ([shift={(2pt, -24pt)}] Q1) {\(Q_1\)};
-            \node[anchor=north east] at (N1) {\(N_1\)};
-            
+            \node[anchor=north east] at ([shift={(2pt, -24pt)}] Q1) {\(Q'_1\)};
+            \node[anchor=south east] at ([yshift=20pt] N1) {\(N'_1\)};
             \node[anchor=north] at (M |- 0, 0) {\(a\)};
             \node[anchor=north] at (N |- 0, 0) {\(b\)};
             \node[anchor=north] at (P1x |- 0, 0) {\(a+\varepsilon\)};
             \node[anchor=north] at (Q1x |- 0, 0) {\(b-\varepsilon\)};
-
             \node[anchor=north, xshift=-2pt] at (6, 0) {\(x\)};
             \node[anchor=east, yshift=-2pt] at (0, 6) {\(y\)};
         \end{tikzpicture}
@@ -630,7 +617,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Assume \(U\) has the shape of \autoref{fig:cauchygoursattheorem_simplifiedregion}.
 \end{proof}
 \begin{theorem}[Cauchy--Goursat Integral Formula]\label{thm:cauchygoursatformula}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a piecewise \(C^1\) boundary \(\partial U \), and let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then for all \(z\in U\),
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U \), and let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then for all \(z\in U\),
     \begin{equation}
         f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchygoursatformula}
     \end{equation}
