@@ -572,9 +572,20 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \draw[-{Stealth}, thick] (0, -0.5) -- (0, 6);
 
             \draw[thick, arrow style] (P) -- (M);
-            \draw[thick, arrow style] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P)}] (P);
+            \draw[thick, arrow style, name path=curveQP] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P)}] (P);
             \draw[thick, arrow style] (N) -- (Q);
-            \draw[thick, arrow style] (M) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2)}] N)}] (N);
+            \draw[thick, arrow style, name path=curveMN] (M) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2)}] N)}] (N);
+
+            \path let \p1 = (P) in 
+              coordinate (P1x) at ({\x1 + \varepsilon}, 0);
+
+            \path[name path=verticalleftmarker]({1cm + \varepsilon}, 0) -- ({1cm + \varepsilon}, 6);
+            \path[name path=verticalleftmarker]({1cm + \varepsilon}, 0) -- ({1cm + \varepsilon}, 6);
+
+            \path[name intersections={of=curveQP and verticalleftmarker, by=P1}];
+            \path[name intersections={of=curveMN and verticalleftmarker, by=M1}];
+            \draw[thin] (M1) -- (P1);
+            
 
             \draw[thin] (Mprime) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] Nprime) ([shift={(-1.5, -0.2)}] Nprime)}] (Nprime);
             \draw[thin] (Qprime) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] Pprime) ([shift={(1.5, 0.2)}] Pprime)}] (Pprime);
