@@ -567,14 +567,18 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \coordinate (Pprime) at ([yshift=-\eta] P);
             \coordinate (Qprime) at ([yshift=-\eta] Q);
             \coordinate (Nprime) at ([yshift=\eta] N);
+            \coordinate (M1) at ([xshift=\varepsilon] M);
+            \coordinate (P1) at ([xshift=\varepsilon] P);
+            \coordinate (Q1) at ([xshift=-\varepsilon] Q);
+            \coordinate (N1) at ([xshift=-\varepsilon] N);
             
             \draw[-{Stealth}, thick] (-0.5, 0) -- (6, 0);
             \draw[-{Stealth}, thick] (0, -0.5) -- (0, 6);
 
             \draw[thick, arrow style] (P) -- (M);
-            \draw[thick, arrow style] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P)}] (P);
+            \draw[thick, arrow style] (Q) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] P) ([shift={(1.5, 0.2)}] P) (P1)}] (P);
             \draw[thick, arrow style] (N) -- (Q);
-            \draw[thick, arrow style] (M) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2)}] N)}] (N);
+            \draw[thick, arrow style] (M) to[out angle=270, in angle=270, curve through = {(N1) ([shift={(-2, 0)}] N) ([shift={(-1.5, -0.2) (N)}] N)}] (N);
 
             \draw[thin] (Mprime) to[out angle=270, in angle=270, curve through = {([shift={(-2, 0)}] Nprime) ([shift={(-1.5, -0.2)}] Nprime)}] (Nprime);
             \draw[thin] (Qprime) to[out angle=90, in angle=90, curve through = {([shift={(2, 0)}] Pprime) ([shift={(1.5, 0.2)}] Pprime)}] (Pprime);
