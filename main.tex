@@ -641,7 +641,10 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 
     Then, \[\int_{\overrightarrow{PM}}f(z)\ddz=i\int_{\psi(a)}^{\varphi(a)}f\paren{a+iy}\ddy=i\paren{\int_{\psi(a)}^{y_\varphi}+\int_{y_\varphi}^{y_\psi}+\int_{y_\psi}^{\varphi(a)}}f(a+iy)\ddy.\]
     Similarly, \[\int_{\overrightarrow{P_1M_1}}f(z)\ddz=i\paren{\int_{\psi(a+\varepsilon)}^{y_\varphi}+\int_{y_\varphi}^{y_\psi}+\int_{y_\psi}^{\varphi(a+\varepsilon)}}f(a+\varepsilon+iy)\ddy.\]
-    The difference between the two is equal to \[\int_{\overrightarrow{PM}}f(z)\ddz-\int_{\overrightarrow{P_1M_1}}f(z)\ddz=\]
+    The difference between the two is equal to \begin{align*}
+        \int_{\overrightarrow{PM}}f(z)\ddz-\int_{\overrightarrow{P_1M_1}}f(z)\ddz&=i\int_{y_{\varphi}}^{y_{\psi}}\paren{f\paren{a+iy}-f\paren{a+\varepsilon+iy}}\ddz\\
+        &\quad+i\paren{\int_{\psi(a)}^{y_\varphi}-\int_{\psi(a+\varepsilon)}^{y_\varphi}+\int_{y_\psi}^{\varphi(a)}-\int_{y_\psi}^{\varphi\paren{a+\varepsilon}}
+    \end{align*}
 \end{proof}
 \begin{theorem}[Cauchy--Goursat Integral Formula]\label{thm:cauchygoursatformula}
     Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U \), and let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then for all \(z\in U\),
