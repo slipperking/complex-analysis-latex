@@ -677,18 +677,21 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
 \begin{theorem}[Cauchy--Goursat Differentiation Formula]\label{thm:cauchydifferentiationformula}
     Let \(U\subset\mathbb{C}\) be an open region bounded by a simple closed boundary \(\partial U\), and let \(f:U\to\mathbb{C}\) be holomorphic and continuous over \(\overline{U}\). Then \(\forall z\in U\), \(\forall n\in\mathbb{N}\), \(f^{(n)}(z)\) exists, and 
     \begin{equation}
-        f^{(n)}(z)=\frac{n!}{2\pi i}\int_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{n+1}}\ddzeta.\label{eq:cauchydifferentiationformula_statement}
+        f^{(n)}(z)=\frac{n!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{n+1}}\ddzeta.\label{eq:cauchydifferentiationformula_statement}
     \end{equation}
-    Additionally, since \(U\) is open, \(\forall z_0\in U\), \(\exists r>0\) such that the closed disk \(\overline{D\paren{z_0,r}}\subset U\). Then \(\forall z\in D\paren{z_0,r}\), \(f(z)\) has the Taylor expansion 
+    Additionally, since \(U\) is open, \(\forall z_0\in U\), \(\exists r>0\) such that the closed disk \(\overline{D\paren{z_0,r}}\subset U\). Then \(\forall z\in\overline{D\paren{z_0,r}}\), \(f(z)\) has the uniformly and absolutely convergent Taylor expansion 
     \begin{equation}
         f(z)=\sum_{k=0}^\infty a_k\paren{z-z_0}^k,\label{eq:cauchydifferentiationformula_taylorseries}
     \end{equation}
     where \begin{equation}
-        a_k=\frac{1}{2\pi i}\int_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{k+1}}\ddzeta.\label{eq:cauchydifferentiationformula_taylorseriescoefficients}
+        a_k=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{k+1}}\ddzeta.\label{eq:cauchydifferentiationformula_taylorseriescoefficients}
     \end{equation}
 \end{theorem}
 \begin{proof}
     \(\forall z_0\in U\), \(\forall z\in D\paren{z_0,r}\subset U\), by \autoref{thm:cauchygoursatformula}, \[f(z)-f\paren{z_0}=\frac{1}{2\pi i}\int_{\partial U}\paren{\frac{f(\zeta)}{\zeta-z}-\frac{f(\zeta)}{\zeta-z_0}}\ddzeta=\frac{z-z_0}{2\pi i}\int_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z}\paren{\zeta-z_0}},\]
     and dividing by \(z-z_0\), the above is equal to \[\frac{f(z)-f\paren{z_0}}{z-z_0}=\frac{1}{2\pi i}\int_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z}\paren{\zeta-z_0}}.\]
 \end{proof}
+\begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
+    
+\end{theorem}
 \end{document}
