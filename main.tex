@@ -665,11 +665,15 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     From rearrangement, \[\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta=2\pi if(z)+i\int_0^{2\pi}\paren{f\paren{z+\varepsilon e^{it}}-f(z)}\dd{t}.\]
     Since \(f\in C^0(\partial D(z,\varepsilon))\), as \(\varepsilon\to0\), \begin{align*}
         \abs{\int_0^{2\pi}\paren{f\paren{z+\varepsilon e^{it}}-f(z)}\dd{t}}&\leq\int_0^{2\pi}\abs{f\paren{z+\varepsilon e^{it}}-f(z)}\dd{t}\\
-        &\leq2\pi\sup\abs{f\paren{z+\varepsilon e^{it}}-f(z)}\to0.
+        &\leq2\pi\max\abs{f\paren{z+\varepsilon e^{it}}-f(z)}\to0.
     \end{align*}
     By rearrangement, \[f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\]
 \end{proof}
 \begin{remark}
     In the proof of \autoref{thm:pompeiu}, we used Lipschitz continuity for a smooth function, which was a stronger condition than necessary. The true necessity of smoothness was to be able to apply Green's Theorem (\autoref{thm:complexgreen}).
 \end{remark}
+In fact, the theorem above can be generalized into a result that equates complex integration and differentiation:
+\begin{theorem}[Cauchy--Goursat Differentiation Formula]\label{thm:cauchydifferentiationformula}
+    Let \(U\subset\mathbb{C}\) be an open region bounded by a simple closed boundary \(\partial U\)
+\end{theorem}
 \end{document}
