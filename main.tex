@@ -358,7 +358,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
 \end{theorem}
 \begin{proof}
     Since \(z\in U\setminus\partial U\), \(\exists\varepsilon>0\) such that \(D(z,\varepsilon)\subset U\). Consider the complex differential form \[\frac{f(\zeta)\ddzeta}{\zeta-z}\]
-    with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Applying Green's Theorem (\autoref{thm:complexgreen}), \begin{equation}
+    with a singularity at \(\zeta=z\). Consider the region \(U\setminus D(z,\varepsilon)\). Since \(f\in C^1\paren{\overline{U}}\), by applying Green's Theorem (\autoref{thm:complexgreen}), \begin{equation}
         \int_{U\setminus D(z,\varepsilon)}\dd(\frac{f(\zeta)\ddzeta}{\zeta-z})=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}.\label{eq:pompeiu_directintermediate}
     \end{equation}
     By properties of \(\dd\), the expression is equal to \[\int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{}{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.\]
@@ -551,7 +551,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         &=\int_{\Delta^n}\brackets{f(z)-f\paren{z_0}-f'\paren{z_0}\paren{z-z_0}}\ddz.
     \end{align*}
     Because the distance between any two points in the interior of a triangle is always less than its perimeter, using the triangle inequality for complex integrals, \[\int_{\Delta^n}\abs{f(z)}\abs{\ddz}\leq\varepsilon\int_{\Delta^n}\abs{z-z_0}\abs{\ddz}=\frac{\varepsilon L}{2^n}\int_{\Delta^n}\abs{\ddz}=\frac{\varepsilon L^2}{4^n}.\]
-    Comparing the above equation with equation \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_trianglelowerbound}, \[\frac{M}{4^n}<\frac{\varepsilon L}{4^n},\quad M<\varepsilon L.\] Since \(\Delta\) is rectifiable, \(L\) is finite, and letting \(\varepsilon\to0\), we find that \(M\to0\). For every triangle in \(U\), the integral vanishes, and equations \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement} and \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition} follow.
+    Comparing the above equation with equation \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_trianglelowerbound}, \[\frac{M}{4^n}<\frac{\varepsilon L}{4^n},\quad M<\varepsilon L.\] Since \(\Delta\) is rectifiable, \(L\) is finite, and letting \(\varepsilon\to0\), we find that \(M\to0\). Then, for every triangle in \(U\), the integral vanishes, and equations \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement} and \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition} follow.
 \end{proof}
 \begin{theorem}[Cauchy--Goursat Integral Theorem]\label{thm:cauchygoursattheorem}
     Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
@@ -651,7 +651,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 \end{proof}
 \begin{remark}
     The theorem is also valid for any multiply connected region (and its boundary will consist of multiple curves) as a multiply connected region is equal to the union of several simply connected regions with vertical auxiliary lines between.
-\end{remark}
+\end{remark} 
 \begin{theorem}[Cauchy--Goursat Integral Formula]\label{thm:cauchygoursatformula}
     Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U \), and let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then for all \(z\in U\),
     \begin{equation}
@@ -663,7 +663,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     From rearrangement, \[\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta=2\pi if(z)+i\int_0^{2\pi}\paren{f\paren{z+\varepsilon e^{it}}-f(z)}\dd{t}.\]
     Since \(f\in C^0(\partial D(z,\varepsilon))\), as \(\varepsilon\to0\), \begin{align*}
         \abs{\int_0^{2\pi}\paren{f\paren{z+\varepsilon e^{it}}-f(z)}\dd{t}}&\leq\int_0^{2\pi}\abs{f\paren{z+\varepsilon e^{it}}-f(z)}\dd{t}\\
-        &\leq2\pi\max\abs{f\paren{z+\varepsilon e^{it}}-f(z)}\to0.
+        &\leq2\pi\sup\abs{f\paren{z+\varepsilon e^{it}}-f(z)}\to0.
     \end{align*} In the proof of \autoref{thm:pompeiu}, we used Lipschitz continuity for a smooth function, which was a stronger condition than necessary.
     
     By rearrangement, \[f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\]
