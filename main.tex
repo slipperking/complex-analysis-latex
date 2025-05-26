@@ -725,7 +725,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
     Because \(f(z)\) is continuous over the boundary \(\partial D\paren{z_0,R}\), it is bounded by \(M\). Thus,
     \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!}{2\pi}\int_0^{2\pi}\frac{M}{\paren{e^{it}R}^{n+1}}e^{it}R\dd{t}=\frac{n!M}{R^n}.\]
 \end{proof}
-\begin{theorem}[Liouville's Theorem]\label{liouville}
+\begin{theorem}[Liouville's Theorem]\label{thm:liouville}
     Any bounded entire function is constant.
 \end{theorem}
 \begin{proof}
@@ -733,10 +733,10 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
 \end{proof}
 We will introduce a trivial application of Liouville's Theorem:
 \begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
-    A non-constant polynomial \(p(z)\) has at least one complex root \(z_0\) (\(p\paren{z_0}=0\)).
+    Every non-constant polynomial \(p(z)\) with complex coefficients has at least one complex root; that is, there exists \(z_0\in\mathbb{C}\) such that \(p(z_0)=0\).
 \end{theorem}
 \begin{proof}
-    Assume otherwise. Then the 
+    Suppose, for contradiction, that \(p(z)\) has no complex roots. Then the function \(f(z)=\frac{1}{p(z)}\) is entire, since \(p(z)\) has no roots in \(\mathbb{C}\). Moreover, as \(|z|\to\infty\), \(p(z)\to\infty\), so \(f(z)\to 0\), implying that \( f(z) \) is bounded. By Liouville's Theorem (\autoref{thm:liouville}), every bounded entire function is constant. Thus, \( f(z) \) is constant, and so \( p(z) \) must also be constant — a contradiction. Therefore, \( p(z) \) has at least one complex root.
 \end{proof}
 \begin{theorem}[Morera's Theorem]\label{thm:morera}
     Let \(U\subseteq\mathbb{C}\) and \(f:U\to\mathbb{C}\) be continuous over \(U\). If for any rectifiable closed curve \(\gamma\subset U\), \[\oint_{\gamma}f(\zeta)\ddzeta\] vanishes, then \(f\) is holomorphic over \(U\).
