@@ -717,7 +717,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
     By induction, we have shown that the assuming existence of the first order derivative of a holomorphic function \(f\), the \(n\)th order derivative of \(f\) exists \(\forall n\in\mathbb{N}\) and is holomorphic over the same region as \(f^{(n-1)}\). Furthermore, if \(f\) is holomorphic, then \(\forall z\in U\), there exists an open disk enclosing \(z\) such that \(f\) has a convergent Taylor Series expansion. This property is known as \textit{analyticity}, and \autoref{thm:cauchydifferentiationformula} tells us that all holomorphic functions are analytic. Analytic functions can be expanded into power series, which are termwise differentiable, and therefore complex differentiable. Thus, analyticity and holomorphy are logically equivalent, which is a fundamental difference between real and complex functions.
 \end{remark}
 \begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
-    For a function \(f:U\to\mathbb{C}\) holomorphic over \(U\subseteq\mathbb{C}\) and \(\overline{D\paren{z_0,R}}\subseteq{U}\), then \(\forall n\in\mathbb{N}\), \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!M}{R^n},\]
+    For a function \(f:U\to\mathbb{C}\) holomorphic over \(U\subseteq\mathbb{C}\) and \(\forall z_0\in U\) and \(\forall R>0\) such that \(\overline{D\paren{z_0,R}}\subseteq{U}\), \(\forall n\in\mathbb{N}\), \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!M}{R^n},\]
     where \[M=\max_{z\in\overline{D\paren{z_0,R}}}\abs{f(z)}.\]
 \end{theorem}
 \begin{proof}
@@ -736,7 +736,7 @@ We will introduce a trivial application of Liouville's Theorem:
     Every non-constant polynomial \(p(z)\) with complex coefficients has at least one complex root; that is, there exists \(z_0\in\mathbb{C}\) such that \(p(z_0)=0\).
 \end{theorem}
 \begin{proof}
-    Suppose, for contradiction, that \(p(z)\) has no complex roots. Then the function \(f(z)=\frac{1}{p(z)}\) is entire, since \(p(z)\) has no roots in \(\mathbb{C}\). Moreover, as \(|z|\to\infty\), \(p(z)\to\infty\), so \(f(z)\to 0\), implying that \( f(z) \) is bounded. By Liouville's Theorem (\autoref{thm:liouville}), every bounded entire function is constant. Thus, \( f(z) \) is constant, and so \( p(z) \) must also be constant — a contradiction. Therefore, \( p(z) \) has at least one complex root.
+    For the sake of contradiction, suppose that \(p(z)\) has no complex roots. Then the function \(f(z)=\frac{1}{p(z)}\) is entire, since \(p(z)\) has no roots in \(\mathbb{C}\). Moreover, as \(|z|\to\infty\), \(p(z)\to\infty\), so \(f(z)\to 0\), and thus \(f(z)\) is bounded. By Liouville's Theorem (\autoref{thm:liouville}), every bounded entire function is constant. Thus, \(f(z)\) is constant, and so \(p(z)\) must also be constant. By contradiction, \(p(z)\) has at least one complex root.
 \end{proof}
 \begin{theorem}[Morera's Theorem]\label{thm:morera}
     Let \(U\subseteq\mathbb{C}\) and \(f:U\to\mathbb{C}\) be continuous over \(U\). If for any rectifiable closed curve \(\gamma\subset U\), \[\oint_{\gamma}f(\zeta)\ddzeta\] vanishes, then \(f\) is holomorphic over \(U\).
