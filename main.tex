@@ -700,7 +700,11 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
     \begin{equation}
         \frac{1}{\zeta-z}=\frac{1}{\zeta-z_0}\cdot\frac{\zeta-z_0}{\zeta-z}=\frac{1}{\zeta-z_0}\cdot\frac{1}{1-\frac{z-z_0}{\zeta-z_0}}=\frac{1}{\zeta-z_0}\sum_{k=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^k.\label{eq:cauchydifferentiationformula_kernelexpansion}
     \end{equation}
-    
+    Then, \begin{align*}
+        f^{(k)}(z)&=\frac{k!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)^{k+1}}\ddzeta\\
+        &=\frac{k!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+1}}\paren{\sum_{k=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^k}^{k+1}\ddzeta\\
+        &=f^{(k)}\paren{z_0}+
+    \end{align*}
 \end{proof}
 \begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
     
