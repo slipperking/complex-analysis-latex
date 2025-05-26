@@ -721,9 +721,9 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
     where \[M=\max_{z\in\overline{D\paren{z_0,R}}}\abs{f(z)}.\]
 \end{theorem}
 \begin{proof}
-    By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \(\forall n\in\mathbb{N}\), \[f^{(n)}\paren{z_0}=\frac{1}{2\pi i}\oint_{\partial D\paren{z_0,R}}\frac{f(\zeta)}{\paren{\zeta-z_0}^{n+1}}\ddzeta.\]
-    Because \(f(z)\) is continuous over the boundary \(\partial D\paren{z_0,R}\), it attains its maximum \(M\). Thus,
-    \[f^{(n)}\paren{z_0}\frac{1}{2\pi i}\oint_{\partial D\paren{z_0,R}}\frac{f(\zeta)}{\paren{\zeta-z_0}^{n+1}}\ddzeta.\]
+    By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \(\forall n\in\mathbb{N}\), \[f^{(n)}\paren{z_0}=\frac{n!}{2\pi i}\oint_{\partial D\paren{z_0,R}}\frac{f(\zeta)}{\paren{\zeta-z_0}^{n+1}}\ddzeta.\]
+    Because \(f(z)\) is continuous over the boundary \(\partial D\paren{z_0,R}\), it is bounded by \(M\). Thus,
+    \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!}{2\pi}\int_0^{2\pi}\frac{M}{\paren{e^{it}R}^{n+1}}e^{it}R\dd{t}=\frac{n!M}{R^n}.\]
 \end{proof}
 \begin{theorem}[Liouville's Theorem]\label{liouville}
     Any bounded entire function is constant.
