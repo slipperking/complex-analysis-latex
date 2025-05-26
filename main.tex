@@ -688,13 +688,14 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
     \end{equation}
 \end{theorem}
 \begin{proof}
-    \(\forall z_0\in U\), \(\forall z\in D\paren{z_0,r}\subset U\), by \autoref{thm:cauchygoursatformula}, \[f(z)-f\paren{z_0}=\frac{1}{2\pi i}\int_{\partial U}\paren{\frac{f(\zeta)}{\zeta-z}-\frac{f(\zeta)}{\zeta-z_0}}\ddzeta=\frac{z-z_0}{2\pi i}\int_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z}\paren{\zeta-z_0}},\]
-    and dividing by \(z-z_0\), the above is equal to \[\frac{f(z)-f\paren{z_0}}{z-z_0}=\frac{1}{2\pi i}\int_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z}\paren{\zeta-z_0}}.\]
+    \(\forall z_0\in U\), \(\forall z\in D\paren{z_0,r}\subset U\), by \autoref{thm:cauchygoursatformula}, \[f(z)-f\paren{z_0}=\frac{1}{2\pi i}\oint_{\partial U}\paren{\frac{f(\zeta)}{\zeta-z}-\frac{f(\zeta)}{\zeta-z_0}}\ddzeta=\frac{z-z_0}{2\pi i}\oint_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z}\paren{\zeta-z_0}},\]
+    and dividing by \(z-z_0\), the above is equal to \[\frac{f(z)-f\paren{z_0}}{z-z_0}=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z}\paren{\zeta-z_0}}.\]
     Since \begin{align}
-        \frac{f(z)-f\paren{z_0}}{z-z_0}-\frac{1}{2\pi i}\int_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z_0}^2}&=\frac{1}{2\pi i}\int_{\partial U}\frac{f\paren{\zeta}}{\zeta-z_0}\paren{\frac{1}{\zeta-z}-\frac{1}{\zeta-z_0}}\ddzeta\nonumber\\
-        &=\frac{z-z_0}{2\pi i}\int_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta.\label{eq:cauchydifferentiationformula_differenceoffirstorderdifferences}
+        \frac{f(z)-f\paren{z_0}}{z-z_0}-\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z_0}^2}&=\frac{1}{2\pi i}\oint_{\partial U}\frac{f\paren{\zeta}}{\zeta-z_0}\paren{\frac{1}{\zeta-z}-\frac{1}{\zeta-z_0}}\ddzeta\nonumber\\
+        &=\frac{z-z_0}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta.\label{eq:cauchydifferentiationformula_differenceoffirstorderdifferences}
     \end{align}
-    Let \(d\) be the distance from \(z_0\) to \(\partial U\), and choose \(r=\frac{d}{2}\). Then, since \(\abs{z-z_0}<\frac{d}{2}\) and \(\abs{\zeta-z_0}\geq d\), \(\abs{\zeta-z}\geq\frac{d}{2}\). Then the absolute value of the integrand of \eqref{eq:cauchydifferentiationformula_differenceoffirstorderdifferences} is bounded above by \(\frac{2M}{d^3}\), where \(M\) is the maximum of \(f(\zeta)\), which exists by \autoref{thm:continuousfunctionboundedoncompact}. Then, \[\abs{\frac{z-z_0}{2\pi i}\int_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta}\leq\frac{\abs{z-z_0}}{\pi}\frac{M}{d^3}\int_{\partial U}\abs{\ddzeta}\]
+    Let \(d\) be the distance from \(z_0\) to \(\partial U\), and choose \(r=\frac{d}{2}\). Then, since \(\abs{z-z_0}<\frac{d}{2}\) and \(\abs{\zeta-z_0}\geq d\), \(\abs{\zeta-z}\geq\frac{d}{2}\). Then the absolute value of the integrand of equation \eqref{eq:cauchydifferentiationformula_differenceoffirstorderdifferences} is bounded above by \(\frac{2M}{d^3}\), where \(M\) is the maximum of \(f(\zeta)\), which exists by \autoref{thm:continuousfunctionboundedoncompact}. Then, \[\abs{\frac{z-z_0}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta}\leq\frac{\abs{z-z_0}}{\pi}\frac{M}{d^3}\oint_{\partial U}\abs{\ddzeta}.\] As \(z\to z_0\), the difference vanishes, and therefore, \[f'\paren{z_0}=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^2}\ddzeta.\]
+    Now assume that equation \eqref{eq:cauchydifferentiationformula_statement} is true for some \(n=k\in\mathbb{N}\), or \[f^{(k)}(z)=\frac{k!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{k+1}}\ddzeta.\]
 \end{proof}
 \begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
     
