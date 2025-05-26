@@ -704,7 +704,10 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
         f^{(k)}(z)&=\frac{k!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)^{k+1}}\ddzeta\\
         &=\frac{k!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+1}}\paren{\sum_{k=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^k}^{k+1}\ddzeta\\
         &=f^{(k)}\paren{z_0}+\frac{(k+1)!\paren{z-z_0}}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta\\
-        &\quad+\frac{k!\paren{z-z_0}^2}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta\\
+        &\quad+\paren{z-z_0}^2\frac{k!}{2\pi i}\brackets{k+1+\begin{pmatrix}
+            k+1\\2
+        \end{pmatrix}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta
+        +Oz-z_0}^2}\\
     \end{align*}
 \end{proof}
 \begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
