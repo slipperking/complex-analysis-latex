@@ -760,22 +760,7 @@ We will introduce a trivial application of Liouville's Theorem:
     where \(\left\|f\right\|_{L_p(V)}\) denotes \[\paren{\int_V\abs{f(z)}^p\ddx\wedge\ddy}^{\flatfrac{1}{p}}.\]
 \end{theorem}
 \begin{proof}
-    Let \(\psi:\mathbb{C}\to\mathbb{C}\) be a complex \(C^\infty\) function with compact support, identically equal to 1 over some open neighborhood \(\).
-
-    Such a function exists, we will first consider the simpler case where \(f:\mathbb{R}\to\mathbb{R}\). Let \(\varphi\in C^\infty(\mathbb{R})\), defined by 
-    \[\phi(x)=\frac{g(x)}{g(x)+g(1-x)},\] where \[g(x)=\begin{cases}
-        e^{-\frac{1}{x}}&x>0\\0&x\le0.
-    \end{cases}.\]
-    We can define the function \[\varphi_\varepsilon(x)=\begin{cases}
-        \phi\paren{1+\varepsilon-\abs{x}}&\abs{x}\ge\varepsilon\\
-        1&\abs{x}<\varepsilon
-    \end{cases},\]
-    which satisfies \(\varphi_\varepsilon\in C^\infty(\mathbb{R})\) and \(\supp\paren{\varphi_\varepsilon}\) being compact. We can extend this to \(\varphi_\varepsilon:\mathbb{C}\to\mathbb{R}\) with \[\varphi_\varepsilon(z)=\begin{cases}
-        \phi\paren{1+\varepsilon-\abs{z}}&\abs{z}\ge\varepsilon\\
-        1&\abs{z}<\varepsilon
-    \end{cases}.\] The same properties apply as the real case.
-
-    Choose \(r\in\mathbb{R}\) such that \(V\subset D(0,r)\) and define \(\varphi=\varphi_r\). Since \(f\in C^1\paren{\overline{U}}\), by Pompeiu's Theorem (\autoref{thm:pompeiu}) on \(f(z)\varphi(z)\in C^\infty(\mathbb{C})\), \[f(z)\varphi(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\varphi(\zeta)}{\zeta-z}\ddzeta-\int_{U}\pdv{f(\zeta)\varphi(\zeta)}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}\]
+    Let \(\varphi:\mathbb{C}\to\mathbb{C}\) be a complex \(C^\infty\) function with compact support, identically equal to 1 over some open neighborhood of \(K\) relatively compact in \(V\) and such that \(\supp(\varphi)\subseteq V\). Since \(f\in C^1\paren{\overline{U}}\), by Pompeiu's Theorem (\autoref{thm:pompeiu}) on \(f(z)\varphi(z)\in C^\infty(\mathbb{C})\), \[f(z)\varphi(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\varphi(\zeta)}{\zeta-z}\ddzeta-\int_{U}\pdv{f(\zeta)\varphi(\zeta)}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}\]
 \end{proof}
 For the next theorem we will briefly introduce the concept of \textit{analytic continuation}.
 \begin{definition}[Analytic Continuation]
