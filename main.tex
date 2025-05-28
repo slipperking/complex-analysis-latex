@@ -71,7 +71,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     A set \(X\in\mathbb{C}^n\) is compact if and only if \(X\) is closed and bounded.
 \end{definition}
 \begin{definition}[Cover of a Set]
-    A cover \(\mathcal{C}\) of a set \(X\) is any collection of sets such that \(\bigcup_{A\in\mathcal{C}}A\supset X\).
+    A cover \(\mathcal{C}\) of a set \(X\) is any collection of sets such that \[\bigcup_{A\in\mathcal{C}}A\supseteq X.\] A cover is \textit{open} if every set in the collection is open.
 \end{definition}
 \begin{theorem}[Bolzano--Weierstrass Theorem]\label{thm:bolzanoweierstrass}
     Every infinite subset \(A\) of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
@@ -741,13 +741,6 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
 \begin{proof}
     Let \(f:\mathbb{C}\to\mathbb{C}\) be entire. Then, \(\forall z_0\in\mathbb{C}\), \(\forall R>0\), \(f\) is holomorphic over \(\overline{D\paren{z_0,R}}\). By \autoref{thm:cauchysestimate}, \[\abs{f'\paren{z_0}}\leq\frac{M}{R},\] where \(M=\sup_{z\in\mathbb{C}}\abs{f(z)}\). By letting \(r\to\infty\), \(f'\paren{z_0}\) where \(z_0\) is any arbitrary value in \(\mathbb{C}\). Therefore, \(f(z)\) is constant.
 \end{proof}
-We will introduce a trivial application of Liouville's Theorem:
-\begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
-    Every non-constant polynomial \(p(z)\) with complex coefficients has at least one complex root; that is, there exists \(z_0\in\mathbb{C}\) such that \(p(z_0)=0\).
-\end{theorem}
-\begin{proof}
-    For the sake of contradiction, suppose that \(p(z)\) has no complex roots. Then the function \(f(z)=\frac{1}{p(z)}\) is entire, since \(p(z)\) has no roots in \(\mathbb{C}\). Moreover, as \(|z|\to\infty\), \(p(z)\to\infty\), so \(f(z)\to 0\), and thus \(f(z)\) is bounded. By Liouville's Theorem (\autoref{thm:liouville}), every bounded entire function is constant. Thus, \(f(z)\) is constant, and so \(p(z)\) must also be constant. By contradiction, \(p(z)\) has at least one complex root.
-\end{proof}
 \begin{theorem}[Morera's Theorem]\label{thm:morera}
     Let \(U\subseteq\mathbb{C}\) and \(f:U\to\mathbb{C}\) be continuous over \(U\). If for any rectifiable closed curve \(\gamma\subset U\), \[\oint_{\gamma}f(\zeta)\ddzeta\] vanishes, then \(f\) is holomorphic over \(U\).
 \end{theorem}
@@ -791,9 +784,20 @@ We will introduce a trivial application of Liouville's Theorem:
 \end{lemma}
 For the next theorem we will briefly introduce the concept of \textit{analytic continuation}.
 \begin{definition}[Analytic Continuation]
-    
+    Let \(U\subseteq\mathbb{C}\) be a region, let \(f:U\to\mathbb{C}\) be holomorphic, and 
 \end{definition}
 \begin{theorem}[Maximum Modulus Principle]
     
 \end{theorem}
+\begin{theorem}
+    
+\end{theorem}
+\subsection{Zeroes of a Holomorphic Function}
+We will introduce a fundamental application of Liouville's Theorem (\autoref{thm:liouville}) below.
+\begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
+    Every non-constant polynomial \(p(z)\) with complex coefficients has at least one complex root; that is, there exists \(z_0\in\mathbb{C}\) such that \(p(z_0)=0\).
+\end{theorem}
+\begin{proof}
+    For the sake of contradiction, suppose that \(p(z)\) has no complex roots. Then the function \(f(z)=\frac{1}{p(z)}\) is continuous and entire, because \(p(z)\) has no roots in \(\mathbb{C}\). Moreover, as \(|z|\to\infty\), \(p(z)\to\infty\), so \(f(z)\to 0\), and thus \(f(z)\) is bounded. By Liouville's Theorem (\autoref{thm:liouville}), every bounded entire function is constant. Thus, \(f(z)\) is constant, and so \(p(z)\) must also be constant. By contradiction, \(p(z)\) has at least one complex root.
+\end{proof}
 \end{document}
