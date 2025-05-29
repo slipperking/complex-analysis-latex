@@ -49,9 +49,6 @@
 \DeclarePairedDelimiter{\paren}{(}{)}
 \let\parendefault\paren
 \renewcommand{\paren}{\parendefault*}
-\DeclarePairedDelimiter{\braces}{\{}{\}}
-\let\bracesdefault\braces
-\renewcommand{\braces}{\bracesdefault*}
 \DeclarePairedDelimiter{\brackets}{[}{]}
 \let\bracketsdefault\brackets
 \renewcommand{\brackets}{\bracketsdefault*}
@@ -823,17 +820,16 @@ In other words, \(\forall B_1,B_2\in\mathcal{B}\), \(\forall x\in B_1\cap B_2\),
 \end{definition}
 \begin{lemma}\label{lemma:locallyfiniteopencoverexistence}
     Let \(\Omega\subseteq\mathbb{C}\) be an open set and \(\mathfrak{B}\) be an (open) basis of (the standard topology under) \(\Omega\). Then there exists a collection of sets \(\left\{U_n\right\}_{n\in\mathbb{N}}\) in \(\mathfrak{B}\) such that \begin{enumerate}
-        \item \(\bigcup_{n\in\mathbb{N}}U_n=\Omega\).\label{item:locallyfiniteopencoverexistence_coveringstatement}
-        \item \(\forall K\subset\Omega\) that is compact, \(K\) intersects only a finite number of sets in \(\left\{U_n\right\}_{n\in\mathbb{N}}\).\label{item:locallyfiniteopencoverexistence_locallyfinitestatement}
+        \item \(\bigcup_{n\in\mathbb{N}}U_n=\Omega\).
+        \item \(\forall K\subset\Omega\) that is compact, \(K\) intersects only a finite number of sets in \(\left\{U_n\right\}_{n\in\mathbb{N}}\).
     \end{enumerate}
 \end{lemma}
 \begin{proof}
     Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\). Define two sequences, where \(\forall n\in\mathbb{N}\), \(W_n=K_{n+1}^\circ\setminus K_{n-2}\) be open and \(V_n=K_n\setminus K_{n-1}^\circ\) be compact.
 
-    By properties of the exhaustion, \(W_n\supseteq V_n\). \(\paren{V_n}\) forms compact shells around \(K_{n-1}\), and therefore, \[\bigcup_{n\in\mathbb{N}} V_n=\Omega.\]
-
+    By properties of the exhaustion, \(W_n\supseteq V_n\). \(\lbrace V_n\rbrace\) forms compact shells around \(K_{n-1}\), and therefore, \[\bigcup_{n\in\mathbb{N}} V_n=\Omega.\]
     For every \(r\in\mathbb{N}\), \(\forall z\in V_r\), there exists an open set \(U_{z,r}\in\mathfrak{B}\) where \(z\in U_{z,r}\subseteq W_r\). By the compactness of \(V_r\) and openness of \(U_{z,r}\), the collection \(\left\{U_{z,r}\mid z\in V_r\right\}\) has a finite subcover by \autoref{thm:heineborel}. Then, there exist finitely many points \(z_{r,1},\ldots,z_{r,k_r}\) such that \[V_r\subset\bigcup_{i=1}^{k_r}U_{z_{r,i},r}\subseteq W_r.\]
-    Let \(\paren{U_n}\) be a collection formed by enumerating \(U_{z_{r,i},r}\) where \(r\in\mathbb{N}\) and \(i=1,\ldots,k_r\). Obviously, \autoref{item:locallyfiniteopencoverexistence_coveringstatement} is true since each of \(V_r\) is covered by some subcollection of \(\left\{U_j\right\}\), which means that the entire collection covers \(\Omega\). Since \(\forall K\subset\Omega\) that is compact, \(K\) intersects each set of some finite subcollection of \(\left\{W_j\right\}\), with each set of the subcollection containing the union of only a finite subcollection of \(\left\{U_j\right\}\). This property is known as \textit{local finiteness}.
+    Let \(\lbrace U_j\rbrace\) be a collection formed by enumerating \(U_{z_{r,i},r}\) where \(r\in\mathbb{N}\) and \(i=1,\ldots,k_r\). The first clause of the statement is true since each of \(V_r\) is covered by some subcollection of \(\left\{U_j\right\}\), which means that the entire collection covers \(\Omega\). Since \(\forall K\subset\Omega\) that is compact, \(K\) intersects each set of some finite subcollection of \(\left\{W_j\right\}\), with each set of the subcollection containing the union of only a finite subcollection of \(\left\{U_j\right\}\). This property is known as \textit{local finiteness}.
 \end{proof}
 \begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
     A 
