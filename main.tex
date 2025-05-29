@@ -825,11 +825,15 @@ In other words, \(\forall B_1,B_2\in\mathcal{B}\), \(\forall x\in B_1\cap B_2\),
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\). Define two sequences, where \(\forall n\in\mathbb{N}\), \(W_n=K_{n+1}^\circ\setminus K_{n-2}\) be open and \(V_n=K_n\setminus K_{n-1}^\circ\) be compact.
+    Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\), with each \(K_n\) compact and \(K_n\subseteq K_{n+1}^\circ\). For each \(n\in\mathbb{N}\), define \(W_n=K_{n+1}^\circ\setminus K_{n-2}\), which is open, and \(V_n=K_n\setminus K_{n-1}^\circ\), which is compact.
 
-    By properties of the exhaustion, \(W_n\supseteq V_n\). \(\lbrace V_n\rbrace\) forms compact shells around \(K_{n-1}\), and therefore, \[\bigcup_{n\in\mathbb{N}} V_n=\Omega.\]
-    For every \(r\in\mathbb{N}\), \(\forall z\in V_r\), there exists an open set \(U_{z,r}\in\mathfrak{B}\) where \(z\in U_{z,r}\subseteq W_r\). By the compactness of \(V_r\) and openness of \(U_{z,r}\), the collection \(\left\{U_{z,r}\mid z\in V_r\right\}\) has a finite subcover by \autoref{thm:heineborel}. Then, there exist finitely many points \(z_{r,1},\ldots,z_{r,k_r}\) such that \[V_r\subset\bigcup_{i=1}^{k_r}U_{z_{r,i},r}\subseteq W_r.\]
-    Let \(\lbrace U_j\rbrace\) be a collection formed by enumerating \(U_{z_{r,i},r}\) where \(r\in\mathbb{N}\) and \(i=1,\ldots,k_r\). The first clause of the statement is true since each of \(V_r\) is covered by some subcollection of \(\left\{U_j\right\}\), which means that the entire collection covers \(\Omega\). Since \(\forall K\subset\Omega\) that is compact, \(K\) intersects each set of some finite subcollection of \(\left\{W_j\right\}\), with each set of the subcollection containing the union of only a finite subcollection of \(\left\{U_j\right\}\). This property is known as \textit{local finiteness}.
+    By construction, \(V_n\subseteq W_n\) for all \(n\in\mathbb{N}\). The sets \(\{V_n\}\) form compact shells covering \(\Omega\), since \(\bigcup_{n\in\mathbb{N}}V_n=\Omega\).
+
+    For each \(r\in\mathbb{N}\) and each \(z\in V_r\), since \(W_r\) is an open set containing \(z\) and \(\mathfrak{B}\) is a basis, there exists \(U_{z,r}\in\mathfrak{B}\) such that \(z\in U_{z,r}\subseteq W_r\). The collection \(\{U_{z,r}\mid z\in V_r\}\) is an open cover of the compact set \(V_r\), so by the Heine-Borel theorem it admits a finite subcover. That is, there exist finitely many points \(z_{r,1},\ldots,z_{r,k_r}\) such that \(V_r\subset\bigcup_{i=1}^{k_r}U_{z_{r,i},r}\subseteq W_r\).
+
+    Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{r,i},r}\) for \(r\in\mathbb{N}\) and \(i=1,\ldots,k_r\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving condition 1.
+
+    For condition 2, let \(K\subset\Omega\) be compact. Then \(K\subset K_N^\circ\) for some \(N\in\mathbb{N}\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textit{locally finite}.
 \end{proof}
 \begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
     A 
