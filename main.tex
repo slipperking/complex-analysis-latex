@@ -39,6 +39,7 @@
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}{Lemma}[section]
 \providecommand*{\lemmaautorefname}{Lemma}
+\providecommand*{\definitionautorefname}{Definition}
 \theoremstyle{remark}
 \newtheorem{example}{Example}[subsection]
 \theoremstyle{definition}
@@ -55,16 +56,14 @@
 \renewcommand{\brackets}{\bracketsdefault*}
 
 \NewDocumentCommand{\cbraces}{m g}{%
-  \ensuremath{%
-    \left\lbrace
-    #1%
-    \IfNoValueTF{#2}{}{\,\middle|\,#2}%
-    \right\rbrace
-  }%
+    \ensuremath{%
+        \left\lbrace#1%
+        \IfNoValueTF{#2}{}{\,\middle|\,#2}%
+        \right\rbrace
+    }%
 }
 
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
-
 
 \title{Complex Analysis}
 \author{Slipper King}
@@ -77,10 +76,10 @@
 \subsection{Topological Preliminaries}
 We will provide a rough, informal notion of important topological concepts tailored specifically towards complex analysis.
 \begin{definition}[Accumulation Point]\label{def:accumulationpoint}
-    
+    A point \(z\in\mathbb{C}^n\) is an \textit{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)
 \end{definition}
 \begin{definition}[Closure]\label{def:closure}
-    For a set \(X\in\mathbb{C}^n\), define the \textit{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and every accumulation point (a point \(z\in\mathbb{C}^n\) is an accumulation point of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)).
+    For a set \(X\in\mathbb{C}^n\), define the \textit{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and its accumulation points.
 \end{definition}
 \begin{definition}[Interior]\label{def:interior}
     For a set \(X\in\mathbb{C}^n\), the \textit{interior} of \(X\), denoted \(X^\circ\), is the union of all open sets contained in \(X\), or the set of points \(z\in\mathbb{C}^n\) such that there exists an open neighborhood of \(z\) that is fully contained in \(X\).
@@ -945,7 +944,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     \begin{equation}\label{eq:identityaccumulationofzeroes_taylorexpansion}
         f(z)=\sum_{n=0}^\infty a_n\paren{z-z_0}^n.
     \end{equation}
-    By the definition of an accumulation point, 
+    By \autoref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z_0,\varepsilon}\). Since \(z_n\) is a root of \(f\), \(f\paren{z_n}=0\). Then, 
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
