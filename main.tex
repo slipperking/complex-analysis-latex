@@ -76,10 +76,13 @@
 \section{Prerequisites}
 \subsection{Topological Preliminaries}
 We will provide a rough, informal notion of important topological concepts tailored specifically towards complex analysis.
-\begin{definition}[Closure of a Set]\label{def:closure}
+\begin{definition}[Accumulation Point]\label{def:accumulationpoint}
+    
+\end{definition}
+\begin{definition}[Closure]\label{def:closure}
     For a set \(X\in\mathbb{C}^n\), define the \textit{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and every accumulation point (a point \(z\in\mathbb{C}^n\) is an accumulation point of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)).
 \end{definition}
-\begin{definition}[Interior of a Set]\label{def:interior}
+\begin{definition}[Interior]\label{def:interior}
     For a set \(X\in\mathbb{C}^n\), the \textit{interior} of \(X\), denoted \(X^\circ\), is the union of all open sets contained in \(X\), or the set of points \(z\in\mathbb{C}^n\) such that there exists an open neighborhood of \(z\) that is fully contained in \(X\).
 \end{definition}
 \begin{definition}[Compact Set]\label{def:compactsets}
@@ -291,7 +294,7 @@ Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are know
 \[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+i\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+i\beta}.\]
 The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However, the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
 
-If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\). A function is \textit{entire} if it is holomorphic over \(\mathbb{C}\).
+If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over a closed set if it is holomorphic over an open set containing the closed set. A function is \textit{entire} if it is holomorphic over \(\mathbb{C}\).
 \begin{theorem}\label{thm:holomorphycondition}
     The necessary and sufficient criterion for a function \(f(z)\) to be holomorphic on a region \(D\) is if \(f(z)\in C^1(D)\) and it satisfies the Cauchy--Riemann equations.
 \end{theorem}
@@ -938,7 +941,11 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(U\subseteq\mathbb{C}\), and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then the set \(\cbraces{z\in U\mid f(z)=0}\) has no accumulation points in \(U\), unless \(f\equiv0\) over \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) with an accumulation point \(z_0\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(D\paren{z_0,\varepsilon}\subseteq R\), where 
+    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) with an accumulation point \(z_0\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_0,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor Series representation
+    \begin{equation}\label{eq:identityaccumulationofzeroes_taylorexpansion}
+        f(z)=\sum_{n=0}^\infty a_n\paren{z-z_0}^n.
+    \end{equation}
+    By the definition of an accumulation point, 
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
