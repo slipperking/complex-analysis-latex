@@ -53,13 +53,14 @@
 \DeclarePairedDelimiter{\brackets}{[}{]}
 \let\bracketsdefault\brackets
 \renewcommand{\brackets}{\bracketsdefault*}
-\NewDocumentCommand{\cbraces}{m o}{
-    \ensuremath{%
-        \left\lbrace
-        #1%
-        \IfNoValueTF{#2}{}{\,\middle|\,#2}%
-        \right\rbrace
-      }%
+
+\NewDocumentCommand{\cbraces}{m g}{%
+  \ensuremath{%
+    \left\lbrace
+    #1%
+    \IfNoValueTF{#2}{}{\,\middle|\,#2}%
+    \right\rbrace
+  }%
 }
 
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
@@ -937,7 +938,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(U\subseteq\mathbb{C}\), and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then the set \(\cbraces{z\in U\mid f(z)=0}\) has no accumulation points in \(U\), unless \(f\equiv0\) over \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(\cbraces\)
+    Let \(\cbraces{z}{z\in U,f(z)=0}\)
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
