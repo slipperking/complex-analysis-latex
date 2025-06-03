@@ -839,7 +839,7 @@ For the next theorem we will briefly introduce the concept of \textit{analytic c
         \item \(F(z)=f(z)\) for all \(z\in U\).
     \end{enumerate}
 \end{definition}
-\begin{theorem}[Riemann's Theorem for Removable Singularities]
+\begin{theorem}[Riemann's Theorem on Removable Singularities]\label{thm:analyticcontinuationremovablesingularities}
     Let \(\tilde{D}\paren{z_0,r}=D\paren{z_0,r}\setminus\cbraces{z_0}\), and \(F:\tilde{D}\paren{z_0,r}\to\mathbb{C}\) be holomorphic and bounded. Then \(F\) can be analytically continued to \(D\paren{z_0,r}\).
 \end{theorem}
 \begin{proof}
@@ -945,6 +945,10 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
         f(z)=\sum_{n=0}^\infty a_n\paren{z-z_0}^n.
     \end{equation}
     By \autoref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z_0,\varepsilon}\). Since \(z_n\) is a root of \(f\), \(f\paren{z_n}=0\). Then, by the continuity of \(f\), \[0=\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_0}.\] Using this result in comparison to equation \eqref{eq:identityaccumulationofzeroes_taylorexpansion}, we get that \(a_0=0\).
+
+    The function \(f_1(z)=\frac{f(z)}{z-z_0}\) can be analytically continued by \autoref{thm:analyticcontinuationremovablesingularities} with a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
+    \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z_0}^n.\]
+    Similarly, \(a_1=0\). We recursively obtain that \(a_0,a_1,\ldots=0.\) Then \(f(z)\)
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
