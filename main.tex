@@ -14,6 +14,7 @@
 \usepackage{tgpagella}
 \usepackage[english]{babel}
 \usepackage{pgfplots}
+\usepackage{xparse}
 \usepackage[left=3.5cm,right=3.5cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage[labelfont=bf, textfont=it]{caption}
@@ -52,9 +53,15 @@
 \DeclarePairedDelimiter{\brackets}{[}{]}
 \let\bracketsdefault\brackets
 \renewcommand{\brackets}{\bracketsdefault*}
-\DeclarePairedDelimiter{\cbraces}{\lbrace}{\rbrace}
-\let\cbracesdefault\cbraces
-\renewcommand{\cbraces}[1]{\cbracesdefault*{#1}}
+\NewDocumentCommand{\cbraces}{m o}{
+    \ensuremath{%
+        \left\lbrace
+        #1%
+        \IfNoValueTF{#2}{}{\,\middle|\,#2}%
+        \right\rbrace
+      }%
+}
+
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
 
 
@@ -930,7 +937,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(U\subseteq\mathbb{C}\), and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then the set \(\cbraces{z\in U\mid f(z)=0}\) has no accumulation points in \(U\), unless \(f\equiv0\) over \(U\).
 \end{theorem}
 \begin{proof}
-    For the sake of contradiction, given that \(\paren{n_k\in\mathbb{N}}_{k\in\mathbb{N}}\) is a strictly increasing sequence, assume that a subsequence of the zeroes \(\paren{z_n}_{n\in\mathbb{N}}\), \(\paren{z_{n_k}}\) has an accumulation point \(z_0\in U\). By the holomorphy of \(f\) over \(U\), there exists an open set containing \(U\) that \(f\) is holomorphic on. Then, \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_0,\varepsilon}\). Then over this disk, \(f\) has the Taylor expansion \[f(z)=\sum_{n=0}^\infty a_n\paren{z-z_0}^n.\] By the definition of an accumulation point, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(z_{n_k}\in D\paren{z_0,\varepsilon}\).
+    Let \(\cbraces\)
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
