@@ -965,16 +965,16 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(U\subseteq\mathbb{C}\) be open (and connected), and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then if the set defined by \(E=\cbraces{z\in U\mid f(z)=0}\) has an accumulation point in \(U\), then \(f\equiv0\) over \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z_0\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_0,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor Series representation
+    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z^*\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_0,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor Series representation
     \begin{equation}\label{eq:identityaccumulationofzeroes_taylorexpansion}
-        f(z)=\sum_{n=0}^\infty a_n\paren{z-z_0}^n.
+        f(z)=\sum_{n=0}^\infty a_n\paren{z-z^*}^n.
     \end{equation}
-    By \autoref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z_0,\varepsilon}\). Since \(z_n\) is a root of \(f\), \(f\paren{z_n}=0\). Then, by the continuity of \(f\), \[0=\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_0}.\] Using this result in comparison to equation \eqref{eq:identityaccumulationofzeroes_taylorexpansion}, we get that \(a_0=0\).
+    By \autoref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z^*,\varepsilon}\). Since \(z_n\) is a root of \(f\), \(f\paren{z_n}=0\). Then, by the continuity of \(f\), \[0=\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z^*}.\] Using this result in comparison to equation \eqref{eq:identityaccumulationofzeroes_taylorexpansion}, we get that \(a_0=0\).
 
-    The function \(f_1(z)=\frac{f(z)}{z-z_0}\) can be analytically continued by \autoref{thm:analyticcontinuationremovablesingularities} with a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
-    \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z_0}^n.\]
-    Similarly, \(a_1=0\). We recursively obtain that \(a_0,a_1,\ldots=0.\) Then \(f\equiv0\) over \(D\paren{z_0,\varepsilon}\).
-
+    The function \(f_1(z)=\frac{f(z)}{z-z^*}\) has a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
+    \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z^*}^n.\]
+    Let \(z=z_n\neq z^*\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+O_{n\to\infty}\paren{z_n-z^*}.\]
+    Letting \(n\to\infty\), \(z_n\to z^*\), and \(a_1=0\). Define \(f_2(z)=\)
     By definition, \(D\paren{z_0,\varepsilon}\subseteq U\). For any point \(z'\) in this disk, since 
 \end{proof}
 \begin{remark}
