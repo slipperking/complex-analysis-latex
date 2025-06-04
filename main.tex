@@ -965,7 +965,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(U\subseteq\mathbb{C}\) be open (and connected), and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then if the set defined by \(E=\cbraces{z\in U\mid f(z)=0}\) has an accumulation point in \(U\), then \(f\equiv0\) over \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z^*\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_0,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor Series representation
+    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z^*\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z^*,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor Series representation
     \begin{equation}\label{eq:identityaccumulationofzeroes_taylorexpansion}
         f(z)=\sum_{n=0}^\infty a_n\paren{z-z^*}^n.
     \end{equation}
@@ -974,8 +974,10 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     The function \(f_1(z)=\frac{f(z)}{z-z^*}\) has a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
     \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z^*}^n.\]
     Let \(z=z_n\neq z^*\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+O_{n\to\infty}\paren{z_n-z^*}.\]
-    Letting \(n\to\infty\), \(z_n\to z^*\), and \(a_1=0\). Define \(f_2(z)=\)
-    By definition, \(D\paren{z_0,\varepsilon}\subseteq U\). For any point \(z'\) in this disk, since 
+    Letting \(n\to\infty\), \(z_n\to z^*\), and \(a_1=0\). Define \(f_2(z)=\frac{f_1(z)}{z-z^*}\). Then, \[f_2(z)=\sum_{n=0}^\infty a_{n+2}\paren{z-z^*}^n.\]
+    Similarly, \(a_2=0\). Letting \(f_n(z)=\frac{f(z)}{\paren{z-z^*}^n}\), the sequence \(\paren{a_n}_{n\in\mathbb{Z}_{\geq0}}\) vanishes, and \(f\equiv 0\) on \(D\paren{z^*,\varepsilon}\).
+    
+    By definition, \(D\paren{z^*,\varepsilon}\subseteq U\). For any point \(z'\) in this disk, since 
 \end{proof}
 \begin{remark}
     This is a trivial property of holomorphic functions that allows for the uniqueness of analytic continuations. It is oftentimes stated in the form below:
