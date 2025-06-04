@@ -363,12 +363,19 @@ Then the following relationships are derived:
 \[\sin(z)=-i\sinh(iz),\quad\cos(z)=\cosh(iz),\quad\tan(z)=-i\tanh(iz).\]
 The complex logarithm, denoted \(w=\Log(z)\), is the solution to \(z=e^w\). We can then define the inverse trigonometric and hyperbolic functions. 
 
-We can also define the power function for non-integer powers with \(w=z^\alpha=e^{\alpha\Log(z)}\). Then, power functions can all be written in terms of exponential functions and logarithms. Letting \(x=\pi\) in equation \eqref{eq:eulersformula} yields \(e^{i\pi}=-1,\). Furthermore, we can see that exponentiation of a complex number is a rotation.
+We can also define the power function for non-integer powers with \(w=z^\alpha=e^{\alpha\Log(z)}\). Then, power functions can all be written in terms of exponential functions and logarithms. Letting \(x=\pi\) in equation \eqref{eq:eulersformula} yields \(e^{i\pi}=-1,\). Furthermore, we can see that exponentiation with an imaginary number is a rotation:
 \begin{theorem}[De Moivre's Theorem]
     \(\forall x\in\mathbb{R}\), \(\forall n\in\mathbb{N}\),
     \[\paren{\cos(x)+i\sin(x)}^n=\cos(nx)=i\sin(nx).\]
 \end{theorem}
-The exponential function \(e^z\) never vanishes as \(\abs{e^z}=e^x>0\). Since \(e^{2\pi i}=1\), it is periodic over \(2\pi i\). It is also an entire function with \(\paren{e^z}'=e^z\). By analysis of the real and imaginary parts, 
+Since all elementary functions can be written in terms of exponential functions and complex logarithms, we will first study the exponential function.
+\begin{enumerate}
+    \item The exponential function \(e^z\) never vanishes as \(\abs{e^z}=e^x>0\).
+    \item Since \(e^{2\pi i}=1\), it is periodic over \(2\pi i\).
+    \item It is also an entire function with \(\paren{e^z}'=e^z\). 
+    
+    Write \(e^z=e^{x+iy}=e^x\paren{\cos(y)+i\sin(y)}\) where \(x,y\in\mathbb{R}\). Let \(u(x,y)=\real\paren{e^z}=e^x\cos(y)\) and \(v(x,y)=\imaginary\paren{e^z}=e^x\sin(y)\). The first order derivatives are
+\end{enumerate}
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex series:
 \begin{definition}[Uniform Convergence]
