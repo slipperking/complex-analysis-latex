@@ -1023,12 +1023,13 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(h=f-g\) be holomorphic over \(U\). Since \(E\) has an accumulation point in \(U\), and \(h\equiv 0\) over \(E\), then by \autoref{thm:identityaccumulationofzeroes}, \(h\equiv 0\) over \(U\).
 \end{proof}
 \begin{theorem}[Argument Principle for Holomorphic Functions]\label{thm:argumentprincipleholomorphic}
-    Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a closed (positively oriented) curve homotopic to a constant curve (the homotopy completely lies in \(U\)). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\) and this number, counting multiplicities, is equal to \[k=\frac{1}{2\pi i}\int_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
+    Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a closed, positively oriented curve homotopic to a constant curve (the homotopy completely lies in \(U\)). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\) and this number, counting multiplicities, is equal to \[k=\frac{1}{2\pi i}\int_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
     Let \(\Gamma\) be the image of \(\gamma\) under \(f\). Then, \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(f)\), where \(\Delta_\Gamma\arg f=\Delta_{\gamma}\arg f(z)\) is the total change in argument of \(f(z)\) as \(z\) traverses \(\gamma\).
 \end{theorem}
 \begin{proof}
     Let \(z_1,z_2,\ldots,z_n\) be the zeros enclosed within \(\gamma\), with multiplicities \(k_1,k_2,\ldots,k_n\) respectively. There exist disks centered around each zero with radii \(\varepsilon_1,\ldots,\varepsilon_n\) respectively, such that each disk is disjoint and contained in the interior of \(\gamma\). The function \[\frac{f'(z)}{f(z)}\] is holomorphic over \[\mathrm{int}\paren{\gamma}\setminus\bigcup_{k=1}^n D\paren{z_k,\varepsilon_k},\] where \(\mathrm{int}\paren{\gamma}\) is the interior with respect to the Jordan curve \(\gamma\).
-    This region has the oriented boundary of \(\gamma^+\cup\bigcup_{k=1}^n\partial D\paren{z_k,\varepsilon_k}^-\).
+    This region has the oriented boundary of \(\bigcup_{k=1}^n\partial D\paren{z_k,\varepsilon_k}^-\cup\gamma\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), \[\int_{\bigcup_{k=1}^n\partial D\paren{z_k,\varepsilon_k}^-\cup\gamma}\frac{f'(z)}{f(z)}\ddz=0,\]
+    and from rearrangement, \[\int_\gamma \frac{f'(z)}{f(z)}\ddz=\sum_{k=1}^n\int_{\partial D\paren{z_k,\varepsilon_k}}\frac{f'(z)}{f(z)}\ddz.\]
 \end{proof}
 
 \section{The Theory of Weierstrass}
