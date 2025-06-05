@@ -362,9 +362,9 @@ This is better written as \begin{equation}
 \end{align*}
 Then the following relationships are derived:
 \[\sin(z)=-i\sinh(iz),\quad\cos(z)=\cosh(iz),\quad\tan(z)=-i\tanh(iz).\]
-The complex logarithm, denoted \(w=\Log(z)\), is the solution to \(z=e^w\). We can then define the inverse trigonometric and hyperbolic functions. 
+The complex logarithm, denoted \(w=\log(z)\), is the solution to \(z=e^w\). We can then define the inverse trigonometric and hyperbolic functions. 
 
-We can also define the power function for non-integer powers with \(w=z^\alpha=e^{\alpha\Log(z)}\). Then, power functions can all be written in terms of exponential functions and logarithms. Letting \(x=\pi\) in equation \eqref{eq:eulersformula} yields \(e^{i\pi}=-1,\). Furthermore, we can see that exponentiation with an imaginary number is a rotation:
+We can also define the power function for non-integer powers with \(w=z^\alpha=e^{\alpha\log(z)}\). Then, power functions can all be written in terms of exponential functions and logarithms. Letting \(x=\pi\) in equation \eqref{eq:eulersformula} yields \(e^{i\pi}=-1,\). Furthermore, we can see that exponentiation with an imaginary number is a rotation:
 \begin{theorem}[De Moivre's Theorem]
     \(\forall x\in\mathbb{R}\), \(\forall n\in\mathbb{N}\),
     \[\paren{\cos(x)+i\sin(x)}^n=\cos(nx)=i\sin(nx).\]
@@ -385,9 +385,12 @@ Since all elementary functions can be written in terms of exponential functions 
     
     Let \(z_1=x_1+iy_1\), \(z_2=x_2+iy_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(e^{z_1}=e^{z_2}\). Then, \[e^{x_1}e^{iy_1}=e^{x_2}e^{iy_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any belt region \(2\pi k\leq \imaginary(z)< 2\pi (k+1)\)
 \end{enumerate}
-Next we examine the complex logarithm.
+Next we examine the complex logarithm. 
 \begin{enumerate}
-    \item 
+    \item Because of the periodicity of \(z=e^w\), \(\log\) is a multi-valued function (infinite-valued).
+    \item Let \(z=re^{i\theta}\) and \(w=u+iv\). Then,
+    \[re^{i\theta}=e^{u+iv},\]
+    and \(e^u=r\), \(\theta=v+2\pi k\), where \(k\in\mathbb{Z}\). 
 \end{enumerate}
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex series:
