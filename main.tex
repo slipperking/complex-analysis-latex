@@ -679,7 +679,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Comparing the above equation with equation \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_trianglelowerbound}, \[\frac{M}{4^n}<\frac{\varepsilon L}{4^n},\quad M<\varepsilon L.\] Since \(\Delta\) is rectifiable, \(L\) is finite, and letting \(\varepsilon\to0\), we find that \(M\to0\). Then, for every triangle in \(U\), the integral vanishes, and equations \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement} and \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition} follow.
 \end{proof}
 \begin{theorem}[Cauchy--Goursat Integral Theorem]\label{thm:cauchygoursattheorem}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
+    Let \(U\subset\mathbb{C}\) be an open region bounded with boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
     Since \(\partial U\notin U\) and \(f(z)\) are not necessarily holomorphic over \(\overline{U}\), we cannot directly apply \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}.
@@ -857,7 +857,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
     Let \(f:\mathbb{C}\to\mathbb{C}\) be entire. Then, \(\forall z_0\in\mathbb{C}\), \(\forall R>0\), \(f\) is holomorphic over \(\overline{D\paren{z_0,R}}\). By \autoref{thm:cauchysestimate}, \[\abs{f'\paren{z_0}}\leq\frac{M}{R},\] where \(M=\sup_{z\in\mathbb{C}}\abs{f(z)}\). By letting \(r\to\infty\), \(f'\paren{z_0}\) where \(z_0\) is any arbitrary value in \(\mathbb{C}\). Therefore, \(f(z)\) is constant.
 \end{proof}
 \begin{theorem}[Morera's Theorem]\label{thm:morera}
-    Let \(U\subseteq\mathbb{C}\) and \(f:U\to\mathbb{C}\) be continuous over \(U\). If for any rectifiable closed curve \(\gamma\subset U\), \[\oint_{\gamma}f(\zeta)\ddzeta\] vanishes, then \(f\) is holomorphic over \(U\).
+    Let \(U\subseteq\mathbb{C}\) and \(f:U\to\mathbb{C}\) be continuous over \(U\). If for any rectifiable closed curve \(\gamma\subset U\), \[\oint_{\gamma}f(\zeta)\ddzeta=0,\] then \(f\) is holomorphic over \(U\).
 \end{theorem}
 \begin{proof}
     Since the integral vanishes on any closed curve \(\gamma\), \(\forall z_0,z\in U\), the integral is path independent with endpoints \(z_0\) and \(z\):
@@ -1027,8 +1027,8 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(\Gamma\) be the image of \(\gamma\) under \(f\). Then, \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(f)\), where \(\Delta_\Gamma\arg f=\Delta_{\gamma}\arg f(z)\) is the total change in argument of \(f(z)\) as \(z\) traverses \(\gamma\).
 \end{theorem}
 \begin{proof}
-    Let \(z_1,z_2,\ldots,z_n\) be the zeros enclosed within \(\gamma\), with multiplicities \(k_1,k_2,\ldots,k_n\) respectively. There exist disks centered around each zero with radii \(\varepsilon_1,\ldots,\varepsilon_n\) respectively, such that each disk is disjoint and contained in the interior of \(\gamma\). The function \[\frac{f'(z)}{f(z)}\] is holomorphic over \[\setminus\bigcup_{k=1}^n D\paren{z_k,\varepsilon_k}.\]
-    This region has the boundary of \(\)
+    Let \(z_1,z_2,\ldots,z_n\) be the zeros enclosed within \(\gamma\), with multiplicities \(k_1,k_2,\ldots,k_n\) respectively. There exist disks centered around each zero with radii \(\varepsilon_1,\ldots,\varepsilon_n\) respectively, such that each disk is disjoint and contained in the interior of \(\gamma\). The function \[\frac{f'(z)}{f(z)}\] is holomorphic over \[\mathrm{int}\paren{\gamma}\setminus\bigcup_{k=1}^n D\paren{z_k,\varepsilon_k},\] where \(\mathrm{int}\paren{\gamma}\) is the interior with respect to the Jordan curve \(\gamma\).
+    This region has the oriented boundary of \(\gamma^+\cup\bigcup_{k=1}^n\partial D\paren{z_k,\varepsilon_k}^-\).
 \end{proof}
 
 \section{The Theory of Weierstrass}
