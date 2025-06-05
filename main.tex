@@ -35,6 +35,7 @@
 \newcommand{\ddzeta}{\dd{\zeta}}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\Log}{\mathrm{Log}}
+\newcommand{\Arg}{\mathrm{Arg}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
@@ -382,9 +383,12 @@ Since all elementary functions can be written in terms of exponential functions 
     In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(e^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textit{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(\paren{z_1,z_2}\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
     \item The region \(e^z\) is univalent over:
     
-    Let \(z_1=x_1+iy_1\), \(z_2=x_2+iy_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(e^{z_1}=e^{z_2}\). Then, \[e^{x_1}e^{iy_1}=e^{x_2}e^{iy_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any belt region \(2\pi k< \imaginary(z)< 2\pi (k+1)\)
+    Let \(z_1=x_1+iy_1\), \(z_2=x_2+iy_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(e^{z_1}=e^{z_2}\). Then, \[e^{x_1}e^{iy_1}=e^{x_2}e^{iy_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any belt region \(2\pi k\leq \imaginary(z)< 2\pi (k+1)\)
 \end{enumerate}
 Next we examine the complex logarithm.
+\begin{enumerate}
+    \item 
+\end{enumerate}
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex series:
 \begin{definition}[Uniform Convergence]
@@ -1009,7 +1013,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 \end{proof}
 \begin{theorem}[Argument Principle for Holomorphic Functions]\label{thm:argumentprincipleholomorphic}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a closed (positively oriented) curve homotopic to a constant curve (the homotopy completely lies in \(U\)). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\) and this number, counting multiplicities, is equal to \[k=\frac{1}{2\pi i}\int_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
-    Let \(\Gamma\) be the image of \(\gamma\) under \(f\). Then, \(k=\frac{1}{2\pi}\Delta_{f\in\Gamma}\arg(f)\), where \(\Delta_{f\in\Gamma}\arg(f)=\Delta_{z\in\gamma}\arg f(z)\).
+    Let \(\Gamma\) be the image of \(\gamma\) under \(f\). Then, \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(f)\), where \(\Delta_\Gamma\arg f=\Delta_{\gamma}\arg f(z)\) is the total change in argument as \(z\) traverses \(\gamma\).
 \end{theorem}
 \begin{proof}
     
