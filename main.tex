@@ -986,7 +986,7 @@ In other words, \(\forall B_1,B_2\in\mathcal{B}\), \(\forall x\in B_1\cap B_2\),
     When \(z\in\Omega_1\setminus\Omega_2=V(K,\varepsilon)\), the first summation vanishes, meaning that \(\varphi\equiv1\) on the neighborhood \(V(K,\varepsilon)\) of \(K\). When \(z\in\Omega_2\setminus\Omega_1=\Omega\setminus V(K,2\varepsilon)\), \(\varphi\) vanishes.
 \end{proof}
 \subsection{Zeroes of a Holomorphic Function}
-For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textit{zero} of \(f\) if and only if \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\quad\quad m\in\mathbb{N},\] \(a_m\neq0\), then the zero at \(z_0\) has multiplicity \(m\).
+For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textit{zero} of \(f\) if and only if \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\quad\quad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
 
 We will introduce a fundamental application of Liouville's Theorem (\autoref{thm:liouville}) below.
 \begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
@@ -1024,11 +1024,44 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 \end{proof}
 \begin{theorem}[Argument Principle for Holomorphic Functions]\label{thm:argumentprincipleholomorphic}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a closed (positively oriented) curve homotopic to a constant curve (the homotopy completely lies in \(U\)). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\) and this number, counting multiplicities, is equal to \[k=\frac{1}{2\pi i}\int_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
-    Let \(\Gamma\) be the image of \(\gamma\) under \(f\). Then, \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(f)\), where \(\Delta_\Gamma\arg f=\Delta_{\gamma}\arg f(z)\) is the total change in argument as \(z\) traverses \(\gamma\).
+    Let \(\Gamma\) be the image of \(\gamma\) under \(f\). Then, \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(f)\), where \(\Delta_\Gamma\arg f=\Delta_{\gamma}\arg f(z)\) is the total change in argument of \(f(z)\) as \(z\) traverses \(\gamma\).
 \end{theorem}
 \begin{proof}
-    Let \(z_0,z_1,\ldots z_n\) be the zeros enclosed within \(\gamma\) (multiplicities counted as multiple zeros).
+    Let \(z_1,z_2,\ldots,z_n\) be the zeros enclosed within \(\gamma\), with multiplicities \(k_1,k_2,\ldots,k_n\) respectively. There exist disks centered around each zero with radii \(\varepsilon_1,\ldots,\varepsilon_n\) respectively, such that each disk is disjoint and contained in the interior of \(\gamma\), and \(f(z)\neq 0\) on the boundary of each disk. Since \(f\) is holomorphic and nonvanishing on and near \(\gamma\), and the zeros of \(f\) in the interior are isolated, we can write \(f(z)\) locally near each \(z_j\) as
+    \[
+    f(z) = (z - z_j)^{k_j}g_j(z),
+    \]
+    where \(g_j(z)\) is holomorphic and nonzero in a neighborhood of \(z_j\).
+
+    Then we compute
+    \[
+    \frac{f'(z)}{f(z)} = \frac{d}{dz} \log f(z) = \sum_{j=1}^n \left( \frac{k_j}{z - z_j} \right) + h(z),
+    \]
+    where \(h(z)\) is holomorphic in a neighborhood of the region enclosed by \(\gamma\) (since the logarithmic derivative of \(g_j(z)\) is holomorphic). Now integrate \(\frac{f'(z)}{f(z)}\) along \(\gamma\):
+    \[
+    \frac{1}{2\pi i} \int_\gamma \frac{f'(z)}{f(z)} \, dz = \sum_{j=1}^n \frac{k_j}{2\pi i} \int_\gamma \frac{1}{z - z_j} \, dz + \frac{1}{2\pi i} \int_\gamma h(z) \, dz.
+    \]
+    By Cauchy's integral theorem, the second integral vanishes because \(h(z)\) is holomorphic on and inside \(\gamma\). The first term contributes \(k_j\) for each \(z_j\) inside \(\gamma\), because
+    \[
+    \frac{1}{2\pi i} \int_\gamma \frac{1}{z - z_j} \, dz = 1.
+    \]
+    Thus,
+    \[
+    \frac{1}{2\pi i} \int_\gamma \frac{f'(z)}{f(z)} \, dz = \sum_{j=1}^n k_j = k,
+    \]
+    the total number of zeros of \(f\) inside \(\gamma\), counted with multiplicity.
+
+    For the second equality, recall that for any closed curve \(\gamma\) such that \(f(z) \ne 0\) on \(\gamma\), the total change in argument of \(f(z)\) as \(z\) traverses \(\gamma\) is given by
+    \[
+    \Delta_\gamma \arg f(z) = \operatorname{Im} \int_\gamma \frac{f'(z)}{f(z)} \, dz.
+    \]
+    Hence,
+    \[
+    \frac{1}{2\pi} \Delta_\gamma \arg f(z) = \frac{1}{2\pi} \operatorname{Im} \int_\gamma \frac{f'(z)}{f(z)} \, dz = \frac{1}{2\pi i} \int_\gamma \frac{f'(z)}{f(z)} \, dz = k.
+    \]
+    This completes the proof.
 \end{proof}
+
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
 Laurent Series are a generalization of Taylor Series specifically for holomorphic functions over a region punctured by a non-removable singularity. Whereas the Taylor Series applies over a disk, the Laurent Series applies over an annulus around the singularity.
