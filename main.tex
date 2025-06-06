@@ -485,11 +485,20 @@ Lastly, the sufficient criteria to pass a limit through an integral:
     Let \(\gamma\) be a closed, rectifiable curve that the sequence \(\cbraces{f_n(z)}\) is continuous on. If \(\cbraces{f_n(z)}\) uniformly converges to \(f\), then \[\lim_{n\to\infty}\int_{\gamma}f_n(z)\ddz=\int_{\gamma}f(z)\ddz.\]
 \end{theorem}
 \begin{proof}
-    
+    Since \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) on \(\gamma\), \(\forall\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that for all \(n > N\), \[\abs{f_n(z)-f(z)}<\frac{\varepsilon}{\mu(\gamma)},\quad \forall z\in\gamma,\] where \(\mu(\gamma)\) is the length of the rectifiable curve \(\gamma\). Since each \(f_n\) is continuous and \(\gamma\) is rectifiable, each integral \(\int_\gamma f_n(z)\ddz\) is convergent and well-defined.
+
+    Then \(\forall n>N\),
+    \begin{align*}
+        \abs{\int_\gamma f_n(z)\ddz-\int_\gamma f(z)\ddz}
+        &=\abs{\int_\gamma\paren{f_n(z)-f(z)}\ddz}\\
+        &\leq\int_\gamma\abs{f_n(z)-f(z)}\abs{\ddz}\\
+        &<\int_\gamma \frac{\varepsilon}{\mu(\gamma)}\abs{\ddz}=\varepsilon.
+    \end{align*}
+    Therefore, \[\lim_{n\to\infty}\int_\gamma f_n(z)\ddz=\int_\gamma f(z)\ddz,\] as desired.
 \end{proof}
 \begin{remark}
     For a uniformly convergent series \(\sum_{n=1}^\infty f_n(z)\), the commutation between the limit and the integral becomes a summation-integral switch:
-    \[\sum_{n=1}^\infty\int_{\gamma}f_n(z)\ddz=\int_{\gamma}\sum_{n=1}^\infty f_n(z)\ddz\]
+    \[\sum_{n=1}^\infty\int_{\gamma}f_n(z)\ddz=\int_{\gamma}\sum_{n=1}^\infty f_n(z)\ddz.\]
 \end{remark}
 \section{Complex Integration}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
