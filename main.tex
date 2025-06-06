@@ -430,12 +430,16 @@ Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp\paren{iu\paren{\Arg(z)+2\pi k}}\
     \item If \(\alpha=u\in\mathbb{R}\setminus\mathbb{Q}\), then \(z^\alpha\) is infinite valued.
 \end{enumerate}
 \subsection{Complex Power Series}
-Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex series:
+Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex analysis:
 \begin{definition}[Uniform Convergence]
     For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to a function \(f(z)\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f(z)-f_n(z)}<\varepsilon\).
 \end{definition}
-In other words, for a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) if and only if
+\begin{remark}
+    The definition above is equivalent to the following definition.
+    
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) if and only if
 \[\lim_{n\to\infty}\sup_{z\in U}\abs{f_n(z)-f(z)}=0.\]
+\end{remark}
 \begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionuniformconvergence}
     For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to a function \(f(z)\) if and only if \(\forall\varepsilon>0\),\(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\forall z\in U\), \(\abs{f_n(z)-f_m(z)}<\varepsilon\).
 \end{theorem}
@@ -945,11 +949,11 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
 
     The problem now stands to prove that \(\varphi(z)\) exists in the first place, which is discussed later in \autoref{thm:bumpfunctionexistence}.
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{col:generalizedcauchysestimate}
     Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\). For any holomorphic function \(f(z)\) in \(U\), there exist constants (independent of \(z\) and \(f\)) \(\cbraces{c_n}\) such that \[\sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\sup_{z\in V}\abs{f(z)}.\]
 \end{corollary}
 \begin{proof}
-    Starting from equation \eqref{eq:nthderivativeboundedl1norm_statement}, observe that \[c_n\left\|f\right\|_{L_1(V)}\leq c_n\sup_{z\in V}\abs{f(z)},\] and we can define a new set of constants equal to \(c_n\mu(V)\), which are still independent of \(z\).
+    Starting from equation \eqref{eq:nthderivativeboundedl1norm_statement}, observe that \[c_n\left\|f\right\|_{L_1(V)}\leq c_n\mu(V)\sup_{z\in V}\abs{f(z)},\] and we can define a new set of constants equal to \(c_n\mu(V)\), which are still independent of \(z\).
 \end{proof}
 For the next theorem we will briefly introduce the concept of \textit{analytic continuation}.
 \begin{definition}[Analytic Continuation]
@@ -1107,8 +1111,8 @@ This profound result proves that the number of zeros of a holomorphic function e
 \end{theorem}
 \begin{proof}
     By the holomorphy of \(f_n(z)\), for any simple closed rectifiable curve \(\gamma\subset U\), by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), \[\int_{\gamma}f_n(\zeta)\ddzeta=0.\] Since \(\gamma\) is a subset of any compact subset of \(U\), \(\cbraces{f_n(\zeta)}\) uniformly converges on \(\gamma\), and by \autoref{thm:limitintegralswitch}, \[\lim_{n\to\infty}\int_{\gamma}f_n(\zeta)\ddzeta=\int_{\gamma}\lim_{n\to\infty}f_n(\zeta)\ddzeta=\int_{\gamma}f(\zeta)\ddzeta=0.\]
-    Then by Morera's Theorem (\autoref{thm:morera}), \(f(z)\) is holomorphic. Then \(f'(z)\) is holomorphic. 
-    
+    Then by Morera's Theorem (\autoref{thm:morera}), \(f(z)\) is holomorphic, and \(f'(z)\) is holomorphic. We aim to show that \(f'_n(z)\to f'(z)\) uniformly.
+    By 
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
