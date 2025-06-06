@@ -1046,7 +1046,7 @@ In other words, \(\forall B_1,B_2\in\mathcal{B}\), \(\forall x\in B_1\cap B_2\),
     It follows that \(\varphi\in C^\infty(\mathbb{C})\) with compact support in \(\Omega_1\). Since the support of every \(\alpha_j\) where \(j\in\mathbb{N}\) lies entirely either in \(\Omega_1\) or \(\Omega_2\), \[1=\sum_{\substack{j\in\mathbb{N}\\\supp{\alpha_j}\subseteq\Omega_2}}\alpha_j(z)+\varphi(z).\]
     When \(z\in\Omega_1\setminus\Omega_2=V(K,\varepsilon)\), the first summation vanishes, meaning that \(\varphi\equiv1\) on the neighborhood \(V(K,\varepsilon)\) of \(K\). When \(z\in\Omega_2\setminus\Omega_1=\Omega\setminus V(K,2\varepsilon)\), \(\varphi\) vanishes.
 \end{proof}
-\subsection{Zeroes of a Holomorphic Function}
+\subsection{Zeros of a Holomorphic Function}
 For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textit{zero} of \(f\) if and only if \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\quad\quad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
 
 We will introduce a fundamental application of Liouville's Theorem (\autoref{thm:liouville}) below.
@@ -1054,17 +1054,17 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Every non-constant polynomial \(p(z)\) with complex coefficients has at least one complex zero.
 \end{theorem}
 \begin{proof}
-    For the sake of contradiction, suppose that \(p(z)\) has no complex zeroes. Then the function \(f(z)=\frac{1}{p(z)}\) is continuous and entire, because \(p(z)\) has no zeroes in \(\mathbb{C}\). Moreover, as \(|z|\to\infty\), \(p(z)\to\infty\), so \(f(z)\to 0\), and thus \(f(z)\) is bounded. By Liouville's Theorem (\autoref{thm:liouville}), every bounded entire function is constant. Thus, \(f(z)\) is constant, and so \(p(z)\) must also be constant. By contradiction, \(p(z)\) has at least one complex zero.
+    For the sake of contradiction, suppose that \(p(z)\) has no complex zeros. Then the function \(f(z)=\frac{1}{p(z)}\) is continuous and entire, because \(p(z)\) has no zeros in \(\mathbb{C}\). Moreover, as \(|z|\to\infty\), \(p(z)\to\infty\), so \(f(z)\to 0\), and thus \(f(z)\) is bounded. By Liouville's Theorem (\autoref{thm:liouville}), every bounded entire function is constant. Thus, \(f(z)\) is constant, and so \(p(z)\) must also be constant. By contradiction, \(p(z)\) has at least one complex zero.
 \end{proof}
-\begin{theorem}\label{thm:identityaccumulationofzeroes}
+\begin{theorem}\label{thm:identityaccumulationofzeros}
     Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then if the set defined by \(E=\cbraces{z\in U\mid f(z)=0}\) has an accumulation point in \(U\), then \(f\equiv0\) over \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z_\infty\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_\infty,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor Series representation
-    \begin{equation}\label{eq:identityaccumulationofzeroes_taylorexpansion}
+    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z_\infty\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_\infty,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor expansion
+    \begin{equation}\label{eq:identityaccumulationofzeros_taylorexpansion}
         f(z)=\sum_{n=0}^\infty a_n\paren{z-z_\infty}^n.
     \end{equation}
-    By \autoref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z_\infty,\varepsilon}\). Since \(z_n\) is a root of \(f\), \(f\paren{z_n}=0\). Then, by the continuity of \(f\), \[0=\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}.\] Using this result in comparison to equation \eqref{eq:identityaccumulationofzeroes_taylorexpansion}, we get that \(a_0=0\).
+    By \autoref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z_\infty,\varepsilon}\). Since \(z_n\) is a zero of \(f\), \(f\paren{z_n}=0\). Then, by the continuity of \(f\), \[0=\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}.\] Using this result in comparison to equation \eqref{eq:identityaccumulationofzeros_taylorexpansion}, we get that \(a_0=0\).
 
     The function \(f_1(z)=\frac{f(z)}{z-z_\infty}\) has a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
     \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z_\infty}^n.\]
@@ -1081,7 +1081,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(U\subseteq\mathbb{C}\) be open and connected, and define \(f(z)\) and \(g(z)\) to be two holomorphic functions on \(U\). For a set \(E\subseteq U\) with an accumulation point in \(U\), if \(f\equiv g\) on \(E\), then \(f\equiv g\) on \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(h=f-g\) be holomorphic over \(U\). Since \(E\) has an accumulation point in \(U\), and \(h\equiv 0\) over \(E\), then by \autoref{thm:identityaccumulationofzeroes}, \(h\equiv 0\) over \(U\).
+    Let \(h=f-g\) be holomorphic over \(U\). Since \(E\) has an accumulation point in \(U\), and \(h\equiv 0\) over \(E\), then by \autoref{thm:identityaccumulationofzeros}, \(h\equiv 0\) over \(U\).
 \end{proof}
 \begin{theorem}[Argument Principle for Holomorphic Functions]\label{thm:argumentprincipleholomorphic}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a closed, positively oriented curve homotopic to a constant curve (the homotopy completely lies in \(U\)). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\) and this number, counting multiplicities, is equal to \[k=\frac{1}{2\pi i}\int_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
@@ -1101,7 +1101,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 \end{proof}
 This profound result proves that the number of zeros of a holomorphic function enclosed by a closed curve is also the number of times the image of the curve winds around the origin.
 \begin{theorem}[Hurwitz's Theorem]
-    Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\). If \(\forall n\in\mathbb{N}\), \(f_n(z)\) has no roots in \(U\), then \(f\) is either identically 0 or has no roots in \(U\).
+    Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\). If \(\forall n\in\mathbb{N}\), \(f_n(z)\) has no zeros in \(U\), then \(f\) is either identically 0 or has no zeros in \(U\).
 \end{theorem}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
