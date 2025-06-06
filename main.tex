@@ -420,7 +420,13 @@ Then \(\arccos\) is also a multi-valued function. We can define \(\arcsin(z)=\fr
 Lastly, we will examine the power function. Let \(\alpha=u+iv\) where \(u,v\in\mathbb{R}\). Then, \[z^\alpha=e^{\alpha\log(z)}=e^{(u+iv)\paren{\ln\abs{z}+i\arg\paren{z}}}=e^{u\ln\abs{z}-v\arg\paren{z}}e^{i\paren{v\ln\abs{z}+u\arg\paren{z}}}.\]
 Let \(r_k=\exp\paren{u\ln\abs{z}-v\paren{\Arg(z)+2\pi k}}\) and \(\theta_k=v\ln\abs{z}+u\paren{\Arg\paren{z}+2\pi k}\). Then, \(z^\alpha=r_ke^{i\theta_k}\), where \(k\in\mathbb{Z}\). Analyzing the coefficient of \(v\) in the exponent of \(r_k\), \(z^\alpha\) is multi-valued if \(v\neq0\). 
 
-Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp\paren{iu\paren{\Arg(z)+2\pi k}}\)
+Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp\paren{iu\paren{\Arg(z)+2\pi k}}\). Doing casework on \(\alpha\),
+\begin{enumerate}
+    \item If \(\alpha=u\in\mathbb{Z}\), then \(u\) can be absorbed into \(k\), and \(z^\alpha\) is single valued.
+    \item If \(\alpha=u\in\mathbb{Q}\) with the reduced fraction representation \(\flatfrac{p}{q}\), \(p,q\in\mathbb{Z}\), \(q\neq 0\).
+
+    Then, \(\abs{z}^{\flatfrac{p}{q}}\exp\paren{i\frac{p}{q}\paren{\Arg(z)+2\pi k}}\)
+\end{enumerate}
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex series:
 \begin{definition}[Uniform Convergence]
