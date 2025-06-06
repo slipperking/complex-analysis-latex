@@ -221,9 +221,9 @@ A portion of calculus is dedicated to rigorously defining concepts such as limit
     Any continuous function on a compact set \(U\) is bounded on \(U\).
 \end{theorem}
 \begin{proof}
-    Suppose for the sake of contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(U\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in U\) such that \(|f(x_n)|>n\). The sequence \((x_n)\) lies in \(U\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), there exists a convergent subsequence \((x_{n_k})\) with \(x_{n_k}\to x^*\in U\).
+    Suppose for the sake of contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(U\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in U\) such that \(|f(x_n)|>n\). The sequence \(\cbraces{x_n}\) lies in \(U\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), there exists a convergent subsequence \(\cbraces{x_{n_k}}\) with \(x_{n_k}\to x^*\in U\).
 
-    Since \(f\) is continuous, \(f(x_{n_k})\to f(x^*)\), so the sequence \((f(x_{n_k}))\) is bounded. But this contradicts \(|f(x_{n_k})|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
+    Since \(f\) is continuous, \(f(x_{n_k})\to f(x^*)\), so the sequence \(\cbraces{f\paren{x_{n_k}}}\) is bounded. But this contradicts \(\abs{f\paren{x_{n_k}}}>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
 \end{proof}
 \begin{theorem}[Extreme Value Theorem]\label{thm:extremevalue}
     A continuous function \(f(x)\) over a compact set \(U\) attains its infimum and supremum in \(U\).
@@ -999,19 +999,19 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then if the set defined by \(E=\cbraces{z\in U\mid f(z)=0}\) has an accumulation point in \(U\), then \(f\equiv0\) over \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z^*\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z^*,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor Series representation
+    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z_\infty\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_\infty,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor Series representation
     \begin{equation}\label{eq:identityaccumulationofzeroes_taylorexpansion}
-        f(z)=\sum_{n=0}^\infty a_n\paren{z-z^*}^n.
+        f(z)=\sum_{n=0}^\infty a_n\paren{z-z_\infty}^n.
     \end{equation}
-    By \autoref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z^*,\varepsilon}\). Since \(z_n\) is a root of \(f\), \(f\paren{z_n}=0\). Then, by the continuity of \(f\), \[0=\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z^*}.\] Using this result in comparison to equation \eqref{eq:identityaccumulationofzeroes_taylorexpansion}, we get that \(a_0=0\).
+    By \autoref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z_\infty,\varepsilon}\). Since \(z_n\) is a root of \(f\), \(f\paren{z_n}=0\). Then, by the continuity of \(f\), \[0=\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}.\] Using this result in comparison to equation \eqref{eq:identityaccumulationofzeroes_taylorexpansion}, we get that \(a_0=0\).
 
-    The function \(f_1(z)=\frac{f(z)}{z-z^*}\) has a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
-    \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z^*}^n.\]
-    Let \(z=z_n\neq z^*\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+O_{n\to\infty}\paren{z_n-z^*}.\]
-    Letting \(n\to\infty\), \(z_n\to z^*\), and \(a_1=0\). Define \(f_2(z)=\frac{f_1(z)}{z-z^*}\). Then, \[f_2(z)=\sum_{n=0}^\infty a_{n+2}\paren{z-z^*}^n.\]
-    Similarly, \(a_2=0\). Letting \(f_n(z)=\frac{f(z)}{\paren{z-z^*}^n}\), the sequence \(\paren{a_n}_{n\in\mathbb{Z}_{\geq0}}\) vanishes, and \(f\equiv 0\) on \(D\paren{z^*,\varepsilon}\).
+    The function \(f_1(z)=\frac{f(z)}{z-z_\infty}\) has a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
+    \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z_\infty}^n.\]
+    Let \(z=z_n\neq z_\infty\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+O_{n\to\infty}\paren{z_n-z_\infty}.\]
+    Letting \(n\to\infty\), \(z_n\to z_\infty\), and \(a_1=0\). Define \(f_2(z)=\frac{f_1(z)}{z-z_\infty}\). Then, \[f_2(z)=\sum_{n=0}^\infty a_{n+2}\paren{z-z_\infty}^n.\]
+    Similarly, \(a_2=0\). Letting \(f_n(z)=\frac{f(z)}{\paren{z-z_\infty}^n}\), the sequence \(\paren{a_n}_{n\in\mathbb{Z}_{\geq0}}\) vanishes, and \(f\equiv 0\) on \(D\paren{z_\infty,\varepsilon}\).
     
-    By definition, \(D\paren{z^*,\varepsilon}\subseteq E\). For any arbitrary point in this disk, the Taylor series will also have vanishing coefficients. Then there exists another disk that \(f\) vanishes over, which is also a subset of \(E\). Then we can repeat this process until we obtain a collection of disks that cover \(U\). Then \(E=U\).
+    By definition, \(D\paren{z_\infty,\varepsilon}\subseteq E\). For any arbitrary point in this disk, the Taylor series will also have vanishing coefficients. Then there exists another disk that \(f\) vanishes over, which is also a subset of \(E\). Then we can repeat this process until we obtain a collection of disks that cover \(U\). Then \(E=U\).
 \end{proof}
 \begin{remark}
     This is a trivial property of holomorphic functions that allows for the uniqueness of analytic continuations. It is oftentimes stated in the form below:
