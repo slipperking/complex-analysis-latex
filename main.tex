@@ -1108,7 +1108,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Letting \(f=f(z)\), through substitution, \[k=\frac{1}{2\pi i}\int_\Gamma \frac{1}{f}\dd{f}=\frac{1}{2\pi i}\Delta_\Gamma\log(f)=\frac{1}{2\pi}\Delta_\Gamma\arg(f).\]
 \end{proof}
 This profound result proves that the number of zeros of a holomorphic function enclosed by a closed curve is also the number of times the image of the curve winds around the origin.
-\begin{theorem}
+\begin{theorem}\label{thm:hurwitzsimplecase}
     Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\). If \(\forall n\in\mathbb{N}\), \(f_n(z)\) has no zeros in \(U\), then \(f\) is either identically 0 or has no zeros in \(U\).
 \end{theorem}
 \begin{proof}
@@ -1119,8 +1119,11 @@ This profound result proves that the number of zeros of a holomorphic function e
 
     By the definition of uniform convergence, the right hand side approaches 0, and \(\cbraces{f'_n(z)}\) is then uniformly convergent to \(f'(z)\) by the same reasoning.
 
-    Through the proof of \autoref{thm:identityaccumulationofzeros}, if \(f\not\equiv0\) over \(U\), then the zeros of \(f\) do not have an accumulation point in \(U\) and are therefore discrete. In this case, let \(\gamma\subset U\) be a curve that does not pass through the zeros of \(f\). Since each function in the sequence \(f_n\) does not contain zeros in \(U\), by \autoref{thm:argumentprincipleholomorphic}, \[\lim_{n\to\infty}\int_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\] 
-    Since \(f\) is continuous, \(\exists\delta>0\) such that \(\forall z\in\gamma\), \(\abs{f(z)}>\delta\). By the uniform convergence of \(\cbraces{f_n(z)}\) and \(\cbraces{f'_n(z)}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in\gamma\), \(\abs{f_n(z)-f(z)}<\frac{\delta}{2}\) and \(\abs{f'_n(z)-f'(z)}<\frac{\delta}{2}\). Then \(\abs{f_n(z)}>\frac{\delta}{2}\) on \(\gamma\). It follows that \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded: \[\abs{\frac{1}{f(z)}}<\frac{1}{\delta},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\delta},\quad\forall z\in\gamma,\forall n>N.\]
+    Through the proof of \autoref{thm:identityaccumulationofzeros}, if \(f\not\equiv0\) over \(U\), then the zeros of \(f\) do not have an accumulation point in \(U\) and are therefore discrete. In this case, let \(\gamma\subset U\) be a curve that does not pass through the zeros of \(f\). Since each function in the sequence \(f_n\) does not contain zeros in \(U\), by \autoref{thm:argumentprincipleholomorphic}, 
+    \begin{equation}
+        \lim_{n\to\infty}\int_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\label{eq:hurwitzsimplecase_argumentprinciple}
+    \end{equation}
+    Since \(f\) is continuous, \(\exists\lambda>0\) such that \(\forall0<\delta<\lambda\), \(\forall z\in\gamma\), \(\abs{f(z)}>\delta\). By the uniform convergence of \(\cbraces{f_n(z)}\) and \(\cbraces{f'_n(z)}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in\gamma\), \(\abs{f_n(z)-f(z)}<\frac{\delta}{2}\) and \(\abs{f'_n(z)-f'(z)}<\frac{\delta}{2}\). Then \(\abs{f_n(z)}>\frac{\delta}{2}\) on \(\gamma\). It follows that \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded: \[\abs{\frac{1}{f(z)}}<\frac{1}{\delta},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\delta},\quad\forall z\in\gamma,\forall n>N.\]
     Since \(f\) and \(f'\) are holomorphic over \(\gamma\). By \autoref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\paren{\abs{f(z)},\abs{f'(z)}}<M\). Then,
     \begin{align*}
         \abs{\frac{f'}{f}-\frac{f'_n}{f_n}}&=\abs{\frac{f'f_n-f'_nf}{f_nf}}\\
@@ -1128,7 +1131,8 @@ This profound result proves that the number of zeros of a holomorphic function e
         &<M\delta^2\frac{\abs{f_n-f}+\abs{f'-f'_n}}{2}\\
         &<\frac{M\delta^3}{2}.
     \end{align*}
-    Letting 
+    Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). Then we can pass the limit through the integral in equation \eqref{eq:hurwitzsimplecase_argumentprinciple}. Then,
+    \[\lim_{n\to\infty}\int_\gamma \frac{f'_n(z)}{f_n(z)}\ddz=\]
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
