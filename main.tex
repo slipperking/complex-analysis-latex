@@ -1123,13 +1123,17 @@ This profound result proves that the number of zeros of a holomorphic function e
     \begin{equation}
         \lim_{n\to\infty}\int_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\label{eq:hurwitzsimplecase_argumentprinciple}
     \end{equation}
-    Since \(f\) is continuous, \(\exists\lambda>0\) such that \(\forall0<\delta<\lambda\), \(\forall z\in\gamma\), \(\abs{f(z)}>\delta\). By the uniform convergence of \(\cbraces{f_n(z)}\) and \(\cbraces{f'_n(z)}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in\gamma\), \(\abs{f_n(z)-f(z)}<\frac{\delta^3}{2}\) and \(\abs{f'_n(z)-f'(z)}<\frac{\delta^3}{2}\). Then \(\abs{f_n(z)}>\frac{\delta}{2}\) on \(\gamma\). It follows that \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded: \[\abs{\frac{1}{f(z)}}<\frac{1}{\delta},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\delta},\quad\forall z\in\gamma,\forall n>N.\]
-    Since \(f\) and \(f'\) are holomorphic over \(\gamma\). By \autoref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\paren{\abs{f(z)},\abs{f'(z)}}<M\). Then,
+    Since \(f\) and \(f'\) are holomorphic over \(\gamma\), by \autoref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\paren{\abs{f(z)},\abs{f'(z)}}<M\).
+    
+    By the continuity of \(f\), \(\exists\lambda>0\) such that \(\forall0<\varepsilon<\lambda\), \(\forall z\in\gamma\), \(\abs{f(z)}>\varepsilon\). By the uniform convergence of \(\cbraces{f_n(z)}\) and \(\cbraces{f'_n(z)}\), \(\exists N\in\mathbb{N}\) such that
+    \[\abs{f_n(z)-f(z)}<\frac{\varepsilon^3}{2},\quad\abs{f'_n(z)-f'(z)}<\frac{\varepsilon^3}{2},\quad\forall n>N,\forall z\in\gamma.\]
+    Then \(\abs{f_n(z)}>\varepsilon-\frac{\varepsilon^3}{2}\) on \(\gamma\). It follows that \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded: \[\abs{\frac{1}{f(z)}}<\frac{1}{\varepsilon},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\varepsilon},\quad\forall z\in\gamma,\forall n>N.\]
+    Then,
     \begin{align*}
         \abs{\frac{f'}{f}-\frac{f'_n}{f_n}}&=\abs{\frac{f'f_n-f'_nf}{f_nf}}\\
-        &<2\frac{\abs{f'f_n-f'f}+\abs{f'f-f'_nf}}{\delta^2}\\
-        &<\frac{2M}{\delta^2}\cdot\paren{\abs{f_n-f}+\abs{f'-f'_n}}\\
-        &<2M\delta.
+        &<2\frac{\abs{f'f_n-f'f}+\abs{f'f-f'_nf}}{\varepsilon^2}\\
+        &<\frac{2M}{\varepsilon^2}\cdot\paren{\abs{f_n-f}+\abs{f'-f'_n}}\\
+        &<2M\varepsilon.
     \end{align*}
     Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). Then we can pass the limit through the integral in equation \eqref{eq:hurwitzsimplecase_argumentprinciple}. Then,
     \[\lim_{n\to\infty}\int_\gamma \frac{f'_n(z)}{f_n(z)}\ddz=\int_\gamma \frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\autoref{thm:argumentprincipleholomorphic}), \(f(z)\) has no roots in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
