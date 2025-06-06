@@ -433,13 +433,14 @@ Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp\paren{iu\paren{\Arg(z)+2\pi k}}\
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex analysis:
 \begin{definition}[Uniform Convergence]
-    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to a function \(f(z)\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f(z)-f_n(z)}<\varepsilon\).
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textit{uniformly converges} to a function \(f(z)\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f(z)-f_n(z)}<\varepsilon\).
 \end{definition}
 \begin{remark}
     The definition above is equivalent to the following definition.
     
     For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) if and only if
-\[\lim_{n\to\infty}\sup_{z\in U}\abs{f_n(z)-f(z)}=0.\]
+    \[\lim_{n\to\infty}\sup_{z\in U}\abs{f_n(z)-f(z)}=0.\]
+    (Informally, we will use the notation \(f_n(z)\rightrightarrows f(z)\) to represent uniform convergence.)
 \end{remark}
 \begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionuniformconvergence}
     For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to a function \(f(z)\) if and only if \(\forall\varepsilon>0\),\(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\forall z\in U\), \(\abs{f_n(z)-f_m(z)}<\varepsilon\).
@@ -1112,13 +1113,13 @@ This profound result proves that the number of zeros of a holomorphic function e
 \end{theorem}
 \begin{proof}
     By the holomorphy of \(f_n(z)\), for any simple closed rectifiable curve \(\gamma\subset U\), by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), \[\int_{\gamma}f_n(\zeta)\ddzeta=0.\] Since \(\gamma\) is a subset of any compact subset of \(U\), \(\cbraces{f_n(\zeta)}\) uniformly converges on \(\gamma\), and by \autoref{thm:limitintegralswitch}, \[\lim_{n\to\infty}\int_{\gamma}f_n(\zeta)\ddzeta=\int_{\gamma}\lim_{n\to\infty}f_n(\zeta)\ddzeta=\int_{\gamma}f(\zeta)\ddzeta=0.\]
-    Then by Morera's Theorem (\autoref{thm:morera}), \(f(z)\) is holomorphic, and \(f'(z)\) is holomorphic. We aim to show that \(f'_n(z)\overset{n}{\rightrightarrows} f'(z)\).
+    Then by Morera's Theorem (\autoref{thm:morera}), \(f(z)\) is holomorphic, and \(f'(z)\) is holomorphic. We aim to show that \(f'_n(z)\rightrightarrows f'(z)\).
 
     Let \(K\subset U\) be arbitrary and compact and \(V\supset K\) be open and relatively compact in \(U\). Since \(\cbraces{f'_n(z)}\) is holomorphic, we can define a holomorphic sequence \(\varphi_n(z)=f_n(z)-f(z)\). By \autoref{crl:nthderivativeboundedsupremum}, \[\lim_{n\to\infty}\sup_{z\in K}\abs{\varphi'_n(z)}\leq c\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)-f(z)}.\]
 
     By the definition of uniform convergence, the right hand side approaches 0, and \(\cbraces{f'_n(z)}\) is then uniformly convergent to \(f'(z)\) by the same reasoning.
 
-    Through the proof of \autoref{thm:identityaccumulationofzeros}, if \(f\not\equiv0\) over \(U\), then the zeros of \(f\) do not have an accumulation point in \(U\) and are therefore discrete. In this case, let \(\gamma\subset U\) be a curve that does not pass through the zeros of \(f\). Since the functions in the sequence \(f_n\) do not contain zeros in \(U\), by \autoref{thm:argumentprincipleholomorphic}, \[\] 
+    Through the proof of \autoref{thm:identityaccumulationofzeros}, if \(f\not\equiv0\) over \(U\), then the zeros of \(f\) do not have an accumulation point in \(U\) and are therefore discrete. In this case, let \(\gamma\subset U\) be a curve that does not pass through the zeros of \(f\). Since each function in the sequence \(f_n\) does not contain zeros in \(U\), by \autoref{thm:argumentprincipleholomorphic}, \[\int_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\] 
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
