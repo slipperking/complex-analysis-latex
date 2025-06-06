@@ -42,6 +42,7 @@
 \newtheorem{lemma}{Lemma}[section]
 \providecommand*{\lemmaautorefname}{Lemma}
 \providecommand*{\definitionautorefname}{Definition}
+\providecommand*{\corollaryautorefname}{Corollary}
 \theoremstyle{remark}
 \newtheorem{example}{Example}[subsection]
 \theoremstyle{definition}
@@ -949,7 +950,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
 
     The problem now stands to prove that \(\varphi(z)\) exists in the first place, which is discussed later in \autoref{thm:bumpfunctionexistence}.
 \end{proof}
-\begin{corollary}\label{col:generalizedcauchysestimate}
+\begin{corollary}\label{crl:nthderivativeboundedsupremum}
     Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\). For any holomorphic function \(f(z)\) in \(U\), there exist constants (independent of \(z\) and \(f\)) \(\cbraces{c_n}\) such that \[\sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\sup_{z\in V}\abs{f(z)}.\]
 \end{corollary}
 \begin{proof}
@@ -1112,7 +1113,8 @@ This profound result proves that the number of zeros of a holomorphic function e
 \begin{proof}
     By the holomorphy of \(f_n(z)\), for any simple closed rectifiable curve \(\gamma\subset U\), by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), \[\int_{\gamma}f_n(\zeta)\ddzeta=0.\] Since \(\gamma\) is a subset of any compact subset of \(U\), \(\cbraces{f_n(\zeta)}\) uniformly converges on \(\gamma\), and by \autoref{thm:limitintegralswitch}, \[\lim_{n\to\infty}\int_{\gamma}f_n(\zeta)\ddzeta=\int_{\gamma}\lim_{n\to\infty}f_n(\zeta)\ddzeta=\int_{\gamma}f(\zeta)\ddzeta=0.\]
     Then by Morera's Theorem (\autoref{thm:morera}), \(f(z)\) is holomorphic, and \(f'(z)\) is holomorphic. We aim to show that \(f'_n(z)\to f'(z)\) uniformly.
-    By 
+
+    Let \(K\subset U\) be arbitrary and compact. Since \(\cbraces{f'_n(z)}\) is holomorphic, we can define a holomorphic sequence \(\varphi_n(z)=f_n(z)-f(z)\). By \autoref{crl:nthderivativeboundedsupremum}, \[\lim_{n\to\infty}\sup_{z\in K}\abs{\varphi'_n(z)}\leq c_n\sup_{z\in}\]
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
