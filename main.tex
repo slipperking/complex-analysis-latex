@@ -383,7 +383,7 @@ Since all elementary functions can be written in terms of exponential functions 
     In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(e^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textit{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(\paren{z_1,z_2}\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
     \item The region \(e^z\) is univalent over:
     
-    Let \(z_1=x_1+iy_1\), \(z_2=x_2+iy_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(e^{z_1}=e^{z_2}\). Then, \[e^{x_1}e^{iy_1}=e^{x_2}e^{iy_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any belt region \(2\pi k\leq \imaginary(z)< 2\pi (k+1)\) (or \(2\pi k< \imaginary(z)\leq 2\pi (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\pi\) is a region over which \(\log\) is univalent.
+    Let \(z_1=x_1+iy_1\), \(z_2=x_2+iy_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(e^{z_1}=e^{z_2}\). Then, \[e^{x_1}e^{iy_1}=e^{x_2}e^{iy_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any horizontal strip \(2\pi k\leq \imaginary(z)< 2\pi (k+1)\) (or \(2\pi k< \imaginary(z)\leq 2\pi (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\pi\) is a region over which \(\log\) is univalent.
 \end{enumerate}
 Next we examine the complex logarithm. 
 \begin{enumerate}
@@ -402,12 +402,12 @@ We now examine the regions over which \(\sin\) and \(\cos\) are univalent. We be
 
 \(\xi\) is clearly univalent on \(\mathbb{C}\), as it is a linear map (specifically, a rotation by \(\frac{\pi}{2}\) radians followed by scaling). \(\zeta\) is univalent on any domain \(U\subset\mathbb{C}\) such that for all \(\xi_1,\xi_2\in U\), \(\xi_1-\xi_2\neq2\pi i k\) for any \(k\in\mathbb{Z}\). That is, \(U\) must not contain any pair of points differing by a non-zero integer multiple of \(2\pi i\). If \(\xi_1=iz_1\) and \(\xi_2=iz_2\), then this translates to \(z_1-z_2\neq2\pi k\) for \(k\in\mathbb{Z}\). \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) is univalent on regions excluding pairs \((\zeta_1,\zeta_2)\) such that \(\zeta_1=\frac{1}{\zeta_2}\). In terms of \(z\), this condition becomes \(e^{iz_1}e^{iz_2}\neq1\), or equivalently, \(z_1+z_2\neq2\pi k\) for any \(k\in\mathbb{Z}\).
 
-Combining these constraints, we conclude that \(\cos(z)\) is univalent on any vertical strip in the complex plane of width \(\pi\), that is, a region of the form \[\{z\in\mathbb{C}\mid k\pi<\Re(z)<(k+1)\pi\},\quad k\in\mathbb{Z}.\] Let us now consider the specific region \(\{z\in\mathbb{C}\mid 0<\Re(z)<\pi\}\), and analyze how it is mapped under \(\cos(z)\).
+Combining these constraints, we conclude that \(\cos(z)\) is univalent on any vertical strip in the complex plane of width \(\pi\), that is, a region of the form \[\{z\in\mathbb{C}\mid k\pi<\real(z)<(k+1)\pi\},\quad k\in\mathbb{Z}.\] Let us now consider the specific region \(\{z\in\mathbb{C}\mid 0<\Re(z)<\pi\}\), and analyze how it is mapped under \(\cos(z)\).
 
 \begin{enumerate}
-    \item \(\xi(z)=iz\) maps the region \(\{z\mid 0<\Re(z)<\pi\}\) to the horizontal strip \(\{\xi\in\mathbb{C}\mid 0<\Im(\xi)<\pi\}\).
-    \item \(\zeta(\xi)=e^\xi\) maps this horizontal strip conformally onto the open annulus \(\{\zeta\in\mathbb{C}\mid 1<|\zeta|<e^{\pi}\}\), since \(\Re(\xi)\) is unbounded and \(\Im(\xi)\in(0,\pi)\), so \(|\zeta|=e^{\Re(\xi)}\), and \(\arg(\zeta)=\Im(\xi)\in(0,\pi)\).
-    \item \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) maps this annulus onto the complex plane minus the real interval \([-1,1]\), forming a slit plane. This mapping is known to be univalent on such annuli not symmetric under inversion.
+    \item \(\xi(z)=iz\) maps the region \(\{z\mid 0<\real(z)<\pi\}\) to the horizontal strip \(\{\xi\in\mathbb{C}\mid 0<\imaginary(\xi)<\pi\}\).
+    \item \(\zeta(\xi)=e^\xi\) maps this region to the upper half plane \(\imaginary(\zeta)>0\) since \(0<\Arg(\zeta)<\pi\) and \(0<\abs{\zeta}\).
+    \item \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) maps 
 \end{enumerate}
 
 Thus, the composition \(\cos(z)=w\circ\zeta\circ\xi\) is univalent on the strip \(\{z\in\mathbb{C}\mid 0<\Re(z)<\pi\}\), and the image of this strip under \(\cos\) is the complex plane with a slit along the real interval \([-1,1]\) removed.
