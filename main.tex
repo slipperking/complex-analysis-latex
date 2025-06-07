@@ -1168,21 +1168,6 @@ This profound result proves that the number of zeros of a holomorphic function e
     Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). Then we can pass the limit through the integral in equation \eqref{eq:hurwitzsimplecase_argumentprinciple}. Then,
     \[\lim_{n\to\infty}\int_\gamma \frac{f'_n(z)}{f_n(z)}\ddz=\int_\gamma \frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\autoref{thm:argumentprincipleholomorphic}), \(f(z)\) has no zeros in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
 \end{proof}
-This is a specific case of the following theorem:
-\begin{theorem}[Hurwitz's Theorem]\label{thm:hurwitz}
-    Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\) such that \(f\not\equiv0\) over \(U\).
-
-    Then, for any compact set \(K\subset U\) where \(f(z)\) has no zeros on \(\partial K\), and any open neighborhood \(V\) of the set \(\cbraces{z\in K}{f(z)=0}\) relatively compact in \(U\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\),
-    \begin{enumerate}
-        \item The zeros of \(f_n(z)\) in \(K\) lie in \(V\), that is, \(\cbraces{z\in K}{f_n(z)=0}\subset V\).
-        \item The number of zeros (counting multiplicity) of \(f_n(z)\) in \(K\) is the same as that of \(f(z)\) in \(K\).
-    \end{enumerate}
-\end{theorem}
-\begin{proof}
-    By the same logic as with the proof of \autoref{thm:hurwitzsimplecase}, \(f(z)\) is holomorphic over \(U\). Since \(f\not\equiv 0\) on \(U\), the zeros in \(K\), \(\cbraces{z_j}\), are disjoint, and there exist disjoint open disks \(D\paren{z_j,r_j}\subset V\) around each zero such that \(f\) does not vanish on their positively oriented boundaries \(\cbraces{\gamma_j}\).
-
-    
-\end{proof}
 \begin{theorem}[Rouché's Theorem]\label{thm:rouche}
     Let \(U\subseteq\mathbb{C}\) be open and \(f,g\) be two holomorphic functions over \(U\). Let \(\gamma\subset U\) be a simple, closed, rectifiable curve, and \(\forall z\in\gamma\)
     \begin{equation}
@@ -1199,6 +1184,22 @@ This is a specific case of the following theorem:
     From \eqref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
 \end{proof}
 By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), any polynomial in the form \(p(z)=\sum_{k=0}^n a_kz^k\) (\(n\in\mathbb{N}\), \(a_n\neq 0\), \(a_k\in\mathbb{C}\) where \(k=1,\ldots n\)) has at least one complex zero. Consider the function \(q(z)=a_nz^n\), with a root at \(z=0\) with multiplicity \(n\). By Rouché's Theorem (\autoref{thm:rouche}), since \(\exists R\in\mathbb{R}\) such that \(\abs{q(z)-p(z)}=\abs{\sum_{k=0}^{n-1}a_kz^k}<\abs{a_nz^n}\) over \(\abs{z}=R\), \(p\) and \(q\) have the same number of roots, counting multiplicity.
+
+\autoref{thm:hurwitzsimplecase} is a specific case of the following theorem:
+\begin{theorem}[Hurwitz's Theorem]\label{thm:hurwitz}
+    Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\) such that \(f\not\equiv0\) over \(U\).
+
+    Then, for any compact set \(K\subset U\) where \(f(z)\) has no zeros on \(\partial K\), and any open neighborhood \(V\) of the set \(\cbraces{z\in K}{f(z)=0}\) relatively compact in \(U\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\),
+    \begin{enumerate}
+        \item The zeros of \(f_n(z)\) in \(K\) lie in \(V\), that is, \(\cbraces{z\in K}{f_n(z)=0}\subset V\).
+        \item The number of zeros (counting multiplicity) of \(f_n(z)\) in \(K\) is the same as that of \(f(z)\) in \(K\).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    By the same logic as with the proof of \autoref{thm:hurwitzsimplecase}, \(f(z)\) is holomorphic over \(U\). Since \(f\not\equiv 0\) on \(U\), the zeros in \(K\), \(\cbraces{z_j}\), are disjoint, and there exist disjoint open disks \(D\paren{z_j,r_j}\subset V\) around each zero such that \(f\) does not vanish on their positively oriented boundaries \(\cbraces{\gamma_j}\).
+
+    Since \(f\) does not vanish on \(\partial K\), \(\varepsilon=\min_{z\in\partial K}\abs{f(z)}>0\). Since \(f_n\rightrightarrows f\), \(\exists N\in\mathbb{N}\) such that \[\abs{f(z)-f_n(z)}<\varepsilon.\] By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f_n\) have the same number of zeros in \(K\).
+\end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
 \subsubsection{The Group of Holomorphic Automorphisms}
