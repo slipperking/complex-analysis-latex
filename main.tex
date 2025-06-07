@@ -1189,16 +1189,18 @@ By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}
 \begin{theorem}[Hurwitz's Theorem]\label{thm:hurwitz}
     Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\) such that \(f\not\equiv0\) over \(U\).
 
-    Then, for any compact set \(K\subset U\) where \(f(z)\) has no zeros on \(\partial K\), and any open neighborhood \(V\) of the set \(\cbraces{z\in K}{f(z)=0}\) relatively compact in \(U\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\),
+    Then, for any compact set \(K\subset U\) where \(f(z)\) has no zeros on \(\partial K\), and any open neighborhood \(V\) of the set \(\cbraces{z\in K}{f(z)=0}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\),
     \begin{enumerate}
         \item The zeros of \(f_n(z)\) in \(K\) lie in \(V\), that is, \(\cbraces{z\in K}{f_n(z)=0}\subset V\).
         \item The number of zeros (counting multiplicity) of \(f_n(z)\) in \(K\) is the same as that of \(f(z)\) in \(K\).
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    By the same logic as with the proof of \autoref{thm:hurwitzsimplecase}, \(f(z)\) is holomorphic over \(U\). Since \(f\not\equiv 0\) on \(U\), the zeros in \(K\), \(\cbraces{z_j}\), are disjoint, and there exist disjoint open disks \(D\paren{z_j,r_j}\subset V\) around each zero such that \(f\) does not vanish on their positively oriented boundaries \(\cbraces{\gamma_j}\).
+    By the same logic as with the proof of \autoref{thm:hurwitzsimplecase}, \(f(z)\) is holomorphic over \(U\). Since \(f\not\equiv 0\) on \(U\), the zeros in \(K\), \(\cbraces{z_j}\), are disjoint.
+    
+    Since \(f\) does not vanish on \(\partial K\), \(\varepsilon=\min_{z\in\partial K}\abs{f(z)}>0\). Since \(f_n\rightrightarrows f\) over \(\partial K\) (as it is a compact subset of \(U\)), \(\exists N\in\mathbb{N}\) such that \[\abs{f(z)-f_n(z)}<\varepsilon\leq\abs{f(z)}\] By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f_n\) have the same number of zeros (counting multiplicities) in \(K\).
 
-    Since \(f\) does not vanish on \(\partial K\), \(\varepsilon=\min_{z\in\partial K}\abs{f(z)}>0\). Since \(f_n\rightrightarrows f\), \(\exists N\in\mathbb{N}\) such that \[\abs{f(z)-f_n(z)}<\varepsilon.\] By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f_n\) have the same number of zeros in \(K\).
+    The function \(f\) has no zeros in \(K\setminus V\), which is compact (as \(V\) contains all zeros of \(f\) in \(K\)). Since 
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
