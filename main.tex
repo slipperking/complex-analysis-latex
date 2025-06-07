@@ -334,7 +334,9 @@ If equation \eqref{eq:wirtingerderivative1} is set equal to 0, then it is the eq
 In terms of \(u\) and \(v\), the two derivatives of a function \(f(z)\) are equal to:
 \[\pdv{f}{z}=\frac{1}{2}\paren{\pdv{u}{x}+i\pdv{v}{x}-i\pdv{u}{y}+\pdv{v}{y}},\]
 and 
-\[\pdv{f}{\overline{z}}=\frac{1}{2}\paren{\pdv{u}{x}+i\pdv{v}{x}+i\pdv{u}{y}-\pdv{v}{y}}.\] If \(f\) is holomorphic, \[\dv{f}{z}=\pdv{u}{x}+i\pdv{v}{x}\]
+\[\pdv{f}{\overline{z}}=\frac{1}{2}\paren{\pdv{u}{x}+i\pdv{v}{x}+i\pdv{u}{y}-\pdv{v}{y}}.\] If \(f\) is holomorphic, \begin{equation}\label{eq:holomorphicderivativedecomposition}
+    \dv{f}{z}=\pdv{u}{x}+i\pdv{v}{x}=\pdv{v}{y}+i\pdv{v}{x}=\pdv{u}{x}-i\pdv{u}{y}=\pdv{v}{y}-i\pdv{u}{y}.
+\end{equation}
 On the contrary, by the rules of the derivative, \begin{equation*}
     \pdv{}{x}=\pdv{}{z}\pdv{z}{x}+\pdv{}{\overline{z}}\pdv{\overline{z}}{x}=\pdv{}{z}+\pdv{}{\overline{z}}
 \end{equation*} and \begin{equation*}
@@ -534,7 +536,7 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
 \begin{remark}
     The Jacobian determinant of \(u,v\) with respect to \(x,y\), for a holomorphic function \(f(z)=u(x,y)+iv(x,y)\) is equal to \[\begin{vmatrix}
         u'_x&u'_y\\v'_x&v'_y
-    \end{vmatrix}=\pdv{u}{x}\pdv{v}{y}-\pdv{u}{y}\pdv{v}{x}=\paren{\pdv{u}{x}}^2+\paren{\pdv{u}{y}}^2=\]
+    \end{vmatrix}=\pdv{u}{x}\pdv{v}{y}-\pdv{u}{y}\pdv{v}{x}=\paren{\pdv{u}{x}}^2+\paren{\pdv{u}{y}}^2=\abs{f'(z)}^2\] by equation \eqref{eq:holomorphicderivativedecomposition}.
 \end{remark}
 \begin{theorem}[Green's Theorem, Complex Form]\label{thm:complexgreen}
     Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary \(\partial U\). For two scalar functions \(\omega_1=\omega_1\paren{z,\overline{z}}\) and \(\omega_2=\omega_2\paren{z,\overline{z}}\) satisfying \(\omega_1,\omega_2\in C^1\paren{\overline{U}}\), define the 1-form \(\omega=\omega_1\ddz+\omega_2\dd{\overline{z}}\). Then,
