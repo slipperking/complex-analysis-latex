@@ -522,10 +522,10 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
 \begin{proof}
     We aim to find \[\int_{f(U)}\dd{A}.\]
     By the properties above, \begin{align*}
-        \int_{f(U)}\dd{A}&=\frac{i}{2}\int_{f(U)}\dd{w}\wedge\dd{\overline{w}}\\
-        &=\frac{i}{2}\int_{U}\dd{f(z)}\wedge\dd{\overline{f(z)}}\\
-        &=\frac{i}{2}\int_{U}\paren{\pdv{f}{z}\ddz+\pdv{f}{\overline{z}}\dd{\overline{z}}}\wedge\paren{\pdv{f}{z}\ddz+\pdv{f}{\overline{z}}\dd{\overline{z}}}\\
+        \int_{f(U)}\ddx\wedge\ddy&=\frac{i}{2}\int_{f(U)}\dd{w}\wedge\dd{\overline{w}}=\frac{i}{2}\int_{U}\dd{f(z)}\wedge\dd{\overline{f(z)}}\\
+        &=\frac{i}{2}\int_{U}{f'(z)\ddz}\wedge{\overline{f'(z)}\dd{\overline{z}}}=\int_U\abs{f'(z)}^2\ddx\wedge\ddy,
     \end{align*}
+    as desired.
 \end{proof}
 \begin{theorem}[Green's Theorem, Complex Form]\label{thm:complexgreen}
     Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary \(\partial U\). For two scalar functions \(\omega_1=\omega_1\paren{z,\overline{z}}\) and \(\omega_2=\omega_2\paren{z,\overline{z}}\) satisfying \(\omega_1,\omega_2\in C^1\paren{\overline{U}}\), define the 1-form \(\omega=\omega_1\ddz+\omega_2\dd{\overline{z}}\). Then,
