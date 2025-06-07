@@ -311,7 +311,7 @@ If a function \(f(z)\) is complex differentiable over an open neighborhood of \(
     where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\) and \(o_1\paren{\abs{\Delta z}}\) and \(o_2\paren{\abs{\Delta z}}\) are functions that are of higher infinitesimal order to \(\Delta z\), satisfying \(\lim_{\Delta z\to0}\frac{o_1\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\) and \(\lim_{\Delta z\to0}\frac{o_2\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\). Then letting \(\Delta z=x-x_0+i\paren{y-y_0}\),
     \[f\paren{z}-f\paren{z_0}=\alpha{\Delta z}+i\beta{\Delta z}+o_1\paren{\abs{\Delta z}}+o_2\paren{\abs{\Delta z}},\]
     \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta+\frac{o_1\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}+\frac{o_2\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
-    Taking the limit as \(\Delta z\to0\), the infinitesimal terms on the right vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta.\]
+    Taking the limit as \(\Delta z\to0\), the infinitesimal terms on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta.\]
 \end{proof}
 An extension that is much harder to prove gives a subtle result:
 \begin{theorem}[Looman--Menchoff Theorem]\label{thm:loomanmenchoff}
@@ -439,7 +439,7 @@ Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp\paren{iu\paren{\Arg(z)+2\pi k}}\
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex analysis:
 \begin{definition}[Uniform Convergence]
-    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textit{uniformly converges} to a function \(f(z)\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f(z)-f_n(z)}<\varepsilon\).
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textit{uniformly converges} to a function \(f(z)\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f_n(z)-f(z)}<\varepsilon\).
 \end{definition}
 \begin{remark}
     The definition above is equivalent to the following definition.
@@ -1141,7 +1141,7 @@ This profound result proves that the number of zeros of a holomorphic function e
 
     Let \(K\subset U\) be arbitrary and compact and \(V\supset K\) be open and relatively compact in \(U\). Since \(\cbraces{f'_n(z)}\) is holomorphic, we can define a holomorphic sequence \(\varphi_n(z)=f_n(z)-f(z)\). By \autoref{crl:nthderivativeboundedsupremum}, there exists a finite constant \(c>0\) such that \[\lim_{n\to\infty}\sup_{z\in K}\abs{\varphi'_n(z)}\leq c\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)-f(z)}.\]
 
-    By the definition of uniform convergence, the right hand side approaches 0, and \(\cbraces{f'_n(z)}\) is then uniformly convergent to \(f'(z)\) by the same reasoning.
+    By the definition of uniform convergence, the right-hand side approaches 0, and \(\cbraces{f'_n(z)}\) is then uniformly convergent to \(f'(z)\) by the same reasoning.
 
     Through the proof of \autoref{thm:identityaccumulationofzeros}, if \(f\not\equiv0\) over \(U\), then the zeros of \(f\) do not have an accumulation point in \(U\) and are therefore discrete. In this case, let \(\gamma\subset U\) be a curve that does not pass through the zeros of \(f\). Since each function in the sequence \(f_n\) does not contain zeros in \(U\), by the Argument Principle, (\autoref{thm:argumentprincipleholomorphic}), 
     \begin{equation}
@@ -1181,8 +1181,9 @@ We have touched the subject of Weierstrass' Theorem for the uniform convergence 
 \begin{proof}
     By Morera's Theorem (\autoref{thm:morera}) and uniform convergence, the holomorphy of \(f(z)\) follows (refer to equation \eqref{eq:hurwitzsimplecase_integrallimitswitchforholomorphy} and preceding explanations).
 
-    Following the exact same logic, by \autoref{crl:nthderivativeboundedsupremum}, \(\forall k\in\mathbb{N}\) and for all compact \(K\subset U\) and open \(V\supset K\) relatively compact in \(U\),
-    \[\sup_{z\in K}\abs{f^{(k)}(z)}\leq c_k\sup_{z\in V}\abs{f(z)}\]
+    Following the exact same logic, by \autoref{crl:nthderivativeboundedsupremum}, \(\forall k\in\mathbb{N}\) and for all compact \(K\subset U\) and open \(V\supset K\) relatively compact in \(U\) there exists a finite constant \(c_k>0\) such that,
+    \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)}\leq c_k\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)}.\] Since \(\cbraces{f_n(z)}\) is uniformly convergent, the limit on the right-hand side vanishes. Then,
+    \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)}=0,\] and therefore \(\cbraces{f^{(k)}_n(z)}\) uniformly converges.
 \end{proof}
 \subsection{Singularities and Meromorphic Functions}
 \subsection{Residue Theorem}
