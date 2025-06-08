@@ -20,6 +20,16 @@
 \usepackage[labelfont=bf, textfont=it]{caption}
 \everymath{\displaystyle}
 
+\makeatletter
+\renewcommand{\frac}[2]{%
+  \mathchoice
+    {\dfrac{#1}{#2}}% display style
+    {\dfrac{#1}{#2}}% text style (still use display style here)
+    {\frac@script{#1}{#2}}% script style (used in superscripts)
+    {\frac@scriptscript{#1}{#2}}% scriptscript style (used in nested superscripts)
+}
+\makeatother
+
 \allowdisplaybreaks[2]
 
 \usepgfplotslibrary{fillbetween}
@@ -410,7 +420,7 @@ Next we examine the complex logarithm.
 \end{enumerate}
 The functions \(\sin\) and \(\cos\), through their exponential form, still satisfy the properties such as their derivatives, periodicity being \(2\pi\), parity, sum and difference, and the fundamental identities \(\sin^2(z)+\cos^2(z)=1\), \(\sin(z)=\cos\paren{\frac{\pi}{2}-z}\). However, due to the extension, some properties do not hold. For instance, \(\sin(z)\) and \(\cos(z)\) are unbounded, as along the imaginary axis, they resemble their hyperbolic counterparts, which are unbounded along the real line.
 
-We now examine the regions over which they are univalent. Consider \(\cos(z)=\frac{e^{iz}+e^{-iz}}{2}\). Define the auxiliary functions \[\xi(z)=iz,\quad\zeta(\xi)=e^\xi,\quad w(\zeta)=\frac{\zeta+\flatfrac{1}{\zeta}}{2}.\] Then, \(\cos(z)=(w\circ\zeta\circ\xi)(z)\).
+We now examine the regions over which they are univalent. Consider \(\cos(z)=\frac{e^{iz}+e^{-iz}}{2}\). Define the auxiliary functions \[\xi(z)=iz,\quad\zeta(\xi)=e^\xi,\quad w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}.\] Then, \(\cos(z)=(w\circ\zeta\circ\xi)(z)\).
 
 \(\xi\) is clearly univalent on \(\mathbb{C}\), as it is a linear map (specifically, a rotation by \(\frac{\pi}{2}\) radians followed by scaling). \(\zeta\) is univalent on any domain \(U\subset\mathbb{C}\) such that for all \(\xi_1,\xi_2\in U\), \(\xi_1-\xi_2\neq2\pi i k\) for any \(k\in\mathbb{Z}\). That is, \(U\) must not contain any pair of points differing by a non-zero integer multiple of \(2\pi i\). If \(\xi_1=iz_1\) and \(\xi_2=iz_2\), then this translates to \(z_1-z_2\neq2\pi k\) for \(k\in\mathbb{Z}\). \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) is univalent on regions excluding pairs \((\zeta_1,\zeta_2)\) such that \(\zeta_1=\frac{1}{\zeta_2}\). In terms of \(z\), this condition becomes \(e^{iz_1}e^{iz_2}\neq1\), or equivalently, \(z_1+z_2\neq2\pi k\) for any \(k\in\mathbb{Z}\).
 
@@ -435,7 +445,7 @@ Let \(r_k=\exp\paren{u\ln\abs{z}-v\paren{\Arg(z)+2\pi k}}\) and \(\theta_k=v\ln\
 Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp\paren{iu\paren{\Arg(z)+2\pi k}}\). Doing casework on \(\alpha\),
 \begin{enumerate}
     \item If \(\alpha=u\in\mathbb{Z}\), then \(u\) can be absorbed into \(k\), and \(z^\alpha\) is single valued.
-    \item If \(\alpha=u\in\mathbb{Q}\) with the reduced fraction representation \(\flatfrac{p}{q}\), where \(p,q\in\mathbb{Z}\), \(q\neq 0\).
+    \item If \(\alpha=u\in\mathbb{Q}\) with the reduced fraction representation \(\frac{p}{q}\), where \(p,q\in\mathbb{Z}\), \(q\neq 0\).
 
     Then, \[\abs{z}^{\frac{p}{q}}\exp\paren{i\frac{p}{q}\paren{\Arg(z)+2\pi k}}=\abs{z}^{\frac{p}{q}}e^{i\frac{p}{q}\Arg(z)}e^{2i\frac{p}{q}\pi k}.\]
     When \(k=1,2,\ldots,q-1\), \(2\frac{p}{q}\pi k\) is not congruent modulo \(2\pi\), and thus, \(z^\alpha\) has \(q\) values.
