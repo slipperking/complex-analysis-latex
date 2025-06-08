@@ -1032,20 +1032,21 @@ For example, in a topological space, a function \(f:X\to Y\) between two topolog
     Let us examine the open set \(V = (0.5, 1.5) \subseteq \mathbb{R}\). Then the preimage of \(V\) is \[f^{-1}(V) = \{x\in\mathbb{R}\mid f(x)\in(0.5,1.5)\}=[0, \infty),\]
     which is not an open set in the standard topology on \(\mathbb{R}\).
 \end{example}
-In a topological space \(X\), a subspace can either be open, closed (\(X\setminus U\), where \(U\) is open in \(X\)), both (clopen), or neither.
-
-Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). \(X\) is \textit{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\). The proof is not very trivial and not in the scope of this work.
-
-However, we will give examples for both cases. The topological space of \((\mathbb{R},\tau)\) where \(\tau\) is the standard topology only contains two clopen sets: \(\mathbb{R}\) and \(\emptyset\).
-
-The topological space of \((\mathbb{R},\tau)\), where \(\tau=\cbraces{(n,n+1)}{n\in 2\mathbb{Z}}\)
-
 \begin{definition}[Basis of a Topology]
     For a topological space \((X,\tau)\), a \textit{basis} \(\mathcal{B}\subseteq\tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of a subcollection of \(\mathcal{B}\).
 \end{definition}
 It is easy to see that \(\mathcal{B}\) forms an open cover of \(X\). For any two sets in a topology, their intersection is also in the topology, which means there is a set in the basis of the topology that is a subset of the intersection. 
 
 In other words, \(\forall B_1,B_2\in\mathcal{B}\), \(\forall x\in B_1\cap B_2\), \(\exists B_3\in\mathcal{B}\) such that \(x\in B_3\) and \(B_3\subseteq B_1\cap B_2\).
+
+In a topological space \(X\), a subset can either be open, closed (\(X\setminus U\), where \(U\) is open in \(X\)), both (clopen), or neither.
+
+Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). \(X\) is \textit{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\). The proof is not very trivial and not in the scope of this work.
+
+However, we will give examples for both cases. The topological space of \((\mathbb{R},\tau)\) where \(\tau\) is the standard topology only contains two clopen sets: \(\mathbb{R}\) and \(\emptyset\).
+
+The topological space of \(X=(\mathbb{R},\tau)\), where \(\tau\) is the unique discrete topology formed by the basis \(\cbraces{(n,n+1)}{n\in 2\mathbb{Z}}\cup\cbraces{\emptyset,\mathbb{R}}\). Consider \((0,1)\subset X\). Obviously, \((0,1)\in\tau\) so it is open. However, \(\mathbb{R}\setminus (0,1)=\bigcup_{\substack{n\in 2\mathbb{Z}\\n\neq 0
+}}(n,n+1)\in\tau\), and therefore, \((0,1)\) is also closed under \(\tau\). In fact, every set in this topology is clopen.
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
     For a topological space \(X\), an \textit{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\), such that \(\forall n\in\mathbb{N}\), \(K_n\subset K_{n+1}^\circ\), and \[X=\bigcup_{n\in\mathbb{N}}K_n\]
 \end{definition}
