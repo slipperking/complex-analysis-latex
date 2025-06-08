@@ -1184,7 +1184,7 @@ This profound result proves that the number of zeros of a holomorphic function e
     Let \(w=h(z)=\frac{g(z)}{f(z)}\) with \(\Gamma=h(\gamma)\). Then, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}.\]
     From \eqref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
 \end{proof}
-By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), any polynomial in the form \(p(z)=\sum_{k=0}^n a_kz^k\) (\(n\in\mathbb{N}\), \(a_n\neq 0\), \(a_k\in\mathbb{C}\) where \(k=1,\ldots n\)) has at least one complex zero. Consider the function \(q(z)=a_nz^n\), with a root at \(z=0\) with multiplicity \(n\). By Rouché's Theorem (\autoref{thm:rouche}), since \(\exists R\in\mathbb{R}\) such that \(\abs{q(z)-p(z)}=\abs{\sum_{k=0}^{n-1}a_kz^k}<\abs{a_nz^n}\) over \(\abs{z}=R\), \(p\) and \(q\) have the same number of roots, counting multiplicity.
+By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), any polynomial in the form \(p(z)=\sum_{k=0}^n a_kz^k\) (\(n\in\mathbb{N}\), \(a_n\neq 0\), \(a_k\in\mathbb{C}\) where \(k=1,\ldots n\)) has at least one complex zero. Consider the function \(q(z)=a_nz^n\), with a zero at \(z=0\) with multiplicity \(n\). By Rouché's Theorem (\autoref{thm:rouche}), since \(\exists R\in\mathbb{R}\) such that \(\abs{q(z)-p(z)}=\abs{\sum_{k=0}^{n-1}a_kz^k}<\abs{a_nz^n}\) over \(\abs{z}=R\), \(p\) and \(q\) have the same number of zeros, counting multiplicity.
 
 \autoref{thm:hurwitzsimplecase} is a specific case of the following theorem:
 \begin{theorem}[Hurwitz's Theorem]\label{thm:hurwitz}
@@ -1206,7 +1206,7 @@ By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}
 
     For the purpose of the statement, we can choose \(N=\max\paren{N_1,N_2}\).
 \end{proof}
-The following theorem is also a direct consequence of Rouché's Theorem (\autoref{thm:rouche}). Unlike \autoref{thm:hurwitz}, which concerns the stability of zeros under perturbations of \(f_n(z)\) for increasing \(n\), we can directly consider perturbations of \(f(z)+c\) for vanishing \(c\). Observe their similarities in formulation.
+The following theorem is also a direct consequence of Rouché's Theorem (\autoref{thm:rouche}). While \autoref{thm:hurwitz} concerns the stability of zeros under perturbations of \(f_n(z)\) as \(n\) increases, the stability is also preserved under small additive perturbations of the form \(f(z)+\lambda\) for vanishing \(\lambda\). Observe their similarities in formulation.
 \begin{theorem}\label{thm:holomorphiczerosstabilityundershifts}
     Let \(U\subseteq\mathbb{C}\) be open and \(f(z)\) be holomorphic and non-constant on \(U\).
 
@@ -1232,10 +1232,12 @@ A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus 
 
 Indeed, suppose a holomorphic function attained a local minimum of its modulus at a zero. Then, by adding a sufficiently small constant (i.e., a shift), the zero could disappear from the region, violating the stability of zeros under small additive perturbations established by \autoref{thm:holomorphiczerosstabilityundershifts}. 
 
-For comparison, consider the real function \(x^2\). Shifting it upward removes the zero of multiplicity 2 at \(x=0\) in \(\mathbb{R}\), while shifting it downward causes that zero to split into two simple zeros. The latter behavior agrees with \autoref{thm:holomorphiczerosstabilityundershifts}, and provides a helpful way to visualize the phenomenon in two dimensions. However, the fact that the zero is not preserved under a positive shift highlights a key difference between real differentiable functions and holomorphic functions.
+For comparison, consider the real function \(x^2\). Shifting it upward removes the zero of multiplicity 2 at \(x=0\) in \(\mathbb{R}\), while shifting it downward causes that zero to split into two simple zeros. The latter behavior agrees with \autoref{thm:holomorphiczerosstabilityundershifts}, and provides a helpful way to visualize the stability of zeros in two dimensions. However, the fact that the zero is not preserved under a positive shift highlights a key difference between real differentiable functions and holomorphic functions.
 
-This preludes to the following fact: a non-constant holomorphic function cannot attain a local minimum or maximum of its modulus inside its domain. Such extrema can only occur on the boundary, as formalized in the maximum modulus principle.
-
+This preludes to the following fact: a non-constant holomorphic function cannot attain a local minimum or maximum of its modulus inside its domain. Such extrema can only occur on the boundary, as formalized in the following theorem:
+\begin{theorem}[Maximum Modulus Principle]\label{thm:maximummodulus}
+    
+\end{theorem}
 \subsubsection{The Group of Holomorphic Automorphisms}
 The following important result can be directly obtained from the Maximum Modulus Principle.
 \begin{lemma}[Schwarz Lemma]
