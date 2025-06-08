@@ -3,7 +3,7 @@
 \usepackage{parskip}
 \usepackage{tikz}
 \usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections}
-\usepackage[italicdiff]{physics}
+\usepackage{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -124,7 +124,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\] By assumption, there exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k_i}\right)\;\middle|\; i=1,2,\ldots,m\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right),\]
     and that \(X\cap\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset\). However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect \(X\). Therefore, by contradiction, \(X\) is closed.
 
-    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the \(X\) is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\abs{\real(z_i)}\le R,\max_{i\in\{1,\ldots,n\}}\abs{\imaginary(z_i)}\le R\right\}.\]
+    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the \(X\) is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\abs{\Re(z_i)}\le R,\max_{i\in\{1,\ldots,n\}}\abs{\Im(z_i)}\le R\right\}.\]
 
     Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect \(Q_0=Q\) into \(2^{2n}\) sub-cubes (for real and complex parts). Choose \(Q_1\) such that \(Q_1\cup X\) has no finite subcover of \(\mathcal{U}\). Under the previous assumptions, this is possible since if every \(\text{sub-cube}\cap X\) had finite subcovering, then \(Q_0\cap X=X\) would have finite subcovering. Similarly, choose \(Q_2\) by bisecting \(Q_1\) in a similar way, and recursively obtain a sequence of cubes:
     \[Q_0\supset Q_1\supset Q_2\supset\ldots\]
@@ -139,7 +139,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 \subsection{Calculus}
 Since complex analysis is essentially the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for real functions.
 
-It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a point \(x\in(a,b)\) if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by \(f'(x)\) or \(\frac{\dd{f}}{\dd{x}}\). The value \(\dd{f}=f'(x)\dd{x}\) is the differential of \(f(x)\). Partition \([a,b]\) into \(a=x_0<x_1<x_2<\cdots<x_n=b\). Such that the length of the intervals \([x_i,x_{i-1}]\) tends to 0 as \(n\to\infty\). If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\), then the function can be roughly said to be integrable over \([a,b]\). The full details of Riemann integrability relate to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
+It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a point \(x\in(a,b)\) if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by \(f'(x)\) or \(\frac{\dd{f}}{\ddx}\). The value \(\dd{f}=f'(x)\ddx\) is the differential of \(f(x)\). Partition \([a,b]\) into \(a=x_0<x_1<x_2<\cdots<x_n=b\). Such that the length of the intervals \([x_i,x_{i-1}]\) tends to 0 as \(n\to\infty\). If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\), then the function can be roughly said to be integrable over \([a,b]\). The full details of Riemann integrability relate to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
 \begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
     Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
     \[\Phi(x)=\int_a^xf(t)\dd{t}.\]
@@ -276,7 +276,7 @@ This correspondence between \(\mathbb{C}\) and \(S^2\setminus\left\{(0,0,1)\righ
 \[\abs{z}^2=\frac{1-x_3^2}{\paren{1-x_3}^2}=\frac{1+x_3}{1-x_3},\]
 which results in \[x_3=\frac{\abs{z}^2-1}{\abs{z}^2+1},\]
 and consequently,
-\[x_1=\real\paren{z}\paren{1-x_3}=\frac{z+\overline{z}}{\abs{z}^2+1},\quad x_2=\imaginary\paren{z}\paren{1-x_3}=\frac{z-\overline{z}}{i\abs{z}^2+i}.\]
+\[x_1=\Re\paren{z}\paren{1-x_3}=\frac{z+\overline{z}}{\abs{z}^2+1},\quad x_2=\Im\paren{z}\paren{1-x_3}=\frac{z-\overline{z}}{i\abs{z}^2+i}.\]
 By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textit{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\). In this representation, \(\infty\in\riemannsphere\) is no longer considered special.
 \subsection{Complex Differentiation}
 For \(U\subseteq \mathbb{C}\) and a complex function \(f:\mathbb{U}\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
@@ -293,7 +293,7 @@ By multiplying the second equation by \(i\) and adding it to the first, we obtai
 \begin{equation}
     \pdv{f}{x}=-i\pdv{f}{y}\label{eq:cauchyriemanneqs2}
 \end{equation}
-Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are known as the \textit{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\real(z)\imaginary(z)\right|}\). Let \(z=x+yi\), \(x=\alpha t\), and \(y=\beta t\). Then
+Equations \eqref{eq:cauchyriemanneqs1} and \eqref{eq:cauchyriemanneqs2} are known as the \textit{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\Re(z)\Im(z)\right|}\). Let \(z=x+yi\), \(x=\alpha t\), and \(y=\beta t\). Then
 \[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+i\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+i\beta}.\]
 The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However, the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
 
@@ -385,7 +385,7 @@ Since all elementary functions can be written in terms of exponential functions 
     \item Since \(e^{2\pi i}=1\), it is periodic over \(2\pi i\).
     \item It is also an entire function with \(\paren{e^z}'=e^z\). 
     
-    Write \(e^z=e^{x+iy}=e^x\paren{\cos(y)+i\sin(y)}\) where \(x,y\in\mathbb{R}\). Let \(u(x,y)=\real\paren{e^z}=e^x\cos(y)\) and \(v(x,y)=\imaginary\paren{e^z}=e^x\sin(y)\). The first order derivatives are respectively:
+    Write \(e^z=e^{x+iy}=e^x\paren{\cos(y)+i\sin(y)}\) where \(x,y\in\mathbb{R}\). Let \(u(x,y)=\Re\paren{e^z}=e^x\cos(y)\) and \(v(x,y)=\Im\paren{e^z}=e^x\sin(y)\). The first order derivatives are respectively:
     \[\pdv{u}{x}=e^x\cos(y),\quad\pdv{u}{y}=-e^x\sin(y),\]\[\pdv{v}{x}=e^x\sin(y),\quad\pdv{v}{y}=e^x\cos(y),\]
     and indeed, the condition described by \autoref{thm:holomorphycondition} is satisfied.
     \item For any two complex numbers \(z_1\) and \(z_2\), \(e^{z_1}e^{z_2}=e^{z_1+z_2}\).
@@ -393,7 +393,7 @@ Since all elementary functions can be written in terms of exponential functions 
     In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(e^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textit{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(\paren{z_1,z_2}\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
     \item The region \(e^z\) is univalent over:
     
-    Let \(z_1=x_1+iy_1\), \(z_2=x_2+iy_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(e^{z_1}=e^{z_2}\). Then, \[e^{x_1}e^{iy_1}=e^{x_2}e^{iy_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any horizontal strip \(2\pi k\leq \imaginary(z)< 2\pi (k+1)\) (or \(2\pi k< \imaginary(z)\leq 2\pi (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\pi\) is a region over which \(\log\) is univalent.
+    Let \(z_1=x_1+iy_1\), \(z_2=x_2+iy_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(e^{z_1}=e^{z_2}\). Then, \[e^{x_1}e^{iy_1}=e^{x_2}e^{iy_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any horizontal strip \(2\pi k\leq \Im(z)< 2\pi (k+1)\) (or \(2\pi k< \Im(z)\leq 2\pi (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\pi\) is a region over which \(\log\) is univalent.
 \end{enumerate}
 Next we examine the complex logarithm. 
 \begin{enumerate}
@@ -404,7 +404,7 @@ Next we examine the complex logarithm.
     \[w=\ln(r)+i(\theta+2\pi k),\]
     and using the modulus-argument notation,
     \[\log(z)=\ln\abs{z}+i\arg(z),\]
-    where \(\arg(z)\) is the multi-valued argument function. The \textit{principle branch} of the argument is denoted \(\Arg:\mathbb{C}\to(-\pi,\pi]\). Then principle branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\imaginary\paren{\Log}\in(-\pi,\pi]\).
+    where \(\arg(z)\) is the multi-valued argument function. The \textit{principle branch} of the argument is denoted \(\Arg:\mathbb{C}\to(-\pi,\pi]\). Then principle branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\Im\paren{\Log}\in(-\pi,\pi]\).
 \end{enumerate}
 The functions \(\sin\) and \(\cos\), through their exponential form, still satisfy the properties such as their derivatives, periodicity being \(2\pi\), parity, sum and difference, and the fundamental identities \(\sin^2(z)+\cos^2(z)=1\), \(\sin(z)=\cos\paren{\frac{\pi}{2}-z}\). However, due to the extension, some properties do not hold. For instance, \(\sin(z)\) and \(\cos(z)\) are unbounded, as along the imaginary axis, they resemble their hyperbolic counterparts, which are unbounded along the real line.
 
@@ -412,11 +412,11 @@ We now examine the regions over which they are univalent. Consider \(\cos(z)=\fr
 
 \(\xi\) is clearly univalent on \(\mathbb{C}\), as it is a linear map (specifically, a rotation by \(\frac{\pi}{2}\) radians followed by scaling). \(\zeta\) is univalent on any domain \(U\subset\mathbb{C}\) such that for all \(\xi_1,\xi_2\in U\), \(\xi_1-\xi_2\neq2\pi i k\) for any \(k\in\mathbb{Z}\). That is, \(U\) must not contain any pair of points differing by a non-zero integer multiple of \(2\pi i\). If \(\xi_1=iz_1\) and \(\xi_2=iz_2\), then this translates to \(z_1-z_2\neq2\pi k\) for \(k\in\mathbb{Z}\). \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) is univalent on regions excluding pairs \((\zeta_1,\zeta_2)\) such that \(\zeta_1=\frac{1}{\zeta_2}\). In terms of \(z\), this condition becomes \(e^{iz_1}e^{iz_2}\neq1\), or equivalently, \(z_1+z_2\neq2\pi k\) for any \(k\in\mathbb{Z}\).
 
-Combining these constraints, we conclude that \(\cos(z)\) is univalent on any vertical strip in the complex plane of width \(\pi\), such as a region of the form \[\{z\mid k\pi<\real(z)<(k+1)\pi\},\quad k\in\mathbb{Z}.\] Let us now consider the specific region \(\{z\in\mathbb{C}\mid 0<\Re(z)<\pi\}\), and analyze how it is mapped under \(\cos(z)\).
+Combining these constraints, we conclude that \(\cos(z)\) is univalent on any vertical strip in the complex plane of width \(\pi\), such as a region of the form \[\{z\mid k\pi<\Re(z)<(k+1)\pi\},\quad k\in\mathbb{Z}.\] Let us now consider the specific region \(\{z\in\mathbb{C}\mid 0<\Re(z)<\pi\}\), and analyze how it is mapped under \(\cos(z)\).
 \begin{enumerate}
-    \item \(\xi(z)=iz\) maps the region \(\{z\mid 0<\real(z)<\pi\}\) to the horizontal strip \(\{\xi\in\mathbb{C}\mid 0<\imaginary(\xi)<\pi\}\).
-    \item \(\zeta(\xi)=e^\xi\) maps this region to the upper half plane \(\imaginary(\zeta)>0\) since \(0<\Arg(\zeta)<\pi\) and \(0<\abs{\zeta}\).
-    \item \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) maps \(\imaginary\paren{\zeta}>0\) to \(\mathbb{C}\setminus\paren{(-\infty,-1]\cup[1,\infty)}\).
+    \item \(\xi(z)=iz\) maps the region \(\{z\mid 0<\Re(z)<\pi\}\) to the horizontal strip \(\{\xi\in\mathbb{C}\mid 0<\Im(\xi)<\pi\}\).
+    \item \(\zeta(\xi)=e^\xi\) maps this region to the upper half plane \(\Im(\zeta)>0\) since \(0<\Arg(\zeta)<\pi\) and \(0<\abs{\zeta}\).
+    \item \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) maps \(\Im\paren{\zeta}>0\) to \(\mathbb{C}\setminus\paren{(-\infty,-1]\cup[1,\infty)}\).
 \end{enumerate}
 Thus, the composition \(\cos(z)=w\circ\zeta\circ\xi\) is univalent on the strip \(\{z\in\mathbb{C}\mid 0<\Re(z)<\pi\}\), and the image of this strip under \(\cos\) is \(\mathbb{C}\setminus\paren{(-\infty,-1]\cup[1,\infty)}\). We will now analyze the inverse cosine function, denoted \(\arccos(z)\).
 
