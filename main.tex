@@ -1251,7 +1251,7 @@ For comparison, consider the real function \(x^2\). Shifting it upward removes t
 This preludes to the following fact: a non-constant holomorphic function cannot attain a local minimum or maximum of its modulus inside its domain (with respect to an open neighborhood of the point).
 
 Before the theorem, we first introduce the mean-value property of holomorphic functions.
-\begin{lemma}
+\begin{lemma}\label{lemma:holomorphicmeanvalueproperty}
     Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall \varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
 \end{lemma}
 \begin{proof}
@@ -1261,14 +1261,14 @@ Before the theorem, we first introduce the mean-value property of holomorphic fu
 \end{proof}
 Since the real and imaginary parts of holomorphic functions are harmonic functions, they also satisfy the mean-value property. Furthermore, if a real continuous function satisfies the mean-value property, it is harmonic (we will prove this in \autoref{sec:}). This equivalence allows for the alternative definition of harmonic functions.
 \begin{theorem}[Maximum Modulus Principle]\label{thm:maximummodulus}
-    Let \(f(z)\) be holomorphic over a connected region \(U\subseteq\mathbb{C}\). If \(\exists z_0\in U\) such that for some open neighborhood \(V\in U\) of \(z_0\) and \(\forall z\in U\), \(\abs{f\paren{z_0}}\geq\abs{f(z)}\), then \(f\) is a constant function on \(U\).
+    Let \(f(z)\) be holomorphic over an open connected region \(U\subseteq\mathbb{C}\). If \(\exists z_0\in U\) such that for some open neighborhood \(V\in U\) of \(z_0\) and \(\forall z\in U\), \(\abs{f\paren{z_0}}\geq\abs{f(z)}\), then \(f\) is a constant function on \(U\).
 \end{theorem}
 \begin{proof}
     Assume that \(z_0\) exists. We aim to prove that the set \(S=\cbraces{z}{f(z)=f\paren{z_0},z\in U}\) is all of \(U\). This is equivalent to proving that \(S\) is nonempty, open, and closed in \(U\).
 
-    Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in U\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f(z)=f\paren{z_0}.\] Thus, \(S\) contains all of its accumulation points in \(U\) and is therefore closed (if \(z_\infty\notin U\), then it is no longer relevant, we are concerned with it being closed within \(U\)).
+    Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in U\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f(z)=f\paren{z_0}.\] Thus, \(S\) contains all of its accumulation points in \(U\) and is therefore closed (if \(z_\infty\notin U\), then it is no longer relevant; we are concerned with it being closed within \(U\)).
 
-    
+    Since \(S\subseteq U\) and \(U\) is open, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D(z,\varepsilon)\subseteq U\). By \autoref{lemma:holomorphicmeanvalueproperty}, \(\)
 \end{proof}
 \subsubsection{Holomorphic Automorphism Groups}
 The following important result can be directly obtained from the Maximum Modulus Principle.
