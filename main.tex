@@ -1246,7 +1246,8 @@ Before the theorem, we first introduce the mean-value property of holomorphic fu
     Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall \varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
 \end{lemma}
 \begin{proof}
-    By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\pi i}\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi i}\int_{\partial D(z,\varepsilon)}f\paren{z+\varepsilon e^{it}}\dd{t}\]
+    By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\pi i}\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon e^{it}}\dd{t}.\]
+    Observe that \[f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}=\frac{1}{2\pi\varepsilon}\int_{0}^{2\pi}f\paren{z+\varepsilon e^{it}}\varepsilon \]
 \end{proof}
 \begin{theorem}[Maximum Modulus Principle]\label{thm:maximummodulus}
     
@@ -1271,7 +1272,6 @@ We have touched the subject of Weierstrass' Theorem for the uniform convergence 
     \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)}\leq c_k\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)}.\] Since \(\cbraces{f_n(z)}\) is uniformly convergent, the limit on the right-hand side vanishes. Then,
     \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)}=0,\] and therefore \(\cbraces{f^{(k)}_n(z)}\) uniformly converges.
 \end{proof}
-\[\frac{1}{2}\mfrac{1}{2}\]
 \subsection{Singularities and Meromorphic Functions}
 \subsection{Residue Theorem}
 \section{Riemannian Surfaces}
