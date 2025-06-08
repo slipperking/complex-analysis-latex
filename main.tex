@@ -1199,10 +1199,12 @@ By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}
 \begin{proof}
     By the same logic as with the proof of \autoref{thm:hurwitzsimplecase}, \(f(z)\) is holomorphic over \(U\). Since \(f\not\equiv 0\) on \(U\), its zeros in \(K\), \(\cbraces{z_j}\), are isolated.
     
-    Since \(f\) does not vanish on \(\partial K\), \(\abs{f}\) attains its positive infimum on \(\partial K\). Since \(f_n\rightrightarrows f\) over \(\partial K\) (as it is a compact subset of \(U\)), \(\exists N\in\mathbb{N}\) such that \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in \partial K,\forall n>N.\] By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f_n\) have the same number of zeros (counting multiplicities) in \(K\).
+    Since \(f\) does not vanish on \(\partial K\), \(\abs{f}\) attains its positive infimum on \(\partial K\). Since \(f_n\rightrightarrows f\) over \(\partial K\) (as it is a compact subset of \(U\)), \(\exists N_1\in\mathbb{N}\) such that \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in \partial K,\forall n>N_1.\] By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f_n\) have the same number of zeros (counting multiplicities) in \(K\).
 
-    The function \(f\) has no zeros in \(K\setminus V\) (as \(V\) contains all zeros of \(f\) in \(K\)). Since \(K\setminus V\) is compact, \(f_n\rightrightarrows f\) over this set. Similarly, for large enough \(n\), \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in K\setminus V.\]
+    The function \(f\) has no zeros in \(K\setminus V\) (as \(V\) contains all zeros of \(f\) in \(K\)). Since \(K\setminus V\) is compact, \(f_n\rightrightarrows f\) over this set. Similarly, \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in K\setminus V.\]
     \(K\setminus V\) can be covered by a collection of simply connected sets (with a union equal to \(K\setminus V\)). Thus, by \autoref{thm:rouche}, \(f\) and \(f_n\) never vanish on \(K\setminus V\), and therefore all zeros of \(f_n\) lie in \(V\).
+
+    For the purpose of the statement, we can choose \(N=\max\paren{N_1,N_2}\)
 \end{proof}
 The following is also a direct result from Rouché's Theorem (\autoref{thm:rouche}). Unlike \autoref{thm:hurwitz}, which concerns the stability of zeros under perturbations of \(f_n(z)\) for increasing \(n\), we can directly consider perturbations of \(f(z)+c\) for vanishing \(c\). Observe their similarities in formulation.
 \begin{theorem}\label{thm:zerosofashiftedholomorphicfunctionoverneighborhood}
@@ -1215,8 +1217,11 @@ The following is also a direct result from Rouché's Theorem (\autoref{thm:rouch
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    The proof is exactly the same as in \autoref{thm:hurwitz}. Obviously, \(|f|\) attains its infimum on \(\partial K\) by its continuity, or that \(\delta=\min_{z\in\partial K}\abs{f(z)}\). Then \(\forall\abs{\lambda}<\delta\),
-    \[\frac{f(z)-}\]
+    The proof is exactly the same as in \autoref{thm:hurwitz}. Obviously, \(|f|\) attains its infimum on \(\partial K\) by its continuity, or that \(\delta=\min_{z\in\partial K}\abs{f(z)}\). Then \(\forall\abs{\lambda}<\delta\), \(\forall z\in \partial K\),
+    \[\abs{f(z)-\paren{f(z)+\lambda}}<\delta\leq\abs{f(z)}.\]
+    By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f+\lambda\) have the same number of zeros, counting multiplicity, over \(K\).
+
+    
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
