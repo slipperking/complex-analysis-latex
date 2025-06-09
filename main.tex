@@ -1270,7 +1270,13 @@ Since the real and imaginary parts of holomorphic functions are harmonic functio
 
     Since \(S\subseteq V\) and \(V\) is open, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D(z,\varepsilon)\subseteq V\). By \autoref{lemma:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon'<\varepsilon\),
     \begin{align*}
-        |f(z)|=\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon' e^{it}}\dd{t}
+        |f(z)|&=\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon' e^{it}}\dd{t}}\leq \frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon'e^{it}}}\dd{t}\\
+        &\leq\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}\leq \abs{f(z)}.
+    \end{align*}
+    It follows that all inequalities above are equalities, or that 
+    \begin{align*}
+        |f(z)|&=\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon' e^{it}}\dd{t}}=\frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon'e^{it}}}\dd{t}\\
+        &=\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
 \end{proof}
 \subsubsection{Holomorphic Automorphism Groups}
