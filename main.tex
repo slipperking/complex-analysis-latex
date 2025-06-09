@@ -229,13 +229,13 @@ A portion of calculus is dedicated to rigorously defining concepts such as limit
 \begin{proof}
     Suppose for the sake of contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(U\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in U\) such that \(|f(x_n)|>n\). The sequence \(\cbraces{x_n}\) lies in \(U\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), there exists a convergent subsequence \(\cbraces{x_{n_k}}\) with \(x_{n_k}\to x_\infty\in U\).
 
-    Since \(f\) is continuous, \(f(x_{n_k})\to f(x_\infty)\), so the sequence \(\cbraces{f\paren{x_{n_k}}}\) is bounded. But this contradicts \(\abs{f\paren{x_{n_k}}}>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
+    Since \(f\) is continuous, \(f(x_{n_k})\to f(x_\infty)\), so the sequence \(\cbraces{f\paren{x_{n_k}}}\) is bounded. But this contradicts \(\qty|f\paren{x_{n_k}}|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
 \end{proof}
 \begin{theorem}[Extreme Value Theorem]\label{thm:extremevalue}
     A continuous function \(f(x)\) over a compact set \(U\) attains its infimum and supremum in \(U\).
 \end{theorem}
 \begin{proof}
-    Assume that \(U\) never attains its supremum \(M\). Then, \(f(x)<M\). Define \(\psi(x)=\frac{1}{M-f(x)}\), which is strictly positive and continuous as the denominator never reaches 0. By \autoref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\). \(f(x)\) also has the representation \(M-\frac{1}{\psi(x)}\), and therefore, \[f(x)\leq M-\frac{1}{\mu},\] which means that \(M\) is not the supremum. Similarly, assume that \(U\) never attains its infimum \(m\). Then \(f(x)>m\). Let \(\psi(x)=\frac{1}{f(x)-m}\), which is strictly positive and continuous as the denominator never reaches 0. By \autoref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\). \(f(x)\) also has the representation \(m+\frac{1}{\psi(x)}\), and therefore, \[f(x)\geq m+\frac{1}{\mu},\] which means that \(m\) is not the infimum.
+    Assume that \(U\) never attains its supremum \(M\). Then, \(f(x)<M\). Define the auxiliary function \(\psi(x)=\frac{1}{M-f(x)}\), which is strictly positive and continuous as the denominator never reaches 0. By \autoref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\). \(f(x)\) also has the representation \(M-\frac{1}{\psi(x)}\), and therefore, \[f(x)\leq M-\frac{1}{\mu},\] which means that \(M\) is not the supremum. Similarly, assume that \(U\) never attains its infimum \(m\). Then \(f(x)>m\). Let \(\psi(x)=\frac{1}{f(x)-m}\), which is strictly positive and continuous as the denominator never reaches 0. By \autoref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\). \(f(x)\) also has the representation \(m+\frac{1}{\psi(x)}\), and therefore, \[f(x)\geq m+\frac{1}{\mu},\] which means that \(m\) is not the infimum.
 \end{proof}
 \begin{definition}[Uniform Continuity]\label{def:uniformcontinuity}
     A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous if and only if \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y\in U\) where \(|x-y|<\delta\), \(\abs{f(x)-f(y)}<\varepsilon\).
@@ -427,7 +427,7 @@ Thus, the composition \(\cos(z)=w\circ\zeta\circ\xi\) is univalent on the strip 
 Consider \(z=\frac{e^{iw}+e^{-iw}}{2}\). Then, \begin{align*}
     \paren{e^{iw}}^2+1&=2ze^{iw}\\
     e^{iw}&=\frac{2z\pm\sqrt{4z^2-4}}{2}\\
-    w&=-i\log\paren{z\pm\sqrt{z^2-1}}.
+    w&=-i\log(z\pm\sqrt{z^2-1}).
 \end{align*}
 Then \(\arccos\) is also a multi-valued function. We can define \(\arcsin(z)=\frac{\pi}{2}-\arccos{z}\). 
 
