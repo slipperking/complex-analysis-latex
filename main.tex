@@ -1109,7 +1109,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then if the set defined by \(E=\cbraces{z\in U\mid f(z)=0}\) has an accumulation point in \(U\), then \(f\equiv0\) over \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(\cbraces{z}{z\in U,f(z)=0}\) and assume it has an accumulation point \(z_\infty\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_\infty,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor expansion
+    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(E\) and assume it has an accumulation point \(z_\infty\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_\infty,\varepsilon}\subseteq V\). Then over this disk, \(f\) has the Taylor expansion
     \begin{equation}\label{eq:identityaccumulationofzeros_taylorexpansion}
         f(z)=\sum_{n=0}^\infty a_n\paren{z-z_\infty}^n.
     \end{equation}
@@ -1121,7 +1121,9 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Letting \(n\to\infty\), \(z_n\to z_\infty\), and \(a_1=0\). Define \(f_2(z)=\frac{f_1(z)}{z-z_\infty}\). Then, \[f_2(z)=\sum_{n=0}^\infty a_{n+2}\paren{z-z_\infty}^n.\]
     Similarly, \(a_2=0\). Letting \(f_n(z)=\frac{f(z)}{\paren{z-z_\infty}^n}\), the sequence \(\paren{a_n}_{n\in\mathbb{Z}_{\geq0}}\) vanishes, and \(f\equiv 0\) on \(D\paren{z_\infty,\varepsilon}\).
     
-    By definition, \(D\paren{z_\infty,\varepsilon}\subseteq E\). For any arbitrary point in this disk, the Taylor series will also have vanishing coefficients. Then there exists another disk that \(f\) vanishes over, which is also a subset of \(E\). Then we can repeat this process until we obtain a collection of disks that cover \(U\). Then \(E=U\).
+    Therefore, \(D\paren{z_\infty,\varepsilon}\subseteq E\).
+    
+    For any sequence \(\cbraces{z'_n}\in E\) converging to some \(z'_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z'_n}=f\paren{\lim_{n\to\infty}z'_n}=f\paren{z_\infty}=f\paren{z'_0}.\] Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with it being closed within \(V\)).
 \end{proof}
 \begin{remark}
     This is a trivial property of holomorphic functions that allows for the uniqueness of analytic continuations. It is oftentimes stated in the form below:
@@ -1264,7 +1266,7 @@ Since the real and imaginary parts of holomorphic functions are harmonic functio
     Let \(f(z)\) be holomorphic over an open connected region \(U\subseteq\mathbb{C}\). If \(\exists z_0\in U\) such that for some open neighborhood \(V\subseteq U\) of \(z_0\) and \(\forall z\in U\), \(\abs{f\paren{z_0}}\geq\abs{f(z)}\), then \(f\) is a constant function on \(U\).
 \end{theorem}
 \begin{proof}
-    Assume that \(z_0\) exists. We aim to prove that the set \(S=\cbraces{z}{f(z)=f\paren{z_0},z\in V}\) is all of \(V\). This is equivalent to proving that \(S\) is nonempty, open, and closed in \(V\).
+    Assume that \(z_0\) exists. We will first prove that the set \(S=\cbraces{z}{f(z)=f\paren{z_0},z\in V}\) is all of \(V\). This is equivalent to proving that \(S\) is nonempty, open, and closed in \(V\).
 
     Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=f\paren{z_0}.\] Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with it being closed within \(V\)).
 
