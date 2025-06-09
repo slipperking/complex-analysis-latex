@@ -159,7 +159,7 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \begin{theorem}[Mean Value Theorem, Integral Form]
     If \(f(x)\) is continuous over \([a,b]\), then \(\exists \xi\in[a,b]\) such that \[\int_a^bf(x)dx=f(\xi)(b-a).\]
 \end{theorem}
-A curve is a one-dimensional manifold embedded in a higher-dimensional space. They can be parameterized with a vector \(\overrightarrow{F}(t)=\begin{pmatrix}
+A curve is a one-dimensional manifold embedded in a higher-dimensional space. They can be parameterized with a vector \(\va{F}(t)=\begin{pmatrix}
     P(t)\\Q(t)\\R(t)
 \end{pmatrix}\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textit{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textit{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textit{piecewise smooth}. If it is of finite length, then the curve is said to be \textit{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textit{simple} if it is simple (non self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textit{Jordan curve}.
 \begin{theorem}[Jordan Curve Theorem]\label{thm:jordancurve}
@@ -198,9 +198,7 @@ which is the definition of the total differential. For a 1-form in 3-dimensional
 \end{align*}
 Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
 \[\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\wedge\ddy\wedge\ddz.\]
-The two results above resemble the curl and divergence of \(\begin{pmatrix}
-    P \\Q\\R
-\end{pmatrix}\). A differential form \(\omega\) is \textit{closed} if \(\dd{\omega}=0\), and is exact if there exists \(\eta\) such that \(\omega=\dd{\omega}\). 
+The two results above resemble the curl and divergence of \(\mqty(P\\Q\\R)\). A differential form \(\omega\) is \textit{closed} if \(\dd{\omega}=0\), and is exact if there exists \(\eta\) such that \(\omega=\dd{\omega}\). 
 \begin{lemma}[Poincaré's Lemma]\label{lemma:poincare}
     For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
 \end{lemma}
@@ -429,7 +427,7 @@ Consider \(z=\frac{e^{iw}+e^{-iw}}{2}\). Then, \begin{align*}
     e^{iw}&=\frac{2z\pm\sqrt{4z^2-4}}{2}\\
     w&=-i\log(z\pm\sqrt{z^2-1}).
 \end{align*}
-Then \(\arccos\) is also a multi-valued function. We can define \(\arcsin(z)=\frac{\pi}{2}-\arccos{z}\). 
+Then \(\arccos\) is also a multi-valued function. We can also define \(\arcsin(z)=\frac{\pi}{2}-\arccos{z}\). 
 
 Lastly, we will examine the power function. Let \(\alpha=u+iv\) where \(u,v\in\mathbb{R}\). Then, \[z^\alpha=e^{\alpha\log(z)}=e^{(u+iv)\paren{\ln\abs{z}+i\arg\paren{z}}}=e^{u\ln\abs{z}-v\arg\paren{z}}e^{i\paren{v\ln\abs{z}+u\arg\paren{z}}}.\]
 Let \(r_k=\exp\paren{u\ln\abs{z}-v\paren{\Arg(z)+2\pi k}}\) and \(\theta_k=v\ln\abs{z}+u\paren{\Arg\paren{z}+2\pi k}\). Then, \(z^\alpha=r_ke^{i\theta_k}\), where \(k\in\mathbb{Z}\). Analyzing the coefficient of \(v\) in the exponent of \(r_k\), \(z^\alpha\) is multi-valued if \(v\neq0\). 
@@ -935,7 +933,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
         &=f^{(k)}\paren{z_0}+\frac{(k+1)!\paren{z-z_0}}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta\\
         &\quad+O\paren{\abs{z-z_0}^2},
     \end{align*}
-    where the remainder terms have a form resembling \[O\paren{\abs{z-z_0}^2}=\paren{z-z_0}^2\frac{k!}{2\pi i}\brackets{k+1+\begin{pmatrix}k+1\\2\end{pmatrix}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+O\paren{\abs{z-z_0}^3}.\]
+    where the remainder terms have a form resembling \[O\paren{\abs{z-z_0}^2}=\paren{z-z_0}^2\frac{k!}{2\pi i}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+O\paren{\abs{z-z_0}^3}.\]
     The difference quotient is equal to \[\frac{f^{(k)}(z)-f^{(k)}\paren{z_0}}{z-z_0}=\frac{(k+1)!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta+O\abs{z-z_0}.\] As \(z\to z_0\), the remainder terms vanish, and \[f^{(k+1)}\paren{z_0}=\frac{(k+1)!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta.\]
     By induction, equation \eqref{eq:cauchydifferentiationformula_statement} is valid. By substituting equation \eqref{eq:cauchydifferentiationformula_kernelexpansion} into \eqref{eq:cauchygoursatformula}, we obtain \[f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z_0}\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j\ddzeta=\frac{1}{2\pi i}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)}{\paren{\zeta-z_0}^{j+1}}\ddzeta.\] 
     Because \(f(\zeta)\) is continuous over \(\partial U\), it is bounded by a constant \(M\). Additionally, since \(\abs{z-z_0}<\abs{\zeta-z_0}\), the sum is termwise bounded by the convergent series \[\sum_{j=0}^\infty\abs{z-z_0}^j\frac{M}{\abs{\zeta-z_0}^{j+1}}.\]
