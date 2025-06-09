@@ -329,7 +329,7 @@ Clearly, any function satisfying the criteria in \autoref{thm:holomorphyconditio
 We will prove later in \autoref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+iv(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
-This type of equation is called the \textit{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textit{Laplacian}) \[\Delta=\nabla^2=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\Delta u=0\) is a \textit{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
+This type of equation is called the \textit{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textit{Laplacian}) \[\Delta=\laplacian=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\Delta u=0\) is a \textit{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
 \subsubsection{Wirtinger Derivatives}
 We have previously introduced the concept of expressing a complex function as a function of \(x\) and \(y\). It can also be expressed in terms of \(z\) and \(\overline{z}\), where \(z=x+iy\) and \(\overline{z}=x-iy\). Then \(|z|=z\overline{z}\), \(x=\frac{z+\overline{z}}{2}\), and \(y=\frac{z-\overline{z}}{2i}\). By the rules of the derivative, \begin{equation}
     \pdv{}{z}=\pdv{}{x}\pdv{x}{z}+\pdv{}{y}\pdv{y}{z}=\frac{1}{2}\left(\pdv{}{x}-i\pdv{}{y}\right)\label{eq:wirtingerderivative1}
@@ -365,7 +365,7 @@ A univariate function formed by taking compositions, sums, products, and powers 
 Power functions are easily extendable to the complex plane by simply changing the real variable to a complex variable. The other two functions have to be redefined and reinterpreted for the complex plane. It is well known that the exponential function can be expanded as \begin{align*}
     e^x&=\frac{x^0}{0!}+\frac{x^1}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}\cdots\\
     &=\frac{x^0}{0!i^0}+i\frac{x^1}{1!i^1}-\frac{x^2}{2!i^2}-i\frac{x^3}{3!i^3}+\cdots\\
-    &=\cos\paren{\frac{x}{i}}+i\sin\paren{\frac{x}{i}}.
+    &=\cos\paren{\frac{x}{i}}+i\sin(\frac{x}{i}).
 \end{align*}
 This is better written as \begin{equation}
     e^{ix}=\cos(x)+i\sin(x),\label{eq:eulersformula}
@@ -1314,5 +1314,4 @@ We have touched the subject of Weierstrass' Theorem for the uniform convergence 
     \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)}\leq c_k\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)}.\] Since \(\cbraces{f_n(z)}\) is uniformly convergent, the limit on the right-hand side vanishes. Then,
     \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)}=0,\] and therefore \(\cbraces{f^{(k)}_n(z)}\) uniformly converges.
 \end{proof}
-
 \end{document}
