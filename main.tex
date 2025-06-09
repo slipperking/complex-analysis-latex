@@ -311,10 +311,10 @@ For simplicity's sake, if we mention that a function is holomorphic on a region,
     Then because \(u,v\in C^1\paren{D}\) have continuous partial derivatives, \(\forall x,y\in D\):
     \[u\paren{x,y}-u\paren{x_0,y_0}=\alpha\paren{x-x_0}-\beta\paren{y-y_0}+o_{\Delta z\to 0}\paren{\abs{\Delta z}},\]
     \[v\paren{x,y}-v\paren{x_0,y_0}=\beta\paren{x-x_0}+\alpha\paren{y-y_0}+o_{\Delta z\to 0}\paren{\abs{\Delta z}},\]
-    where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\) and \(o_{\Delta z\to 0}\paren{\abs{\Delta z}}\) denotes a value with higher infinitesimal order to \(\Delta z\), or that \(\lim_{\Delta z\to0}\frac{o_{\Delta z\to 0}\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\). Then letting \(\Delta z=x-x_0+i\paren{y-y_0}\),
-    \[f\paren{z}-f\paren{z_0}=\alpha{\Delta z}+i\beta{\Delta z}+o_1\paren{\abs{\Delta z}}+o_2\paren{\abs{\Delta z}},\]
-    \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta+\frac{o_1\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}+\frac{o_2\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
-    Taking the limit as \(\Delta z\to0\), the infinitesimal terms on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta.\]
+    where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\) and \(o_{\Delta z\to 0}\paren{\abs{\Delta z}}\) denotes a value with higher infinitesimal order to \(\abs{\Delta z}\), or that \(\lim_{\Delta z\to0}\frac{o_{\Delta z\to 0}\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\). Then letting \(\Delta z=x-x_0+i\paren{y-y_0}\),
+    \[f\paren{z}-f\paren{z_0}=\alpha{\Delta z}+i\beta{\Delta z}+o_{\Delta z\to 0}\paren{\abs{\Delta z}}+o_{\Delta z\to 0}\paren{\abs{\Delta z}},\]
+    \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta+\frac{o_{\Delta z\to 0}\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
+    Taking the limit as \(\Delta z\to0\), the high order infinitesimals on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta.\]
 \end{proof}
 An extension that is much harder to prove gives a subtle result:
 \begin{theorem}[Looman--Menchoff Theorem]\label{thm:loomanmenchoff}
@@ -518,11 +518,27 @@ Lastly, the sufficient criteria to pass a limit through an integral:
     \[\sum_{n=1}^\infty\int_{\gamma}f_n(z)\ddz=\int_{\gamma}\sum_{n=1}^\infty f_n(z)\ddz.\]
 \end{remark}
 \subsection{The Conformality of Holomorphic Mappings}
-Consider a holomorphic function \(f:U\to\mathbb{C}\) where \(U\subseteq\mathbb{C}\) is open and connected and a point \(z_0\in U\) such that \(f'\paren{z_0}\neq 0\). Let \(\gamma(t)\in C^1([0,1])\) be a curve with \(\gamma(0)=z_0\). Then at \(z_0\), the angle of \(\gamma\) is equal to \(\arg{\gamma'(0)}\). The image of \(\gamma\) under \(f\) is also a smooth curve, \(\sigma(t)=f(\gamma(t))\), which passes through \(w_0=f\paren{z_0}\). It follows from the chain rule that the angle of \(\sigma\) at \(w_0\) is equal to \(\arg{f'\paren{z_0}\gamma'(0)}\). By the properties of \(\arg\) since \(f'\paren{z_0}\) is nonzero and therefore has direction, \[\arg{\sigma'(0)}-\arg{\gamma'(0)}=\arg{f'\paren{z_0}}.\] Notice how the difference between the angles of an arbitrary curve and its image is independent of the curve. Then, for any two smooth curves \(\gamma_1(t)\) and \(\gamma_2(t)\) where \(0\leq t\leq1\) passing through \(z_0\) with images \(\sigma_1(t)\) and \(\sigma_2(t)\) respectively (which pass through \(w_0=f\paren{z_0}\)). Then, \[\arg{\sigma_1'(0)}-\arg{\gamma_1'(0)}=\arg{\sigma_2'(0)}-\arg{\gamma_2'(0)},\] and from rearrangement, \[\arg{\sigma_1'(0)}-\arg{\sigma_2'(0)}=\arg{\gamma_1'(0)}-\arg{\gamma_2'(0)}.\]
-Geometrically, the angle at \(z_0\) between two smooth curves passing \(z_0\) in \(U\) is preserved under \(f\). Consider any arbitrary curve \(\gamma(t)\in C^1([0,1])\) which passes \(z_0\) with image \(\sigma(t)\). By the properties of the holomorphy of \(f\), \[\lim_{\substack{z\to z_0\\z\in\gamma}}\frac{\abs{f(z)-f\paren{z_0}}}{\abs{z-z_0}}=\abs{f'(z)}.\]
-This implies that lengths are locally scaled by a factor of \(\abs{f'\paren{z_0}}\) under \(f\) at \(z_0\).
+Let \(f:U\to\mathbb{C}\) be a holomorphic function defined on an open and connected subset \(U\subseteq\mathbb{C}\), and let \(z_0\in U\) be a point such that \(f'(z_0)\neq 0\). Consider a differentiable curve \(\gamma\in C^1([0,1])\) with \(\gamma(0)=z_0\). The direction of the curve at \(z_0\) is given by the argument of its derivative: \(\arg(\gamma'(0))\).
 
-For points where \(\abs{f'(z)}\neq 0\), the properties above are called \textit{conformality} and \(f\) is a \textit{conformal mapping}. We will observe the geometric behavior in a later chapter for points where the derivative vanishes.
+The image of \(\gamma\) under \(f\), defined by \(\sigma(t)=f(\gamma(t))\), is also a smooth curve passing through \(w_0=f(z_0)\). By the chain rule, the derivative of \(\sigma\) at \(t=0\) is given by
+\[\sigma'(0)=f'(\gamma(0))\cdot\gamma'(0)=f'(z_0)\cdot\gamma'(0),\]
+and hence,
+\[\arg(\sigma'(0))=\arg(f'(z_0)\cdot\gamma'(0))=\arg(f'(z_0))+\arg(\gamma'(0)).\]
+It follows that
+\[\arg(\sigma'(0))-\arg(\gamma'(0))=\arg(f'(z_0)).\]
+This shows that the change in direction between a curve and its image under \(f\) is independent of the curve itself, depending only on the value of \(f'(z_0)\).
+
+Now consider two smooth curves \(\gamma_1,\gamma_2\in C^1([0,1])\) such that \(\gamma_1(0)=\gamma_2(0)=z_0\), with respective images \(\sigma_1(t)=f(\gamma_1(t))\) and \(\sigma_2(t)=f(\gamma_2(t))\). Then,
+\[\arg(\sigma_1'(0))-\arg(\gamma_1'(0))=\arg(f'(z_0))=\arg(\sigma_2'(0))-\arg(\gamma_2'(0)),\]
+and by rearrangement,
+\[\arg(\sigma_1'(0))-\arg(\sigma_2'(0))=\arg(\gamma_1'(0))-\arg(\gamma_2'(0)).\]
+This equality demonstrates that the angle between two smooth curves at \(z_0\) is preserved under \(f\), provided \(f'(z_0)\neq 0\). In other words, holomorphic functions with non-vanishing derivatives preserve angles and orientation locally—a property known as \textit{conformality}.
+
+Furthermore, for any smooth curve \(\gamma\in C^1([0,1])\) passing through \(z_0\), the limit
+\[\lim_{\substack{z\to z_0\\z\in\gamma}}\frac{\abs{f(z)-f(z_0)}}{\abs{z-z_0}}=\abs{f'(z_0)}\]
+shows that infinitesimal lengths are locally scaled by a factor of \(\abs{f'(z_0)}\) under the mapping \(f\).
+
+Therefore, at points where \(\abs{f'(z)}\neq 0\), the function \(f\) is conformal: it preserves both angles and local shapes up to scaling. In later chapters, we will study the behavior of \(f\) at critical points where the derivative vanishes, and conformality fails.
 \section{Complex Integration}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
 \[\ddz=\ddx+i\ddy,\quad\dd{\overline{z}}=\ddx-i\ddy.\]
