@@ -232,11 +232,11 @@ We also have the definition of the limit of a sequence:
     Let \(m_1\) be the lower bound of the selected interval and \(M_1\) be the upper. Then at least one of \(\qty[m_1,\frac{m_1+M_1}{2}]\) and \(\qty[\frac{m_1+M_1}{2},M_1]\) contains an infinite subsequence.
 
     Continuing this process, we obtain a sequence of intervals \(\qty{m_n, M_n}\) satisfying \[m_1\leq m_2\leq m_3\leq\cdots\leq M_3\leq M_2\leq M_1.\]
-    The length of the \(n\)th interval is equal to \[M_n-m_n=\frac{1}{2^n}\qty(M-m).\] Then since \(\lim_{n\to\infty}M_n-m_n=0\), \[\lim_{n\to\infty}M_n=\lim_{n\to\infty}m_n=a.\]
+    The length of the \(k\)th interval is equal to \[M_k-m_k=\frac{1}{2^k}\qty(M-m).\] Then since \(\lim_{k\to\infty}M_k-m_k=0\), \[\lim_{k\to\infty}M_k=\lim_{k\to\infty}m_k=a.\]
 
-    \(\forall n\in\mathbb{N}\), choose \(a_{n_k}\) to be any term in \(\qty[m_n,M_n]\)
-    
-    Assume sequence $a_n$ is bounded within $[A,B]$. Bisecting the interval into $\left[A, \frac {A+B} {2}\right]$ and $\left[\frac{A+B}{2},B\right]$. At least one of the two subintervals contains infinite terms from $[A,B]$. Select one and name its bounds $A_1$ and $B_1$. Iterating this $k$ times, as $k\to\infty$, the length of the nested subinterval $\left[A_k, B_k\right]=\frac{B-A}{2^k}\to0$. At this limit, $\lim_{k\to\infty} A_k=\lim_{n\to\infty}B_k=L$. For each $k$, infinite elements exist between $A_k$ and $B_k$. Let $a_{n_k}$ form a sequence, where $n_k$ chooses an index such that $a_{n_k}\in\left[A_k, B_k\right]$ This subsequence converges to $L$. Note that $n_k$ must be strictly increasing.
+    \(\forall k\in\mathbb{N}\), \(\qty[m_k,M_k]\) contains infinitely many elements of \(\qty{a_n}\). Let \(a_{n_k}\) be any arbitrary one of them. 
+
+    We then aim to show \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(a\)
 \end{proof}
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
     Any continuous function on a compact set \(U\) is bounded on \(U\).
