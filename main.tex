@@ -224,10 +224,12 @@ We also have the definition of the limit of a sequence:
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if \[\lim_{x\to a}f(x)=f(a).\]
 \end{definition}
 \begin{theorem}[Bolzano--Weierstrass Theorem]\label{thm:bolzanoweierstrass}
-    Any bounded sequence has a convergent subsequence.
+    Any bounded infinite sequence has a convergent subsequence.
 \end{theorem}
 \begin{proof}
+    Let \(\qty{a_n}\) be the bounded sequence. In other words, \(\exists m,M\in\mathbb{R}\) such that \(\qty{a_n}\subset[m,M]\). By the infiniteness of \(\qty{a_n}\), at least one of \(\qty[m,\frac{m+M}{2}]\) and \(\qty[\frac{m+M}{2},M]\) have infinite elements of \(\)
     
+    Assume sequence $a_n$ is bounded within $[A,B]$. Bisecting the interval into $\left[A, \frac {A+B} {2}\right]$ and $\left[\frac{A+B}{2},B\right]$. At least one of the two subintervals contains infinite terms from $[A,B]$. Select one and name its bounds $A_1$ and $B_1$. Iterating this $k$ times, as $k\to\infty$, the length of the nested subinterval $\left[A_k, B_k\right]=\frac{B-A}{2^k}\to0$. At this limit, $\lim_{k\to\infty} A_k=\lim_{n\to\infty}B_k=L$. For each $k$, infinite elements exist between $A_k$ and $B_k$. Let $a_{n_k}$ form a sequence, where $n_k$ chooses an index such that $a_{n_k}\in\left[A_k, B_k\right]$ This subsequence converges to $L$. Note that $n_k$ must be strictly increasing.
 \end{proof}
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
     Any continuous function on a compact set \(U\) is bounded on \(U\).
