@@ -21,6 +21,7 @@
 
 \usepackage[hidelinks]{hyperref}
 \usepackage[labelfont=bf, textfont=it]{caption}
+\usepackage[left=3.5cm,right=3.5cm]{geometry}
 \everymath{\displaystyle}
 
 \allowdisplaybreaks[2]
@@ -184,18 +185,13 @@ Generalizations of the differential and integral exist for multivariate function
     \[\oint_{\partial U} P\ddx+Q\ddy=\iint_U\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
-    Let \(S\subset\mathbb{R}^3\) be a positively oriented, smooth surface with a positively oriented boundary curve \(\partial S\).
-    
-    Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
+    Let \(S\subset\mathbb{R}^3\) be a positively oriented, smooth surface with a positively oriented boundary curve \(\partial S\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
     \begin{align*}
-        \oint_{\partial S}P\ddx+Q\ddy+R\ddz&=\iint_S\left(\pdv{R}{y}-\pdv{Q}{z}\right)\ddy\ddz\\
-        &\quad+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.
+        \oint_{\partial S}P\ddx+Q\ddy+R\ddz&=\iint_S\left(\pdv{R}{y}-\pdv{Q}{z}\right)\ddy\ddz+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.
     \end{align*}
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
-    Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively oriented boundary surface \(\partial V\).
-    
-    Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
+    Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
     \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\ddy\ddz.\]
 \end{theorem}
 In 3-dimensional \(\mathbb{R}^3\) space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination of \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where \(\wedge\) denotes an anti-commutative and associative product, where for any two differential forms \(\omega_1\) and \(\omega_2\)
@@ -1134,8 +1130,8 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). \(X\
 \end{definition}
 \begin{lemma}\label{lemma:locallyfiniteopencoverexistence}
     Let \(\Omega\subseteq\mathbb{C}\) be an open set and \(\mathfrak{B}\) be an (open) basis of (the standard topology under) \(\Omega\). Then there exists a collection of sets \(\left\{U_n\right\}_{n\in\mathbb{N}}\) in \(\mathfrak{B}\) such that \begin{enumerate}
-        \item \(\bigcup_{n\in\mathbb{N}}U_n=\Omega\).
-        \item \(\forall K\subset\Omega\) that is compact, \(K\) intersects only a finite number of sets in \(\left\{U_n\right\}_{n\in\mathbb{N}}\).
+        \item \(\bigcup_{n\in\mathbb{N}}U_n=\Omega\).\label{itm:locallyfiniteopencoverexistence_cover}
+        \item \(\forall K\subset\Omega\) that is compact, \(K\) intersects only a finite number of sets in \(\left\{U_n\right\}_{n\in\mathbb{N}}\).\label{itm:locallyfiniteopencoverexistence_localfiniteness}
     \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -1145,9 +1141,9 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). \(X\
 
     \(\forall n\in\mathbb{N}\) and \(\forall z\in V_n\), since \(W_n\) is an open set containing \(z\) and \(\mathfrak{B}\) is a basis, there exists \(U_{z,n}\in\mathfrak{B}\) such that \(z\in U_{z,n}\subseteq W_n\) (in short, \(U_{z,n}\) is an open neighborhood of \(z\) that is contained in \(W_n\)). The collection \(\cbraces{U_{z,n}}{z\in V_n}\) is an open cover of the compact set \(V_n\), so by the Heine-Borel Theorem (\autoref{thm:heineborel}) it admits a finite subcover of \(V\). That is, there exist finitely many points \(z_{n,1},\ldots,z_{n,k_n}\) such that \(V_n\subset\bigcup_{i=1}^{k_n}U_{z_{n,i},n}\subseteq W_n\).
 
-    Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{n,i},n}\) for \(n\in\mathbb{N}\) and \(i=1,\ldots,k_n\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving condition 1.
+    Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{n,i},n}\) for \(n\in\mathbb{N}\) and \(i=1,\ldots,k_n\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving \ref{itm:locallyfiniteopencoverexistence_cover}.
 
-    For condition 2, let \(K\subset\Omega\) be compact. Then \(\exists N\in\mathbb{N}\) such that \(K\subset K_N^\circ\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textit{locally finite}.
+    For \ref{itm:locallyfiniteopencoverexistence_localfiniteness}, let \(K\subset\Omega\) be compact. Then \(\exists N\in\mathbb{N}\) such that \(K\subset K_N^\circ\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textit{locally finite}.
 \end{proof}
 \begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
     For a nonempty open set \(\Omega\subseteq\mathbb{C}\), let \(\cbraces{\Omega_k}_{k\in\mathbb{Z}_{\ge0}}\) be an open cover of \(\Omega\). Then there exists a set of bump functions, \(\alpha_1(z),\alpha_2(z),\ldots\in C^\infty(\mathbb{C})\) with compact support within \(\Omega\) satisfying
