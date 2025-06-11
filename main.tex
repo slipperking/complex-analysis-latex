@@ -1366,14 +1366,16 @@ Let us first confirm injectivity. \(\forall z_1,z_2\in D(0,1)\), we will observe
 Then, \[\abs{a}^2\paren{z_2-z_1}=z_2-z_1.\Longleftrightarrow\qty\big(\qty|a|^2-1)\qty(z_2-z_1)=0.\] Since \(\abs{a}<1\), we get \(z_2-z_2=0\). This proves the univalence of \(\varphi_a(z)\).
 
 Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac{a-w}{1-\overline{a}w}\). Then,
-\[z-\overline{a}zw=a-w\Longleftrightarrow w=\frac{a-z}{1-\overline{a}z}.\]
+\begin{equation}
+    z-\overline{a}zw=a-w\Longleftrightarrow w=\frac{a-z}{1-\overline{a}z}.\label{eq:involutivemobiustransformation}
+\end{equation}
 It follows that \(\varphi_a=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation \eqref{eq:mobiustransformationgroupofholomorphicautomorphismsstatement} is true. Functions in the form of \(\varphi_a\) (where \(a\in D(0,1)\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group} is a subgroup of \(\Aut(D(0,1))\). Functions in the form of \(\rho_\tau(z)=z\exp(i\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(D(0,1))\).
 \begin{theorem}[The Holomorphic Automorphism Group on the Unit Disk]
     \(\forall f\in \Aut(D(0,1))\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
 \end{theorem}
 \begin{proof}
     Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(z)\). It follows that \(\psi\in\Aut(D(0,1))\). Furthermore, \(\psi(0)=\varphi_{f(0)} f(0)=0\). By the Schwarz Lemma (\autoref{lemma:schwarz}), \(\qty|\psi'(0)|\leq1\). Since \(\psi^{-1}\in\Aut(D(0,1))\) with \(\psi^{-1}(0)=0\), \(\abs{\qty(\psi^{-1})'(0)}\leq1\). Then, \[\abs{\qty(\psi^{-1})'(0)}=\frac{1}{\psi'\qty(\psi^{-1}(0))}=\frac{1}{\psi'(0)}\leq 1.\]
-    Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \autoref{lemma:schwarz}, \(\psi(z)=ze^{i\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\)
+    Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \autoref{lemma:schwarz}, \(\psi(z)=ze^{i\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By equation \eqref{eq:involutivemobiustransformation}, \(\varphi_{f(0)}\) is involutive, and it follows that \(f(z)=\varphi_{f(0)}\circ\rho_\tau(z)\)
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
