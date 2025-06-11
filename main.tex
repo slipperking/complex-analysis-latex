@@ -168,7 +168,7 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \begin{theorem}[Mean Value Theorem, Integral Form]
     If \(f(x)\) is continuous over \([a,b]\), then \(\exists \xi\in[a,b]\) such that \[\int_a^bf(x)\ddx=f(\xi)(b-a).\]
 \end{theorem}
-A curve is a one-dimensional manifold embedded in a higher-dimensional space. They can be parameterized with a vector \(\va{F}(t)=\mqty(P(t)\\Q(t)\\R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textit{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textit{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textit{piecewise smooth}. If it is of finite length, then the curve is said to be \textit{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textit{simple} if it is simple (non self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textit{Jordan curve}.
+A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\mqty(P(t)\\Q(t)\\R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textit{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textit{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textit{piecewise smooth}. If it is of finite length, then the curve is said to be \textit{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textit{simple} if it is simple (non self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textit{Jordan curve}.
 \begin{theorem}[Jordan Curve Theorem]\label{thm:jordancurve}
     Let \(C\) be a Jordan curve in \(\mathbb{R}^2\). Then the set \(\mathbb{R}^2\setminus C\) consists of exactly two connected subsets. One of them is the interior, and is a bounded region, while the other is the exterior, which is unbounded. Both of the two regions share the common boundary \(C\).
 \end{theorem}
@@ -184,8 +184,11 @@ Generalizations of the differential and integral exist for multivariate function
     \[\oint_{\partial R} P\ddx+Q\ddy=\iint_R\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
-    Let \(S\) be a positively oriented, smooth surface in \(\mathbb{R}^3\) with a positively oriented boundary curve \(\partial S\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
-    \[\oint_{\partial S}P\ddx+Q\ddy+R\ddz = \iint_S\left(\pdv{R}{y}-\pdv{Q}{z}\right)\ddy\ddz+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.\]
+    Let \(S\subset\mathbb{R}^3\) be a positively oriented, smooth surface with a positively oriented boundary curve \(\partial S\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
+    \begin{flalign*}
+        \oint_{\partial S}P\ddx+Q\ddy+R\ddz&& \\
+        &&=\iint_S\left(\pdv{R}{y}-\pdv{Q}{z}\right)\ddy\ddz+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.
+    \end{flalign*}
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
     Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively-oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
