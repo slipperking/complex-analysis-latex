@@ -927,7 +927,11 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 
     For some \(\varepsilon>0\), \(\eta>0\), construct a new curve \(M_1'N_1'Q_1'P_1'\in U\) to be the boundary of the region bounded by \(P_1M_1:x=a+\varepsilon\), \(N_1Q_1:b-\varepsilon\), \(M'N':\varphi(x)+\eta\), and \(Q'P': \psi(x)-\eta\) such that \(M_1'N_1'Q_1'P_1'\) remains simple. By \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[\oint_{M_1'N_1'Q_1'P_1'}f(z)\ddz=0.\]
     By \autoref{lemma:uniformcontinuousovercompactset}, \(f(z)\) is uniformly continuous over \(\overline{U}\), and therefore \(\forall\varepsilon'>0\), we can choose \(\eta>0\) so that \(\forall z\in\overrightarrow{M_1'N_1'}\), \(\abs{f\paren{z}-f\paren{z-\eta}}<\varepsilon'\) is satisfied. Letting \(\eta\to0\) (with \(\varepsilon'\to0\)) and fixing \(\varepsilon>0\), we get that 
-    \[\abs{\int_{\overrightarrow{M_1'N_1'}}f(z)\ddz-\int_{\overrightarrow{M_1N_1}}f(z)\ddz}\leq\int_{\overrightarrow{M_1'N_1'}}\abs{f(z)-f\paren{z-\eta}}\abs{\ddz}<\varepsilon'\int_{\overrightarrow{M_1'N_1'}}\abs{dz}\to0,\] and consequently, \begin{equation}
+    \begin{align*}
+        \abs{\int_{\overrightarrow{M_1'N_1'}}f(z)\ddz-\int_{\overrightarrow{M_1N_1}}f(z)\ddz}&\leq\int_{\overrightarrow{M_1'N_1'}}\abs{f(z)-f\paren{z-\eta}}\abs{\ddz}\\
+        &<\varepsilon'\int_{\overrightarrow{M_1'N_1'}}\abs{dz}\to0,
+    \end{align*}
+    and consequently, \begin{equation}
         \int_{\overrightarrow{M_1'N_1'}}f(z)\ddz\to \int_{\overrightarrow{M_1N_1}}f(z)\ddz.\label{eq:cauchygoursattheorem_innerinnerhorizontaltoouterinnerhorizontal1}
     \end{equation}
     Under the same limit, we get \begin{equation}
@@ -944,7 +948,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         i\int_{y_{\varphi}}^{y_{\psi}}\paren{f\paren{a+iy}-f\paren{a+\varepsilon+iy}}\ddz\\
         {}+{i\paren{\int_{\psi(a)}^{y_\varphi}+\int_{y_\psi}^{\varphi(a)}}f(a+iy)-i\paren{\int_{\psi(a+\varepsilon)}^{y_\varphi}z+\int_{y_\psi}^{\varphi\paren{a+\varepsilon}}}f(a+\varepsilon+iy)}.
     \end{gather*}
-    The first term vanishes by uniform continuity (same argument used for \(M_1'N_1'\to M_1N_1\)) and the remaining four integrals all equal 0 as they are all integrable on a degenerating interval (as \(\varepsilon\to0\), \(y_\varphi\to\varphi(a)\) and \(y_\psi\to\psi(a)\) because \(\varphi, \psi\in C^0\)). Therefore, \[\int_{\overrightarrow{P_1M_1}}f(z)\ddz\to\int_{\overrightarrow{PM}}f(z)\ddz,\]
+    The first term vanishes by uniform continuity (through the same argument used for \(M_1'N_1'\to M_1N_1\)) and the remaining four integrals all equal 0 as they are all integrable on a degenerating interval (as \(\varepsilon\to0\), \(y_\varphi\to\varphi(a)\) and \(y_\psi\to\psi(a)\) because \(\varphi, \psi\in C^0\)). Therefore, \[\int_{\overrightarrow{P_1M_1}}f(z)\ddz\to\int_{\overrightarrow{PM}}f(z)\ddz,\]
     and through similar logic, \[\int_{\overrightarrow{N_1Q_1}}f(z)\ddz\to\int_{\overrightarrow{NQ}}f(z)\ddz.\] Therefore, \[\oint_{MNQP}f(z)\ddz=0.\]
     Any open region \(U\subset\mathbb{C}\) with a simple closed boundary can be broken up into smaller regions with the same form as \(MNQP\) with finitely many auxiliary lines. Then the conclusion follows.
 \end{proof}
@@ -1005,11 +1009,14 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
         &=f^{(k)}\paren{z_0}+\frac{(k+1)!\paren{z-z_0}}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta\\
         &\quad+O\paren{\abs{z-z_0}^2},
     \end{align*}
-    where the remainder terms have a form resembling \[O\paren{\abs{z-z_0}^2}=\paren{z-z_0}^2\frac{k!}{2\pi i}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+O\paren{\abs{z-z_0}^3}.\]
+    where the remainder terms \(O\paren{\abs{z-z_0}^2}\) resemble
+    \[\paren{z-z_0}^2\frac{k!}{2\pi i}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+O\paren{\abs{z-z_0}^3}.\]
     The difference quotient is equal to \[\frac{f^{(k)}(z)-f^{(k)}\paren{z_0}}{z-z_0}=\frac{(k+1)!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta+O\abs{z-z_0}.\] As \(z\to z_0\), the remainder terms vanish, and \[f^{(k+1)}\paren{z_0}=\frac{(k+1)!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta.\]
-    By induction, equation \eqref{eq:cauchydifferentiationformula_statement} is valid. By substituting equation \eqref{eq:cauchydifferentiationformula_kernelexpansion} into \eqref{eq:cauchygoursatformula}, we obtain \[f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z_0}\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j\ddzeta=\frac{1}{2\pi i}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)}{\paren{\zeta-z_0}^{j+1}}\ddzeta.\] 
+    By induction, equation \eqref{eq:cauchydifferentiationformula_statement} is valid. By substituting equation \eqref{eq:cauchydifferentiationformula_kernelexpansion} into \eqref{eq:cauchygoursatformula}, we obtain \[f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z_0}\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j\ddzeta=\frac{1}{2\pi i}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)\ddzeta}{\paren{\zeta-z_0}^{j+1}}.\] 
     Because \(f(\zeta)\) is continuous over \(\partial U\), it is bounded by a constant \(M\). Additionally, since \(\abs{z-z_0}<\abs{\zeta-z_0}\), the sum is termwise bounded by the convergent series \[\sum_{j=0}^\infty\abs{z-z_0}^j\frac{M}{\abs{\zeta-z_0}^{j+1}}.\]
-    By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series uniformly converges, and we can justify \[\frac{1}{2\pi i}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)}{\paren{\zeta-z_0}^{j+1}}\ddzeta=\frac{1}{2\pi i}\sum_{j=0}^{\infty}\oint_{\partial U}\paren{z-z_0}^j\frac{f(\zeta)}{\paren{\zeta-z_0}^{j+1}}\ddzeta=\sum_{j=0}^\infty a_j\paren{z-z_0}^j,\]
+    By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series uniformly converges, and we can justify \begin{gather*}
+        \frac{1}{2\pi i}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)}{\paren{\zeta-z_0}^{j+1}}\ddzeta=\frac{1}{2\pi i}\sum_{j=0}^{\infty}\oint_{\partial U}\paren{z-z_0}^j\frac{f(\zeta)}{\paren{\zeta-z_0}^{j+1}}\ddzeta\\=\sum_{j=0}^\infty a_j\paren{z-z_0}^j,
+    \end{gather*}
     which verifies equations \eqref{eq:cauchydifferentiationformula_taylorseries} and \eqref{eq:cauchydifferentiationformula_taylorseriescoefficients}.
 \end{proof}
 \begin{remark}
@@ -1072,7 +1079,7 @@ For the next theorem we will briefly introduce the concept of \textit{analytic c
         \item \(F(z)=f(z)\) for all \(z\in U\).
     \end{enumerate}
 \end{definition}
-\begin{theorem}[Riemann's Theorem on Removable Singularities]\label{thm:analyticcontinuationremovablesingularities}
+\begin{theorem}\label{thm:analyticcontinuationremovablesingularities}
     Let \(\tilde{D}\paren{z_0,r}=D\paren{z_0,r}\setminus\cbraces{z_0}\), and \(F:\tilde{D}\paren{z_0,r}\to\mathbb{C}\) be holomorphic and bounded. Then \(F\) can be analytically continued to \(D\paren{z_0,r}\).
 \end{theorem}
 \begin{proof}
@@ -1081,7 +1088,7 @@ For the next theorem we will briefly introduce the concept of \textit{analytic c
         0&z=z_0
     \end{cases}.\]
     \(G(z)\) is bounded and continuously differentiable on \(D\paren{z_0,r}\) and satisfies the Cauchy--Riemann Equations since 
-    \[\lim_{z\to z_0}\frac{G(z)-G\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2F(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}F(z)=0,\] meaning that \(\dv{G}{z}\paren{z_0}=0\). For \(z\in\tilde{D}\paren{z_0,r}\), \(G'(z)=2\paren{z-z_0}F(z)+\paren{z-z_0}^2F'(z)\). As \(z\to z_0\), \(G(z)\to0\), meaning that \(G\) is holomorphic over \(D\paren{z_0,r}\). By \autoref{thm:cauchydifferentiationformula}, \[G(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
+    \[\lim_{z\to z_0}\frac{G(z)-G\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2F(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}F(z)=0,\] meaning that \(\dv{G}{z}\paren{z_0}=0\). For \(z\in\tilde{D}\paren{z_0,r}\), \[G'(z)=2\paren{z-z_0}F(z)+\paren{z-z_0}^2F'(z).\] As \(z\to z_0\), \(G(z)\to0\), meaning that \(G\) is holomorphic over \(D\paren{z_0,r}\). By \autoref{thm:cauchydifferentiationformula}, \[G(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
     which is convergent over \(D\paren{z_0,r}\). Then we can define \[f(z)=\frac{G(z)}{\paren{z-z_0}^2}=\sum_{j=0}^\infty a_{j+2}\paren{z-z_0}^j\] over the same disk of convergence. Over the punctured disk, \(f(z)=F(z)\), and therefore \(f\) is an analytic continuation of \(F\).
 \end{proof}
 \subsubsection{Existence of Bump Functions}
