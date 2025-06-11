@@ -679,7 +679,7 @@ From the above result, we can directly obtain the following theorem:
         \frac{u(z+h)-u\paren{z}}{h}=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h\xi}\dd{\xi}\wedge\dd{\overline{\xi}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
     For a fixed \(z\), the value of \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}\] tends to \(\pdv{\psi}{\zeta}\paren{\xi+z}\) as \(h\to0\). Because \(\psi(\zeta)=\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{lemma:c1lipschitz}, it is Lipschitz continuous for a constant \(M\). Then, \[\abs{\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}}\leq M,\] and when \(\xi+z\notin\supp(\psi)\), \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}=0.\]
-    Since the integrand is dominated by a function that has a convergent integral, such as \(\int_{\supp(\psi)}M\dd{\xi}\wedge\dd{\overline{\xi}}\), equation \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr} uniformly converges and the limit \(h\to0\) may commute with the integral. Let \(\zeta=\alpha+i\beta\). From the real axis, \begin{equation}
+    Because the integrand is dominated by a function that has a convergent integral, such as the integral \(\int_{\supp(\psi)}M\dd{\xi}\wedge\dd{\overline{\xi}}\), equation \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr} uniformly converges and the limit \(h\to0\) may commute with the integral. Let \(\zeta=\alpha+i\beta\). From the real axis, \begin{equation}
         \pdv{u}{x}(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\alpha}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\pi i}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\alpha}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
     \end{equation}
     From the imaginary axis, \begin{equation}
@@ -819,7 +819,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Let \(U\subset\mathbb{C}\) be an open region bounded with boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
-    Since \(\partial U\notin U\) and \(f(z)\) are not necessarily holomorphic over \(\overline{U}\), we cannot directly apply \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}.
+    Since \(\partial U\cap U=\emptyset\) and \(f(z)\) is not necessarily holomorphic over \(\overline{U}\), we cannot directly apply \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}.
     \begin{figure}
         \centering
         \begin{tikzpicture}[>=stealth,
@@ -1356,7 +1356,7 @@ First we will show that \(\forall a\in D(0,1)\),
 \begin{equation}
     \varphi_a(z)=\frac{a-z}{1-\overline{a}z}\in\Aut( D(0,1)).\label{eq:mobiustransformationgroupofholomorphicautomorphismsstatement}
 \end{equation}
-Firstly, the function is holomorphic on \(\overline{D(0,1)}\) as \(|z|\le1\), \(\abs{\overline{a}}<1\), the denominator never vanishes. Additionally, \(\varphi_a(a)=0\).
+Firstly, the function is holomorphic on \(D(0,1)\) as \(|z|\le1\), \(\abs{\overline{a}}<1\), the denominator never vanishes. Additionally, \(\varphi_a(a)=0\).
 
 First, we will observe the image of \(\partial D(0,1)\). Let \(\abs{z}=1\). Then,
 \[\abs{\varphi_a(z)}=\abs{\frac{1}{z}}\abs{\frac{a-z}{\frac{1}{z}-\overline{a}}}=\abs{\frac{a-z}{\overline{z}-\overline{a}}}=1.\]
@@ -1369,7 +1369,7 @@ Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac
 \begin{equation}
     z-\overline{a}zw=a-w\Longleftrightarrow w=\frac{a-z}{1-\overline{a}z}.\label{eq:involutivemobiustransformation}
 \end{equation}
-It follows that \(\varphi_a=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation \eqref{eq:mobiustransformationgroupofholomorphicautomorphismsstatement} is true. Functions in the form of \(\varphi_a\) (where \(a\in D(0,1)\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group} is a subgroup of \(\Aut(D(0,1))\). Functions in the form of \(\rho_\tau(z)=z\exp(i\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(D(0,1))\).
+It follows that \(\varphi_a=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation \eqref{eq:mobiustransformationgroupofholomorphicautomorphismsstatement} is true. Functions in the form of \(\varphi_a\) (where \(a\in D(0,1)\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(D(0,1))\). Functions in the form of \(\rho_\tau(z)=z\exp(i\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(D(0,1))\).
 \begin{theorem}[The Holomorphic Automorphism Group on the Unit Disk]
     \(\forall f\in \Aut(D(0,1))\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
 \end{theorem}
