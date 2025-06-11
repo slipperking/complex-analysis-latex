@@ -129,7 +129,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
 
-    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\{D(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover \(\{D(0,k_1),\ldots,D(0,k_m)\}\) covering \(X\). Then, \[X\subseteq\bigcup_{i=1}^mD(0,k_i)=D(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
+    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\{D(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely\(\{D(0,k_1),\ldots,D(0,k_m)\}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mD(0,k_i)=D(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
 
     \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\]
@@ -515,10 +515,10 @@ The concept of uniform convergence is generalized to improper integrals with par
 In both complex and real analysis, the concept of \textit{power series}, a unique type of function series, is of trivial importance. Similar to real power series, complex series have the form \[\sum_{n=0}^\infty a_nz^n,\] where \(\cbraces{a_n}\) are constants.
 
 We will now observe the convergence of power series.
-\begin{theorem}[Abel's Theorem]\label{thm:abelpowerseries}
+\begin{theorem}[Abel's Theorem]\label{thm:abelradius}
     For a power series \(S(z)=\sum_{n=0}^\infty a_nz^n\), there exists a constant \(R\in\mathbb{R}_{\geq0}\cup\cbraces{\infty}\), known as the \textit{radius of convergence} such that:
     \begin{enumerate}
-        \item \(S(z)\) absolutely converges on \(\abs{z}<R\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\abs{z}\leq\rho\).
+        \item \(S(z)\) absolutely converges on \(\abs{z}<R\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\abs{z}\leq\rho\).\label{itm:abelradius_absoluteanduniformconvergence}
         \item \(S(z)\) diverges on \(\abs{z}>R\).
         \item \(S(z)\) is holomorphic over \(\abs{z}<R\) and \(S'(z)\) can be obtained by termwise differentiation \(S'(z)=\sum_{n=1}^\infty na_nz^{n-1}\) and also has the radius of convergence \(R\).
     \end{enumerate}
@@ -533,7 +533,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
 \begin{proof}
     We will prove that the value in equation \eqref{eq:cauchyhadamard} satisfies the criteria in \autoref{thm:abelpowerseries}.
 
-    Assume \(\abs{z}<R\). Then \(\forall\rho\in(|z|,R)\), \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation \eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\), and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), \[\sum_{n=0}^\infty a_nz^n\] converges absolutely and uniformly.
+    Assume \(\abs{z}<R\). Then \(\forall\rho\in(|z|,R)\), \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation \eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\), and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), \[\sum_{n=0}^\infty a_nz^n\] converges absolutely and uniformly. This proves \ref{itm:abelradius_absoluteanduniformconvergence}.
 
     Assume that \(\rho>R\). 
 \end{proof}
@@ -652,7 +652,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
         \int_{U\setminus D(z,\varepsilon)}\dd(\frac{f(\zeta)\ddzeta}{\zeta-z})=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}.\label{eq:pompeiu_directintermediate}
     \end{equation}
     By properties of \(\dd\), the expression is equal to \begin{align*}
-        \int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta&=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta\\&\quad+\pdv{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.
+        \int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta&=\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta+\pdv{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.
     \end{align*}
     The first term in the integrand vanishes as it contains \(\ddzeta\wedge\ddzeta\). The second term can be simplified using the fact that \(\pdv{\overline{\zeta}}(\frac{1}{\zeta-z})=0\), leading to
     \[\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\]
@@ -718,7 +718,7 @@ From the above result, we can directly obtain the following theorem:
     \end{equation}
     Since \(\psi\in C^1\paren{\mathbb{C}}\) and has Lipschitz constant \(M\), equations \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative} and \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative} are both continuous (by the same argument for the continuity of \(u(z)\)). Thus, \(u\in C^1(\mathbb{C})\). It follows from the two equations that \[\pdv{u}{\overline{z}}=\frac{1}{2\pi i}\int_{\mathbb{C}}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}=\frac{1}{2\pi i}\int_{\supp(\psi)}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\]
     On the bounded domain \(\supp\paren{\psi}\), and by the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}), the integral above is equal to \[\pdv{u}{\overline{z}}=\psi(z)-\frac{1}{2\pi i}\oint_{\partial\supp(\psi)}\frac{\psi(\zeta)}{\zeta-z}\ddzeta.\]
-    Since \(\psi\) is continuous and compactly supported, it vanishes on \(\partial\supp\paren{\psi}\): \[\pdv{u}{\overline{z}}=\psi(z).\]
+    Since \(\psi\) is continuous and compactly supported, it vanishes on \(\partial\supp\paren{\psi}\): \[\pdv{u}{\overline{z}}=\psi(z),\] as expected.
 \end{proof}
 \begin{remark}
     In the first part, we established that a function \(\psi(z)\in C^0(\mathbb{C})\) with compact support satisfies \[u(z)=-\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\in C^0(\mathbb{C}).\]
