@@ -261,7 +261,7 @@ We also have the definition of the limit of a sequence:
 \begin{proof}
     Suppose for the sake of contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(U\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in U\) such that \(|f(x_n)|>n\). The sequence \(\cbraces{x_n}\) lies in \(U\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), \(\cbraces{x_n}\) has an accumulation point in \(U\). In other words, there exists a convergent subsequence \(\cbraces{x_{n_k}}\) with \(\lim_{k\to\infty} x_{n_k}\in U\).
 
-    Since \(f\) is continuous, \(\lim_{k\to\infty}f\qty(x_{n_k})=f\qty(\lim_{k\to\infty}x_{n_k})\), which is defined since \(\lim_{k\to\infty} x_n_k\in U\). Therefore, the sequence \(\cbraces{f\paren{x_{n_k}}}\) is bounded. But this contradicts \(\qty|f\paren{x_{n_k}}|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
+    Since \(f\) is continuous, \(\lim_{k\to\infty}f\qty(x_{n_k})=f\qty(\lim_{k\to\infty}x_{n_k})\), which is defined since \(\lim_{k\to\infty} x_{n_k}\in U\). However, this contradicts \(\qty|f\paren{x_{n_k}}|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
 \end{proof}
 \begin{theorem}[Extreme Value Theorem]\label{thm:extremevalue}
     A continuous function \(f(x)\) over a compact set \(U\) attains its infimum and supremum in \(U\).
@@ -526,7 +526,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
 \begin{proof}
     We will prove that the value in equation \eqref{eq:cauchyhadamard} satisfies the criteria in \autoref{thm:abelpowerseries}.
 
-    Assume \(\abs{z}<R\). Then \(\forall\rho\in(|z|,R)\), \(\frac{1}{\rho}>\frac{1}{R}\), By equation \eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\), and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), \[\sum_{n=0}^\infty a_nz^n\] converges absolutely and uniformly.
+    Assume \(\abs{z}<R\). Then \(\forall\rho\in(|z|,R)\), \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation \eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\), and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), \[\sum_{n=0}^\infty a_nz^n\] converges absolutely and uniformly.
 \end{proof}
 The Uniform Limit Theorem in real analysis is generalized:
 \begin{theorem}[Uniform Limit Theorem]
@@ -1396,7 +1396,9 @@ It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is sur
     Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(z)\). It follows that \(\psi\in\Aut(D(0,1))\). Furthermore, \(\psi(0)=\varphi_{f(0)} f(0)=0\). By the Schwarz Lemma (\autoref{lemma:schwarz}), \(\qty|\psi'(0)|\leq1\). Since \(\psi^{-1}\in\Aut(D(0,1))\) with \(\psi^{-1}(0)=0\), \(\abs{\qty(\psi^{-1})'(0)}\leq1\). Then, \[\abs{\qty(\psi^{-1})'(0)}=\frac{1}{\psi'\qty(\psi^{-1}(0))}=\frac{1}{\psi'(0)}\leq 1.\]
     Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \autoref{lemma:schwarz}, \(\psi(z)=ze^{i\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By equation \eqref{eq:inversemobiustransformation}, it follows that \(f(z)=\varphi_{-f(0)}\circ\rho_\tau(z)\).
 \end{proof}
-
+\begin{lemma}[Schwarz--Pick Lemma]\label{lemma:schwarzpick}
+    
+\end{lemma}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
 Laurent Series are a generalization of Taylor Series specifically for holomorphic functions on a region punctured by a non-removable singularity. Whereas the Taylor Series applies on a disk, the Laurent Series applies on an annulus around the singularity.
