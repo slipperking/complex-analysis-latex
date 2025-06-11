@@ -60,6 +60,12 @@
 \DeclarePairedDelimiter{\brackets}{[}{]}
 \let\bracketsdefault\brackets
 \renewcommand{\brackets}{\bracketsdefault*}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\let\ceildefault\ceil
+\renewcommand{\ceil}{\ceildefault*}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\let\floordefault\floor
+\renewcommand{\floor}{\floordefault*}
 
 \NewDocumentCommand{\cbraces}{m g}{%
     \ensuremath{%
@@ -221,7 +227,7 @@ We also have the definition of the limit of a sequence:
     Let \(\qty{a_n}_{n\in\mathbb{N}}\in\mathbb{R}\) be a sequence. If \(\exists a_\infty\subset\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\qty{a_n}\) \textit{converges} to \(a_\infty\).
 \end{definition}
 \begin{definition}[Continuity]\label{def:continuity}
-    A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if \[\lim_{x\to a}f(x)=f(a).\]
+    A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if and only if \[\lim_{x\to a}f(x)=f(a).\]
 \end{definition}
 \begin{theorem}[Bolzano--Weierstrass Theorem]\label{thm:bolzanoweierstrass}
     Any bounded infinite sequence has a convergent subsequence.
@@ -231,10 +237,10 @@ We also have the definition of the limit of a sequence:
     
     Let \(m_1\) be the lower bound of the selected interval and \(M_1\) be the upper. Then at least one of \(\qty[m_1,\frac{m_1+M_1}{2}]\) and \(\qty[\frac{m_1+M_1}{2},M_1]\) contains an infinite subsequence.
 
-    Continuing this process, we obtain a sequence of intervals \(\qty{m_n, M_n}\) satisfying \[m_1\leq m_2\leq m_3\leq\cdots\leq M_3\leq M_2\leq M_1.\]
+    Continuing this process, we obtain a sequence of intervals \(\qty{\qty[m_n, M_n]}\) satisfying \[m_1\leq m_2\leq m_3\leq\cdots\leq M_3\leq M_2\leq M_1.\]
     The length of the \(k\)th interval is equal to \[M_k-m_k=\frac{1}{2^k}\qty(M-m).\] Then since \(\lim_{k\to\infty}M_k-m_k=0\), \[\lim_{k\to\infty}M_k=\lim_{k\to\infty}m_k=a.\]
 
-    \(\forall k\in\mathbb{N}\), \(\qty[m_k,M_k]\) contains infinitely many elements of \(\qty{a_n}\). Let \(a_{n_k}\) be any arbitrary one of them. We then aim to show \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\abs{a_{n_k}-a}<\varepsilon\). From \(a_{n_k},a\in\qty[m_k,M_k]\), we get \(\abs{a_{n_k}-a}\leq\frac{1}{2^k}(M-m)<\varepsilon\). It follows that \(k>\log_2\qty(\frac{M-m}{\varepsilon})\), and we can let \(N=\)
+    \(\forall k\in\mathbb{N}\), \(\qty[m_k,M_k]\) contains infinitely many elements of \(\qty{a_n}\). Let \(a_{n_k}\) be any arbitrary one of them. We then aim to show \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\abs{a_{n_k}-a}<\varepsilon\). From \(a_{n_k},a\in\qty[m_k,M_k]\), we get \(\abs{a_{n_k}-a}\leq\frac{1}{2^k}(M-m)<\varepsilon\). It follows that \(k>\log_2\qty(\frac{M-m}{\varepsilon})\), and we can let \(N=\ceil{\log_2\qty(\frac{M-m}{\varepsilon})}\). Therefore, \(a_{n_k}\) is a convergent subsequence.
 \end{proof}
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
     Any continuous function on a compact set \(U\) is bounded on \(U\).
@@ -1295,7 +1301,7 @@ Before the theorem, we first introduce the mean-value property of holomorphic fu
     Observe that \[f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}=\frac{1}{2\pi\varepsilon}\int_{0}^{2\pi}f\paren{z+\varepsilon e^{it}}\abs{i\varepsilon e^{it}\dd{t}}=\frac{1}{2\pi}\int_{0}^{2\pi}f\paren{z+\varepsilon e^{it}}\dd{t},\]
     and the conclusion follows.
 \end{proof}
-Since the real and imaginary parts of holomorphic functions are harmonic functions, they also satisfy the mean-value property. Furthermore, if a real continuous function satisfies the mean-value property, it is harmonic (we will prove this in \autoref{sec:}). This equivalence allows for the alternative definition of harmonic functions.
+Since the real and imaginary parts of holomorphic functions are harmonic functions, they also satisfy the mean-value property. Furthermore, if a real continuous function satisfies the mean-value property, it is harmonic (we will prove this in \autoref{sec:}) TO BE CONTINUED. This equivalence allows for the alternative definition of harmonic functions.
 \begin{theorem}[Maximum Modulus Principle]\label{thm:maximummodulus}
     Let \(f(z)\) be holomorphic over an open connected region \(U\subseteq\mathbb{C}\). If \(\exists z_0\in U\) such that for some open neighborhood \(V\subseteq U\) of \(z_0\) and \(\forall z\in U\), \(\abs{f\paren{z_0}}\geq\abs{f(z)}\), then \(f\) is a constant function on \(U\).
 \end{theorem}
