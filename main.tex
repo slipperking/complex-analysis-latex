@@ -527,6 +527,8 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     We will prove that the value in equation \eqref{eq:cauchyhadamard} satisfies the criteria in \autoref{thm:abelpowerseries}.
 
     Assume \(\abs{z}<R\). Then \(\forall\rho\in(|z|,R)\), \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation \eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\), and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), \[\sum_{n=0}^\infty a_nz^n\] converges absolutely and uniformly.
+
+    Assume that \(\rho>R\). 
 \end{proof}
 The Uniform Limit Theorem in real analysis is generalized:
 \begin{theorem}[Uniform Limit Theorem]
@@ -670,7 +672,7 @@ In complex analysis, when integrating over a region that contains a singularity,
 
 From the above result, we can directly obtain the following theorem:
 \begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a \(C^1\) boundary \(\partial U \), and let \(f\in C^1(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
+    Let \(U\subset\mathbb{C}\) be an open region bounded with a \(C^1\) boundary \(\partial U\), and let \(f\in C^1\qty(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
     \begin{equation}
         f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
     \end{equation}
