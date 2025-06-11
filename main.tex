@@ -227,16 +227,14 @@ We also have the definition of the limit of a sequence:
     Any bounded infinite sequence has a convergent subsequence.
 \end{theorem}
 \begin{proof}
-    Let \(\qty{a_n}\) be the bounded sequence. In other words, \(\exists m,M\in\mathbb{R}\) such that \(\qty{a_n}\subset[m,M]\). By the infiniteness of \(\qty{a_n}\), at least one of \(\qty[m,\frac{m+M}{2}]\) and \(\qty[\frac{m+M}{2},M]\) contains an infinite subsequence. 
+    Let \(\qty{a_n}\subset\mathbb{R}\) be the bounded sequence. In other words, \(\exists m,M\in\mathbb{R}\) such that \(\qty{a_n}\subset[m,M]\). By the infiniteness of \(\qty{a_n}\), at least one of \(\qty[m,\frac{m+M}{2}]\) and \(\qty[\frac{m+M}{2},M]\) contains an infinite subsequence. 
     
     Let \(m_1\) be the lower bound of the selected interval and \(M_1\) be the upper. Then at least one of \(\qty[m_1,\frac{m_1+M_1}{2}]\) and \(\qty[\frac{m_1+M_1}{2},M_1]\) contains an infinite subsequence.
 
     Continuing this process, we obtain a sequence of intervals \(\qty{m_n, M_n}\) satisfying \[m_1\leq m_2\leq m_3\leq\cdots\leq M_3\leq M_2\leq M_1.\]
     The length of the \(k\)th interval is equal to \[M_k-m_k=\frac{1}{2^k}\qty(M-m).\] Then since \(\lim_{k\to\infty}M_k-m_k=0\), \[\lim_{k\to\infty}M_k=\lim_{k\to\infty}m_k=a.\]
 
-    \(\forall k\in\mathbb{N}\), \(\qty[m_k,M_k]\) contains infinitely many elements of \(\qty{a_n}\). Let \(a_{n_k}\) be any arbitrary one of them. 
-
-    We then aim to show \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(a\)
+    \(\forall k\in\mathbb{N}\), \(\qty[m_k,M_k]\) contains infinitely many elements of \(\qty{a_n}\). Let \(a_{n_k}\) be any arbitrary one of them. We then aim to show \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\abs{a_{n_k}-a}<\varepsilon\). From \(a_{n_k},a\in\qty[m_k,M_k]\), we get \(\abs{a_{n_k}-a}\leq\frac{1}{2^k}(M-m)<\varepsilon\). It follows that \(k>\log_2\qty(\frac{M-m}{\varepsilon})\), and we can let \(N=\)
 \end{proof}
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
     Any continuous function on a compact set \(U\) is bounded on \(U\).
