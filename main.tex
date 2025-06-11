@@ -240,7 +240,7 @@ We also have the definition of the limit of a sequence:
     Continuing this process, we obtain a sequence of intervals \(\qty{\qty[m_n, M_n]}\) satisfying \[m_1\leq m_2\leq m_3\leq\cdots\leq M_3\leq M_2\leq M_1.\]
     The length of the \(k\)th interval is equal to \[M_k-m_k=\frac{1}{2^k}\qty(M-m).\] Then since \(\lim_{k\to\infty}M_k-m_k=0\), \[\lim_{k\to\infty}M_k=\lim_{k\to\infty}m_k=a.\]
 
-    \(\forall k\in\mathbb{N}\), \(\qty[m_k,M_k]\) contains infinitely many elements of \(\qty{a_n}\). Let \(a_{n_k}\) be any arbitrary one of them. We then aim to show \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\abs{a_{n_k}-a}<\varepsilon\). From \(a_{n_k},a\in\qty[m_k,M_k]\), we get \(\abs{a_{n_k}-a}\leq\frac{1}{2^k}(M-m)<\varepsilon\). It follows that \(k>\log_2\qty(\frac{M-m}{\varepsilon})\), and we can let \(N=\ceil{\log_2\qty(\frac{M-m}{\varepsilon})}\). Therefore, \(a_{n_k}\) is a convergent subsequence.
+    \(\forall k\in\mathbb{N}\), \(\qty[m_k,M_k]\) contains infinitely many elements of \(\qty{a_n}\). Let \(a_{n_k}\) be any arbitrary one of them. We then aim to show \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\abs{a_{n_k}-a}<\varepsilon\). From \(a_{n_k},a\in\qty[m_k,M_k]\), we get \(\abs{a_{n_k}-a}\leq\frac{1}{2^k}(M-m)<\varepsilon\). It follows that \(k>\log_2\qty(\frac{M-m}{\varepsilon})\), and we can let \(N=\ceil{\log_2\qty(\frac{M-m}{\varepsilon})}\). Therefore, \(\qty{a_{n_k}}_{k\in\mathbb{N}}\) is a convergent subsequence.
 \end{proof}
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
     Any continuous function on a compact set \(U\) is bounded on \(U\).
@@ -1324,7 +1324,7 @@ Since the real and imaginary parts of holomorphic functions are harmonic functio
 \end{proof}
 \subsubsection{Holomorphic Automorphism Groups}
 The following important result can be directly obtained from the Maximum Modulus Principle.
-\begin{lemma}[Schwarz Lemma]
+\begin{lemma}[Schwarz Lemma]\label{lemma:schwarz}
     If a holomorphic function \(f(z)\) maps \(D(0,1)\) to itself and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
      One of the inequalities become equalities if and only if \(f(z)\) is in the form of \(ze^{i\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
 \end{lemma}
@@ -1372,15 +1372,15 @@ It follows that \(\varphi_a=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjec
     \(\forall f\in \Aut(D(0,1))\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
 \end{theorem}
 \begin{proof}
-    Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(s)\). It follows that \(\psi\in\Aut(D(0,1))\). Furthermore, \(\psi(0)=\varphi_{f(0)} f(0)=0\). By S
+    Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(s)\). It follows that \(\psi\in\Aut(D(0,1))\). Furthermore, \(\psi(0)=\varphi_{f(0)} f(0)=0\). By the Schwarz Lemma (\autoref{lemma:schwarz}), on \(D(0,1)\), \(\qty|\psi'(0)|<1\).
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
-Laurent Series are a generalization of Taylor Series specifically for holomorphic functions over a region punctured by a non-removable singularity. Whereas the Taylor Series applies over a disk, the Laurent Series applies over an annulus around the singularity.
+Laurent Series are a generalization of Taylor Series specifically for holomorphic functions on a region punctured by a non-removable singularity. Whereas the Taylor Series applies on a disk, the Laurent Series applies on an annulus around the singularity.
 
 We have touched the subject of Weierstrass' Theorem for the uniform convergence of the derivatives of a holomorphic function sequence, and we will give the full result below.
 \begin{theorem}[Weierstrass' Uniform Limit Theorem]\label{thm:weierstrassuniformlimit}
-    Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions over an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\).
+    Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\).
 \end{theorem}
 \begin{proof}
     By Morera's Theorem (\autoref{thm:morera}) and uniform convergence, the holomorphy of \(f(z)\) follows (refer to equation \eqref{eq:hurwitzsimplecase_integrallimitswitchforholomorphy} and preceding explanations).
