@@ -248,7 +248,9 @@ We also have the definition of the limit of a sequence:
 \begin{proof}
     We first prove that \(a=\lim_{n\to\infty}a_n\) implies \(\limsup_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
     By \autoref{def:epsilonn}, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[\abs{a_n-a}<\varepsilon\Longleftrightarrow a-\varepsilon<a_n<a+\varepsilon.\]
-    Then the first conditions of \autoref{def:limsup} and \autoref{def:liminf}, \(\limsup_{n\to\infty}a_n\geq a\) and \(\liminf_{n\to\infty} a_n\leq a\).
+    Then from the first conditions of \autoref{def:limsup} and \autoref{def:liminf}, we get \(\limsup_{n\to\infty}a_n\geq a\) and \(\liminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\limsup_{n\to\infty}a_n\leq a\) and \(\liminf_{n\to\infty} a_n\geq a\). Therefore, \[\limsup_{n\to\infty}a_n=\liminf_{n\to\infty}a_n.\]
+
+    For the converse, assume \(\limsup_{n\to\infty}a_n=\liminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\). \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty(N_1, N_2)\), \(\qty|a_n-a|<\varepsilon\), as expected.
 \end{proof}
 \begin{definition}[Continuity]\label{def:continuity}
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if and only if \[\lim_{x\to a}f(x)=f(a).\]
