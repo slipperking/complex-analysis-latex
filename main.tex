@@ -495,7 +495,7 @@ The concept of uniform convergence is generalized to improper integrals with par
 In both complex and real analysis, the concept of \textit{power series}, a unique type of function series, is of trivial importance. Similar to real power series, complex series have the form \[\sum_{n=0}^\infty a_nz^n,\] where \(\cbraces{a_n}\) are constants.
 
 We will now observe the convergence of power series.
-\begin{theorem}[Abel's Theorem]
+\begin{theorem}[Abel's Theorem]\label{thm:abelpowerseries}
     For a power series \(S(z)=\sum_{n=0}^\infty a_nz^n\), there exists a constant \(R\in\mathbb{R}_{\geq0}\cup\cbraces{\infty}\), known as the \textit{radius of convergence} such that:
     \begin{enumerate}
         \item \(S(z)\) absolutely converges on \(\abs{z}<R\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\abs{z}\leq\rho\).
@@ -505,10 +505,16 @@ We will now observe the convergence of power series.
 \end{theorem}
 The disk \(\abs{z}<R\) is known as the \textit{disk of convergence}, a direct generalization of the \textit{interval of convergence} for real series. There are many ways to determine the radius of convergence:
 \begin{theorem}[Cauchy--Hadamard Theorem]\label{thm:cauchyhadamard}
-    The radius of convergence of the power series in the form of \(\sum_{n=0}^\infty a_nz^n\) can be determined by \[\frac{1}{\limsup_{n\to\infty}\sqrt[n]{\abs{a_n}}}.\]
+    The radius of convergence of the power series in the form of \(\sum_{n=0}^\infty a_nz^n\) can be determined by \begin{equation}
+        R=\frac{1}{\limsup_{n\to\infty}\sqrt[n]{\abs{a_n}}}. \label{eq:cauchyhadamard}
+    \end{equation}
 \end{theorem}
 Of course, a convergence radius of \(0\) implies that the series is divergent everywhere except for possibly at \(0\), and a convergence radius of \(\infty\) means that the series absolutely converges everywhere. 
+\begin{proof}
+    We will prove that the value in equation \eqref{eq:cauchyhadamard} satisfies the criteria in \autoref{abels}
 
+    Assume \(\abs{z}<R\). Then \(\forall\rho\in(|z|,R)\), \(\frac{1}{\rho}>\frac{1}{R}\), 
+\end{proof}
 The Uniform Limit Theorem in real analysis is generalized:
 \begin{theorem}[Uniform Limit Theorem]
     Let \(\cbraces{f_n(z)}\) be continuous on \(U\subseteq\mathbb{C}\) and uniformly converge to \(f(z)\). Then \(f(z)\) is continuous on \(U\).
