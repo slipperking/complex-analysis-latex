@@ -181,7 +181,7 @@ Generalizations of the differential and integral exist for multivariate function
     \[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
 \end{theorem}
 \begin{theorem}[Green's Theorem]\label{thm:realgreen}
-    Let \(U\) be a positively oriented, multiply connected region in \(\mathbb{R}^2\) with a piecewise smooth oriented boundary \(\partial U\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{R}}\),
+    Let \(U\) be a positively oriented, multiply connected region in \(\mathbb{R}^2\) with a piecewise smooth oriented boundary \(\partial U\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{U}}\),
     \[\oint_{\partial U} P\ddx+Q\ddy=\iint_U\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
@@ -560,7 +560,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     \end{equation}
     Since \(S'_n(z)\to f_1(z)\) as \(n\to\infty\), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{S'_n(z)-f_1(z)}<\frac{\varepsilon}{3}\). Since \(\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}=\sum_{k=n}^\infty a_k\frac{z^k-z_0^k}{z-z_0}=\sum_{k=n}^\infty a_k\qty(z^{k-1}+z^{k-2}z+\cdots+zz_0^{k-2}+z_0^{k-1})\) for \(z\neq z_0\), \(|z|<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty \abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) converges, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
 
-    Finally, \(\exists\delta>0\) (by continuity and \autoref{thm:uniformlimit} on \([-\rho,\rho]\)) such that \(\forall n>\max\qty(N,N')\), \(\forall z\in D\qty(z_0, \delta)\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
+    Finally, \(\exists\delta>0\) (by continuity and \autoref{thm:uniformlimit} on \([-\rho,\rho]\)) such that \(\forall n>\max\qty(N,N')\), \(\forall z\in D\qty(z_0, \delta)\setminus\qty{0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
     From equation \eqref{eq:abelradius_differentiationintermediate}, we get:
     \[\qty|\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}|<\varepsilon,\] confirming \ref{itm:abelradius_differentiation}.
 \end{proof}
@@ -1447,7 +1447,8 @@ It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is sur
 As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk}, we have the following result:
 \begin{lemma}[Schwarz--Pick Lemma]\label{lemma:schwarzpick}
     Let \(f:D(0,1)\to D(0,1)\) be holomorphic. \(\forall z_1,z_2\in D(0,1)\), let \(w_1=f\qty(z_1)\) and \(w_2=f\qty(z_2)\). Then,
-    \[\abs{\frac{w_1-w_2}{1-w_1\overline{w_2}}}\leq\abs{\frac{z_1-z_2}{1-z_1\overline{z_2}}},\quad\frac{\abs{\dd{w}}}{1-\qty|w|^2}\leq\frac{\abs{\ddz}}{}\]
+    \[\abs{\frac{w_1-w_2}{1-w_1\overline{w_2}}}\leq\abs{\frac{z_1-z_2}{1-z_1\overline{z_2}}},\quad\frac{\abs{\dd{w}}}{1-\qty|w|^2}\leq\frac{\abs{\ddz}}{1-\qty|z|^2}.\]
+    The equalities hold if and only if \(f\in\Aut(D(0,1))\).
 \end{lemma}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
