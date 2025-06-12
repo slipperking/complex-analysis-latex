@@ -238,7 +238,7 @@ We also have the definition of the limit of a sequence:
 \begin{proof}
     Assume \(\qty{a_n}\) is convergent. Then \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_\infty}<\frac{\varepsilon}{2}\) and \(\abs{a_m-a_\infty}<\frac{\varepsilon}{2}\) for some \(a_\infty\in\mathbb{R}\). It follows that \[\abs{a_n-a_m}\leq\abs{a_n-a_\infty}+\abs{a_m-a_\infty}=\varepsilon.\]
 
-    Conversely, \(\qty{a_n}\) is bounded (fixing \(N\), \(\forall n>N\), \(\abs{a_n-a_{N+1}}<\varepsilon\)). By the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), \(\qty{a_n}\) has a convergent subsequence \(\qty{a_{n_k}}_{k\in\mathbb{N}}\) converging to \(a_\infty\). Therefore, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,n_k>N\), \(\abs{a_n-a_{n_k}}<\frac{\varepsilon}{2}\) and \(\abs{a_{n_k}-a_\infty}<\frac{\varepsilon}{2}\). 
+    Conversely, \(\qty{a_n}\) is bounded (fixing \(N\), \(\forall n>N\), \(\abs{a_n-a_{N+1}}<\varepsilon\)). By the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), \(\qty{a_n}\) has a convergent subsequence \(\qty{a_{n_k}}_{k\in\mathbb{N}}\) converging to \(a_\infty\). Therefore, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) and \(\exists M\in\mathbb{N}\) such that \(\forall k>M\), \(n_k>N\), and \(\forall n>N\), \(\abs{a_n-a_{n_k}}<\frac{\varepsilon}{2}\) and \(\abs{a_{n_k}-a_\infty}<\frac{\varepsilon}{2}\). Then \[\abs{a_n-a_\infty}\leq\abs{a_n-a_{n_k}}+\abs{a_{n_k}-a_\infty}<\varepsilon.\] Hence, \(\qty{a_n}\) converges to \(a_\infty\).
 \end{proof}
 \begin{definition}[Limit Superior]\label{def:limsup}
     For a number sequence \(\qty{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
@@ -509,6 +509,8 @@ Power series in real analysis can be generalized into complex series. Particular
     \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\forall z\in U\), \[\abs{f_m(z)-f(z)}<\frac{\varepsilon}{2},\quad\abs{f_n(z)-f(z)}<\frac{\varepsilon}{2}.\]
     Then,
     \[\abs{f_m(z)-f_n(z)}\leq\abs{f_n(z)-f(z)}+\abs{f_m(z)-f(z)}<\varepsilon.\]
+
+    For the converse, refer to the analogous proof in \autoref{thm:cauchycriterionsequenceconvergence}.
 \end{proof}
 Function series are defined to be a sequence formed by the partial sums of function sequences. There are many ways to verify the uniform convergence of a function series. Perhaps the most widely known is the Weierstrass \(M\)--Test. 
 \begin{theorem}[Weierstrass \(M\)--Test]\label{thm:weierstrassmtest}
