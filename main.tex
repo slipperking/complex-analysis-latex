@@ -490,7 +490,7 @@ Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp(iu\paren{\Arg(z)+2\pi k})\). Doi
     When \(k=1,2,\ldots,q-1\), \(2\frac{p}{q}\pi k\) is not congruent modulo \(2\pi\), and thus, \(z^\alpha\) has \(q\) values.
     \item If \(\alpha=u\in\mathbb{R}\setminus\mathbb{Q}\), then \(z^\alpha\) is infinite valued.
 \end{enumerate}
-Lastly, there exist ways to approximate functions using power functions (Taylor series), and trigonometric functions ()
+Lastly, there exist series representations of functions using power functions (Taylor Series) and trigonometric functions (Fourier Series). There does not exist another representation using exponential functions as trigonometric functions can be written in terms of them.
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex analysis:
 \begin{definition}[Uniform Convergence]
@@ -553,9 +553,11 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     Assume that \(\abs{z}>R\). \(\forall\rho\in\qty(R,|z|)\), \(\frac{1}{\rho}<\frac{1}{R}\). By \autoref{def:limsup}, \(\forall N\in\mathbb{N}\), \(\exists n_N>N\) such that \(\sqrt[n_N]{\abs{a_{n_N}}}>\frac{1}{\rho}\). It follows that \(\abs{a_{n_N}z^{n_N}}>\frac{\abs{z^{n_N}}}{\rho^{n_N}}>1\). Since \(\forall N\in\mathbb{N}\), \(\abs{\sum_{k=0}^{n_N}a_kz^k-\sum_{k=0}^{n_N-1}a_kz^k}>1\), by the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), \(\sum_{n=0}^\infty a_nz^n\) is divergent. Thus, \ref{itm:abelradius_divergence} is satisfied.
 
     To prove \ref{itm:abelradius_differentiation}, first observe that \(\sum_{n=1}^\infty na_nz^n\) and \(\sum_{n=1}^\infty a_nz^n\) have the same convergence radius since \(\limsup_{n\to\infty}\sqrt[n]{n}=1\). For \(z\in D(0, R)\), let \(f(z)=S_n(z)+R_n(z)\), where \[S_n(z)=\sum_{k=0}^{n-1}a_kz^k,\quad R_n(z)=\sum_{k=n}^\infty a_kz^k.\] 
-    Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_nz^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}=f_1\paren{z_0}.\]
+    Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_nz^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=0.\]
 
     By analyzing the difference, 
+    \[\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=\qty[\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)]+S'_n(z)-f_1(z)+\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}.\]
+    \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)}<\frac{\varepsilon}{3}\).
 \end{proof}
 The Uniform Limit Theorem in real analysis is generalized:
 \begin{theorem}[Uniform Limit Theorem]
