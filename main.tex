@@ -504,12 +504,12 @@ Power series in real analysis can be generalized into complex series. Particular
 \end{proof}
 Function series are defined to be a sequence formed by the partial sums of function sequences. There are many ways to verify the uniform convergence of a function series. Perhaps the most widely known is the Weierstrass \(M\)--Test. 
 \begin{theorem}[Weierstrass \(M\)--Test]\label{thm:weierstrassmtest}
-    Let \(U\subseteq\mathbb{C}\), and suppose that \(\forall n\in\mathbb{N}\), \(f_n:U\to\mathbb{C}\) is a function such that \[\qty|f_n(z)|\le M_n\]
-where \( M_n \in \mathbb{R} \) and the series \( \sum_{n=1}^\infty M_n \) converges. 
-Then the series \( \sum_{n=1}^\infty f_n(z) \) converges \textbf{uniformly and absolutely} on \( U \).
+    Let \(U\subseteq\mathbb{C}\) be a region and \(\cbraces{f_n}\) be a function sequence on \(U\)
+    
+    If \(\exists\qty{M_n}\subset\mathbb{R}_{\geq 0}\) such that \(\forall n\in\mathbb{N}\), \(\forall z\in U\), \(\qty|f_n(z)|\le M_n\) and the series \(\sum_{n=1}^\infty M_n\) converges, then the series \(\sum_{n=1}^\infty f_n(z)\) converges uniformly and absolutely on \(U\).
 \end{theorem}
 \begin{proof}
-    Let \(\sum_{n=1}^\infty M_n\) be a convergent series that uniformly bounds each term of \(\sum_{n=1}^\infty f_n(z)\). By the convergence of \(\sum_{n=1}^\infty M_n\), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall m\geq n>N\), \[\abs{M_m+M_{m-1}+\cdots+M_{n+1}}<\varepsilon.\] Since \(M_j\) bounds \(f_j(z)\), it follows that \[\abs{f_m(z)+f_{m-1}(z)+\cdots+f_{n+1}(z)}\leq\abs{M_m+M_{m-1}+\cdots+M_{n+1}}<\varepsilon,\]
+    By the convergence of \(\sum_{n=1}^\infty M_n\), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall m\geq n>N\), \[\abs{M_m+M_{m-1}+\cdots+M_{n+1}}<\varepsilon.\] Since \(M_j\) bounds \(f_j(z)\), it follows that \[\abs{f_m(z)+f_{m-1}(z)+\cdots+f_{n+1}(z)}\leq\abs{M_m+M_{m-1}+\cdots+M_{n+1}}<\varepsilon,\]
     and the result follows from \autoref{thm:cauchycriterionuniformconvergence}.
 \end{proof}
 The concept of uniform convergence is generalized to improper integrals with parameters, and the same theorems from series have a corresponding counterpart.
