@@ -329,7 +329,7 @@ and consequently,
 \[x_1=\Re\paren{z}\paren{1-x_3}=\frac{z+\overline{z}}{\abs{z}^2+1},\quad x_2=\Im\paren{z}\paren{1-x_3}=\frac{z-\overline{z}}{i\abs{z}^2+i}.\]
 By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textit{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\). In this representation, \(\infty\in\riemannsphere\) is no longer considered special.
 \subsection{Complex Differentiation}
-For \(U\subseteq \mathbb{C}\) and a complex function \(f:\mathbb{U}\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
+For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
 \[\lim_{h\to0}\frac{f(z+h)-f(z)}{h}.\]
 We can consider \(f(z)\) to be a bivariate function \(f(x,y)\) for \(z=x+iy\). Two main cases we are concerned with are when \(h\) approaches 0 from the real and imaginary axes:
 \[\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+h)-f(z)}{h}=\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+ih)-f(z)}{ih}.\] Expressing \(f(z)\) as \(f(x,y)=u(x,y)+iv(x,y)\),
@@ -560,15 +560,15 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     \end{equation}
     Since \(S'_n(z)\to f_1(z)\) as \(n\to\infty\), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{S'_n(z)-f_1(z)}<\frac{\varepsilon}{3}\). Since \(\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}=\sum_{k=n}^\infty a_k\frac{z^k-z_0^k}{z-z_0}=\sum_{k=n}^\infty a_k\qty(z^{k-1}+z^{k-2}z+\cdots+zz_0^{k-2}+z_0^{k-1})\) for \(z\neq z_0\), \(|z|<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty \abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) converges, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
 
-    Finally, \(\exists\delta>0\) such that \(\forall n>\max\qty(N,N')\), \(\forall z\in D\qty(z_0, \delta)\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
+    Finally, \(\exists\delta>0\) (by continuity and \autoref{thm:uniformlimit} on \([-\rho,\rho]\)) such that \(\forall n>\max\qty(N,N')\), \(\forall z\in D\qty(z_0, \delta)\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
     From equation \eqref{eq:abelradius_differentiationintermediate}, we get:
     \[\qty|\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}|<\varepsilon,\] confirming \ref{itm:abelradius_differentiation}.
 \end{proof}
 The Uniform Limit Theorem in real analysis is generalized:
-\begin{theorem}[Uniform Limit Theorem]
+\begin{theorem}[Uniform Limit Theorem]\label{thm:uniformlimit}
     Let \(\cbraces{f_n(z)}\) be continuous on \(U\subseteq\mathbb{C}\) and uniformly converge to \(f(z)\). Then \(f(z)\) is continuous on \(U\).
 \end{theorem}
-\begin{proof}\label{thm:uniformlimit}
+\begin{proof}
     \(\forall n\in\mathbb{N}\), \(\forall z_0\in U\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in D\paren{z_0,\delta}\subseteq U\), \(\abs{f_n(z)-f_n\paren{z_0}}<\frac{\varepsilon}{3}\). Additionally, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\) (\(n\) is independent of \(z\)), \(\abs{f_n(z)-f(z)}<\frac{\varepsilon}{3}\). It follows that \(\abs{f_n\paren{z_0}-f\paren{z_0}}<\frac{\varepsilon}{3}\). By the triangle inequality, \begin{align*}
         \abs{f(z)-f\paren{z_0}}&\leq\abs{f(z)-f_n(z)}+\abs{f_n(z)-f_n\paren{z_0}}+\abs{f_n\paren{z_0}-f\paren{z_0}}\\
         &<\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon,\quad\forall z\in D\paren{z_0,\delta}.
