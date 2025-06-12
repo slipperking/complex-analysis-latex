@@ -532,7 +532,7 @@ We will now observe the convergence of power series.
     \begin{enumerate}
         \item \(S(z)\) absolutely converges on \(\abs{z}<R\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\abs{z}\leq\rho\).\label{itm:abelradius_absoluteanduniformconvergence}
         \item \(S(z)\) diverges on \(\abs{z}>R\).\label{itm:abelradius_divergence}
-        \item \(S(z)\) is holomorphic over \(\abs{z}<R\) and \(S'(z)\) can be obtained by termwise differentiation \(S'(z)=\sum_{n=1}^\infty na_nz^{n-1}\) and also has the radius of convergence \(R\).
+        \item \(S(z)\) is holomorphic over \(\abs{z}<R\) and \(S'(z)\) can be obtained by termwise differentiation \(S'(z)=\sum_{n=1}^\infty na_nz^{n-1}\) and also has the radius of convergence \(R\).\label{itm:abelradius_differentiation}
     \end{enumerate}
 \end{theorem}
 The disk \(\abs{z}<R\) is known as the \textit{disk of convergence}, a direct generalization of the \textit{interval of convergence} for real series. There are many ways to determine the radius of convergence:
@@ -550,6 +550,8 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     Let \(\rho'\in(\rho, R)\). Similarly, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N'\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho'}\), and \(\abs{a_n}<\frac{1}{\rho'^n}\). Then \(\qty|a_nz^n|<\qty|a_n\rho^n|<\frac{\rho^n}{\rho'^n}<1\). By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the \(\sum_{n=0}^\infty\abs{a_nz^n}\) is uniformly bounded (for \(n>N'\)) by the convergent series \(\sum_{n=0}^\infty a_n\rho^n\), and thus uniformly converges on \(|z|<\rho\). This proves \ref{itm:abelradius_absoluteanduniformconvergence}.
 
     Assume that \(\abs{z}>R\). \(\forall\rho\in\qty(R,|z|)\), \(\frac{1}{\rho}<\frac{1}{R}\). By \autoref{def:limsup}, \(\forall N\in\mathbb{N}\), \(\exists n_N>N\) such that \(\sqrt[n_N]{\abs{a_{n_N}}}>\frac{1}{\rho}\). It follows that \(\abs{a_{n_N}z^{n_N}}>\frac{\abs{z^{n_N}}}{\rho^{n_N}}>1\). Since \(\forall N\in\mathbb{N}\), \(\abs{\sum_{k=0}^{n_N}a_kz^k-\sum_{k=0}^{n_N-1}a_kz^k}>1\), by the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), \(\sum_{n=0}^\infty a_nz^n\) is divergent. Thus, \ref{itm:abelradius_divergence} is satisfied.
+
+    To prove \ref{itm:abelradius_differentiation}, 
 \end{proof}
 The Uniform Limit Theorem in real analysis is generalized:
 \begin{theorem}[Uniform Limit Theorem]
