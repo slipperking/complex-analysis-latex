@@ -1490,9 +1490,10 @@ Let \(P(\zeta,z)=\frac{1-\abs{z}^2}{2\pi\qty|1-\overline{z}\zeta|^2}=\frac{1-\ab
 \end{equation}
 where \(\zeta=e^{i\tau}\). Equation \eqref{eq:poissonintegralformula} is also known as the \textit{Poisson Integral Formula}.
 \(\forall a\in D(0,R)\), \(\forall R>0\), we can apply the transformation \(\tilde{\varphi}_a\qty(z)=R\varphi_{\flatfrac{a}{R}}\qty(\frac{z}{R})\) to extend the automorphism to \(D(0,R)\). Let \(\Phi\) instead be harmonic on \(D(0,R)\) and continuous on \(\overline{D(0,R)}\). Then, \[\Phi(0)=\frac{1}{2\pi R}\int_0^{2\pi}\Phi\qty(Re^{i\theta})\dd{\theta}.\] It follows that \(\phi=\Phi\circ\tilde{\varphi}_a\) is also harmonic on \(D(0,R)\) with \(\Phi(0)=\phi\circ\tilde{\varphi}_{-a}(0)=\phi(a)\), and from the bijectivity of  \(Re^{i\theta}=\tilde{\varphi}_a\qty(Re^{i\tau})\), 
-\[\dd{\theta}=\frac{1-\frac{\abs{a}^2}{R^2}}{\paren{1-\frac{\overline{a}}{R}e^{i\tau}}^2}e^{i\tau}e^{-i\theta}\dd{\tau}=\dd{\theta}=\frac{1-\frac{\abs{a}^2}{R^2}}{\paren{1-\frac{\overline{a}}{R}e^{i\tau}}^2}\frac{1-\frac{\overline{a}}{R}e^{i\tau}}{1-\frac{a}{R}e^{-i\tau}}\dd{\tau}=\frac{R^2-\abs{a}^2}{\abs{R-\overline{a}e^{i\tau}}^2}\dd\tau.\]
+\[\dd{\theta}=\frac{1-\frac{\abs{a}^2}{R^2}}{\paren{1-\frac{\overline{a}}{R}e^{i\tau}}^2}e^{i\tau}e^{-i\theta}\dd{\tau}=\dd{\theta}=\frac{1-\frac{\abs{a}^2}{R^2}}{\paren{1-\frac{\overline{a}}{R}e^{i\tau}}^2}\frac{1-\frac{\overline{a}}{R}e^{i\tau}}{1-\frac{a}{R}e^{-i\tau}}\dd{\tau}=\frac{R^2-\abs{a}^2}{\abs{Re^{i\tau}-a}^2}\dd{\tau}.\]
 Then,
-\[\phi(z)=\frac{1}{2\pi}\int_0^{2\pi}\phi\qty(e^{i\tau})\frac{1-\abs{a}^2}{\abs{1-\overline{a}e^{i\tau}}^2}\dd{\tau}.\]
+\[\phi(z)=\frac{1}{2\pi}\int_0^{2\pi}\phi\qty(Re^{i\tau})\frac{R^2-\abs{z}^2}{\abs{Re^{i\tau}-z}^2}\dd{\tau}.\]
+The expression \(P(\zeta,z)=\frac{R^2-\abs{z}^2}{2\pi\abs{\zeta-z}^2}\) is the gener
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
 Laurent Series are a generalization of Taylor Series specifically for holomorphic functions on a region punctured by a non-removable singularity. Whereas the Taylor Series applies to a disk, the Laurent Series applies to an annulus around the singularity.
