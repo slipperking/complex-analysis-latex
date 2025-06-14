@@ -1552,15 +1552,30 @@ A fundamental problem in the theory of partial differential equations is to find
     For a constant harmonic function identically equal to 1, we get \(1=\int_0^{2\pi}P(\zeta,z)\dd{\tau}\) from equation~\eqref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\pi}P(\zeta,z)\qty(\varphi\qty(Re^{i\vartheta})-\varphi(\zeta))}.\]
     By the continuity of \(\varphi\), it follows that \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty|\vartheta-\tau|<\delta\), \(\abs{\varphi(Re^{i\vartheta})-\varphi(\zeta)}<\varepsilon\). Therefore,
     \begin{align*}
-            \abs{\varphi(\xi)-u(z)}&=\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}\ge\delta})P(\zeta,z)\paren{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}\dd{\tau}}\\&=\abs{I_1+I_2}\leq\abs{I_1}+\abs{I_2}.
+            \abs{\varphi(\xi)-u(z)}&=\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}>\delta})P(\zeta,z)\paren{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}\dd{\tau}}\\&=\abs{I_1+I_2}\leq\abs{I_1}+\abs{I_2}.
     \end{align*}
     Since the Poisson kernel is nonnegative, \[
     \qty|I_1|<\varepsilon\int_{\abs{\vartheta-\tau}<\delta}P(\zeta,z)\dd{\tau}<\varepsilon.
     \]
     Since \(\varphi\) is continuous on a compact set \(\partial D(0,R)\), it is bounded by \autoref{lemma:uniformcontinuousovercompactset}, or \(M=\sup_{\qty|\zeta|=R}\abs{\varphi(\zeta)}\) that is finite, and thus, \(\abs{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}<2M\).
 
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \coordinate (zeta) at (0, 2.67);
+            \coordinate (z) at (3.33, 0);
+            \coordinate (xi) at (5.33, 2);
+
+            \node[anchor=east] at (zeta) {\(\zeta\)};
+            \node[anchor=north] at (z) {\(z\)};
+            \node[anchor=west] at (xi) {\(\xi\)};
+        \end{tikzpicture}
+        \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked.}
+        \label{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}
+    \end{figure}
+
     Since \[P(\zeta,z)=\frac{R^2-\rho^2}{2\pi\qty|\zeta-z|^2},\]
-    where \(\zeta=Re^{i\tau}\) and \(z=\rho e^{i\theta}\), assume that \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that when \(|\xi-z|<\eta\), \(\abs{\theta-\tau}>\delta\) and \(\rho>\frac{R}{2}\). Then \(|\zeta-z|^2>4\rho^2\sin[2](\frac{\delta}{2})>R^2\frac{1-\cos[2](\delta)}{2}\), and \(R^2-\rho^2<\)
+    where \(\zeta=Re^{i\tau}\) and \(z=\rho e^{i\theta}\), assume that \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that when \(|\xi-z|<\eta\), \(\abs{\theta-\tau}>\delta\) and \(\rho>\frac{R}{2}\). Then \(|\zeta-z|^2>4\rho^2\sin[2](\frac{\delta}{2})>R^2\frac{1-\cos[2](\delta)}{2}\).
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 \section{The Theory of Weierstrass}
