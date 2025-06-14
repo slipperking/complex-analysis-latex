@@ -1546,10 +1546,11 @@ A fundamental problem in the theory of partial differential equations is to find
 \end{theorem}
 \begin{proof}
     Since \(P(\zeta,z)=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}\), it follows that from equation~\eqref{eq:laplaciancomplexform}, \(\Delta_z P(\zeta,z)=4\pdv{P(\zeta,z)}{z}{\overline{z}}=0\) (since each term is independent of either \(z\) or \(\overline{z}\)). Then by \autoref{thm:leibnizintegralrule}, equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution} becomes \[\Delta u(z)=\Delta\int_0^{2\pi}\varphi(\zeta)P(\zeta,z)\dd{\tau}=\int_0^{2\pi}\Delta\qty[\varphi(\zeta)P(\zeta,z)]\dd{\tau}=0.\]
-    As are integrals defined with limits, we aim to prove that \(\forall\xi=Re^{i\vartheta}\in\partial D(0,R)\), \[\lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\]
+    As are integrals defined with limits, we aim to prove that for fixed \(\xi=Re^{i\vartheta}\in\partial D(0,R)\), \[\lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\]
     Let \(0<\rho<R\) and \(z=\rho e^{i\theta}\). Then, 
     \[\abs{\varphi(\xi)-u(z)}=\abs{\varphi\qty(Re^{i\vartheta})-u\qty(\rho e^{i\theta})}=\abs{\varphi\qty(Re^{i\vartheta})-\int_0^{2\pi}P(\zeta,z)\varphi\qty(\zeta)\dd{\tau}}.\]
-    For a constant harmonic function identically equal to 1, we get \(1=\int_0^{2\pi}P(\zeta,z)\dd{\tau}\) from equation~\eqref{eq:poissonintegralformula2}.
+    For a constant harmonic function identically equal to 1, we get \(1=\int_0^{2\pi}P(\zeta,z)\dd{\tau}\) from equation~\eqref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\pi}P(\zeta,z)\qty(\varphi\qty(Re^{i\vartheta})-\varphi(\zeta))}.\]
+    By the continuity of \(\varphi\), it follows that \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall \)
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 \section{The Theory of Weierstrass}
