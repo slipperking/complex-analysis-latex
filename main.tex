@@ -1574,8 +1574,7 @@ A fundamental problem in the theory of partial differential equations is to find
             \draw[thin] (0, 0) -- (xi);
             \draw[thin] (0, 0) -- (z);
             \draw[thin] (z) -- (xi);
-            %\draw[thin] (z) -- (auxiliary1);
-            \draw[dashed, thin] (z) -- (zeta);
+            \draw[thin] (z) -- (zeta);
             \draw[thin] ($(0,0)!0.1!(zeta)$) arc[start angle=10, end angle=62.35, radius=0.5];
             \draw[thin] (2,0) arc[start angle=0, end angle=10, radius=2];
             \draw[thin] (1.2,0) arc[start angle=0, end angle=80, radius=1.2];
@@ -1584,21 +1583,21 @@ A fundamental problem in the theory of partial differential equations is to find
             \node[anchor=west] at (zeta) {\(\zeta\)};
             \node[anchor=north] at ([yshift=-3pt] z) {\(z\)};
             \node[anchor=south] at (xi) {\(\xi\)};
-            \node[anchor=south] at ($(0,0)!0.5!(zeta)$) {\(\rho\)};
+            \node[anchor=south] at ($(0,0)!0.5!(zeta)$) {\(R\)};
             \node[anchor=north] at ($(z)!0.5!(xi)$) {\(\eta^-\)};
             \node[anchor=west] at ($(0,0)!0.5!(xi)$) {\(R\)};
             \node[anchor=west] at ($(z)!0.5!(0,0)$) {\(\rho\)};
             \node[anchor=north] at (0.7,0.7) {\(\delta^+\)};
             \node[anchor=north] at (1.1,1.1) {\(\vartheta\)};
             \node[anchor=north] at (2.2,0.4) {\(\tau\)};
-            \node[anchor=east] at ([yshift=-6pt, xshift=-2pt] $(z)!0.5!(zeta)$) {\(|\zeta-z|^-\)};
+            \node[anchor=east] at ([yshift=-6pt, xshift=-2pt] $(z)!0.5!(zeta)$) {\(|\zeta-z|\)};
         \end{tikzpicture}
-        \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked.}
+        \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked. \(+\) and \(-\) denote a value less than the proceeding value.}
         \label{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}
     \end{figure}
 
     Since \[P(\zeta,z)=\frac{R^2-\rho^2}{2\pi\qty|\zeta-z|^2},\]
-    where \(\zeta=Re^{i\tau}\) and \(z=\rho e^{i\theta}\), assume that \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that when \(|\xi-z|<\eta\), \(\abs{\theta-\tau}>\delta\) and \(\rho>\frac{R}{2}\). Then \(|\zeta-z|^2>4\rho^2\sin[2](\frac{\delta}{2})>R^2\frac{1-\cos[2](\delta)}{2}\). 
+    where \(\zeta=Re^{i\tau}\) and \(z=\rho e^{i\theta}\), assume that \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that when \(|\xi-z|<\eta\), \(\abs{\theta-\tau}>\delta\) and \(\rho>\frac{R}{2}\). Then by the Law of Cosines, \(|\zeta-z|^2>R^2+\rho^2-2R\rho\cos(\delta)\). 
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 \section{The Theory of Weierstrass}
