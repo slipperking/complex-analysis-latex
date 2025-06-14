@@ -119,7 +119,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     \[\bigcap_{k=0}^{\infty} Q_k\]
     consists of exactly one point. Call this point \(z_\infty\in\mathbb{C}^n\).
 
-    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset D(z_\infty,\varepsilon)\) where \(D(a,b)\) is the poly disk with radius \(b\) centered at \(a\). Then, \(D(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
+    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset D(z_\infty,\varepsilon)\) where \(D(a,b)\) is the polydisk with radius \(b\) centered at \(a\), or \(\cbraces{z=\qty(z_1,z_2,\ldots,z_n)\in\mathbb{C}^n}\). Then, \(D(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
 
     We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[D(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset D(z_\infty, \delta)\), and hence \(Q_k \cap X = \emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
@@ -129,12 +129,12 @@ We will provide a rough, informal notion of important topological concepts tailo
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
 
-    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\{D(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely\(\{D(0,k_1),\ldots,D(0,k_m)\}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mD(0,k_i)=D(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
+    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\{D(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\{D(0,k_1),\ldots,D(0,k_m)\}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mD(0,k_i)=D(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
 
     \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
-    \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\]
-    There then exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k_i}\right)\;\middle|\; i=1,2,\ldots,m\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right),\]
-    and that \(X\cap\overline{B}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset\). However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect \(X\). Therefore, by contradiction, \(X\) is closed.
+    \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{D}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\]
+    There then exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{D}\left(z_0,\frac{1}{k_i}\right)\;\middle|\; i=1,2,\ldots,m\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{D}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right),\]
+    and that \(X\cap\overline{D}\left(z_0,\frac{1}{\max(k_1,\ldots,k_m)}\right)=\emptyset\). However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect \(X\). Therefore, by contradiction, \(X\) is closed.
 
     We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the \(X\) is contained within the closed cube \[Q=\left\{z\;\middle|\; z\in\mathbb{C}^n, \max_{i\in\{1,\ldots,n\}}\abs{\Re(z_i)}\le R,\max_{i\in\{1,\ldots,n\}}\abs{\Im(z_i)}\le R\right\}.\]
 
@@ -1395,7 +1395,7 @@ Since the real and imaginary parts of holomorphic functions are harmonic functio
     \end{align*}
     From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly nonnegative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
-\subsubsection{Holomorphic Automorphism Groups}
+\subsubsection{Holomorphic Automorphism of the Unit Disk}
 The following important result can be directly obtained from the Maximum Modulus Principle.
 \begin{lemma}[Schwarz Lemma]\label{lemma:schwarz}
     If \(f:D(0,1)\to D(0,1)\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
