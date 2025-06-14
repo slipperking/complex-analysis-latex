@@ -539,8 +539,8 @@ Let \(D(a,r)=B^1(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textit
     For a power series \(f(z)=\sum_{n=0}^\infty a_nz^n\), there exists a constant \(R\in\mathbb{R}_{\geq0}\cup\cbraces{\infty}\), known as the \textit{radius of convergence} such that:
     \begin{enumerate}
         \item \(f\) absolutely converges on \(D(0,R)\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\overline{D(0,\rho)}\).\label{itm:abelradius_absoluteanduniformconvergence}
-        \item \(f(z)\) diverges on \(\abs{z}>R\).\label{itm:abelradius_divergence}
-        \item \(f(z)\) is holomorphic over \(D()\) and \(f'(z)\) can be obtained by termwise differentiation \(f'(z)=\sum_{n=1}^\infty na_nz^{n-1}\) and also has the radius of convergence \(R\).\label{itm:abelradius_differentiation}
+        \item \(f(z)\) diverges when \(\abs{z}>R\).\label{itm:abelradius_divergence}
+        \item \(f\) is holomorphic over \(D(0,R)\) and \(f'(z)\) can be obtained by termwise differentiation, or \(f'(z)=\sum_{n=1}^\infty na_nz^{n-1}\), and also has the radius of convergence \(R\).\label{itm:abelradius_differentiation}
     \end{enumerate}
 \end{theorem}
 The disk \(\abs{z}<R\) is known as the \textit{disk of convergence}, a direct generalization of the \textit{interval of convergence} for real series. There are many ways to determine the radius of convergence:
@@ -1397,9 +1397,9 @@ Since the real and imaginary parts of holomorphic functions are harmonic functio
     From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly nonnegative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
 \subsubsection{Holomorphic Automorphism of the Unit Disk}
-The following important result can be directly obtained from the Maximum Modulus Principle.
+For simplicity, we will have \(\mathbb{D}\) denote the unit open disk, or \(D(0,1)\). The following important result can be directly obtained from the Maximum Modulus Principle.
 \begin{lemma}[Schwarz Lemma]\label{lemma:schwarz}
-    If \(f:D(0,1)\to D(0,1)\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
+    If \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
     Any one of the inequalities becomes equalities if and only if \(f(z)\) is in the form of \(ze^{i\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
 \end{lemma}
 \begin{proof}
@@ -1407,11 +1407,11 @@ The following important result can be directly obtained from the Maximum Modulus
         \frac{f(z)}{z}&z\neq0\\
         f'(0)&z=0
     \end{cases}.\]
-    Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(D(0,1)\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \autoref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in \partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in D(0,1)\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\). 
+    Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \autoref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in \partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in \mathbb{D}\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\). 
 
-    For the sake of the equality condition, assume \(|f(z)|=|z|\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \autoref{thm:maximummodulus}, \(g(z)=\exp(i\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(i\tau)\) on \(D(0,1)\). 
+    For the sake of the equality condition, assume \(|f(z)|=|z|\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \autoref{thm:maximummodulus}, \(g(z)=\exp(i\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(i\tau)\) on \(\mathbb{D}\). 
 
-    Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in D(0,1)\), it follows from \autoref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(i\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(i\tau)\).
+    Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in \mathbb{D}\), it follows from \autoref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(i\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(i\tau)\).
 \end{proof}
 To discuss the main topic of this section, we will first introduce the concept of a \textit{group}.
 \begin{definition}[Group]\label{def:group}
@@ -1426,41 +1426,41 @@ To discuss the main topic of this section, we will first introduce the concept o
 
 If \(U\subseteq\mathbb{C}\) is connected and \(f:U\to U\) is holomorphic on \(U\) and bijective, \(f\) is a \textit{holomorphic automorphism} of \(U\). The \textit{group of holomorphic automorphisms} on \(U\) is denoted by \(\Aut(U)\), which is the set of all holomorphic automorphisms such as \(f\), with the operation of composition (\(f\circ g\)).
 
-First we will show that \(\forall a\in D(0,1)\),
+First we will show that \(\forall a\in \mathbb{D}\),
 \begin{equation}
-    \varphi_a(z)=\frac{z-a}{1-\overline{a}z}\in\Aut( D(0,1)).\label{eq:mobiustransformationgroupofholomorphicautomorphismsstatement}
+    \varphi_a(z)=\frac{z-a}{1-\overline{a}z}\in\Aut( \mathbb{D}).\label{eq:mobiustransformationgroupofholomorphicautomorphismsstatement}
 \end{equation}
-Firstly, the function is holomorphic on \(D(0,1)\) as \(|z|\le1\), \(\abs{\overline{a}}<1\), the denominator never vanishes. Additionally, \(\varphi_a(a)=0\).
+Firstly, the function is holomorphic on \(\mathbb{D}\) as \(|z|\le1\), \(\abs{\overline{a}}<1\), the denominator never vanishes. Additionally, \(\varphi_a(a)=0\).
 
-First, we will observe the image of \(\partial D(0,1)\). Let \(\abs{z}=1\). Then,
+First, we will observe the image of \(\partial \mathbb{D}\). Let \(\abs{z}=1\). Then,
 \[\abs{\varphi_a(z)}=\abs{\frac{1}{z}}\abs{\frac{z-a}{\frac{1}{z}-\overline{a}}}=\abs{\frac{z-a}{\overline{z}-\overline{a}}}=1.\]
-Therefore, the image of \(\partial D(0,1)\) lies on \(\partial D(0,1)\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\autoref{thm:maximummodulus}), for \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(D(0,1)\) to \(D(0,1)\). We next aim to show that \(f:D(0,1)\to D(0,1)\) is bijective.
+Therefore, the image of \(\partial \mathbb{D}\) lies on \(\partial \mathbb{D}\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\autoref{thm:maximummodulus}), for \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(\mathbb{D}\) to \(\mathbb{D}\). We next aim to show that \(f:\mathbb{D}\to \mathbb{D}\) is bijective.
 
-Let us first confirm injectivity. \(\forall z_1,z_2\in D(0,1)\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that \[\qty(z_1-a)\qty(1-\overline{a}z_2)=\qty(z_2-a)\qty(1-\overline{a}z_1)\Longleftrightarrow z_1-a-\overline{a}z_1z_2+\abs{a}^2z_2=z_2-a-\overline{a}z_1z_2+\abs{a}^2z_1.\]
+Let us first confirm injectivity. \(\forall z_1,z_2\in \mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that \[\qty(z_1-a)\qty(1-\overline{a}z_2)=\qty(z_2-a)\qty(1-\overline{a}z_1)\Longleftrightarrow z_1-a-\overline{a}z_1z_2+\abs{a}^2z_2=z_2-a-\overline{a}z_1z_2+\abs{a}^2z_1.\]
 Then, \[\abs{a}^2\paren{z_2-z_1}=z_2-z_1.\Longleftrightarrow\qty(|a|^2-1)\qty(z_2-z_1)=0.\] Since \(\abs{a}<1\), then \(\abs{a}^2-1\neq0\), and we get \(z_2-z_2=0\). This proves the univalence of \(\varphi_a(z)\).
 
 Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac{w-a}{1-\overline{a}w}\). Then,
 \begin{equation}
     z-\overline{a}zw=w-a\Longleftrightarrow w=\frac{z+a}{1+\overline{a}z}.\label{eq:inversemobiustransformation}
 \end{equation}
-It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation \eqref{eq:mobiustransformationgroupofholomorphicautomorphismsstatement} is true. Functions in the form of \(\varphi_a\) (where \(a\in D(0,1)\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(D(0,1))\). Functions in the form of \(\rho_\tau(z)=z\exp(i\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(D(0,1))\).
+It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation \eqref{eq:mobiustransformationgroupofholomorphicautomorphismsstatement} is true. Functions in the form of \(\varphi_a\) (where \(a\in \mathbb{D}\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(i\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
 \begin{theorem}[The Holomorphic Automorphism Group on the Unit Disk]\label{thm:holomorphicautomorphismgrouponunitdisk}
-    \(\forall f\in \Aut(D(0,1))\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
+    \(\forall f\in \Aut(\mathbb{D})\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
 \end{theorem}
 \begin{proof}
-    Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(z)\). It follows that \(\psi\in\Aut(D(0,1))\). Furthermore, \(\psi(0)=\varphi_{f(0)} f(0)=0\). By the Schwarz Lemma (\autoref{lemma:schwarz}), \(\qty|\psi'(0)|\leq1\). Since \(\psi^{-1}\in\Aut(D(0,1))\) with \(\psi^{-1}(0)=0\), \(\abs{\qty(\psi^{-1})'(0)}\leq1\). Then, \[\abs{\qty(\psi^{-1})'(0)}=\frac{1}{\psi'\qty(\psi^{-1}(0))}=\frac{1}{\psi'(0)}\leq 1.\]
+    Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(z)\). It follows that \(\psi\in\Aut(\mathbb{D})\). Furthermore, \(\psi(0)=\varphi_{f(0)} f(0)=0\). By the Schwarz Lemma (\autoref{lemma:schwarz}), \(\qty|\psi'(0)|\leq1\). Since \(\psi^{-1}\in\Aut(\mathbb{D})\) with \(\psi^{-1}(0)=0\), \(\abs{\qty(\psi^{-1})'(0)}\leq1\). Then, \[\abs{\qty(\psi^{-1})'(0)}=\frac{1}{\psi'\qty(\psi^{-1}(0))}=\frac{1}{\psi'(0)}\leq 1.\]
     Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \autoref{lemma:schwarz}, \(\psi(z)=ze^{i\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By equation \eqref{eq:inversemobiustransformation}, it follows that \(f(z)=\varphi_{-f(0)}\circ\rho_\tau(z)\).
 \end{proof}
 As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk}, we have the following result:
 \begin{lemma}[Schwarz--Pick Lemma]\label{lemma:schwarzpick}
-    Let \(f:D(0,1)\to D(0,1)\) be holomorphic. \(\forall z_1,z_2\in D(0,1)\), let \(w_1=f\qty(z_1)\) and \(w_2=f\qty(z_2)\). Then,
+    Let \(f:\mathbb{D}\to \mathbb{D}\) be holomorphic. \(\forall z_1,z_2\in \mathbb{D}\), let \(w_1=f\qty(z_1)\) and \(w_2=f\qty(z_2)\). Then,
     \begin{equation}
         \abs{\frac{w_1-w_2}{1-w_1\overline{w_2}}}\leq\abs{\frac{z_1-z_2}{1-z_1\overline{z_2}}},\label{eq:schwarzpick_statement1}
     \end{equation} and
     \begin{equation}
         \frac{\abs{\dd{w}}}{1-\qty|w|^2}\leq\frac{\abs{\ddz}}{1-\qty|z|^2}.\label{eq:schwarzpick_statement2}
     \end{equation}
-    The equalities hold if and only if \(f\in\Aut(D(0,1))\).
+    The equalities hold if and only if \(f\in\Aut(\mathbb{D})\).
 \end{lemma}
 \begin{proof}
     Let \[\varphi_{-z_1}(z)=\frac{z+z_1}{1+\overline{z_1}z}\in\Aut(D(0,1)),\quad\varphi_{w_1}(z)=\frac{z-w_1}{1-\overline{w_1}z}\in\Aut(D(0,1)).\]
