@@ -38,6 +38,7 @@
 \newcommand{\ddy}{\dd{y}}
 \newcommand{\ddz}{\dd{z}}
 \newcommand{\ddzeta}{\dd{\zeta}}
+\newcommand{\ddt}{\dd{t}}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\Log}{\mathrm{Log}}
 \newcommand{\Arg}{\mathrm{Arg}}
@@ -178,24 +179,13 @@ The theorem above seems trivial, but has a complicated rigorous proof in topolog
 
 Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). An important result in multivariable calculus allows the calculation of the derivatives of a definite integral with respect to its parameter.
 \begin{theorem}[Differentiation under the Integral Sign]\label{thm:leibnizintegralrule}
-    Let \( f(x,t) \) be a function defined on a rectangle \( [a,b] \times [c,d] \subset \mathbb{R}^2 \), and suppose:
-    \begin{enumerate}
-        \item For each fixed \( x \in [a,b] \), the function \( t \mapsto f(x,t) \) is integrable on \( [c,d] \),
-        \item The partial derivative \( \frac{\partial f}{\partial x}(x,t) \) exists for all \( (x,t) \in [a,b] \times [c,d] \),
-        \item There exists an integrable function \( M(t) \) on \( [c,d] \) such that 
-        \[
-        \left| \frac{\partial f}{\partial x}(x,t) \right| \leq M(t)
-        \quad \text{for all } x \in [a,b],\ t \in [c,d].
-        \]
-    \end{enumerate}
-    Then the function
-    \[
-    F(x) = \int_c^d f(x,t)\,dt
-    \]
-    is differentiable on \( [a,b] \), and its derivative is given by
-    \[
-    F'(x) = \frac{d}{dx} \int_c^d f(x,t)\,dt = \int_c^d \frac{\partial f}{\partial x}(x,t)\,dt.
-    \]
+Let \(f(x,t)\) be a function defined on a domain \(U=[a(x), b(x)]\times[c,d]\subset\mathbb{R}^2\), where \(x\) is a parameter and \(t\) is the variable of integration. Suppose:
+\begin{itemize}
+    \item \(f(x,t)\) and \(\pdv{f}{x}(x,t)\) are continuous on \(U\),
+    \item \(a(x)\), \(b(x)\) are differentiable functions of \(x\).
+\end{itemize}
+Then the function \[F(x)=\int_{a(x)}^{b(x)}f(x,t)\dd{t}\] is differentiable with:
+\[\dv{F}{x}=\int_{a(x)}^{b(x)}\frac{\partial f}{\partial x}(x,t)\ddt + f(x, b(x)) \cdot \frac{db}{dx} - f(x, a(x)) \cdot \frac{da}{dx}.\]
 \end{theorem}
 Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
 \begin{theorem}[Gradient Theorem]\label{thm:gradient}
