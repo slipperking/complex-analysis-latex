@@ -176,8 +176,27 @@ A curve is a one-dimensional manifold embedded within a higher dimensional space
 \end{theorem}
 The theorem above seems trivial, but has a complicated rigorous proof in topology. The theorem can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textit{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is two-connected, and a region bound by \(n\) non-intersecting Jordan curves is \(n\)-connected. Lastly, any closed curve can degenerate to a single point or slit.
 
-Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). 
-
+Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). An important result in multivariable calculus allows the calculation of the derivatives of a definite integral with respect to its parameter.
+\begin{theorem}[Differentiation under the Integral Sign]\label{thm:leibnizintegralrule}
+    Let \( f(x,t) \) be a function defined on a rectangle \( [a,b] \times [c,d] \subset \mathbb{R}^2 \), and suppose:
+    \begin{enumerate}
+        \item For each fixed \( x \in [a,b] \), the function \( t \mapsto f(x,t) \) is integrable on \( [c,d] \),
+        \item The partial derivative \( \frac{\partial f}{\partial x}(x,t) \) exists for all \( (x,t) \in [a,b] \times [c,d] \),
+        \item There exists an integrable function \( M(t) \) on \( [c,d] \) such that 
+        \[
+        \left| \frac{\partial f}{\partial x}(x,t) \right| \leq M(t)
+        \quad \text{for all } x \in [a,b],\ t \in [c,d].
+        \]
+    \end{enumerate}
+    Then the function
+    \[
+    F(x) = \int_c^d f(x,t)\,dt
+    \]
+    is differentiable on \( [a,b] \), and its derivative is given by
+    \[
+    F'(x) = \frac{d}{dx} \int_c^d f(x,t)\,dt = \int_c^d \frac{\partial f}{\partial x}(x,t)\,dt.
+    \]
+\end{theorem}
 Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
 \begin{theorem}[Gradient Theorem]\label{thm:gradient}
     Let \(C\) be an oriented smooth curve in \(\mathbb{R}^3\) with boundary points \(A\) to \(B\). Then
