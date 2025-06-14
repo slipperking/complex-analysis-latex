@@ -1208,7 +1208,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). \(X\
     When \(z\in\Omega_1\setminus\Omega_2=V(K,\varepsilon)\), the first summation vanishes, meaning that \(\varphi(z)\equiv1\) on the neighborhood \(V(K,\varepsilon)\) of \(K\). When \(z\in\Omega_2\setminus\Omega_1=\Omega\setminus V(K,2\varepsilon)\), \(\varphi(z)\) vanishes.
 \end{proof}
 \subsection{Zeros of a Holomorphic Function}
-For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textit{zero} of \(f\) if and only if \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\quad\quad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
+For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textit{zero} of \(f\) if and only if \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
 
 We will introduce a fundamental application of Liouville's Theorem (\autoref{thm:liouville}) below.
 \begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
@@ -1534,6 +1534,15 @@ The real-valued solution \(u\in C^0\paren{\overline{D(0,R)}}\) that solves \(\De
 \[u(z)=\int_0^{2\pi}\varphi(\zeta)P(\zeta,z)\dd{\tau}.\]
 We will now verify this seemingly trivial solution:
 
+
+
+A fundamental problem in the theory of partial differential equations is to find a function \(u\) that is continuous on the closed disk \(\overline{D(0,R)}\), harmonic on the open disk \(D(0,R)\), and identically equal to a given boundary function on \(\partial D(0,R)\). This is known as the \textit{Dirichlet problem} for the Laplace equation on a disk.
+
+More precisely, for a continuous function \(\varphi\in C^0(\partial D(0,R))\), we aim to find a real-valued solution \(u\in C^0\qty(\overline{D(0,R)})\) solving:
+\[\Delta u(z)=0\quad\forall z\in D(0,R),\qquad u(z)=\varphi(z) \quad\forall z\in\partial D(0,R).\]
+The unique solution is given by the Poisson integral formula:
+\[u(z)=\int_0^{2\pi}\varphi(\zeta)P(\zeta, z)\dd{\tau},\]
+where \(\zeta=Re^{i\tau}\).
 \subsubsection{In Harmonic Analysis}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
