@@ -1509,11 +1509,11 @@ It follows that \(u=\Phi\circ\tilde{\varphi}_z\) is also harmonic on \(D(0,R)\) 
 \[\dd{\psi}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}e^{i\tau}}^2}e^{i\tau}e^{-i\psi}\dd{\tau}=\dd{\psi}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}e^{i\tau}}^2}\frac{1-\frac{\overline{z}}{R}e^{i\tau}}{1-\frac{z}{R}e^{-i\tau}}\dd{\tau}=\frac{R^2-\abs{z}^2}{\abs{Re^{i\tau}-z}^2}\dd{\tau}.\]
 Then because \(\tilde{\varphi}_z^{-1}(\zeta)=R\varphi_{-\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\),
 \[u(z)=\frac{1}{2\pi}\int_0^{2\pi}u\qty(Re^{i\tau})\frac{R^2-\abs{z}^2}{\abs{Re^{i\tau}-z}^2}\dd{\tau}.\]
-The expression \(P(\zeta,z)=\frac{R^2-\abs{z}^2}{2\pi\abs{\zeta-z}^2}\) is a general form of the Poisson kernel. Then with \(\zeta=Re^{i\tau}\),
+The expression \(P(\zeta,z)=\frac{\abs{\zeta}^2-\abs{z}^2}{2\pi\abs{\zeta-z}^2}\) is a general form of the Poisson kernel. Then with \(\zeta=Re^{i\tau}\),
 \begin{equation}
     u(z)=\int_0^{2\pi}u(\zeta)P(\zeta,z)\dd{\tau}.\label{eq:poissonintegralformula2}
 \end{equation}
-Since \(R=\abs{\zeta}\), \[P(\zeta,z)=\frac{|\zeta|^2-|z|^2}{2\pi\paren{\zeta-z}\paren{\overline{\zeta}-\overline{z}}}=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}=\frac{1}{2\pi}\Re\qty(\frac{\zeta+z}{\zeta-z}).\]
+The Poisson kernel can also be rewritten: \[P(\zeta,z)=\frac{|\zeta|^2-|z|^2}{2\pi\paren{\zeta-z}\paren{\overline{\zeta}-\overline{z}}}=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}=\frac{1}{2\pi}\Re\qty(\frac{\zeta+z}{\zeta-z}).\]
 Thus, equation~\eqref{eq:poissonintegralformula2} is equivalent to:
 \[u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
 Since \(\ddzeta=iRe^{i\tau}\dd{\tau}\), \(\dd{\tau}=\frac{\ddzeta}{i\zeta}\), and \[u(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Re\qty(\frac{\zeta+z}{\zeta-z})\ddzeta=\Re\qty[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta],\]
@@ -1557,7 +1557,9 @@ A fundamental problem in the theory of partial differential equations is to find
     Since the Poisson kernel is nonnegative, \[
     \qty|I_1|<\varepsilon\int_{\abs{\vartheta-\tau}<\delta}P(\zeta,z)\dd{\tau}<\varepsilon.
     \]
-    Informally, the Poisson kernel becomes small when \(z\) and \(\zeta\) are sufficiently far apart. Since \(\varphi\) is continuous on a compact set \(\partial D(0,R)\), it is bounded by \autoref{lemma:uniformcontinuousovercompactset}, or \(\exists M>0\) that is finite, such that \(\)
+    Informally, the Poisson kernel becomes small when \(z\) and \(\zeta\) are sufficiently far apart. Since \(\varphi\) is continuous on a compact set \(\partial D(0,R)\), it is bounded by \autoref{lemma:uniformcontinuousovercompactset}, or \(M=\sup_{\qty|\zeta|=R}\abs{\varphi(\zeta)}\) that is finite, such that \(\abs{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}<2M\).
+
+    Since \[P(\zeta,z)=\frac{R^2-\rho^2}{2\pi\qty|\zeta-z|^2}\]
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 \section{The Theory of Weierstrass}
