@@ -376,6 +376,10 @@ We will prove later in \autoref{sec:analyticityandholomorphy} that the complex d
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
 This type of equation is called the \textit{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textit{Laplacian}) \[\Delta=\laplacian=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\Delta u=0\) is a \textit{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
+\begin{lemma}
+    
+\end{lemma}
+If a holomorphic function \(f:U\to\mathbb{C}\) (\(U\) is open and connected) is purely real or imaginary valued, then \(f\) is constant.
 \subsubsection{Wirtinger Derivatives}
 We have previously introduced the concept of expressing a complex function as a function of \(x\) and \(y\). It can also be expressed in terms of \(z\) and \(\overline{z}\), where \(z=x+iy\) and \(\overline{z}=x-iy\). Then \(|z|=z\overline{z}\), \(x=\frac{z+\overline{z}}{2}\), and \(y=\frac{z-\overline{z}}{2i}\). By the rules of the derivative, \begin{equation}
     \pdv{}{z}=\pdv{}{x}\pdv{x}{z}+\pdv{}{y}\pdv{y}{z}=\frac{1}{2}\left(\pdv{}{x}-i\pdv{}{y}\right)\label{eq:wirtingerderivative1}
@@ -1501,7 +1505,7 @@ Since \(R=\abs{\zeta}\), \[P(\zeta,z)=\frac{|\zeta|^2-|z|^2}{2\pi\paren{\zeta-z}
 Thus, equation \eqref{eq:poissonintegralformula2} is equivalent to:
 \[u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
 Since \(\ddzeta=iRe^{i\tau}\dd{\tau}\), \(\dd{\tau}=\frac{\ddzeta}{i\zeta}\), and \[u(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Re\qty(\frac{\zeta+z}{\zeta-z})\ddzeta=\Re\qty[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta],\]
-where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \(\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\) is holomorphic on \(D(0,R)\).
+where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \(\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\) is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+ic\), where \(c\in\mathbb{R}\). Since \(ic\) is holomorphic, it follows that \(c\) is constant.
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
 Laurent Series are a generalization of Taylor Series specifically for holomorphic functions on a region punctured by a non-removable singularity. Whereas the Taylor Series applies to a disk, the Laurent Series applies to an annulus around the singularity.
