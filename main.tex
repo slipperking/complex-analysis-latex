@@ -119,10 +119,10 @@ We will provide a rough, informal notion of important topological concepts tailo
     \[\bigcap_{k=0}^{\infty} Q_k\]
     consists of exactly one point. Call this point \(z_\infty\in\mathbb{C}^n\).
 
-    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset B(z_\infty,\varepsilon)\) where \(B(z,r)\) is the \textit{ball} with radius \(r\) centered at \(z\), or \[B(a,r)=\cbraces{\qty(z_1,z_2,\ldots,z_n)\in\mathbb{C}^n}{\sum_{j=1}^n\abs{z_j-a_j}^2<r^2}.\]
-    Then, \(B(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
+    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\) where \(B^n(a,r)\) is the \textit{ball} with radius \(r\) centered at \(a=\paren{a_1,a_2,\ldots,a_n}\in\mathbb{C}^n\), or \[B^n(a,r)=\cbraces{\qty(z_1,z_2,\ldots,z_n)\in\mathbb{C}^n}{\sum_{j=1}^n\abs{z_j-a_j}^2<r^2}.\]
+    Then, \(B^n(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
 
-    We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[B(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B(z_\infty, \delta)\), and hence \(Q_k\cap X=\emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
+    We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B^n(z_\infty, \delta)\), and hence \(Q_k\cap X=\emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
 \begin{theorem}[Heine-Borel Theorem]\label{thm:heineborel}
     A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has a finite subcover.
@@ -130,7 +130,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
 
-    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\{B(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\{B(0,k_1),\ldots,B(0,k_m)\}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB(0,k_i)=B(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
+    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\{B^n(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\{B^n(0,k_1),\ldots,B^n(0,k_m)\}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB^n(0,k_i)=B^n(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
 
     \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B}\left(z_0,\frac{1}{k}\right)\;\middle|\; \forall k\in\mathbb{N}\right\}.\]
@@ -534,11 +534,11 @@ The concept of uniform convergence is generalized to improper integrals with par
 
 In both complex and real analysis, the concept of \textit{power series}, a unique type of function series, is of trivial importance. Similar to real power series, complex series have the form \[\sum_{n=0}^\infty a_nz^n,\] where \(\cbraces{a_n}\) are constants.
 
-We will now observe the convergence of power series.
+We will now observe the convergence of power series. Let \(D(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textit{open disk}.
 \begin{theorem}[Abel's Theorem]\label{thm:abelradius}
     For a power series \(f(z)=\sum_{n=0}^\infty a_nz^n\), there exists a constant \(R\in\mathbb{R}_{\geq0}\cup\cbraces{\infty}\), known as the \textit{radius of convergence} such that:
     \begin{enumerate}
-        \item \(f(z)\) absolutely converges on \(\abs{z}<R\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\abs{z}\leq\rho\).\label{itm:abelradius_absoluteanduniformconvergence}
+        \item \(f(z)\) absolutely converges for all \(\abs{z}<R\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\abs{z}\leq\rho\).\label{itm:abelradius_absoluteanduniformconvergence}
         \item \(f(z)\) diverges on \(\abs{z}>R\).\label{itm:abelradius_divergence}
         \item \(f(z)\) is holomorphic over \(\abs{z}<R\) and \(f'(z)\) can be obtained by termwise differentiation \(f'(z)=\sum_{n=1}^\infty na_nz^{n-1}\) and also has the radius of convergence \(R\).\label{itm:abelradius_differentiation}
     \end{enumerate}
