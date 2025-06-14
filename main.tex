@@ -178,14 +178,14 @@ A curve is a one-dimensional manifold embedded within a higher dimensional space
 The theorem above seems trivial, but has a complicated rigorous proof in topology. The theorem can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textit{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is two-connected, and a region bound by \(n\) non-intersecting Jordan curves is \(n\)-connected. Lastly, any closed curve can degenerate to a single point or slit.
 
 Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). An important result in multivariable calculus allows the calculation of the derivatives of a definite integral with respect to its parameter.
-\begin{theorem}[Differentiation under the Integral Sign]\label{thm:leibnizintegralrule}
-Let \(f(x,t)\) be a function defined on a domain \(U=[a(x), b(x)]\times[c,d]\subset\mathbb{R}^2\), where \(x\) is a parameter and \(t\) is the variable of integration. Suppose:
+\begin{theorem}[Leibniz Integral Rule]\label{thm:leibnizintegralrule}
+Let \(U\subset\mathbb{R}\) be open and let \(f(x,t)\) defined for \(x\in U\) and \(t\in[a(x),b(x)]\), where \(a(x)\), \(b(x)\) are differentiable functions on \(U\), and \(a(x)<b(x)\) for all \(x\in U\). Suppose that:
 \begin{itemize}
-    \item \(f(x,t)\) and \(\pdv{f}{x}(x,t)\) are continuous on \(U\),
-    \item \(a(x)\), \(b(x)\) are differentiable functions of \(x\).
+    \item \(f(x,t)\) and \(\pdv{f}{x}(x,t)\) are continuous on the set \(\{(x,t) \in I \times \mathbb{R} \mid a(x) \leq t \leq b(x)\}\),
+    \item \(a(x)\), \(b(x)\) are differentiable on \(I\).
 \end{itemize}
-Then the function \[F(x)=\int_{a(x)}^{b(x)}f(x,t)\dd{t}\] is differentiable with:
-\[\dv{F}{x}=\int_{a(x)}^{b(x)}\frac{\partial f}{\partial x}(x,t)\ddt + f(x, b(x)) \cdot \frac{db}{dx} - f(x, a(x)) \cdot \frac{da}{dx}.\]
+Then the function \[F(x)=\int_{a(x)}^{b(x)}f(x,t)\dd{t}\] is differentiable on \(I\), and
+\[\dv{F}{x}=\int_{a(x)}^{b(x)}\pdv{f}{x}(x,t)\dd{t} + f(x,b(x))\dv{b}{x} - f(x,a(x))\dv{a}{x}.\]
 \end{theorem}
 Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
 \begin{theorem}[Gradient Theorem]\label{thm:gradient}
