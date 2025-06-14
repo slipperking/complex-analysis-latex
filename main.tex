@@ -403,11 +403,11 @@ On the contrary, by the rules of the derivative, \begin{equation*}
     \pdv{}{y}=\pdv{}{z}\pdv{z}{y}+\pdv{}{\overline{z}}\pdv{\overline{z}}{y}=i\pdv{}{z}-i\pdv{}{\overline{z}}.
 \end{equation*}
 
-The Laplacian is equal to \begin{align*}
-    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{}{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{}{z}-i\pdv{}{\overline{z}}}^2                                               \\
-                                     & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \\
-                                     & =4\pdv[2]{}{z}{\overline{z}}.
-\end{align*}
+The Laplacian is equal to \begin{align}
+    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{}{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{}{z}-i\pdv{}{\overline{z}}}^2                                               \nonumber \\
+                                     & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \nonumber \\
+                                     & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
+\end{align}
 \subsection{Elementary Functions}
 Univariate functions formed by taking compositions, sums, products, and powers of finitely many functions of the following form are known as \textit{elementary functions}:
 \begin{enumerate}
@@ -1084,7 +1084,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
 \begin{proof}
     Let \(\varphi\in C^\infty\paren{\mathbb{C}}\)  satisfy \(\supp(\varphi)\subset V\) and be identically equal to 1 over some open neighborhood \(W\) of \(K\) relatively compact in \(V\). Since \(f\in C^\infty\paren{U}\), by the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}) on \(f(z)\varphi(z)\in C^\infty\paren{\overline{U}}\), \[f(z)\varphi(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\varphi(\zeta)}{\zeta-z}\ddzeta-\int_{U}\pdv{f(\zeta)\varphi(\zeta)}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
     By the product rule, \[\pdv{f(\zeta)\varphi(\zeta)}{\overline{\zeta}}=\pdv{\varphi(\zeta)}{\overline{\zeta}}f(\zeta),\] and since \(\partial U\subset\mathbb{C}\setminus\supp(\varphi)\), the first term vanishes, resulting in \[f(z)\varphi(z)=-\frac{1}{2\pi i}\int_U\pdv{\varphi(\zeta)}{\overline{\zeta}}f(\zeta)\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\] Let \(K_1\) denote \(\supp\paren{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\), and \(\forall z\in K\), \(\varphi(z)=1\). Therefore, \[f(z)=\frac{1}{2\pi i}\int_{K_1}f(\zeta)\cdot\pdv{\varphi(\zeta)}{\overline{\zeta}}\cdot\frac{\ddzeta\wedge\dd{\overline{\zeta}}}{\zeta-z}.\]
-    We can differentiate within the integral as \(f(\zeta)\cdot\pdv{\varphi(\zeta)}{\overline{\zeta}}\) is \(C^\infty\) and bounded over \(K_1\), and thus the integrand is termwise dominated by an integrable function independent of \(\zeta\):
+    We can differentiate within the integral as \(f(\zeta)\cdot\pdv{\varphi(\zeta)}{\overline{\zeta}}\) is \(C^\infty\) and bounded over \(K_1\), and thus the integrand is uniformly bounded by an integrable function independent of \(\zeta\):
     \[f^{(n)}(z)=\frac{n!}{2\pi i}\int_{K_1} f(\zeta)\cdot\pdv{\varphi(\zeta)}{\overline{\zeta}}\cdot\frac{\ddzeta\wedge\dd{\overline{\zeta}}}{\paren{\zeta-z}^{n+1}},\]
     and by the triangle inequality,
     \[\abs{f^{(n)}(z)}\leq\frac{n!}{2\pi}\int_{K_1} \abs{f(\zeta)}\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{\abs{\ddzeta\wedge\dd{\overline{\zeta}}}}{\abs{\zeta-z}^{n+1}}.\]
@@ -1535,7 +1535,7 @@ A fundamental problem in the theory of partial differential equations is to find
     where \(\zeta=Re^{i\tau}\).
 \end{theorem}
 \begin{proof}
-    Since \(P(\zeta,z)=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}\), it follows that \(\Delta P(\zeta,z)=\pdv{}\)
+    Since \(P(\zeta,z)=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}\), it follows that from equation~\eqref{eq:laplaciancomplexform}, \(\Delta P(\zeta,z)=4\pdv{P(\zeta,z)}{z}{\overline{z}}=0\) (since each term contains is independent of either \(z\) or \(\overline{z}\)).
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 \section{The Theory of Weierstrass}
