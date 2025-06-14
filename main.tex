@@ -1552,8 +1552,11 @@ A fundamental problem in the theory of partial differential equations is to find
     For a constant harmonic function identically equal to 1, we get \(1=\int_0^{2\pi}P(\zeta,z)\dd{\tau}\) from equation~\eqref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\pi}P(\zeta,z)\qty(\varphi\qty(Re^{i\vartheta})-\varphi(\zeta))}.\]
     By the continuity of \(\varphi\), it follows that \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty|\vartheta-\tau|<\delta\), \(\abs{\varphi(Re^{i\vartheta})-\varphi(\zeta)}<\varepsilon\). Therefore,
     \begin{align*}
-        \abs{\varphi(\xi)-u(z)}&=\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}\ge\delta})P(\zeta,z)\paren{\varphi\qty(Re^{i\vartheta})}}
+            \abs{\varphi(\xi)-u(z)}&=\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}\ge\delta})P(\zeta,z)\paren{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}\dd{\tau}}\\&=\abs{I_1+I_2}.
     \end{align*}
+    For \(I_1\), we can assume \(\delta<1\) (since \(\delta\) can be arbitrarily smaller than necessary), and hence, \[
+    I_1<\varepsilon\int_{\abs{\vartheta-\tau}<\delta}P(\zeta,z)\dd{\tau}<\varepsilon.
+    \]
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 \section{The Theory of Weierstrass}
