@@ -1565,6 +1565,7 @@ A fundamental problem in the theory of partial differential equations is to find
             \coordinate (zeta) at (4.924, 0.868);
             \coordinate (z) at (2.2, 4.2);
             \coordinate (xi) at (0.868, 4.924);
+            \coordinate (auxiliary1) at ($(0,0)!0.948!(zeta)$);
             
             \draw[-{Stealth}, thick] (-0.5, 0) -- (6, 0);
             \draw[-{Stealth}, thick] (0, -0.5) -- (0, 6);
@@ -1573,14 +1574,18 @@ A fundamental problem in the theory of partial differential equations is to find
             \draw[thin] (0, 0) -- (xi);
             \draw[thin] (0, 0) -- (z);
             \draw[thin] (z) -- (xi);
+            \draw[thin] (z) -- (auxiliary1);
             \draw[thin] ($(0,0)!0.1!(zeta)$) arc[start angle=10, end angle=62.35, radius=0.5];
 
             \node[anchor=west] at (zeta) {\(\zeta\)};
             \node[anchor=north] at (z) {\(z\)};
             \node[anchor=south] at (xi) {\(\xi\)};
-            \node[anchor=south] at ($(0,0)!0.5!(zeta)$) {\(R\)};
+            \node[anchor=south] at ($(0,0)!0.5!(zeta)$) {\(\rho\)};
             \node[anchor=north] at ($(z)!0.5!(xi)$) {\(\eta^-\)};
+            \node[anchor=west] at ($(0,0)!0.5!(xi)$) {\(R\)};
+            \node[anchor=west] at ($(z)!0.5!(0,0)$) {\(\rho\)};
             \node[anchor=north] at (0.7,0.7) {\(\delta^+\)};
+            \node[anchor=east] at ($(z)!0.5!(zeta)$) {\(\substack{|\zeta-z|}\)};
         \end{tikzpicture}
         \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked.}
         \label{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}
