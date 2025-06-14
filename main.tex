@@ -1396,7 +1396,7 @@ Since the real and imaginary parts of holomorphic functions are harmonic functio
     \end{align*}
     From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly nonnegative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
-\subsubsection{Holomorphic Automorphism of the Unit Disk}
+\subsubsection{The Group of Holomorphic Automorphisms on the Unit Disk}
 For simplicity, we will have \(\mathbb{D}\) denote the unit open disk, or \(D(0,1)\). The following important result can be directly obtained from the Maximum Modulus Principle.
 \begin{lemma}[Schwarz Lemma]\label{lemma:schwarz}
     If \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
@@ -1509,7 +1509,7 @@ Since \(R=\abs{\zeta}\), \[P(\zeta,z)=\frac{|\zeta|^2-|z|^2}{2\pi\paren{\zeta-z}
 Thus, equation~\eqref{eq:poissonintegralformula2} is equivalent to:
 \[u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
 Since \(\ddzeta=iRe^{i\tau}\dd{\tau}\), \(\dd{\tau}=\frac{\ddzeta}{i\zeta}\), and \[u(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Re\qty(\frac{\zeta+z}{\zeta-z})\ddzeta=\Re\qty[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta],\]
-where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \(\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\) is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+ic\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic and real-valued, by \autoref{lemma:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+iv(z)\), \[v(z)=c+\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Im\qty(\frac{\zeta+z}{\zeta-z})\ddzeta.\] Letting \(z=0\), the integral vanishes, and we obtain \(c=v(0)=\Im(f(0))\).
+where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \(\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\) is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+ic\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \autoref{lemma:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+iv(z)\), \[v(z)=c+\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Im\qty(\frac{\zeta+z}{\zeta-z})\ddzeta.\] Letting \(z=0\), the integral vanishes, and we obtain \(c=v(0)=\Im(f(0))\).
 
 Define the \textit{Schwarz kernel} to be \[S(\zeta,z)=\frac{\zeta+z}{2\pi i(\zeta-z)\zeta}.\]
 Then for \(f\) holomorphic on \(D(0,R)\) and continuous \(\overline{D(0,R)}\), we obtain the \textit{Schwarz Integral Formula}:
