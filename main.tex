@@ -1563,7 +1563,7 @@ A fundamental problem in the theory of partial differential equations is to find
         \centering
         \begin{tikzpicture}
             \coordinate (zeta) at (4.924, 0.868);
-            \coordinate (z) at (2.2, 3.5);
+            \coordinate (z) at (2.2, 4.2);
             \coordinate (xi) at (0.868, 4.924);
             
             \draw[-{Stealth}, thick] (-0.5, 0) -- (6, 0);
@@ -1573,12 +1573,14 @@ A fundamental problem in the theory of partial differential equations is to find
             \draw[thin] (0, 0) -- (xi);
             \draw[thin] (0, 0) -- (z);
             \draw[thin] (z) -- (xi);
+            \draw[thin] ($(0,0)!0.1!(zeta)$) arc[start angle=10, end angle=62.35, radius=0.5];
 
             \node[anchor=west] at (zeta) {\(\zeta\)};
-            \node[anchor=south] at (z) {\(z\)};
+            \node[anchor=north] at (z) {\(z\)};
             \node[anchor=south] at (xi) {\(\xi\)};
-            \node[anchor=north] at (2.5, 0) {\(R\)};
-            \node[anchor=west] at ($ (A) !0.5! (B) $) {\(\)};
+            \node[anchor=south] at ($(0,0)!0.5!(zeta)$) {\(R\)};
+            \node[anchor=north] at ($(z)!0.5!(xi)$) {\(\eta^-\)};
+            \node[anchor=north] at (0.7,0.7) {\(\delta^+\)};
         \end{tikzpicture}
         \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked.}
         \label{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}
