@@ -1509,13 +1509,17 @@ Since \(R=\abs{\zeta}\), \[P(\zeta,z)=\frac{|\zeta|^2-|z|^2}{2\pi\paren{\zeta-z}
 Thus, equation~\eqref{eq:poissonintegralformula2} is equivalent to:
 \[u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
 Since \(\ddzeta=iRe^{i\tau}\dd{\tau}\), \(\dd{\tau}=\frac{\ddzeta}{i\zeta}\), and \[u(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Re\qty(\frac{\zeta+z}{\zeta-z})\ddzeta=\Re\qty[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta],\]
-where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \(\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\) is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+ic\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \autoref{lemma:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+iv(z)\), \[v(z)=c+\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Im\qty(\frac{\zeta+z}{\zeta-z})\ddzeta.\] Letting \(z=0\), the integral vanishes, and we obtain \(c=v(0)=\Im(f(0))\).
+where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \(\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\) is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+ic\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \autoref{lemma:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+iv(z)\), \begin{equation}
+    v(z)=c+\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Im\qty(\frac{\zeta+z}{\zeta-z})\ddzeta.\label{eq:schwarzintegralformulaimaginarypart}
+\end{equation}
+Letting \(z=0\), the integral vanishes, and we obtain \(c=v(0)=\Im(f(0))\).
 
 Define the \textit{Schwarz kernel} to be \[S(\zeta,z)=\frac{\zeta+z}{2\pi i(\zeta-z)\zeta}.\]
 Then for \(f\) holomorphic on \(D(0,R)\) and continuous \(\overline{D(0,R)}\), we obtain the \textit{Schwarz Integral Formula}:
 \begin{equation}
     f(z)=\int_{\partial D(0,R)}\Re\qty(f(\zeta))S(\zeta,z)\ddzeta+i\Im\qty(f(0)).\label{eq:schwarzintegralformula}
 \end{equation}
+The significance of this alternative formula implies that a holomorphic function can be recovered from the real part of a holomorphic function over the boundary of a disk and a single
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
 Laurent Series are a generalization of Taylor Series specifically for holomorphic functions on a region punctured by a non-removable singularity. Whereas the Taylor Series applies to a disk, the Laurent Series applies to an annulus around the singularity.
