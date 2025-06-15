@@ -1546,7 +1546,9 @@ A fundamental problem in the theory of partial differential equations is to find
 \end{theorem}
 \begin{proof}
     Since \(P(\zeta,z)=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}\), it follows that from equation~\eqref{eq:laplaciancomplexform}, \(\Delta_z P(\zeta,z)=4\pdv{P(\zeta,z)}{z}{\overline{z}}=0\) (since each term is independent of either \(z\) or \(\overline{z}\)). Then by \autoref{thm:leibnizintegralrule}, equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution} becomes \[\Delta u(z)=\Delta\int_0^{2\pi}\varphi(\zeta)P(\zeta,z)\dd{\tau}=\int_0^{2\pi}\Delta\qty[\varphi(\zeta)P(\zeta,z)]\dd{\tau}=0.\]
-    As are integrals defined with limits, we aim to prove that for fixed \(\xi=Re^{i\vartheta}\in\partial D(0,R)\), \[\lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\]
+    As are integrals defined with limits, we aim to prove that for fixed \(\xi=Re^{i\vartheta}\in\partial D(0,R)\), \begin{equation}
+        \lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\label{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}
+    \end{equation}
     Let \(0<\rho<R\) and \(z=\rho e^{i\theta}\). Then, 
     \[\abs{\varphi(\xi)-u(z)}=\abs{\varphi\qty(Re^{i\vartheta})-u\qty(\rho e^{i\theta})}=\abs{\varphi\qty(Re^{i\vartheta})-\int_0^{2\pi}P(\zeta,z)\varphi\qty(\zeta)\dd{\tau}}.\]
     For a constant harmonic function identically equal to 1, we get \(1=\int_0^{2\pi}P(\zeta,z)\dd{\tau}\) from equation~\eqref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\pi}P(\zeta,z)\qty(\varphi\qty(Re^{i\vartheta})-\varphi(\zeta))}.\]
@@ -1598,9 +1600,12 @@ A fundamental problem in the theory of partial differential equations is to find
     \end{figure}
 
     Since \[P(\zeta,z)=\frac{R^2-\rho^2}{2\pi\qty|\zeta-z|^2},\]
-    where \(\zeta=Re^{i\tau}\) and \(z=\rho e^{i\theta}\), assume that \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that when \(|\xi-z|<\eta\), \(\abs{\theta-\tau}>\delta\) and \(\rho>\frac{R}{2}\). Then by the Law of Cosines, \(|\zeta-z|^2>4\rho^2\sin[2](\frac{\delta}{2})>\frac{1}{2}R^2\qty(1-\cos(\delta))\). 
+    where \(\zeta=Re^{i\tau}\) and \(z=\rho e^{i\theta}\), assume that \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that when \(|\xi-z|<\eta\), \(\abs{\theta-\tau}>\delta\) and \(\rho>\frac{R}{2}\) (this can be arbitrarily chosen for different resulting bounds). Then by the Law of Cosines, \(|\zeta-z|^2>4\rho^2\sin[2](\frac{\delta}{2})>\frac{1}{2}R^2\qty(1-\cos(\delta))\). 
 
     Since \(\abs{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}<2M\), we can set \(\int_{\abs{\vartheta-\tau}>\delta}\frac{R^2-\rho^2}{\pi R^2\qty(1-\cos(\delta))}\dd{\tau}\leq2\frac{R^2-\rho^2}{R^2\qty(1-\cos(\delta))}< \frac{\varepsilon}{2M}\), and \[R^2-\rho^2<\frac{\varepsilon}{4M}R^2\paren{1-\cos(\delta)}.\]
+    Under these existent conditions, we have \(\abs{\varphi(\xi)-u(z)}<2\varepsilon\). Then equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary} follows.
+
+    We will now show that \(u(z)\) is unique.
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 \section{The Theory of Weierstrass}
