@@ -254,7 +254,7 @@ We also have the definition of the limit of a sequence:
         \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n<a+\varepsilon\),
         \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n>a-\varepsilon\),
     \end{enumerate}
-    then the \textit{superior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\limsup_{n\to\infty}a_n=a\).
+    then the \textit{superior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varlimsup_{n\to\infty}a_n=\limsup_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{definition}[Limit Inferior]\label{def:liminf}
     For a number sequence \(\qty{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
@@ -262,17 +262,17 @@ We also have the definition of the limit of a sequence:
         \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n>a-\varepsilon\),
         \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n<a+\varepsilon\),
     \end{enumerate}
-    then the \textit{inferior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\liminf_{n\to\infty}a_n=a\).
+    then the \textit{inferior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{lemma}
-    A number sequence \(\qty{a_n}\) is convergent if and only if \(\limsup_{n\to\infty} a_n=\liminf_{n\to\infty}a_n\).
+    A number sequence \(\qty{a_n}\) is convergent if and only if \(\varlimsup_{n\to\infty} a_n=\varliminf_{n\to\infty}a_n\).
 \end{lemma}
 \begin{proof}
-    We first prove that \(a=\lim_{n\to\infty}a_n\) implies \(\limsup_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
+    We first prove that \(a=\lim_{n\to\infty}a_n\) implies \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n=a\).
     By \autoref{def:epsilonn}, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[\abs{a_n-a}<\varepsilon\Longleftrightarrow a-\varepsilon<a_n<a+\varepsilon.\]
-    Then from the first conditions of \autoref{def:limsup} and \autoref{def:liminf}, we get that \(\limsup_{n\to\infty}a_n\geq a\) and \(\liminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\limsup_{n\to\infty}a_n\leq a\) and \(\liminf_{n\to\infty} a_n\geq a\). Therefore, \[\limsup_{n\to\infty}a_n=\liminf_{n\to\infty}a_n.\]
+    Then from the first conditions of \autoref{def:limsup} and \autoref{def:liminf}, we get that \(\varlimsup_{n\to\infty}a_n\geq a\) and \(\varliminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\varlimsup_{n\to\infty}a_n\leq a\) and \(\varliminf_{n\to\infty} a_n\geq a\). Therefore, \[\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n.\]
 
-    For the converse, assume \(\limsup_{n\to\infty}a_n=\liminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\). \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty(N_1, N_2)\), \(\qty|a_n-a|<\varepsilon\), as expected.
+    For the converse, assume \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\). \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty(N_1, N_2)\), \(\qty|a_n-a|<\varepsilon\), as expected.
 \end{proof}
 \begin{definition}[Continuity]\label{def:continuity}
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if and only if \[\lim_{x\to a}f(x)=f(a).\]
@@ -553,7 +553,7 @@ Let \(D(a,r)=B^1(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textit
 The disk \(\abs{z}<R\) is known as the \textit{disk of convergence}, a direct generalization of the \textit{interval of convergence} for real series. There are many ways to determine the radius of convergence:
 \begin{theorem}[Cauchy--Hadamard Theorem]\label{thm:cauchyhadamard}
     The radius of convergence of the power series in the form of \(\sum_{n=0}^\infty a_nz^n\) can be determined by \begin{equation}
-        R=\frac{1}{\limsup_{n\to\infty}\sqrt[n]{\abs{a_n}}}. \label{eq:cauchyhadamard}
+        R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{a_n}}}. \label{eq:cauchyhadamard}
     \end{equation}
 \end{theorem}
 Of course, a convergence radius of \(0\) implies that the series is divergent everywhere except for possibly at \(0\), and a convergence radius of \(\infty\) means that the series absolutely converges everywhere.
@@ -566,7 +566,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
 
     Assume that \(\abs{z}>R\). \(\forall\rho\in\qty(R,|z|)\), \(\frac{1}{\rho}<\frac{1}{R}\). By \autoref{def:limsup}, \(\forall N\in\mathbb{N}\), \(\exists n_N>N\) such that \(\sqrt[n_N]{\abs{a_{n_N}}}>\frac{1}{\rho}\). It follows that \(\abs{a_{n_N}z^{n_N}}>\frac{\abs{z^{n_N}}}{\rho^{n_N}}>1\). Since \(\forall N\in\mathbb{N}\), \(\abs{\sum_{k=0}^{n_N}a_kz^k-\sum_{k=0}^{n_N-1}a_kz^k}>1\), by the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), \(\sum_{n=0}^\infty a_nz^n\) is divergent. Thus, \ref{itm:abelradius_divergence} is satisfied.
 
-    To prove \ref{itm:abelradius_differentiation}, first observe that \(\sum_{n=1}^\infty na_nz^n\) and \(\sum_{n=1}^\infty a_nz^n\) have the same convergence radius since \(\limsup_{n\to\infty}\sqrt[n]{n}=1\). For \(z\in D(0, R)\), let \(f(z)=S_n(z)+R_n(z)\), where \[S_n(z)=\sum_{k=0}^{n-1}a_kz^k,\quad R_n(z)=\sum_{k=n}^\infty a_kz^k.\]
+    To prove \ref{itm:abelradius_differentiation}, first observe that \(\sum_{n=1}^\infty na_nz^n\) and \(\sum_{n=1}^\infty a_nz^n\) have the same convergence radius since \(\varlimsup_{n\to\infty}\sqrt[n]{n}=1\). For \(z\in D(0, R)\), let \(f(z)=S_n(z)+R_n(z)\), where \[S_n(z)=\sum_{k=0}^{n-1}a_kz^k,\quad R_n(z)=\sum_{k=n}^\infty a_kz^k.\]
     Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_nz^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=0.\]
     By analyzing the difference,
     \begin{equation}
