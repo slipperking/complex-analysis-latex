@@ -405,13 +405,13 @@ and
     \dv{f}{z}=\pdv{u}{x}+i\pdv{v}{x}=\pdv{v}{y}+i\pdv{v}{x}=\pdv{u}{x}-i\pdv{u}{y}=\pdv{v}{y}-i\pdv{u}{y}.
 \end{equation}
 On the contrary, by the rules of the derivative, \begin{equation*}
-    \pdv{}{x}=\pdv{}{z}\pdv{z}{x}+\pdv{}{\overline{z}}\pdv{\overline{z}}{x}=\pdv{}{z}+\pdv{}{\overline{z}}
+    \pdv{x}=\pdv{z}\pdv{z}{x}+\pdv{}{\overline{z}}\pdv{\overline{z}}{x}=\pdv{z}+\pdv{\overline{z}}
 \end{equation*} and \begin{equation*}
     \pdv{}{y}=\pdv{}{z}\pdv{z}{y}+\pdv{}{\overline{z}}\pdv{\overline{z}}{y}=i\pdv{}{z}-i\pdv{}{\overline{z}}.
 \end{equation*}
 
 The Laplacian is equal to \begin{align}
-    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{}{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{}{z}-i\pdv{}{\overline{z}}}^2                                               \nonumber \\
+    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{z}-i\pdv{}{\overline{z}}}^2                                               \nonumber \\
                                      & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \nonumber \\
                                      & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
 \end{align}
@@ -1046,11 +1046,11 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
         f^{(k)}(z) & =\frac{k!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)^{k+1}}\ddzeta                                                                           \\
                    & =\frac{k!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+1}}\paren{\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j}^{k+1}\ddzeta \\
                    & =f^{(k)}\paren{z_0}+\frac{(k+1)!\paren{z-z_0}}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta                               \\
-                   & \quad+O\paren{\abs{z-z_0}^2},
+                   & \quad +O_{z\to z_0}\paren{\abs{z-z_0}^2},
     \end{align*}
-    where the remainder terms \(O\paren{\abs{z-z_0}^2}\) resemble
-    \[\paren{z-z_0}^2\frac{k!}{2\pi i}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+O\paren{\abs{z-z_0}^3}.\]
-    The difference quotient is equal to \[\frac{f^{(k)}(z)-f^{(k)}\paren{z_0}}{z-z_0}=\frac{(k+1)!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta+O\abs{z-z_0}.\] As \(z\to z_0\), the remainder terms vanish, and \[f^{(k+1)}\paren{z_0}=\frac{(k+1)!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta.\]
+    where the remainder terms \(O_{z\to z_0}\qty(\abs{z-z_0}^2)\) resemble
+    \[\paren{z-z_0}^2\frac{k!}{2\pi i}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+O_{z\to z_0}\paren{\abs{z-z_0}^3}.\]
+    The difference quotient is equal to \[\frac{f^{(k)}(z)-f^{(k)}\paren{z_0}}{z-z_0}=\frac{(k+1)!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta+O_{z\to z_0}\abs{z-z_0}.\] As \(z\to z_0\), the remainder terms vanish, and \[f^{(k+1)}\paren{z_0}=\frac{(k+1)!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta.\]
     By induction, equation~\eqref{eq:cauchydifferentiationformula_statement} is valid. By substituting equation~\eqref{eq:cauchydifferentiationformula_kernelexpansion} into \eqref{eq:cauchygoursatformula}, we obtain \[f(z)=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z_0}\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j\ddzeta=\frac{1}{2\pi i}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)\ddzeta}{\paren{\zeta-z_0}^{j+1}}.\]
     Because \(f(\zeta)\) is continuous over \(\partial U\), it is bounded by a constant \(M\). Additionally, since \(\abs{z-z_0}<\abs{\zeta-z_0}\), the sum is termwise bounded by the convergent series \[\sum_{j=0}^\infty\abs{z-z_0}^j\frac{M}{\abs{\zeta-z_0}^{j+1}}.\]
     By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series uniformly converges, and we can justify \begin{gather*}
