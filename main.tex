@@ -1140,6 +1140,8 @@ For the next theorem we will briefly introduce the concept of \textit{analytic c
     \end{enumerate}
     The collection \(\tau\) is called a \textit{topology} on \(X\), and its elements are referred to as \textit{open sets} under the topology \(\tau\).
 \end{definition}
+If a topological space \(X\) can be written as the union between two nonempty disjoint open sets, then it is \textit{disconnected}.
+
 A topology allows the definition and general conceptualization of continuity, convergence, and connectedness in a general setting, without necessarily relying on a notion of distance (a metric).
 
 For example, in a topological space, a function \(f:X\to Y\) between two topological spaces is said to be continuous if the preimage of every open set in \(Y\) is an open set in \(X\). This generalizes the familiar \(\varepsilon\)-\(\delta\) definition of continuity from calculus.
@@ -1167,7 +1169,9 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     A topological space \(X\) is \textit{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\). 
 \end{theorem}
 \begin{proof}
-    Suppose that \(X\) is connected. For the sake of contradiction, suppose that \(U\subseteq X\) is clopen such that \(U\neq\emptyset\) and \(U\neq X\). Notice that \(U\) and \(X\setminus U\) are both open in \(X\) by clopenness and are disjoint from each other. Since \(X=U\cup\qty(X\setminus U)\), 
+    Suppose that \(X\) is connected. For the sake of contradiction, suppose that \(U\subseteq X\) is clopen such that \(U\neq\emptyset\) and \(U\neq X\). Notice that \(U\) and \(X\setminus U\) are both open in \(X\) by clopenness and are disjoint from each other. Since \(X=U\cup\qty(X\setminus U)\), it follows that \(X\) is disconnected.
+
+    
 \end{proof}
 \begin{example}
     The topological space of \((\mathbb{R},\tau)\) where \(\tau\) is the standard topology only contains two clopen sets: \(\mathbb{R}\) and \(\emptyset\).
