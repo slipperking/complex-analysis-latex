@@ -1171,7 +1171,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 \begin{proof}
     Suppose that \(X\) is connected. Suppose that \(A\subseteq X\) is clopen. Notice that \(A\) and \(X\setminus A\) are both open in \(X\) by clopenness and are disjoint from each other. Since \(X=A\cup\qty(X\setminus A)\), it follows that either \(A=\emptyset\) or \(X\setminus A=\emptyset\Leftrightarrow A=X\).
 
-    Conversely, assume \(X\) is disconnected. Assume \(U,V\subseteq X\) are clopen and are equal to neither \(\emptyset\) or \(X\)
+    Conversely, for the sake of contradiction, assume \(X\) is disconnected. Then, there exist two nonempty open sets \(U,V\subseteq X\) such that \(U\cap V=\emptyset\) and \(U\cup V=X\). It follows that \(U=X\setminus V\neq X\) and \(V=X\setminus U\neq X\) are closed and consequently clopen. This contradicts the assumption that \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).  Thus, \(X\) must be connected.
 \end{proof}
 \begin{example}
     The topological space of \((\mathbb{R},\tau)\) where \(\tau\) is the standard topology only contains two clopen sets: \(\mathbb{R}\) and \(\emptyset\).
@@ -1256,7 +1256,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 
     \(\forall k\in\mathbb{Z}_{\geq0}\), \(f^{(k)}\) is continuous in \(U\) by the holomorphy of \(f\). Let \(S_k=\cbraces{z\in U}{f^{(k)}(z)=0}\). For any sequence \(\cbraces{z'_n}\in S_k\) converging to some \(z'_\infty\in U\), by the continuity of \(f\), \[\lim_{n\to\infty} f^{(k)}\paren{z'_n}=f^{(k)}\paren{\lim_{n\to\infty}z'_n}=f^{(k)}\paren{z'_\infty}=0,\] and therefore \(z'_\infty\in S_k\). Thus, \(S_k\) contains all of its accumulation points in \(U\) and is therefore closed in \(U\) (if \(z'_\infty\notin U\), then it is no longer relevant; we are concerned about it being closed within \(U\)). Since \(S^*=\bigcap_{k\in\mathbb{Z}_{\geq0}} S_k\) and each of \(S_k\) is closed in \(U\), \(S^*\) is the intersection of closed sets and consequently closed.
 
-    Since \(S^*\) is nonempty and clopen in the connected set \(U\), \(S^*=U\). It follows that \(f\equiv 0\) on \(U\).
+    Since \(S^*\) is nonempty and clopen in the connected set \(U\), \(S^*=U\) (by \autoref{thm:connectedtopologicalspaceclopensets}). It follows that \(f\equiv 0\) on \(U\).
 \end{proof}
 \begin{remark}
     This is a trivial property of holomorphic functions that allows for the uniqueness of analytic continuations. It is oftentimes stated in the form below:
