@@ -1193,11 +1193,19 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \coordinate (xi) at (2, 2);
+        
+            \pgfmathsetseed{69420}
+            \def\n{8}
+    
+            \foreach \i in {1,...,\n} {
+                \pgfmathsetmacro{\angle}{360/\n * \i}
+                \pgfmathsetmacro{\r}{2 + rand}
+                \coordinate (P\i) at ({\r*cos(\angle)}, {\r*sin(\angle)});
+            }
             
-            \draw[dashed, thin] (xi) -- (0,0);
-
-            \node[anchor=west] at (xi) {\(\xi\)};
+            \draw[thick] plot[smooth cycle] coordinates {
+                (0, 1) (P2) (P3) (P4) (P5) (P6) (P7) (P8)
+            };
         \end{tikzpicture}
         \caption{}
         \label{fig:locallyfiniteopencoverexistence}
