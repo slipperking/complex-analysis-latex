@@ -1193,18 +1193,11 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     \begin{figure}
         \centering
         \begin{tikzpicture}
-        
-            \pgfmathsetseed{69420}
-            \def\n{8}
-    
-            \foreach \i in {1,...,\n} {
-                \pgfmathsetmacro{\angle}{360/\n * \i}
-                \pgfmathsetmacro{\r}{2 + rand}
-                \coordinate (P\i) at ({\r*cos(\angle)}, {\r*sin(\angle)});
-            }
-            
             \draw[thick] plot[smooth cycle] coordinates {
-                (0, 1) (P2) (P3) (P4) (P5) (P6) (P7) (P8)
+                (0,1) (2,0) (4,1) (5,3) (4,5) (2,5) (1,4) (0,2)
+            };
+            \draw[thick] plot[smooth cycle] coordinates {
+                (0.5,1.5) (2,1) (3.5,2) (4,3.5) (3,4) (2,3.5) (1.5,3) (1,2)
             };
         \end{tikzpicture}
         \caption{}
