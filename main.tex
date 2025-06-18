@@ -1193,7 +1193,6 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
             \draw[line width=0.35] plot[smooth cycle] coordinates {
                 (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
             };
@@ -1228,23 +1227,23 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
                 (4,1.2) (4.3,2.2) (5.5,3) (5.6,2) 
             };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4.8,2.5) (4.6,3.8) (4.2,4.4) (5.1,5)
+                (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
             };
             
-            \node[anchor=north] at (2.8,2.8) {\(K_{n-2}\)};
+            \node[anchor=north] at (2.5,2.8) {\(K_{n-2}\)};
             \node[anchor=north] at (2.7,5) {\(V_{n-1}\)};
             \node[anchor=north] at (2.7,5.6) {\(V_n\)};
             \node[anchor=north] at (2.7,6.2) {\(V_{n+1}\)};
             \draw[decorate,decoration={calligraphic 
             brace, amplitude=7pt},thick] (3.4,6.18) -- (3.2,4.4) node[midway, yshift=-3pt,right=4pt] {\(W_n\)};
         \end{tikzpicture}
-        \caption{The finite subcover of \(V_n\) in \(W_n\) }
+        \caption{The geometry of the finite subcover of \(V_n\subset W_n\) for some \(n\in\mathbb{N}\).}
         \label{fig:locallyfiniteopencoverexistence}
     \end{figure}Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\), with each \(K_n\) compact and \(K_n\subseteq K_{n+1}^\circ\). For each \(n\in\mathbb{N}\), define \(W_n=K_{n+1}^\circ\setminus K_{n-2}\), which is open, and \(V_n=K_n\setminus K_{n-1}^\circ\), which is compact (as in \autoref{fig:locallyfiniteopencoverexistence}). 
 
     By construction, \(V_n\subseteq W_n\) for all \(n\in\mathbb{N}\). The sets \(\{V_n\}\) form compact shells exhausting \(\Omega\), since \(\bigcup_{n\in\mathbb{N}}V_n=\Omega\).
 
-    \(\forall n\in\mathbb{N}\) and \(\forall z\in V_n\), since \(W_n\) is an open set containing \(z\) and \(\mathfrak{B}\) is a basis, there exists \(U_{z,n}\in\mathfrak{B}\) such that \(z\in U_{z,n}\subseteq W_n\) (in short, \(U_{z,n}\) is an open neighborhood of \(z\) that is contained in \(W_n\)). The collection \(\cbraces{U_{z,n}}{z\in V_n}\) is an open cover of the compact set \(V_n\), so by the Heine-Borel Theorem (\autoref{thm:heineborel}) it admits a finite subcover of \(V\). That is, there exist finitely many points \(z_{n,1},\ldots,z_{n,k_n}\) such that \(V_n\subset\bigcup_{i=1}^{k_n}U_{z_{n,i},n}\subseteq W_n\).
+    \(\forall n\in\mathbb{N}\) and \(\forall z\in V_n\), since \(W_n\) is an open set containing \(z\) and \(\mathfrak{B}\) is a basis, there exists \(U_{z,n}\in\mathfrak{B}\) such that \(z\in U_{z,n}\subseteq W_n\) (in short, \(U_{z,n}\) is an open neighborhood of \(z\) that is contained in \(W_n\)). The collection \(\cbraces{U_{z,n}}{z\in V_n}\) is an open cover of the compact set \(V_n\), so by the Heine-Borel Theorem (\autoref{thm:heineborel}) it admits a finite subcover of \(V_n\), as pictured in the dotted lines of \autoref{fig:locallyfiniteopencoverexistence}. That is, there exist finitely many points \(z_{n,1},\ldots,z_{n,k_n}\) such that \(V_n\subset\bigcup_{i=1}^{k_n}U_{z_{n,i},n}\subseteq W_n\).
 
     Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{n,i},n}\) for \(n\in\mathbb{N}\) and \(i=1,\ldots,k_n\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving \ref{itm:locallyfiniteopencoverexistence_cover}.
 
