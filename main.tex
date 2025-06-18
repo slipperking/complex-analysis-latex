@@ -1447,7 +1447,7 @@ Before the theorem, we first introduce the mean-value property of holomorphic fu
 \end{proof}
 Since the real and imaginary parts of holomorphic functions are real-valued harmonic functions, they also satisfy the mean-value property. Furthermore, if a real continuous function satisfies the mean-value property, it is harmonic (to be proved in \autoref{thm:meanvaluepropertysolutionsareharmonic}). This equivalence allows for the alternative definition of harmonic functions.
 \begin{theorem}[Maximum Modulus Principle]\label{thm:maximummodulus}
-    Let \(f(z)\) be holomorphic on an open connected region \(U\subseteq\mathbb{C}\). If \(\exists z_0\in U\) such that for some open neighborhood \(V\subseteq U\) of \(z_0\) and \(\forall z\in U\), \(\abs{f\paren{z_0}}\geq\abs{f(z)}\), then \(f\) is a constant function on \(U\).
+    Let \(f(z)\) be holomorphic on an open connected region \(U\subseteq\mathbb{C}\). If \(\exists z_0\in U\) and an open neighborhood \(V\subseteq U\) of \(z_0\) such that \(\forall z\in V\), \(\abs{f\paren{z_0}}\geq\abs{f(z)}\), then \(f\) is a constant function on \(U\).
 \end{theorem}
 \begin{proof}
     Assume that \(z_0\) exists. We will first prove that the set \(S=\cbraces{z}{f(z)=f\paren{z_0},z\in V}\) is all of \(V\). This is equivalent to proving that \(S\) is nonempty, open, and closed in \(V\).
@@ -1467,8 +1467,8 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
     From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly nonnegative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
 A similar theorem exists for real-valued harmonic functions. The proof follows in the same way as the one for holomorphic functions. We will state it formally below.
-\begin{theorem}[Maximum Principle]
-    Let \(U\subseteq\mathbb{C}\) be open and connected and let \(f:U\to\mathbb{R}\) be harmonic. If \(\exists z_0\in U\) such that \(V\subseteq U\) of \(z_0\) and \(\forall z\in U, \)
+\begin{theorem}[Maximum Principle]\label{thm:maximumprincipleforrealharmonicfunctions}
+    Let \(U\subseteq\mathbb{C}\) be open and connected and let \(f:U\to\mathbb{R}\) be harmonic. If \(\exists z_0\in U\) and a neighborhood \(V\subseteq U\) of \(z_0\) such that \(\forall z\in V\), either \(f(z)\geq f\qty(z_0)\) completely or \(f(z)\leq f\qty(z_0)\) completely, then \(f\) is constant on \(U\).
 \end{theorem}
 \subsubsection{The Group of Holomorphic Automorphisms on the Unit Disk}
 For simplicity, we will have \(\mathbb{D}\) denote the unit open disk, or \(D(0,1)\). The following important result can be directly obtained from the Maximum Modulus Principle.
