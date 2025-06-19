@@ -1467,7 +1467,7 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
     From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly nonnegative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
 A similar theorem exists for real-valued harmonic functions. The proof follows in the same way as the one for holomorphic functions. We will state it formally below.
-\begin{theorem}[Maximum Principle]\label{thm:maximumprincipleforrealharmonicfunctions}
+\begin{theorem}\label{thm:maximumprincipleforrealharmonicfunctions}
     Let \(U\subseteq\mathbb{C}\) be open and connected and let \(f:U\to\mathbb{R}\) be harmonic. If \(\exists z_0\in U\) and a neighborhood \(V\subseteq U\) of \(z_0\) such that \(\forall z\in V\), either \(f(z)\geq f\qty(z_0)\) completely or \(f(z)\leq f\qty(z_0)\) completely, then \(f\) is constant on \(U\).
 \end{theorem}
 
@@ -1614,7 +1614,7 @@ A fundamental problem in the theory of partial differential equations is to find
 \end{theorem}
 \begin{proof}
     Since \(P(\zeta,z)=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}\), it follows that from equation~\eqref{eq:laplaciancomplexform}, \(\laplacian_z P(\zeta,z)=4\pdv{P(\zeta,z)}{z}{\overline{z}}=0\) (since each term is independent of either \(z\) or \(\overline{z}\)). Then by \autoref{thm:leibnizintegralrule}, equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution} becomes \[\laplacian u(z)=\laplacian\int_0^{2\pi}\varphi(\zeta)P(\zeta,z)\dd{\tau}=\int_0^{2\pi}\laplacian\qty[\varphi(\zeta)P(\zeta,z)]\dd{\tau}=0.\]
-    As are integrals defined with limits, we aim to prove that for fixed \(\xi=Re^{i\vartheta}\in\partial D(0,R)\), \begin{equation}
+    As integrals are defined with limits, we aim to prove that for fixed \(\xi=Re^{i\vartheta}\in\partial D(0,R)\), \begin{equation}
         \lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\label{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}
     \end{equation}
     Let \(0<\rho<R\) and \(z=\rho e^{i\theta}\). Then, 
@@ -1692,9 +1692,9 @@ Finally, we will demonstrate that real-valued continuous functions satisfying th
     then \(f\) is harmonic on \(U\).
 \end{theorem}
 \begin{proof}
-    Choose an arbitrary \(z_0\in U\) and the corresponding value of \(\varepsilon>0\). Since \(f\) is continuous on \(\partial D\qty(z_0,\varepsilon)\), there exists a harmonic function \(u(z)=\int_0^{2\pi}\varphi(\zeta)P(\zeta,z)\dd{\tau}\) that is identically equal to \(f\) on \(\partial D\qty(z_0,\varepsilon)\). Consider the function \(\psi=f-u\) on \(\overline{D\qty(z_0,\varepsilon)}\), which vanishes on \(\partial D\qty(z_0,\varepsilon)\).
+    Choose an arbitrary \(z_0\in U\) and the corresponding value of \(\varepsilon>0\). Since \(f\) is continuous on \(\partial D\qty(z_0,\varepsilon)\), there exists a harmonic function \(u(z)=\int_0^{2\pi}f(\zeta)P(\zeta,z)\dd{\tau}\) that is identically equal to \(f\) on \(\partial D\qty(z_0,\varepsilon)\). Consider the function \(\psi=f-u\) on \(\overline{D\qty(z_0,\varepsilon)}\), which vanishes on \(\partial D\qty(z_0,\varepsilon)\).
 
-    The Maximum Principle can be generalized to \(\psi\) since it satisfies the mean-value property (refer to the proof of the Maximum Modulus Principle ())
+    The Maximum Principle can be generalized to \(\psi\) since it satisfies the mean-value property (refer to the proof of the Maximum Modulus Principle (\autoref{thm:maximummodulus}), which uses the mean-value property of holomorphic functions). It follows that the maximum of \(\psi\) is assumed to be on \(\partial D\qty(z_0,\varepsilon)\), and \(\psi\equiv 0\) on \(\overline{D\qty(z_0,\varepsilon)}\). Then \(f\) is harmonic on the closed disk (and on \(z_0\)). Since \(z_0\in U\) was arbitrary, the harmonicity is extendable to all of \(U\).
 \end{proof}
 \section{The Theory of Weierstrass}
 \subsection{Laurent Series}
@@ -1702,7 +1702,7 @@ Laurent Series are a generalization of Taylor Series specifically for holomorphi
 
 We have touched the subject of Weierstrass' Theorem for the uniform convergence of the derivatives of a holomorphic function sequence, and we will give the full result below.
 \begin{theorem}[Weierstrass' Uniform Limit Theorem]\label{thm:weierstrassuniformlimit}
-    Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\).
+    Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\). 
 \end{theorem}
 \begin{proof}
     By Morera's Theorem (\autoref{thm:morera}) and uniform convergence, the holomorphy of \(f(z)\) follows (refer to equation~\eqref{eq:hurwitzsimplecase_integrallimitswitchforholomorphy} and preceding explanations).
