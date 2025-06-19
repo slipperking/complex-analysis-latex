@@ -1688,15 +1688,11 @@ This series is not necessarily convergent (hence the usage of "\(\sim\)").
 TO BE CONTINUED
 Finally, we will demonstrate that real-valued continuous functions satisfying the mean-value property are logically equivalent to being a solution to the Laplace equation. In \autoref{lemma:holomorphicmeanvalueproperty}, we showed that real solutions to the Laplace equation satisfy the mean-value property. Now we will prove the converse.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
-    Let \( U \subseteq \mathbb{C} \) be open, and let \( f: U \to \mathbb{R} \) be continuous. Suppose that for every point \( z_0 \in U \), there exists \( \varepsilon > 0 \) such that the closed disk \( \overline{D(z_0, \varepsilon)} \subseteq U \), and for all \( 0 < \varepsilon' \le \varepsilon \),
-    \[
-        f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f(z_0 + \varepsilon' e^{it})\, dt.
-    \]
-    Then \( f \) is harmonic on \( U \).
+    Let \(U\subseteq\mathbb{C}\) be open. Let \(f:U\to\mathbb{R}\) be continuous. \(\forall z_0\in U\), \(\exists\varepsilon>0\) such that \(\overline{D\qty(z_0,\varepsilon)}\subseteq U\), and if \(\forall0<\varepsilon'\le\varepsilon\), \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi}f\qty(z_0+\varepsilon'e^{it})\ddt,\]
+    then \(f\) is harmonic on \(U\).
 \end{theorem}
-
 \begin{proof}
-    Fix an arbitrary point \(z_0\in U\), along with a corresponding \(\varepsilon>0\) such that the closed disk \(\overline{D(z_0,\varepsilon)}\subseteq U\). Since \(f\in C^0\qty(\partial D(z_0,\varepsilon))\), by \autoref{thm:dirichletproblemwithlaplaceequationsolution}, \(\exists!u\in D(z_0,\varepsilon)\) that is harmonic, given by \[u(z)=\int_0^{2\pi}f(\zeta)P\qty(\zeta,z)\dd{\tau},\] which agrees with \(f\) on \(\partial D(z_0,\varepsilon)\).
+    Fix an arbitrary point \(z_0\in U\), along with a corresponding \(\varepsilon>0\) such that the closed disk \(\overline{D(z_0,\varepsilon)}\subseteq U\). Since \(f\in C^0\qty(\partial D(z_0,\varepsilon))\), by \autoref{thm:dirichletproblemwithlaplaceequationsolution}, there exists a unique function \(u(z)\) that is harmonic on \(D(z_0,\varepsilon)\), given by \[u(z)=\int_0^{2\pi}f(\zeta)P\qty(\zeta,z)\dd{\tau},\] which agrees with \(f\) on \(\partial D(z_0,\varepsilon)\).
 
     Now define \(\psi=f-u \) on \(\overline{D(z_0,\varepsilon)}\). Then \(\psi\) is continuous, satisfies the mean value property, and vanishes on the boundary. By an extension of the Maximum Principle (see the proof of the Maximum Modulus Principle, \autoref{thm:maximummodulus}, which only uses the mean-value property), any such function must be identically zero throughout the disk. Thus, \(f\equiv u\) on \(\overline{D(z_0,\varepsilon)}\), and in particular, \(f\) is harmonic at \(z_0\).
 
