@@ -72,6 +72,7 @@
 \NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\lbrace#1\IfNoValueTF{#2}{}{\,\middle|\,#2}\right\rbrace}}
 
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
+\newcommand{\chpref}[1]{\hyperref[#1]{\S\,\ref*{#1}}}
 
 \title{Complex Analysis}
 \author{Slipper King}
@@ -79,8 +80,6 @@
 \begin{document}
 \maketitle
 \tableofcontents
-\renewcommand{\sectionautorefname}{\S}
-\renewcommand{\subsectionautorefname}{\S}
 \section{Prerequisites}
 \subsection{Topological Preliminaries}
 We will provide a rough, informal notion of important topological concepts tailored specifically towards complex analysis.
@@ -354,7 +353,7 @@ For simplicity's sake, if we mention that a function is holomorphic on a region,
     The necessary and sufficient criterion for a function \(f(z)\) to be holomorphic on an open region \(U\) is if \(f(z)\in C^1(U)\) and it satisfies the Cauchy--Riemann equations.
 \end{theorem}
 \begin{proof}
-    The first part is to prove that any holomorphic function on \(U\) has continuous first-order partial derivatives in \(U\). This requires an argument that will be covered later (specifically in \autoref{sec:analyticityandholomorphy}), which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
+    The first part is to prove that any holomorphic function on \(U\) has continuous first-order partial derivatives in \(U\). This requires an argument that will be covered later (specifically in \chpref{sec:analyticityandholomorphy}), which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
 
     For the second part, let \(f(z)=f(x,y)=u(x,y)+iv(x,y)\). Assume that \(u,v\in C^1\paren{\{z_0\}}\) and satisfy the Cauchy--Riemann equations at \(z_0=x_0+iy_0\). Let \[\alpha=\pdv{u}{x}\paren{x_0,y_0}=\pdv{v}{y}\paren{x_0,y_0},\quad\beta=\pdv{v}{x}\paren{x_0,y_0}=-\pdv{u}{y}\paren{x_0,y_0}.\]
 
@@ -1542,7 +1541,7 @@ As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk},
     By the Schwarz Lemma (\autoref{lemma:schwarz}), under the equality condition \(\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1\), \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=e^{i\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ e^{i\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\]
 \end{proof}
 \begin{remark}
-    In \autoref{sec:differentialgeometry}, we will introduce the \textit{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-|z|^2)^2}.\]
+    In \chpref{sec:differentialgeometry}, we will introduce the \textit{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-|z|^2)^2}.\]
     From equation~\eqref{eq:schwarzpick_nonincreasingmetric}, we get that the hyperbolic metric does not increase under a holomorphic mapping of \(\mathbb{D}\) to itself. This metric is invariant (the equality condition) under all functions in \(\Aut(\mathbb{D})\). This gives a geometric explanation for \autoref{lemma:schwarz}.
 \end{remark}
 \subsection{Alternative Integral Formulae}
@@ -1693,7 +1692,7 @@ Finally, we will demonstrate that real-valued continuous functions satisfying th
 \subsection{Laurent Series}
 Laurent Series are a generalization of Taylor Series specifically for holomorphic functions on a region punctured by a non-removable singularity. Whereas the Taylor Series applies to a disk, the Laurent Series applies to an annulus around the singularity.
 
-We have touched the subject of Weierstrass' Theorem for the uniform convergence of the derivatives of a holomorphic function sequence, and we will give the full result below.
+We have touched on the subject of Weierstrass' Theorem for the uniform convergence of the derivatives of a holomorphic function sequence, and we will give the full result below.
 \begin{theorem}[Weierstrass' Uniform Limit Theorem]\label{thm:weierstrassuniformlimit}
     Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\). 
 \end{theorem}
