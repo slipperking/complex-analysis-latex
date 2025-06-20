@@ -311,7 +311,7 @@ Lipschitz continuity is an important concept in real analysis and the theory of 
     All Lipschitz continuous functions on \(U\) are uniformly continuous on \(U\).
 \end{lemma}
 \begin{proof}
-    Let \(M>0\) be the Lipschitz constant. Let \(\delta=\frac{\varepsilon}{M}\). It then follows that \(\forall\varepsilon>0\),  \(\abs{f(x)-f(y)}\leq M|x-y|\).
+    Let \(M>0\) be the Lipschitz constant. Then \(\forall \varepsilon>0\), let \(\delta=\frac{\varepsilon}{M}\). It then follows that \(\forall x,y\in U\) such that \(\abs{x-y}<\delta\), \(\abs{f(x)-f(y)}\leq M|x-y|<\varepsilon\).
 \end{proof}
 \begin{lemma}\label{lemma:c1lipschitz}
     A \(C^1\) function on a compact set \(U\) is Lipschitz continuous on \(U\).
@@ -357,7 +357,7 @@ If a function \(f(z)\) is complex differentiable over an open neighborhood of \(
 
 For simplicity's sake, if we mention that a function is holomorphic on a region, it is implied that the region is connected.
 \begin{theorem}\label{thm:holomorphycondition}
-    The necessary and sufficient criterion for a function \(f(z)\) to be holomorphic on an open region \(U\) is if \(f(z)\in C^1(U)\) and it satisfies the Cauchy--Riemann equations.
+    Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. \(f\) is then holomorphic on \(U\) if and only if \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
 \end{theorem}
 \begin{proof}
     The first part is to prove that any holomorphic function on \(U\) has continuous first-order partial derivatives in \(U\). This requires an argument that will be covered later (specifically in \chpref{sec:analyticityandholomorphy}), which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
@@ -378,7 +378,7 @@ An extension that is much harder to prove gives a subtle result:
 \end{theorem}
 Clearly, any function satisfying the criteria in \autoref{thm:holomorphycondition} will also satisfy the criteria for the Looman--Menchoff Theorem (\autoref{thm:loomanmenchoff}). However, the first theorem is a logical equivalence for holomorphy. This implies that any holomorphic function over \(U\) with existent partial derivatives except for on a set with measure zero has the property that those partial derivatives are automatically continuous.
 
-We will prove later in \autoref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+iv(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
+We will prove later in \chpref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+iv(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
 This type of equation is called the \textit{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textit{Laplacian}) \[\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a \textit{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
