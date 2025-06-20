@@ -1121,12 +1121,12 @@ For the next theorem we will briefly introduce the concept of \textit{analytic c
 \end{theorem}
 \begin{proof}
     Define the auxiliary function \[\varphi(z)=\begin{cases}
-            \paren{z-z_0}^2f(z) & z\in\tilde{D}\paren{z_0,r} \\
+            \paren{z-z_0}^2f(z) & z\in D^*\paren{z_0,r} \\
             0                   & z=z_0
         \end{cases}.\]
     \(\varphi(z)\) is bounded and continuously differentiable on \(D\paren{z_0,r}\) and satisfies the Cauchy--Riemann Equations since
-    \[\lim_{z\to z_0}\frac{\varphi(z)-\varphi\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2f(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}f(z)=0,\] meaning that \(\dv{\varphi}{z}\paren{z_0}=0\). For \(z\in D^*\paren{z_0,r}\), \[G'(z)=2\paren{z-z_0}F(z)+\paren{z-z_0}^2F'(z).\] As \(z\to z_0\), \(G(z)\to0\), meaning that \(G\) is holomorphic over \(D\paren{z_0,r}\). By \autoref{thm:cauchydifferentiationformula}, \[G(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
-    which is convergent over \(D\paren{z_0,r}\). Then we can define \[f(z)=\frac{G(z)}{\paren{z-z_0}^2}=\sum_{j=0}^\infty a_{j+2}\paren{z-z_0}^j\] over the same disk of convergence. Over the punctured disk, \(f(z)=F(z)\), and therefore \(f\) is an analytic continuation of \(F\).
+    \[\lim_{z\to z_0}\frac{\varphi(z)-\varphi\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2f(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}f(z)=0,\] meaning that \(\dv{\varphi}{z}\paren{z_0}=0\). For \(z\in D^*\paren{z_0,r}\), \[\varphi'(z)=2\paren{z-z_0}f(z)+\paren{z-z_0}^2f'(z).\] As \(z\to z_0\), \(\varphi(z)\to0\), meaning that \(\varphi\) is holomorphic over \(D\paren{z_0,r}\). By \autoref{thm:cauchydifferentiationformula}, \[\varphi(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
+    which is convergent over \(D\paren{z_0,r}\). Then we can define \[\tilde{f}(z)=\frac{\varphi(z)}{\paren{z-z_0}^2}=\sum_{j=0}^\infty a_{j+2}\paren{z-z_0}^j\] over the same disk of convergence. Over the punctured disk, \(\tilde{f}(z)=f(z)\), and therefore \(\tilde{f}\) is an analytic continuation of \(f\).
 \end{proof}
 \subsubsection{Existence of Bump Functions}
 \begin{definition}[Topological Space]
@@ -1426,7 +1426,7 @@ The following theorem is also a direct consequence of Rouché's Theorem (\autore
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
 
-Indeed, suppose a holomorphic function attained a local minimum of its modulus at a zero. Then, by adding a sufficiently small constant (i.e., a shift), the zero could disappear from the region, violating the stability of zeros under small additive perturbations established by \autoref{thm:holomorphiczerosstabilityundershifts}.
+Suppose a holomorphic function attained a local maximum of its modulus at a zero. Then, by adding a sufficiently small constant (i.e. a downward shift), the zero could disappear from the region, violating the stability of zeros under small additive perturbations established by \autoref{thm:holomorphiczerosstabilityundershifts}.
 
 For comparison, consider the real function \(x^2\). Shifting it upward removes the zero of multiplicity 2 at \(x=0\) in \(\mathbb{R}\), while shifting it downward causes that zero to split into two simple zeros. The latter behavior agrees with \autoref{thm:holomorphiczerosstabilityundershifts}, and provides a helpful way to visualize the stability of zeros in two dimensions. However, the fact that the zero is not preserved under a positive shift highlights a key difference between real differentiable functions and holomorphic functions.
 
