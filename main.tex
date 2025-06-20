@@ -306,13 +306,17 @@ We also have the definition of the limit of a sequence:
 \begin{definition}
     A function \(f\) is Lipschitz continuous over \(U\) if \(\exists C\in\mathbb{R}_{>0}\) such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq C|x-y|\).
 \end{definition}
+Lipschitz continuity is an important concept in real analysis and the theory of differential equations. It is a strong form of uniform continuity.
+\begin{lemma}
+    All Lipschitz continuous functions on \(U\) are uniformly continuous on \(U\).
+\end{lemma}
 \begin{lemma}\label{lemma:c1lipschitz}
     A \(C^1\) function on a compact set \(U\) is Lipschitz continuous on \(U\).
 \end{lemma}
 \begin{proof}
     Let \(f:U\to\mathbb{R}\) be \(C^1\). By \autoref{thm:continuousfunctionboundedoncompact}, since \(U\) is compact and \(f'\) is continuous, \(\exists M>0\) such that \(\forall x\in U\), \(|f'(x)|\leq M\).
 
-    By the Mean Value Theorem, \(\forall x,y\in U\), \(\exists c\) between \(x\) and \(y\) such that \(f(x)-f(y)=f'(c)(x-y)\). Then, \(|f(x)-f(y)|=|f'(c)||x-y|\leq M|x-y|\), which means \(f\) is Lipschitz continuous with Lipschitz constant \(M\).
+    By the Mean Value Theorem, \(\forall x,y\in U\), \(\exists c\) between \(x\) and \(y\) such that \(f(x)-f(y)=f'(c)(x-y)\). Then, \(|f(x)-f(y)|=|f'(c)||x-y|\leq M|x-y|\), which means \(f\) is Lipschitz continuous with Lipschitz constant less than or equal to \(M\).
 \end{proof}
 \section{Complex Prerequisites}
 \subsection{The Complex Plane}
