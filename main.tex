@@ -1024,6 +1024,10 @@ This profound theorem is extremely important and helpful in complex integration 
     Observe that \(\sum_{k=0}^4 c_k=\lim_{z\to\infty}\sum_{k=0}^4\frac{zc_k}{z-\omega_k}=\lim_{z\to\infty}\frac{z}{z^5-1}=0\),
     Therefore, \[\int_{D(0,2)}\frac{\ddz}{z^5-1}=0.\]
 \end{proof}
+We have also already seen the utility of parameterization via a polar transformation. Many useful identities in classical calculus can also be derived from concepts in its generalization:
+\begin{example}
+    Prove that \(\forall n\in\mathbb{N}\), \[\int_{0}^{2\pi}\cos^{2n}(\theta)\dd{\theta}=2\pi\frac{}{}\]
+\end{example}
 \subsection{Analyticity and Holomorphy}\label{sec:analyticityandholomorphy}
 The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can also be generalized into a result that equates complex integration and differentiation:
 \begin{theorem}[Cauchy--Goursat Differentiation Formula]\label{thm:cauchydifferentiationformula}
@@ -1078,7 +1082,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
 \begin{proof}
     By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \(\forall n\in\mathbb{N}\), \[f^{(n)}\paren{z_0}=\frac{n!}{2\pi i}\oint_{\partial D\paren{z_0,R}}\frac{f(\zeta)}{\paren{\zeta-z_0}^{n+1}}\ddzeta.\]
     Because \(f(z)\) is continuous over the boundary \(\partial D\paren{z_0,R}\), it is bounded by \(M\). Thus,
-    \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!}{2\pi}\int_0^{2\pi}\frac{M}{\paren{e^{it}R}^{n+1}}e^{it}R\dd{t}=\frac{n!M}{R^n}.\]
+    \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!}{2\pi}\int_0^{2\pi}\frac{M}{\paren{e^{i\theta}R}^{n+1}}e^{i\theta}R\dd{\theta}=\frac{n!M}{R^n}.\]
 \end{proof}
 \begin{theorem}[Liouville's Theorem]\label{thm:liouville}
     Any bounded entire function is constant.
