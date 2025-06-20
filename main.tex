@@ -304,12 +304,15 @@ We also have the definition of the limit of a sequence:
     By continuity, \(f(x_{n_k})\to f\paren{x_{n_\infty}}\) and \(f(y_{n_k})\to f\paren{x_{n_\infty}}\), so \(\qty|f(x_{n_k})-f(y_{n_k})|\to 0\), contradicting \(\qty|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon\). Therefore, \(f\) is uniformly continuous on \(U\).
 \end{proof}
 \begin{definition}
-    A function \(f\) is Lipschitz continuous over \(U\) if \(\exists C\in\mathbb{R}_{>0}\) such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq C|x-y|\).
+    A function \(f\) is Lipschitz continuous over \(U\) if \(\exists M\in\mathbb{R}_{\geq0}\) such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq M|x-y|\). The smallest possible \(M\) satisfying the above condition is known as the Lipschitz constant.
 \end{definition}
 Lipschitz continuity is an important concept in real analysis and the theory of differential equations. It is a strong form of uniform continuity.
 \begin{lemma}
     All Lipschitz continuous functions on \(U\) are uniformly continuous on \(U\).
 \end{lemma}
+\begin{proof}
+    Let \(M>0\) be the Lipschitz constant. Let \(\delta=\frac{\varepsilon}{M}\). It then follows that \(\forall\varepsilon>0\),  \(\abs{f(x)-f(y)}\leq M|x-y|\).
+\end{proof}
 \begin{lemma}\label{lemma:c1lipschitz}
     A \(C^1\) function on a compact set \(U\) is Lipschitz continuous on \(U\).
 \end{lemma}
