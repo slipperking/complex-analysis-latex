@@ -22,7 +22,7 @@
 \setlist[enumerate]{label=(\arabic*)}
 \setlist[itemize]{label=\ding{226}}
 
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 \usepackage[labelfont=bf, textfont=it]{caption}
 \usepackage[left=3.5cm,right=3.5cm]{geometry}
 \everymath{\displaystyle}
@@ -74,13 +74,7 @@
 \let\floordefault\floor
 \renewcommand{\floor}{\floordefault*}
 
-\NewDocumentCommand{\cbraces}{m g}{%
-    \ensuremath{%
-        \left\lbrace#1%
-        \IfNoValueTF{#2}{}{\,\middle|\,#2}%
-        \right\rbrace
-    }%
-}
+\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\lbrace#1\IfNoValueTF{#2}{}{\,\middle|\,#2}\right\rbrace}}
 
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
 \renewcommand{\sectionautorefname}{\S}
