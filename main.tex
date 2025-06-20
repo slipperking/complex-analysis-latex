@@ -2,11 +2,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{tikz}
-\usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy}
+\usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns}
 \usepackage{pifont}
+\usepackage[labelfont=bf, textfont=it]{caption}
+\usepackage[left=3.5cm,right=3.5cm]{geometry}
 \usepackage{physics}
 \usepackage{mathtools}
-\usepackage{nccmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -15,7 +16,6 @@
 \usepackage{graphicx}
 \usepackage{tgpagella}
 \usepackage[english]{babel}
-\usepackage{pgfplots}
 \usepackage{xparse}
 \usepackage{enumitem}
 
@@ -23,14 +23,11 @@
 \setlist[itemize]{label=\ding{226}}
 
 \usepackage{hyperref}
-\usepackage[labelfont=bf, textfont=it]{caption}
-\usepackage[left=3.5cm,right=3.5cm]{geometry}
+\renewcommand{\sectionautorefname}{\S}
+\renewcommand{\subsectionautorefname}{\S}
 \everymath{\displaystyle}
 
 \allowdisplaybreaks[2]
-
-\usepgfplotslibrary{fillbetween}
-\usetikzlibrary{patterns}
 
 \newcommand{\halfarrow}[2]{%
   \path (#1) -- (#2) coordinate[pos=0.25] (Pstart) coordinate[pos=0.75] (Pend);
@@ -77,13 +74,10 @@
 \NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\lbrace#1\IfNoValueTF{#2}{}{\,\middle|\,#2}\right\rbrace}}
 
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
-\renewcommand{\sectionautorefname}{\S}
-\renewcommand{\subsectionautorefname}{\S}
 
 \title{Complex Analysis}
 \author{Slipper King}
 \date{May 2025}
-\pgfplotsset{compat=1.18}
 \begin{document}
 \maketitle
 \tableofcontents
