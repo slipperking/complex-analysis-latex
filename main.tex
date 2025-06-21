@@ -1021,7 +1021,7 @@ This profound theorem is extremely important and helpful in complex integration 
         \int_{\partial D(0,2)}\frac{\ddz}{\prod_{j=0}^{n-1}\qty(z-\omega_j)}=\int_{\partial D(0,2)}\sum_{j=0}^{n-1}\frac{c_j}{z-\omega_j}\ddz,\label{eq:cauchygoursatformularootsofunity}
     \end{equation}
     where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), equation~\eqref{eq:cauchygoursatformularootsofunity} becomes: \[\sum_{k=0}^{n-1}\int_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\pi i\sum_{k=0}^{n-1}c_k.\]
-    Observe that \(\sum_{k=0}^{n-1} c_k=\lim_{z\to\infty}\sum_{k=0}^{n-1}\frac{zc_k}{z-\omega_k}=\lim_{z\to\infty}\frac{z}{z^n-1}=0\),
+    Observe that \(\sum_{k=0}^{n-1} c_k=\lim_{z\to\infty}\sum_{k=0}^{n-1}\frac{zc_k}{z-\omega_k}=\lim_{z\to\infty}\frac{z}{z^n-1}=0\) since \(n\geq2\).
     Therefore, \[\int_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\] 
 \end{proof}
 We have also already seen the utility of parameterization via a polar transformation. Many useful identities in classical calculus can also be derived from concepts in its generalization:
@@ -1037,7 +1037,9 @@ We have also already seen the utility of parameterization via a polar transforma
         0& k< n\\
         2\pi i&k=n
     \end{cases}.\]
-    Therefore, \[2^{2n}i\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi i\binom{2n}{n}\Longleftrightarrow\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi\frac{\qty(2n)!}{2^{2n}\qty(n!)^2}=\]
+    Therefore, \[2^{2n}i\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi i\binom{2n}{n}\Longleftrightarrow\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi\frac{\qty(2n)!}{2^{2n}\qty(n!)^2}=2\pi\frac{\prod_{k=1}^{2n}k}{\qty[\prod_{k=1}^{n}\qty(2k)]^2}.\]
+    From simple cancellation, we get \[2\pi\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\pi\prod_{k=1}^n\frac{2k-1}{2k},\]
+    as expected.
 \end{proof}
 \subsection{Analyticity and Holomorphy}\label{sec:analyticityandholomorphy}
 The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can also be generalized into a result that equates complex integration and differentiation:
