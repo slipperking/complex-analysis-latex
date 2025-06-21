@@ -1747,8 +1747,9 @@ The condition of uniform convergence on every compact subset can also be signifi
     Let \(\Omega\subseteq\mathbb{C}\) be open and bounded, and let \(\qty{f_n(z)}\) be holomorphic on \(\Omega\). Let \(U\subseteq\Omega\) be open and relatively compact in \(\Omega\). If \(\qty{f_n(z)}\)  If \(f_n\rightrightarrows f\) on \(\partial U\), then \(f_n\rightrightarrows f\) on \(\overline{U}\).
 \end{lemma}
 \begin{proof}
-    By the Cauchy Criterion (\autoref{thm:cauchycriterionuniformconvergence}), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \[\sup_{z\in\partial U}\qty|f_|\]
-    By the Maximum Modulus Principle (\autoref{thm:maximummodulus}),
+    By the converse statement of the Cauchy Criterion (\autoref{thm:cauchycriterionuniformconvergence}), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \[\sup_{z\in\partial U}\qty|f_n(z)-f_m(z)|<\varepsilon.\]
+    By the Maximum Modulus Principle (\autoref{thm:maximummodulus}) on \(f_n-f_m\), \[\sup_{z\in\partial U}\abs{f_n(z)-f_m(z)}=\sup_{z\in\overline{U}}\abs{f_n(z)-f_m(z)}<\varepsilon.\]
+    It follows that \(f_n\rightrightarrows f\) on \(\overline{U}\) by \autoref{thm:cauchycriterionuniformconvergence}.
 \end{proof}
 \subsection{The Residue Theorem}
 
