@@ -1491,7 +1491,7 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
         |f(z)| & =\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon' e^{it}}\dd{t}}=\frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon'e^{it}}}\dd{t} \\
                & =\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
-    From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly nonnegative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
+    From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
 \begin{remark}
     If \(f\) is holomorphic and non-constant on an open region \(U\subseteq\mathbb{C}\), then for any compact set \(K\subset U\), the maximum of \(f\) in \(K\) lies on \(\partial K\). Otherwise, \(f\) would attain a maximum at some \(z\in K^\circ\), and contradict the statement of \autoref{thm:maximummodulus} under the assumption of being non-constant. 
@@ -1654,7 +1654,7 @@ A fundamental problem in the theory of partial differential equations is to find
     \begin{align*}
             \abs{\varphi(\xi)-u(z)}&=\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}>\delta})P(\zeta,z)\paren{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}\dd{\tau}}\\&=\abs{I_1+I_2}\leq\abs{I_1}+\abs{I_2}.
     \end{align*}
-    Since the Poisson kernel is nonnegative, \[\qty|I_1|<\varepsilon\int_{\abs{\vartheta-\tau}<\delta}P(\zeta,z)\dd{\tau}<\varepsilon.\]
+    Since the Poisson kernel is non-negative, \[\qty|I_1|<\varepsilon\int_{\abs{\vartheta-\tau}<\delta}P(\zeta,z)\dd{\tau}<\varepsilon.\]
     \begin{figure}
         \centering
         \begin{tikzpicture}
@@ -1763,7 +1763,11 @@ We will now study Laurent Series. Let \(a\in\mathbb{C}\) and \(\qty{c_n}_{n\in\m
 \begin{equation}\label{eq:laurentseries}
     \sum_{n=-\infty}^\infty c_n(z-a)^n
 \end{equation}
-is a Laurent Series at the point \(a\). The series can be separated into a power series with nonnegative exponents, \(\sum_{n=0}^\infty c_n(z-a)^n\), and a power series with negative exponents, \(\sum_{n=1}^{\infty}c_{-n}(z-a)^{-n}\). Equation~\eqref{eq:laurentseries} is said to be convergent at \(z=z_0\) if the two power series are both convergent.
+is a Laurent Series at the point \(a\). The series can be separated into a power series with non-negative exponents, \begin{equation}
+    \sum_{n=0}^\infty c_n(z-a)^n,\label{eq:laurentseriesnon-negativeexponents}
+\end{equation} and a power series with negative exponents, \begin{equation}
+    \sum_{n=1}^{\infty}c_{-n}(z-a)^{-n}.\label{eq:laurentseriesnegativeexponents}
+\end{equation} Equation~\eqref{eq:laurentseries} is said to be convergent at \(z=z_0\) if the two power series are both convergent.
 \subsection{The Residue Theorem}\label{sec:residuetheorem}
 
 \section{A Taste of Riemannian Geometry}
