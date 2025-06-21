@@ -1324,7 +1324,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 
     The function \(f_1(z)=\frac{f(z)}{z-z_\infty}\) has a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
     \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z_\infty}^n.\]
-    Let \(z=z_n\neq z_\infty\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+O_{n\to\infty}\paren{z_n-z_\infty}.\]
+    Let \(z=z_n\neq z_\infty\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+\mathcal{O}_{n\to\infty}\paren{z_n-z_\infty}.\]
     Letting \(n\to\infty\), \(z_n\to z_\infty\), and \(a_1=0\). Define \(f_2(z)=\frac{f_1(z)}{z-z_\infty}\). Then, \[f_2(z)=\sum_{n=0}^\infty a_{n+2}\paren{z-z_\infty}^n.\]
     Similarly, \(a_2=0\). Letting \(f_n(z)=\frac{f(z)}{\paren{z-z_\infty}^n}\), the sequence \(\cbraces{a_n}_{n\in\mathbb{Z}_{\geq0}}\) vanishes, and \(f\equiv 0\) on \(D\paren{z_\infty,\varepsilon}\).
 
@@ -1731,7 +1731,7 @@ Finally, we will demonstrate that real-valued continuous functions satisfying th
 \subsection{Laurent Series}
 The Laurent Series generalizes the Taylor Series to holomorphic functions with isolated singularities. While Taylor Series are valid within a disk centered at a point of holomorphy, Laurent Series apply to annular regions surrounding a singularity, making them essential for studying functions near non-removable singularities (refer to \autoref{thm:analyticcontinuationremovablesingularities}).
 
-We now turn to a fundamental result in complex analysis due to Weierstrass, which establishes conditions under which the limit of a sequence of holomorphic functions is itself holomorphic. This theorem not only guarantees the holomorphy of the limit function but also the uniform convergence of its derivatives.
+We now introduce a fundamental result in complex analysis due to Weierstrass, which formalizes the conditions under which the limit of a sequence of holomorphic functions is itself holomorphic. This theorem not only guarantees the holomorphy of the limit function but also the uniform convergence of its derivatives (its statement was used in the proof of \autoref{thm:hurwitzsimplecase}).
 \begin{theorem}[Weierstrass' Uniform Limit Theorem]\label{thm:weierstrassuniformlimit}
     Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\). 
 \end{theorem}
@@ -1754,10 +1754,10 @@ The condition of uniform convergence on every compact subset can also be signifi
 \begin{remark}
     In the statement on \autoref{thm:weierstrassuniformlimit}, the uniform convergence on every compact subset can therefore be loosened to the uniform convergence on every simple closed curve.
 \end{remark}
-\subsection{The Residue Theorem}
+\subsection{The Residue Theorem}\label{sec:residuetheorem}
 
 \section{A Taste of Riemannian Geometry}
-One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem (\autoref{TO BE CONTINUED}) is a result from a generalization that can be applied to real-valued integrals. 
+One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem in \chpref{sec:residuetheorem} is a result from a generalization that can be applied to real-valued integrals. 
 
 More contemporary results in complex analysis are also where many different branches of mathematics, including topology, geometry, number theory, group theory, and linear algebra, coalesce. 
 
