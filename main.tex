@@ -1799,7 +1799,14 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), for a given \(n\), \[\int_{\gamma_2^+\cup\gamma^-}\frac{f(\zeta)\ddzeta}{(\zeta-a)^n}=0,\quad\int_{\gamma^+\cup\gamma_1^-}f(\zeta)(\zeta-a)^n\ddzeta=0.\]
      In other words, the integrals in equation~\eqref{eq:laurentexpansionofholomorphicfunction_finalstep} are the same as on \(\gamma\). Hence, we get that \[f(z)=\sum_{n=0}^\infty c_n(z-a)^n+\sum_{n=1}^\infty c_{-n}(z-a)^{-n}=\sum_{n=-\infty}^\infty c_n(z-a)^n.\]
     The constants \(\qty{c_n}_{n\in\mathbb{Z}}\) are also unique in the expansion. For the sake of contradiction, assume there exists another set of constants \(\qty{c'_n}_{n\in\mathbb{Z}}\) such that \[f(z)=\sum_{n=-\infty}^\infty c'_n(z-a)^n,\]
-    where \(z\in V\).
+    where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \[\int_{\gamma}(z-a)^k\ddz=\begin{cases}
+        0& k\geq0\\
+        2\pi i &k=-1\\
+        2\pi i\dv{z}(1)&k\leq -2
+    \end{cases}=\begin{cases}
+        0& k\neq-1\\
+        2\pi i &k=-1\\
+    \end{cases}.\]
 \end{proof}
 \subsection{The Residue Theorem}\label{sec:residuetheorem}
 
