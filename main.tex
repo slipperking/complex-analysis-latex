@@ -1286,10 +1286,10 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 \begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
     For a nonempty open set \(\Omega\subseteq\mathbb{C}\), let \(\cbraces{\Omega_k}_{k\in\mathbb{Z}_{\ge0}}\) be an open cover of \(\Omega\). Then there exists a set of bump functions, \(\alpha_1(z),\alpha_2(z),\ldots\in C^\infty(\mathbb{C})\) with compact support within \(\Omega\) satisfying
     \begin{enumerate}
-        \item \(\forall j\in\mathbb{N}\), \(\exists k\in\mathbb{Z}_{\geq0}\) such that \(\supp\paren{\alpha_j}\subseteq\Omega_k\).
-        \item The collection \(\qty{\supp\paren{\alpha_j}}\) is locally finite.
-        \item \(\forall j\in\mathbb{N}\), \(0\leq\alpha_j\leq 1\).
-        \item \(\forall z\in\Omega\), \(\sum_{j=1}^\infty \alpha_j(z)=1,\)
+        \item \(\forall j\in\mathbb{N}\), \(\exists k\in\mathbb{Z}_{\geq0}\) such that \(\supp\paren{\alpha_j}\subseteq\Omega_k\).\label{itm:partitionofunity_subordinate}
+        \item The collection \(\qty{\supp\paren{\alpha_j}}\) is locally finite.\label{itm:partitionofunity_localfiniteness}
+        \item \(\forall j\in\mathbb{N}\), \(0\leq\alpha_j\leq 1\).\label{itm:partitionofunity_nonnegativity}
+        \item \(\forall z\in\Omega\), \(\sum_{j=1}^\infty \alpha_j(z)=1,\)\label{itm:itm:partitionofunity_partitionofunity}
     \end{enumerate} known as a \(C^\infty\) partition of unity subordinate to \(\cbraces{\Omega_k}_{k\in\mathbb{Z}_{\geq0}}\).
 \end{theorem}
 \begin{proof}
@@ -1299,7 +1299,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
             e^{\frac{1}{\abs{z}-1}} & \abs{z}<1   \\
             0                       & \abs{z}\ge1
         \end{cases},\] which has the support \(\overline{D(0,1)}\). Define the function \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta\paren{\frac{z}{\varepsilon}}\) with the support \(\overline{D(0,\varepsilon)}\), which satisfies that \(\forall\varepsilon>0\), \[\int_{\mathbb{C}}\theta_\varepsilon(z)\ddx\wedge\ddy=1.\]
-    Define a set of functions \(\cbraces{\beta_j(z)}_{j\in\mathbb{N}}\) with \(\beta_j(z)=\theta_{r_{z_j}}\paren{z-z_j}\), which is a bump function with \(\supp\qty(\beta_j)=\overline{D\paren{z_j, r_{z_j}}}\subset\Omega_{k_{z_j}}\). Equivalently, \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\) is locally finite on \(\Omega\). Consequently, a point \(z\in\Omega\) lies only in a finite number of sets of \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\). Then the sum \[S(z)=\sum_{j=1}^\infty\beta_j(z)\] is convergent, \(C^\infty\) (by local finiteness), and strictly positive. Therefore, the sequence defined by \[\alpha_j(z)={\frac{\beta_j(z)}{S(z)}}\] is also \(C^\infty\) and is compactly supported in \(\Omega\). Furthermore, it satisfies \[\sum_{j=1}^\infty\alpha_j(z)=1.\]
+    Define a set of functions \(\cbraces{\beta_j(z)}_{j\in\mathbb{N}}\) with \(\beta_j(z)=\theta_{r_{z_j}}\paren{z-z_j}\), which is a bump function with \(\supp\qty(\beta_j)=\overline{D\paren{z_j, r_{z_j}}}\subset\Omega_{k_{z_j}}\). By the local finiteness of \(\qty{D\qty(z_j,r_{z_j})}\), there exists an open neighborhood \(V\) of each point \(z\in\Omega\) such that the set \(\cbraces{j}{V_z}\)  Equivalently, \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\) is locally finite on \(\Omega\). Consequently, a point \(z\in\Omega\) lies only in a finite number of sets of \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\). Then the sum \[S(z)=\sum_{j=1}^\infty\beta_j(z)\] is convergent, \(C^\infty\) (by local finiteness), and strictly positive. Therefore, the sequence defined by \[\alpha_j(z)={\frac{\beta_j(z)}{S(z)}}\] is also \(C^\infty\) and is compactly supported in \(\Omega\). Furthermore, it satisfies \[\sum_{j=1}^\infty\alpha_j(z)=1.\]
 \end{proof}
 \begin{theorem}[Existence of Bump Functions]\label{thm:bumpfunctionexistence}
     Let \(\Omega\subset\mathbb{C}\) be open, \(K\subset\Omega\) be compact, and \(V\subseteq\Omega\) be an open neighborhood of \(K\). Then there exists a bump function \(\varphi\in C^\infty\paren{\mathbb{C}}\) with compact support contained in \(V\) such that \(\forall z\in\mathbb{C}\), \(0\leq\varphi(z)\leq 1\), and there exists an open neighborhood of \(K\) over which \(\varphi\equiv1\).
