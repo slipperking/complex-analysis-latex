@@ -1789,7 +1789,24 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     \end{equation} when \(z\in V\), where \(c_n=\frac{1}{2\pi i}\oint_{\gamma}\frac{f(\zeta)\ddzeta}{(\zeta-a)^{n+1}}\), where \(\gamma\subset V\) is a simple closed curve enclosing \(a\). 
 \end{theorem}
 \begin{proof}
-    By the openness of \(V\), there exist two circles \(\gamma_1\subset V\) with radius \(r'\) and \(\gamma_2\subset V\) with radius \(R'\) centered at \(a\) such that \(\gamma\) encloses \(\gamma_1\) and \(\gamma_2\) encloses \(\gamma\) both without intersection. Let \(W=\cbraces{z\in V}{r'<|z-a|<R'}\) and \(z\in W\) be arbitrary. By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\pi i}\qty(\int_{\gamma_2}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\gamma_1}\frac{f(\zeta)\ddzeta}{\zeta-z}).\]
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[line width=0.35] plot[smooth cycle] coordinates {
+                (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
+            };
+            \draw[line width=0.5] (3.5,0) arc[start angle=0, end angle=360, radius=3.5];
+            \draw[line width=0.5, dashed] (3.3,0) arc[start angle=0, end angle=360, radius=3.3];
+            \draw[line width=0.5] (2,0) arc[start angle=0, end angle=360, radius=2];
+            \draw[line width=0.5, dashed] (2.2,0) arc[start angle=0, end angle=360, radius=2.2];
+            
+            \node[anchor=north] at (2.5,2.8) {\(K_{n-2}\)};
+            \node[anchor=north] at (2.7,5) {\(V_{n-1}\)};
+            \node[anchor=north] at (2.7,5.6) {\(V_n\)};
+        \end{tikzpicture}
+        \caption{The annulus \(V\), with \(\gamma_1\), \(\gamma_2\), and \(\gamma\).}
+        \label{fig:laurentexpansionofholomorphicfunction}
+    \end{figure}By the openness of \(V\), there exist two circles \(\gamma_1\subset V\) with radius \(r'\) and \(\gamma_2\subset V\) with radius \(R'\) centered at \(a\) such that \(\gamma\) encloses \(\gamma_1\) and \(\gamma_2\) encloses \(\gamma\) both without intersection. Let \(W=\cbraces{z\in V}{r'<|z-a|<R'}\) and \(z\in W\) be arbitrary. By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\pi i}\qty(\int_{\gamma_2}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{\gamma_1}\frac{f(\zeta)\ddzeta}{\zeta-z}).\]
     \(\forall\zeta\in\gamma_1\) (or \(|\zeta-a|=r'\)), \(\abs{\zeta-a}<\abs{z-a}\) and therefore, \(\frac{\abs{\zeta-a}}{\abs{z-a}}<1\). It follows that \begin{equation}
         \frac{1}{\zeta-z}=-\frac{1}{(z-a)\qty(1-\dfrac{\zeta-a}{z-a})}=-\sum_{n=0}^\infty\frac{\qty(\zeta-a)^n}{\qty(z-a)^{n+1}}\label{eq:laurentexpansionofholomorphicfunction_kernelexpansioninside}
     \end{equation} is uniformly convergent with respect to \(\zeta\). Similarly, \(\forall\zeta\in\gamma_2\), \(\abs{\zeta-a}>\abs{z-a}\Leftrightarrow\frac{\abs{z-a}}{\abs{\zeta-a}}<1\), and it follows that \begin{equation}
