@@ -1746,7 +1746,7 @@ While Weierstrass' contributions in complex analysis are mainly characterized by
 
 To help understand the behavior of non-removable singularities, we will introduce the concept of \textit{Laurent Series}.
 \subsection{Laurent Series}
-The Laurent Series generalizes the Taylor series to holomorphic functions with isolated singularities. While Taylor series are valid within a disk centered at a point of holomorphy, Laurent Series apply to annular regions surrounding a singularity, making them essential for studying functions near non-removable singularities (refer to \autoref{thm:analyticcontinuationremovablesingularities}).
+The Laurent Series generalizes the Taylor series to holomorphic functions with isolated singularities. While Taylor series are valid within a disk centered at a point of holomorphy, Laurent series apply to annular regions surrounding a singularity, making them essential for studying functions near non-removable singularities (refer to \autoref{thm:removablesingularitiesriemann}).
 
 We now introduce a fundamental result in complex analysis due to Weierstrass, which formalizes the conditions under which the limit of a sequence of holomorphic functions is itself holomorphic. This theorem not only guarantees the holomorphy of the limit function but also the uniform convergence of its derivatives (its statement was used in the proof of \autoref{thm:hurwitzsimplecase}).
 \begin{theorem}[Weierstrass' Uniform Limit Theorem]\label{thm:weierstrassuniformlimit}
@@ -1835,16 +1835,22 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
 An \textit{isolated singularity} of a complex function is a point \(a\in\mathbb{C}\) where a function \(f\) is holomorphic on some open punctured neighborhood of \(a\) (namely, for some \(r>0\), the punctured disk \(D^*(a,r)\)), but not necessarily defined or holomorphic at \(a\) itself. The nature of this isolated singularity is characterized by the principal part \(\psi(z)\) (let \(\varphi(z)\) be the holomorphic part) of the Laurent series of \(f\) at the point \(a\). Specifically, we can analyze the behavior of \(f(z)\) as \(z\to a\).
 \begin{enumerate}
     \item If \(\lim_{z\to a}f(z)\) exists and is finite, then \(z=a\) is a removable singularity and can be analytically continued to \(D(a,r)\) by \autoref{thm:removablesingularitiesriemann}. Consequently, \(f(z)\) has a convergent Taylor expansion and the principle part of its Laurent expansion vanishes, and \(f(z)=\varphi(z)\).
-    \item If \(\lim_{z\to a}f(z)=\infty\), then \(z=a\) is a \textit{pole} of \(f\) (from the stereographic projection and the Riemann sphere, the \(\infty\) is a single point in \(\riemannsphere\), and approaching \(\infty\) does not distinguish between different directions, unlike the use of \(+\infty\) and \(-\infty\) on the real number line). This is equivalent to there being a finite number of nonzero \(c_{-n}\)'s, where \(n\in\mathbb{N}\). In other words the principle part of \(f\) is equal to \[\psi(z)=\frac{c_{-1}}{z-a}+\cdots+\frac{c_{-m}}{(z-a)^m}\quad c_{-m}\neq0\] for some \(m\in\mathbb{N}\). Therefore, \(f(z)=\varphi(z)+\psi(z)=\sum_{n=-m}^\infty c_n(z-a)^n=\frac{g(z)}{(z-a)^m}\) on the punctured disk \(D^*(a,r)\), where \(g(z)=\sum_{n=0}^\infty c_{n-m}(z-a)^n\) is holomorphic on \(D(a,r)\) and does not attain a zero at \(z=a\). Then \(f(z)\) has a pole at \(z=a\) with order \(m\). If \(m=1\), the pole is also called a \textit{simple pole}.
+    \item If \(\lim_{z\to a}f(z)=\infty\), then \(z=a\) is a \textit{pole} of \(f\) (from the stereographic projection and the Riemann sphere, the \(\infty\) is a single point in \(\riemannsphere\), and approaching \(\infty\) does not distinguish between different directions, unlike the use of \(+\infty\) and \(-\infty\) on the real number line). \begin{theorem}
+        The condition \(\lim_{z\to a}f(z)=\infty\) is equivalent to there being a finite number of nonzero \(c_{-n}\)'s, where \(n\in\mathbb{N}\). 
+    \end{theorem}
+    In other words the principle part of \(f\) is equal to \[\psi(z)=\frac{c_{-1}}{z-a}+\cdots+\frac{c_{-m}}{(z-a)^m}\quad c_{-m}\neq0\] for some \(m\in\mathbb{N}\). Therefore, \(f(z)=\varphi(z)+\psi(z)=\sum_{n=-m}^\infty c_n(z-a)^n=\frac{g(z)}{(z-a)^m}\) on the punctured disk \(D^*(a,r)\), where \(g(z)=\sum_{n=0}^\infty c_{n-m}(z-a)^n\) is holomorphic on \(D(a,r)\) and does not attain a zero at \(z=a\). Then \(f(z)\) has a pole at \(z=a\) with order \(m\). If \(m=1\), the pole is also called a \textit{simple pole}.
     \begin{proof}
         Obviously, under the assumption of a finite, nonempty number of non-negative terms in the principle part of the Laurent expansion coefficients, \(\lim_{z\to a}f(z)\to\infty\). Now we will prove the converse. Let \(g(z)=\frac{1}{f(z)}\). Then \(\lim_{z\to a}g(z)=0\). There exists a \(\delta>0\) such that \(f\) is nonzero on \(D^*(a,\delta)\). Then \(g(z)\) is holomorphic on \(D^*(a,\delta)\) and has a removable singularity at \(z=a\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to \(D^*(a,\delta)\). Let the multiplicity of the zero at \(z=a\) be \(m\). Then \(g(z)=\phi(z)(z-a)^m\), where \(\phi(z)\) is holomorphic and nonzero at \(z=a\). Then there exists a \(\delta'>0\) such that \(\phi\) is nonzero on \(D(a,\delta')\). It follows that \(\frac{1}{\phi}\) is holomorphic and nonzero on \(D(a,\delta')\). We can then write its Taylor expansion as \[\frac{1}{\phi(z)}=c_{-m}+c_{1-m}(z-a)+\cdots,\]
     where \(c_{-m}\neq0\). It follows that \[f(z)=\frac{1}{g(z)}=\frac{(z-a)^{-m}}{\phi(z)}={c_{-m}}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_0+\cdots.\]
     By the uniqueness of the Laurent series (by \autoref{thm:laurentexpansionofholomorphicfunction}), the conclusion follows.
     \end{proof}
-    \item The necessary and sufficient for \(\lim_{z\to a} f(z)\) to not exist is that infinitely many of \(c_{-n}\) (where \(n\in\mathbb{N}\)) are nonzero. In this case, the point \(z=a\) is known as an \textit{essential singularity}.
-
-
-    
+    \item If \(\lim_{z\to a}f(z)\) is nonexistent, then \(a\) is known as an \textit{essential singularity}. The implication on its Laurent expansion at \(a\) is:
+    \begin{theorem}
+        The necessary and sufficient for \(\lim_{z\to a} f(z)\) to not exist is that infinitely many of \(c_{-n}\) (where \(n\in\mathbb{N}\)) are nonzero. 
+    \end{theorem}
+    \begin{proof}
+        f
+   \end{proof}
 \end{enumerate}
 A function with an essential singularity exhibits striking behavior. We will first introduce the following famous result.
 \begin{theorem}[Weierstrass--Casorati Theorem]\label{thm:weierstrasscasorati}
