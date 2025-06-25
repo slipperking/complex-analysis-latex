@@ -45,15 +45,16 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}{Lemma}[section]
-\providecommand*{\lemmaautorefname}{Lemma}
-\providecommand*{\definitionautorefname}{Definition}
-\providecommand*{\corollaryautorefname}{Corollary}
 \theoremstyle{remark}
 \newtheorem{example}{Example}[subsection]
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\providecommand*{\lemmaautorefname}{Lemma}
+\providecommand*{\definitionautorefname}{Definition}
+\providecommand*{\corollaryautorefname}{Corollary}
+\providecommand*{\exampleautorefname}{Example}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \DeclarePairedDelimiter{\paren}{(}{)}
@@ -171,8 +172,8 @@ The theorem above seems trivial, but has a complicated rigorous proof in topolog
 
 Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). An important result in multivariable calculus allows the calculation of the derivatives of a definite integral with respect to its parameter.
 \begin{theorem}[Leibniz Integral Rule]\label{thm:leibnizintegralrule}
-Let \(I\subset\mathbb{R}\) be open, and let \(a:I\to\mathbb{R}\) and \(b:I\to\mathbb{R}\) be differentiable on \(I\) such that \(\forall x\in I\), \(a(x)<b(x)\). Let \[U=\cbraces{(x,t)\in I\times\mathbb{R}}{a(x)\leq t\leq b(x)}.\] Suppose \(f(x,t)\) is a real-valued function on \(U\) such that \(f(x,t)\) and \(\pdv{f}{x}(x,t)\) are continuous on the set \(U\). Then the function \[F(x)=\int_{a(x)}^{b(x)}f(x,t)\dd{t}\] is differentiable on \(I\), and
-\[\dv{F}{x}=\int_{a(x)}^{b(x)}\pdv{f}{x}(x,t)\dd{t} + f(x,b(x))\dv{b}{x} - f(x,a(x))\dv{a}{x}.\]
+    Let \(I\subset\mathbb{R}\) be open, and let \(a:I\to\mathbb{R}\) and \(b:I\to\mathbb{R}\) be differentiable on \(I\) such that \(\forall x\in I\), \(a(x)<b(x)\). Let \[U=\cbraces{(x,t)\in I\times\mathbb{R}}{a(x)\leq t\leq b(x)}.\] Suppose \(f(x,t)\) is a real-valued function on \(U\) such that \(f(x,t)\) and \(\pdv{f}{x}(x,t)\) are continuous on the set \(U\). Then the function \[F(x)=\int_{a(x)}^{b(x)}f(x,t)\dd{t}\] is differentiable on \(I\), and
+    \[\dv{F}{x}=\int_{a(x)}^{b(x)}\pdv{f}{x}(x,t)\dd{t} + f(x,b(x))\dv{b}{x} - f(x,a(x))\dv{a}{x}.\]
 \end{theorem}
 Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
 \begin{theorem}[Gradient Theorem]\label{thm:gradient}
@@ -409,7 +410,7 @@ On the contrary, by the rules of the derivative, \begin{equation*}
 \end{equation*}
 
 The Laplacian is equal to \begin{align}
-    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{z}-i\pdv{}{\overline{z}}}^2                                               \nonumber \\
+    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{z}+\pdv{}{\overline{z}}}^2+\paren{i\pdv{z}-i\pdv{}{\overline{z}}}^2                                               \nonumber     \\
                                      & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \nonumber \\
                                      & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
 \end{align}
@@ -750,8 +751,8 @@ From the above result, we can directly obtain the following theorem:
     Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(D\paren{z,\varepsilon}\). \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\pi i}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\pi i}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\] Therefore, \eqref{eq:onedimensionalpartialconjugatesolution} is continuous. Let \(\xi=\zeta-z\) and observe that \[u(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z)}{\xi}\dd{\xi}\wedge\dd{\overline{\xi}}\] Then, \begin{equation}
         \frac{u(z+h)-u\paren{z}}{h}=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h\xi}\dd{\xi}\wedge\dd{\overline{\xi}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
-    For a fixed \(z\), the value of \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}\] tends to \(\pdv{\psi}{\zeta}\paren{\xi+z}\) as \(h\to0\). Because \(\psi(\zeta)=\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{lemma:c1lipschitz}, it is Lipschitz continuous for a constant \(M\). 
-    
+    For a fixed \(z\), the value of \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}\] tends to \(\pdv{\psi}{\zeta}\paren{\xi+z}\) as \(h\to0\). Because \(\psi(\zeta)=\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{lemma:c1lipschitz}, it is Lipschitz continuous for a constant \(M\).
+
     Let \(h<1\) and let \(K=\cbraces{z\in\mathbb{C}}{\inf_{\zeta\in\supp(\varphi)}|z-\zeta|\leq1}\). Then for \(\xi+z\in \mathbb{C}\), \[\abs{\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}}\leq M,\] and when \(\xi+z\notin K\), \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}=0.\]
     As shown above, the integrand is uniformly bounded by \(M\), which has a convergent integral of \(\int_{K}M\dd{\xi}\wedge\dd{\overline{\xi}}\), the limit \(h\to0\) may commute with the integral in equation~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr}. Let \(\zeta=\alpha+i\beta\). From the real axis, \begin{equation}
         \pdv{u}{x}(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\alpha}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\pi i}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\alpha}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
@@ -1024,7 +1025,7 @@ This profound theorem is extremely important and helpful in complex integration 
     \end{equation}
     where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), equation~\eqref{eq:cauchygoursatformularootsofunity} becomes: \[\sum_{k=0}^{n-1}\int_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\pi i\sum_{k=0}^{n-1}c_k.\]
     Observe that \(\sum_{k=0}^{n-1} c_k=\lim_{z\to\infty}\sum_{k=0}^{n-1}\frac{zc_k}{z-\omega_k}=\lim_{z\to\infty}\frac{z}{z^n-1}=0\) since \(n\geq2\).
-    Therefore, \[\int_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\] 
+    Therefore, \[\int_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\]
 \end{proof}
 We have also already seen the utility of parameterization via a polar transformation. Many useful identities in classical calculus can also be derived from concepts in its generalization:
 \begin{example}
@@ -1036,9 +1037,9 @@ We have also already seen the utility of parameterization via a polar transforma
     When \(2k-2n-1\ge0\), the integrand is holomorphic. The integral is then equal to \[\binom{2n}{0}\int_{\partial\mathbb{D}}z^{-2n-1}\ddz+\binom{2n}{1}\int_{\partial\mathbb{D}}z^{-2n+1}\ddz+\cdots+\binom{2n}{n}\int_{\partial\mathbb{D}}\frac{\ddz}{z}=2\pi i\binom{2n}{n},\]
     since all of the higher order terms vanish:
     \[\int_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\int_0^{2\pi} e^{i\theta\qty(2k-2n-1)}ie^{i\theta}\dd{\theta}=i\int_0^{2\pi}e^{2i\theta(k-n)}\dd{\theta}=\begin{cases}
-        0& k< n\\
-        2\pi i&k=n
-    \end{cases}.\]
+            0      & k< n \\
+            2\pi i & k=n
+        \end{cases}.\]
     Therefore, \[2^{2n}i\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi i\binom{2n}{n}\Longleftrightarrow\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi\frac{\qty(2n)!}{2^{2n}\qty(n!)^2}=2\pi\frac{\prod_{k=1}^{2n}k}{\qty[\prod_{k=1}^{n}\qty(2k)]^2}.\]
     From simple cancellation, we get \[2\pi\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\pi\prod_{k=1}^n\frac{2k-1}{2k},\]
     as expected.
@@ -1195,7 +1196,7 @@ In a topological space \(X\), a subset can either be open, closed (the complemen
 
 Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A technique used in many proofs in complex analysis follow from the following fact:
 \begin{theorem}\label{thm:connectedtopologicalspaceclopensets}
-    A topological space \(X\) is \textit{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\). 
+    A topological space \(X\) is \textit{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).
 \end{theorem}
 \begin{proof}
     Suppose that \(X\) is connected. Suppose that \(A\subseteq X\) is clopen. Notice that \(A\) and \(X\setminus A\) are both open in \(X\) by clopenness and are disjoint from each other. Since \(X=A\cup\qty(X\setminus A)\), it follows that either \(A=\emptyset\) or \(X\setminus A=\emptyset\Leftrightarrow A=X\).
@@ -1221,52 +1222,52 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
         \centering
         \begin{tikzpicture}
             \draw[line width=0.35] plot[smooth cycle] coordinates {
-                (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
-            };
+                    (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
+                };
             \draw[line width=0.5] plot[smooth cycle] coordinates {
-                (-0.5,1) (2,-0.3) (4,0.6) (5.3,2.3) (4.3,5.3) (1.7,5.5) (0.6,4.2) (-0.3,2)
-            };
+                    (-0.5,1) (2,-0.3) (4,0.6) (5.3,2.3) (4.3,5.3) (1.7,5.5) (0.6,4.2) (-0.3,2)
+                };
             \draw[line width=0.65] plot[smooth cycle] coordinates {
-                (0,1) (2,0) (4,1) (5,3.1) (4,4.7) (2,5) (1,4) (0,2)
-            };
+                    (0,1) (2,0) (4,1) (5,3.1) (4,4.7) (2,5) (1,4) (0,2)
+                };
             \draw[thick] plot[smooth cycle] coordinates {
-                (0.2,1.5) (2,0.5) (3.5,1.4) (4.2,2.7) (4.4,4) (2,4.5) (1.5,4) (1,3)
-            };
+                    (0.2,1.5) (2,0.5) (3.5,1.4) (4.2,2.7) (4.4,4) (2,4.5) (1.5,4) (1,3)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4.4,4.3) (4.5,5.4) (2.7,5.7) (2.5,4.6) (3.5,4.7)
-            };
+                    (4.4,4.3) (4.5,5.4) (2.7,5.7) (2.5,4.6) (3.5,4.7)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4) 
-            };
+                    (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4) 
-            };
+                    (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (-0.5,2) (-0.2,3) (0.6,4.6) (1.5,4.3) (0.7,3) (0.2,2) (0,1.2)
-            };
+                    (-0.5,2) (-0.2,3) (0.6,4.6) (1.5,4.3) (0.7,3) (0.2,2) (0,1.2)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (0,0.5) (2.2,-0.6) (2,0.1) (1,0.5) (0,1.3) (-0.3,2) (-0.5,2) (-0.7,1.2) 
-            };
+                    (0,0.5) (2.2,-0.6) (2,0.1) (1,0.5) (0,1.3) (-0.3,2) (-0.5,2) (-0.7,1.2)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (2,0.2) (3.5,0.8) (4,1.7) (5.2,1.7) (3.5,0.1) (1.8,-0.4)
-            };
+                    (2,0.2) (3.5,0.8) (4,1.7) (5.2,1.7) (3.5,0.1) (1.8,-0.4)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4,1.2) (4.3,2.2) (5.5,3) (5.6,2) 
-            };
+                    (4,1.2) (4.3,2.2) (5.5,3) (5.6,2)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
-            };
-            
+                    (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
+                };
+
             \node[anchor=north] at (2.5,2.8) {\(K_{n-2}\)};
             \node[anchor=north] at (2.7,5) {\(V_{n-1}\)};
             \node[anchor=north] at (2.7,5.6) {\(V_n\)};
             \node[anchor=north] at (2.7,6.2) {\(V_{n+1}\)};
-            \draw[decorate,decoration={calligraphic 
-            brace, amplitude=7pt},thick] (3.4,6.18) -- (3.2,4.4) node[midway, yshift=-3pt,right=4pt] {\(W_n\)};
+            \draw[decorate,decoration={calligraphic
+                        brace, amplitude=7pt},thick] (3.4,6.18) -- (3.2,4.4) node[midway, yshift=-3pt,right=4pt] {\(W_n\)};
         \end{tikzpicture}
         \caption{The geometry of the finite subcover of \(V_n\subset W_n\) for some \(n\in\mathbb{N}\).}
         \label{fig:locallyfiniteopencoverexistence}
-    \end{figure}Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\), with each \(K_n\) compact and \(K_n\subseteq K_{n+1}^\circ\). For each \(n\in\mathbb{N}\), define \(W_n=K_{n+1}^\circ\setminus K_{n-2}\), which is open, and \(V_n=K_n\setminus K_{n-1}^\circ\), which is compact (as in \autoref{fig:locallyfiniteopencoverexistence}). 
+    \end{figure}Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\), with each \(K_n\) compact and \(K_n\subseteq K_{n+1}^\circ\). For each \(n\in\mathbb{N}\), define \(W_n=K_{n+1}^\circ\setminus K_{n-2}\), which is open, and \(V_n=K_n\setminus K_{n-1}^\circ\), which is compact (as in \autoref{fig:locallyfiniteopencoverexistence}).
 
     By construction, \(V_n\subseteq W_n\) for all \(n\in\mathbb{N}\). The sets \(\{V_n\}\) form compact shells exhausting \(\Omega\), since \(\bigcup_{n\in\mathbb{N}}V_n=\Omega\).
 
@@ -1278,9 +1279,9 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 \end{proof}
 \begin{remark}
     The property of local finiteness of an open collection \(S\) in \(\Omega\) is commonly stated as:
-    
+
     \(\forall z\in\Omega\), there exists an open neighborhood of \(z\) intersecting finitely many sets in \(S\).
-    
+
     Obviously, this assertion implies \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \autoref{lemma:locallyfiniteopencoverexistence}: let \(K\subset \Omega\) be compact, and for every \(z\in\Omega\), the collection of neighborhoods covers \(K\), and by compactness, admits a finite subcover. Therefore, \(K\) intersects finitely many sets in \(S\). Conversely, \(\forall z\in\Omega\), there exists an open neighborhood \(V\ni z\) relatively compact in \(\Omega\). By assumption, \(\overline{V}\) intersects finitely many sets in \(S\), and since \(V\subset\overline{V}\), the conclusion follows.
 \end{remark}
 \begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
@@ -1297,12 +1298,12 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 
     Then, \(\cbraces{D\paren{z,r}}{z\in\Omega, 0<r<r_z}\) forms an open basis of \(\Omega\). Then by \autoref{lemma:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\cbraces{D\paren{z_j,r_{z_j}}}\) of \(\Omega\), and since it is a subcollection of the basis, \[D\paren{z_j,r_{z_j}}\subset\overline{D\paren{z_j,r_{z_j}}}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\] The most trivial bump function has the form \[\theta(z)=\begin{cases}
             \exp\paren{\frac{1}{\abs{z}^2-1}} & \abs{z}<1   \\
-            0                       & \abs{z}\ge1
+            0                                 & \abs{z}\ge1
         \end{cases},\] which has the support \(\overline{D(0,1)}\). Define the function \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta\qty(\frac{z}{\varepsilon})\) with the support \(\overline{D(0,\varepsilon)}\), which satisfies that \(\forall\varepsilon>0\), \[\int_{\mathbb{C}}\theta_\varepsilon(z)\ddx\wedge\ddy=1.\]
-    Define a set of functions \(\cbraces{\beta_j(z)}_{j\in\mathbb{N}}\) with \(\beta_j(z)=\theta_{r_{z_j}}\paren{z-z_j}\), which is a bump function with \(\supp\qty(\beta_j)=\overline{D\paren{z_j, r_{z_j}}}\subset\Omega_{k_{z_j}}\). 
-    
+    Define a set of functions \(\cbraces{\beta_j(z)}_{j\in\mathbb{N}}\) with \(\beta_j(z)=\theta_{r_{z_j}}\paren{z-z_j}\), which is a bump function with \(\supp\qty(\beta_j)=\overline{D\paren{z_j, r_{z_j}}}\subset\Omega_{k_{z_j}}\).
+
     By the local finiteness of \(\qty{D\qty(z_j,r_{z_j})}\), there exists an open neighborhood \(V_z\) of each point \(z\in\Omega\) such that the set \(\cbraces{j}{V_z\cap D\qty(z_j,r_{z_j})\neq\emptyset}\) is finite. Since every open neighborhood of each point in \(\overline{D\qty(z_j,r_{z_j})}\) intersects \(D\qty(z_j,r_{z_j})\), it follows that every open set disjoint from \(D\qty(z_j,r_{z_j})\) is also disjoint from its closure. Since \(\overline{D\qty(z_j,r_{z_j})}\supset D\qty(z_j,r_{z_j})\), any open set intersecting \(D\qty(z_j,r_{z_j})\) will intersect \(\overline{D\qty(z_j,r_{z_j})}\). Therefore, \(\cbraces{j}{V_z\cap\overline{D\qty(z_j,r_{z_j})}\neq\emptyset}\) is finite. Equivalently, \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\) is locally finite on \(\Omega\).
-    
+
     Consequently, \(\forall z_0\in\Omega\), there exists an open neighborhood \(V\ni z_0\) that intersects a finite number of sets in \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\). Then \(\forall z\in V\), the sum \[S(z)=\sum_{j=1}^\infty\beta_j(z)\] is a sum of finitely many terms and is therefore \(C^\infty\) at \(z_0\). Since the collection of supports exhausts \(\Omega\), \(S(z)\) is positive. Therefore, the sequence defined by \[\alpha_j(z)={\frac{\beta_j(z)}{S(z)}}\] is also \(C^\infty\) and is compactly supported in \(\Omega\). Furthermore, it satisfies \[\sum_{j=1}^\infty\alpha_j(z)=1.\]
 \end{proof}
 \begin{theorem}[Existence of Bump Functions]\label{thm:bumpfunctionexistence}
@@ -1506,7 +1507,7 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
     From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
 \begin{remark}
-    If \(f\) is holomorphic and non-constant on an open region \(U\subseteq\mathbb{C}\), then for any compact set \(K\subset U\), the maximum of \(f\) in \(K\) lies on \(\partial K\). Otherwise, \(f\) would attain a maximum at some \(z\in K^\circ\), and contradict the statement of \autoref{thm:maximummodulus} under the assumption of being non-constant. 
+    If \(f\) is holomorphic and non-constant on an open region \(U\subseteq\mathbb{C}\), then for any compact set \(K\subset U\), the maximum of \(f\) in \(K\) lies on \(\partial K\). Otherwise, \(f\) would attain a maximum at some \(z\in K^\circ\), and contradict the statement of \autoref{thm:maximummodulus} under the assumption of being non-constant.
 \end{remark}
 A similar theorem exists for real-valued harmonic functions. The proof follows in the same way as the one for holomorphic functions. We will state it formally below.
 \begin{theorem}\label{thm:maximumprincipleforrealharmonicfunctions}
@@ -1659,12 +1660,12 @@ A fundamental problem in the theory of partial differential equations is to find
     As integrals are defined with limits, we aim to prove that for fixed \(\xi=Re^{i\vartheta}\in\partial D(0,R)\), \begin{equation}
         \lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\label{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}
     \end{equation}
-    Let \(0<\rho<R\) and \(z=\rho e^{i\theta}\). Then, 
+    Let \(0<\rho<R\) and \(z=\rho e^{i\theta}\). Then,
     \[\abs{\varphi(\xi)-u(z)}=\abs{\varphi\qty(Re^{i\vartheta})-u\qty(\rho e^{i\theta})}=\abs{\varphi\qty(Re^{i\vartheta})-\int_0^{2\pi}P(\zeta,z)\varphi\qty(\zeta)\dd{\tau}}.\]
     For a constant harmonic function identically equal to 1, we get \(1=\int_0^{2\pi}P(\zeta,z)\dd{\tau}\) from equation~\eqref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\pi}P(\zeta,z)\qty(\varphi\qty(Re^{i\vartheta})-\varphi(\zeta))\dd{\tau}}.\]
     By the continuity of \(\varphi\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty|\vartheta-\tau|<\delta<\frac{\pi}{2}\), \(\abs{\varphi(Re^{i\vartheta})-\varphi(\zeta)}<\varepsilon\). Therefore,
     \begin{align*}
-            \abs{\varphi(\xi)-u(z)}&=\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}>\delta})P(\zeta,z)\paren{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}\dd{\tau}}\\&=\abs{I_1+I_2}\leq\abs{I_1}+\abs{I_2}.
+        \abs{\varphi(\xi)-u(z)} & =\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}>\delta})P(\zeta,z)\paren{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}\dd{\tau}} \\&=\abs{I_1+I_2}\leq\abs{I_1}+\abs{I_2}.
     \end{align*}
     Since the Poisson kernel is non-negative, \[\qty|I_1|<\varepsilon\int_{\abs{\vartheta-\tau}<\delta}P(\zeta,z)\dd{\tau}<\varepsilon.\]
     \begin{figure}
@@ -1674,7 +1675,7 @@ A fundamental problem in the theory of partial differential equations is to find
             \coordinate (z) at (2.2, 4.2);
             \coordinate (xi) at (0.868, 4.924);
             \coordinate (auxiliary1) at ($(0,0)!0.948!(zeta)$);
-            
+
             \draw[-{Stealth}, thick] (-0.5, 0) -- (5.5, 0);
             \draw[-{Stealth}, thick] (0, -0.5) -- (0, 5.5);
             \draw[thin] (5,0) arc[start angle=0, end angle=90, radius=5];
@@ -1712,12 +1713,12 @@ A fundamental problem in the theory of partial differential equations is to find
     \end{equation} and \begin{equation}
         \rho>\frac{R}{2}\Longrightarrow\eta\leq\frac{R}{2}\label{eq:dirichletproblemwithlaplaceequationsolution_constraint2}
     \end{equation} (these can be arbitrarily chosen for different resulting bounds) as in \autoref{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}. Then, \[|\zeta-z|^2>4\rho^2\sin[2](\frac{\delta}{4})>\frac{1}{2}R^2\qty(1-\cos(\frac{\delta}{2})).\]
-    
+
     We aim to prove that \(\abs{I_2}<\varepsilon\). Since \(\abs{\varphi\qty(Re^{i\vartheta})-\varphi(\zeta)}<2M\), the condition is satisfied if \(\int_{\abs{\vartheta-\tau}>\delta}\frac{R^2-\rho^2}{\pi R^2\qty(1-\cos(\frac{\delta}{2}))}\dd{\tau}<2\frac{R^2-\rho^2}{R^2\qty(1-\cos(\frac{\delta}{2}))}< \frac{\varepsilon}{2M}\), and from rearrangement, we can significantly tighten the constraint with: \begin{equation}
         R^2-\rho^2<\frac{\varepsilon}{4M}R^2\paren{1-\cos(\frac{\delta}{2})}\Longleftarrow R-\rho<\frac{\varepsilon}{8M}R\paren{1-\cos(\frac{\delta}{2})}.\label{eq:dirichletproblemwithlaplaceequationsolution_constraint3}
     \end{equation}
     From \autoref{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}, it is evident that \(R-\rho<|\xi-z|<\eta\). In order for equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint1} to be true, we can enforce that \(\abs{\vartheta-\theta}<\frac{\delta}{2}\). In other words \(\abs{\xi-z}^2<R^2+\rho^2-2R\rho\cos(\frac{\delta}{2})\). Obviously, this will be satisfied if \(|\xi-z|^2<\frac{R^2}{2}\paren{1-\cos(\frac{\delta}{2})}<2\rho^2\qty(1-\cos(\frac{\delta}{2}))\). Therefore, we can choose \[\eta=\min\qty[\frac{\varepsilon}{8M}R\paren{1-\cos(\frac{\delta}{2})},\frac{R\sqrt{2}}{2}\sqrt{1-\cos(\frac{\delta}{2})},\frac{R}{2}]>0,\] under which equations \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint1}, \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint2} and \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint3} are satisfied.
-    
+
     Hence, \(\forall\varepsilon>0\), \(\exists\eta>0\) such that \(\forall z\) such that \(0<\abs{\xi-z}<\eta\), we have \(\abs{\varphi(\xi)-u(z)}<2\varepsilon\). Then equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary} follows.
 
     We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (equation~\eqref{eq:poissonintegralformula2}), \(\forall z\in D(0,R)\), \(u(z)-v(z)=\int_0^{2\pi}P(\zeta,z)\paren{u(\zeta)-v(\zeta)}\dd{\tau}=0\). Since \(u-v\) vanishes, we have a contradiction.
@@ -1726,7 +1727,7 @@ A fundamental problem in the theory of partial differential equations is to find
 Consider \(R=1\), \(\zeta=e^{i\tau}\), \(z=\rho e^{i\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
 \[u(z)=\int_0^{2\pi}u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau}=\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})}=\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\]
 If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\exp(i\tau)\) is periodic over \(2\pi\). Thus, it can be expressed as a Fourier series \[u\qty(e^{i\tau})\sim\sum_{n=-\infty}^\infty a_ne^{in\tau},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}.\]
-This series is not necessarily convergent (hence the usage of "\(\sim\)"). 
+This series is not necessarily convergent (hence the usage of "\(\sim\)").
 TO BE CONTINUED
 
 Finally, we will demonstrate that real-valued continuous functions satisfying the mean-value property are logically equivalent to being a solution to the Laplace equation. In \autoref{lemma:holomorphicmeanvalueproperty}, we showed that real solutions to the Laplace equation satisfy the mean-value property. Now we will prove the converse.
@@ -1750,7 +1751,7 @@ The Laurent Series generalizes the Taylor series to holomorphic functions with i
 
 We now introduce a fundamental result in complex analysis due to Weierstrass, which formalizes the conditions under which the limit of a sequence of holomorphic functions is itself holomorphic. This theorem not only guarantees the holomorphy of the limit function but also the uniform convergence of its derivatives (its statement was used in the proof of \autoref{thm:hurwitzsimplecase}).
 \begin{theorem}[Weierstrass' Uniform Limit Theorem]\label{thm:weierstrassuniformlimit}
-    Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\). 
+    Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\).
 \end{theorem}
 \begin{proof}
     By Morera's Theorem (\autoref{thm:morera}) and uniform convergence, the holomorphy of \(f(z)\) follows (refer to equation~\eqref{eq:hurwitzsimplecase_integrallimitswitchforholomorphy} and preceding explanations).
@@ -1779,21 +1780,21 @@ is a Laurent Series at the point \(a\). The series can be separated into a power
     \varphi(z)=\sum_{n=0}^\infty c_n(z-a)^n,\label{eq:laurentseriesnonnegativeexponents}
 \end{equation} and a power series with negative exponents, \begin{equation}
     \psi(z)=\sum_{n=1}^{\infty}c_{-n}(z-a)^{-n}.\label{eq:laurentseriesnegativeexponents}
-\end{equation} Equation~\eqref{eq:laurentseries} is said to be convergent at \(z=z_0\) if the two power series are both convergent. Let the convergence radius of equation~\eqref{eq:laurentseriesnonnegativeexponents} be \(R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}}\) by the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}). It follows that the \(\varphi\) is holomorphic on \(D(a,R)\). Let \(\zeta=(z-a)^{-1}\). Then equation~\eqref{eq:laurentseriesnegativeexponents} becomes \(\sum_{n=1}^\infty c_{-n}\zeta^n\). This series converges when \(\abs{\zeta}<\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}}=\lambda\). Let \(r=\flatfrac{1}{\lambda}\). Then \(\psi(z)\) converges when \(\abs{z-a}>\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}\), or when \(z\in\mathbb{C}\setminus\overline{D(a,r)}\). 
+\end{equation} Equation~\eqref{eq:laurentseries} is said to be convergent at \(z=z_0\) if the two power series are both convergent. Let the convergence radius of equation~\eqref{eq:laurentseriesnonnegativeexponents} be \(R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}}\) by the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}). It follows that the \(\varphi\) is holomorphic on \(D(a,R)\). Let \(\zeta=(z-a)^{-1}\). Then equation~\eqref{eq:laurentseriesnegativeexponents} becomes \(\sum_{n=1}^\infty c_{-n}\zeta^n\). This series converges when \(\abs{\zeta}<\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}}=\lambda\). Let \(r=\flatfrac{1}{\lambda}\). Then \(\psi(z)\) converges when \(\abs{z-a}>\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}\), or when \(z\in\mathbb{C}\setminus\overline{D(a,r)}\).
 
 If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D(a,r)}\) and divergent on \(\mathbb{C}\setminus\overline{D(a,R)}\cup D(a,r)\). If \(r=R\), the series diverges possibly everywhere but on \(\partial D(a,r)\). Similar to power series with positive exponents, the convergence on the boundary varies. For example, \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n^2}\), where \(R=r=1\), converges (absolutely) on \(\partial\mathbb{D}\), whereas \(\sum_{n=-\infty}^\infty z^n\) diverges on all of \(\partial\mathbb{D}\), while \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n}\) converges (conditionally) on all of \(\partial\mathbb{D}\setminus\qty{1}\) and diverges at \(z=1\). If \(r>R\), then the series is divergent on all of \(\mathbb{C}\). The region \(D(a,R)\setminus\overline{D(a,r)}\) is known as the \textit{annulus of convergence}. \(f(z)\) in equation~\eqref{eq:laurentseries} is holomorphic over this annulus. \(\varphi(z)\) is known as the \textit{holomorphic part} of \(f(z)\), and \(\psi(z)\) is known as the \textit{principle part} of the Laurent Series. The properties of the convergence disk in Abel's Theorem (\autoref{thm:abelradius}) can be generalized to Laurent Series. \(f\) is absolutely convergent on the annulus and is uniformly convergent on every compact subset of it.
 \begin{theorem}\label{thm:laurentexpansionofholomorphicfunction}
     Let \(V=\cbraces{z\in\mathbb{C}}{r<\abs{z-a}<R}\) for some \(0\leq r<R\leq\infty\). Let \(f\) be holomorphic on \(V\). Then \(f\) has the unique \textit{Laurent expansion} \begin{equation}
         f(z)=\sum_{n=-\infty}^\infty c_n(z-a)^n\label{eq:laurentexpansionofholomorphicfunction_statement}
-    \end{equation} when \(z\in V\), where \(c_n=\frac{1}{2\pi i}\oint_{\gamma}\frac{f(\zeta)\ddzeta}{(\zeta-a)^{n+1}}\), where \(\gamma\subset V\) is a simple closed curve enclosing \(a\). 
+    \end{equation} when \(z\in V\), where \(c_n=\frac{1}{2\pi i}\oint_{\gamma}\frac{f(\zeta)\ddzeta}{(\zeta-a)^{n+1}}\), where \(\gamma\subset V\) is a simple closed curve enclosing \(a\).
 \end{theorem}
 \begin{proof}
     \begin{figure}
         \centering
         \begin{tikzpicture}
             \draw[line width=0.35] plot[smooth cycle] coordinates {
-                (-3,-0.3) (-2.3,-2.1) (-1.2,-2.1) (0.2,-2.4) (1.2,-2.5) (2.3,-1.5) (2.4,1.2) (-0.7,2.7)
-            };
+                    (-3,-0.3) (-2.3,-2.1) (-1.2,-2.1) (0.2,-2.4) (1.2,-2.5) (2.3,-1.5) (2.4,1.2) (-0.7,2.7)
+                };
             \draw[line width=0.5] (3.5,0) arc[start angle=0, end angle=360, radius=3.5];
             \draw[line width=0.5, dashed] (3.3,0) arc[start angle=0, end angle=360, radius=3.3];
             \draw[line width=0.5] (2,0) arc[start angle=0, end angle=360, radius=2];
@@ -1802,7 +1803,7 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
             \draw[thin, |-|, line cap=round, shorten >=1pt] (0,0) -- (0,2) node[midway, right] {\(r\)};
             \draw[thin, |-|, line cap=round, shorten >=1pt] (0,0) -- (2.87,-1.65) node[midway, anchor=south, yshift=2pt] {\(R'\)};
             \draw[thin, |-|, line cap=round, shorten >=1pt] (0,0) -- (-1.48,-1.64) node[midway, anchor=south] {\(r'\)};
-            
+
             \node[anchor=north] at (0,-0.1) {\(a\)};
             \node[anchor=north] at (-1,-2.2) {\(\gamma\)};
         \end{tikzpicture}
@@ -1817,17 +1818,17 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
         f(z)=\frac{1}{2\pi i}\qty(\sum_{n=0}^\infty\int_{\gamma_2}\frac{(z-a)^n}{(\zeta-a)^{n+1}}f(\zeta)\ddzeta+\sum_{n=1}^\infty\int_{\gamma_1}\frac{(\zeta-a)^{n-1}}{(z-a)^{n}}f(\zeta)\ddzeta).\label{eq:laurentexpansionofholomorphicfunction_finalstep}
     \end{equation}
     By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), for a given \(n\), \[\int_{\gamma_2^+\cup\gamma^-}\frac{f(\zeta)\ddzeta}{(\zeta-a)^n}=0,\quad\int_{\gamma^+\cup\gamma_1^-}f(\zeta)(\zeta-a)^n\ddzeta=0.\]
-     In other words, the integrals in equation~\eqref{eq:laurentexpansionofholomorphicfunction_finalstep} are the same as on \(\gamma\). Hence, we get that \[f(z)=\sum_{n=0}^\infty c_n(z-a)^n+\sum_{n=1}^\infty c_{-n}(z-a)^{-n}=\sum_{n=-\infty}^\infty c_n(z-a)^n.\]
+    In other words, the integrals in equation~\eqref{eq:laurentexpansionofholomorphicfunction_finalstep} are the same as on \(\gamma\). Hence, we get that \[f(z)=\sum_{n=0}^\infty c_n(z-a)^n+\sum_{n=1}^\infty c_{-n}(z-a)^{-n}=\sum_{n=-\infty}^\infty c_n(z-a)^n.\]
     The constants \(\qty{c_n}_{n\in\mathbb{Z}}\) are also unique in the expansion. For the sake of contradiction, assume there exists another set of constants \(\qty{c'_n}_{n\in\mathbb{Z}}\) such that \begin{equation}
         f(z)=\sum_{n=-\infty}^\infty c'_n(z-a)^n,\label{eq:laurentexpansionofholomorphicfunction_uniquenessstatement}
     \end{equation}
     where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \[\int_{\gamma}(z-a)^k\ddz=\begin{cases}
-        0& k\geq0\\
-        2\pi i\dv[-k-1]{z}(1)&k\leq -1
-    \end{cases}=\begin{cases}
-        0& k\neq-1\\
-        2\pi i &k=-1\\
-    \end{cases}.\]
+            0                     & k\geq0   \\
+            2\pi i\dv[-k-1]{z}(1) & k\leq -1
+        \end{cases}=\begin{cases}
+            0      & k\neq-1 \\
+            2\pi i & k=-1    \\
+        \end{cases}.\]
     Multiplying equation~\eqref{eq:laurentexpansionofholomorphicfunction_uniquenessstatement} by \((z-a)^{-m-1}\) and from integrating over \(\gamma\), we get that \[\int_\gamma\frac{f(z)\ddz}{(z-a)^{m+1}}=\int_{\gamma}\sum_{n=-\infty}^\infty c'_n(z-a)^{n-m-1}\ddz\Longleftrightarrow 2\pi ic_m=\sum_{n=-\infty}^\infty c'_n\int_{\gamma}(z-a)^{n-m-1}\ddz=2\pi ic'_m,\]
     and we have a contradiction, implying uniqueness.
 \end{proof}
@@ -1836,38 +1837,42 @@ An \textit{isolated singularity} of a complex function is a point \(a\in\mathbb{
 \begin{enumerate}
     \item\label{itm:isolatedsingularities_removable} If \(\lim_{z\to a}f(z)\) exists and is finite, then \(z=a\) is a removable singularity and can be analytically continued to \(D(a,r)\) by \autoref{thm:removablesingularitiesriemann}. Consequently, \(f(z)\) has a convergent Taylor expansion and the principle part of its Laurent expansion vanishes, and \(f(z)=\varphi(z)\).
     \item\label{itm:isolatedsingularities_pole} If \(\lim_{z\to a}f(z)=\infty\), then \(z=a\) is a \textit{pole} of \(f\) (from the stereographic projection and the Riemann sphere, the \(\infty\) is a single point in \(\riemannsphere\), and approaching \(\infty\) does not distinguish between different directions, unlike the use of \(+\infty\) and \(-\infty\)). \begin{theorem}
-        The condition \(\lim_{z\to a}f(z)=\infty\) is equivalent to there being a finite number of nonzero \(c_{-n}\)'s, where \(n\in\mathbb{N}\). 
-    \end{theorem}
-    In other words the principle part of \(f\) is equal to \[\psi(z)=\frac{c_{-1}}{z-a}+\cdots+\frac{c_{-m}}{(z-a)^m}\quad c_{-m}\neq0\] for some \(m\in\mathbb{N}\). Therefore, \(f(z)=\varphi(z)+\psi(z)=\sum_{n=-m}^\infty c_n(z-a)^n=\frac{g(z)}{(z-a)^m}\) on the punctured disk \(D^*(a,r)\), where \(g(z)=\sum_{n=0}^\infty c_{n-m}(z-a)^n\) is holomorphic on \(D(a,r)\) and does not attain a zero at \(z=a\). Then \(f(z)\) has a pole at \(z=a\) with order \(m\). If \(m=1\), the pole is also called a \textit{simple pole}.
-    \begin{proof}
-        Obviously, under the assumption of a finite, nonempty number of non-negative terms in the principle part of the Laurent expansion coefficients, \(\lim_{z\to a}f(z)\to\infty\). Now we will prove the converse. Let \(g(z)=\frac{1}{f(z)}\). Then \(\lim_{z\to a}g(z)=0\). There exists a \(\delta>0\) such that \(f\) is nonzero on \(D^*(a,\delta)\). Then \(g(z)\) is holomorphic on \(D^*(a,\delta)\) and has a removable singularity at \(z=a\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to \(D^*(a,\delta)\). Let the multiplicity of the zero at \(z=a\) be \(m\). Then \(g(z)=\phi(z)(z-a)^m\), where \(\phi(z)\) is holomorphic and nonzero at \(z=a\). Then there exists a \(\delta'>0\) such that \(\phi\) is nonzero on \(D(a,\delta')\). It follows that \(\frac{1}{\phi}\) is holomorphic and nonzero on \(D(a,\delta')\). We can then write its Taylor expansion as \[\frac{1}{\phi(z)}=c_{-m}+c_{1-m}(z-a)+\cdots,\]
-    where \(c_{-m}\neq0\). It follows that \[f(z)=\frac{1}{g(z)}=\frac{(z-a)^{-m}}{\phi(z)}={c_{-m}}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_0+\cdots.\]
-    By the uniqueness of the Laurent series (by \autoref{thm:laurentexpansionofholomorphicfunction}), the conclusion follows.
-    \end{proof}
-    \item\label{itm:isolatedsingularities_essential} If \(\lim_{z\to a}f(z)\) is nonexistent, then \(a\) is known as an \textit{essential singularity}. 
-    \begin{example}\label{ex:isolatedsingularities_essential_exp1z}
-        The function \(e^{\frac{1}{z}}\) has an essential singularity at \(z=0\).
-    \end{example}
-    \begin{proof}
-        Observe that \(\lim_{\substack{z\to 0\\z\in\mathbb{R}_{>0}}}=\infty\). Similarly, \(\lim_{\substack{z\to0\\z\in\mathbb{R}_{<0}}}=0\), and \(\lim_{\substack{z\to0\\z\in i\mathbb{R}_{>0}}}\) is divergent.
-    \end{proof}
-    The implication on its Laurent expansion at \(a\) is:
-    \begin{theorem}
-        The necessary and sufficient for \(\lim_{z\to a} f(z)\) to not exist is that infinitely many of \(c_{-n}\) (where \(n\in\mathbb{N}\)) are nonzero. 
-    \end{theorem}
-This follows by elimination from the established trichotomy; if the limit as \(z\to a\) does not exist, then the singularity is neither removable nor a pole (results from \ref{itm:isolatedsingularities_removable} and \ref{itm:isolatedsingularities_pole}). Similar logic can be applied to the coefficients of the Laurent expansion.
+              The condition \(\lim_{z\to a}f(z)=\infty\) is equivalent to there being a finite number of nonzero \(c_{-n}\)'s, where \(n\in\mathbb{N}\).
+          \end{theorem}
+          In other words the principle part of \(f\) is equal to \[\psi(z)=\frac{c_{-1}}{z-a}+\cdots+\frac{c_{-m}}{(z-a)^m}\quad c_{-m}\neq0\] for some \(m\in\mathbb{N}\). Therefore, \(f(z)=\varphi(z)+\psi(z)=\sum_{n=-m}^\infty c_n(z-a)^n=\frac{g(z)}{(z-a)^m}\) on the punctured disk \(D^*(a,r)\), where \(g(z)=\sum_{n=0}^\infty c_{n-m}(z-a)^n\) is holomorphic on \(D(a,r)\) and does not attain a zero at \(z=a\). Then \(f(z)\) has a pole at \(z=a\) with order \(m\). If \(m=1\), the pole is also called a \textit{simple pole}.
+          \begin{proof}
+              Obviously, under the assumption of a finite, nonempty number of non-negative terms in the principle part of the Laurent expansion coefficients, \(\lim_{z\to a}f(z)\to\infty\). Now we will prove the converse. Let \(g(z)=\frac{1}{f(z)}\). Then \(\lim_{z\to a}g(z)=0\). There exists a \(\delta>0\) such that \(f\) is nonzero on \(D^*(a,\delta)\). Then \(g(z)\) is holomorphic on \(D^*(a,\delta)\) and has a removable singularity at \(z=a\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to \(D^*(a,\delta)\). Let the multiplicity of the zero at \(z=a\) be \(m\). Then \(g(z)=\phi(z)(z-a)^m\), where \(\phi(z)\) is holomorphic and nonzero at \(z=a\). Then there exists a \(\delta'>0\) such that \(\phi\) is nonzero on \(D(a,\delta')\). It follows that \(\frac{1}{\phi}\) is holomorphic and nonzero on \(D(a,\delta')\). We can then write its Taylor expansion as \[\frac{1}{\phi(z)}=c_{-m}+c_{1-m}(z-a)+\cdots,\]
+              where \(c_{-m}\neq0\). It follows that \[f(z)=\frac{1}{g(z)}=\frac{(z-a)^{-m}}{\phi(z)}={c_{-m}}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_0+\cdots.\]
+              By the uniqueness of the Laurent series (by \autoref{thm:laurentexpansionofholomorphicfunction}), the conclusion follows.
+          \end{proof}
+    \item\label{itm:isolatedsingularities_essential} If \(\lim_{z\to a}f(z)\) is nonexistent, then \(a\) is known as an \textit{essential singularity}.
+          \begin{example}\label{ex:isolatedsingularities_essential_exp1z}
+              The function \(e^{\frac{1}{z}}\) has an essential singularity at \(z=0\).
+          \end{example}
+          \begin{proof}
+              Observe that \(\lim_{\substack{z\to 0\\z\in\mathbb{R}_{>0}}}=\infty\). Similarly, \(\lim_{\substack{z\to0\\z\in\mathbb{R}_{<0}}}=0\), and \(\lim_{\substack{z\to0\\z\in i\mathbb{R}_{>0}}}\) is divergent.
+          \end{proof}
+          The implication on its Laurent expansion at \(a\) is:
+          \begin{theorem}
+              The necessary and sufficient for \(\lim_{z\to a} f(z)\) to not exist is that infinitely many of \(c_{-n}\) (where \(n\in\mathbb{N}\)) are nonzero.
+          \end{theorem}
+          This follows by elimination from the established trichotomy; if the limit as \(z\to a\) does not exist, then the singularity is neither removable nor a pole (results from \ref{itm:isolatedsingularities_removable} and \ref{itm:isolatedsingularities_pole}). Similar logic can be applied to the coefficients of the Laurent expansion.
+
+          Indeed, in \autoref{ex:isolatedsingularities_essential_exp1z}, the Laurent expansion is equal to:
+          \[e^{\frac{1}{z}}=\sum_{n=0}^\infty\frac{z^{-n}}{n!},\]
+          which has infinitely many nonzero coefficients.
 \end{enumerate}
 A function with an essential singularity exhibits striking behavior. We will first introduce the following famous result.
 \begin{theorem}[Weierstrass--Casorati Theorem]\label{thm:weierstrasscasorati}
-    
+
 \end{theorem}
 In TO BE CONTINUED, we will give a generalization of this result.
 \subsection{The Residue Theorem}\label{sec:residuetheorem}
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane} and \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
 \section{A Taste of Riemannian Geometry}
-One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem in \chpref{sec:residuetheorem} is a result from a generalization that can be applied to real-valued integrals. 
+One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem in \chpref{sec:residuetheorem} is a result from a generalization that can be applied to real-valued integrals.
 
-More contemporary results in complex analysis are also where many different branches of mathematics, including topology, geometry, number theory, group theory, and linear algebra, coalesce. 
+More contemporary results in complex analysis are also where many different branches of mathematics, including topology, geometry, number theory, group theory, and linear algebra, coalesce.
 \section{Differential Geometry}\label{sec:differentialgeometry}
 
 \section{Some Differences in Multivariable Complex Analysis}
