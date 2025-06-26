@@ -1881,12 +1881,13 @@ In \chpref{sec:differentialgeometry}, we will prove a profound generalization of
 \subsubsection{At the \texorpdfstring{\(\infty\)}{Infinity} Point}
 Given the one-point compactification of \(\mathbb{C}\) into the Riemann sphere \(\riemannsphere\), we can now define and analyze the behavior of functions near the point at infinity. Similar to the classification of isolated singularities in \(\mathbb{C}\), we can classify \(\infty\) as a removable singularity, a pole, or an essential singularity of a holomorphic function.
 
-Let \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic for some \(R>0\). Then \(z=\infty\) is an \textit{isolated singularity} of \(f\). To analyze the nature of the singularity, let \(\zeta=\frac{1}{z}\). We define a new function \(g(\zeta)=f\qty(\frac{1}{\zeta})=f(z)\), which is holomorphic on \(D^*\qty(0,\frac{1}{R})\). Then at \(\zeta=0\), \(g(\zeta)\) has the Laurent expansion of \[g(\zeta)=\sum_{n=-\infty}^\infty c_n\zeta^n=\sum_{n=0}^\infty c_{n}\zeta^n+\sum_{n=1}^\infty c_{-n}\zeta^{-n}=\varphi_g(\zeta)+\psi_g(\zeta),\]
-where \(\varphi_g\) and \(\psi_g\) are the holomorphic and principal parts of \(g\), respectively. Let \(\varphi\) It follows that \(f\) has the Laurent expansion at \(\infty\) of \(f(z)=\sum_{n=-\infty}^\infty c_nz^{-n}=\sum_{n=0}^\infty c_nz^{-n}+\sum_{n=1}^\infty c_{-n}z^n=\varphi_f(z)+\psi_f(z)\).
+Let \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic for some \(R>0\). Then \(z=\infty\) is an \textit{isolated singularity} of \(f\). To analyze the nature of the singularity, let \(\zeta=\frac{1}{z}\). We define a new function \(g(\zeta)=f\qty(\frac{1}{\zeta})=f(z)\), which is holomorphic on \(D^*\qty(0,\frac{1}{R})\). Then at \(\zeta=0\), \(g(\zeta)\) has the Laurent expansion of \[g(\zeta)=\sum_{n=-\infty}^\infty c_n\zeta^n=\sum_{n=0}^\infty c_{n}\zeta^n+\sum_{n=1}^\infty c_{-n}\zeta^{-n}=\varphi(\zeta)+\psi(\zeta),\]
+where \(\varphi\) and \(\psi\) are the holomorphic and principal parts of \(g\), respectively. Let \(\tilde{\varphi}(z)=\varphi\qty(\frac{1}{z})\), \(\tilde{\psi}(z)=\psi\qty(\frac{1}{z})\). At \(z=0\), \(f\) then has the Laurent expansion of \[f(z)=\sum_{n=-\infty}^\infty c_nz^{-n}=\sum_{n=0}^\infty c_nz^{-n}+\sum_{n=1}^\infty c_{-n}z^n=\tilde{\varphi}(z)+\tilde{\psi}(z).\]
 
 The classification of the singularity at \(\infty\) is then reduced to the classification of the singularity of \(g\) at \(0\):
 \begin{enumerate}
-    \item If \(z=\infty\) is a removable singularity of\(f(z)\), then \(f(z)\) has the form \[f(z)=c\]
+    \item If \(z=\infty\) is a removable singularity of \(f(z)\), then \(f(z)\) has the form \[f(z)=c_0+\frac{c_1}{z}+\frac{c_2}{z^2}+\cdots.\]
+    \item If \(z=\infty\) is a pole of \(f(z)\) with degree \(m\in\mathbb{N}\), then \(f(z)\) can be written as \[f(z)=c_{-m}z^m+\cdots c_0+\frac{c_1}{z}+\cdots,\] where \(c_{-m}\neq0\).
 \end{enumerate}
 \subsection{Entireness and Meromorphy}
 
