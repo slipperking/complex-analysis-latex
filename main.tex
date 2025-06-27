@@ -676,7 +676,7 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
                & =\xi_1\ddx+i\eta_1\ddx+i\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+i\eta_2\ddx-i\xi_2\ddy+\eta_2\ddy\nonumber                                                                       \\
                & =\qty[\paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy]+i\qty[\paren{\eta_1+\eta_2}\ddx+\paren{\xi_1-\xi_2}\ddy]\label{eq:complexgreen_realandcomplexdxdyintermediate}
     \end{align}
-    Each of \(\xi_1,\xi_2,\eta_1,\eta_2\) are real-valued functions that can be represented with a domain of \(\mathbb{R}^2\). We then will apply the \(d=\partial+\overline{\partial}\) definition of the exterior derivative and relate it to \eqref{eq:complexgreen}. Starting with equation~\eqref{eq:complexgreen_omegaexpansionintermediate}, \begin{align}
+    Each of \(\xi_1,\xi_2,\eta_1,\eta_2\) are real-valued functions that can be represented with a domain of \(\mathbb{R}^2\). We then will apply the \(d=\partial+\overline{\partial}\) definition of the exterior derivative and relate it to equation~\eqref{eq:complexgreen}. Starting with equation~\eqref{eq:complexgreen_omegaexpansionintermediate}, \begin{align}
         \dd{\omega} & =\paren{\partial+\overline{\partial}}\paren{\xi_1+i\eta_1}\ddz+\paren{\partial+\overline{\partial}}\paren{\xi_2+i\eta_2}\dd{\overline{z}}\nonumber                                                         \\
                     & =\paren{\pdv{\xi_1}{\overline{z}}+i\pdv{\eta_1}{\overline{z}}}\dd{\overline{z}}\wedge\ddz+\paren{\pdv{\xi_2}{z}+i\pdv{\eta_2}{z}}\ddz\wedge\dd{\overline{z}}\nonumber                                      \\
                     & =2\paren{i\pdv{\xi_1}{\overline{z}}-\pdv{\eta_1}{\overline{z}}-i\pdv{\xi_2}{z}+\pdv{\eta_2}{z}}\ddx\wedge\ddy\nonumber                                                                                     \\
@@ -724,7 +724,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
                                                                                                            & =2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\pi}\int_0^\varepsilon e^{-i\theta}\dd{r}\dd{\theta}}\nonumber                                        \\
                                                                                                            & =0.\nonumber
     \end{align}
-    Then from rearranging \eqref{eq:pompeiu_epsilonlimitintermediate}, we obtain:
+    Then from rearranging equation~\eqref{eq:pompeiu_epsilonlimitintermediate}, we obtain:
     \[f(z)=\frac{1}{2\pi i}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
 \end{proof}
 In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disk of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\). As in the proof above, the steps calculating the integral over the removed disk as in equation~\eqref{eq:pompeiu_areadiskstatement} are still necessary in confirmation, although they are typically implicitly elided.
@@ -755,7 +755,7 @@ From the above result, we can directly obtain the following theorem:
 \begin{proof}
     We aim to prove the theorem in three parts: the continuity of \(u(z)\), the continuous differentiability of \(u(z)\), and the fact that it satisfies the differential equation \(\pdv{u(z)}{\overline{z}}=\psi(z)\).
 
-    Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(D\paren{z,\varepsilon}\). \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\pi i}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\pi i}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\] Therefore, \eqref{eq:onedimensionalpartialconjugatesolution} is continuous. Let \(\xi=\zeta-z\) and observe that \[u(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z)}{\xi}\dd{\xi}\wedge\dd{\overline{\xi}}\] Then, \begin{equation}
+    Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(D\paren{z,\varepsilon}\). \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\pi i}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\pi i}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\] Therefore, equation~\eqref{eq:onedimensionalpartialconjugatesolution} is continuous. Let \(\xi=\zeta-z\) and observe that \[u(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z)}{\xi}\dd{\xi}\wedge\dd{\overline{\xi}}\] Then, \begin{equation}
         \frac{u(z+h)-u\paren{z}}{h}=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h\xi}\dd{\xi}\wedge\dd{\overline{\xi}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
     For a fixed \(z\), the value of \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}\] tends to \(\pdv{\psi}{\zeta}\paren{\xi+z}\) as \(h\to0\). Because \(\psi(\zeta)=\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{lemma:c1lipschitz}, it is Lipschitz continuous for a constant \(M\).
@@ -1102,10 +1102,10 @@ The differentiation formula above can be thought of as a generalization of \auto
 \begin{example}\label{ex:legendrepolynomialintegralformula}
     A \textit{Legendre polynomial} is a polynomial in the form of \begin{equation}
         P_n(z)=\frac{1}{2^nn!}\dv[n]{z}(\qty(z^2-1)^n),\label{eq:legendrepolynomialintegralformula_rodriguesformula}
-    \end{equation}a formula given by Olinde Rodrigues. Prove the integral form \[P_n(z)=\frac{1}{2\pi i}\oint_\gamma\frac{\qty(\zeta^2-1)^n}{2^n(\zeta-z)^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
+    \end{equation} which is a formula given by Olinde Rodrigues. Prove the integral form \[P_n(z)=\frac{1}{2\pi i}\oint_\gamma\frac{\qty(\zeta^2-1)^n}{2^n(\zeta-z)^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
 \end{example}
 \begin{proof}
-    Applying the Cauchy--Goursat Differentiation Formula ()
+    Applying the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\pi i}\int_{\gamma}\frac{\qty(\zeta^2-1)^n}{(\zeta-z)^{n+1}}\ddzeta,\] as desired.
 \end{proof}
 \begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
     For a function \(f:U\to\mathbb{C}\) holomorphic over \(U\subseteq\mathbb{C}\) and \(\forall z_0\in U\) and \(\forall R>0\) such that \(\overline{D\paren{z_0,R}}\subseteq{U}\), \(\forall n\in\mathbb{N}\), \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!M}{R^n},\]
@@ -1438,7 +1438,7 @@ This profound result proves that the number of zeros of a holomorphic function e
     \[k_g-k_f=\int_{\gamma}\frac{g'(z)}{g(z)}\ddz-\int_\gamma\frac{f'(z)}{f(z)}\ddz=\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\dfrac{g(z)}{f(z)})'}{\dfrac{g(z)}{f(z)}}\ddz.\]
 
     Let \(w=h(z)=\frac{g(z)}{f(z)}\) with \(\Gamma=h(\gamma)\). Then, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}.\]
-    From \eqref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
+    From equation~\eqref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
 \end{proof}
 By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), any polynomial in the form \(p(z)=\sum_{k=0}^n a_kz^k\) (\(n\in\mathbb{N}\), \(a_n\neq 0\), \(a_k\in\mathbb{C}\) where \(k=1,\ldots n\)) has at least one complex zero. Consider the function \(q(z)=a_nz^n\), with a zero at \(z=0\) with multiplicity \(n\). By Rouché's Theorem (\autoref{thm:rouche}), since \(\exists R\in\mathbb{R}\) such that \(\abs{q(z)-p(z)}=\abs{\sum_{k=0}^{n-1}a_kz^k}<\abs{a_nz^n}\) over \(\abs{z}=R\), \(p\) and \(q\) have the same number of zeros, counting multiplicity.
 
