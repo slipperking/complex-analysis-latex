@@ -1899,8 +1899,11 @@ We have previously defined the concept of an entire function in \chpref{sec:comp
 \begin{enumerate}
     \item If \(f(z)\) has a removable singularity at \(z=\infty\), then \(f\) is constant.
     \begin{proof}
-        Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall |z|>\frac{1}{\delta}\), \(\abs{f(z)}<w+\varepsilon\). For the interior, \(\forall z\in D\qty(0,\frac{1}{\delta})\), \(\)
+        Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\), and is bounded. It follows that \(\forall |z|>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\). For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \autoref{thm:continuousfunctionboundedoncompact}, is also bounded.
+
+        Then by Liouville's Theorem (\autoref{thm:liouville}), \(f\) is constant. 
     \end{proof}
+    \item If \(f(z)\) has a pole at \(z=\infty\), then 
 \end{enumerate}
 
 \begin{definition}[Meromorphic Function]
