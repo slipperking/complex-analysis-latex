@@ -1122,7 +1122,9 @@ The differentiation formula above can be thought of as a generalization of \auto
 \end{example}
 \begin{proof}
     \(|f(0)|\leq M\) is obviously true by letting \(z=0\). Then \(\forall R>0\), by Cauchy's Estimate (\autoref{thm:cauchysestimate}), \[\abs{f^{(n)}(0)}\leq Mn!\frac{e^{R}}{R^n}.\]
-    By letting \(R=n\), the conclusion follows. In fact, this is the tightest possible inequality. 
+    By letting \(R=n\), the conclusion follows. In fact, this is the tightest possible inequality. Consider \(Mn!\frac{e^R}{R^n}\) to be a function of \(R\). It attains its minimum as its derivative vanishes:
+    \[Mn!\frac{e^RR^n-ne^RR^{n-1}}{R^{2n}}=0\Longleftrightarrow R^n=nR^{n-1}\Longleftrightarrow R=n.\]
+    Indeed, with \(f(z)=Me^z\leq Me^{\abs{z}}\).
 \end{proof}
 \begin{theorem}[Liouville's Theorem]\label{thm:liouville}
     Any bounded entire function is constant.
