@@ -1118,13 +1118,14 @@ The differentiation formula above can be thought of as a generalization of \auto
 \end{proof}
 \autoref{thm:nthderivativeboundedl1norm} will profoundly generalize this statement significantly. The relationship between the derivatives of a holomorphic function and the function itself is an important property of holomorphic functions.
 \begin{example}
-    Let \(f\) be entire and \(\forall z\in\mathbb{C}\), \(|f(z)|\leq Me^{|z|}\). Then \(\forall n\in\mathbb{N}\), \(|f(0)|\leq M\) and \[\abs{f^{(n)}(0)}\leq Mn!\qty(\frac{e}{n})^n.\]
+    Let \(f\) be entire and \(\forall z\in\mathbb{C}\), \(|f(z)|\leq Me^{|z|}\). Prove that \(\forall n\in\mathbb{N}\), \(|f(0)|\leq M\) and \[\abs{f^{(n)}(0)}\leq Mn!\qty(\frac{e}{n})^n.\]
 \end{example}
 \begin{proof}
     \(|f(0)|\leq M\) is obviously true by letting \(z=0\). Then \(\forall R>0\), by Cauchy's Estimate (\autoref{thm:cauchysestimate}), \[\abs{f^{(n)}(0)}\leq Mn!\frac{e^{R}}{R^n}.\]
-    By letting \(R=n\), the conclusion follows. In fact, this is the tightest possible inequality. Consider \(Mn!\frac{e^R}{R^n}\) to be a function of \(R\). It attains its minimum as its derivative vanishes:
-    \[Mn!\frac{e^RR^n-ne^RR^{n-1}}{R^{2n}}=0\Longleftrightarrow R^n=nR^{n-1}\Longleftrightarrow R=n.\] To confirm it as a minimum, we calculate the second order derivative:
-    \[Mn!e^R\qty(\frac{1}{R^n}-\frac{2n}{R^{n+1}}+\frac{n(n+1)}{R^{n+2}})\]
+    By letting \(R=n\), the conclusion follows. In fact, this is the tightest possible inequality. Consider \(\varphi(R)=Mn!\frac{e^R}{R^n}\) to be a function of \(R\). It attains its minimum as its derivative vanishes:
+    \[\varphi'(R)=Mn!\frac{e^RR^n-ne^RR^{n-1}}{R^{2n}}=0\Longleftrightarrow R^n=nR^{n-1}\Longleftrightarrow R=n.\] To confirm it as a minimum, we calculate the second order derivative:
+    \[\varphi''(R)=Mn!e^R\qty(\frac{1}{R^n}-\frac{2n}{R^{n+1}}+\frac{n(n+1)}{R^{n+2}})\Longrightarrow\varphi''(n)=M(n-1)!\frac{e^n}{n^n},\]
+    which is positive and convex.
 \end{proof}
 \begin{theorem}[Liouville's Theorem]\label{thm:liouville}
     Any bounded entire function is constant.
