@@ -1916,11 +1916,16 @@ The classification of the singularity at \(\infty\) is then reduced to the class
 \end{example}
 \begin{example}[Cauchy's Integral Formula on the Exterior]
     Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \autoref{thm:jordancurve}.
-
-    If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\begin{cases}
-        w&z\in\mathrm{int}(\gamma)\\
-        w-f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}.\]
+    \begin{enumerate}
+        \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\begin{cases}
+            w&z\in\mathrm{int}(\gamma)\\
+            w-f(z)&z\in\mathrm{ext}(\gamma)
+        \end{cases}.\]
+        \item If \(\gamma\) encloses the origin, then \(\forall z\in\mathbb{C}\setminus\gamma\), then \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{z\zeta-\zeta^2}\ddzeta=\begin{cases}
+            0&z\in\mathrm{int}(\gamma)\\
+            f(z)&z\in\mathrm{ext}(\gamma)
+        \end{cases}.\]
+    \end{enumerate}
 \end{example}
 \begin{proof}
     By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\in D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+\begin{cases}
@@ -1931,15 +1936,15 @@ The classification of the singularity at \(\infty\) is then reduced to the class
         0&z\in\mathrm{int}(\gamma)\\
         f(z)&z\in\mathrm{ext}(\gamma)
     \end{cases}.\]
-    By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{\zeta-z}\) attains a positive minimum. Then the integrand is uniformly bounded. Therefore, we can commute the limit with the integral, and hence, \begin{align*}
+    By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{Re^{i\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence, \begin{align*}
         \frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta&=\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
         0&z\in\mathrm{int}(\gamma)\\
         f(z)&z\in\mathrm{ext}(\gamma)
     \end{cases}\\&=\begin{cases}
         w&z\in\mathrm{int}(\gamma)\\
         w-f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}.
-    \end{align*}
+    \end{cases},
+    \end{align*} as expected.
 \end{proof}
 \subsection{Entireness and Meromorphy}
 We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
@@ -1952,7 +1957,6 @@ We have previously defined the concept of an entire function in \chpref{sec:comp
     \end{proof}
     \item If \(f(z)\) has a pole at \(z=\infty\), then 
 \end{enumerate}
-
 \begin{definition}[Meromorphic Function]
     A
 \end{definition}
