@@ -1051,6 +1051,54 @@ We have also already seen the utility of parameterization via a polar transforma
     From simple cancellation, we get \[2\pi\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\pi\prod_{k=1}^n\frac{2k-1}{2k},\]
     as expected.
 \end{proof}
+\begin{example}[The Cauchy--Goursat Integral Formula on the Exterior]\label{ex:cauchygoursatformulaexterior}
+    Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \autoref{thm:jordancurve}.
+    \begin{enumerate}
+        \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\begin{cases}
+            w&z\in\mathrm{int}(\gamma)\\
+            w-f(z)&z\in\mathrm{ext}(\gamma)
+        \end{cases}.\]
+        \item If \(\gamma\) encloses the origin, then \(\forall z\in\mathbb{C}\setminus\gamma\), then \begin{equation}
+            \frac{1}{2\pi i}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\begin{cases}
+            0&z\in\mathrm{int}(\gamma)\\
+            f(z)&z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
+        \end{cases}.
+        \end{equation}
+    \end{enumerate}
+\end{example}
+\begin{proof}
+    \begin{enumerate}
+        \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+\begin{cases}
+        0&z\in\mathrm{int}(\gamma)\\
+        f(z)&z\in D(0,R)\cap\mathrm{ext}(\gamma)
+    \end{cases}.\]
+    By letting \(R\to\infty\) and letting \(\zeta=Re^{i\theta}\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\lim_{R\to\infty}\int_0^{2\pi}\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
+        0&z\in\mathrm{int}(\gamma)\\
+        f(z)&z\in\mathrm{ext}(\gamma)
+    \end{cases}.\]
+    By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{Re^{i\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence, \begin{align*}
+        \frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta&=\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
+        0&z\in\mathrm{int}(\gamma)\\
+        f(z)&z\in\mathrm{ext}(\gamma)
+    \end{cases}\\&=\begin{cases}
+        w&z\in\mathrm{int}(\gamma)\\
+        w-f(z)&z\in\mathrm{ext}(\gamma)
+    \end{cases},
+    \end{align*} as expected.
+    \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that \begin{align}
+        I&=\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber\\
+        &=\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}+\begin{cases}
+            0&z\in\mathrm{int}(\gamma)\\
+            2\pi if(z)&z\in\mathrm{ext}(\gamma)\cap D(0,R)
+        \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
+    \end{align} when \(\gamma\subset D(0,R)\).
+    We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities, \[\qty|\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}|\leq\int_0^{2\pi}\qty|\frac{z}{Re^{i\theta}-z}|\dd{\theta}\leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.\]
+    \end{enumerate}
+    By plugging the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\begin{cases}
+        0&z\in\mathrm{int}(\gamma)\\
+        f(z)&z\in\mathrm{ext}(\gamma)
+    \end{cases}.\]
+\end{proof}
 \subsection{Analyticity and Holomorphy}\label{sec:analyticityandholomorphy}
 The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can also be generalized into a result that equates complex integration and differentiation:
 \begin{theorem}[Cauchy--Goursat Differentiation Formula]\label{thm:cauchydifferentiationformula}
@@ -1914,54 +1962,9 @@ The classification of the singularity at \(\infty\) is then reduced to the class
 \begin{example}
     The function \(z\mapsto\frac{1}{z}\) has a removable singularity at \(z=\infty\), the function \(z\mapsto z^2\) has a pole at \(z=\infty\), and \(z\mapsto e^z\) has an essential singularity at \(z=\infty\).
 \end{example}
-\begin{example}[The Cauchy--Goursat Integral Formula on the Exterior]\label{ex:cauchygoursatformulaexterior}
-    Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \autoref{thm:jordancurve}.
-    \begin{enumerate}
-        \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\begin{cases}
-            w&z\in\mathrm{int}(\gamma)\\
-            w-f(z)&z\in\mathrm{ext}(\gamma)
-        \end{cases}.\]
-        \item If \(\gamma\) encloses the origin, then \(\forall z\in\mathbb{C}\setminus\gamma\), then \begin{equation}
-            \frac{1}{2\pi i}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\begin{cases}
-            0&z\in\mathrm{int}(\gamma)\\
-            f(z)&z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
-        \end{cases}.
-        \end{equation}
-    \end{enumerate}
+\begin{example}[]
+    
 \end{example}
-\begin{proof}
-    \begin{enumerate}
-        \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in D(0,R)\cap\mathrm{ext}(\gamma)
-    \end{cases}.\]
-    By letting \(R\to\infty\) and letting \(\zeta=Re^{i\theta}\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\lim_{R\to\infty}\int_0^{2\pi}\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}.\]
-    By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{Re^{i\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence, \begin{align*}
-        \frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta&=\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}\\&=\begin{cases}
-        w&z\in\mathrm{int}(\gamma)\\
-        w-f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases},
-    \end{align*} as expected.
-    \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that \begin{align}
-        I&=\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber\\
-        &=\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}+\begin{cases}
-            0&z\in\mathrm{int}(\gamma)\\
-            2\pi if(z)&z\in\mathrm{ext}(\gamma)\cap D(0,R)
-        \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
-    \end{align} when \(\gamma\subset D(0,R)\).
-    We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities, \[\qty|\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}|\leq\int_0^{2\pi}\qty|\frac{z}{Re^{i\theta}-z}|\dd{\theta}\leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.\]
-    \end{enumerate}
-    By plugging the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}.\]
-\end{proof}
 \subsection{Entireness and Meromorphy}
 We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
 \begin{enumerate}
