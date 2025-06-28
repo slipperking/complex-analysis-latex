@@ -1914,9 +1914,17 @@ The classification of the singularity at \(\infty\) is then reduced to the class
 \begin{example}
     The function \(z\mapsto\frac{1}{z}\) has a removable singularity at \(z=\infty\), the function \(z\mapsto z^2\) has a pole at \(z=\infty\), and \(z\mapsto e^z\) has an essential singularity at \(z=\infty\).
 \end{example}
-\begin{example}[Cauchy's Integra l Formula on the Exterior]
+\begin{example}[Cauchy's Integral Formula on the Exterior]
     Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \autoref{thm:jordancurve}.
+
+    If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\begin{cases}
+        w&z\in\mathrm{int}(\gamma)\\
+        w-f(z)&z\in\mathrm{ext}(\gamma)
+    \end{cases}.\]
 \end{example}
+\begin{proof}
+    By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\in D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on \(D(0,R)\cap\mathrm{ext}(\gamma)\), we get that \[\]
+\end{proof}
 \subsection{Entireness and Meromorphy}
 We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
 \begin{enumerate}
