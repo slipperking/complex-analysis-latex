@@ -1927,17 +1927,19 @@ The classification of the singularity at \(\infty\) is then reduced to the class
         0&z\in\mathrm{int}(\gamma)\\
         f(z)&z\in D(0,R)\cap\mathrm{ext}(\gamma)
     \end{cases}.\]
-    By letting \(R\to\infty\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi i}\lim_{R\to\infty}\int_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta-\begin{cases}
+    By letting \(R\to\infty\) and letting \(\zeta=Re^{i\theta}\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\lim_{R\to\infty}\int_0^{2\pi}\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
         0&z\in\mathrm{int}(\gamma)\\
         f(z)&z\in\mathrm{ext}(\gamma)
     \end{cases}.\]
-    By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{\zeta-z}\) attains a positive minimum. Then the integrand is uniformly bounded. Therefore, we can commute the limit with the integral, and hence, \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
+    By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{\zeta-z}\) attains a positive minimum. Then the integrand is uniformly bounded. Therefore, we can commute the limit with the integral, and hence, \begin{align*}
+        \frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta&=\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
         0&z\in\mathrm{int}(\gamma)\\
         f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}=\begin{cases}
+    \end{cases}\\&=\begin{cases}
         w&z\in\mathrm{int}(\gamma)\\
         w-f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}.\]
+    \end{cases}.
+    \end{align*}
 \end{proof}
 \subsection{Entireness and Meromorphy}
 We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
