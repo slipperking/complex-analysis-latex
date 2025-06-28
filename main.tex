@@ -1948,10 +1948,14 @@ The classification of the singularity at \(\infty\) is then reduced to the class
         w-f(z)&z\in\mathrm{ext}(\gamma)
     \end{cases},
     \end{align*} as expected.
-    \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2}, we get that \[I=\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta=\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\lim_{R\to\infty}\int_0^{2\pi}\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}\]
+    \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2}, we get that \begin{align*}
+        I&=\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta=\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta\\
+        &=\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}-\begin{cases}
+            0&z\in\mathrm{int}(\gamma)\\
+            2\pi if(z)&z\in\mathrm{ext}(\gamma)\cap D(0,R)
+        \end{cases}.
+    \end{align*}
+    
     \end{enumerate}
 \end{proof}
 \subsection{Entireness and Meromorphy}
