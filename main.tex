@@ -1923,7 +1923,10 @@ The classification of the singularity at \(\infty\) is then reduced to the class
     \end{cases}.\]
 \end{example}
 \begin{proof}
-    By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\in D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on \(D(0,R)\cap\mathrm{ext}(\gamma)\), we get that \[\]
+    By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\in D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+\begin{cases}
+        f(z)&z\in D(0,R)\cap\mathrm{ext}(\gamma)\\
+        0&z\in\mathrm{int}(\gamma)
+    \end{cases}.\]
 \end{proof}
 \subsection{Entireness and Meromorphy}
 We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
@@ -1940,10 +1943,10 @@ We have previously defined the concept of an entire function in \chpref{sec:comp
 \begin{definition}[Meromorphic Function]
     A
 \end{definition}
-\subsection{The Residue Theorem}\label{sec:residuetheorem}
+\subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane} and \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
 \section{A Taste of Riemannian Geometry}
-One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem in \chpref{sec:residuetheorem} is a result from a generalization that can be applied to real-valued integrals.
+One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem in \chpref{sec:cauchyresiduetheorem} is a result from a generalization that can be applied to real-valued integrals.
 
 More contemporary results in complex analysis are also where many different branches of mathematics, including topology, geometry, number theory, group theory, and linear algebra, coalesce.
 \section{Differential Geometry}\label{sec:differentialgeometry}
