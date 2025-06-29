@@ -1949,15 +1949,15 @@ In \chpref{sec:differentialgeometry}, we will prove a profound generalization of
 \subsubsection{At the \texorpdfstring{\(\infty\)}{Infinity} Point}
 Given the one-point compactification of \(\mathbb{C}\) into the Riemann sphere \(\riemannsphere\), we can now define and analyze the behavior of functions near the point at infinity. Similar to the classification of isolated singularities in \(\mathbb{C}\), we can classify \(\infty\) as a removable singularity, a pole, or an essential singularity of a holomorphic function.
 
-Let \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic for some \(R>0\). Then \(z=\infty\) is an \textit{isolated singularity} of \(f\). To analyze the nature of the singularity, let \(\zeta=\frac{1}{z}\). We define a new function \(g(\zeta)=f\qty(\frac{1}{\zeta})=f(z)\), which is holomorphic on \(D^*\qty(0,\frac{1}{R})\). Then at \(\zeta=0\), \(g(\zeta)\) has the Laurent expansion of \[g(\zeta)=\sum_{n=-\infty}^\infty c_{-n}\zeta^n=\sum_{n=0}^\infty c_{n}\zeta^n+\sum_{n=1}^\infty c_{-n}\zeta^{-n}=\varphi(\zeta)+\psi(\zeta),\]
-where \(\varphi\) and \(\psi\) are the holomorphic and principal parts of \(g\), respectively. Let \(\tilde{\varphi}(z)=\varphi\qty(\frac{1}{z})\), \(\tilde{\psi}(z)=\psi\qty(\frac{1}{z})\). At \(z=0\), \(f\) then has the Laurent expansion of \[f(z)=\sum_{n=-\infty}^\infty c_nz^{-n}=\sum_{n=0}^\infty c_nz^{-n}+\sum_{n=1}^\infty c_{-n}z^n=\tilde{\varphi}(z)+\tilde{\psi}(z).\]
+Let \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic for some \(R>0\). Then \(z=\infty\) is an \textit{isolated singularity} of \(f\). To analyze the nature of the singularity, let \(\zeta=\frac{1}{z}\). We define a new function \(g(\zeta)=f\qty(\frac{1}{\zeta})=f(z)\), which is holomorphic on \(D^*\qty(0,\frac{1}{R})\). Then at \(\zeta=0\), \(g(\zeta)\) has the Laurent expansion of \[g(\zeta)=\sum_{n=-\infty}^\infty c_{-n}\zeta^n=\sum_{n=0}^\infty c_{-n}\zeta^n+\sum_{n=1}^\infty c_{n}\zeta^{-n}=\varphi(\zeta)+\psi(\zeta),\]
+where \(\varphi\) and \(\psi\) are the holomorphic and principal parts of \(g\), respectively. Let \(\tilde{\varphi}(z)=\varphi\qty(\frac{1}{z})\), \(\tilde{\psi}(z)=\psi\qty(\frac{1}{z})\). At \(z=0\), \(f\) then has the Laurent expansion of \[f(z)=\sum_{n=-\infty}^\infty c_nz^n=\sum_{n=0}^\infty c_{-n}z^{-n}+\sum_{n=1}^\infty c_nz^n=\tilde{\varphi}(z)+\tilde{\psi}(z).\]
 
 The classification of the singularity at \(\infty\) is then reduced to the classification of the singularity of \(g\) at \(0\):
 \begin{enumerate}
-    \item If \(z=\infty\) is a removable singularity of \(f(z)\), then \(f(z)\) has the form \[f(z)=c_0+\frac{c_1}{z}+\frac{c_2}{z^2}+\frac{c_3}{z^3}+\cdots.\]
-    \item If \(z=\infty\) is a pole of \(f(z)\) with degree \(m\in\mathbb{N}\), then \(f(z)\) can be written as \[f(z)=c_{-m}z^m+c_{1-m}z^{m-1}+\cdots c_0+\frac{c_1}{z}+\cdots,\] where \(c_{-m}\neq0\).
-    \item If \(z=\infty\) is an essential singularity of \(f(z)\), then \(f(z)\) can be expanded as \[f(z)=\sum_{n=-\infty}^\infty c_{-n}z^n,\]
-    where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{-n}\neq0\) (infinitely many coefficients of \(\tilde{\psi}\) are nonzero). 
+    \item If \(z=\infty\) is a removable singularity of \(f(z)\), then \(f(z)\) has the form of \[f(z)=c_0+\frac{c_{-1}}{z}+\frac{c_{-2}}{z^2}+\frac{c_{-3}}{z^3}+\cdots.\]
+    \item If \(z=\infty\) is a pole of \(f(z)\) with degree \(m\in\mathbb{N}\), then \(f(z)\) can be written as \[f(z)=c_{m}z^m+c_{m-1}z^{m-1}+\cdots c_0+\frac{c_{-1}}{z}+\cdots,\] where \(c_{m}\neq0\).
+    \item If \(z=\infty\) is an essential singularity of \(f(z)\), then \(f(z)\) can be expanded as \[f(z)=\sum_{n=-\infty}^\infty c_{n}z^n,\]
+    where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{n}\neq0\) (infinitely many coefficients of \(\psi\) or \(\tilde{\psi}\) are nonzero). 
 \end{enumerate}
 \begin{example}
     The function \(z\mapsto\frac{1}{z}\) has a removable singularity at \(z=\infty\), the function \(z\mapsto z^2\) has a pole at \(z=\infty\), and \(z\mapsto e^z\) has an essential singularity at \(z=\infty\).
@@ -1973,7 +1973,7 @@ We have previously defined the concept of an entire function in \chpref{sec:comp
     \end{proof}
     \item If \(f(z)\) has a pole at \(z=\infty\) of order \(m\in\mathbb{N}\), then \(f\) is a polynomial.
     \begin{proof}
-        Letting \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})=f(z)\), we
+        By the classification of a pole at \(\infty\), \(f\) can be written as \[f(z)=c_mz^m+c_{m-1}z^{m-1}\]
     \end{proof}
 \end{enumerate}
 \begin{definition}[Meromorphic Function]
