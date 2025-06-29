@@ -1023,14 +1023,14 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     In the proof of \autoref{thm:pompeiu}, we used Lipschitz continuity for a smooth function, which was a stronger condition than necessary. The true necessity of smoothness was to be able to apply Green's Theorem (\autoref{thm:complexgreen}).
 \end{remark}
 This profound theorem is extremely important and helpful in complex integration and essential in the evaluation of integrals, as demonstrated below.
-\begin{example}\label{ex:cauchygoursatformularootsofunity}
+\begin{example}\label{ex:cauchygoursatformulazeroofunity}
     Evaluate the integral \(\int_{\partial D(0,2)}\frac{\ddz}{z^n-1}\), where \(n\in\mathbb{N}_{\geq 2}\).
 \end{example}
 \begin{proof}
-    Since \(z^n-1=\prod_{k=0}^{n-1}\qty(z-\omega^k_n)\), where \(\omega^k_n=e^{i\pi\frac{k}{n}}\), the integrand has singularities at every \(n\)th root of unity. Then the integral is equal to: \begin{equation}
-        \int_{\partial D(0,2)}\frac{\ddz}{\prod_{j=0}^{n-1}\qty(z-\omega_j)}=\int_{\partial D(0,2)}\sum_{j=0}^{n-1}\frac{c_j}{z-\omega_j}\ddz,\label{eq:cauchygoursatformularootsofunity}
+    Since \(z^n-1=\prod_{k=0}^{n-1}\qty(z-\omega^k_n)\), where \(\omega^k_n=e^{i\pi\frac{k}{n}}\), the integrand has singularities at every \(n\)th zero of unity. Then the integral is equal to: \begin{equation}
+        \int_{\partial D(0,2)}\frac{\ddz}{\prod_{j=0}^{n-1}\qty(z-\omega_j)}=\int_{\partial D(0,2)}\sum_{j=0}^{n-1}\frac{c_j}{z-\omega_j}\ddz,\label{eq:cauchygoursatformulazerosofunity}
     \end{equation}
-    where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), equation~\eqref{eq:cauchygoursatformularootsofunity} becomes: \[\sum_{k=0}^{n-1}\int_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\pi i\sum_{k=0}^{n-1}c_k.\]
+    where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), equation~\eqref{eq:cauchygoursatformulazerosofunity} becomes: \[\sum_{k=0}^{n-1}\int_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\pi i\sum_{k=0}^{n-1}c_k.\]
     Observe that \(\sum_{k=0}^{n-1} c_k=\lim_{z\to\infty}\sum_{k=0}^{n-1}\frac{zc_k}{z-\omega_k}=\lim_{z\to\infty}\frac{z}{z^n-1}=0\) since \(n\geq2\).
     Therefore, \[\int_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\]
 \end{proof}
@@ -1992,7 +1992,12 @@ All holomorphic functions are meromorphic functions (with poles on \(\emptyset\)
 Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\) and \(q\) are polynomials. Let \begin{gather*}
     p(z)=a_nz^n+a_{n-1}z^{n-1}+\cdots a_0\\
     q(z)=b_mz^m+b_{m-1}z^{m-1}+\cdots b_0,
-\end{gather*} where \(a_n,b_m\neq 0\). It follows that the poles of \(f\) are the zeros of \(q\), since \[f(z)=\frac{a_n+\fracPa}\]
+\end{gather*} where \(a_n,b_m\neq 0\). Trivially, the poles of \(f\) are the zeros of \(q\). Since \[f(z)=\frac{z^n}{z^m}\cdot\frac{a_n+\frac{a_{n-1}}{z}+\cdots+\frac{a_0}{z^n}}{b_m+\frac{b_{m-1}}{z}+\cdots\frac{b_0}{z^m}},\] we have \[\lim_{z\to\infty} f(z)=\begin{cases}
+    \frac{a_n}{b_m}&n=m\\
+    0&n<m\\
+    \infty&n>m
+\end{cases}.\]
+
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
