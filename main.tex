@@ -1999,6 +1999,9 @@ Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\) and
     \infty&n>m
 \end{cases}.\]
 
+\subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
+\subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
+\subsection{Further Properties of Meromorphic and Entire Functions}
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
@@ -2014,11 +2017,13 @@ In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow 
     Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\). Suppose \(\cbraces{z_n}\subset U\) is a finite set and \(f(z)\) is holomorphic on \(U\setminus\cbraces{z_n}\) and continuous on \(\overline{U}\setminus\cbraces{z_n}\). Then, \[\int_{\partial U}f(z)\ddz=2\pi i\sum_{k=1}^n\residue_{z_k}(f)\]
 \end{theorem}
 \begin{proof}
-    Since \(U\) is open, there exists a small disk centered at each isolated singularity \(z_k\) of radii \(\delta_k\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we get that \[\int_{\partial U^+\cup\bigcup_{k=1}^nD\qty(z_k,\delta_k)^-}f(z)\ddz=0.\]
-    From rearrangement, \(\int_{\partial U}f(z)\ddz=\sum_{k=1}^n\int_{D\qty(z_k,\delta_k)}\)
+    Since \(U\) is open, there exists a small disk centered at each isolated singularity \(z_k\) of radii \(\delta_k\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we get that \[\int_{\bigcup_{k=1}^nD\qty(z_k,\delta_k)^-\cup\partial U^+}f(z)\ddz=0.\]
+    From rearrangement, \(\oint_{\partial U}f(z)\ddz=\sum_{k=1}^n\oint_{D\qty(z_k,\delta_k)}f(z)\ddz\), and the conclusion follows.
 \end{proof}
-\subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
-\subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
+This result itself is fairly trivial. Now we will explain the significance of the residue at infinity.
+\begin{theorem}
+    
+\end{theorem}
 \section{The Theory of Riemann}
 One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem in \chpref{sec:cauchyresiduetheorem} is a result from a generalization that can be applied to real-valued integrals.
 
