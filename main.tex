@@ -77,6 +77,7 @@
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
 \newcommand{\chpref}[1]{\hyperref[#1]{\S\,\ref*{#1}}}
 
+\DeclareMathOperator*{\residue}{Res}
 \title{Complex Analysis}
 \author{Slipper King}
 \date{May 2025}
@@ -2001,12 +2002,13 @@ Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\) and
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
-    For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textit{residue} of \(f\) at \(a\), denoted by \(\Res(f,a)\), is equal to \begin{equation}
-        \Res_{z=a}f(z)=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}f(z)\ddz,\label{eq:residue}
+    For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textit{residue} of \(f\) at \(a\), denoted by \(\residue_{z=a}f(z)\), is equal to \begin{equation}
+        \residue_{z=a}f(z)=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}f(z)\ddz,\label{eq:residue}
     \end{equation}
     where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}\frac{f(z)}{(z-a)^{n+1}}\ddz,\] we get that the residue of \(f\) at \(a\) is equal to the first term (\(c_{-1}\)) of the principal part of its Laurent expansion.
 \end{definition}
-It then follows that the residue at a removable singularity is 0. Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as \[\Res_{z=\infty}f(z)=-\int_{\partial D(0,\rho)}f(z)\ddz.\]
+It then follows that the residue at a removable singularity is 0. Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as \[\residue_{z=\infty}f(z)=-\int_{\partial D(0,\rho)}f(z)\ddz.\]
+Let \(\zeta=\frac{1}{z}\). Then we get that \[\residue_{\zeta=0}f\qty(\frac{1}{\zeta})=-\int_{|\zeta|=\frac{1}{\rho}}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})=\int_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta.\]
 \begin{theorem}[Residue Theorem]\label{thm:residue}
     
 \end{theorem}
