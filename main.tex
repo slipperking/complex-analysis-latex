@@ -2007,7 +2007,7 @@ We will then introduce the converse:
 
     We will first prove that \(f\) has finitely many poles in \(\overline{D(0,R)}\). If \(f\) has infinitely many poles in the closed disk, by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), the set \[\cbraces{z\in\overline{D(0,R)}}{\lim_{\zeta\to z} f(\zeta)=\infty}\] has a self-contained accumulation point \(z_0\), which is consequently non-isolated. This contradicts the definition of meromorphy, and we have a contradiction.
 
-    Let \(z_1,\ldots,z_n\) be the isolated poles of \(f\) in \(\overline{D(0,R)}\). \(\forall k\in\qty{1,2,\ldots,n}\), \(f\) has the Laurent expansion at \(z_k\) with a principal part of \[\psi_k(z)=\frac{c_{k,-1}}{z-z_k}+\frac{c_{k,-2}}{\qty(z-z_k)^2}+\cdots+\frac{c_{k,-m_{k}}}{\qty(z-z_k)^{m_k}}.\] Define the auxiliary function \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\] which is meromorphic on \(\mathbb{C}\) with poles at each of \(\qty{z_k}_{k=1}^n\)
+    Let \(z_1,\ldots,z_n\) be the isolated poles of \(f\) in \(\overline{D(0,R)}\). \(\forall k\in\qty{1,2,\ldots,n}\), \(f\) has the Laurent expansion at \(z_k\) with a principal part of \[\psi_k(z)=\frac{c_{k,-1}}{z-z_k}+\frac{c_{k,-2}}{\qty(z-z_k)^2}+\cdots+\frac{c_{k,-m_{k}}}{\qty(z-z_k)^{m_k}}.\] Define the auxiliary function \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\] which is meromorphic on \(\mathbb{C}\) with singularities at each of \(\qty{z_k}_{k=1}^n\cup\qty{\infty}\)
 \end{proof}
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
@@ -2018,7 +2018,7 @@ After Riemann and Weierstrass refined the understanding of analytic functions an
     For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textit{residue} of \(f\) at \(a\), denoted by \(\residue_{z=a}f(z)\), is equal to \begin{equation}
         \residue_{z=a}f(z)=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}f(z)\ddz,\label{eq:residue}
     \end{equation}
-    where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}\frac{f(z)}{(z-a)^{n+1}}\ddz,\] we get that the residue of \(f\) at \(a\) is equal to the first term (\(c_{-1}\)) of the principal part of its Laurent expansion.
+    where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}\frac{f(z)\ddz}{(z-a)^{n+1}},\] we get that the residue of \(f\) at \(a\) is equal to the first term (\(c_{-1}\)) of the principal part of its Laurent expansion.
 \end{definition}
 It then follows that the residue at a removable singularity is 0. Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as \[\residue_{z=\infty}f(z)=-\frac{1}{2\pi i}\oint_{\partial D(0,\rho)}f(z)\ddz.\]
 Let \(\zeta=\frac{1}{z}\). Then we get that \[\residue_{z=\infty}f(z)=-\frac{1}{2\pi i}\ointctrclockwise_{|\zeta|=\frac{1}{\rho}}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})=\frac{1}{2\pi i}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.\]
@@ -2053,4 +2053,6 @@ The
 \end{corollary}
 The original proof introduced by 
 \section{Some Differences in Multivariable Complex Analysis}
+\section{Elliptic Function Theory}
+\section{The Riemann--\texorpdfstring{\(\zeta\)}{Zeta} Function}
 \end{document}
