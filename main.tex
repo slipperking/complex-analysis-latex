@@ -339,7 +339,7 @@ This correspondence between \(\mathbb{C}\) and \(S^2\setminus\left\{(0,0,1)\righ
 which results in \[x_3=\frac{\abs{z}^2-1}{\abs{z}^2+1},\]
 and consequently,
 \[x_1=\Re\paren{z}\paren{1-x_3}=\frac{z+\overline{z}}{\abs{z}^2+1},\quad x_2=\Im\paren{z}\paren{1-x_3}=\frac{z-\overline{z}}{i\abs{z}^2+i}.\]
-By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textit{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\). 
+By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textit{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\).
 
 We will now give a geometric visualization of this projection. Let \(z=x+iy\). Then we obtain that \(x=\frac{x_1}{1-x_3}\) and \(y=\frac{x_2}{1-x_3}\). Therefore, \[x:y:1=x_1:x_2:1-x_3.\]
 It follows that the points \(\mqty(0\\0\\0)\), \(\mqty(x\\y\\1)\), and \(\mqty(x_1\\x_2\\1-x_3)\) are collinear in \(\mathbb{R}^3\). Under the linear map \(\mathbf{v}\mapsto\mqty(\dmat[0]{1,1,-1})\mathbf{v}+\mqty(0\\0\\1)\), we get that \(\mqty(0\\0\\1)\), \(\mqty(x\\y\\0)\), and \(\mqty(x_1\\x_2\\x_3)\) are collinear. In other words, this correspondence is a central projection with center \(\mqty(0\\0\\1)\), projecting the points from \(S^2\) onto \(\riemannsphere\). In this representation, \(\infty\in\riemannsphere\) is no longer considered to be special.
@@ -1056,49 +1056,49 @@ We have also already seen the utility of parameterization via a polar transforma
     Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \autoref{thm:jordancurve}.
     \begin{enumerate}
         \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\begin{cases}
-            w&z\in\mathrm{int}(\gamma)\\
-            w-f(z)&z\in\mathrm{ext}(\gamma)
-        \end{cases}.\]
+                      w      & z\in\mathrm{int}(\gamma) \\
+                      w-f(z) & z\in\mathrm{ext}(\gamma)
+                  \end{cases}.\]
         \item If \(\gamma\) encloses the origin, then \(\forall z\in\mathbb{C}\setminus\gamma\), then \begin{equation}
-            \frac{1}{2\pi i}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\begin{cases}
-            0&z\in\mathrm{int}(\gamma)\\
-            f(z)&z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
-        \end{cases}.
-        \end{equation}
+                  \frac{1}{2\pi i}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\begin{cases}
+                      0    & z\in\mathrm{int}(\gamma)                                                       \\
+                      f(z) & z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
+                  \end{cases}.
+              \end{equation}
     \end{enumerate}
 \end{example}
 \begin{proof}
     \begin{enumerate}
         \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\pi i}\int_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in D(0,R)\cap\mathrm{ext}(\gamma)
-    \end{cases}.\]
-    By letting \(R\to\infty\) and letting \(\zeta=Re^{i\theta}\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\lim_{R\to\infty}\int_0^{2\pi}\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}.\]
-    By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{Re^{i\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence, \begin{align*}
-        \frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta&=\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}\\&=\begin{cases}
-        w&z\in\mathrm{int}(\gamma)\\
-        w-f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases},
-    \end{align*} as expected.
-    \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that \begin{align}
-        I&=\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber\\
-        &=\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}+\begin{cases}
-            0&z\in\mathrm{int}(\gamma)\\
-            2\pi if(z)&z\in\mathrm{ext}(\gamma)\cap D(0,R)
-        \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
-    \end{align} when \(\gamma\subset D(0,R)\).
-    We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities, \[\qty|\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}|\leq\int_0^{2\pi}\qty|\frac{z}{Re^{i\theta}-z}|\dd{\theta}\leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.\]
+                      0    & z\in\mathrm{int}(\gamma)            \\
+                      f(z) & z\in D(0,R)\cap\mathrm{ext}(\gamma)
+                  \end{cases}.\]
+              By letting \(R\to\infty\) and letting \(\zeta=Re^{i\theta}\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\lim_{R\to\infty}\int_0^{2\pi}\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
+                      0    & z\in\mathrm{int}(\gamma) \\
+                      f(z) & z\in\mathrm{ext}(\gamma)
+                  \end{cases}.\]
+              By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{Re^{i\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence, \begin{align*}
+                  \frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{Re^{i\theta}}}\dd{\theta}-\begin{cases}
+                                                                                                                                                                              0    & z\in\mathrm{int}(\gamma) \\
+                                                                                                                                                                              f(z) & z\in\mathrm{ext}(\gamma)
+                                                                                                                                                                          \end{cases} \\&=\begin{cases}
+                      w      & z\in\mathrm{int}(\gamma) \\
+                      w-f(z) & z\in\mathrm{ext}(\gamma)
+                  \end{cases},
+              \end{align*} as expected.
+        \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that \begin{align}
+                  I & =\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber                                              \\
+                    & =\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}+\begin{cases}
+                                                                                                                                  0          & z\in\mathrm{int}(\gamma)            \\
+                                                                                                                                  2\pi if(z) & z\in\mathrm{ext}(\gamma)\cap D(0,R)
+                                                                                                                              \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
+              \end{align} when \(\gamma\subset D(0,R)\).
+              We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities, \[\qty|\int_0^{2\pi}\qty(f\qty(Re^{i\theta})-\frac{f\qty(Re^{i\theta})}{1-\frac{z}{Re^{i\theta}}})\dd{\theta}|\leq\int_0^{2\pi}\qty|\frac{z}{Re^{i\theta}-z}|\dd{\theta}\leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.\]
     \end{enumerate}
     By plugging the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\pi i}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\begin{cases}
-        0&z\in\mathrm{int}(\gamma)\\
-        f(z)&z\in\mathrm{ext}(\gamma)
-    \end{cases}.\]
+            0    & z\in\mathrm{int}(\gamma) \\
+            f(z) & z\in\mathrm{ext}(\gamma)
+        \end{cases}.\]
 \end{proof}
 \subsection{Analyticity and Holomorphy}\label{sec:analyticityandholomorphy}
 The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can also be generalized into a result that equates complex integration and differentiation:
@@ -1958,7 +1958,7 @@ The classification of the singularity at \(\infty\) is then reduced to the class
     \item If \(z=\infty\) is a removable singularity of \(f(z)\), then \(f(z)\) has the form of \[f(z)=c_0+\frac{c_{-1}}{z}+\frac{c_{-2}}{z^2}+\frac{c_{-3}}{z^3}+\cdots.\]
     \item If \(z=\infty\) is a pole of \(f(z)\) with degree \(m\in\mathbb{N}\), then \(f(z)\) can be written as \[f(z)=c_{m}z^m+c_{m-1}z^{m-1}+\cdots+c_0+\frac{c_{-1}}{z}+\cdots,\] where \(c_{m}\neq0\).
     \item If \(z=\infty\) is an essential singularity of \(f(z)\), then \(f(z)\) can be expanded as \[f(z)=\sum_{n=-\infty}^\infty c_{n}z^n,\]
-    where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{n}\neq0\) (infinitely many coefficients of \(\psi\) or \(\tilde{\psi}\) are nonzero). 
+          where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{n}\neq0\) (infinitely many coefficients of \(\psi\) or \(\tilde{\psi}\) are nonzero).
 \end{enumerate}
 \begin{remark}
     Under stereographic projection from the point \(\mqty(0\\0\\1)\) of the unit sphere \(S_2\), a neighborhood of that point maps to a subset of the extended complex plane of the form \(\riemannsphere\setminus K\), where \(K\) is a compact and connected subset of \(\mathbb{C}\). Such sets are referred to as \textit{neighborhoods of \(\infty\)} in the Riemann sphere.
@@ -1970,27 +1970,27 @@ The classification of the singularity at \(\infty\) is then reduced to the class
 We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
 \begin{enumerate}
     \item If the infinity point is a removable singularity, then \(\lim_{z\to\infty} f(z)\) exists and is finite.
-    \begin{lemma}\label{lemma:removablesingularityatinftyentireconstant}
-        If \(f(z)\) is entire and has a removable singularity at \(z=\infty\), then \(f\) is constant.
-    \end{lemma}
-    \begin{proof}
-        Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall |z|>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\), and is bounded. For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \autoref{thm:continuousfunctionboundedoncompact}, is also bounded.
+          \begin{lemma}\label{lemma:removablesingularityatinftyentireconstant}
+              If \(f(z)\) is entire and has a removable singularity at \(z=\infty\), then \(f\) is constant.
+          \end{lemma}
+          \begin{proof}
+              Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall |z|>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\), and is bounded. For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \autoref{thm:continuousfunctionboundedoncompact}, is also bounded.
 
-        Then by Liouville's Theorem (\autoref{thm:liouville}), \(f\) is constant. 
-    \end{proof}
+              Then by Liouville's Theorem (\autoref{thm:liouville}), \(f\) is constant.
+          \end{proof}
     \item If \(f(z)\) has a pole at \(z=\infty\) of order \(m\in\mathbb{N}\), then \(f\) is a polynomial of degree \(m\).
-    \begin{proof}
-        By the classification of a pole at \(\infty\), \(f\) can be written as \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0+\frac{c_{-1}}{z}+\cdots.\]
-        Since \(f(z)\) is entire, it is holomorphic at \(z=0\) and has a convergent Taylor expansion. By the uniqueness of Laurent expansions (\autoref{thm:laurentexpansionofholomorphicfunction}), the two expansions are equivalent and therefore all terms with negative exponents vanish, and \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0,\]
-        and since \(c_m\neq0\), the statement is confirmed.
-    \end{proof}
+          \begin{proof}
+              By the classification of a pole at \(\infty\), \(f\) can be written as \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0+\frac{c_{-1}}{z}+\cdots.\]
+              Since \(f(z)\) is entire, it is holomorphic at \(z=0\) and has a convergent Taylor expansion. By the uniqueness of Laurent expansions (\autoref{thm:laurentexpansionofholomorphicfunction}), the two expansions are equivalent and therefore all terms with negative exponents vanish, and \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0,\]
+              and since \(c_m\neq0\), the statement is confirmed.
+          \end{proof}
     \item If \(f(z)\) has an essential singularity at \(z=\infty\), \(f(z)\) is known as a \textit{transcendental entire function}.
 \end{enumerate}
 \begin{example}
     The entire functions \(\sin(z)\), \(\cos(z)\), \(\sinh(z)\), \(\cosh(z)\), and \(\exp(z)\) are transcendental.
 \end{example}
 \begin{definition}[Meromorphic Function]\label{def:meromorphicfunction}
-    Let \(U\subseteq\mathbb{C}\) be open, and let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a set of isolated points. Suppose \(f:U\setminus\cbraces{a_n}\to\mathbb{C}\) is holomorphic and has a pole at each of \(z\in\qty{a_n}\). Then \(f\) is \textit{meromorphic} in \(U\). 
+    Let \(U\subseteq\mathbb{C}\) be open, and let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a set of isolated points. Suppose \(f:U\setminus\cbraces{a_n}\to\mathbb{C}\) is holomorphic and has a pole at each of \(z\in\qty{a_n}\). Then \(f\) is \textit{meromorphic} in \(U\).
 \end{definition}
 Similar to holomorphy, meromorphy on a compact set can be defined as meromorphy on a neighborhood of the set. In general, we imply for the set to be open unless stated otherwise. If the set is not implicitly specified, we assume meromorphy on \(\mathbb{C}\).
 
@@ -2000,10 +2000,10 @@ Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\) and
     p(z)=a_nz^n+a_{n-1}z^{n-1}+\cdots a_0\\
     q(z)=b_mz^m+b_{m-1}z^{m-1}+\cdots b_0,
 \end{gather*} where \(a_n,b_m\neq 0\). Trivially, the poles of \(f\) are the zeros of \(q\). Since \[f(z)=\frac{z^n}{z^m}\cdot\frac{a_n+\frac{a_{n-1}}{z}+\cdots+\frac{a_0}{z^n}}{b_m+\frac{b_{m-1}}{z}+\cdots\frac{b_0}{z^m}},\] we have \[\lim_{z\to\infty} f(z)=\begin{cases}
-    \frac{a_n}{b_m}&n=m\\
-    0&n<m\\
-    \infty&n>m
-\end{cases}.\]
+        \frac{a_n}{b_m} & n=m \\
+        0               & n<m \\
+        \infty          & n>m
+    \end{cases}.\]
 We will then introduce the converse:
 \begin{theorem}
     If \(f(z)\) is meromorphic on \(\mathbb{C}\) and has a pole or removable singularity at \(z=\infty\), then \(f\) is a rational function.
@@ -2025,7 +2025,9 @@ In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C
 
 Let \(f:\mathbb{C}\to\mathbb{C}\) be an entire automorphism, or that \(f\in\Aut(\mathbb{C})\). First, assume that \(\infty\) is not an essential singularity. Then \(\infty\) must be a pole by trichotomy, as a removable singularity implies boundedness (\autoref{lemma:removablesingularityatinftyentireconstant}). Therefore, \(f(z)\) is a polynomial of degree \(m\), where \(m\in\mathbb{N}\).
 
-Since \(f^{-1}\in\Aut(\mathbb{C})\), it is true that \(\qty(f^{-1})'\) is entire. Since \(\qty(f^{-1})'=\frac{1}{f'\qty(f^{-1})}\), it follows that \(f'\) has no zeros in \(\mathbb{C}\). By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), if \(m>1\), then \(f'\) has a complex zero. Hence, \(f\) must be linear, and all functions in \(\Aut(\mathbb{C})\) are in the form of \(az+b\), where \(a\in\mathbb{C}^*\), \(b\in\mathbb{C}\) are constants. In other words, any holomorphic automorphism on \(\mathbb{C}\) is a composition of a rotation, a dilation, and a translation.
+Since \(f^{-1}\in\Aut(\mathbb{C})\), it is true that \(\qty(f^{-1})'\) is entire. Since \(\qty(f^{-1})'=\frac{1}{f'\qty(f^{-1})}\), it follows that \(f'\) has no zeros in \(\mathbb{C}\). By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), if \(m>1\), then \(f'\) has a complex zero, which is a contradiction. Hence, \(f\) must be linear, and all functions in \(\Aut(\mathbb{C})\) are in the form of \(az+b\), where \(a\in\mathbb{C}^*\), \(b\in\mathbb{C}\) are constants. In other words, any holomorphic automorphism on \(\mathbb{C}\) is a composition of a rotation, a dilation, and a translation.
+
+
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
 Let \(f(z)\in \Aut\qty(\riemannsphere)\) such that \(f(\infty)=\infty\). It follows that \(f\) maps \(\mathbb{C}\) to \(\mathbb{C}\) bijectively and \(f\in\Aut(\mathbb{C})\subset\Aut\qty(\riemannsphere)\). Therefore, \(f(z)\) has the form of \(az+b\), where \(a\in\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) and \(b\in\mathbb{C}\) are constants.
 
@@ -2056,7 +2058,7 @@ In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow 
 \end{proof}
 This result itself is fairly trivial. Now we will explain the significance of the residue at infinity.
 \begin{theorem}
-    If \(f\) is holomorphic on 
+    If \(f\) is holomorphic on
 \end{theorem}
 \section{The Theory of Riemann}
 One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem in \chpref{sec:cauchyresiduetheorem} is a result from a generalization that can be applied to real-valued integrals.
@@ -2067,15 +2069,15 @@ We have already seen that certain functions such as the inverse trigonometric fu
 
 First, we will formally introduce the results in \chpref{sec:conformalityintroduction}. Then we will study one of the most famous and historically profound results in complex analysis.
 \subsection{The Riemann Mapping Theorem}
-The 
+The
 \section{Differential Geometry}\label{sec:differentialgeometry}
 \begin{theorem}[The Great Picard Theorem]\label{thm:greatpicard}
-    
+
 \end{theorem}
 \begin{corollary}[The Little Picard Theorem]\label{thm:littlepicard}
-    
+
 \end{corollary}
-The original proof introduced by 
+The original proof introduced by
 \section{Some Differences in Multivariable Complex Analysis}
 \section{Elliptic Function Theory}
 \section{The Riemann--\texorpdfstring{\(\zeta\)}{Zeta} Function}
