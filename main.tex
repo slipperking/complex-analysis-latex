@@ -564,7 +564,7 @@ The disk \(\abs{z}<R\) is known as the \textit{disk of convergence}, a direct ge
     \end{equation}
 \end{theorem}
 Of course, a convergence radius of \(0\) implies that the series is divergent everywhere except for possibly at \(0\), and a convergence radius of \(\infty\) means that the series absolutely converges everywhere.
-\begin{proof}
+\begin{proof}[Proof of \autoref{thm:abelradius}]
     We will prove that the value in equation~\eqref{eq:cauchyhadamard} satisfies the criteria in \autoref{thm:abelradius}.
 
     Assume \(\abs{z}<R\). Then \(\forall\rho\in(|z|,R)\), \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation~\eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\), and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
@@ -2055,7 +2055,9 @@ After Riemann and Weierstrass refined the understanding of analytic functions an
     \end{equation}
     where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}\frac{f(z)\ddz}{(z-a)^{n+1}},\] we get that the residue of \(f\) at \(a\) is equal to the first term (\(c_{-1}\)) of the principal part of its Laurent expansion.
 \end{definition}
-It then follows that the residue at a removable singularity is 0. Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as \[\residue_{z=\infty}f(z)=-\frac{1}{2\pi i}\oint_{\partial D(0,\rho)}f(z)\ddz.\]
+It then follows that the residue at a removable singularity is 0. As a direct consequence of equation~\eqref{eq:residue}, we can derive explicit formulae for the calculation of residues at poles. TO BE CONTINUED
+
+Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as \[\residue_{z=\infty}f(z)=-\frac{1}{2\pi i}\oint_{\partial D(0,\rho)}f(z)\ddz.\]
 Let \(\zeta=\frac{1}{z}\). Then we get that \[\residue_{z=\infty}f(z)=-\frac{1}{2\pi i}\ointctrclockwise_{|\zeta|=\frac{1}{\rho}}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})=\frac{1}{2\pi i}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.\]
 In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow \frac{f\qty(\frac{1}{\zeta})}{\zeta^2}=\sum_{n=-\infty}^\infty c_n\zeta^{-n-2},\] the residue at \(z=\infty\) is equal to \(-c_{-1}\). We will later explain the reasoning behind this definition.
 \begin{theorem}[Residue Theorem]\label{thm:residuethm}
@@ -2066,7 +2068,7 @@ In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow 
     From rearrangement, \(\oint_{\partial U}f(z)\ddz=\sum_{k=1}^n\oint_{D\qty(z_k,\delta_k)}f(z)\ddz\), and the conclusion follows.
 \end{proof}
 This result itself is fairly trivial. Now we will explain the significance of the residue at infinity.
-\begin{theorem}
+\begin{theorem}[Extended Residue Theorem]\label{thm:extresiduethm}
     If \(\qty{z_1,\ldots z_n,\infty}\) is discrete and finite, and \(f:\riemannsphere\setminus\qty{z_1,\ldots z_n,\infty}\to\mathbb{C}\) is holomorphic, and these points are the isolated singularities of \(f\), then the sum of the residues at each of these isolated singularities is zero, or \[\sum_{k=1}^n\residue_{z=z_k} f(z)+\residue_{z=\infty}f(z)=0.\]
 \end{theorem}
 \begin{proof}
