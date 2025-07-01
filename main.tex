@@ -2022,15 +2022,16 @@ We will then introduce the converse:
 If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textit{transcendental meromorphic function}.
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
 In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C}\), and \(\riemannsphere\). We will now find \(\Aut(\mathbb{C})\).
-
-\begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{C}\)]\label{thm:holomorphicautomorphismgrouponunitdisk}
-    \(\forall f\in \Aut(\mathbb{C})\), \(f\) is linear and non-constant. In other words, \(\exists a\in\mathbb{C}^*\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
+\begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{C}\)]\label{thm:holomorphicautomorphismgrouponcomplexplane}
+    \(\forall f\in \Aut(\mathbb{C})\), \(f\) is linear and non-constant. In other words, \(\exists a\in\mathbb{C}^*\) and \(\exists b\in\mathbb{C}\) such that \[f(z)=az+b.\]
 \end{theorem}
-Let \(f:\mathbb{C}\to\mathbb{C}\) be an entire automorphism, or that \(f\in\Aut(\mathbb{C})\). First, assume that \(\infty\) is not an essential singularity. Then \(\infty\) must be a pole by trichotomy, as a removable singularity implies boundedness (\autoref{lemma:removablesingularityatinftyentireconstant}). Therefore, \(f(z)\) is a polynomial of degree \(m\), where \(m\in\mathbb{N}\).
+\begin{proof}
+    First, assume that \(\infty\) is not an essential singularity of \(f(z)\) (we will prove this later). Then \(\infty\) must be a pole by trichotomy, as a removable singularity implies boundedness (\autoref{lemma:removablesingularityatinftyentireconstant}). Therefore, \(f(z)\) is a polynomial of degree \(m\), where \(m\in\mathbb{N}\).
 
-Since \(f^{-1}\in\Aut(\mathbb{C})\), it is true that \(\qty(f^{-1})'\) is entire. Since \(\qty(f^{-1})'=\frac{1}{f'\qty(f^{-1})}\), it follows that \(f'\) has no zeros in \(\mathbb{C}\). By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), if \(m>1\), then \(f'\) has a complex zero, which is a contradiction. Hence, \(f\) must be linear, and all functions in \(\Aut(\mathbb{C})\) are in the form of \(az+b\), where \(a\in\mathbb{C}^*\), \(b\in\mathbb{C}\) are constants. In other words, any holomorphic automorphism on \(\mathbb{C}\) is a composition of a rotation, a dilation, and a translation.
-
-We will now prove the primary assumption; the singularity at \(z=\infty\) cannot be an essential singularity of \(f(z)\). Let \(w\in\mathbb{C}\) be arbitrary. Then by the Casorati--Weierstrass Theorem (\autoref{thm:casoratiweierstrass}), \(\forall\varepsilon>0\), \(\forall R>0\), \(\exists |z|>R\) such that \(|f(z)-w|<\varepsilon\). Equivalently, \(\forall R>0\), \(\exists\zeta\in D(w,\varepsilon)\) such that \(\abs{f^{-1}(\zeta)}>R\). Since \(f^{-1}\) is continuous on \(\overline{D(w,\varepsilon)}\) by entireness via \autoref{thm:continuousfunctionboundedoncompact}, it is bounded, which is a contradiction.
+    Since \(f^{-1}\in\Aut(\mathbb{C})\), it is true that \(\qty(f^{-1})'\) is entire. Since \(\qty(f^{-1})'=\frac{1}{f'\qty(f^{-1})}\), it follows that \(f'\) has no zeros in \(\mathbb{C}\). By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), if \(m>1\), then \(f'\) has a complex zero, which is a contradiction. Hence, \(f\) must be linear, and all functions in \(\Aut(\mathbb{C})\) are in the form of \(az+b\), where \(a\in\mathbb{C}^*\), \(b\in\mathbb{C}\) are constants. In other words, any holomorphic automorphism on \(\mathbb{C}\) is a composition of a rotation, a dilation, and a translation.
+    
+    We will now prove the primary assumption; the singularity at \(z=\infty\) cannot be an essential singularity of \(f(z)\). Let \(w\in\mathbb{C}\) be arbitrary. Then by the Casorati--Weierstrass Theorem (\autoref{thm:casoratiweierstrass}), \(\forall\varepsilon>0\), \(\forall R>0\), \(\exists |z|>R\) such that \(|f(z)-w|<\varepsilon\). Equivalently, \(\forall R>0\), \(\exists\zeta\in D(w,\varepsilon)\) such that \(\abs{f^{-1}(\zeta)}>R\). Since \(f^{-1}\) is continuous on \(\overline{D(w,\varepsilon)}\) by entireness via \autoref{thm:continuousfunctionboundedoncompact}, it is bounded, which is a contradiction.
+\end{proof}
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
 Let \(f(z)\in \Aut\qty(\riemannsphere)\) such that \(f(\infty)=\infty\). It follows that \(f\) maps \(\mathbb{C}\) to \(\mathbb{C}\) bijectively and \(f\in\Aut(\mathbb{C})\subset\Aut\qty(\riemannsphere)\). Therefore, \(f(z)\) has the form of \(az+b\), where \(a\in\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) and \(b\in\mathbb{C}\) are constants.
 
@@ -2039,7 +2040,10 @@ Let \(f(z)\in\Aut\qty(\riemannsphere)\) such that \(f(\infty)\neq\infty\). Then,
 Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\riemannsphere)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det{\mqty(a&b\\c&d)}=1}\middle/\qty{\pm I},\right.\]
 where \(I=\mqty(\imat{2})\). The quotient group (a group of "cosets" in the form \(\qty{A,-A}\)) is taken because \(\mqty(a&b\\c&d)\) refers to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}(2,\mathbb{C})=\mathrm{SL}(2,\mathbb{C})/\qty{\pm I}\cong\Aut\qty(\riemannsphere)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} to the \textit{group of Möbius transformations}, consisting of all fractional linear transformations.
 
-Therefore, any holomorphic automorphism on \(\riemannsphere\) is a composition of rotations, dilations, translations, and inversions.
+Therefore, any holomorphic automorphism on \(\riemannsphere\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
+\begin{theorem}[The Holomorphic Automorphism Group on \(\riemannsphere\)]\label{thm:holomorphicautomorphismgrouponextendedcomplexplane}
+    \(\forall f\in \Aut\qty(\riemannsphere)\), \(f\) is a Möbius transformation. In other words, \(\exists a,b,c,d\in\mathbb{C}\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
+\end{theorem}
 \subsection{Further Properties of Meromorphic and Entire Functions}
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
