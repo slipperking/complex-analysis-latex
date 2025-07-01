@@ -2065,14 +2065,14 @@ In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow 
 \end{theorem}
 \begin{proof}
     Since \(U\) is open, there exists a small disk centered at each isolated singularity \(z_k\) of radii \(\delta_k\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we get that \[\int_{\bigcup_{k=1}^nD\qty(z_k,\delta_k)^-\cup\partial U^+}f(z)\ddz=0.\]
-    From rearrangement, \(\oint_{\partial U}f(z)\ddz=\sum_{k=1}^n\oint_{D\qty(z_k,\delta_k)}f(z)\ddz\), and the conclusion follows.
+    From rearrangement, \(\oint_{\partial U}f(z)\ddz=\sum_{k=1}^n\oint_{\partial D\qty(z_k,\delta_k)}f(z)\ddz\), and the conclusion follows.
 \end{proof}
 This result itself is fairly trivial. Now we will explain the significance of the residue at infinity.
 \begin{theorem}[Extended Residue Theorem]\label{thm:extresiduethm}
     If \(\qty{z_1,\ldots z_n,\infty}\) is discrete and finite, and \(f:\riemannsphere\setminus\qty{z_1,\ldots z_n,\infty}\to\mathbb{C}\) is holomorphic, and these points are the isolated singularities of \(f\), then the sum of the residues at each of these isolated singularities is zero, or \[\sum_{k=1}^n\residue_{z=z_k} f(z)+\residue_{z=\infty}f(z)=0.\]
 \end{theorem}
 \begin{proof}
-    Let \(R>\max_{j\in\mathbb{N}_{\leq n}}\qty|z_n|\) be arbitrary. Then there exists circles centered at each isolated singularity \(z_k\) with radius \(\delta_k\) respectively such that \(\partial D\qty(z_k,\delta_k)\subset\)
+    Let \(R>\max_{j\in\mathbb{N}_{\leq n}}\qty|z_n|\) be arbitrary. Then there exist circles centered at each isolated singularity contained in \(D(0,R)\), or that \(\forall k\in\mathbb{N}_{\leq n}\), \(\exists\delta_k>0\) such that \(\partial D\qty(z_k,\delta_k)\subset D(0,R)\). By the Cauchy--Goursat Integral Theorem, \[\int_{\bigcup_{k=1}^nD\qty(z_k,\delta_k)^-\cup\partial D(0,R)^+}f(z)\ddz=0\Longleftrightarrow\qty(\sum_{k=1}^n\oint_{\partial D\qty(z_k,\delta_k)}-\oint_{\partial D(0,R)})f(z)\ddz=0\Leftrightarrow\sum_{k=1}^n\residue_{z=z_k}f(z)+\residue_{z=\infty}f(z)=0.\]
 \end{proof}
 \subsection{Analytic Continuation}
 We have 
