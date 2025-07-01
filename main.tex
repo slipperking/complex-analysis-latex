@@ -2020,7 +2020,8 @@ We will then introduce the converse:
     Thus, we have \[f(z)=c+\psi_\infty(z)+\sum_{k=1}^n\psi_k(z).\] Since each series contains finitely many terms, \(f(z)\) is rational.
 \end{proof}
 If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textit{transcendental meromorphic function}.
-\subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
+\subsection{Further Properties of Meromorphic and Entire Functions}
+\subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
 In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C}\), and \(\riemannsphere\). We will now find \(\Aut(\mathbb{C})\).
 \begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{C}\)]\label{thm:holomorphicautomorphismgrouponcomplexplane}
     \(\forall f\in \Aut(\mathbb{C})\), \(f\) is linear and non-constant. In other words, \(\exists a\in\mathbb{C}^*\) and \(\exists b\in\mathbb{C}\) such that \[f(z)=az+b.\]
@@ -2029,10 +2030,10 @@ In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C
     First, assume that \(\infty\) is not an essential singularity of \(f(z)\) (we will prove this later). Then \(\infty\) must be a pole by trichotomy, as a removable singularity implies boundedness (\autoref{lemma:removablesingularityatinftyentireconstant}). Therefore, \(f(z)\) is a polynomial of degree \(m\), where \(m\in\mathbb{N}\).
 
     Since \(f^{-1}\in\Aut(\mathbb{C})\), it is true that \(\qty(f^{-1})'\) is entire. Since \(\qty(f^{-1})'=\frac{1}{f'\qty(f^{-1})}\), it follows that \(f'\) has no zeros in \(\mathbb{C}\). By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), if \(m>1\), then \(f'\) has a complex zero, which is a contradiction. Hence, \(f\) must be linear, and all functions in \(\Aut(\mathbb{C})\) are in the form of \(az+b\), where \(a\in\mathbb{C}^*\), \(b\in\mathbb{C}\) are constants. In other words, any holomorphic automorphism on \(\mathbb{C}\) is a composition of a rotation, a dilation, and a translation.
-    
+
     We will now prove the primary assumption; the singularity at \(z=\infty\) cannot be an essential singularity of \(f(z)\). Let \(w\in\mathbb{C}\) be arbitrary. Then by the Casorati--Weierstrass Theorem (\autoref{thm:casoratiweierstrass}), \(\forall\varepsilon>0\), \(\forall R>0\), \(\exists |z|>R\) such that \(|f(z)-w|<\varepsilon\). Equivalently, \(\forall R>0\), \(\exists\zeta\in D(w,\varepsilon)\) such that \(\abs{f^{-1}(\zeta)}>R\). Since \(f^{-1}\) is continuous on \(\overline{D(w,\varepsilon)}\) by entireness via \autoref{thm:continuousfunctionboundedoncompact}, it is bounded, which is a contradiction.
 \end{proof}
-\subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
+\subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\riemannsphere\)}{the riemannsphere}}
 Let \(f(z)\in \Aut\qty(\riemannsphere)\) such that \(f(\infty)=\infty\). It follows that \(f\) maps \(\mathbb{C}\) to \(\mathbb{C}\) bijectively and \(f\in\Aut(\mathbb{C})\subset\Aut\qty(\riemannsphere)\). Therefore, \(f(z)\) has the form of \(az+b\), where \(a\in\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) and \(b\in\mathbb{C}\) are constants.
 
 Let \(f(z)\in\Aut\qty(\riemannsphere)\) such that \(f(\infty)\neq\infty\). Then, \(g(z)=\frac{1}{f(z)-f(\infty)}\in\Aut\qty(\riemannsphere)\) and \(g(\infty)=\infty\). By the property above, \(g(z)=cz+d\) for some complex \(d\) and nonzero \(c\). Hence, \(f(z)=\frac{f(\infty)(cz+d)+1}{cz+d}\). Let \(a=cf(\infty)\), \(b=df(\infty)+1\), \(f(z)=\frac{az+b}{cz+d}\). Then in this specific construction, \(ad-bc=-c\neq0\). Let the matrix \(\mqty(a&b\\c&d)\) correspond to this transformation, where for any nonzero scalar \(k\), \(k\mqty(a&b\\c&d)\) corresponds to \(\mqty(a&b\\c&d)\). Therefore, we can arbitrarily pick \(ad-bc\) to be \(1\).
@@ -2044,8 +2045,9 @@ Therefore, any holomorphic automorphism on \(\riemannsphere\) is a composition o
 \begin{theorem}[The Holomorphic Automorphism Group on \(\riemannsphere\)]\label{thm:holomorphicautomorphismgrouponextendedcomplexplane}
     \(\forall f\in \Aut\qty(\riemannsphere)\), \(f\) is a Möbius transformation. In other words, \(\exists a,b,c,d\in\mathbb{C}\) satisfying \(ad-bc\neq 0\) such that \[f(z)=\frac{az+b}{cz+d}.\]
 \end{theorem}
-The Möbius transformation subgroup of \(\Aut(\mathbb{D})\) is also a subgroup of \(\Aut\qty(\riemannsphere)\). In particular, \(\varphi_z(\zeta)=\frac{\zeta-z}{1-\overline{z}\zeta}\). 
-\subsection{Further Properties of Meromorphic and Entire Functions}
+The Möbius transformation subgroup of \(\Aut(\mathbb{D})\) is also a subgroup of \(\Aut\qty(\riemannsphere)\).
+
+
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
