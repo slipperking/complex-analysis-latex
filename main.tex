@@ -2061,9 +2061,12 @@ After Riemann and Weierstrass refined the understanding of analytic functions an
 	where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}\frac{f(z)\ddz}{(z-a)^{n+1}},\] we get that the residue of \(f\) at \(a\) is equal to the first term (\(c_{-1}\)) of the principal part of its Laurent expansion.
 \end{definition}
 It then follows that the residue at a removable singularity is 0. As a direct consequence of equation~\eqref{eq:residue}, we can derive explicit formulae for the calculation of residues at poles. If \(U\subseteq\mathbb{C}\) is open, \(a\in U\) is an isolated singularity (a pole of order \(m\neq\infty\)) of \(f:U\setminus\qty{a}\to\mathbb{C}\) that is holomorphic, then locally:
-\[f(z)=c_{-m}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_1(z-a)+\cdots.\]
-Multiplying by \((z-a)^{m}\), we obtain that \[(z-a)^mf(z)=c_{-m}+c_{1-m}(z-a)+\cdots+c_1(z-a)^{m+1}+\cdots.\]
-By the definition of a Taylor series, we find that \(\frac{1}{}\)
+\[f(z)=c_{-m}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_{-1}(z-a)^{-1}+\cdots.\]
+Multiplying by \((z-a)^{m}\), we obtain that \[(z-a)^mf(z)=c_{-m}+c_{1-m}(z-a)+\cdots+c_{-1}(z-a)^{m-1}+\cdots.\]
+By the definition of a Taylor series, we find that \begin{equation}
+    c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\left.\dv[m-1]{z}((z-a)^mf(z))\right|_{z=a}.\label{eq:residueatpole}
+\end{equation}
+
 Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\pi i}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
 Let \(\zeta=\frac{1}{z}\). Then we get that \[\residue_{z=\infty}f(z)=-\frac{1}{2\pi i}\ointctrclockwise_{\partial D(0,\rho)}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})=\frac{1}{2\pi i}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.\]
 In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow \frac{f\qty(\frac{1}{\zeta})}{\zeta^2}=\sum_{n=-\infty}^\infty c_n\zeta^{-n-2},\] the residue at \(z=\infty\) is equal to \(-c_{-1}\). We will later explain the reasoning behind this definition.
@@ -2086,7 +2089,6 @@ This result itself is fairly trivial. Now we will explain the significance of th
 	as desired. This is merely a restatement of \autoref{thm:residuethm}.
 \end{proof}
 There is not a trivial reason for the definition of the residue at \(\infty\), except for the fact that it seemingly "unifies" the Riemann sphere.
-
 
 \begin{figure}
 \centerline{\includesvg[width=0.9\linewidth]{riemannsphere.svg}}
