@@ -2065,10 +2065,13 @@ Similar to series, absolute convergence is a stronger condition than convergence
 \begin{proof}
 	Let \(\qty{u_k}_{k\in\mathbb{N}}\) be a complex sequence such that \(\sum_{k=1}^\infty\qty|u_k|\) is convergent. Then \(\prod_{k=1}^\infty\qty(1+u_k)\) is absolutely convergent. Let \(Q_n(z)\) denote the partial products of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\) and let \(P_n(z)\) denote the partial products of \(\prod_{k=1}^n\qty(1+u_k)\). By the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), we have that \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(|Q_m(z)-Q_n(z)|<\varepsilon\). Let us now analyze the absolute difference between the \(P_n\) and \(P_m\):
 	\begin{align*}
-		\abs{P_n(z)-P_m(z)}&=\abs{\prod_{k=1}^n\qty(1+u_k)-\prod_{k=1}^m\qty(1+u_k)}\\
+		\abs{P_n-P_m}&=\abs{\prod_{k=1}^n\qty(1+u_k)-\prod_{k=1}^m\qty(1+u_k)}\\
 		&=\abs{\prod_{k=1}^{m}\qty(1+u_k)\prod_{k=m+1}^{n}\qty(1+u_k)-\prod_{k=1}^{m}\qty(1+u_k)}\\
-		&=\abs{\prod_{k=1}^{m}\qty(1+u_k)\qty[\prod_{k=m+1}^{n}\qty(1+u_k)-1]}
+		&=\prod_{k=1}^{m}\qty|1+u_k|\cdot\qty|\prod_{k=m+1}^{n}\qty(1+u_k)-1|\\
+		&\leq\prod_{k=1}^{m}\qty(1+\qty|u_k|)\cdot\qty|\prod_{k=m+1}^{n}\qty(1+\abs{u_k})-1|\\
+		&=\abs{Q_n-Q_m}<\varepsilon,
 	\end{align*}
+	which therefore satisfies \autoref{thm:cauchycriterionsequenceconvergence}.
 \end{proof}
 Let \(f(z)\) be an entire function. First, assume that \(f\) has no zeros in \(\mathbb{C}\). Then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, 
 
