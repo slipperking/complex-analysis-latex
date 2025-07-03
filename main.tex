@@ -2101,7 +2101,7 @@ There is not a trivial reason for the definition of the residue at \(\infty\), e
 
 The Residue Theorem is extremely important as it allows for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues are easy to calculate. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
 \begin{example}
-	Evaluate the improper integral \(I=\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^2}\ddx\).
+	Evaluate the improper integral \(I=\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx\).
 \end{example}
 \begin{proof}
 	\begin{figure}
@@ -2129,10 +2129,7 @@ The Residue Theorem is extremely important as it allows for simple evaluation of
 		\end{tikzpicture}
 		\caption{A semicircular contour with orientation marked.}
 		\label{fig:semicircularcontour}
-	\end{figure}
-	Consider \(\gamma\) to be a closed semicircle with radius \(R\) as in \autoref{fig:semicircularcontour}. We can split the curve into the constituent arc and the straight segment.
-
-	We can evaluate \(\int_{\gamma}\frac{1}{\qty(z^2+1)^2}\ddz=\int_{-R}^R\frac{1}{\qty(x^2+1)^2}\ddx+\int_0^{\pi}\frac{Ri}{\qty(R^2e^{2i\theta}+1)^2}e^{i\theta}\dd{\theta}\). Notice that the main integral has poles at \(z=i\) and \(z=-i\), both of which are inside the contour and have order 2. The residue at \(z=i\) is \[\residue_{z=i}\frac{1}{\qty(z^2+1)^2}=\frac{1}{2\pi i}\int_{\partial D(i,\rho)}\frac{1}{\qty(z^2+1)^2}\ddz.\]
+	\end{figure}Consider \(\gamma\) to be a closed semicircle with radius \(R\) as in \autoref{fig:semicircularcontour}. Notice that the function \(z\mapsto\frac{1}{\qty(z^2+1)^{n+1}}\) has singularities at only \(z=i\) and \(z=-i\), both of which are poles of order \(n+1\).
 \end{proof}
 \begin{example}[Dirichlet Integral]
 
