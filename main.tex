@@ -833,7 +833,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 			\node[anchor=south] at (E) {\(E\)};
 
 		\end{tikzpicture}
-		\caption{A closed polygonal chain internally triangulated, with orientations marked.}
+		\caption{A closed polygonal, chain internally triangulated.}
 		\label{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}
 	\end{figure}Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then, \begin{align*}
 		\int_{ABCDE}f(z)\ddz & =\qty(\int_{\overrightarrow{AB}}+\int_{\overrightarrow{BC}}+\int_{\overrightarrow{CD}}+\int_{\overrightarrow{DE}}+\int_{\overrightarrow{EA}})f(z)\ddz \\
@@ -1154,9 +1154,10 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
 \end{remark}
 The differentiation formula above can be thought of as a generalization of \autoref{thm:cauchygoursatformula}, and provides similar utility in the evaluation of integrals:
 \begin{example}\label{ex:legendrepolynomialintegralformula}
-	A \textit{Legendre polynomial} is a polynomial in the form of \begin{equation}
-		P_n(z)=\frac{1}{2^nn!}\dv[n]{z}(\qty(z^2-1)^n),\label{eq:legendrepolynomialintegralformula_rodriguesformula}
-	\end{equation} which is a formula given by Olinde Rodrigues. Prove the integral form \[P_n(z)=\frac{1}{2\pi i}\oint_\gamma\frac{\qty(\zeta^2-1)^n}{2^n(\zeta-z)^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
+	A \textit{Legendre polynomial} is a polynomial whose explicit equation is given by \begin{equation}
+		P_n(z)=\frac{1}{2^nn!}\dv[n]{z}(\qty(z^2-1)^n).\label{eq:legendrepolynomialintegralformula_rodriguesformula}
+	\end{equation}
+	Prove the integral form \[P_n(z)=\frac{1}{2\pi i}\oint_\gamma\frac{\qty(\zeta^2-1)^n}{2^n(\zeta-z)^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
 \end{example}
 \begin{proof}
 	From the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\pi i}\int_{\gamma}\frac{\qty(\zeta^2-1)^n}{(\zeta-z)^{n+1}}\ddzeta,\] as desired.
