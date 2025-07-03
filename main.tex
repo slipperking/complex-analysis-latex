@@ -2099,7 +2099,7 @@ There is not a trivial reason for the definition of the residue at \(\infty\), e
 	\label{fig:stereographicprojectionofneighborhood}
 \end{figure}As a matter of fact, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\autoref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
 
-The Residue Theorem is extremely important as it allows for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues are easy to calculate. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
+Residues are extremely important as they allow for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues at poles are generally easy to calculate and have an integral representation. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
 \begin{example}
 	Evaluate the improper integral \(I=\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx\), where \(n\in\mathbb{N}\).
 \end{example}
@@ -2129,11 +2129,15 @@ The Residue Theorem is extremely important as it allows for simple evaluation of
 		\end{tikzpicture}
 		\caption{A semicircular contour with orientation marked.}
 		\label{fig:semicircularcontour}
-	\end{figure}Consider \(\gamma\) to be a closed semicircle with radius \(R\) as in \autoref{fig:semicircularcontour}. Notice that the function \(z\mapsto\frac{1}{\qty(z^2+1)^{n+1}}\) has singularities at only \(z=i\) and \(z=-i\), both of which are poles of order \(n+1\). By equation~\eqref{eq:residueatpole}, the residue at \(z=i\) is \begin{align*}
+	\end{figure}Consider \(\gamma\) to be a closed semicircle with radius \(R\geq 2\) as in \autoref{fig:semicircularcontour}. Notice that the function \(z\mapsto\frac{1}{\qty(z^2+1)^{n+1}}\) has singularities at only \(z=i\) and \(z=-i\), both of which are poles of order \(n+1\). By equation~\eqref{eq:residueatpole}, the residue at \(z=i\) is \begin{align*}
 		\residue_{z=i}\frac{1}{\qty(z^2+1)^{n+1}}&=\left.\frac{1}{n!}\dv[n]{z}((z+i)^{-n-1})\right|_{z=i}=\frac{1}{n!}\frac{(-1)^n\prod_{k=1}^n (n+k)}{(2i)^{2n+1}}\\
 		&=\frac{(-1)^n(2n)!}{(n!)^2(2i)^{2n+1}}=\frac{(2n!)}{i2^{2n+1}(n!)^2}.
 	\end{align*}
-	The singularity at \(z=-i\) is not relevant, as it is not enclosed by the contour. By the Residue Theorem (\autoref{thm:residuethm}), we have \[\int_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz=2\pi i\cdot\residue_{z=i}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!}{2^{2n}(n!)^2}.\]
+	The singularity at \(z=-i\) is not relevant, as it is not enclosed by the contour. By the Residue Theorem (\autoref{thm:residuethm}), we have \begin{align*}
+		\int_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz&=\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^\pi\frac{Ri}{\qty(R^2e^{2i\theta}+1)^{n+1}}e^{i\theta}\dd{\theta}\\
+		&=2\pi i\cdot\residue_{z=i}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
+	\end{align*}
+	We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{Rie^{i\theta}}{\qty(R^2e^{2i\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2e^{2i\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\pi]\), and we can commute the limit with the integral. Therefore, we have \[\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx=\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz-\int_0^{\pi}\lim_{R\to\infty}\frac{Ri}{\qty(R^2e^{2i\theta}+1)^{n+1}}e^{i\theta}\dd{\theta}=\frac{(2n)!}{2^{2n}(n!)^2}.\]
 \end{proof}
 \begin{example}[Dirichlet Integral]
 
