@@ -2052,9 +2052,9 @@ It is common knowledge in algebra that any polynomial can be factored into linea
 We will start by introducing the concept of \textit{infinite products}. Let \(\prod_{k=1}^n\qty(1+u_k)\) be an infinite product. If the limit \(\lim_{n\to\infty}\prod_{k=1}^n\qty(1+u_k)\) exists and is finite, then the infinite product is said to be \textit{convergent}.
 
 For \(x\in\mathbb{R}_{\geq0}\), since \(e^x\geq x\) and \(e^0=1\), we can integrate over \([0,x]\) to get that \(e^x\geq x+1\). Therefore, \[\exp(\sum_{k=1}^n\abs{u_k})\geq\prod_{k=1}^n \qty(1+\abs{u_k})=1+\sum_{k=1}^n\abs{u_k}+\sum_{\substack{j,k\in\qty{1,\ldots,n}\\j<k}}\abs{u_ju_k}+\cdots+\prod_{k=1}^n\abs{u_k}>\sum_{k=1}^n\abs{u_k}.\]
-Since the convergence of \(\sum_{k=1}^\infty\qty|u_k|\) is the same as that of \(\exp(\sum_{k=1}^\infty\abs{u_k})\), it follows that the convergence of \(\sum_{k=1}^\infty\abs{u_k}\) is equivalent to that of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\). If \(\sum_{k=1}^\infty\abs{u_k}\) is convergent, then \(\prod_{k=1}^\infty\qty(1+u_k)\) is \textit{absolutely convergent}. As with the order of summing an absolutely convergent series is unimportant, we may also rearrange terms in an absolutely convergent infinite product. 
+Since the convergence of \(\sum_{k=1}^\infty\qty|u_k|\) is the same as that of \(\exp(\sum_{k=1}^\infty\abs{u_k})\), it follows that the convergence of \(\sum_{k=1}^\infty\abs{u_k}\) is equivalent to that of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\). If \(\sum_{k=1}^\infty\abs{u_k}\) is convergent, then \(\prod_{k=1}^\infty\qty(1+u_k)\) is \textit{absolutely convergent}. As with the order of summing an absolutely convergent series is unimportant, we may also rearrange terms in an absolutely convergent infinite product.
 
-Let \(f(z)\) be an entire function. First, assume that \(f\) has no zeros in \(\mathbb{C}\). It follows that the value of 
+Let \(f(z)\) be an entire function. First, assume that \(f\) has no zeros in \(\mathbb{C}\). It follows that the value of
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
@@ -2067,7 +2067,7 @@ It then follows that the residue at a removable singularity is 0. As a direct co
 \[f(z)=c_{-m}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_{-1}(z-a)^{-1}+\cdots.\]
 Multiplying by \((z-a)^{m}\), we obtain that \[(z-a)^mf(z)=c_{-m}+c_{1-m}(z-a)+\cdots+c_{-1}(z-a)^{m-1}+\cdots.\]
 By the definition of a Taylor series, we find that \begin{equation}
-    c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\left.\dv[m-1]{z}((z-a)^mf(z))\right|_{z=a}.\label{eq:residueatpole}
+	c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\left.\dv[m-1]{z}((z-a)^mf(z))\right|_{z=a}.\label{eq:residueatpole}
 \end{equation}
 
 Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\pi i}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
@@ -2094,35 +2094,35 @@ This result itself is fairly trivial. Now we will explain the significance of th
 There is not a trivial reason for the definition of the residue at \(\infty\), except for the fact that it seemingly "unifies" the Riemann sphere.
 
 \begin{figure}
-\centerline{\includesvg[width=0.9\linewidth]{riemannsphere.svg}}
-\caption{The orientation of a neighborhood that does not enclose \(\infty\) after projection.}
-\label{fig:stereographicprojectionofneighborhood}
+	\centerline{\includesvg[width=0.9\linewidth]{riemannsphere.svg}}
+	\caption{The orientation of a neighborhood that does not enclose \(\infty\) after projection.}
+	\label{fig:stereographicprojectionofneighborhood}
 \end{figure}As a matter of fact, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\autoref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
 
 The Residue Theorem is extremely important as it allows for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues are easy to calculate. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
 \begin{example}
-    Evaluate the improper integral \(\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^2}\).
+	Evaluate the improper integral \(I=\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^2}\ddx\).
 \end{example}
 \begin{proof}
-    \begin{figure}
+	\begin{figure}
 		\centering
 		\begin{tikzpicture}[>=stealth,
 				arrow style/.style={
 						postaction={decorate},
 						decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
 					}]
-			
+
 			\draw[-{Stealth}, ultra thin] (0, 0) -- (5, 0);
-                \draw[-{Stealth}, ultra thin] (0, 0) -- (-5, 0);
+			\draw[-{Stealth}, ultra thin] (0, 0) -- (-5, 0);
 			\draw[-{Stealth}, thin] (0, 0) -- (0, 5);
 			\draw[-{Stealth}, thin] (0, 0) -- (0, -0.5);
 			\draw[-{Stealth}, thick] (-3, 0) -- (0.2, 0);
-                \draw[-{Stealth}, thick] (3,0) arc[start angle=0, end angle=61, radius=3];
-                \draw[-{Stealth}, thick] (1.5,2.59807) arc[start angle=60, end angle=121, radius=3];
-                \draw[-{Stealth}, thick] (-1.5,2.59807) arc[start angle=120, end angle=180, radius=3];
+			\draw[-{Stealth}, thick] (3,0) arc[start angle=0, end angle=61, radius=3];
+			\draw[-{Stealth}, thick] (1.5,2.59807) arc[start angle=60, end angle=121, radius=3];
+			\draw[-{Stealth}, thick] (-1.5,2.59807) arc[start angle=120, end angle=180, radius=3];
 			\draw[-{Stealth}, thick] (0, 0) -- (3, 0);
-			\node[anchor=north, xshift=-2pt] at (5, 0) {\(x\)};
-			\node[anchor=east, yshift=-2pt] at (0, 5) {\(y\)};
+			\node[anchor=north, xshift=-2pt] at (5, 0) {\(\Re(z)\)};
+			\node[anchor=east, yshift=-2pt] at (0, 5) {\(\Im(z)\)};
 			\node[anchor=north] at (3,0) {\(R\)};
 			\node[anchor=north] at (-3,0) {\(-R\)};
 			\node[anchor=south east] at (0,3) {\(R\)};
@@ -2130,13 +2130,15 @@ The Residue Theorem is extremely important as it allows for simple evaluation of
 		\caption{A semicircular contour with orientation marked.}
 		\label{fig:semicircularcontour}
 	\end{figure}
-    Consider \(\gamma\) to be a closed semicircle with radius \(R\) as in \autoref{fig:semicircularcontour}. We can split the curve into two separate curves. 
+	Consider \(\gamma\) to be a closed semicircle with radius \(R\) as in \autoref{fig:semicircularcontour}. We can split the curve into the constituent arc and the straight segment.
+
+	Let \(\)
 \end{proof}
 \begin{example}[Dirichlet Integral]
-    
+
 \end{example}
 \subsection{Analytic Continuation}
-We 
+We
 \section{The Theory of Riemann}
 One of the goals of higher mathematics is the generalization and unification of existing concepts. As we have seen, traditional complex analysis is the generalization of calculus to functions of complex variables, while the unique properties of holomorphic functions do not correspond to any of those in classical calculus. The Residue Theorem in \chpref{sec:cauchyresiduetheorem} is a result from a generalization that can be applied to real-valued integrals.
 
