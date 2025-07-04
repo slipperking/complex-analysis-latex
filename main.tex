@@ -76,7 +76,8 @@
 \NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\lbrace#1\IfNoValueTF{#2}{}{\,\middle|\,#2}\right\rbrace}}
 
 \newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
-\newcommand{\chpref}[1]{\hyperref[#1]{\S\,\ref*{#1}}}
+\newcommand{\chpref}[1]{\hyperref[#1]{\S\hspace{0.08em}
+\ref*{#1}}}
 
 \DeclareMathOperator*{\residue}{Res}
 \title{Complex Analysis}
@@ -2199,7 +2200,11 @@ Residues are extremely important as they allow for simple evaluation of definite
 	We will now analyze each integral. The first integral is \[\int_{\gamma_R}f(z)\ddz=\int_0^\pi\frac{\exp(iRe^{i\theta})}{Re^{i\theta}}Rie^{i\theta}\dd{\theta}=i\int_0^{\pi}e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}.\]
 	Notice that \(\frac{2}{\pi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\): \begin{align*}
 		\abs{i\int_0^\pi e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}}&\leq\int_0^{\pi}e^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}e^{-R\sin\theta}\dd{\theta}\\
-		&<2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}e^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}
+		&<2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}e^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-e^{-R})\to 0.
+	\end{align*}
+	The integral on \(\gamma_\varepsilon\) also vanishes similarly:
+	\begin{align*}
+		
 	\end{align*}
 \end{proof}
 \subsection{Analytic Continuation}
