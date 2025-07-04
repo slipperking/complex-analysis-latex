@@ -2202,10 +2202,13 @@ Residues are extremely important as they allow for simple evaluation of definite
 		\abs{i\int_0^\pi e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}}&\leq\int_0^{\pi}e^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}e^{-R\sin\theta}\dd{\theta}\\
 		&<2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}e^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-e^{-R})\to 0.
 	\end{align*}
-	Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\):
+	Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\). Extend the semicircle to a full circle of radius \(\varepsilon\) centered at \(0\).
 	\begin{align*}
-		\int_{\gamma_\varepsilon}f(z)\ddz&=\int_\pi^0\frac{\exp(i\varepsilon e^{i\theta})}{\varepsilon e^{i\theta}}\varepsilon ie^{i\theta}\dd{\theta}=i\int_\pi^0 e^{i\varepsilon\cos\theta}e^{-\varepsilon\sin\theta}\dd{\theta}
+		\ointclockwise_{\partial D(0,\varepsilon)}f(z)\ddz&=-2\pi i\residue_{z=0}f(z)=\int_{\gamma_\varepsilon}f(z)\ddz+\int_{\gamma_\varepsilon}f(-z)\dd(-z).
 	\end{align*}
+	The residue can be calculated via the Laurent expansion of \(f(z)\) at \(z=0\):
+	\[\frac{e^{iz}}{z}=\frac{1}{z}\sum_{n=0}^\infty\frac{(iz)^n}{n!}=\sum_{n=0}^\infty\frac{i^nz^{n-1}}{n!},\]
+	or the coefficient when \(n=0\), which is \(1\).
 \end{proof}
 \subsection{Analytic Continuation}
 We
