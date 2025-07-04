@@ -2197,7 +2197,10 @@ Residues are extremely important as they allow for simple evaluation of definite
 
 	By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}f(z)\ddz=\int_{\gamma_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\gamma_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
 	We will now analyze each integral. The first integral is \[\int_{\gamma_R}f(z)\ddz=\int_0^\pi\frac{\exp(iRe^{i\theta})}{Re^{i\theta}}Rie^{i\theta}\dd{\theta}=i\int_0^{\pi}e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}.\]
-	Notice that \(\frac{2}{\pi}\theta\leq\abs{\sin(\theta)}\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\): \[\abs{i\int_0^\pi e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}}\leq\int_0^{\pi}e^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}e^{-R\sin\theta}\dd{\theta}<2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}.\]
+	Notice that \(\frac{2}{\pi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\): \begin{align*}
+		\abs{i\int_0^\pi e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}}&\leq\int_0^{\pi}e^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}e^{-R\sin\theta}\dd{\theta}\\
+		&<2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}e^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}
+	\end{align*}
 \end{proof}
 \subsection{Analytic Continuation}
 We
