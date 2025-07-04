@@ -2164,8 +2164,36 @@ Residues are extremely important as they allow for simple evaluation of definite
 \end{example}
 \begin{proof}
 	It is common to use integration with parameters to approach this integral. However, we will now provide a solution via contour integration.
+	
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}[>=stealth,
+				arrow style/.style={
+						postaction={decorate},
+						decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+					}]
 
-	\Let \(f(z)=\frac{e^{iz}}{z}\). Notice that \(f(z)\) is holomorphic on \(\mathbb{C}\setminus\qty{0}\). Consider a closed contour \(\gamma\) in the form of \autoref{TO BE CONTINUED}.
+			\draw[-{Stealth}, ultra thin] (0, 0) -- (5, 0);
+			\draw[-{Stealth}, ultra thin] (0, 0) -- (-5, 0);
+			\draw[-{Stealth}, thin] (0, 0) -- (0, 5);
+			\draw[-{Stealth}, thin] (0, 0) -- (0, -0.5);
+			\draw[-{Stealth}, thick] (-3, 0) -- (-0.75, 0);
+			\draw[-{Stealth}, thick] (-0.8,0) arc[start angle=180, end angle=0, radius=0.8];
+			\draw[-{Stealth}, thick] (3,0) arc[start angle=0, end angle=61, radius=3];
+			\draw[-{Stealth}, thick] (1.5,2.59807) arc[start angle=60, end angle=121, radius=3];
+			\draw[-{Stealth}, thick] (-1.5,2.59807) arc[start angle=120, end angle=180, radius=3];
+			\draw[-{Stealth}, thick] (0.8, 0) -- (3, 0);
+			\node[anchor=north, xshift=-2pt] at (5, 0) {\(\Re(z)\)};
+			\node[anchor=east, yshift=-2pt] at (0, 5) {\(\Im(z)\)};
+			\node[anchor=north] at (3,0) {\(R\)};
+			\node[anchor=north] at (0.8,0) {\(\varepsilon\)};
+			\node[anchor=north] at (-3,0) {\(-R\)};
+			\node[anchor=north] at (-0.8,0) {\(-\varepsilon\)};
+			\node[anchor=south east] at (0,3) {\(R\)};
+		\end{tikzpicture}
+		\caption{A semicircular contour with orientation marked.}
+		\label{fig:puncturedsemicircularcontour}
+	\end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Notice that \(f(z)\) is holomorphic on \(\mathbb{C}\setminus\qty{0}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:puncturedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}\) (call this \(\gamma_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (call this \(\gamma_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\). 
 \end{proof}
 \subsection{Analytic Continuation}
 We
