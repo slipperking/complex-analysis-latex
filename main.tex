@@ -2118,7 +2118,7 @@ There is not a trivial reason for the definition of the residue at \(\infty\), e
 	\centerline{\includesvg[width=0.9\linewidth]{riemannsphere.svg}}
 	\caption{The orientation of a neighborhood that does not enclose \(\infty\) after projection.}
 	\label{fig:stereographicprojectionofneighborhood}
-\end{figure}As a matter of fact, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\autoref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
+\end{figure}As a matter of fact, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\autoref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\) at \(\zeta=0\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
 
 Residues are extremely important as they allow for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues at poles are generally easy to calculate and have an integral representation. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
 \begin{example}
@@ -2202,16 +2202,16 @@ Residues are extremely important as they allow for simple evaluation of definite
 		\abs{i\int_0^\pi e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}}&\leq\int_0^{\pi}e^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}e^{-R\sin\theta}\dd{\theta}\\
 		&<2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}e^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-e^{-R})\to 0.
 	\end{align*}
-	Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{\gamma_\varepsilon}f(z)\ddz=i\int_{\pi}^0e^{\varepsilon\qty(i\cos\theta-\sin\theta)}\dd{\theta}=i\int_\pi^0e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}.\]
+	Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{\gamma_\varepsilon}f(z)\ddz=i\int_{\pi}^0\exp(\varepsilon\qty(i\cos\theta-\sin\theta))\dd{\theta}=i\int_\pi^0e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}.\]
 	Obviously, \[\abs{e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}}\leq 1,\]
 	and therefore, the integral and the limit may commute:
 	\[\lim_{\varepsilon\to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\int_{\pi}^0\lim_{\varepsilon\to 0^+}e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}=i\int_{\pi}^0\dd{\theta}=-i\pi.\]
 	Evaluating the integral over the line segments, we have 
 	\begin{align*}
 		\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz&=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{e^{iz}}{z}\dd{z}=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{e^{-iz}}{z}\dd{z}\\
-		&\to2i\int_{-\infty}^0\frac{\sin(z)}{z}\ddz=2i\int_0^{\infty}\frac{\sin(z)}{z}\ddz.
+		&\to2i\int_{-\infty}^0\frac{\sin{z}}{z}\ddz=2i\int_0^{\infty}\frac{\sin{z}}{z}\ddz.
 	\end{align*}
-	Hence, \[-i\pi+2i\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin(z)}{z}\ddz=\frac{\pi}{2}.\]
+	Hence, \[-i\pi+2i\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\pi}{2}.\]
 \end{proof}
 \subsection{Analytic Continuation}
 We
