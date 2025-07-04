@@ -610,8 +610,8 @@ Lastly, the sufficient criteria to pass a limit through an integral:
 	Then \(\forall n>N\),
 	\begin{align*}
 		\abs{\int_\gamma f_n(z)\ddz-\int_\gamma f(z)\ddz}
-		 & =\abs{\int_\gamma\paren{f_n(z)-f(z)}\ddz}                           \\
-		 & \leq\int_\gamma\abs{f_n(z)-f(z)}\abs{\ddz}                          \\
+		 & =\abs{\int_\gamma\paren{f_n(z)-f(z)}\ddz}                               \\
+		 & \leq\int_\gamma\abs{f_n(z)-f(z)}\abs{\ddz}                              \\
 		 & <\int_\gamma \frac{\varepsilon}{\lambda(\gamma)}\abs{\ddz}=\varepsilon.
 	\end{align*}
 	Therefore, \[\lim_{n\to\infty}\int_\gamma f_n(z)\ddz=\int_\gamma f(z)\ddz,\] as desired.
@@ -2066,18 +2066,18 @@ Similar to series, absolute convergence is a stronger condition than convergence
 \begin{proof}
 	Let \(\qty{u_k}_{k\in\mathbb{N}}\) be a complex sequence such that \(\sum_{k=1}^\infty\qty|u_k|\) is convergent. Then \(\prod_{k=1}^\infty\qty(1+u_k)\) is absolutely convergent. Let \(Q_n(z)\) denote the partial products of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\) and let \(P_n(z)\) denote the partial products of \(\prod_{k=1}^n\qty(1+u_k)\). By the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), we have that \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(|Q_m(z)-Q_n(z)|<\varepsilon\). Let us now analyze the absolute difference between the \(P_n\) and \(P_m\):
 	\begin{align*}
-		\abs{P_n-P_m}&=\abs{\prod_{k=1}^n\qty(1+u_k)-\prod_{k=1}^m\qty(1+u_k)}\\
-		&=\abs{\prod_{k=1}^{m}\qty(1+u_k)\prod_{k=m+1}^{n}\qty(1+u_k)-\prod_{k=1}^{m}\qty(1+u_k)}\\
-		&=\prod_{k=1}^{m}\qty|1+u_k|\cdot\qty|\prod_{k=m+1}^{n}\qty(1+u_k)-1|\\
-		&\leq\prod_{k=1}^{m}\qty(1+\qty|u_k|)\cdot\qty|\prod_{k=m+1}^{n}\qty(1+\abs{u_k})-1|\\
-		&=\abs{Q_n-Q_m}<\varepsilon,
+		\abs{P_n-P_m} & =\abs{\prod_{k=1}^n\qty(1+u_k)-\prod_{k=1}^m\qty(1+u_k)}                                 \\
+		              & =\abs{\prod_{k=1}^{m}\qty(1+u_k)\prod_{k=m+1}^{n}\qty(1+u_k)-\prod_{k=1}^{m}\qty(1+u_k)} \\
+		              & =\prod_{k=1}^{m}\qty|1+u_k|\cdot\qty|\prod_{k=m+1}^{n}\qty(1+u_k)-1|                     \\
+		              & \leq\prod_{k=1}^{m}\qty(1+\qty|u_k|)\cdot\qty|\prod_{k=m+1}^{n}\qty(1+\abs{u_k})-1|      \\
+		              & =\abs{Q_n-Q_m}<\varepsilon,
 	\end{align*}
 	which therefore satisfies \autoref{thm:cauchycriterionsequenceconvergence}.
 \end{proof}
 Let \(f(z)\) be an entire function. First, assume that \(f\) has no zeros in \(\mathbb{C}\). Then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)e^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)e^{-\varphi(z)})=f'(z)e^{-\varphi(z)}-\varphi'(z)f(z)e^{-\varphi(z)}=0\). It follows that \(f(z)e^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).
 
 If \(f(z)\) has finitely many zeros in \(\mathbb{C}\), namely \(a_0=0,a_1,a_2,\ldots,a_n\) with respective multiplicities \(m_0,m_1,\ldots m_n\) (if \(0\) is not a zero, treat \(m_0=0\)), then at each zero \(a_k\), it has the local Taylor expansion of
-\[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \((z-a_k)^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every root, we get that \(g(z)=\frac{f(z)}{p(z)}\) is entire and has no zeros, where \[p(z)=z^{m_0}\qty(1-\frac{z}{a_1})^{m_1}\cdots\qty(1-\frac{z}{a_n})^{m_n}.\]
+\[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \((z-a_k)^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every root, we can define \(g(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}\qty(1-\frac{z}{a_1})^{m_1}\cdots\qty(1-\frac{z}{a_n})^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n\qty(z-a_k)^{m_k}\) as we aim to generalize the construction to infinite products.
 
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
@@ -2085,7 +2085,7 @@ After Riemann and Weierstrass refined the understanding of analytic functions an
 	For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textit{residue} of \(f\) at \(a\), denoted by \(\residue_{z=a}f(z)\), is equal to \begin{equation}
 		\residue_{z=a}f(z)=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}f(z)\ddz,\label{eq:residue}
 	\end{equation}
-	where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}\frac{f(z)\ddz}{(z-a)^{n+1}},\] we get that the residue of \(f\) at \(a\) is equal to the first term (\(c_{-1}\)) of the principal part of its Laurent expansion.
+	where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}\frac{f(z)\ddz}{(z-a)^{n+1}},\] we get that the residue of \(f\) at \(a\) is equal to the first term \(c_{-1}\) of the principal part of its Laurent expansion.
 \end{definition}
 It then follows that the residue at a removable singularity is 0. As a direct consequence of equation~\eqref{eq:residue}, we can derive explicit formulae for the calculation of residues at poles. If \(U\subseteq\mathbb{C}\) is open, \(a\in U\) is an isolated singularity (a pole of order \(m\neq\infty\)) of \(f:U\setminus\qty{a}\to\mathbb{C}\) that is holomorphic, then locally:
 \[f(z)=c_{-m}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_{-1}(z-a)^{-1}+\cdots.\]
@@ -2168,7 +2168,7 @@ Residues are extremely important as they allow for simple evaluation of definite
 \end{example}
 \begin{proof}
 	It is common to use integration with parameters to approach this integral. However, we will now provide a solution via contour integration.
-	
+
 	\begin{figure}
 		\centering
 		\begin{tikzpicture}[>=stealth,
@@ -2197,22 +2197,22 @@ Residues are extremely important as they allow for simple evaluation of definite
 		\end{tikzpicture}
 		\caption{A semicircular contour with orientation marked.}
 		\label{fig:puncturedsemicircularcontour}
-	\end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:puncturedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}\) (call this \(\gamma_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (call this \(\gamma_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\). 
+	\end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:puncturedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}\) (call this \(\gamma_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (call this \(\gamma_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
 
 	By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}f(z)\ddz=\int_{\gamma_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\gamma_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
 	We will now analyze each integral. The first integral is \[\int_{\gamma_R}f(z)\ddz=\int_0^\pi\frac{\exp(iRe^{i\theta})}{Re^{i\theta}}Rie^{i\theta}\dd{\theta}=i\int_0^{\pi}e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}.\]
 	Notice that \(\frac{2}{\pi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\): \begin{align*}
-		\abs{i\int_0^\pi e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}}&\leq\int_0^{\pi}e^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}e^{-R\sin\theta}\dd{\theta}\\
-		&<2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}e^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-e^{-R})\to 0.
+		\abs{i\int_0^\pi e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}e^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}e^{-R\sin\theta}\dd{\theta}                                                                  \\
+		                                                              & <2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}e^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-e^{-R})\to 0.
 	\end{align*}
 	Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{\gamma_\varepsilon}f(z)\ddz=i\int_{\pi}^0\exp(\varepsilon\qty(i\cos\theta-\sin\theta))\dd{\theta}=i\int_\pi^0e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}.\]
 	Obviously, \[\abs{e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}}\leq 1,\]
 	and therefore, the integral and the limit may commute:
 	\[\lim_{\varepsilon\to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\int_{\pi}^0\lim_{\varepsilon\to 0^+}e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}=i\int_{\pi}^0\dd{\theta}=-i\pi.\]
-	Evaluating the integral over the line segments, we have 
+	Evaluating the integral over the line segments, we have
 	\begin{align*}
-		\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz&=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{e^{iz}}{z}\dd{z}=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{e^{-iz}}{z}\dd{z}\\
-		&\to2i\int_{-\infty}^0\frac{\sin{z}}{z}\ddz=2i\int_0^{\infty}\frac{\sin{z}}{z}\ddz.
+		\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz & =\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{e^{iz}}{z}\dd{z}=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{e^{-iz}}{z}\dd{z} \\
+		                                                                & \to2i\int_{-\infty}^0\frac{\sin{z}}{z}\ddz=2i\int_0^{\infty}\frac{\sin{z}}{z}\ddz.
 	\end{align*}
 	Hence, \[-i\pi+2i\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\pi}{2}.\]
 \end{proof}
