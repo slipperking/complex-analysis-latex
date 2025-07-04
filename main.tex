@@ -2206,7 +2206,12 @@ Residues are extremely important as they allow for simple evaluation of definite
 	Obviously, \[\abs{e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}}\leq 1,\]
 	and therefore, the integral and the limit may commute:
 	\[\lim_{\varepsilon\to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\int_{\pi}^0\lim_{\varepsilon\to 0^+}e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}=i\int_{\pi}^0\dd{\theta}=-i\pi.\]
-	Evaluating the integral over the line segments, we have \[\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{e^{iz}}{z}\dd{z}=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{e^{-iz}}{z}\dd{z}\to2i\int_{-\infty}^0\frac{\sin(z)}{z}.\]
+	Evaluating the integral over the line segments, we have 
+	\begin{align*}
+		\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz&=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{e^{iz}}{z}\dd{z}=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{e^{-iz}}{z}\dd{z}\\
+		&\to2i\int_{-\infty}^0\frac{\sin(z)}{z}\ddz=2i\int_0^{\infty}\frac{\sin(z)}{z}\ddz.
+	\end{align*}
+	Hence, \[-i\pi+2i\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin(z)}{z}\ddz=\frac{\pi}{2}.\]
 \end{proof}
 \subsection{Analytic Continuation}
 We
