@@ -2092,10 +2092,11 @@ Let \begin{gather}
 Therefore, we can rewrite equation~\eqref{eq:infiniteproductweierstrassfactorizationintermediate} as \[\prod_{n=2}^\infty E_{k_n}\qty(\frac{z}{a_n}).\]
 The expression in equation~\eqref{eq:weierstrasselementaryfactor} is known as the \(k\)th \textit{Weierstrass elementary factor}.
 
-By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{k_n}\qty(\frac{z}{a_n})\). For \(z\in D(0,R)\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|<\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then, \begin{align*}
+By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{k_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|\le\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then, \begin{align*}
 	\abs{Q_{k_n}\qty(\frac{z}{a_n})}&=\abs{-\sum_{j=1}^\infty\frac{1}{j}\qty(\frac{z}{a_n})^j+\sum_{j=1}^{k_n}\frac{1}{j}\qty(\frac{z}{a_n})^j}\leq\sum_{j=k_n+1}^\infty\frac{1}{j}\abs{\frac{z}{a_n}}^j\\
-	&\leq\sum_{j=k_n+1}^\infty\abs{\frac{z}{a_n}}^j=\abs{\frac{z}{a_n}}^{k_n+1}\frac{1}{1-\abs{\dfrac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{k_n+1}
+	&\leq\sum_{j=k_n+1}^\infty\abs{\frac{z}{a_n}}^j=\abs{\frac{z}{a_n}}^{k_n+1}\frac{1}{1-\abs{\dfrac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{k_n+1}.
 \end{align*}
+By the definition of \(\qty{k_n}_{n\in\mathbb{N}}\), the series \(2\sum_{k=1}^\infty\abs{\frac{R}{a_n}}^{k_n+1}\) converges. Therefore, \(\sum_{k=1}^\infty Q_{k_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}).
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
