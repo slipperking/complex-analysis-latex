@@ -805,7 +805,7 @@ From the above result, we can directly obtain the following theorem:
 
     Then using the same argument, In general, for \(\psi(z)\in C^k(\mathbb{C})\), the same process can be used recursively to find that \(u(z)\in C^k(\mathbb{C})\) as well.
 
-    If the support of \(\psi(z)\) is the union of infinitely many or finitely many disjoint compact sets, then the integral in equation~\eqref{eq:onedimensionalpartialconjugatesolution} can be split into a sum of integrals over each compact set, and the same argument applies to each component.
+    If the support of \(\psi(z)\) is the union of infinitely many or finitely many disjoint compact sets, then the integral in equation~\eqref{eq:onedimensionalpartialconjugatesolution} can be split into a sum of integrals over each compact set, and the same argument applies to each term.
 \end{remark}
 \subsection{The Cauchy--Goursat Theorem}
 When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives, and this condition was dropped by Goursat using an argument involving the triangulation of polygonal chains.
@@ -2250,17 +2250,17 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
     \item The existence of a transcendental meromorphic function \(f\) whose poles have an accumulation point at \(z=\infty\) is the concern of the following theorem:
         \begin{theorem}[Mittag--Leffler's Theorem]\label{thm:mittagleffler}
             Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{C}\) be a sequence of distinct complex numbers such that \(\forall n\in\mathbb{N}\), \(\abs{a_n}\leq\abs{a_{n+1}}\) and \(\lim_{n\to\infty}a_n=\infty\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a function sequence, each in the form of equation~\eqref{eq:meromorphicfunctionconstructionprincipalparts}. Then,
-            \begin{enumerate}
+            \begin{enumerate}[label=(\alph*)]
                 \item A meromorphic function \(f(z)\) on \(\mathbb{C}\) can be constructed such that \(\forall n\in\mathbb{N}\), \(f\) has a pole at \(a_n\) with a principal part of \(\psi_n\) at \(a_n\).\label{itm:mittagleffler_existence}
                 \item The function \(f(z)\) satisfying the criteria above can be explicitly represented as
                     \begin{equation}
                         f(z)=\varphi(z)+\sum_{n=1}^\infty\qty[\psi_n(z)-p_n(z)]\label{eq:mittagleffler_construction_statement}
-                    \end{equation} for some sequence \(\qty{p_n(z)}\) and an arbitrary entire function \(\varphi(z)\).\label{itm:mittagleffler_construction}
+                    \end{equation} for some sequence of polynomials \(\qty{p_n(z)}\) and an arbitrary entire function \(\varphi(z)\).\label{itm:mittagleffler_construction}
             \end{enumerate}
         \end{theorem}
         \begin{proof}
             The classical proof for this theorem allows for a more explicit construction, as in equation~\eqref{eq:mittagleffler_construction_statement}. As for the existence, we can prove \ref{itm:mittagleffler_existence} by using the \(\overline{\partial}\) problem.
-            \begin{enumerate}
+            \begin{enumerate}[label=(\alph*)]
                 \item Fix \(n\in\mathbb{N}\), let \(U_n\) be an open neighborhood of \(a_n\) such that \(\forall i,j\in\mathbb{N}\) where \(i\neq j\), \(\overline{U_i}\cap \overline{U_j}=\emptyset\). Let \(V_n\) be a neighborhood of \(a_n\) that is relatively compact in \(U_n\). By \autoref{thm:bumpfunctionexistence}, for each \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[
                         \begin{cases}
                             \varphi_n(z)\equiv 1 & z\in\overline{V_n}          \\
@@ -2273,7 +2273,7 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
                     \end{cases}.\]
                     Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the discussion proceeding \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a \(C^\infty\) function \(v(z)\) such that \(\pdv{v}{\overline{z}}=\phi(z)\) on \(\mathbb{C}\). Since \(\phi\) is \(C^\infty\), it follows that \(v\) is also \(C^\infty\). Define \(f(z)=u(z)-v(z)\). Then
                     \[\pdv{f}{\overline{z}} = \pdv{u}{\overline{z}}-\pdv{v}{\overline{z}} = \phi(z)-\phi(z) = 0,\]
-                    which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part \(\psi_n\) at each \(a_n\) and \(v\) is smooth (and hence removable at each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with principal parts \(\psi_n\) at each \(a_n\), as desired.
+                    which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part \(\psi_n\) at each \(a_n\) and \(v\) is \(C^\infty\) (and hence removable at each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with principal parts \(\psi_n\) at each \(a_n\), as desired.
                 \item 
             \end{enumerate}
         \end{proof}
