@@ -805,7 +805,7 @@ From the above result, we can directly obtain the following theorem:
 
     Then using the same argument, In general, for \(\psi(z)\in C^k(\mathbb{C})\), the same process can be used recursively to find that \(u(z)\in C^k(\mathbb{C})\) as well.
 
-    If the support of \(\psi(z)\) is the union of disjoint compact sets, then the integral in equation~\eqref{eq:onedimensionalpartialconjugatesolution} can be split into a sum of integrals over each compact set, and the same argument applies to each component.
+    If the support of \(\psi(z)\) is the union of infinitely many or finitely many disjoint compact sets, then the integral in equation~\eqref{eq:onedimensionalpartialconjugatesolution} can be split into a sum of integrals over each compact set, and the same argument applies to each component.
 \end{remark}
 \subsection{The Cauchy--Goursat Theorem}
 When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives, and this condition was dropped by Goursat using an argument involving the triangulation of polygonal chains.
@@ -2261,7 +2261,7 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
         \begin{proof}
             The classical proof for this theorem allows for a more explicit construction, as in equation~\eqref{eq:mittagleffler_construction_statement}. As for the existence, we can prove \ref{itm:mittagleffler_existence} by using the \(\overline{\partial}\) problem.
             \begin{enumerate}
-                \item Fix \(n\in\mathbb{N}\), let \(U_n\) be an open neighborhood of \(a_n\) such that \(\forall i,j\in\mathbb{N}\) where \(i\neq j\), \(U_i\cap U_j=\emptyset\). Let \(V_n\) be a neighborhood of \(a_n\) that is relatively compact in \(U_n\). By \autoref{thm:bumpfunctionexistence}, for each \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[
+                \item Fix \(n\in\mathbb{N}\), let \(U_n\) be an open neighborhood of \(a_n\) such that \(\forall i,j\in\mathbb{N}\) where \(i\neq j\), \(\overline{U_i}\cap \overline{U_j}=\emptyset\). Let \(V_n\) be a neighborhood of \(a_n\) that is relatively compact in \(U_n\). By \autoref{thm:bumpfunctionexistence}, for each \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[
                         \begin{cases}
                             \varphi_n(z)\equiv 1 & z\in\overline{V_n}          \\
                             \varphi_n(z)\equiv 0 & z\in\mathbb{C}\setminus U_n
@@ -2271,22 +2271,13 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
                             \pdv{u}{\overline{z}} & z\in\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}} \\
                             0                     & z\in\qty{a_k}_{k\in\mathbb{N}}
                     \end{cases}.\]
-                    Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\).
-                    
-                    \[
-                        \pdv{v}{\overline{z}} = \phi(z).
-                    \]
-                    Define \(f(z) = u(z) - v(z)\). Then
-                    \[
-                        \pdv{f}{\overline{z}} = \pdv{u}{\overline{z}} - \pdv{v}{\overline{z}} = \phi(z) - \phi(z) = 0,
-                    \]
+                    Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the discussion proceeding \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a \(C^\infty\) function \(v(z)\) such that \(\pdv{v}{\overline{z}}=\phi(z)\) on \(\mathbb{C}\). Since \(\phi\) is \(C^\infty\), it follows that \(v\) is also \(C^\infty\).
+                    \[\pdv{v}{\overline{z}}=\phi(z).\]
+                    Define \(f(z)=u(z)-v(z)\). Then
+                    \[\pdv{f}{\overline{z}} = \pdv{u}{\overline{z}}-\pdv{v}{\overline{z}} = \phi(z)-\phi(z) = 0,\]
                     which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part \(\psi_n\) at each \(a_n\) and \(v\) is smooth (and hence removable at each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with principal parts \(\psi_n\) at each \(a_n\), as desired.
 
-                \item To obtain the explicit construction in \eqref{eq:mittagleffler_construction_statement}, note that for each \(n\), we can choose a polynomial \(p_n(z)\) that approximates \(\psi_n(z)\) sufficiently well on compact subsets of \(\mathbb{C} \setminus \qty{a_n}\) to ensure convergence of the sum. More precisely, let each \(p_n(z)\) be the Taylor polynomial of \(\psi_n(z)\) about \(z = 0\) truncated to degree \(m_n\), where \(m_n\) is chosen large enough to make the tail \(\psi_n(z) - p_n(z)\) decay rapidly outside neighborhoods of \(a_n\). Then
-                    \[
-                        \sum_{n=1}^\infty [\psi_n(z) - p_n(z)]
-                    \]
-                    converges uniformly on compact subsets of \(\mathbb{C} \setminus \qty{a_n}_{n\in\mathbb{N}}\). This sum defines a holomorphic function on \(\mathbb{C} \setminus \qty{a_n}\), and its meromorphic extension to \(\mathbb{C}\) has the desired principal parts at the \(a_n\). Finally, adding an arbitrary entire function \(\varphi(z)\) gives the general form of \(f(z)\) stated in \eqref{eq:mittagleffler_construction_statement}, completing the proof.
+                \item 
             \end{enumerate}
         \end{proof}
 \end{enumerate}
