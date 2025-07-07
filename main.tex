@@ -2270,6 +2270,21 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
                             0                     & z\in\qty{a_k}_{k\in\mathbb{N}}
                     \end{cases}.\]
                     Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\).
+                    Since \(\phi \in C^\infty(\mathbb{C})\) and has compact support (as \(\varphi_n\) have disjoint supports within the bounded neighborhoods \(U_n\)), we may apply the standard \(\overline{\partial}\)-problem solution (cf. \autoref{thm:globaldbarproblem}) to obtain a function \(v \in C^\infty(\mathbb{C})\) such that
+                    \[
+                        \pdv{v}{\overline{z}} = \phi(z).
+                    \]
+                    Define \(f(z) = u(z) - v(z)\). Then
+                    \[
+                        \pdv{f}{\overline{z}} = \pdv{u}{\overline{z}} - \pdv{v}{\overline{z}} = \phi(z) - \phi(z) = 0,
+                    \]
+                    which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part \(\psi_n\) at each \(a_n\) and \(v\) is smooth (and hence removable at each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with principal parts \(\psi_n\) at each \(a_n\), as desired.
+
+                \item To obtain the explicit construction in \eqref{eq:mittagleffler_construction_statement}, note that for each \(n\), we can choose a polynomial \(p_n(z)\) that approximates \(\psi_n(z)\) sufficiently well on compact subsets of \(\mathbb{C} \setminus \qty{a_n}\) to ensure convergence of the sum. More precisely, let each \(p_n(z)\) be the Taylor polynomial of \(\psi_n(z)\) about \(z = 0\) truncated to degree \(m_n\), where \(m_n\) is chosen large enough to make the tail \(\psi_n(z) - p_n(z)\) decay rapidly outside neighborhoods of \(a_n\). Then
+                    \[
+                        \sum_{n=1}^\infty [\psi_n(z) - p_n(z)]
+                    \]
+                    converges uniformly on compact subsets of \(\mathbb{C} \setminus \qty{a_n}_{n\in\mathbb{N}}\). This sum defines a holomorphic function on \(\mathbb{C} \setminus \qty{a_n}\), and its meromorphic extension to \(\mathbb{C}\) has the desired principal parts at the \(a_n\). Finally, adding an arbitrary entire function \(\varphi(z)\) gives the general form of \(f(z)\) stated in \eqref{eq:mittagleffler_construction_statement}, completing the proof.
             \end{enumerate}
         \end{proof}
 \end{enumerate}
