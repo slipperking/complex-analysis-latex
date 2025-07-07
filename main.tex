@@ -762,7 +762,7 @@ From the above result, we can directly obtain the following theorem:
 	\end{equation}
 	For a fixed \(z\), the value of \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}\] tends to \(\pdv{\psi}{\zeta}\paren{\xi+z}\) as \(h\to0\). Because \(\psi(\zeta)=\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{lemma:c1lipschitz}, it is Lipschitz continuous for a constant \(M\).
 
-	Let \(h<1\) and let \(K=\cbraces{z\in\mathbb{C}}{\inf_{\zeta\in\supp(\varphi)}|z-\zeta|\leq1}\). Then for \(\xi+z\in \mathbb{C}\), \[\abs{\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}}\leq M,\] and when \(\xi+z\notin K\), \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}=0.\]
+	Let \(h<1\) and let \(K=\cbraces{z\in\mathbb{C}}{\inf_{\zeta\in\supp(\varphi)}|z-\zeta|\leq1}\). Then, \[\abs{\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}}\leq M,\] and specifically, when \(\xi+z\notin K\), \[\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h}=0.\]
 	As shown above, the integrand is uniformly bounded by \(M\), which has a convergent integral of \(\int_{K}M\dd{\xi}\wedge\dd{\overline{\xi}}\), the limit \(h\to0\) may commute with the integral in equation~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr}. Let \(\zeta=\alpha+i\beta\). From the real axis, \begin{equation}
 		\pdv{u}{x}(z)=\frac{1}{2\pi i}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\alpha}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\pi i}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\alpha}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
 	\end{equation}
@@ -1057,7 +1057,7 @@ We have also already seen the utility of parameterization via a polar transforma
 	From simple cancellation, we get \[2\pi\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\pi\prod_{k=1}^n\frac{2k-1}{2k},\]
 	as expected.
 \end{proof}
-\begin{example}[The Cauchy--Goursat Integral Formula on the Exterior]\label{ex:cauchygoursatformulaexterior}
+\begin{example}[Cauchy--Goursat Integral Formula on the Exterior]\label{ex:cauchygoursatformulaexterior}
 	Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \autoref{thm:jordancurve}.
 	\begin{enumerate}
 		\item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\pi i}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\begin{cases}
@@ -1944,7 +1944,7 @@ An \textit{isolated singularity} of a complex function is a point \(a\in\mathbb{
 	      which has infinitely many nonzero coefficients of negative powers.
 \end{enumerate}
 A function with an essential singularity exhibits striking behavior. We will first introduce the following famous result.
-\begin{theorem}[The Casorati--Weierstrass Theorem]\label{thm:casoratiweierstrass}
+\begin{theorem}[Casorati--Weierstrass Theorem]\label{thm:casoratiweierstrass}
 	Let \(a\in\mathbb{C}\) and \(U\subseteq\mathbb{C}\) be open. Suppose \(f:U\setminus\qty{a}\to\mathbb{C}\) is holomorphic with an essential singularity at \(a\). Then the set of values that \(f\) attains on any open punctured neighborhood of \(a\) is dense. In other words, \(\forall\varepsilon,\delta>0\), \(\forall w\in\mathbb{C}\), \(\exists z\in D^*(a,\delta)\) such that \(|f(z)-w|<\varepsilon\).
 \end{theorem}
 \begin{proof}
@@ -2010,7 +2010,7 @@ Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\) and
 		\infty          & n>m
 	\end{cases}.\]
 We will then introduce the converse:
-\begin{theorem}
+\begin{theorem}\label{thm:rationalmeromorphicfunctions}
 	If \(f(z)\) is meromorphic on \(\mathbb{C}\) and has a pole or removable singularity at \(z=\infty\), then \(f\) is a rational function.
 \end{theorem}
 \begin{proof}
@@ -2088,53 +2088,54 @@ Similar to series, absolute convergence is a stronger condition than convergence
 	\end{align*}
 	which therefore satisfies \autoref{thm:cauchycriterionsequenceconvergence}.
 \end{proof}
-Let \(f(z)\) be an entire function. First, assume that \(f\) has no zeros in \(\mathbb{C}\). Then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)e^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)e^{-\varphi(z)})=f'(z)e^{-\varphi(z)}-\varphi'(z)f(z)e^{-\varphi(z)}=0\). It follows that \(f(z)e^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).
+We will now study the construction of an entire function \(f(z)\) via its zeros. We have the following cases:
+\begin{enumerate}
+	\item If \(f\) has no zeros in \(\mathbb{C}\), then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)e^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)e^{-\varphi(z)})=f'(z)e^{-\varphi(z)}-\varphi'(z)f(z)e^{-\varphi(z)}=0\). It follows that \(f(z)e^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).\label{itm:entirefunctionconstructednonvanishing}
+	\item If \(f(z)\) is entire and has finitely many zeros in \(\mathbb{C}\), namely \(a_0=0,a_1,a_2,\ldots,a_n\) with respective multiplicities \(m_0,m_1,\ldots m_n\) (if \(0\) is not a zero, treat \(m_0=0\)), then at each zero \(a_k\), it has the local Taylor expansion of
+	      \[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every root, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By \ref{itm:entirefunctionconstructednonvanishing}, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write \begin{equation}
+		      f(z)=p(z)\exp(\varphi(z)),\label{eq:weierstrassfactorization_finitezeros}
+	      \end{equation} where \(p(z)\) is a polynomial with roots at \(a_k\) with respective multiplicities of \(m_k\). The entire functions \(p(z)\) and \(f(z)\) both have the same zeros with matching multiplicities.
+	\item If \(f(z)\) is entire and has infinitely many zeros such that \(f\) is not identically zero. It follows that \(f\) has countably many zeros (since the zeros are isolated). Let the zeros be indexed by \(\mathbb{N}\), namely \(a_1,a_2,\ldots\). Without loss of generality, assume that \(\forall n\in\mathbb{N}\), \(0<\abs{a_n}\leq\abs{a_{n+1}}\) (repeated elements representing multiplicities), and \(\lim_{n\to\infty}a_n=\infty\). The case for a zero at \(0\) will be treated differently.
 
-If \(f(z)\) is entire and has finitely many zeros in \(\mathbb{C}\), namely \(a_0=0,a_1,a_2,\ldots,a_n\) with respective multiplicities \(m_0,m_1,\ldots m_n\) (if \(0\) is not a zero, treat \(m_0=0\)), then at each zero \(a_k\), it has the local Taylor expansion of
-\[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every root, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By the previous argument, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write \begin{equation}
-	f(z)=p(z)\exp(\varphi(z)),\label{eq:weierstrassfactorization_finitezeros}
-\end{equation} where \(p(z)\) is a polynomial with roots at \(a_k\) with respective multiplicities of \(m_k\). The entire functions \(p(z)\) and \(f(z)\) both have the same zeros with matching multiplicities.
+	      There exists a positive integer sequence \(p_1,p_2,\ldots\) such that for every positive and finite \(R\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. For example, let \(p_n=n\), and for sufficiently large \(n\), \(\frac{R}{\abs{a_n}}<1\) and the series is convergent. Consider the infinite product
+	      \begin{equation}
+		      \prod_{n=1}^\infty{\qty(1-\frac{z}{a_n})}\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{p_n}{\qty(\frac{z}{a_n})}^{p_n}].\label{eq:infiniteproductweierstrassfactorizationintermediate}
+	      \end{equation}
+	      Let \begin{gather}
+		      P_p(z)=z+\frac{1}{2}z^2+\cdots+\frac{1}{p}z^p\nonumber\\
+		      Q_p(z)=\log(1-z)+P_p(z)\nonumber\\
+		      E_p(z)=\exp\qty[Q_p(z)]=(1-z)\exp\qty[P_p(z)].\label{eq:weierstrasselementaryfactor}
+	      \end{gather}
+	      Therefore, we can rewrite equation~\eqref{eq:infiniteproductweierstrassfactorizationintermediate} as
+	      \begin{equation*}
+		      \prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n}).
+	      \end{equation*}
+	      The expression in equation~\eqref{eq:weierstrasselementaryfactor} is known as the \(p\)th \textit{Weierstrass elementary factor}.
 
-Lastly, suppose that \(f(z)\) is entire and has infinitely many zeros such that \(f\) is not identically zero. It follows that \(f\) has countably many zeros (since the zeros are isolated). Let the zeros be indexed by \(\mathbb{N}\), namely \(a_1,a_2,\ldots\). Without loss of generality, assume that \(\forall n\in\mathbb{N}\), \(0<\abs{a_n}\leq\abs{a_{n+1}}\) (repeated elements representing multiplicities), and \(\lim_{n\to\infty}a_n=\infty\). The case for a zero at \(0\) will be treated differently.
+	      By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|\le\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then, \begin{align}
+		      \abs{Q_{p_n}\qty(\frac{z}{a_n})} & =\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber                                       \\
+		                                       & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\dfrac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
+	      \end{align}
+	      By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{k=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{k=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). Thus, we get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\) and \textit{uniformly converges} on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \autoref{thm:weierstrassuniformlimit} and \autoref{thm:hurwitzsimplecase}.
 
-There exists a positive integer sequence \(p_1,p_2,\ldots\) such that for every positive and finite \(R\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. For example, let \(p_n=n\), and for sufficiently large \(n\), \(\frac{R}{\abs{a_n}}<1\) and the series is convergent. Consider the infinite product 
-\begin{equation}
-	\prod_{n=1}^\infty{\qty(1-\frac{z}{a_n})}\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{p_n}{\qty(\frac{z}{a_n})}^{p_n}].\label{eq:infiniteproductweierstrassfactorizationintermediate}
-\end{equation}
-Let \begin{gather}
-	P_p(z)=z+\frac{1}{2}z^2+\cdots+\frac{1}{p}z^p\nonumber\\
-	Q_p(z)=\log(1-z)+P_p(z)\nonumber\\
-	E_p(z)=\exp\qty[Q_p(z)]=(1-z)\exp\qty[P_p(z)].\label{eq:weierstrasselementaryfactor}
-\end{gather}
-Therefore, we can rewrite equation~\eqref{eq:infiniteproductweierstrassfactorizationintermediate} as 
-\begin{equation*}
-	\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n}).
-\end{equation*}
-The expression in equation~\eqref{eq:weierstrasselementaryfactor} is known as the \(p\)th \textit{Weierstrass elementary factor}.
+	      The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{e-1}\abs{\zeta}\). By equation~\eqref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
 
-By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|\le\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then, \begin{align}
-	\abs{Q_{p_n}\qty(\frac{z}{a_n})}&=\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber\\
-	&\leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\dfrac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
-\end{align}
-By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{k=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{k=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). Thus, we get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\) and \textit{uniformly converges} (on \(\overline{D(0,R)}\)) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \autoref{thm:weierstrassuniformlimit} and \autoref{thm:hurwitzsimplecase}. 
+	      Therefore, we have \[\abs{E_{p_n}\qty(\frac{z}{a_n})-1}=\abs{\exp(Q_{p_n}\qty(\frac{z}{a_n}))-1}\leq (e-1)\abs{Q_{p_n}\qty(\frac{z}{a_n})}\leq2(e-1)\abs{\frac{R}{a_n}}^{p_n+1},\]
+	      which has a convergent series by definition. Therefore, \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) is absolutely convergent on \(\overline{D(0,R)}\). We can let \(R\to\infty\) and adjust the sequence \(\qty{p_n}_{n\in\mathbb{N}}\) accordingly.
 
-The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{e-1}\abs{\zeta}\). By equation~\eqref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
-
-Therefore, we have \[\abs{E_{p_n}\qty(\frac{z}{a_n})-1}=\abs{\exp(Q_{p_n}\qty(\frac{z}{a_n}))-1}\leq (e-1)\abs{Q_{p_n}\qty(\frac{z}{a_n})}\leq2(e-1)\abs{\frac{R}{a_n}}^{p_n+1},\]
-which has a convergent series by definition. Therefore, \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) is absolutely convergent on \(\overline{D(0,R)}\). We can let \(R\to\infty\) and adjust the sequence \(\qty{p_n}_{n\in\mathbb{N}}\) accordingly. 
-
-Therefore, for any such sequence \(\qty{a_n}_{n\in\mathbb{N}}\), we can define the entire function 
-\begin{equation}
-	f(z)=\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:entirefunctionconstructedfromzeros}
-\end{equation} to have zeros at each element of the sequence, and for any compact disk \(\overline{D(0,R)}\), the product above is uniformly convergent. We can then formulate:
-\begin{theorem}[Weierstrass Factorization Theorem]\label{thm:weierstrassfactorization}
-	Suppose \(f(z)\) is an entire function. Let \(\qty{a_n}_{n\in\mathbb{N}}\) be the sequence of all nonzero zeros of \(f\) satisfying \(a_n\to\infty\) as \(n\to\infty\) and \(0<\qty|a_n|\leq\qty|a_{n+1}|\) (equality treated as multiplicities) for all \(n\). Let \(m\) be the multiplicity of \(f(z)\) at \(z=0\) (let \(m=0\) if there is no zero at \(0\)). Then there exists a sequence \(\qty{p_n}_{n\in\mathbb{N}}\) such that \(\forall R>0\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. Then, we can write \begin{equation}
-		f(z)=z^me^{\varphi(z)}\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:weierstrassfactorization_statement}
-	\end{equation} on \(D(0,R)\), where \(E_p(z)\) is the \(p\)th Weierstrass elementary factor defined in equation~\eqref{eq:weierstrasselementaryfactor} and \(\varphi(z)\) is an entire function. If we let \(p_n=n\), we can write \[f(z)=z^me^{\varphi(z)}\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{n}\qty(\frac{z}{a_n})^n].\]
-\end{theorem}
-\begin{proof}
-	By the argument of equation~\eqref{eq:entirefunctionconstructedfromzeros}, construct \(\psi(z)\) to be entire and have zeros at \(\qty{a_n}_{n\in\mathbb{N}}\). Thus, \(z^m\psi(z)\) and \(f(z)\) have the same zeros and corresponding multiplicities. Then the function \(z^m\frac{\psi(z)}{f(z)}\) has removable singularities on all of \(\qty{a_n}_{n\in\mathbb{N}}\cup\qty{0}\) and has an analytic continuation (\autoref{thm:removablesingularitiesriemann}) to an entire and non-vanishing function. Therefore, it can be written as \(z^m\frac{\psi(z)}{f(z)}=e^{\phi(z)}\), where \(\phi\). Let \(\varphi=-\phi\), and from rearrangement, we obtain equation~\eqref{eq:weierstrassfactorization_statement}
-\end{proof}
+	      Therefore, for any such sequence \(\qty{a_n}_{n\in\mathbb{N}}\), we can define the entire function
+	      \begin{equation}
+		      f(z)=\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:entirefunctionconstructedfrominfinitelymanyzeros}
+	      \end{equation} to have zeros at each element of the sequence, and for any compact disk \(\overline{D(0,R)}\), the product above is uniformly convergent. We can then formulate:
+	      \begin{theorem}[Weierstrass Factorization Theorem]\label{thm:weierstrassfactorization}
+		      Suppose \(f(z)\) is an entire function. Let \(\qty{a_n}_{n\in\mathbb{N}}\) be the sequence of all nonzero zeros of \(f\) satisfying \(a_n\to\infty\) as \(n\to\infty\) and \(0<\qty|a_n|\leq\qty|a_{n+1}|\) (equality of \(a_n\) and \(a_{n+1}\) treated as multiplicities) for all \(n\). Let \(m\) be the multiplicity of \(f(z)\) at \(z=0\) (let \(m=0\) if there is no zero at \(0\)). Then there exists a sequence \(\qty{p_n}_{n\in\mathbb{N}}\) such that \(\forall R>0\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. Then, we can write \begin{equation}
+			      f(z)=z^me^{\varphi(z)}\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:weierstrassfactorization_statement}
+		      \end{equation} on \(D(0,R)\), where \(E_p(z)\) is the \(p\)th Weierstrass elementary factor defined in equation~\eqref{eq:weierstrasselementaryfactor} and \(\varphi(z)\) is an entire function. If we let \(p_n=n\), we can write \[f(z)=z^me^{\varphi(z)}\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{n}\qty(\frac{z}{a_n})^n].\]
+	      \end{theorem}
+	      \begin{proof}
+		      By the argument of equation~\eqref{eq:entirefunctionconstructedfrominfinitelymanyzeros}, construct \(\psi(z)\) to be entire and have zeros at \(\qty{a_n}_{n\in\mathbb{N}}\). Thus, \(z^m\psi(z)\) and \(f(z)\) have the same zeros and corresponding multiplicities. Then the function \(z^m\frac{\psi(z)}{f(z)}\) has removable singularities on all of \(\qty{a_n}_{n\in\mathbb{N}}\cup\qty{0}\) and has an analytic continuation (\autoref{thm:removablesingularitiesriemann}) to an entire and non-vanishing function. Therefore, it can be written as \(z^m\frac{\psi(z)}{f(z)}=e^{\phi(z)}\), where \(\phi\). Let \(\varphi=-\phi\), and from rearrangement, we obtain equation~\eqref{eq:weierstrassfactorization_statement}
+	      \end{proof}
+\end{enumerate}
 By the construction above, we have:
 \begin{corollary}
 	Let \(f\) be meromorphic on \(\mathbb{C}\). Then \(f\) can be written as the quotient of two entire functions.
@@ -2144,6 +2145,44 @@ By the construction above, we have:
 	which is an explicit construction.
 \end{proof}
 Therefore, any meromorphic function on \(\mathbb{C}\) can be expressed as the quotient of two infinite products. Hence, any meromorphic function on \(\mathbb{C}\) can be explicitly written in terms of its zeros and poles. We will now study the construction of meromorphic functions in terms of their poles and the principal parts of their Laurent expansions at each pole.
+
+Suppose \(n\in\mathbb{N}\) and \(\qty{a_k}_{k=1}^n\subset\mathbb{C}\) is a sequence of distinct values. Let \(\qty{\psi_k(z)}_{k=1}^n\) be a collection of functions in the form of \begin{equation}
+	\psi_k(z)=\sum_{j=m_k}^{p_k}\frac{c_{k,j}}{{\qty(z-a_k)}^j},\label{eq:meromorphicfunctionconstructionprincipalparts}
+\end{equation} where \(p_k\geq m_k\) are finite integer constants and \(\qty{c_{k,j}}\) are complex constants.
+
+Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finitely many poles. Therefore, \(f\) has an isolated singularity at \(\infty\). We have two cases:
+\begin{enumerate}
+	\item If \(z=\infty\) is a removable singularity or a pole, by the proof of \autoref{thm:rationalmeromorphicfunctions}, we can construct \(f(z)\) to have poles at each of \(\qty{a_k}_{k=1}^n\) such that the principal parts of \(f\) at each of \(\qty{a_k}_{k=1}^n\) are \(\qty{\psi_k(z)}_{k=1}^n\). It can be explicitly written as \[f(z)=p(z)+\sum_{k=1}^n\psi_k(z)\] (we can absorb the constant \(c\) into the polynomial \(\psi_\infty\) as used in the proof).
+	\item In the case that \(f(z)\) is a transcendental meromorphic function with an isolated essential singularity at \(z=\infty\), notice that the function defined by \(\varphi(z)=f(z)-\sum_{k=1}^n\psi_k(z)\) has removable singularities at each of \(\qty{a_k}_{k=1}^n\). Indeed, since the singularities are isolated, for a fixed \(k\), \(\exists\varepsilon_k>0\) such that for any \(j\neq k\), \(a_j\notin D\qty(a_k,\varepsilon_k)\). It follows that \(\psi_j\) is holomorphic on \(D\qty(a_k,\varepsilon_k)\). Notice that \(f(z)-\psi_k\) is the holomorphic part of the Laurent expansion at \(a_k\) and is also holomorphic on the disk. Suppose \(f\) has \(\psi_k\) as the principal part of its Laurent expansion at \(a_k\). Then \(\varphi(z)\) is holomorphic on \(D\qty(a_k,\varepsilon_k)\). Since \(k\) was arbitrarily chosen, \(\varphi\) is entire.
+
+	      Therefore, \(f\) can be constructed by \[f(z)=\varphi(z)+\sum_{k=1}^\infty\psi_k(z),\]
+	      for an entire function \(\varphi(z)\).
+	\item The existence of a transcendental meromorphic function \(f\) whose poles have an accumulation point at \(z=\infty\) is the concern of the following theorem:
+	      \begin{theorem}[Mittag--Leffler's Theorem]\label{thm:mittagleffler}
+		      Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{C}\) be a sequence of distinct complex numbers such that \(\forall n\in\mathbb{N}\), \(\abs{a_n}\leq\abs{a_{n+1}}\) and \(\lim_{n\to\infty}a_n=\infty\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a function sequence, each in the form of equation~\eqref{eq:meromorphicfunctionconstructionprincipalparts}. Then,
+		      \begin{enumerate}
+			      \item A meromorphic function \(f(z)\) on \(\mathbb{C}\) can be constructed such that \(\forall n\in\mathbb{N}\), \(f\) has a pole at \(a_n\) with a principal part of \(\psi_n\) at \(a_n\).\label{itm:mittagleffler_existence}
+			      \item The function \(f(z)\) satisfying the criteria above can be explicitly represented as \begin{equation}
+					f(z)=\varphi(z)+\sum_{n=1}^\infty\qty[\psi_n(z)-p_n(z)]\label{eq:mittagleffler_construction_statement}
+				  \end{equation} for some sequence \(\qty{p_n(z)}\) and an arbitrary entire function \(\varphi(z)\).\label{itm:mittagleffler_construction}
+		      \end{enumerate}
+	      \end{theorem}
+	      \begin{proof}
+			The classical proof for this theorem allows for a more explicit construction, as in equation~\eqref{eq:mittagleffler_construction_statement}. As for the existence, we can prove \ref{itm:mittagleffler_existence} by using the \(\overline{\partial}\) problem.
+			\begin{enumerate}
+				\item Fix \(n\in\mathbb{N}\), let \(U_n\) be an open neighborhood of \(a_n\) such that \(\forall i,j\in\mathbb{N}\) where \(i\neq j\), \(U_i\cap U_j=\emptyset\). Let \(V_n\) be a neighborhood of \(a_n\) that is relatively compact in \(U_n\). By \autoref{thm:bumpfunctionexistence}, for each \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[\begin{cases}
+					\varphi_n(z)\equiv 1& z\in\overline{V_n}\\
+					\varphi_n(z)\equiv 0& z\in\mathbb{C}\setminus U_n
+				\end{cases}.\]
+			Let \(u(z)=\sum_{k=1}^\infty\varphi_k(z)\psi_k(z)\), which is an element of \(C^\infty\qty(\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}})\). For a fixed \(n\in\mathbb{N}\), it is true that \(u\equiv\psi_n\) on \(\overline{V_n}\setminus\qty{a_n}\). Hence, although \(u\) is not meromorphic, it does have the required principal part near each \(a_k\). Let \[\phi(z)=\begin{cases}
+				\pdv{u}{\overline{z}}& z\in\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}}\\
+				0&z\in\qty{a_k}_{k\in\mathbb{N}}
+			\end{cases}.\]
+			Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) on \(\overline{V_n}\setminus\qty{a_n}\), 
+			\end{enumerate}
+	      \end{proof}
+\end{enumerate}
+
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
@@ -2294,10 +2333,10 @@ TO BE CONTINUED
 We have already seen that certain functions such as the inverse trigonometric functions, the power functions, and the complex logarithm are multi-valued. Well, this certainly complicates many fundamental operations such as differentiation, integration, etc. The concept of Riemann surfaces provides a modern methodology to treat multi-valued functions as single-valued functions.
 
 \section{Differential Geometry}\label{sec:differentialgeometry}
-\begin{theorem}[The Great Picard Theorem]\label{thm:greatpicard}
+\begin{theorem}[Great Picard Theorem]\label{thm:greatpicard}
 
 \end{theorem}
-\begin{corollary}[The Little Picard Theorem]\label{thm:littlepicard}
+\begin{corollary}[Little Picard Theorem]\label{thm:littlepicard}
 
 \end{corollary}
 The original proof introduced by
