@@ -2278,7 +2278,10 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
                 
                 By \autoref{thm:abelradius}, This series is uniformly convergent on \({D\qty(0,\abs{\frac{a_n}{2}})}\). Hence, \(\exists \lambda_n\in\mathbb{N}\) such that \[\abs{\psi_n(z)-\sum_{k=0}^{\lambda_n} \frac{\psi_n^{(k)}(0)}{k!}z^k}< \varepsilon_n.\] Let \(p_n(z)=\sum_{k=0}^{\lambda_n}\frac{\psi_n^{(k)}(0)}{k!}z^k\). Fix \(R>0\) and let \(N\in\mathbb{N}\) depend on \(R\) such that \(\abs{a_n}>2R\) for all \(n>N\) and \(\abs{a_n}\le 2R\) for all \(n\le N\). Therefore, \(\forall n>N\), \(R<\abs{\frac{a_n}{2}}\). Then \(\forall z\in D(0,R)\), we have \[\abs{\psi_n(z)-p_n(z)}<\varepsilon_n.\]
                 
-                By the convergence of \(\sum_{n=N+1}^\infty\varepsilon_n\), by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series \(\sum_{n=N+1}^\infty\abs{\psi_n(z)-p_n(z)}\) converges uniformly on \(D(0,R)\). Since \(z<R<\abs{\frac{a_n}{2}}<\abs{a_n}\) when \(n>N\), the pole of \(\psi_n(z)\), \(z=a_n\), is not in \(D(0,R)\) (when \(n>N\)).
+                By the convergence of \(\sum_{n=N+1}^\infty\varepsilon_n\), by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series 
+                \begin{equation}
+                    \Phi_N(z)=\sum_{n=N+1}^\infty\abs{\psi_n(z)-p_n(z)}\label{eq:mittagleffler_construction_uniformlyconvergentseries}
+                \end{equation} converges uniformly on \(D(0,R)\). Since \(z<R<\abs{\frac{a_n}{2}}<\abs{a_n}\) when \(n>N\), the pole of \(\psi_n(z)\), \(z=a_n\), is not in \(D(0,R)\) (when \(n>N\)). By \autoref{thm:weierstrassuniformlimit}, equation~\eqref{eq:mittagleffler_construction_uniformlyconvergentseries} is holomorphic on \(D(0,R)\). 
             \end{enumerate}
         \end{proof}
 \end{enumerate}
