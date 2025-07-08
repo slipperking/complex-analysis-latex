@@ -2294,9 +2294,11 @@ Indeed, since \(\partial U\cap U=\emptyset\), each \(a_n\) is not an accumulatio
 
 Finally, we examine the construction of entire functions interpolating prescribed values and derivatives at given points.
 
-Let \(\qty{z_k}_{k=1}^n\subset\mathbb{C}\) be a sequence of distinct complex numbers and let \(\qty{w_k}_{k=1}^n\subset\mathbb{C}\) be a sequence of complex numbers. We can then construct a polynomial \(f(z)\) such that \(\forall k\in\qty{1,\ldots,n}\), \(f(z_k)=w_k\). One such explicit formula is given by the \textit{Lagrange interpolation formula}:
+Let \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of distinct complex numbers and let \(\qty{w_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of complex numbers. We can then construct a polynomial \(f(z)\) such that \(\forall j\in\qty{1,\ldots,n}\), \(f(z_j)=w_j\). One such explicit formula is given by the \textit{Lagrange interpolation formula}:
 \[f(z)=\sum_{j=1}^n\qty[w_j\prod_{\substack{k=1\\k\neq j}}^n\frac{z-z_k}{z_j-z_k}].\]
-Similarly, assuming \(\qty{z_k}_{k=1}^n\subset\mathbb{C}\) is a sequence of distinct complex numbers, let \(\qty{w_{k,j}}_{\substack{k\in\qty{1,\ldots,n}\\ j\in \qty{1,\ldots,n_k}}}\) be a sequence where \(\qty{n_k}_{k=1}^n\subset\mathbb{N}\). Then we can find a polynomial \(f(z)\) such that \(\forall k\in\qty{1,\ldots,n}\), \(\forall j\in\qty{1,\ldots,n_k}\), \(f^{(j)}\qty(z_k)=j!w_{k,j}\) (for clarity's sake, \(k\) selects the point and \(j\) selects the order of the derivative, whose upper bound varies for each \(k\)).
+Similarly, assuming \(\qty{z_k}_{k=1}^n\subset\mathbb{C}\) is a sequence of distinct complex numbers, let \(\qty{w_{k,j}}_{\substack{k\in\qty{1,\ldots,n}\\ j\in \qty{1,\ldots,n_k}}}\) be a sequence where \(\qty{n_k}_{k=1}^n\subset\mathbb{N}\). Then we can find a polynomial \(f(z)\) such that \(\forall k\in\qty{1,\ldots,n}\), \(\forall j\in\qty{1,\ldots,n_k}\), \(f^{(j)}\qty(z_k)=j!w_{k,j}\) (for clarity's sake, \(k\) selects the point and \(j\) selects the order of the derivative, whose upper bound varies for each \(k\)). 
+
+We will now study whether or not an entire function can be constructed for infinitely many interpolation points, or when \(n\to\infty\).
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
