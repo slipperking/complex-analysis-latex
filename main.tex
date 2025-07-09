@@ -2476,6 +2476,9 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{align*}
     Hence, \[-i\pi+2i\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\pi}{2}.\]
 \end{proof}
+\begin{example}[Gaussian Integral]\label{ex:gaussianintegral}
+    Evaluate the improper integral \(\int_{-\infty}^\infty e^{-x^2}\ddx\).
+\end{example}
 \begin{example}[Fresnel Integral]
     Evaluate the improper integrals \[I_1=\int_0^\infty\cos\qty(x^2)\ddx,\qquad I_2=\int_0^\infty\sin\qty(x^2)\ddx.\]
 \end{example}
@@ -2511,8 +2514,8 @@ Residues are extremely important as they allow for simple evaluation of definite
         \int_{\gamma_1}f(z)\ddz+\int_{\gamma_2}f(z)\ddz+\int_{\gamma_3}f(z)\ddz=0.\label{eq:fresnelwedgecontourintegral}
     \end{equation} The third integral can be written as \[\int_{\gamma_3}f(z)\ddz=Ri\int_0^{\frac{\pi}{4}}e^{i{\qty(Re^{i\theta})}^2}e^{i\theta}\dd{\theta}.\]
     Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as \[\abs{\int_{\gamma_3}f(z)\ddz}\leq R{\int_0^{\frac{\pi}{4}}e^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}e^{-\frac{4}{\pi}R^2\theta}\dd{\theta}=-\frac{\pi}{4R}\eval{e^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-e^{-R^2}).\]
-    As \(R\to\infty\), this integral tends to 0. Let \(z=re^{i\frac{\pi}{4}}\) on \(\gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\gamma_2}f(z)\ddz=\int_0^\infty\exp[i\qty(re^{i\frac{\pi}{4}})^2]e^{i\frac{\pi}{4}}\dd{r}=e^{i\frac{\pi}{4}}\int_0^\infty\exp(-r^2)\dd{r}.\]
-    From equation~\eqref{eq:fresnelwedgecontourintegral}, we have that \[\int\]
+    As \(R\to\infty\), this integral tends to 0. Let \(z=re^{i\frac{\pi}{4}}\) on \(\gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\gamma_2}f(z)\ddz=\int_\infty^0\exp[i\qty(re^{i\frac{\pi}{4}})^2]e^{i\frac{\pi}{4}}\dd{r}=e^{i\frac{\pi}{4}}\int_\infty^0\exp(-r^2)\dd{r}.\]
+    From equation~\eqref{eq:fresnelwedgecontourintegral}, we have that \[\int_0^\infty e^{ir^2}\dd{r}=e^{i\frac{\pi}{4}}\int_0^\infty e^{-r^2}\dd{r}.\] By \autoref{ex:gaussianintegral}, we know that \(\int_0^\infty e^{-r^2}\dd{r}=\frac{\sqrt{\pi}}{2}\). Therefore, we have \[\int_0^\infty e^{ir^2}\dd{r}=\qty(\frac{\sqrt{2}}{2}+i\frac{\sqrt{2}}{2})\frac{\sqrt{\pi}}{2}\]
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
