@@ -2496,14 +2496,14 @@ Generally, if the function is even and integrated over \([0,\infty)\), then exte
     So,
     \begin{align*}
         \int_{\gamma_\varepsilon}f(z)\ddz
-        &= \varepsilon i \int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon e^{i\theta}}+h(a + \varepsilon e^{i\theta}))e^{i\theta}\dd{\theta} \\
+        &= \varepsilon i \int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon e^{i\theta}}+\varphi(a + \varepsilon e^{i\theta}))e^{i\theta}\dd{\theta} \\
         &= ic_{-1} \int_\alpha^\beta d\theta + \varepsilon i\int_\alpha^\beta\varphi\qty(a + \varepsilon e^{i\theta})e^{i\theta} \dd{\theta}\\
         &= ic_{-1}\vartheta+\varepsilon i\int_\alpha^\beta \varphi\qty(a+\varepsilon e^{i\theta})e^{i\theta} \dd{\theta}.
     \end{align*}
-    As \(\varepsilon\to0\), \(\varphi(a+\varepsilon e^{i\theta})\to\varphi(a)\) uniformly in \(\theta\), so the second term vanishes:
-    \[\lim_{\varepsilon \to 0} \varepsilon i \int_\alpha^\beta h(a + \varepsilon e^{i\theta}) e^{i\theta}\dd{\theta}=0.\]
+    Let \(\varepsilon<\frac{\lambda}{2}\). Since \(\varphi\) is continuous on the disk \(\overline{D\qty(a,\frac{\lambda}{2})}\), it is bounded. Therefore, letting \(\varepsilon\to0\), we have
+    \[\lim_{\varepsilon\to 0} \varepsilon i \int_\alpha^\beta\varphi(a+\varepsilon e^{i\theta}) e^{i\theta}\dd{\theta}=\varepsilon i\int_\alpha^\beta\lim_{\varepsilon\to 0}\varphi(a+\varepsilon e^{i\theta})e^{i\theta}\dd{\theta}=0.\]
     Therefore,
-    \[\lim_{\varepsilon \to 0} \int_{\gamma_\varepsilon} f(z)\ddz =i\vartheta\residue_{z=a} f(z).\]
+    \[\lim_{\varepsilon \to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\vartheta\residue_{z=a} f(z).\]
 \end{proof}
 \subsection{Analytic Continuation}
 We
