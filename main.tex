@@ -2498,12 +2498,15 @@ Residues are extremely important as they allow for simple evaluation of definite
             \draw[-{Stealth}, thick] (2.47487, 2.47487) -- (0, 0);
             \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
             \node[anchor=east, yshift=-2pt] at (0, 4) {\(\Im(z)\)};
+            \node[anchor=north] at (1.75,0) {\(\gamma_1\)};
+            \node[anchor=south east] at (1.4,1.4) {\(\gamma_2\)};
+            \node[anchor=north] at (3.6,1.5) {\(\gamma_3\)};
             \node[anchor=north] at (3.5,0) {\(R\)};
             \node[anchor=south] at (2.5,2.5) {\(R\)};
-            \node[anchor=west] at (0.65,0.4) {\(\tfrac{\pi}{4}\)};
+            \node[anchor=west] at (0.65,0.35) {\(\tfrac{\pi}{4}\)};
         \end{tikzpicture}
         \caption{A wedge contour with orientation marked.}\label{fig:wedgecontour}
-    \end{figure}Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\gamma_1=\cbraces{z\in\mathbb{R}}{0\leq z\leq R},\quad\gamma_2=\cbraces{ze^{i\frac{\pi}{4}}}{0\leq z\leq R},\quad\gamma_3=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma_1}f(z)\ddz+\int_{\gamma_2}f(z)\ddz+\int_{\gamma_3}f(z)\ddz=0.\] The third integral can be written as \[\int_{\gamma_3}f(z)\ddz=Ri\int_0^{\frac{\pi}{4}}e^{i{\qty(Re^{i\theta})}^2}e^{i\theta}\dd{\theta}.\]
+    \end{figure}Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\gamma_2=\cbraces{re^{i\frac{\pi}{4}}}{0\leq r\leq R},\quad\gamma_3=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma_1}f(z)\ddz+\int_{\gamma_2}f(z)\ddz+\int_{\gamma_3}f(z)\ddz=0.\] The third integral can be written as \[\int_{\gamma_3}f(z)\ddz=Ri\int_0^{\frac{\pi}{4}}e^{i{\qty(Re^{i\theta})}^2}e^{i\theta}\dd{\theta}.\]
     Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as \[\abs{\int_{\gamma_3}f(z)\ddz}\leq R{\int_0^{\frac{\pi}{4}}e^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}e^{-\frac{4}{\pi}R^2\theta}\dd{\theta}=-\frac{\pi}{4R}\eval{e^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-e^{-R^2}).\]
     As \(R\to\infty\), this integral tends to 0. 
 \end{proof}
