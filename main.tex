@@ -2412,7 +2412,7 @@ Residues are extremely important as they allow for simple evaluation of definite
         \label{fig:semicircularcontour}
     \end{figure}Consider \(\gamma\) to be a closed semicircle with radius \(R\geq 2\) as in \autoref{fig:semicircularcontour}. Notice that the function \(z\mapsto\frac{1}{\qty(z^2+1)^{n+1}}\) has singularities at only \(z=i\) and \(z=-i\), both of which are poles of order \(n+1\). By equation~\eqref{eq:residueatpole}, the residue at \(z=i\) is
     \begin{align*}
-        \residue_{z=i}\frac{1}{\qty(z^2+1)^{n+1}} & =\left.\frac{1}{n!}\dv[n]{z}((z+i)^{-n-1})\right|_{z=i}=\frac{1}{n!}\frac{(-1)^n\prod_{k=1}^n (n+k)}{(2i)^{2n+1}} \\
+        \residue_{z=i}\frac{1}{\qty(z^2+1)^{n+1}} & =\left.\frac{1}{n!}\dv[n]{z}\qty((z+i)^{-n-1})\right|_{z=i}=\frac{1}{n!}\frac{(-1)^n\prod_{k=1}^n (n+k)}{(2i)^{2n+1}} \\
         & =\frac{(-1)^n(2n)!}{(n!)^2(2i)^{2n+1}}=\frac{(2n!)}{i2^{2n+1}(n!)^2}.
     \end{align*}
     The singularity at \(z=-i\) is not relevant, as it is not enclosed by the contour. By the Residue Theorem (\autoref{thm:residuethm}), we have
@@ -2480,7 +2480,7 @@ Residues are extremely important as they allow for simple evaluation of definite
     Evaluate the improper integral \(I=\int_{-\infty}^\infty e^{-x^2}\ddx\).
 \end{example}
 \begin{proof}
-    This is a standard integral that can be evaluated using polar coordinates. However, we will now provide a solution via contour integration. Let \(\gamma\) be a closed semicircle as in \autoref{fig:semicircularcontour}, with radius \(R\geq 2\). 
+    This is a standard integral that can be evaluated using polar coordinates. However, we will now provide a solution via contour integration. Let \(\gamma\) be a closed semicircle as in \autoref{fig:semicircularcontour}, with radius \(R\geq 2\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}e^{-z^2}\ddz=\int_{-R}^R e^{-x^2}\ddx+Ri\int_0^\pi e^{-R^2e^{2i\theta}}e^{i\theta}\dd{\theta}=0.\]
 \end{proof}
 \begin{example}[Fresnel Integral]
     Evaluate the improper integrals \[I_1=\int_0^\infty\cos\qty(x^2)\ddx,\qquad I_2=\int_0^\infty\sin\qty(x^2)\ddx.\]
