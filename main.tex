@@ -2303,7 +2303,7 @@ Then, following the assumption that \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) is a 
 
 As it turns out, an entire function can in fact be constructed for infinitely many interpolation points, or when \(n\to\infty\).
 \begin{theorem}\label{thm:generalinterpolationexistence}
-    Let \(\qty{z_k}_{k\in\mathbb{N}}\subset\mathbb{C}\) be a discrete set and let \(\qty{w_{k,n}}_{\substack{k\in\mathbb{N}\\n\in\qty{0,\ldots,n_k}}}\) be a sequence where \(\qty{n_k}_{k\in\mathbb{N}}\subset\mathbb{N}\). Then there exists an entire function such that \(\forall k\in\mathbb{N}\), \(\forall n\in\qty{0,\ldots,n_k}\), 
+    Let \(\qty{z_k}_{k\in\mathbb{N}}\subset\mathbb{C}\) be a discrete set and let \(\qty{w_{k,n}}_{\substack{k\in\mathbb{N}\\n\in\qty{0,\ldots,n_k}}}\) be a sequence where \(\qty{n_k}_{k\in\mathbb{N}}\subset\mathbb{N}\). Then there exists an entire function such that \(\forall k\in\mathbb{N}\), \(\forall n\in\qty{0,\ldots,n_k}\),
     \begin{equation}
         f^{(n)}\qty(z_k)=n!w_{k,n}.\label{eq:generalinterpolationexistence_statement}
     \end{equation}
@@ -2314,7 +2314,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 
     Define a complex function sequence \(\qty{\phi_k(z)}_{k\in\mathbb{N}}\) with \[\phi_k(z)=\sum_{n=0}^{n_k-1}w_{k,n}\qty(z-z_k)^n,\] where \(k\in\mathbb{N}\). By \autoref{thm:bumpfunctionexistence}, we can construct a \(C^\infty\) sequence of functions \(\qty{\varphi_k(z)}_{k\in\mathbb{N}}\) such that \(\forall k\in\mathbb{N}\), \(\supp\varphi_k\subset D\qty(z_k, 2\varepsilon_k)\), \(\varphi_k\equiv 1\) on \(\overline{D\qty(z_k,\varepsilon_k)}\), and \(0\le\varphi\le 1\) on \(\mathbb{C}\).
 
-    Let \(\varPsi\in C^\infty(\mathbb{C})\), and construct 
+    Let \(\varPsi\in C^\infty(\mathbb{C})\), and construct
     \begin{equation}
         f(z)=-\Phi(z)\varPsi(z)+\sum_{k=1}^\infty\phi_k(z)\varphi_k(z).\label{eq:generalinterpolationexistence_constructionstatement}
     \end{equation}
@@ -2322,7 +2322,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 
     From rearrangement, we have \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\), which has removable singularities at each \(z_k\). Define \(\frac{g(z)}{\Phi(z)}=0\) at \(z=z_k\). Under this assertion, we have \(\frac{g(z)}{\Phi(z)}\in C^\infty(\mathbb{C})\). Since the support of \(\frac{g(z)}{\Phi(z)}\) is the union of disjoint compact sets, by \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a function \(\varPsi\in C^\infty(\mathbb{C})\) satisfying \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\). Since \(g\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), it follows that \(\frac{g}{\Phi}\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), and \(\varPsi\) is holomorphic on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\).
 
-    Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\varPsi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\varPsi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that 
+    Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\varPsi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\varPsi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that
     \begin{align*}
         f^{(n)}\qty(z_k)&=\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}\\
         &=\qty[\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)]_{z=z_k}\\
@@ -2476,9 +2476,9 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{align*}
     Hence, \[-i\pi+2i\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\pi}{2}.\]
 \end{proof}
-Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities. 
+Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
-Generally, if the function is even and integrated over \([0,\infty)\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}. 
+Generally, if the function is even and integrated over \([0,\infty)\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}.
 
 \begin{theorem}
     Let \(\lambda>0\) and let \(a\in\mathbb{C}\). Suppose \(f(z)\) is a holomorphic function on \(D^*(a,\lambda)\) with a simple pole at \(z=a\in U\). Let \(0<\varepsilon<\lambda\) and define \(\gamma_\varepsilon\subseteq\partial D(a, \varepsilon)\) be a counterclockwise-oriented, connected arc subtending an angle \(\vartheta\). Then,
@@ -2488,32 +2488,24 @@ Generally, if the function is even and integrated over \([0,\infty)\), then exte
     Parameterize \(\gamma_\varepsilon\) with \(z=a+\varepsilon e^{i\theta}\), where \(\theta\in[\alpha,\beta]\) and \(\beta-\alpha=\vartheta\). Then,
     \[\int_{\gamma_\varepsilon} f(z)\ddz = \int_\alpha^\beta f\qty(a+\varepsilon e^{i\theta}) \frac{dz}{d\theta}\dd{\theta} = \varepsilon i \int_\alpha^\beta f\qty(a+\varepsilon e^{i\theta}) e^{i\theta}\dd{\theta}.\]
     Since \(f\) has a simple pole at \(z=a\), we can write a Laurent expansion around \(a\) as
-    \[
-    f(z) = \frac{c_{-1}}{z-a} + h(z),
-    \]
-    where \(h(z)\) is holomorphic in a neighborhood of \(a\) and \(c_{-1} = \residue_{z=a}f(z)\).
+    \[f(z)=\frac{c_{-1}}{z-a}+\varphi(z),\]
+    where \(\varphi(z)\) is holomorphic in a neighborhood of \(a\) and \(c_{-1}=\residue_{z=a}f(z)\).
 
-    Then for \(z = a + \varepsilon e^{i\theta}\),
-    \[
-    f(a + \varepsilon e^{i\theta}) = \frac{c_{-1}}{\varepsilon e^{i\theta}} + h(a + \varepsilon e^{i\theta}).
-    \]
+    Then for \(z=a+\varepsilon e^{i\theta}\),
+    \[f\qty(a+\varepsilon e^{i\theta})=\frac{c_{-1}}{\varepsilon e^{i\theta}}+\varphi(a+\varepsilon e^{i\theta}).\]
     So,
     \begin{align*}
-        \int_{\gamma_\varepsilon} f(z)\,dz 
-        &= \varepsilon i \int_\alpha^\beta \left( \frac{c_{-1}}{\varepsilon e^{i\theta}} + h(a + \varepsilon e^{i\theta}) \right) e^{i\theta} \, d\theta \\
-        &= i c_{-1} \int_\alpha^\beta d\theta + \varepsilon i \int_\alpha^\beta h(a + \varepsilon e^{i\theta}) e^{i\theta} \, d\theta \\
-        &= i c_{-1} (\beta - \alpha) + \varepsilon i \int_\alpha^\beta h(a + \varepsilon e^{i\theta}) e^{i\theta} \, d\theta.
+        \int_{\gamma_\varepsilon}f(z)\ddz
+        &= \varepsilon i \int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon e^{i\theta}}+h(a + \varepsilon e^{i\theta}))e^{i\theta}\dd{\theta} \\
+        &= ic_{-1} \int_\alpha^\beta d\theta + \varepsilon i\int_\alpha^\beta\varphi\qty(a + \varepsilon e^{i\theta})e^{i\theta} \dd{\theta}\\
+        &= ic_{-1}\vartheta+\varepsilon i\int_\alpha^\beta \varphi\qty(a+\varepsilon e^{i\theta})e^{i\theta} \dd{\theta}.
     \end{align*}
 
-    As \(\varepsilon \to 0\), \(h(a + \varepsilon e^{i\theta}) \to h(a)\) uniformly in \(\theta\), so the second term vanishes:
-    \[
-    \lim_{\varepsilon \to 0} \varepsilon i \int_\alpha^\beta h(a + \varepsilon e^{i\theta}) e^{i\theta} \, d\theta = 0.
-    \]
+    As \(\varepsilon\to0\), \(\varphi(a+\varepsilon e^{i\theta})\to\varphi(a)\) uniformly in \(\theta\), so the second term vanishes:
+    \[\lim_{\varepsilon \to 0} \varepsilon i \int_\alpha^\beta h(a + \varepsilon e^{i\theta}) e^{i\theta}\dd{\theta}=0.\]
 
     Therefore,
-    \[
-    \lim_{\varepsilon \to 0} \int_{\gamma_\varepsilon} f(z)\,dz = i c_{-1} (\beta - \alpha) = i \vartheta \cdot \residue_{z=a} f(z).
-    \]
+    \[\lim_{\varepsilon \to 0} \int_{\gamma_\varepsilon} f(z)\ddz =i\vartheta\residue_{z=a} f(z).\]
 \end{proof}
 \subsection{Analytic Continuation}
 We
