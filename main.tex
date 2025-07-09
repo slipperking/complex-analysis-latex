@@ -1879,7 +1879,10 @@ A fundamental problem in the theory of partial differential equations is to find
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 Consider \(R=1\), \(\zeta=e^{i\tau}\), \(z=\rho e^{i\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
-\[u(z)=\int_0^{2\pi}u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau}=\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})}=\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\]
+\begin{gather*}
+    u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})}\\
+    =\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.
+\end{gather*}
 If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\exp(i\tau)\) is periodic over \(2\pi\). Thus, it can be expressed as a Fourier series \[u\qty(e^{i\tau})\sim\sum_{n=-\infty}^\infty a_ne^{in\tau},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}.\]
 This series is not necessarily convergent (hence the usage of ``\(\sim\)''). Notice how \(u\) is continuous on a compact set and therefore is uniformly bounded by some \(M\) (\autoref{thm:continuousfunctionboundedoncompact}). Therefore, the integrand of \(a_n\) is bounded by a finite \(M\geq\abs{u\qty(e^{i\tau})e^{-in\tau}}\). It follows that \(\qty|a_n|\leq M\). By introducing a factor of \(\abs{\rho}<1\), we obtain the convergent \textit{Abel sum} of \[\sum_{n=-\infty}^\infty a_ne^{in\tau}\rho^{|n|},\qquad\abs{\sum_{n=-\infty}^\infty a_ne^{in\tau}\rho^{|n|}}\leq\sum_{n=-\infty}^\infty\abs{a_ne^{in\tau}\rho^{|n|}}\leq M\frac{1+|\rho|}{1-\abs{\rho}}.\]
 Substitute the TO BE CONTINUED
@@ -2275,20 +2278,20 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
                     \[\pdv{f}{\overline{z}} = \pdv{u}{\overline{z}}-\pdv{v}{\overline{z}} = \phi(z)-\phi(z) = 0,\]
                     which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part \(\psi_n\) at each \(a_n\) and \(v\) is \(C^\infty\) (and hence removable at each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with principal parts \(\psi_n\) at each \(a_n\), as desired.
                 \item Let \(\qty{\varepsilon_n}_{n\in\mathbb{N}}\) be a positive sequence such that \(\sum_{n=1}^\infty\varepsilon_n\) is convergent. Without loss of generality, let \(a_1=0\) (if \(a_1\) is not a pole, set \(\psi_1=0\)). Choose \(p_1(z)=0\) (this can actually be any arbitrary polynomial). Fix \(n\geq 2\), \(\psi_n\) is a polynomial in terms of \(\frac{1}{z-a_n}\) and has its only pole at \(z=a_n\). Therefore, \(\psi_n(z)\) is holomorphic on \(D\qty(0,\abs{a_n})\) and can be written as \[\psi_n(z)=\sum_{k=0}^\infty \frac{\psi_n^{(k)}(0)}{k!}z^k.\]
-                
-                By \autoref{thm:abelradius}, This series is uniformly convergent on \({D\qty(0,\abs{\frac{a_n}{2}})}\). Hence, \(\exists \lambda_n\in\mathbb{N}\) such that \[\abs{\psi_n(z)-\sum_{k=0}^{\lambda_n} \frac{\psi_n^{(k)}(0)}{k!}z^k}< \varepsilon_n.\] Let \(p_n(z)=\sum_{k=0}^{\lambda_n}\frac{\psi_n^{(k)}(0)}{k!}z^k\). Fix \(R>0\) and let \(N\in\mathbb{N}\) depend on \(R\) such that \(\abs{a_n}>2R\) for all \(n>N\) and \(\abs{a_n}\le 2R\) for all \(n\le N\). Therefore, \(\forall n>N\), \(R<\abs{\frac{a_n}{2}}\). Then \(\forall z\in D(0,R)\), we have \[\abs{\psi_n(z)-p_n(z)}<\varepsilon_n.\]
-                
-                By the convergence of \(\sum_{n=N+1}^\infty\varepsilon_n\), by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series 
-                \begin{equation}
-                    \Phi_N(z)=\sum_{n=N+1}^\infty\brackets{\psi_n(z)-p_n(z)}\label{eq:mittagleffler_construction_uniformlyconvergentseries}
-                \end{equation} converges uniformly on \(D(0,R)\). Since \(z<R<\abs{\frac{a_n}{2}}<\abs{a_n}\) when \(n>N\), the pole of \(\psi_n(z)\), \(z=a_n\), is not in \(D(0,R)\) (when \(n>N\)). By \autoref{thm:weierstrassuniformlimit}, equation~\eqref{eq:mittagleffler_construction_uniformlyconvergentseries} is holomorphic on \(D(0,R)\). Let \[\Psi(z)=\sum_{n=1}^N\qty[\psi_n(z)-p_n(z)]+\Phi_N(z).\]
-                The poles of \(\Psi(z)\) in \(D(0,R)\) are all of \(a_n\) with corresponding principal parts \(\psi_n(z)\), where \(n\in\mathbb{N}\) and satisfies \(a_n\in D(0,R)\). Since \(R\) was arbitrarily chosen, \(\Psi\) has poles at each \(a_n\) with the corresponding principal part \(\psi_n(z)\) on \(\mathbb{C}\). Let \(\varphi(z)=f(z)-\Psi(z)\) be analytically continued onto each of \(\qty{a_n}_{n\in\mathbb{N}}\). Then \(\varphi(z)\) is an entire function (since the Laurent expansions of \(\varphi\) at each of \(\qty{a_n}_{n\in\mathbb{N}}\) vanish). By rearrangement, we obtain our desired result.
+
+                    By \autoref{thm:abelradius}, This series is uniformly convergent on \({D\qty(0,\abs{\frac{a_n}{2}})}\). Hence, \(\exists \lambda_n\in\mathbb{N}\) such that \[\abs{\psi_n(z)-\sum_{k=0}^{\lambda_n} \frac{\psi_n^{(k)}(0)}{k!}z^k}< \varepsilon_n.\] Let \(p_n(z)=\sum_{k=0}^{\lambda_n}\frac{\psi_n^{(k)}(0)}{k!}z^k\). Fix \(R>0\) and let \(N\in\mathbb{N}\) depend on \(R\) such that \(\abs{a_n}>2R\) for all \(n>N\) and \(\abs{a_n}\le 2R\) for all \(n\le N\). Therefore, \(\forall n>N\), \(R<\abs{\frac{a_n}{2}}\). Then \(\forall z\in D(0,R)\), we have \[\abs{\psi_n(z)-p_n(z)}<\varepsilon_n.\]
+
+                    By the convergence of \(\sum_{n=N+1}^\infty\varepsilon_n\), by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series
+                    \begin{equation}
+                        \Phi_N(z)=\sum_{n=N+1}^\infty\brackets{\psi_n(z)-p_n(z)}\label{eq:mittagleffler_construction_uniformlyconvergentseries}
+                    \end{equation} converges uniformly on \(D(0,R)\). Since \(z<R<\abs{\frac{a_n}{2}}<\abs{a_n}\) when \(n>N\), the pole of \(\psi_n(z)\), \(z=a_n\), is not in \(D(0,R)\) (when \(n>N\)). By \autoref{thm:weierstrassuniformlimit}, equation~\eqref{eq:mittagleffler_construction_uniformlyconvergentseries} is holomorphic on \(D(0,R)\). Let \[\Psi(z)=\sum_{n=1}^N\qty[\psi_n(z)-p_n(z)]+\Phi_N(z).\]
+                    The poles of \(\Psi(z)\) in \(D(0,R)\) are all of \(a_n\) with corresponding principal parts \(\psi_n(z)\), where \(n\in\mathbb{N}\) and satisfies \(a_n\in D(0,R)\). Since \(R\) was arbitrarily chosen, \(\Psi\) has poles at each \(a_n\) with the corresponding principal part \(\psi_n(z)\) on \(\mathbb{C}\). Let \(\varphi(z)=f(z)-\Psi(z)\) be analytically continued onto each of \(\qty{a_n}_{n\in\mathbb{N}}\). Then \(\varphi(z)\) is an entire function (since the Laurent expansions of \(\varphi\) at each of \(\qty{a_n}_{n\in\mathbb{N}}\) vanish). By rearrangement, we obtain our desired result.
             \end{enumerate}
         \end{proof}
 \end{enumerate}
 The Mittag--Leffler Theorem (\autoref{thm:mittagleffler}) can also be generalized as follows:
 \begin{theorem}\label{thm:mittaglefflerboundary}
-    Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\) and let \(E=\qty{a_n}_{n\in\mathbb{N}}\subset U\) be a sequence of distinct complex numbers whose accumulation points lie on \(\partial U\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a sequence of functions in the form of equation~\eqref{eq:meromorphicfunctionconstructionprincipalparts}. Then there exists a meromorphic function \(f:U\to\mathbb{C}\) with poles at each \(a_n\) with principal parts \(\psi_n\) at each \(a_n\). 
+    Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\) and let \(E=\qty{a_n}_{n\in\mathbb{N}}\subset U\) be a sequence of distinct complex numbers whose accumulation points lie on \(\partial U\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a sequence of functions in the form of equation~\eqref{eq:meromorphicfunctionconstructionprincipalparts}. Then there exists a meromorphic function \(f:U\to\mathbb{C}\) with poles at each \(a_n\) with principal parts \(\psi_n\) at each \(a_n\).
 \end{theorem}
 Indeed, since \(\partial U\cap U=\emptyset\), each \(a_n\) is not an accumulation of \(E\). In other words, for each \(n\in\mathbb{N}\), there exist neighborhoods \(U_n\) of \(a_n\) that are relatively compact in \(U\) with disjoint closures. The proceeding proof is analogous to that of \ref{itm:mittagleffler_existence} in \autoref{thm:mittagleffler}.
 
@@ -2296,9 +2299,40 @@ Finally, we examine the construction of entire functions interpolating prescribe
 
 Let \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of distinct complex numbers and let \(\qty{w_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of complex numbers. We can then construct a polynomial \(f(z)\) such that \(\forall j\in\qty{1,\ldots,n}\), \(f(z_j)=w_j\). One such explicit formula is given by the \textit{Lagrange interpolation formula}:
 \[f(z)=\sum_{j=1}^n\qty[w_j\prod_{\substack{k=1\\k\neq j}}^n\frac{z-z_k}{z_j-z_k}].\]
-Similarly, assuming \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) is a sequence of distinct complex numbers, let \(\qty{w_{j,k}}_{\substack{j\in\qty{1,\ldots,n}\\ k\in \qty{1,\ldots,n_j}}}\) be a sequence where \(\qty{n_j}_{j=1}^n\subset\mathbb{N}\). Then we can find a polynomial \(f(z)\) such that \(\forall j\in\qty{1,\ldots,n}\), \(\forall k\in\qty{1,\ldots,n_j}\), \(f^{(k)}\qty(z_j)=k!w_{j,k}\) (for clarity's sake, \(j\) selects the pair and \(k\) selects the order of the derivative, whose upper bound varies for each \(j\)). Oftentimes, the factorial coefficient is absorbed into \(\qty{w_{j,k}}\).
+Then, following the assumption that \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) is a sequence of distinct complex numbers, let \(\qty{w_{j,k}}_{\substack{j\in\qty{1,\ldots,n}\\ k\in \qty{0,\ldots,n_j}}}\) be a sequence where \(\qty{n_j}_{j=1}^n\subset\mathbb{N}\). Then we can find a polynomial \(f(z)\) such that \(\forall j\in\qty{1,\ldots,n}\), \(\forall k\in\qty{0,\ldots,n_j}\), \(f^{(k)}\qty(z_j)=k!w_{j,k}\) (for clarity's sake, \(j\) selects the pair and \(k\) selects the order of the derivative, whose upper bound varies for each \(j\)). Oftentimes, the factorial coefficient is absorbed into \(\qty{w_{j,k}}\).
 
-We will now study whether or not an entire function can be constructed for infinitely many interpolation points, or when \(n\to\infty\).
+As it turns out, an entire function can in fact be constructed for infinitely many interpolation points, or when \(n\to\infty\).
+\begin{theorem}\label{thm:generalinterpolationexistence}
+    Let \(\qty{z_k}_{k\in\mathbb{N}}\subset\mathbb{C}\) be a discrete set and let \(\qty{w_{k,n}}_{\substack{k\in\mathbb{N}\\n\in\qty{0,\ldots,n_k}}}\) be a sequence where \(\qty{n_k}_{k\in\mathbb{N}}\subset\mathbb{N}\). Then there exists an entire function such that \(\forall k\in\mathbb{N}\), \(\forall n\in\qty{0,\ldots,n_k}\), 
+    \begin{equation}
+        f^{(n)}\qty(z_k)=n!w_{k,n}.\label{eq:generalinterpolationexistence_statement}
+    \end{equation}
+    In other words, an entire function can be constructed by the given first \(n_k\) coefficients of the Taylor expansion at each each \(z_k\).
+\end{theorem}
+\begin{proof}
+    According to the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), we can construct an entire function \(\Phi(z)\) with zeros at each of \(\qty{z_k}_{k\in\mathbb{N}}\) with corresponding multiplicities of \(\qty{n_k}_{k\in\mathbb{N}}\). By the discreteness of \(\qty{z_k}_{k\in\mathbb{N}}\), there exists a corresponding sequence of radii \(\qty{\varepsilon_k}_{k\in\mathbb{N}}\) such that each \(\overline{D\qty(z_k,2\varepsilon_k)}\) are disjoint.
+
+    Define a complex function sequence \(\qty{\phi_k(z)}_{k\in\mathbb{N}}\) with \[\phi_k(z)=\sum_{n=0}^{n_k-1}w_{k,n}\qty(z-z_k)^n,\] where \(k\in\mathbb{N}\). By \autoref{thm:bumpfunctionexistence}, we can construct a \(C^\infty\) sequence of functions \(\qty{\varphi_k(z)}_{k\in\mathbb{N}}\) such that \(\forall k\in\mathbb{N}\), \(\supp\varphi_k\subset D\qty(z_k, 2\varepsilon_k)\), \(\varphi_k\equiv 1\) on \(\overline{D\qty(z_k,\varepsilon_k)}\), and \(0\le\varphi\le 1\) on \(\mathbb{C}\).
+
+    Let \(\varPsi\in C^\infty(\mathbb{C})\), and construct 
+    \begin{equation}
+        f(z)=-\Phi(z)\varPsi(z)+\sum_{k=1}^\infty\phi_k(z)\varphi_k(z).\label{eq:generalinterpolationexistence_constructionstatement}
+    \end{equation}
+    Under what conditions on \(\varPsi\) will \(f\) be entire? Since the supports of each \(\varphi_k\) are disjoint, the summation \(\sum_{k=1}^\infty\phi_k(z)\varphi_k(z)\) contains at most one nonzero term and is convergent and well-defined. To construct \(f\) to be entire, we must have \(\pdv{f}{\overline{z}}=0\). In other words, we want for \[\pdv{\overline{z}}(\sum_{k=1}^\infty\phi_k\varphi_k)=\pdv{\overline{z}}[\Phi\varPsi]\Longleftrightarrow\sum_{k=1}^\infty\phi_k\pdv{\varphi_k}{\overline{z}}=\Phi\pdv{\varPsi}{\overline{z}}\] on all of \(\mathbb{C}\). Let \(g(z)=\sum_{k=1}^\infty\phi_k(z)\pdv{\varphi_k(z)}{\overline{z}}\). Since \(\varphi_k\equiv 1\) on \(\overline{D\qty(z_k,\varepsilon_k)}\), \(\pdv{\varphi_k}{\overline{z}}\equiv 0\) on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\). Consequently, \(g(z)\equiv 0\) on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\).
+
+    From rearrangement, we have \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\), which has removable singularities at each \(z_k\). Define \(\frac{g(z)}{\Phi(z)}=0\) at \(z=z_k\). Under this assertion, we have \(\frac{g(z)}{\Phi(z)}\in C^\infty(\mathbb{C})\). Since the support of \(\frac{g(z)}{\Phi(z)}\) is the union of disjoint compact sets, by \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a function \(\varPsi\in C^\infty(\mathbb{C})\) satisfying \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\). Since \(g\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), it follows that \(\frac{g}{\Phi}\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), and \(\varPsi\) is holomorphic on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\).
+
+    Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\varPsi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\varPsi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that 
+    \begin{align*}
+        f^{(n)}\qty(z_k)&=\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}\\
+        &=\qty[\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)]_{z=z_k}\\
+        &=n!w_{k,n},
+    \end{align*}
+    as desired.
+\end{proof}
+\begin{remark}
+    For a general power series, there is no assurance that it corresponds to the Taylor expansion of an entire function. However, for any polynomial of degree \(n\), there always exists an entire function whose Taylor expansion agrees with the polynomial up to the first \(n+1\) terms, which is the fundamental difference between a polynomial and a transcendental entire function.
+\end{remark}
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
