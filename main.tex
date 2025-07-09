@@ -2455,8 +2455,8 @@ Residues are extremely important as they allow for simple evaluation of definite
             \node[anchor=south east] at (0,3) {\(R\)};
         \end{tikzpicture}
         \caption{An indented semicircular contour with orientation marked.}
-        \label{fig:puncturedsemicircularcontour}
-    \end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:puncturedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}\) (call this \(\gamma_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (call this \(\gamma_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
+        \label{fig:indentedsemicircularcontour}
+    \end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}\) (call this \(\gamma_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (call this \(\gamma_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
 
     By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}f(z)\ddz=\int_{\gamma_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\gamma_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
     We will now analyze each integral. The first integral is \[\int_{\gamma_R}f(z)\ddz=\int_0^\pi\frac{\exp(iRe^{i\theta})}{Re^{i\theta}}Rie^{i\theta}\dd{\theta}=i\int_0^{\pi}e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}.\]
@@ -2477,6 +2477,8 @@ Residues are extremely important as they allow for simple evaluation of definite
     Hence, \[-i\pi+2i\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\pi}{2}.\]
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities. We will now give a general overview of commonly used contours, depending on the type of integral being considered.
+
+Firstly, if the function is even and integrated over \([0,\infty)\), then extend the function to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}
 \subsection{Analytic Continuation}
 We
 \section{The Theory of Riemann}
