@@ -2480,7 +2480,28 @@ Residues are extremely important as they allow for simple evaluation of definite
     Evaluate the improper integrals \[I_1=\int_0^\infty\cos\qty(x^2)\ddx,\qquad I_2=\int_0^\infty\sin\qty(x^2)\ddx.\]
 \end{example}
 \begin{proof}
-    Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\gamma_1=\cbraces{z\in\mathbb{R}}{0\leq z\leq R},\quad\gamma_2=\cbraces{ze^{i\frac{\pi}{4}}}{0\leq z\leq R},\quad\gamma_3=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}.\]
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}[>=stealth,
+                arrow style/.style={
+                    postaction={decorate},
+                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+            }]
+
+            \draw[-{Stealth}, ultra thin] (0, 0) -- (4, 0);
+            \draw[-{Stealth}, ultra thin] (0, 0) -- (-0.4, 0);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, 5);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, -0.5);
+            \draw[-{Stealth}, thick] (3,0) arc[start angle=0, end angle=45, radius=3];
+            \draw[-{Stealth}, thick] (0, 0) -- (3, 0);
+            \draw[-{Stealth}, thick] (2.12132, 2.12132) -- (0, 0);
+            \node[anchor=north, xshift=-2pt] at (5, 0) {\(\Re(z)\)};
+            \node[anchor=east, yshift=-2pt] at (0, 5) {\(\Im(z)\)};
+            \node[anchor=north] at (3,0) {\(R\)};
+            \node[anchor=south] at (2.2,2.2) {\(R\)};
+        \end{tikzpicture}
+        \caption{A wedge contour with orientation marked.}\label{fig:wedgecontour}
+    \end{figure}Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\gamma_1=\cbraces{z\in\mathbb{R}}{0\leq z\leq R},\quad\gamma_2=\cbraces{ze^{i\frac{\pi}{4}}}{0\leq z\leq R},\quad\gamma_3=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{TO BE CONTINUED}
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
