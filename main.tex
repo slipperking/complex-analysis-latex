@@ -2504,7 +2504,8 @@ Residues are extremely important as they allow for simple evaluation of definite
         \end{tikzpicture}
         \caption{A wedge contour with orientation marked.}\label{fig:wedgecontour}
     \end{figure}Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\gamma_1=\cbraces{z\in\mathbb{R}}{0\leq z\leq R},\quad\gamma_2=\cbraces{ze^{i\frac{\pi}{4}}}{0\leq z\leq R},\quad\gamma_3=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma_1}f(z)\ddz+\int_{\gamma_2}f(z)\ddz+\int_{\gamma_3}f(z)\ddz=0.\] The third integral can be written as \[\int_{\gamma_3}f(z)\ddz=Ri\int_0^{\frac{\pi}{4}}e^{i{\qty(Re^{i\theta})}^2}e^{i\theta}\dd{\theta}.\]
-    It can be bounded as \[\abs{\int_{\gamma_3}f(z)\ddz}\leq R{\int_0^{\frac{\pi}{4}}e^{-R^2\sin(2\theta)}\dd{\theta}}.\]
+    Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as \[\abs{\int_{\gamma_3}f(z)\ddz}\leq R{\int_0^{\frac{\pi}{4}}e^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}e^{-\frac{4}{\pi}R^2\theta}\dd{\theta}=-\frac{\pi}{4R}\eval{e^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-e^{-R^2}).\]
+    As \(R\to\infty\), this integral tends to 0. 
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
