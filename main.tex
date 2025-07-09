@@ -2485,7 +2485,35 @@ Generally, if the function is even and integrated over \([0,\infty)\), then exte
     \[\lim_{\varepsilon\to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\vartheta\cdot\residue_{z=a}f(z).\]
 \end{theorem}
 \begin{proof}
-    Parameterize \(\gamma_\varepsilon\) with \(z=a+\varepsilon e^{i\theta}\), where \(\theta\in\qty[\alpha,\beta]\) and \(\beta-\alpha=\vartheta\). Then
+    Parameterize \(\gamma_\varepsilon\) with \(z=a+\varepsilon e^{i\theta}\), where \(\theta\in[\alpha,\beta]\) and \(\beta-\alpha=\vartheta\). Then,
+    \[\int_{\gamma_\varepsilon} f(z)\ddz = \int_\alpha^\beta f\qty(a+\varepsilon e^{i\theta}) \frac{dz}{d\theta}\dd{\theta} = \varepsilon i \int_\alpha^\beta f\qty(a+\varepsilon e^{i\theta}) e^{i\theta}\dd{\theta}.\]
+    Since \(f\) has a simple pole at \(z=a\), we can write a Laurent expansion around \(a\) as
+    \[
+    f(z) = \frac{c_{-1}}{z-a} + h(z),
+    \]
+    where \(h(z)\) is holomorphic in a neighborhood of \(a\) and \(c_{-1} = \residue_{z=a}f(z)\).
+
+    Then for \(z = a + \varepsilon e^{i\theta}\),
+    \[
+    f(a + \varepsilon e^{i\theta}) = \frac{c_{-1}}{\varepsilon e^{i\theta}} + h(a + \varepsilon e^{i\theta}).
+    \]
+    So,
+    \begin{align*}
+        \int_{\gamma_\varepsilon} f(z)\,dz 
+        &= \varepsilon i \int_\alpha^\beta \left( \frac{c_{-1}}{\varepsilon e^{i\theta}} + h(a + \varepsilon e^{i\theta}) \right) e^{i\theta} \, d\theta \\
+        &= i c_{-1} \int_\alpha^\beta d\theta + \varepsilon i \int_\alpha^\beta h(a + \varepsilon e^{i\theta}) e^{i\theta} \, d\theta \\
+        &= i c_{-1} (\beta - \alpha) + \varepsilon i \int_\alpha^\beta h(a + \varepsilon e^{i\theta}) e^{i\theta} \, d\theta.
+    \end{align*}
+
+    As \(\varepsilon \to 0\), \(h(a + \varepsilon e^{i\theta}) \to h(a)\) uniformly in \(\theta\), so the second term vanishes:
+    \[
+    \lim_{\varepsilon \to 0} \varepsilon i \int_\alpha^\beta h(a + \varepsilon e^{i\theta}) e^{i\theta} \, d\theta = 0.
+    \]
+
+    Therefore,
+    \[
+    \lim_{\varepsilon \to 0} \int_{\gamma_\varepsilon} f(z)\,dz = i c_{-1} (\beta - \alpha) = i \vartheta \cdot \residue_{z=a} f(z).
+    \]
 \end{proof}
 \subsection{Analytic Continuation}
 We
