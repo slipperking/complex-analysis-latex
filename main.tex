@@ -2168,6 +2168,14 @@ Therefore, any holomorphic automorphism on \(\riemannsphere\) is a composition o
     \(\forall f\in \Aut\qty(\riemannsphere)\), \(f\) is a Möbius transformation. In other words, \(\exists a,b,c,d\in\mathbb{C}\) satisfying \(ad-bc\neq 0\) such that \[f(z)=\frac{az+b}{cz+d}.\]
 \end{theorem}
 The Möbius transformation subgroup of \(\Aut(\mathbb{D})\) is also a subgroup of \(\Aut\qty(\riemannsphere)\).
+
+We have now introduced three of the most important regions in complex analysis: \(\mathbb{D}\), \(\mathbb{C}\), and \(\riemannsphere\). Their importance will be briefly explained by the Uniformization Theorem (\autoref{thm:uniformization}).
+\begin{example}
+    Find the group of holomorphic automorphisms on the upper half-plane \(\mathbb{H}=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\).
+\end{example}
+\begin{proof}
+    
+\end{proof}
 \subsubsection{The Construction of Entire and Meromorphic Functions}
 It is common knowledge in algebra that any polynomial can be factored into linear factors. When can this factorization be extended to transcendental entire functions?
 
@@ -2351,7 +2359,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
-    For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textit{residue} of \(f\) at \(a\), denoted by \(\residue_{z=a}f(z)\), is equal to
+    For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textit{residue} of \(f\) at \(a\), denoted by \(\residue_{z=a}f(z)\) or \(\Res(f,a)\), is equal to
     \begin{equation}
         \residue_{z=a}f(z)=\frac{1}{2\pi i}\int_{\partial D(a,\rho)}f(z)\ddz,\label{eq:residue}
     \end{equation}
@@ -2359,17 +2367,17 @@ After Riemann and Weierstrass refined the understanding of analytic functions an
 \end{definition}
 It then follows that the residue at a removable singularity is 0. As a direct consequence of equation~\eqref{eq:residue}, we can derive explicit formulae for the calculation of residues at poles. If \(U\subseteq\mathbb{C}\) is open, \(a\in U\) is an isolated singularity (a pole of order \(m\neq\infty\)) of \(f:U\setminus\qty{a}\to\mathbb{C}\) that is holomorphic, then locally:
 \[f(z)=c_{-m}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_{-1}(z-a)^{-1}+\cdots.\]
-Multiplying by \((z-a)^{m}\), we obtain that \[(z-a)^mf(z)=c_{-m}+c_{1-m}(z-a)+\cdots+c_{-1}(z-a)^{m-1}+\cdots.\]
+Multiplying by \((z-a)^{m}\), we obtain that \[{(z-a)^m}f(z)=c_{-m}+c_{1-m}(z-a)+\cdots+c_{-1}(z-a)^{m-1}+\cdots.\]
 By the definition of a Taylor series, we find that
 \begin{equation}
-    c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\left.\dv[m-1]{z}((z-a)^mf(z))\right|_{z=a}.\label{eq:residueatpole}
+    c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\left.\dv[m-1]{z}\qty[(z-a)^m f(z)]\right|_{z=a}.\label{eq:residueatpole}
 \end{equation}
 
 Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\pi i}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
 Let \(\zeta=\frac{1}{z}\). Then we get that \[\residue_{z=\infty}f(z)=-\frac{1}{2\pi i}\ointctrclockwise_{\partial D(0,\rho)}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})=\frac{1}{2\pi i}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.\]
 In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow \frac{f\qty(\frac{1}{\zeta})}{\zeta^2}=\sum_{n=-\infty}^\infty c_n\zeta^{-n-2},\] the residue at \(z=\infty\) is equal to \(-c_{-1}\). We will later explain the reasoning behind this definition.
 \begin{theorem}[Residue Theorem]\label{thm:residuethm}
-    Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\). Suppose \(\cbraces{z_n}\subset U\) is a finite set and \(f(z)\) is holomorphic on \(U\setminus\cbraces{z_n}\) and continuous on \(\overline{U}\setminus\cbraces{z_n}\). Then, \[\int_{\partial U}f(z)\ddz=2\pi i\sum_{k=1}^n\residue_{z_k}(f)\]
+    Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\). Suppose \(\cbraces{z_n}\subset U\) is a finite set and \(f(z)\) is holomorphic on \(U\setminus\cbraces{z_n}\) and continuous on \(\overline{U}\setminus\cbraces{z_n}\). Then, \[\int_{\partial U}f(z)\ddz=2\pi i\sum_{k=1}^n\Res(f,z_k)\]
 \end{theorem}
 \begin{proof}
     Since \(U\) is open, there exists a small disk centered at each isolated singularity \(z_k\) of radii \(\delta_k\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we get that \[\int_{\bigcup_{k=1}^nD\qty(z_k,\delta_k)^-\cup\partial U^+}f(z)\ddz=0.\]
@@ -2471,19 +2479,19 @@ Residues are extremely important as they allow for simple evaluation of definite
         \end{tikzpicture}
         \caption{An indented semicircular contour with orientation marked.}
         \label{fig:indentedsemicircularcontour}
-    \end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}\) (call this \(\gamma_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (call this \(\gamma_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
+    \end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}\) (\(C_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (\(C_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
 
-    By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}f(z)\ddz=\int_{\gamma_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\gamma_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
-    We will now analyze each integral. The first integral is \[\int_{\gamma_R}f(z)\ddz=\int_0^\pi\frac{\exp(iRe^{i\theta})}{Re^{i\theta}}Rie^{i\theta}\dd{\theta}=i\int_0^{\pi}e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}.\]
+    By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}f(z)\ddz=\int_{C_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{C_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
+    We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^\pi\frac{\exp(iRe^{i\theta})}{Re^{i\theta}}Rie^{i\theta}\dd{\theta}=i\int_0^{\pi}e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}.\]
     Notice that \(\frac{2}{\pi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\):
     \begin{align*}
         \abs{i\int_0^\pi e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}e^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}e^{-R\sin\theta}\dd{\theta}                                                                  \\
         & <2\int_0^{\frac{\pi}{2}}e^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}e^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-e^{-R})\to 0.
     \end{align*}
-    Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{\gamma_\varepsilon}f(z)\ddz=i\int_{\pi}^0\exp(\varepsilon\qty(i\cos\theta-\sin\theta))\dd{\theta}=i\int_\pi^0e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}.\]
+    Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\exp(\varepsilon\qty(i\cos\theta-\sin\theta))\dd{\theta}=i\int_\pi^0e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}.\]
     Obviously, \[\abs{e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}}\leq 1,\]
     and therefore, the integral and the limit may commute:
-    \[\lim_{\varepsilon\to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\int_{\pi}^0\lim_{\varepsilon\to 0^+}e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}=i\int_{\pi}^0\dd{\theta}=-i\pi.\]
+    \[\lim_{\varepsilon\to 0}\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\lim_{\varepsilon\to 0^+}e^{-\varepsilon\sin\theta}e^{i\varepsilon\cos\theta}\dd{\theta}=i\int_{\pi}^0\dd{\theta}=-i\pi.\]
     Evaluating the integral over the line segments, we have
     \begin{align*}
         \int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz & =\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{e^{iz}}{z}\dd{z}=\int_{-R}^{-\varepsilon}\frac{e^{iz}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{e^{-iz}}{z}\dd{z} \\
@@ -2508,25 +2516,24 @@ Residues are extremely important as they allow for simple evaluation of definite
             \draw[-{Stealth}, thin] (0, 0) -- (0, 4);
             \draw[-{Stealth}, thin] (0, 0) -- (0, -0.5);
             \draw[-{Stealth}, thick] (3.5,0) arc[start angle=0, end angle=45, radius=3.5];
-            \draw[thin] (0.7,0) arc[start angle=0, end angle=45, radius=0.7];
+            \draw[thin] (0.5,0) arc[start angle=0, end angle=45, radius=0.5];
             \draw[-{Stealth}, thick] (0, 0) -- (3.5, 0);
             \draw[-{Stealth}, thick] (2.47487, 2.47487) -- (0, 0);
             \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
             \node[anchor=east, yshift=-2pt] at (0, 4) {\(\Im(z)\)};
-            \node[anchor=north] at (1.75,0) {\(\gamma_1\)};
-            \node[anchor=south east] at (1.4,1.4) {\(\gamma_2\)};
-            \node[anchor=north] at (3.6,1.5) {\(\gamma_3\)};
+            \node[anchor=north] at (1.75,0) {\(\Gamma_1\)};
+            \node[anchor=south east] at (1.4,1.4) {\(\Gamma_2\)};
+            \node[anchor=north] at (3.6,1.5) {\(C_R\)};
             \node[anchor=north] at (3.5,0) {\(R\)};
             \node[anchor=south] at (2.5,2.5) {\(R\)};
-            \node[anchor=west] at (0.65,0.35) {\(\tfrac{\pi}{4}\)};
         \end{tikzpicture}
         \caption{A wedge contour with orientation marked.}\label{fig:wedgecontour}
-    \end{figure}Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\gamma_2=\cbraces{re^{i\frac{\pi}{4}}}{0\leq r\leq R},\quad\gamma_3=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that 
+    \end{figure}Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\Gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\Gamma_2=\cbraces{re^{i\frac{\pi}{4}}}{0\leq r\leq R},\quad C_R=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that 
     \begin{equation}
-        \int_{\gamma_1}f(z)\ddz+\int_{\gamma_2}f(z)\ddz+\int_{\gamma_3}f(z)\ddz=0.\label{eq:fresnelwedgecontourintegral}
-    \end{equation} The third integral can be written as \[\int_{\gamma_3}f(z)\ddz=Ri\int_0^{\frac{\pi}{4}}e^{i{\qty(Re^{i\theta})}^2}e^{i\theta}\dd{\theta}.\]
-    Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as \[\abs{\int_{\gamma_3}f(z)\ddz}\leq R{\int_0^{\frac{\pi}{4}}e^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}e^{-\frac{4}{\pi}R^2\theta}\dd{\theta}=-\frac{\pi}{4R}\eval{e^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-e^{-R^2}).\]
-    As \(R\to\infty\), this integral tends to 0. Let \(z=re^{i\frac{\pi}{4}}\) on \(\gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\gamma_2}f(z)\ddz=\int_\infty^0\exp[i\qty(re^{i\frac{\pi}{4}})^2]e^{i\frac{\pi}{4}}\dd{r}=e^{i\frac{\pi}{4}}\int_\infty^0\exp(-r^2)\dd{r}.\]
+        \int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=0.\label{eq:fresnelwedgecontourintegral}
+    \end{equation} The third integral can be written as \[\int_{C_R}f(z)\ddz=Ri\int_0^{\frac{\pi}{4}}e^{i{\qty(Re^{i\theta})}^2}e^{i\theta}\dd{\theta}.\]
+    Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as \[\abs{\int_{C_R}f(z)\ddz}\leq R{\int_0^{\frac{\pi}{4}}e^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}e^{-\frac{4}{\pi}R^2\theta}\dd{\theta}=-\frac{\pi}{4R}\eval{e^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-e^{-R^2}).\]
+    As \(R\to\infty\), this integral tends to 0. Let \(z=re^{i\frac{\pi}{4}}\) on \(\Gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\Gamma_2}f(z)\ddz=\int_\infty^0\exp[i\qty(re^{i\frac{\pi}{4}})^2]e^{i\frac{\pi}{4}}\dd{r}=e^{i\frac{\pi}{4}}\int_\infty^0\exp(-r^2)\dd{r}.\]
     From equation~\eqref{eq:fresnelwedgecontourintegral}, we have that \[\int_0^\infty e^{ir^2}\dd{r}=e^{i\frac{\pi}{4}}\int_0^\infty e^{-r^2}\dd{r}.\] Since \(\int_0^\infty e^{-r^2}\dd{r}=\frac{\sqrt{\pi}}{2}\), we have \[\int_0^\infty e^{ir^2}\dd{r}=\qty(\frac{\sqrt{2}}{2}+i\frac{\sqrt{2}}{2})\frac{\sqrt{\pi}}{2}.\]
     Since \(e^{ir^2}=\cos(r^2)+i\sin(r^2)\), we have \[\int_0^\infty\cos(r^2)\dd{r}=\Re\qty[\int_0^\infty e^{ir^2}\dd{r}]=\frac{\sqrt{2\pi}}{4},\qquad\int_0^\infty\sin(r^2)\dd{r}=\Im\qty[\int_0^\infty e^{ir^2}\dd{r}]=\frac{\sqrt{2\pi}}{4},\]
     as desired.
@@ -2539,16 +2546,34 @@ Residues are extremely important as they allow for simple evaluation of definite
     where \(z_k\) where \(k=1,\ldots,n\) are the isolated singularities of \(f\) in \(\mathbb{D}\).
 \end{proof}
 \begin{example}
-    Evaluate \(\int_0^\infty\frac{x^\alpha}{1+x^\beta}\ddx\), where \(0<\alpha+1<\beta\).
+    Evaluate \(I=\int_0^\infty\frac{x^\alpha}{1+x^\beta}\ddx\), where \(0<\alpha+1<\beta\).
 \end{example}
 \begin{proof}
-    Let \(f(z)=\frac{z^\alpha}{1+z^\beta}\) and let \(-\pi<\Arg(z)\leq \pi\) in the principal branches of \(z^\alpha=e^{\alpha\Log(z)}\) and \(z^\beta=e^{\beta\Log(z)}\). Then except for at the zeros of \(1+z^\beta\), \(f\) is
+    Let \(f(z)=\frac{z^\alpha}{1+z^\beta}\) and let \(-\pi<\Arg(z)\leq \pi\) in the principal branches of \(z^\alpha=e^{\alpha\Log(z)}\) and \(z^\beta=e^{\beta\Log(z)}\). Then except for at the zeros of \(1+z^\beta\), \(f\) is holomorphic.
+
+    The solutions to \(z^\beta=-1\) are \(z=\exp(i\frac{\pi}{\beta}+2ik\frac{\pi}{\beta})\). Choose a wedge contour with an angle of \(\frac{2\pi}{\beta}\) (as in \autoref{fig:wedgecontour}). The only singularity it encloses is \(\exp(i\frac{\pi}{\beta})\). Since it is a simple zero of \(\frac{1}{f}\), this singularity is a simple pole.
+    
+    The contour is the union of the following curves:
+    \[\Gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\Gamma_2=\cbraces{r\exp(i\frac{2\pi}{\beta})}{0\leq r\leq R},\quad C_R=\cbraces{Re^{i\theta}}{0\leq\theta\leq \frac{2\pi}{\beta}},\]
+    where \(R>1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{R\to\infty}\int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=2\pi i\Res[f,\exp(i\frac{\pi}{\beta})].\]
+    By equation~\eqref{eq:residueatpole}, it follows that \begin{align*}
+        \residue\qty[f,\exp(i\frac{\pi}{\beta})]&=\lim_{z\to\exp(i\frac{\pi}{\beta})}\flatfrac{\qty[z-\exp(i\frac{\pi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]}\\
+        &=\lim_{z\to\exp(i\frac{\pi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}\\
+        &=\lim_{z\to\exp(i\frac{\pi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}\\
+        &=-\frac{1}{\beta}\exp(i\frac{\pi}{\beta}(\alpha+1)).
+    \end{align*}
+    We can write the integral on \(\Gamma_2\) in terms of \(I\): \[\int_{\Gamma_2}f(z)\ddz=\int_R^0 f\qty[r\exp(i\frac{2\pi}{\beta})]\exp(i\frac{2\pi}{\beta})\dd{r}=-\exp[i\frac{2\pi}{\beta}(1+\alpha)]\int_0^R\frac{r^\alpha}{1+r^\beta}\dd{r}.\]
+    We also have \[\int_{C_R}f(z)\ddz=Ri\int_{0}^{\frac{2\pi}{\beta}}f\qty(Re^{i\theta})e^{i\theta}\dd{\theta}=i\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta e^{i\beta\theta}}\exp[i\theta(1+\alpha)]\dd{\theta}.\] We can show that the integrand can be dominated as follows:
+    \[\abs{\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta e^{i\beta\theta}}\exp[i\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}.\]
+    The dominating integrand \(R\mapsto\frac{R^{\alpha+1}}{R^\beta-1}\) approaches \(0\) as \(R\to\infty\) since \(0<\alpha+1<\beta\). Therefore, \(\forall\varepsilon>0\), \(\exists N>2\) such that \(\forall R>N\), \(\frac{R^{\alpha+1}}{R^\beta-1}<\varepsilon\). Let \(\varepsilon\) be arbitrary. Then letting \(R>N\), the integrand is uniformly bounded, and therefore, \[\lim_{R\to\infty}\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=\int_0^{\frac{2\pi}{\beta}}\lim_{R\to\infty}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=0.\]
+    By letting \(R\to\infty\), we have \[\qty[1-\exp(i\frac{2\pi}{\beta}(1+\alpha))]I=-\frac{2\pi i}{\beta}\exp(i\frac{\pi}{\beta}(\alpha+1)).\]
+    It follows that \[I=\frac{2\pi i}{\beta}\brackets{\exp(i\frac{\pi}{\beta}(\alpha+1))-\exp(-i\frac{\pi}{\beta}(\alpha+1))}^{-1}=\frac{\pi}{\beta}\csc(\frac{\pi}{\beta}(\alpha+1)).\]
 \end{proof}
 \begin{example}
     Prove that the Fourier transform of \(\sech(\pi x)\) is itself, or that \[I(\xi)=\int_{-\infty}^\infty e^{-2\pi ix\xi}\sech(\pi x)\ddx=\sech(\pi\xi).\]
 \end{example}
 \begin{proof}
-    Consider a rectangular contour
+    Fix \(\xi\in\mathbb{R}\) and let \(f(z)=\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}\). TO BE CONTINUED
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
@@ -2622,6 +2647,9 @@ TO BE CONTINUED
 
 We have already seen that certain functions such as the inverse trigonometric functions, the power functions, and the complex logarithm are multi-valued. Well, this certainly complicates many fundamental operations such as differentiation, integration, etc. The concept of Riemann surfaces provides a modern methodology to treat multi-valued functions as single-valued functions.
 
+\begin{theorem}[Uniformization Theorem]\label{thm:uniformization}
+    
+\end{theorem}
 \section{Differential Geometry}\label{sec:differentialgeometry}
 \begin{theorem}[Great Picard Theorem]\label{thm:greatpicard}
 
@@ -2636,5 +2664,5 @@ The original proof introduced by
 The Riemann--\(\zeta\) function is one of the most important aspects in analytic number theory due to its connection with the distribution of prime numbers. We will also introduce one of the most profound theorems in number theory on the distribution of prime numbers.
 
 Let us first introduce the \(\Gamma\) function, which generalizes the factorial. Let \[\Gamma(z)=\int_0^\infty e^{-t}t^{z-1}\dd{t},\]
-where \(z\in\mathbb{C}\). By letting \(z=x+iy\) where \(x,y\in\mathbb{R}\), 
+where \(z\in\mathbb{C}\). By letting \(z=x+iy\) where \(x,y\in\mathbb{R}\), we have \(\abs{e^{-t}t^{z-1}}=e^{-t}t^{x-1}\)
 \end{document}
