@@ -75,7 +75,7 @@
 
 \NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\lbrace#1\IfNoValueTF{#2}{}{\,\middle|\,#2}\right\rbrace}}
 
-\newcommand{\riemannsphere}{\widehat{\mathbb{C}}}
+\newcommand{\riemannsphere}{\overline{\mathbb{C}}}
 \newcommand{\chpref}[1]{\hyperref[#1]{\S\ref*{#1}}}
 
 \DeclareMathOperator*{\residue}{Res}
@@ -142,15 +142,15 @@ We will provide a rough, informal notion of important topological concepts tailo
     Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point \(z_{\infty}\in\mathbb{C}^n\). By the Bolzano-Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), because \(\forall i\in\mathbb{N}\), \(Q_i\cap X\neq\emptyset\), select a point \(z_{i}\in Q_i\cap X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\) as \(X\) is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in U\). Since \(U\) is open, \(\exists\varepsilon>0\) such that \(B^n(z_\infty,\varepsilon)\subset U\). \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq B^n(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every \(k\), \(Q_k\cap X\) has no finite subcovering. However, \(U\) covers \(Q_k\cap X\), which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
 \end{proof}
 \begin{definition}[Support of a Function]\label{def:support}
-    For a set \(X\) and a function \(f:X\to\mathbb{C}\), the support, denoted as \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), is the closure of the set for which \(f\) is nonzero.
+    For a set \(X\) and a function \(f:X\to\mathbb{C}\), the \textit{support}, denoted by \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), is the closure of the set for which \(f\) is nonzero.
 \end{definition}
 \begin{remark}
-    We are primarily concerned when the support of a function is compact, or if the support is bounded. Smooth functions that are compactly supported are also called \textit{bump functions}.
+    We are primarily concerned when the support of a function is compact, or if the support is bounded. Functions that are compactly supported and \(C^\infty\) are also called \textit{bump functions}.
 \end{remark}
 \subsection{Calculus}
-Since complex analysis is essentially the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for real functions.
+Since traditional complex analysis is the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for complex functions. 
 
-It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a point \(x\in(a,b)\) if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by \(f'(x)\) or \(\frac{\dd{f}}{\ddx}\). The value \(\dd{f}=f'(x)\ddx\) is the differential of \(f(x)\). Partition \([a,b]\) into \(a=x_0<x_1<x_2<\cdots<x_n=b\). Such that the length of the intervals \([x_i,x_{i-1}]\) tends to 0 as \(n\to\infty\). If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\), then the function can be roughly said to be integrable over \([a,b]\). The full details of Riemann integrability relate to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
+It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a point \(x\in(a,b)\) if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by \(f'(x)\) or \(\frac{\dd{f}}{\ddx}\). The value \(\dd{f}=f'(x)\ddx\) is the differential of \(f(x)\). Partition \([a,b]\) into \(a=x_0<x_1<x_2<\cdots<x_n=b\) such that the length of the intervals \([x_i,x_{i-1}]\) tends to 0 as \(n\to\infty\). If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\), then the function can be roughly said to be integrable over \([a,b]\). The full details of Riemann integrability relate to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
 \begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
     Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
     \[\Phi(x)=\int_a^xf(t)\dd{t}.\]
@@ -225,7 +225,7 @@ Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes
 \begin{theorem}[Stokes--Cartan Theorem]\label{thm:stokescartan}
     For an oriented smooth \(n\)-dimensional compact manifold \(M\) with boundary \(\partial M\), for a smooth differential \((n-1)\)-form \(\omega\) over \(\overline{M}\), \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
 \end{theorem}
-A portion of calculus is dedicated to rigorously defining concepts such as limits, continuity, integrability, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), which states:
+Real analysis is the subject dedicated to rigorously defining concepts such as limits, continuity, integrability, convergence, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), which states:
 \begin{definition}[Epsilon--Delta]\label{def:epsilondelta}
     Let \(f:U\to\mathbb{R}\) be a function defined over an open set \(U\subseteq\mathbb{R}\) such that \(a\) is an accumulation point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if for every \(\varepsilon > 0\), there exists \(\delta > 0\) such that for all \(x\in U\) with \(0<|x-a|<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
@@ -327,6 +327,19 @@ Lipschitz continuity is an important concept in real analysis and the theory of 
 
     By the Mean Value Theorem, \(\forall x,y\in K\), \(\exists c\) between \(x\) and \(y\) such that \(f(x)-f(y)=f'(c)(x-y)\). Then, \(|f(x)-f(y)|=|f'(c)||x-y|\leq M|x-y|\), which means \(f\) is Lipschitz continuous with Lipschitz constant less than or equal to \(M\).
 \end{proof}
+We will now give statements relating to operations on Riemann integrals:
+\begin{lemma}\label{lemma:integralwithparameterproperties}
+    Let \(f(x,u)\) be a continuous complex function on the rectangle defined by \(a\leq x\leq b\), \(\alpha\leq u\leq\beta\) (where \(a<b\), \(\alpha<\beta\)). Then,
+    \begin{enumerate}
+        \item For an arbitrary point \(u_0\in [\alpha,\beta]\), we have \(\lim_{u\to u_0}\int_a^b f(x,u)\ddx=\int_a^b f\qty(x,u_0)\ddx\).
+        \item The order of integration can be switched: \[\int_a^b\int_\alpha^\beta f(x,u)\dd{u}\ddx=\int_\alpha^\beta\int_a^b f(x,u)\ddx\dd{u}\]
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    The second part is self-explanatory as it can be interpreted as an area integral.
+
+    Let \(\varphi(u)=\int_a^b f(x,u)\ddx\). Since \(f(x,u)\) is continuous on a compact set with respect to both \(x\) and \(u\), by \autoref{lemma:uniformcontinuousovercompactset}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\] 
+\end{proof}
 \section{Complex Prerequisites}
 \subsection{The Complex Plane}
 All complex numbers form a field that extends the real number field. A complex number \(\alpha+i\beta\) can be visualized on a rectangular plane as the point \((\alpha,\beta)\), with two axes: the real axis and the imaginary axis. It is well known that any complex number also has the polar form \(re^{i\theta}=r\paren{\cos\theta+i\sin\theta}\).
@@ -384,7 +397,7 @@ For simplicity's sake, if we mention that a function is holomorphic on a region,
     \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta+\frac{o_{\Delta z\to 0}\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
     Taking the limit as \(\Delta z\to0\), the high order infinitesimals on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta.\]
 \end{proof}
-An extension that is much harder to prove gives a subtle result:
+We also have the following:
 \begin{theorem}[Looman--Menchoff Theorem]\label{thm:loomanmenchoff}
     A function \(f(z)\) is holomorphic over an open set \(U\subset\mathbb{C}\) if and only if it is continuous on \(U\), differentiable on \(U\setminus N\) for some set \(N\) with measure zero, and satisfies the \textit{Cauchy–Riemann equations}.
 \end{theorem}
@@ -527,7 +540,7 @@ Lastly, there exist series representations of functions using power functions (T
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex analysis:
 \begin{definition}[Uniform Convergence]
-    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textit{uniformly converges} to a function \(f(z)\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f_n(z)-f(z)}<\varepsilon\).
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textit{uniformly converges} to a function \(f(z)\) on \(U\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f_n(z)-f(z)}<\varepsilon\).
 \end{definition}
 \begin{remark}
     The definition above is equivalent to the following definition.
@@ -558,7 +571,7 @@ Function series are defined to be a sequence formed by the partial sums of funct
 \end{proof}
 The concept of uniform convergence is generalized to improper integrals with parameters, and the same theorems from series have a corresponding counterpart.
 
-In both complex and real analysis, the concept of \textit{power series}, a unique type of function series, is of trivial importance. Similar to real power series, complex series have the form \[\sum_{n=0}^\infty a_nz^n,\] where \(\cbraces{a_n}\) are constants.
+In both complex and real analysis, the concept of \textit{power series}, a unique type of function series, is of trivial importance. Similar to real power series, complex series have the form \[\sum_{n=0}^\infty a_n z^n,\] where \(\cbraces{a_n}\) are constants.
 
 Let \(D(a,r)=B^1(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textit{open disk} centered at \(a\) with radius \(r\). For simplicity, from now on we will have \(\mathbb{D}\) denote the unit open disk, or \(D(0,1)\). We will now observe the convergence of power series.
 \begin{theorem}[Abel's Theorem]\label{thm:abelradius}
@@ -1279,7 +1292,7 @@ The differentiation formula above can be thought of as a generalization of \auto
     Starting from equation~\eqref{eq:nthderivativeboundedl1norm_statement}, observe that \[c_n\left\|f\right\|_{L^1(V)}\leq c_n\lambda(V)\sup_{z\in V}\abs{f(z)},\] and we can define a new set of constants equal to \(c_n\lambda(V)\), which are still independent of \(z\).
 \end{proof}
 For the next theorem we will briefly introduce the concept of \textit{analytic continuation}.
-\begin{definition}[Analytic Continuation]
+\begin{definition}[Analytic Continuation]\label{def:analyticcontinuation}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be holomorphic. Let \(V\subseteq\mathbb{C}\) be open with \(U\subseteq V\). A function
     \(F:U\cap V\to\mathbb{C}\) is an \textit{analytic continuation} of \(f\) to \(V\) if:
     \begin{enumerate}
@@ -1639,17 +1652,17 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
 
     Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=0,\] and \(z_\infty\in S\). Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with it being closed within \(V\)).
 
-    Since \(S\subseteq V\) and \(V\) are open, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D(z,\varepsilon)\subseteq V\). By \autoref{lemma:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon'<\varepsilon\),
+    Since \(S\subseteq V\) and \(V\) are open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \autoref{lemma:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
     \begin{align*}
-        |f(z)| & =\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon' e^{it}}\dd{t}}\leq \frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon'e^{it}}}\dd{t} \\
+        |f(z)| & =\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon e^{it}}\dd{t}}\leq \frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon e^{it}}}\dd{t} \\
         & \leq\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
     It follows that all inequalities above are equalities, or that
     \begin{align*}
-        |f(z)| & =\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon' e^{it}}\dd{t}}=\frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon'e^{it}}}\dd{t} \\
+        |f(z)| & =\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon  e^{it}}\dd{t}}=\frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon e^{it}}}\dd{t} \\
         & =\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
-    From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon'e^{it}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\varepsilon>0\) such that \(D\paren{z,\varepsilon}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
+    From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon e^{it}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
 \begin{remark}
     If \(f\) is holomorphic and non-constant on an open region \(U\subseteq\mathbb{C}\), then for any compact set \(K\subset U\), the maximum of \(f\) in \(K\) lies on \(\partial K\). Otherwise, \(f\) would attain a maximum at some \(z\in K^\circ\), and contradict the statement of \autoref{thm:maximummodulus} under the assumption of being non-constant.
@@ -1879,23 +1892,25 @@ A fundamental problem in the theory of partial differential equations is to find
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 Consider \(R=1\), \(\zeta=e^{i\tau}\), \(z=\rho e^{i\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
-\begin{gather*}
-    u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})}\\
-    =\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.
-\end{gather*}
-If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\exp(i\tau)\) is periodic over \(2\pi\). Thus, it can be expressed as a Fourier series \[u\qty(e^{i\tau})\sim\sum_{n=-\infty}^\infty a_ne^{in\tau},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}.\]
-This series is not necessarily convergent (hence the usage of ``\(\sim\)''). Notice how \(u\) is continuous on a compact set and therefore is uniformly bounded by some \(M\) (\autoref{thm:continuousfunctionboundedoncompact}). Therefore, the integrand of \(a_n\) is bounded by a finite \(M\geq\abs{u\qty(e^{i\tau})e^{-in\tau}}\). It follows that \(\qty|a_n|\leq M\). By introducing a factor of \(\abs{\rho}<1\), we obtain the convergent \textit{Abel sum} of \[\sum_{n=-\infty}^\infty a_ne^{in\tau}\rho^{|n|},\qquad\abs{\sum_{n=-\infty}^\infty a_ne^{in\tau}\rho^{|n|}}\leq\sum_{n=-\infty}^\infty\abs{a_ne^{in\tau}\rho^{|n|}}\leq M\frac{1+|\rho|}{1-\abs{\rho}}.\]
-Substitute the TO BE CONTINUED
+\begin{gather}
+    u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})}\nonumber\\
+    =\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
+\end{gather}
+If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\exp(i\tau)\) is periodic over \(2\pi\). Thus, it can be expressed as a Fourier series 
+\begin{equation}
+    u\qty(e^{i\tau})\sim\sum_{n=-\infty}^\infty a_ne^{in\tau},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}.\label{eq:poissonintegralformulafourierseries}
+\end{equation}
+This series is not necessarily convergent (hence the usage of ``\(\sim\)''). Notice how \(u\) is continuous on a compact set and therefore is uniformly bounded by some \(M\) (\autoref{thm:continuousfunctionboundedoncompact}). Therefore, the integrand of \(a_n\) is bounded by a finite \(M\geq\abs{u\qty(e^{i\tau})e^{-in\tau}}\). It follows that \(\qty|a_n|\leq M\). By introducing factors of powers of  \(\abs{\rho}<1\), we obtain the sum converges: \[\sum_{n=-\infty}^\infty a_ne^{in\tau}\rho^{|n|},\qquad\abs{\sum_{n=-\infty}^\infty a_ne^{in\tau}\rho^{|n|}}\leq\sum_{n=-\infty}^\infty\abs{a_ne^{in\tau}\rho^{|n|}}\leq M\frac{1+|\rho|}{1-\abs{\rho}}.\]
 
 Finally, we will demonstrate that real-valued continuous functions satisfying the mean-value property are logically equivalent to being a solution to the Laplace equation. In \autoref{lemma:holomorphicmeanvalueproperty}, we showed that real solutions to the Laplace equation satisfy the mean-value property. Now we will prove the converse.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
-    Let \(U\subseteq\mathbb{C}\) be open. Let \(f:U\to\mathbb{R}\) be continuous. \(\forall z_0\in U\), \(\exists\varepsilon>0\) such that \(\overline{D\qty(z_0,\varepsilon)}\subseteq U\), and if \(\forall0<\varepsilon'\le\varepsilon\), \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi}f\qty(z_0+\varepsilon'e^{it})\ddt,\]
+    Let \(U\subseteq\mathbb{C}\) be open. Let \(f:U\to\mathbb{R}\) be continuous. \(\forall z_0\in U\), \(\exists\lambda>0\) such that \(\overline{D\qty(z_0,\lambda)}\subseteq U\), and if \(\forall0<\varepsilon\le\lambda\), \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi}f\qty(z_0+\varepsilon e^{it})\ddt,\]
     then \(f\) is harmonic on \(U\).
 \end{theorem}
 \begin{proof}
-    Fix an arbitrary point \(z_0\in U\), along with a corresponding \(\varepsilon>0\) such that the closed disk \(\overline{D(z_0,\varepsilon)}\subseteq U\). Since \(f\in C^0\qty(\partial D(z_0,\varepsilon))\), by \autoref{thm:dirichletproblemwithlaplaceequationsolution}, there exists a unique function \(u(z)\) that is harmonic on \(D(z_0,\varepsilon)\), given by \[u(z)=\int_0^{2\pi}f(\zeta)P\qty(\zeta,z)\dd{\tau},\] which agrees with \(f\) on \(\partial D(z_0,\varepsilon)\).
+    Fix an arbitrary point \(z_0\in U\), along with a corresponding \(\lambda>0\) such that the closed disk \(\overline{D(z_0,\lambda)}\subseteq U\). Since \(f\in C^0\qty(\partial D(z_0,\lambda))\), by \autoref{thm:dirichletproblemwithlaplaceequationsolution}, there exists a unique function \(u(z)\) that is harmonic on \(D(z_0,\lambda)\), given by \[u(z)=\int_0^{2\pi}f(\zeta)P\qty(\zeta,z)\dd{\tau},\] which agrees with \(f\) on \(\partial D(z_0,\lambda)\).
 
-    Now define \(\psi=f-u \) on \(\overline{D(z_0,\varepsilon)}\). Then \(\psi\) is continuous, satisfies the mean value property, and vanishes on the boundary. By an extension of the Maximum Principle (see the proof of the Maximum Modulus Principle, \autoref{thm:maximummodulus}, which only uses the mean-value property), any such function must be identically zero throughout the disk. Thus, \(f\equiv u\) on \(\overline{D(z_0,\varepsilon)}\), and in particular, \(f\) is harmonic at \(z_0\).
+    Now define \(\psi=f-u\) on \(\overline{D(z_0,\lambda)}\). Then \(\psi\) is continuous, satisfies the mean value property, and vanishes on the boundary. By an extension of the Maximum Principle (see the proof of the Maximum Modulus Principle, \autoref{thm:maximummodulus}, which only uses the mean-value property), any such function must be identically zero throughout the disk. Thus, \(f\equiv u\) on \(\overline{D(z_0,\lambda)}\), and in particular, \(f\) is harmonic at \(z_0\).
 
     Since \(z_0\in U\) was arbitrary, it follows that \(f\) is harmonic on \(U\).
 \end{proof}
@@ -1939,7 +1954,7 @@ is a Laurent Series at the point \(a\). The series can be separated into a power
 \end{equation} and a power series with negative exponents,
 \begin{equation}
     \psi(z)=\sum_{n=1}^{\infty}c_{-n}(z-a)^{-n}.\label{eq:laurentseriesnegativeexponents}
-\end{equation} Equation~\eqref{eq:laurentseries} is said to be convergent at \(z=z_0\) if the two power series are both convergent. Let the convergence radius of equation~\eqref{eq:laurentseriesnonnegativeexponents} be \(R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}}\) by the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}). It follows that the \(\varphi\) is holomorphic on \(D(a,R)\). Let \(\zeta=(z-a)^{-1}\). Then equation~\eqref{eq:laurentseriesnegativeexponents} becomes \(\sum_{n=1}^\infty c_{-n}\zeta^n\). This series converges when \(\abs{\zeta}<\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}}=\lambda\). Let \(r=\flatfrac{1}{\lambda}\). Then \(\psi(z)\) converges when \(\abs{z-a}>\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}\), or when \(z\in\mathbb{C}\setminus\overline{D(a,r)}\).
+\end{equation} Equation~\eqref{eq:laurentseries} is said to be convergent at \(z=z_0\) if the two power series are both convergent. Let the convergence radius of equation~\eqref{eq:laurentseriesnonnegativeexponents} be \(R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}}\) by the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}). It follows that the \(\varphi\) is holomorphic on \(D(a,R)\). Let \(\zeta=(z-a)^{-1}\). Then equation~\eqref{eq:laurentseriesnegativeexponents} becomes \(\sum_{n=1}^\infty c_{-n}\zeta^n\). This series converges when \(\abs{\zeta}<\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}}=\lambda\). Let \(r=\frac{1}{\lambda}\). Then \(\psi(z)\) converges when \(\abs{z-a}>\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}\), or when \(z\in\mathbb{C}\setminus\overline{D(a,r)}\).
 
 If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D(a,r)}\) and divergent on \(\mathbb{C}\setminus\overline{D(a,R)}\cup D(a,r)\). If \(r=R\), the series diverges possibly everywhere but on \(\partial D(a,r)\). Similar to power series with positive exponents, the convergence on the boundary varies. For example, \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n^2}\), where \(R=r=1\), converges (absolutely) on \(\partial\mathbb{D}\), whereas \(\sum_{n=-\infty}^\infty z^n\) diverges on all of \(\partial\mathbb{D}\), while \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n}\) converges (conditionally) on all of \(\partial\mathbb{D}\setminus\qty{1}\) and diverges at \(z=1\). If \(r>R\), then the series is divergent on all of \(\mathbb{C}\). The region \(D(a,R)\setminus\overline{D(a,r)}\) is known as the \textit{annulus of convergence}. \(f(z)\) in equation~\eqref{eq:laurentseries} is holomorphic over this annulus. \(\varphi(z)\) is known as the \textit{holomorphic part} of \(f(z)\), and \(\psi(z)\) is known as the \textit{principal part} of the Laurent Series. The properties of the convergence disk in Abel's Theorem (\autoref{thm:abelradius}) can be generalized to Laurent Series. \(f\) is absolutely convergent on the annulus and is uniformly convergent on every compact subset of it.
 \begin{theorem}\label{thm:laurentexpansionofholomorphicfunction}
@@ -2180,10 +2195,10 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
 \begin{enumerate}
     \item If \(f\) has no zeros in \(\mathbb{C}\), then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)e^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)e^{-\varphi(z)})=f'(z)e^{-\varphi(z)}-\varphi'(z)f(z)e^{-\varphi(z)}=0\). It follows that \(f(z)e^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).\label{itm:entirefunctionconstructednonvanishing}
     \item If \(f(z)\) is entire and has finitely many zeros in \(\mathbb{C}\), namely \(a_0=0,a_1,a_2,\ldots,a_n\) with respective multiplicities \(m_0,m_1,\ldots m_n\) (if \(0\) is not a zero, treat \(m_0=0\)), then at each zero \(a_k\), it has the local Taylor expansion of
-        \[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every root, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By \ref{itm:entirefunctionconstructednonvanishing}, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write
+        \[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every zero, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By \ref{itm:entirefunctionconstructednonvanishing}, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write
         \begin{equation}
             f(z)=p(z)\exp(\varphi(z)),\label{eq:weierstrassfactorization_finitezeros}
-        \end{equation} where \(p(z)\) is a polynomial with roots at \(a_k\) with respective multiplicities of \(m_k\). The entire functions \(p(z)\) and \(f(z)\) both have the same zeros with matching multiplicities.
+        \end{equation} where \(p(z)\) is a polynomial with zeros at \(a_k\) with respective multiplicities of \(m_k\). The entire functions \(p(z)\) and \(f(z)\) both have the same zeros with matching multiplicities.
     \item If \(f(z)\) is entire and has infinitely many zeros such that \(f\) is not identically zero. It follows that \(f\) has countably many zeros (since the zeros are isolated). Let the zeros be indexed by \(\mathbb{N}\), namely \(a_1,a_2,\ldots\). Without loss of generality, assume that \(\forall n\in\mathbb{N}\), \(0<\abs{a_n}\leq\abs{a_{n+1}}\) (repeated elements representing multiplicities), and \(\lim_{n\to\infty}a_n=\infty\). The case for a zero at \(0\) will be treated differently.
 
         There exists a positive integer sequence \(p_1,p_2,\ldots\) such that for every positive and finite \(R\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. For example, let \(p_n=n\), and for sufficiently large \(n\), \(\frac{R}{\abs{a_n}}<1\) and the series is convergent. Consider the infinite product
@@ -2320,7 +2335,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     \end{equation}
     Under what conditions on \(\varPsi\) will \(f\) be entire? Since the supports of each \(\varphi_k\) are disjoint, the summation \(\sum_{k=1}^\infty\phi_k(z)\varphi_k(z)\) contains at most one nonzero term and is convergent and well-defined. To construct \(f\) to be entire, we must have \(\pdv{f}{\overline{z}}=0\). In other words, we want for \[\pdv{\overline{z}}(\sum_{k=1}^\infty\phi_k\varphi_k)=\pdv{\overline{z}}[\Phi\varPsi]\Longleftrightarrow\sum_{k=1}^\infty\phi_k\pdv{\varphi_k}{\overline{z}}=\Phi\pdv{\varPsi}{\overline{z}}\] on all of \(\mathbb{C}\). Let \(g(z)=\sum_{k=1}^\infty\phi_k(z)\pdv{\varphi_k(z)}{\overline{z}}\). Since \(\varphi_k\equiv 1\) on \(\overline{D\qty(z_k,\varepsilon_k)}\), \(\pdv{\varphi_k}{\overline{z}}\equiv 0\) on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\). Consequently, \(g(z)\equiv 0\) on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\).
 
-    From rearrangement, we have \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\), which has removable singularities at each \(z_k\). Define \(\frac{g(z)}{\Phi(z)}=0\) at \(z=z_k\). Under this assertion, we have \(\frac{g(z)}{\Phi(z)}\in C^\infty(\mathbb{C})\). Since the support of \(\frac{g(z)}{\Phi(z)}\) is the union of disjoint compact sets, by \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a function \(\varPsi\in C^\infty(\mathbb{C})\) satisfying \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\). Since \(g\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), it follows that \(\frac{g}{\Phi}\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), and \(\varPsi\) is holomorphic on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\).
+    From rearrangement, we have \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\), which has removable singularities at each \(z_k\). Define \(\frac{g(z)}{\Phi(z)}=0\) at \(z=z_k\). Under this assertion, we have \(\frac{g(z)}{\Phi(z)}\in C^\infty(\mathbb{C})\). Since the support of \(\frac{g(z)}{\Phi(z)}\) is the union of disjoint compact sets, by \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a function \(\varPsi\in C^\infty(\mathbb{C})\) satisfying \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\). Since \(g\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), it follows that \(\frac{g}{\Phi}\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), and \(\varPsi\) is holomorphic on \(\bigcup_{k=1}^\infty{D\qty(z_k,\varepsilon_k)}\).
 
     Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\varPsi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\varPsi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that
     \begin{align*}
@@ -2476,11 +2491,6 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{align*}
     Hence, \[-i\pi+2i\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\pi}{2}.\]
 \end{proof}
-\begin{example}[Gaussian Integral]\label{ex:gaussianintegral}
-    Evaluate the improper integral \(I=\int_{-\infty}^\infty e^{-x^2}\ddx\).
-\end{example}
-\begin{proof}
-\end{proof}
 \begin{example}[Fresnel Integral]
     Evaluate the improper integrals \[I_1=\int_0^\infty\cos\qty(x^2)\ddx,\qquad I_2=\int_0^\infty\sin\qty(x^2)\ddx.\]
 \end{example}
@@ -2517,10 +2527,13 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{equation} The third integral can be written as \[\int_{\gamma_3}f(z)\ddz=Ri\int_0^{\frac{\pi}{4}}e^{i{\qty(Re^{i\theta})}^2}e^{i\theta}\dd{\theta}.\]
     Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as \[\abs{\int_{\gamma_3}f(z)\ddz}\leq R{\int_0^{\frac{\pi}{4}}e^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}e^{-\frac{4}{\pi}R^2\theta}\dd{\theta}=-\frac{\pi}{4R}\eval{e^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-e^{-R^2}).\]
     As \(R\to\infty\), this integral tends to 0. Let \(z=re^{i\frac{\pi}{4}}\) on \(\gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\gamma_2}f(z)\ddz=\int_\infty^0\exp[i\qty(re^{i\frac{\pi}{4}})^2]e^{i\frac{\pi}{4}}\dd{r}=e^{i\frac{\pi}{4}}\int_\infty^0\exp(-r^2)\dd{r}.\]
-    From equation~\eqref{eq:fresnelwedgecontourintegral}, we have that \[\int_0^\infty e^{ir^2}\dd{r}=e^{i\frac{\pi}{4}}\int_0^\infty e^{-r^2}\dd{r}.\] By \autoref{ex:gaussianintegral}, we know that \(\int_0^\infty e^{-r^2}\dd{r}=\frac{\sqrt{\pi}}{2}\). Therefore, we have \[\int_0^\infty e^{ir^2}\dd{r}=\qty(\frac{\sqrt{2}}{2}+i\frac{\sqrt{2}}{2})\frac{\sqrt{\pi}}{2}.\]
+    From equation~\eqref{eq:fresnelwedgecontourintegral}, we have that \[\int_0^\infty e^{ir^2}\dd{r}=e^{i\frac{\pi}{4}}\int_0^\infty e^{-r^2}\dd{r}.\] Since \(\int_0^\infty e^{-r^2}\dd{r}=\frac{\sqrt{\pi}}{2}\), we have \[\int_0^\infty e^{ir^2}\dd{r}=\qty(\frac{\sqrt{2}}{2}+i\frac{\sqrt{2}}{2})\frac{\sqrt{\pi}}{2}.\]
     Since \(e^{ir^2}=\cos(r^2)+i\sin(r^2)\), we have \[\int_0^\infty\cos(r^2)\dd{r}=\Re\qty[\int_0^\infty e^{ir^2}\dd{r}]=\frac{\sqrt{2\pi}}{4},\qquad\int_0^\infty\sin(r^2)\dd{r}=\Im\qty[\int_0^\infty e^{ir^2}\dd{r}]=\frac{\sqrt{2\pi}}{4},\]
     as desired.
 \end{proof}
+\begin{example}
+    Evaluate the integrals \(\int_0^{2\pi}\Phi(\cos\theta,\sin\theta)\dd{\theta}\), where \(\Phi(\xi,\eta)\) is a rational function of \(\xi\) and \(\eta\) that is continuous on \([0,2\pi]\).
+\end{example}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
 Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}. 
@@ -2551,7 +2564,38 @@ Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), t
     \[\lim_{\varepsilon \to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\vartheta\residue_{z=a}f(z),\] as desired.
 \end{proof}
 \subsection{Analytic Continuation}
-We
+The concept of analytic continuation was previously introduced (\autoref{def:analyticcontinuation}). By the Identity Theorem of holomorphic functions (\autoref{thm:identity}), we asserted the uniqueness of analytic continuations. If \(f_1\) and \(f_2\) are analytic functions on open sets \(U_1\) and \(U_2\) respectively, satisfying \(U_3=U_1\cup U_2\neq\emptyset\), and if \(f_1\equiv f_2\) on \(U_3\), then \(f_1\) and \(f_2\) are analytic continuations of each other. The function defined by \[f(z)=\begin{cases}
+    f_1(z)& z\in U_1\\
+    f_2(z)& z\in U_2\setminus U_1
+\end{cases}\] is also holomorphic.
+Perhaps the most straightforward way to obtain analytic continuations is through the observation of power series. By \autoref{thm:abelradius}, there exists a unique \(R>0\) such that the power series \(f(z)=\sum_{n=0}^\infty c_n{\qty(z-z_0)}^n\) is convergent on \(D\qty(z_0,R)\) and divergent on \(\mathbb{C}\setminus \overline{D\qty(z_0,R)}\). Let \(z_1\in D(0,R)\). Then \(f\) has the Taylor expansion at \(z_1\) of \[f(z)=\sum_{n=0}^\infty\frac{f^{(n)}\qty(z_1)}{n!}\qty(z-z_1)^n.\]
+Let \(\rho>0\) be its convergence radius at \(z_1\). It follows that \(\rho+\qty|z_1-z_0|\geq R\). If \(\rho+\abs{z_1-z_0}>R\), then a part of \(D\qty(z_1,\rho)\) lies outside of \(D\qty(z_0,R)\). In this case, \(f\) can be analytically continued to \(D\qty(z_1,\rho)\setminus D\qty(z_0,R)\). Under the equality case, then the two disks are tangent at some point \(\zeta_0\). Then \(f\) cannot be analytically continued from \(\zeta_0\), and \(\zeta_0\) is a \textit{singularity} of \(f\).
+
+As a matter of fact, if \(R\) is a convergence radius, then there is at least one singularity on the boundary of the convergence disk.
+
+Assume, for the sake of contradiction, that \( f \) can be analytically continued from every point on the boundary \( \partial D(z_0, R) \). Let \( \zeta \in \partial D(z_0, R) \) be arbitrary. Then there exists a radius \( R_\zeta > 0 \) and a function \( f_\zeta \), holomorphic on \( D(\zeta, R_\zeta) \), such that \( f_\zeta \) agrees with \(f\) on the intersection \(D(\zeta,R_\zeta)\cap D(z_0,R)\).
+
+The collection of disks \( \{ D(\zeta, R_\zeta) \}_{\zeta\in\partial D(z_0,R)}\) forms an open cover of the compact set \( \partial D(z_0, R) \). By the Heine--Borel Theorem (\autoref{thm:heineborel}), there exists a finite subcover \( \{ D(\zeta_k, R_{\zeta_k}) \}_{k=1}^n \).
+
+Define the open set
+\[V=\bigcup_{k=1}^n D(\zeta_k, R_{\zeta_k}),\]
+which contains \(\partial D\qty(z_0, R)\). Since \(\partial D\qty(z_0,R)\) is compact and \(V\) is open, there exists \(\rho> 0\) such that the annular region \(D\qty(z_0,R+\rho)\setminus\overline{D\qty(z_0,R-\rho)}\subset V\); equivalently, the distance from \(\partial D(z_0,R)\) to the boundary \(\partial V\) is positive.
+
+Define a function \(\Phi:V\to\mathbb{C}\) by setting \(\Phi(z)=f_{\zeta_k}(z)\) for each \(z \in D\qty(\zeta_k,R_{\zeta_k})\). The function \(\Phi\) is single-valued and well-defined: for any \(j\neq k\) such that \(D\qty(\zeta_j, R_{\zeta_j})\cap D\qty(\zeta_k, R_{\zeta_k})\neq\emptyset\), we also have
+\[D\qty(\zeta_j,R_{\zeta_j})\cap D\qty(\zeta_k,R_{\zeta_k})\cap D\qty(z_0,R)\neq\emptyset,\]
+on which \(f_{\zeta_j}\), \(f_{\zeta_k}\), and \(f\) agree, and hence must agree on the union. Thus, \(\Phi\) is a well-defined holomorphic function on \(V\), and it agrees with \(f\) on \(D(z_0,R)\cap V\).
+
+It follows that \(f\) has an analytic continuation to the set \(D(z_0,R)\cup V \), which contains the disk \(D(z_0,R+\rho)\). This contradicts the assumption that \(f\) cannot be analytically continued beyond \(D(z_0,R)\). Therefore, the assumption must be false.
+\begin{example}
+    The series \(f(z)=\sum_{n=0}^\infty z^{n!}\) has singularities at every point of its circle of convergence.
+\end{example}
+\begin{proof}
+    By the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}), the series has the convergence radius of \[\varlimsup_{n\to\infty}\sqrt[n]{\begin{cases}
+    1&n\in\cbraces{k!}{k\in\mathbb{N}}\\
+    0&\text{otherwise}
+    \end{cases}}=1.\]
+It follows that \(f\) is holomorphic on \(\mathbb{D}\). Let \(\qty|z_0|=\frac{1}{2}\) be arbitrary. It follows that \(f(z)\) has a Taylor expansion at \(z=z_0\) of \[f(z)=\sum_{n=0}^\infty\frac{f^{(n)}\qty(z_0)}{n!}{\qty(z-z_0)}^n.\]
+\end{proof}
 \section{The Theory of Riemann}\label{sec:riemann}
 First, we will formally introduce the results in \chpref{sec:conformalityintroduction}. Then we will study one of the most famous and historically profound results in complex analysis.
 \subsection{The Riemann Mapping Theorem}
