@@ -2534,6 +2534,9 @@ Residues are extremely important as they allow for simple evaluation of definite
 \begin{example}
     Evaluate the integrals \(\int_0^{2\pi}\Phi(\cos\theta,\sin\theta)\dd{\theta}\), where \(\Phi(\xi,\eta)\) is a rational function of \(\xi\) and \(\eta\) that is continuous on \([0,2\pi]\).
 \end{example}
+\begin{proof}
+    Let \(z=e^{i\theta}\). Consequently, we have \(\cos\theta=\frac{z+z^{-1}}{2}\), \(\sin\theta=\frac{z-z^{-1}}{2i}\), and \(\ddz=ie^{i\theta}\dd{\theta}\), implying that \(\dd{\theta}=\frac{\ddz}{iz}\). Therefore, we have \[\int_0^{2\pi}\Phi(\cos\theta,\sin\theta)\dd{\theta}=\int_{\partial\mathbb{D}}\Phi\qty(\frac{z+z^{-1}}{2},\frac{z-z^{-1}}{2i})\frac{\ddz}{iz}.\]
+\end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
 Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}. 
