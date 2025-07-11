@@ -2610,8 +2610,12 @@ Residues are extremely important as they allow for simple evaluation of definite
     Subsequently, \begin{align*}
         \Res[f,\frac{i}{2}]&=\lim_{z\to\frac{i}{2}}\qty(z-\frac{i}{2})\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}\\
         &=\lim_{z\to\frac{i}{2}}\dv{z}(\frac{\cosh(\pi z)}{\exp(-2\pi iz\xi)})^{-1}\\
-        &=\lim_{z\to\frac{i}{2}}\frac{\exp{-2\pi iz\xi}}{\sinh(\pi z)+2\pi i\xi\cosh(\pi z)}\\
-        &=-i\exp(\pi\xi)
+        &=\lim_{z\to\frac{i}{2}}\frac{\exp{-2\pi iz\xi}}{\pi\sinh(\pi z)+2\pi i\xi\cosh(\pi z)}\\
+        &=\frac{\exp(\pi\xi)}{\pi i}.
+    \end{align*} Similarly, \begin{align*}
+        \Res[f,\frac{3i}{2}]&=\lim_{z\to\frac{3i}{2}}\qty(z-\frac{3i}{2})\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}\\
+        &=\lim_{z\to\frac{3i}{2}}\frac{\exp{-2\pi iz\xi}}{\pi\sinh(\pi z)+2\pi i\xi\cosh(\pi z)}\\
+        &=\frac{\exp(\pi\xi)}{\pi i}.
     \end{align*}
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
