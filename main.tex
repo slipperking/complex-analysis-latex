@@ -2603,9 +2603,10 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{figure}Since \(\cosh(\pi z)=\cosh(\pi(z+2i))\) and \(\exp(-2\pi iz\xi)=\exp(-4\pi\xi)\exp(-2\pi i(z+2i)\xi)\), we have that \(f(z)\) is a constant multiple of \(f(z+2i)\). Therefore, we can use a rectangular contour as shown in \autoref{fig:rectangularcontour}. Let the sides be denoted by 
     \begin{gather*}
         \overset{\uparrow}{\Gamma}=\cbraces{x+2i}{-R\leq x\leq R,x\in\mathbb{R}},\quad\overset{\downarrow}{\Gamma}=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R}\\
-        \overleftarrow{\Gamma}=\cbraces{-R+iy}{y\in[0,2]},\quad\overrightarrow{\Gamma}=\cbraces{R+iy}{y\in[0,2]}
+        \overleftarrow{\Gamma}=\cbraces{-R+iy}{y\in[0,2]},\quad\overrightarrow{\Gamma}=\cbraces{R+iy}{y\in[0,2]}.
     \end{gather*}
-    
+    The enclosed singularities are simple poles at \(z=\frac{i}{2},\frac{3i}{2}\) (they are simple by evaluation of the Taylor expansions of the denominator). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\qty(\int_{\overset{\uparrow}{\Gamma}}+\int_{\overset{\downarrow}{\Gamma}}+\int_{\overleftarrow{\Gamma}}+\int_{\overrightarrow{\Gamma}})f(z)\ddz=2\pi i\qty(\Res[f,\frac{i}{2}]+\Res[f,\frac{3i}{2}]).\]
+    By equation~\eqref{eq:residueatpole}, we have \[\Res[f,\frac{i}{2}]=\lim_{z\to\frac{i}{2}}\qty(z-\frac{i}{2})\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}\]
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
