@@ -148,7 +148,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     We are primarily concerned when the support of a function is compact, or if the support is bounded. Functions that are compactly supported and \(C^\infty\) are also called \textit{bump functions}.
 \end{remark}
 \subsection{Calculus}
-Since traditional complex analysis is the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for complex functions. 
+Since traditional complex analysis is the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for complex functions.
 
 It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a point \(x\in(a,b)\) if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by \(f'(x)\) or \(\frac{\dd{f}}{\ddx}\). The value \(\dd{f}=f'(x)\ddx\) is the differential of \(f(x)\). Partition \([a,b]\) into \(a=x_0<x_1<x_2<\cdots<x_n=b\) such that the length of the intervals \([x_i,x_{i-1}]\) tends to 0 as \(n\to\infty\). If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\), then the function can be roughly said to be integrable over \([a,b]\). The full details of Riemann integrability relate to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
 \begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
@@ -214,7 +214,7 @@ which is the definition of the total differential. For a 1-form in 3-dimensional
 Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
 \[\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\wedge\ddy\wedge\ddz.\]
 The two results above resemble the curl and divergence of \(\mqty(P\\Q\\R)\). A differential form \(\omega\) is \textit{closed} if \(\dd{\omega}=0\), and is exact if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
-\begin{lemma}[Poincaré's Lemma]\label{lemma:poincare}
+\begin{lemma}[Poincaré Lemma]\label{lemma:poincare}
     For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
 \end{lemma}
 It is true that for any set \(U\subseteq \mathbb{R}^n\), regardless of contractibility, that for a differential form \(\omega\) defined on \(U\), \(\dd\dd\omega=0\). In other words, all exact differential forms are closed.
@@ -338,7 +338,7 @@ We will now give statements relating to operations on Riemann integrals:
 \begin{proof}
     The second part is self-explanatory as it can be interpreted as an area integral.
 
-    Let \(\varphi(u)=\int_a^b f(x,u)\ddx\). Since \(f(x,u)\) is continuous on a compact set with respect to both \(x\) and \(u\), by \autoref{lemma:uniformcontinuousovercompactset}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\] 
+    Let \(\varphi(u)=\int_a^b f(x,u)\ddx\). Since \(f(x,u)\) is continuous on a compact set with respect to both \(x\) and \(u\), by \autoref{lemma:uniformcontinuousovercompactset}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\]
 \end{proof}
 \section{Complex Prerequisites}
 \subsection{The Complex Plane}
@@ -1107,7 +1107,7 @@ We have also already seen the utility of parameterization via a polar transforma
             0      & k< n \\
             2\pi i & k=n
     \end{cases}.\]
-    Therefore, \[2^{2n}i\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi i\binom{2n}{n}\Longleftrightarrow\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi\frac{\qty(2n)!}{2^{2n}\qty(n!)^2}=2\pi\frac{\prod_{k=1}^{2n}k}{\qty[\prod_{k=1}^{n}\qty(2k)]^2}.\]
+    Therefore, \[2^{2n}i\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi i\binom{2n}{n}\Longleftrightarrow\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi\frac{\qty(2n)!}{2^{2n}\qty(n!)^2}=2\pi\frac{\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}\qty(2k)^2}.\]
     From simple cancellation, we get \[2\pi\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\pi\prod_{k=1}^n\frac{2k-1}{2k},\]
     as expected.
 \end{proof}
@@ -1194,7 +1194,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
         \frac{f(z)-f\paren{z_0}}{z-z_0}-\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z_0}^2} & =\frac{1}{2\pi i}\oint_{\partial U}\frac{f\paren{\zeta}}{\zeta-z_0}\paren{\frac{1}{\zeta-z}-\frac{1}{\zeta-z_0}}\ddzeta\nonumber                                      \\
         & =\frac{z-z_0}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta.\label{eq:cauchydifferentiationformula_differenceoffirstorderdifferences}
     \end{align}
-    Let \(d\) be the distance from \(z_0\) to \(\partial U\), and it follows that \(0<r<d\) be arbitrary. Then, since \(\abs{z-z_0}<r\) and \(\abs{\zeta-z_0}\geq d\), \(\abs{\zeta-z}\geq d-r\). Then the absolute value of the integrand of equation~\eqref{eq:cauchydifferentiationformula_differenceoffirstorderdifferences} is bounded above by \(\frac{M}{d^2(d-r)}\), where \(M\) is the maximum of \(f(\zeta)\), which exists by \autoref{thm:continuousfunctionboundedoncompact}. Then, \[\abs{\frac{z-z_0}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta}\leq\frac{\abs{z-z_0}}{2\pi}\frac{M}{d^2(d-r)}\oint_{\partial U}\abs{\ddzeta}.\] As \(z\to z_0\), the difference vanishes, and therefore, \[f'\paren{z_0}=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^2}\ddzeta.\]
+    Let \(d\) be the distance from \(z_0\) to \(\partial U\), and it follows that \(0<r<d\). Then, since \(\abs{z-z_0}<r\) and \(\abs{\zeta-z_0}\geq d\), \(\abs{\zeta-z}\geq d-r\). Then the absolute value of the integrand of equation~\eqref{eq:cauchydifferentiationformula_differenceoffirstorderdifferences} is bounded above by \(\frac{M}{d^2(d-r)}\), where \(M\) is the maximum of \(f(\zeta)\), which exists by \autoref{thm:continuousfunctionboundedoncompact}. Then, \[\abs{\frac{z-z_0}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta}\leq\frac{\abs{z-z_0}}{2\pi}\frac{M}{d^2(d-r)}\oint_{\partial U}\abs{\ddzeta}.\] As \(z\to z_0\), the difference vanishes, and therefore, \[f'\paren{z_0}=\frac{1}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^2}\ddzeta.\]
     Now inductively assume that equation~\eqref{eq:cauchydifferentiationformula_statement} is true for a given \(n=k\in\mathbb{N}\), or \[f^{(k)}(z)=\frac{k!}{2\pi i}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{k+1}}\ddzeta.\]
     Notice the expansion of the kernel, convergent since \(\abs{z-z_0}<\abs{\zeta-z_0}\):
     \begin{equation}
@@ -1896,7 +1896,7 @@ Consider \(R=1\), \(\zeta=e^{i\tau}\), \(z=\rho e^{i\theta}\) in equation~\eqref
     u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})}\nonumber\\
     =\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
 \end{gather}
-If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\exp(i\tau)\) is periodic over \(2\pi\). Thus, it can be expressed as a Fourier series 
+If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\exp(i\tau)\) is periodic over \(2\pi\). Thus, it can be expressed as a Fourier series
 \begin{equation}
     u\qty(e^{i\tau})\sim\sum_{n=-\infty}^\infty a_ne^{in\tau},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}.\label{eq:poissonintegralformulafourierseries}
 \end{equation}
@@ -2174,7 +2174,7 @@ We have now introduced three of the most important regions in complex analysis: 
     Find the group of holomorphic automorphisms on the upper half-plane \(\mathbb{H}=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\).
 \end{example}
 \begin{proof}
-    
+
 \end{proof}
 \subsubsection{The Construction of Entire and Meromorphic Functions}
 It is common knowledge in algebra that any polynomial can be factored into linear factors. When can this factorization be extended to transcendental entire functions?
@@ -2337,15 +2337,15 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 
     Define a complex function sequence \(\qty{\phi_k(z)}_{k\in\mathbb{N}}\) with \[\phi_k(z)=\sum_{n=0}^{n_k-1}w_{k,n}\qty(z-z_k)^n,\] where \(k\in\mathbb{N}\). By \autoref{thm:bumpfunctionexistence}, we can construct a \(C^\infty\) sequence of functions \(\qty{\varphi_k(z)}_{k\in\mathbb{N}}\) such that \(\forall k\in\mathbb{N}\), \(\supp\varphi_k\subset D\qty(z_k, 2\varepsilon_k)\), \(\varphi_k\equiv 1\) on \(\overline{D\qty(z_k,\varepsilon_k)}\), and \(0\le\varphi\le 1\) on \(\mathbb{C}\).
 
-    Let \(\varPsi\in C^\infty(\mathbb{C})\), and construct
+    Let \(\Psi\in C^\infty(\mathbb{C})\), and construct
     \begin{equation}
-        f(z)=-\Phi(z)\varPsi(z)+\sum_{k=1}^\infty\phi_k(z)\varphi_k(z).\label{eq:generalinterpolationexistence_constructionstatement}
+        f(z)=-\Phi(z)\Psi(z)+\sum_{k=1}^\infty\phi_k(z)\varphi_k(z).\label{eq:generalinterpolationexistence_constructionstatement}
     \end{equation}
-    Under what conditions on \(\varPsi\) will \(f\) be entire? Since the supports of each \(\varphi_k\) are disjoint, the summation \(\sum_{k=1}^\infty\phi_k(z)\varphi_k(z)\) contains at most one nonzero term and is convergent and well-defined. To construct \(f\) to be entire, we must have \(\pdv{f}{\overline{z}}=0\). In other words, we want for \[\pdv{\overline{z}}(\sum_{k=1}^\infty\phi_k\varphi_k)=\pdv{\overline{z}}[\Phi\varPsi]\Longleftrightarrow\sum_{k=1}^\infty\phi_k\pdv{\varphi_k}{\overline{z}}=\Phi\pdv{\varPsi}{\overline{z}}\] on all of \(\mathbb{C}\). Let \(g(z)=\sum_{k=1}^\infty\phi_k(z)\pdv{\varphi_k(z)}{\overline{z}}\). Since \(\varphi_k\equiv 1\) on \(\overline{D\qty(z_k,\varepsilon_k)}\), \(\pdv{\varphi_k}{\overline{z}}\equiv 0\) on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\). Consequently, \(g(z)\equiv 0\) on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\).
+    Under what conditions on \(\Psi\) will \(f\) be entire? Since the supports of each \(\varphi_k\) are disjoint, the summation \(\sum_{k=1}^\infty\phi_k(z)\varphi_k(z)\) contains at most one nonzero term and is convergent and well-defined. To construct \(f\) to be entire, we must have \(\pdv{f}{\overline{z}}=0\). In other words, we want for \[\pdv{\overline{z}}(\sum_{k=1}^\infty\phi_k\varphi_k)=\pdv{\overline{z}}[\Phi\Psi]\Longleftrightarrow\sum_{k=1}^\infty\phi_k\pdv{\varphi_k}{\overline{z}}=\Phi\pdv{\Psi}{\overline{z}}\] on all of \(\mathbb{C}\). Let \(g(z)=\sum_{k=1}^\infty\phi_k(z)\pdv{\varphi_k(z)}{\overline{z}}\). Since \(\varphi_k\equiv 1\) on \(\overline{D\qty(z_k,\varepsilon_k)}\), \(\pdv{\varphi_k}{\overline{z}}\equiv 0\) on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\). Consequently, \(g(z)\equiv 0\) on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\).
 
-    From rearrangement, we have \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\), which has removable singularities at each \(z_k\). Define \(\frac{g(z)}{\Phi(z)}=0\) at \(z=z_k\). Under this assertion, we have \(\frac{g(z)}{\Phi(z)}\in C^\infty(\mathbb{C})\). Since the support of \(\frac{g(z)}{\Phi(z)}\) is the union of disjoint compact sets, by \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a function \(\varPsi\in C^\infty(\mathbb{C})\) satisfying \(\frac{g(z)}{\Phi(z)}=\pdv{\varPsi}{\overline{z}}\). Since \(g\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), it follows that \(\frac{g}{\Phi}\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), and \(\varPsi\) is holomorphic on \(\bigcup_{k=1}^\infty{D\qty(z_k,\varepsilon_k)}\).
+    From rearrangement, we have \(\frac{g(z)}{\Phi(z)}=\pdv{\Psi}{\overline{z}}\), which has removable singularities at each \(z_k\). Define \(\frac{g(z)}{\Phi(z)}=0\) at \(z=z_k\). Under this assertion, we have \(\frac{g(z)}{\Phi(z)}\in C^\infty(\mathbb{C})\). Since the support of \(\frac{g(z)}{\Phi(z)}\) is the union of disjoint compact sets, by \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a function \(\Psi\in C^\infty(\mathbb{C})\) satisfying \(\frac{g(z)}{\Phi(z)}=\pdv{\Psi}{\overline{z}}\). Since \(g\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), it follows that \(\frac{g}{\Phi}\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), and \(\Psi\) is holomorphic on \(\bigcup_{k=1}^\infty{D\qty(z_k,\varepsilon_k)}\).
 
-    Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\varPsi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\varPsi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that
+    Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\Psi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\Psi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that
     \begin{align*}
         f^{(n)}\qty(z_k)&=\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}\\
         &=\qty[\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)]_{z=z_k}\\
@@ -2524,7 +2524,7 @@ Residues are extremely important as they allow for simple evaluation of definite
             \node[anchor=south] at (2.5,2.5) {\(R\)};
         \end{tikzpicture}
         \caption{A wedge contour with orientation marked.}\label{fig:wedgecontour}
-    \end{figure}Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\Gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\Gamma_2=\cbraces{re^{i\frac{\pi}{4}}}{0\leq r\leq R},\quad C_R=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that 
+    \end{figure}Let \(f(z)=e^{iz^2}\). Choose the wedge contour composed of \[\Gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\Gamma_2=\cbraces{re^{i\frac{\pi}{4}}}{0\leq r\leq R},\quad C_R=\cbraces{Re^{i\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that
     \begin{equation}
         \int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=0.\label{eq:fresnelwedgecontourintegral}
     \end{equation} The third integral can be written as \[\int_{C_R}f(z)\ddz=Ri\int_0^{\frac{\pi}{4}}e^{i{\qty(Re^{i\theta})}^2}e^{i\theta}\dd{\theta}.\]
@@ -2548,11 +2548,12 @@ Residues are extremely important as they allow for simple evaluation of definite
     Let \(f(z)=\frac{z^\alpha}{1+z^\beta}\) and let \(-\pi<\Arg(z)\leq \pi\) in the principal branches of \(z^\alpha=e^{\alpha\Log(z)}\) and \(z^\beta=e^{\beta\Log(z)}\). Then except for at the zeros of \(1+z^\beta\), \(f\) is holomorphic.
 
     The solutions to \(z^\beta=-1\) are \(z=\exp(i\frac{\pi}{\beta}+2ik\frac{\pi}{\beta})\). Choose a wedge contour with an angle of \(\frac{2\pi}{\beta}\) (as in \autoref{fig:wedgecontour}). The only singularity it encloses is \(\exp(i\frac{\pi}{\beta})\). Since it is a simple zero of \(\frac{1}{f}\), this singularity is a simple pole.
-    
+
     The contour is the union of the following curves:
     \[\Gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\Gamma_2=\cbraces{r\exp(i\frac{2\pi}{\beta})}{0\leq r\leq R},\quad C_R=\cbraces{Re^{i\theta}}{0\leq\theta\leq \frac{2\pi}{\beta}},\]
     where \(R>1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{R\to\infty}\int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=2\pi i\Res[f,\exp(i\frac{\pi}{\beta})].\]
-    By equation~\eqref{eq:residueatpole}, it follows that \begin{align*}
+    By equation~\eqref{eq:residueatpole}, it follows that
+    \begin{align*}
         \residue\qty[f,\exp(i\frac{\pi}{\beta})]&=\lim_{z\to\exp(i\frac{\pi}{\beta})}\flatfrac{\qty[z-\exp(i\frac{\pi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]}\\
         &=\lim_{z\to\exp(i\frac{\pi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}\\
         &=\lim_{z\to\exp(i\frac{\pi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}\\
@@ -2566,11 +2567,11 @@ Residues are extremely important as they allow for simple evaluation of definite
     It follows that \[I=\frac{2\pi i}{\beta}\brackets{\exp(i\frac{\pi}{\beta}(\alpha+1))-\exp(-i\frac{\pi}{\beta}(\alpha+1))}^{-1}=\frac{\pi}{\beta}\csc(\frac{\pi}{\beta}(\alpha+1)).\]
 \end{proof}
 \begin{example}
-    Prove that the Fourier transform of \(\sech(\pi x)\) is itself, or that \[I(\xi)=\int_{-\infty}^\infty e^{-2\pi ix\xi}\sech(\pi x)\ddx=\sech(\pi\xi).\]
+    Prove that the Fourier transform of \(\sech(\pi x)\) is itself, or that \[I(\xi)=\int_{-\infty}^\infty\exp(-2\pi ix\xi)\sech(\pi x)\ddx=\sech(\pi\xi).\]
 \end{example}
 \begin{proof}
     Fix \(\xi\in\mathbb{R}\) and let \(f(z)=\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}\). Its poles in \(\mathbb{C}\) occur when \(e^{\pi z}+e^{-\pi z}=0\), or equivalently, when \(z=i\qty(n+\frac{1}{2})\), where \(n\in\mathbb{Z}\).
-    
+
     \begin{figure}
         \centering
         \begin{tikzpicture}[>=stealth,
@@ -2581,7 +2582,7 @@ Residues are extremely important as they allow for simple evaluation of definite
 
             \draw[-{Stealth}, ultra thin] (0, 0) -- (5, 0);
             \draw[-{Stealth}, ultra thin] (0, 0) -- (-5, 0);
-            \draw[-{Stealth}, thin] (0, 0) -- (0, 4);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, 3);
             \draw[-{Stealth}, thin] (0, 0) -- (0, -0.5);
             \draw[-{Stealth}, thick] (-3, 0) -- (0, 0);
             \draw[-{Stealth}, thick] (0, 0) -- (3, 0);
@@ -2590,42 +2591,52 @@ Residues are extremely important as they allow for simple evaluation of definite
             \draw[-{Stealth}, thick] (0, 2) -- (-3, 2);
             \draw[-{Stealth}, thick] (-3, 2) -- (-3, 0);
             \node[anchor=north, xshift=-2pt] at (5, 0) {\(\Re(z)\)};
-            \node[anchor=east, yshift=-2pt] at (0, 4) {\(\Im(z)\)};
+            \node[anchor=east, yshift=-2pt] at (0, 3) {\(\Im(z)\)};
             \node[anchor=north] at (3,0) {\(R\)};
             \node[anchor=north] at (-3,0) {\(-R\)};
-            \node[anchor=south east] at (0,2) {\(2i\)};
+            \node[anchor=south east] at (0,2) {\(i\)};
         \end{tikzpicture}
         \caption{A rectangular contour with orientation marked.}\label{fig:rectangularcontour}
-    \end{figure}Since \(\cosh(\pi z)=\cosh(\pi(z+2i))\) and \(\exp(-2\pi iz\xi)=\exp(-4\pi\xi)\exp(-2\pi i(z+2i)\xi)\), we have that \(f(z)\) is a constant multiple of \(f(z+2i)\). Therefore, we can use a rectangular contour as shown in \autoref{fig:rectangularcontour}. Let the sides be denoted by 
+    \end{figure}Since \[\cosh(\pi(z+i))=-\cosh(\pi z),\qquad\exp(-2\pi i(z+i)\xi)=\exp(2\pi\xi)\exp(-2\pi iz\xi),\] we have that \(f(z)\) is a constant multiple of \(f(z+i)\). In particular, \(f(z+i)=-\exp(2\pi\xi)f(z)\). Therefore, we can use a rectangular contour as shown in \autoref{fig:rectangularcontour}. Let the sides be denoted by
     \begin{gather*}
-        \overleftarrow{\Gamma}=\cbraces{x+2i}{-R\leq x\leq R,x\in\mathbb{R}},\qquad\overrightarrow{\Gamma}x=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R}\\
-        \overset{\downarrow}{\Gamma}=\cbraces{-R+iy}{y\in[0,2]},\qquad\overset{\uparrow}{\Gamma}=\cbraces{R+iy}{y\in[0,2]}.
+        \overleftarrow{\Gamma}=\cbraces{x+i}{-R\leq x\leq R,x\in\mathbb{R}},\qquad\overrightarrow{\Gamma}x=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R}\\
+        \overset{\downarrow}{\Gamma}=\cbraces{-R+iy}{y\in[0,1]},\qquad\overset{\uparrow}{\Gamma}=\cbraces{R+iy}{y\in[0,1]}.
     \end{gather*}
-    The enclosed singularities are simple poles at \(z=\frac{i}{2},\frac{3i}{2}\) (they are simple by evaluation of the Taylor expansions of the denominator). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\qty(\int_{\overrightarrow{\Gamma}}+\int_{\overset{\uparrow}{\Gamma}}+\int_{\overleftarrow{\Gamma}}+\int_{\overset{\downarrow}{\Gamma}})f(z)\ddz=2\pi i\qty[\Res(f,\frac{i}{2})+\Res(f,\frac{3i}{2})].\]
-    By equation~\eqref{eq:residueatpole}, we have \[\Res[f,\frac{i}{2}]=\lim_{z\to\frac{i}{2}}\qty(z-\frac{i}{2})\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)},\qquad\Res[f,\frac{3i}{2}]=\lim_{z\to\frac{3i}{2}}\qty(z-\frac{3i}{2})\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}.\]
-    Subsequently, \begin{align*}
+    The only enclosed singularity is a simple pole at \(z=\frac{i}{2}\) (simple by evaluation of the Taylor expansion of the denominator). By the Residue Theorem (\autoref{thm:residuethm}), we get that 
+    \begin{equation}
+        \qty(\int_{\overrightarrow{\Gamma}}+\int_{\overset{\uparrow}{\Gamma}}+\int_{\overleftarrow{\Gamma}}+\int_{\overset{\downarrow}{\Gamma}})f(z)\ddz=2\pi i\qty[\Res(f,\frac{i}{2})].\label{eq:fouriertransformofsechpix_rectangularcontourintegral}
+    \end{equation}
+    By equation~\eqref{eq:residueatpole}, we have
+    \begin{align*}
         \Res[f,\frac{i}{2}]&=\lim_{z\to\frac{i}{2}}\qty(z-\frac{i}{2})\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}\\
         &=\lim_{z\to\frac{i}{2}}\dv{z}(\frac{\cosh(\pi z)}{\exp(-2\pi iz\xi)})^{-1}\\
-        &=\lim_{z\to\frac{i}{2}}\frac{\exp{-2\pi iz\xi}}{\pi\sinh(\pi z)+2\pi i\xi\cosh(\pi z)}\\
+        &=\lim_{z\to\frac{i}{2}}\frac{\exp(-2\pi iz\xi)}{\pi\sinh(\pi z)+2\pi i\xi\cosh(\pi z)}\\
         &=\frac{\exp(\pi\xi)}{\pi i}.
-    \end{align*} Similarly, \begin{align*}
-        \Res[f,\frac{3i}{2}]&=\lim_{z\to\frac{3i}{2}}\qty(z-\frac{3i}{2})\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}\\
-        &=\lim_{z\to\frac{3i}{2}}\frac{\exp{-2\pi iz\xi}}{\pi\sinh(\pi z)+2\pi i\xi\cosh(\pi z)}\\
-        &=-\frac{\exp(3\pi\xi)}{\pi i}.
     \end{align*}
-    The sum of the horizontal line integrals is equal to \[\]
+    The sum of the horizontal line integrals is equal to \[\int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+i)\ddz=\int_{-R}^R f(z)\ddz-\int_R^{-R}e^{2\pi\xi}f(z)\ddz=\qty(1+e^{2\pi\xi})\int_{-R}^R f(z)\ddz.\] As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+e^{2\pi\xi})I(\xi)\). 
+    The remaining two integrals can be written as \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\pi i(R+iz)\xi)}{\cosh(\pi(R+iz))}\ddz,\qquad\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\pi i(R-iz)\xi)}{\cosh(\pi(-R+iz))}\ddz.\]
+    They can be bounded with \[\abs{\int_0^1 \frac{\exp(-2\pi i(R+iz)\xi)}{\cosh(\pi(R+iz))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{e^{\pi R}e^{\pi iz}+e^{-\pi R}e^{-\pi iz}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{e^{\pi R}-e^{-\pi R}}}\ddz\] and \[\abs{\int_1^0 \frac{\exp(2\pi i(R-iz)\xi)}{\cosh(\pi(-R+iz))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{e^{-\pi R}e^{\pi iz}+e^{\pi R}e^{-\pi iz}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{e^{\pi R}-e^{-\pi R}}}\ddz\]
+    Since the integrands are continuous and uniformly convergent to \(0\) with respect to \(z\), we have \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz+\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz\to 0\] as \(R\to\infty\). By rearrangement of equation~\eqref{eq:fouriertransformofsechpix_rectangularcontourintegral}, \[I(\xi)\qty(1+e^{2\pi\xi})=2\exp(\pi\xi),\]
+    or that \[I(\xi)=\frac{2}{e^{-\pi\xi}+e^{\pi\xi}}=\sech(\pi\xi),\] which proves the result.
+\end{proof}
+\begin{example}
+    Evaluate \[\int_0^\infty\frac{\ln(x^2+1)}{x^2+1}\ddx.\]
+\end{example}
+\begin{proof}
+    We choose a branch of the logarithm that encloses the positive real axis, or the principal branch when \(-\pi<\Arg(z)\leq \pi\). Let \(f(z)=\frac{\Log\qty(z^2+1)}{z^2+1}\). The function has singularities at \(z=\pm i\). By the evenness of \(f\), we can consider a semicircular contour. Without loss of generality, choose the contour as in \autoref{fig:semicircularcontour}, made of \[\Gamma=\cbraces{r\in\mathbb{R}}{-R\leq r\leq R},\qquad C_R=\cbraces{Re^{i\theta}}{0\leq\theta\leq\pi},\] where \(R>1\).
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
-Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}. 
+Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}. If a function is a constant multiple of the function over an imaginary shift and the function vanishes near the ends of the real axis, then it is common to consider a rectangular contour. 
 
+The following result is useful for evaluating integrals on such indentations.
 \begin{theorem}\label{thm:residueoverarc}
     Let \(\lambda>0\) and let \(a\in\mathbb{C}\). Suppose \(f(z)\) is a holomorphic function on \(D^*(a,\lambda)\) with a simple pole at \(z=a\in U\). Let \(0<\varepsilon<\lambda\) and define \(\gamma_\varepsilon\subseteq\partial D(a, \varepsilon)\) be a counterclockwise-oriented, connected arc subtending an angle \(\vartheta\). Then,
     \[\lim_{\varepsilon\to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\vartheta\cdot\residue_{z=a}f(z).\]
 \end{theorem}
 \begin{proof}
     Parameterize \(\gamma_\varepsilon\) with \(z=a+\varepsilon e^{i\theta}\), where \(\theta\in[\alpha,\beta]\) and \(\beta-\alpha=\vartheta\). Then,
-    \[\int_{\gamma_\varepsilon} f(z)\ddz = \int_\alpha^\beta f\qty(a+\varepsilon e^{i\theta}) \frac{dz}{d\theta}\dd{\theta} = \varepsilon i \int_\alpha^\beta f\qty(a+\varepsilon e^{i\theta}) e^{i\theta}\dd{\theta}.\]
+    \[\int_{\gamma_\varepsilon} f(z)\ddz = \int_\alpha^\beta f\qty(a+\varepsilon e^{i\theta}) \dv{z}{\theta}\dd{\theta}=\varepsilon i \int_\alpha^\beta f\qty(a+\varepsilon e^{i\theta})e^{i\theta}\dd{\theta}.\]
     Since \(f\) has a simple pole at \(z=a\), we can write a Laurent expansion around \(a\) as
     \[f(z)=\frac{c_{-1}}{z-a}+\varphi(z),\]
     where \(\varphi(z)\) is holomorphic in a neighborhood of \(a\) and \(c_{-1}=\residue_{z=a}f(z)\).
@@ -2635,9 +2646,9 @@ Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), t
     So,
     \begin{align*}
         \int_{\gamma_\varepsilon}f(z)\ddz
-        &= \varepsilon i \int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon e^{i\theta}}+\varphi(a + \varepsilon e^{i\theta}))e^{i\theta}\dd{\theta} \\
-        &= ic_{-1} \int_\alpha^\beta d\theta + \varepsilon i\int_\alpha^\beta\varphi\qty(a + \varepsilon e^{i\theta})e^{i\theta} \dd{\theta}\\
-        &= ic_{-1}\vartheta+\varepsilon i\int_\alpha^\beta \varphi\qty(a+\varepsilon e^{i\theta})e^{i\theta} \dd{\theta}.
+        &= \varepsilon i\int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon e^{i\theta}}+\varphi(a+\varepsilon e^{i\theta}))e^{i\theta}\dd{\theta} \\
+        &= ic_{-1}\int_\alpha^\beta\dd{\theta}+\varepsilon i\int_\alpha^\beta\varphi\qty(a+\varepsilon e^{i\theta})e^{i\theta}\dd{\theta}\\
+        &= ic_{-1}\vartheta+\varepsilon i\int_\alpha^\beta\varphi\qty(a+\varepsilon e^{i\theta})e^{i\theta}\dd{\theta}.
     \end{align*}
     Let \(\varepsilon<\frac{\lambda}{2}\). Since \(\varphi\) is continuous on the disk \(\overline{D\qty(a,\frac{\lambda}{2})}\), it is bounded. Therefore, letting \(\varepsilon\to0\), we have
     \[\lim_{\varepsilon\to 0} \varepsilon i \int_\alpha^\beta\varphi\qty(a+\varepsilon e^{i\theta}) e^{i\theta}\dd{\theta}=\lim_{\varepsilon\to 0}\varepsilon i\int_\alpha^\beta\varphi(a)e^{i\theta}\dd{\theta}=0.\]
@@ -2645,9 +2656,10 @@ Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), t
     \[\lim_{\varepsilon \to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\vartheta\residue_{z=a}f(z),\] as desired.
 \end{proof}
 \subsection{Analytic Continuation}
-The concept of analytic continuation was previously introduced (\autoref{def:analyticcontinuation}). By the Identity Theorem of holomorphic functions (\autoref{thm:identity}), we asserted the uniqueness of analytic continuations. If \(f_1\) and \(f_2\) are analytic functions on open sets \(U_1\) and \(U_2\) respectively, satisfying \(U_3=U_1\cup U_2\neq\emptyset\), and if \(f_1\equiv f_2\) on \(U_3\), then \(f_1\) and \(f_2\) are analytic continuations of each other. The function defined by \[f(z)=\begin{cases}
-    f_1(z)& z\in U_1\\
-    f_2(z)& z\in U_2\setminus U_1
+The concept of analytic continuation was previously introduced (\autoref{def:analyticcontinuation}). By the Identity Theorem of holomorphic functions (\autoref{thm:identity}), we asserted the uniqueness of analytic continuations. If \(f_1\) and \(f_2\) are analytic functions on open sets \(U_1\) and \(U_2\) respectively, satisfying \(U_3=U_1\cup U_2\neq\emptyset\), and if \(f_1\equiv f_2\) on \(U_3\), then \(f_1\) and \(f_2\) are analytic continuations of each other. The function defined by \[f(z)=
+    \begin{cases}
+        f_1(z)& z\in U_1\\
+        f_2(z)& z\in U_2\setminus U_1
 \end{cases}\] is also holomorphic.
 Perhaps the most straightforward way to obtain analytic continuations is through the observation of power series. By \autoref{thm:abelradius}, there exists a unique \(R>0\) such that the power series \(f(z)=\sum_{n=0}^\infty c_n{\qty(z-z_0)}^n\) is convergent on \(D\qty(z_0,R)\) and divergent on \(\mathbb{C}\setminus \overline{D\qty(z_0,R)}\). Let \(z_1\in D(0,R)\). Then \(f\) has the Taylor expansion at \(z_1\) of \[f(z)=\sum_{n=0}^\infty\frac{f^{(n)}\qty(z_1)}{n!}\qty(z-z_1)^n.\]
 Let \(\rho>0\) be its convergence radius at \(z_1\). It follows that \(\rho+\qty|z_1-z_0|\geq R\). If \(\rho+\abs{z_1-z_0}>R\), then a part of \(D\qty(z_1,\rho)\) lies outside of \(D\qty(z_0,R)\). In this case, \(f\) can be analytically continued to \(D\qty(z_1,\rho)\setminus D\qty(z_0,R)\). Under the equality case, then the two disks are tangent at some point \(\zeta_0\). Then \(f\) cannot be analytically continued from \(\zeta_0\), and \(\zeta_0\) is a \textit{singularity} of \(f\).
@@ -2660,7 +2672,7 @@ The collection of disks \( \{ D(\zeta, R_\zeta) \}_{\zeta\in\partial D(z_0,R)}\)
 
 Define the open set
 \[V=\bigcup_{k=1}^n D(\zeta_k, R_{\zeta_k}),\]
-which contains \(\partial D\qty(z_0, R)\). Since \(\partial D\qty(z_0,R)\) is compact and \(V\) is open, there exists \(\rho> 0\) such that the annular region \(D\qty(z_0,R+\rho)\setminus\overline{D\qty(z_0,R-\rho)}\subset V\); equivalently, the distance from \(\partial D(z_0,R)\) to the boundary \(\partial V\) is positive.
+which contains \(\partial D\qty(z_0, R)\). Since \(\partial D\qty(z_0,R)\) is compact and \(V\) is open and the union of finitely many disks, there exists \(\rho> 0\) such that the annular region \(D\qty(z_0,R+\rho)\setminus\overline{D\qty(z_0,R-\rho)}\subset V\); equivalently, the distance from \(\partial D(z_0,R)\) to the boundary \(\partial V\) is positive.
 
 Define a function \(\Phi:V\to\mathbb{C}\) by setting \(\Phi(z)=f_{\zeta_k}(z)\) for each \(z \in D\qty(\zeta_k,R_{\zeta_k})\). The function \(\Phi\) is single-valued and well-defined: for any \(j\neq k\) such that \(D\qty(\zeta_j, R_{\zeta_j})\cap D\qty(\zeta_k, R_{\zeta_k})\neq\emptyset\), we also have
 \[D\qty(\zeta_j,R_{\zeta_j})\cap D\qty(\zeta_k,R_{\zeta_k})\cap D\qty(z_0,R)\neq\emptyset,\]
@@ -2671,11 +2683,14 @@ It follows that \(f\) has an analytic continuation to the set \(D(z_0,R)\cup V \
     The series \(f(z)=\sum_{n=0}^\infty z^{n!}\) has singularities at every point of its circle of convergence.
 \end{example}
 \begin{proof}
-    By the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}), the series has the convergence radius of \[\varlimsup_{n\to\infty}\sqrt[n]{\begin{cases}
-    1&n\in\cbraces{k!}{k\in\mathbb{N}}\\
-    0&\text{otherwise}
+    By the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}), the series has the convergence radius of \[\varlimsup_{n\to\infty}\sqrt[n]{
+            \begin{cases}
+                1&n\in\cbraces{k!}{k\in\mathbb{N}}\\
+                0&\text{otherwise}
     \end{cases}}=1.\]
-It follows that \(f\) is holomorphic on \(\mathbb{D}\). Let \(\qty|z_0|=\frac{1}{2}\) be arbitrary. It follows that \(f(z)\) has a Taylor expansion at \(z=z_0\) of \[f(z)=\sum_{n=0}^\infty\frac{f^{(n)}\qty(z_0)}{n!}{\qty(z-z_0)}^n.\]
+    It follows that \(f\) is holomorphic on \(\mathbb{D}\). Let \(\qty|z_0|=\frac{1}{2}\) be arbitrary. It follows that \(f(z)\) has a Taylor expansion at \(z=z_0\) of \[f(z)=\sum_{n=0}^\infty\frac{f^{(n)}\qty(z_0)}{n!}{\qty(z-z_0)}^n.\] Let \(\rho\) be the convergence radius of the series above. If we can show that \(\rho=\frac{1}{2}\), then it follows that by tangency, the intersection of \(\partial\mathbb{D}\) and \(\partial D\qty(z_0,\frac{1}{2})\), or \(\zeta_0\), is a singularity of \(f\).
+
+    For the sake of contradiction, assume that \(\rho>\frac{1}{2}\). 
 \end{proof}
 \section{The Theory of Riemann}\label{sec:riemann}
 First, we will formally introduce the results in \chpref{sec:conformalityintroduction}. Then we will study one of the most famous and historically profound results in complex analysis.
@@ -2688,7 +2703,7 @@ TO BE CONTINUED
 We have already seen that certain functions such as the inverse trigonometric functions, the power functions, and the complex logarithm are multi-valued. Well, this certainly complicates many fundamental operations such as differentiation, integration, etc. The concept of Riemann surfaces provides a modern methodology to treat multi-valued functions as single-valued functions.
 
 \begin{theorem}[Uniformization Theorem]\label{thm:uniformization}
-    
+
 \end{theorem}
 \section{Differential Geometry}\label{sec:differentialgeometry}
 \begin{theorem}[Great Picard Theorem]\label{thm:greatpicard}
