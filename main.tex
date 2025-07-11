@@ -2575,9 +2575,33 @@ Residues are extremely important as they allow for simple evaluation of definite
 \begin{proof}
     Fix \(\xi\in\mathbb{R}\) and let \(f(z)=\frac{\exp(-2\pi iz\xi)}{\cosh(\pi z)}\). Its poles occur when \(e^{\pi z}+e^{-\pi z}=0\), or equivalently, when \(z=i\qty(n+\frac{1}{2})\), where \(n\in\mathbb{Z}\).
     
-    Since \(\cosh(\pi z)=\cosh(\pi(z+2i))\), and \(\exp(-2\pi iz\xi)=\exp(-4\pi\xi)\exp(-2\pi i(z+2i)\xi)\)
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}[>=stealth,
+                arrow style/.style={
+                    postaction={decorate},
+                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+            }]
+
+            \draw[-{Stealth}, ultra thin] (0, 0) -- (5, 0);
+            \draw[-{Stealth}, ultra thin] (0, 0) -- (-5, 0);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, 4);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, -0.5);
+            \draw[-{Stealth}, thick] (-3, 0) -- (0, 0);
+            \draw[-{Stealth}, thick] (0, 0) -- (3, 0);
+            \draw[-{Stealth}, thick] (3, 0) -- (3, 2);
+            \draw[-{Stealth}, thick] (3, 2) -- (0, 2);
+            \draw[-{Stealth}, thick] (0, 2) -- (-3, 2);
+            \draw[-{Stealth}, thick] (-3, 2) -- (-3, 0);
+            \node[anchor=north, xshift=-2pt] at (5, 0) {\(\Re(z)\)};
+            \node[anchor=east, yshift=-2pt] at (0, 4) {\(\Im(z)\)};
+            \node[anchor=north] at (3,0) {\(R\)};
+            \node[anchor=north] at (-3,0) {\(-R\)};
+            \node[anchor=south east] at (0,2) {\(2i\)};
+        \end{tikzpicture}
+        \caption{A rectangular contour with orientation marked.}\label{fig:rectangularcontour}
+    \end{figure}Since \(\cosh(\pi z)=\cosh(\pi(z+2i))\), and \(\exp(-2\pi iz\xi)=\exp(-4\pi\xi)\exp(-2\pi i(z+2i)\xi)\), we have that \(f(z)\) is a constant multiple of \(f(z+2i)\). Therefore, we can use a rectangular contour as shown in \autoref{fig:rectangularcontour}. 
     
-    TO BE CONTINUED
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
