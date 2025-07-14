@@ -202,7 +202,7 @@ In 3-dimensional \(\mathbb{R}^3\) space, define a scalar valued function to be a
 \[\omega_1\wedge\omega_2=-\omega_2\wedge\omega_1.\]
 Then consequently, for any differential form \(\omega\), \[\omega\wedge\omega=0.\]
 We can generalize the operator \(\dd\) to increase the degree of a differential form. For instance,
-\[df=\pdv{f}{x}\ddx+\pdv{f}{y}\dd{y}+\pdv{f}{z}\dd{z},\]
+\[\dd{f}=\pdv{f}{x}\ddx+\pdv{f}{y}\dd{y}+\pdv{f}{z}\dd{z},\]
 which is the definition of the total differential. For a 1-form in 3-dimensional space, \(\omega_1=P\ddx+Q\dd{y}+R\dd{z}\), we can define the exterior derivative in a similar way:
 \begin{align*}
     \dd{\omega_1} & =\dd{P}\wedge\ddx+\dd{Q}\wedge\dd{y}+\dd{R}\wedge\dd{z}                                                                                                    \\
@@ -2176,7 +2176,7 @@ Let \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\) and let \(\overline{\mat
     Find the group of holomorphic automorphisms on \(\mathbb{H}^+\).
 \end{example}
 \begin{proof}
-    Let \(f\in\Aut\qty(\mathbb{H}^+)\). 
+    Let \(f\in\Aut\qty(\mathbb{H}^+)\).
 \end{proof}
 \subsubsection{The Construction of Entire and Meromorphic Functions}
 It is common knowledge in algebra that any polynomial can be factored into linear factors. When can this factorization be extended to transcendental entire functions?
@@ -2604,7 +2604,7 @@ Residues are extremely important as they allow for simple evaluation of definite
         \overleftarrow{\Gamma}=\cbraces{x+i}{-R\leq x\leq R,x\in\mathbb{R}},\qquad\overrightarrow{\Gamma}x=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R}\\
         \overset{\downarrow}{\Gamma}=\cbraces{-R+iy}{y\in[0,1]},\qquad\overset{\uparrow}{\Gamma}=\cbraces{R+iy}{y\in[0,1]}.
     \end{gather*}
-    The only enclosed singularity is a simple pole at \(z=\frac{i}{2}\) (simple by evaluation of the Taylor expansion of the denominator). By the Residue Theorem (\autoref{thm:residuethm}), we get that 
+    The only enclosed singularity is a simple pole at \(z=\frac{i}{2}\) (simple by evaluation of the Taylor expansion of the denominator). By the Residue Theorem (\autoref{thm:residuethm}), we get that
     \begin{equation}
         \qty(\int_{\overrightarrow{\Gamma}}+\int_{\overset{\uparrow}{\Gamma}}+\int_{\overleftarrow{\Gamma}}+\int_{\overset{\downarrow}{\Gamma}})f(z)\ddz=2\pi i\qty[\Res(f,\frac{i}{2})].\label{eq:fouriertransformofsechpix_rectangularcontourintegral}
     \end{equation}
@@ -2615,7 +2615,7 @@ Residues are extremely important as they allow for simple evaluation of definite
         &=\lim_{z\to\frac{i}{2}}\frac{\exp(-2\pi iz\xi)}{\pi\sinh(\pi z)+2\pi i\xi\cosh(\pi z)}\\
         &=\frac{\exp(\pi\xi)}{\pi i}.
     \end{align*}
-    The sum of the horizontal line integrals is equal to \[\int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+i)\ddz=\int_{-R}^R f(z)\ddz-\int_R^{-R}e^{2\pi\xi}f(z)\ddz=\qty(1+e^{2\pi\xi})\int_{-R}^R f(z)\ddz.\] As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+e^{2\pi\xi})I(\xi)\). 
+    The sum of the horizontal line integrals is equal to \[\int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+i)\ddz=\int_{-R}^R f(z)\ddz-\int_R^{-R}e^{2\pi\xi}f(z)\ddz=\qty(1+e^{2\pi\xi})\int_{-R}^R f(z)\ddz.\] As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+e^{2\pi\xi})I(\xi)\).
     The remaining two integrals can be written as \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\pi i(R+iz)\xi)}{\cosh(\pi(R+iz))}\ddz,\qquad\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\pi i(R-iz)\xi)}{\cosh(\pi(-R+iz))}\ddz.\]
     They can be bounded with \[\abs{\int_0^1 \frac{\exp(-2\pi i(R+iz)\xi)}{\cosh(\pi(R+iz))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{e^{\pi R}e^{\pi iz}+e^{-\pi R}e^{-\pi iz}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{e^{\pi R}-e^{-\pi R}}}\ddz\] and \[\abs{\int_1^0 \frac{\exp(2\pi i(R-iz)\xi)}{\cosh(\pi(-R+iz))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{e^{-\pi R}e^{\pi iz}+e^{\pi R}e^{-\pi iz}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{e^{\pi R}-e^{-\pi R}}}\ddz\]
     Since the integrands are continuous and uniformly convergent to \(0\) with respect to \(z\), we have \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz+\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz\to 0\] as \(R\to\infty\). By rearrangement of equation~\eqref{eq:fouriertransformofsechpix_rectangularcontourintegral}, \[I(\xi)\qty(1+e^{2\pi\xi})=2\exp(\pi\xi),\]
@@ -2623,7 +2623,7 @@ Residues are extremely important as they allow for simple evaluation of definite
 \end{proof}
 Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
 
-Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}^+\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}. If a function is a constant multiple of the function over an imaginary shift and the function vanishes near the ends of the real axis, then it is common to consider a rectangular contour. 
+Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}^+\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}. If a function is a constant multiple of the function over an imaginary shift and the function vanishes near the ends of the real axis, then it is common to consider a rectangular contour.
 
 The following result is useful for evaluating integrals on such indentations.
 \begin{theorem}\label{thm:residueoverarc}
@@ -2688,7 +2688,7 @@ It follows that \(f\) has an analytic continuation to the set \(D(z_0,R)\cup V \
 
     For the sake of contradiction, assume that \(\rho>\frac{1}{2}\). Hence, \(D\qty(\zeta,\rho-\frac{1}{2})\cap\mathbb{D}\neq\emptyset\). Obviously, the arc defined by \(S=D\qty(\zeta,\rho-\frac{1}{2})\cap\partial\mathbb{D}\) has positive length. Since \(\exp(2\pi i\mathbb{Q})\) is dense in \(\partial\mathbb{D}\), \(\exists\zeta'\in S\) such that \(\zeta'=\exp(2\pi i\frac{p}{q})\) for some \(p,q\in\mathbb{Z}\). Since \(\tilde{f}\) is convergent and continuous on \(D\qty(\zeta,\rho-\frac{1}{2})\), \(\lim_{r\to 1^-}\tilde{f}(r\zeta')=\tilde{f}(\zeta')\). Since \(f\equiv\tilde{f}\) on \(\mathbb{D}\cap D\qty(z_0,\rho)\), it follows that \(\lim_{r\to 1^-}f(r\zeta')=\tilde{f}(\zeta')\). Since \[f(r\zeta')=\sum_{n=1}^{q-1}r^{n!}\zeta'^{n!}+\sum_{n=q}^\infty r^{n!}\zeta'^{n!},\]
     and for all \(N>q\), \(0<r<1\), \[\sum_{n=q}^\infty r^{n!}\zeta'^{n!}=\sum_{n=q}^\infty r^{n!}>\sum_{n=q}^N r^{n!}>\sum_{n=q}^N r^{N!}=(N-q+1)r^{N!},\]
-    we have that \(\lim_{r\to 1^-}f(r\zeta')=\infty\), which contradicts \(\lim_{r\to1^-}f(r\zeta')=\tilde{f}(\zeta')\).
+    we have that \(\lim_{r\to 1^-}f(r\zeta')=\infty\), which contradicts the statement that \(\lim_{r\to1^-}f(r\zeta')=\tilde{f}(\zeta')\).
 \end{proof}
 \section{The Theory of Riemann}\label{sec:riemann}
 First, we will formally introduce the results in \chpref{sec:conformalityintroduction}. Then we will study one of the most famous and historically profound results in complex analysis.
