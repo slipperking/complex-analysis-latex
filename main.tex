@@ -1903,9 +1903,14 @@ If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\
 This series is not necessarily convergent (hence the usage of ``\(\sim\)''). Notice how \(u\) is continuous on a compact set and therefore is uniformly bounded by some \(M\) (\autoref{thm:continuousfunctionboundedoncompact}). Therefore, the integrand of \(a_n\) is bounded by a finite \(M\geq\abs{u\qty(e^{i\theta})e^{-in\theta}}\). It follows that \(\qty|a_n|\leq M\). By introducing factors of powers of \(\abs{\rho}<1\) and a change of variables, we obtain the convergent sum: \[\sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{|n|},\qquad\abs{\sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{|n|}}\leq\sum_{n=-\infty}^\infty\abs{a_ne^{in\theta}\rho^{|n|}}\leq M\frac{1+|\rho|}{1-\abs{\rho}}.\]
 By substituting the coefficients, we have \begin{align*}
     \sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{|n|}&=\sum_{n=-\infty}^\infty \qty(\frac{1}{2\pi}\int_0^{2\pi}u\qty(e^{i\tau})e^{-in\tau}\dd{\tau})e^{in\theta}\rho^{|n|}\\
-    &=\frac{1}{2\pi}\sum_{n=-\infty}^\infty\int_0^{2\pi}\rho^{|n|}u\qty(e^{i\tau})e^{in(\theta-\tau)}\dd{\tau}\\
+    &=\frac{1}{2\pi}\sum_{n=-\infty}^\infty\int_0^{2\pi}\rho^{|n|}u\qty(e^{i\tau})e^{in(\theta-\tau)}\dd{\tau}.
 \end{align*}
-
+By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:limitintegralswitch}, we have
+\begin{align*}
+    \frac{1}{2\pi}\sum_{n=-\infty}^\infty\int_0^{2\pi}\rho^{|n|}u\qty(e^{i\tau})e^{in(\theta-\tau)}\dd{\tau}&=\frac{1}{2\pi}\int_0^{2\pi}u\qty(e^{i\tau})\sum_{n=-\infty}^\infty\rho^{|n|}e^{in(\theta-\tau)}\dd{\tau},\\
+    \sum_{n=-\infty}^\infty\rho^{|n|}e^{in(\theta-\tau)}&=\sum_{n=0}^\infty\rho^n e^{in(\theta-\tau)}+\sum_{n=1}^\infty\rho^n e^{-in(\theta-\tau)}\\
+    &=1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]
+\end{align*}
 Finally, we will demonstrate that real-valued continuous functions satisfying the mean-value property are logically equivalent to being a solution to the Laplace equation. In \autoref{lemma:holomorphicmeanvalueproperty}, we showed that real solutions to the Laplace equation satisfy the mean-value property. Now we will prove the converse.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
     Let \(U\subseteq\mathbb{C}\) be open. Let \(f:U\to\mathbb{R}\) be continuous. \(\forall z_0\in U\), \(\exists\lambda>0\) such that \(\overline{D\qty(z_0,\lambda)}\subseteq U\), and if \(\forall0<\varepsilon\le\lambda\), \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi}f\qty(z_0+\varepsilon e^{it})\ddt,\]
