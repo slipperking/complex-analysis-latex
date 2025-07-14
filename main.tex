@@ -2652,47 +2652,70 @@ The following result is useful for evaluating integrals on such indentations.
     \[\lim_{\varepsilon \to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\vartheta\residue_{z=a}f(z),\] as desired.
 \end{proof}
 \subsection{Analytic Continuation}
-The concept of analytic continuation was previously introduced (\autoref{def:analyticcontinuation}). By the Identity Theorem of holomorphic functions (\autoref{thm:identity}), we asserted the uniqueness of analytic continuations. If \(f_1\) and \(f_2\) are analytic functions on open sets \(U_1\) and \(U_2\) respectively, satisfying \(U_3=U_1\cup U_2\neq\emptyset\), and if \(f_1\equiv f_2\) on \(U_3\), then \(f_1\) and \(f_2\) are analytic continuations of each other. The function defined by \[f(z)=
+\begin{definition}\label{def:analyticelement}
+    An \textit{analytic element} is a pair \((D,f)\), where \(U\subseteq\mathbb{C}\) is an open set and \(f\) is a holomorphic function on \(U\).
+\end{definition}
+
+Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textit{analytic continuation}, previously introduced in \autoref{def:analyticcontinuation}. By the Identity Theorem (\autoref{thm:identity}), such continuations are unique; if \((U_1, f_1)\) and \((U_2,f_2)\) are analytic elements with \(U_1\cap U_2 \neq \emptyset\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are \textit{direct analytic continuations} of each other. The combined function:
+\[F(z)=
     \begin{cases}
-        f_1(z)& z\in U_1\\
-        f_2(z)& z\in U_2\setminus U_1
-\end{cases}\] is also holomorphic.
-Perhaps the most straightforward way to obtain analytic continuations is through the observation of power series. By \autoref{thm:abelradius}, there exists a unique \(R>0\) such that the power series \(f(z)=\sum_{n=0}^\infty c_n{\qty(z-z_0)}^n\) is convergent on \(D\qty(z_0,R)\) and divergent on \(\mathbb{C}\setminus \overline{D\qty(z_0,R)}\). Let \(z_1\in D(0,R)\). Then \(f\) has the Taylor expansion at \(z_1\) of \[f(z)=\sum_{n=0}^\infty\frac{f^{(n)}\qty(z_1)}{n!}\qty(z-z_1)^n.\]
-Let \(\rho>0\) be its convergence radius at \(z_1\). It follows that \(\rho+\qty|z_1-z_0|\geq R\). If \(\rho+\abs{z_1-z_0}>R\), then a part of \(D\qty(z_1,\rho)\) lies outside of \(D\qty(z_0,R)\). In this case, \(f\) can be analytically continued to \(D\qty(z_1,\rho)\setminus D\qty(z_0,R)\). Under the equality case, then the two disks are tangent at some point \(\zeta_0\). Then \(f\) cannot be analytically continued from \(\zeta_0\), and \(\zeta_0\) is a \textit{singularity} of \(f\).
+        f_1(z)&z\in U_1 \\
+        f_2(z)&z\in U_2 \setminus U_1
+\end{cases}\] is holomorphic on \(U_1\cup U_2\). 
+\subsubsection{Continuation via Power Series}
+The most straightforward method of the derivation of analytic continuations uses power series. Let \(f(z)=\sum_{n=0}^{\infty}c_n(z-z_0)^n\) have radius of convergence \(R > 0\) (by Theorem~\ref{thm:abelradius}). For \(z_1 \in D(z_0, R)\), expand \(f\) at \(z_1\):
+\[f(z) = \sum_{k=0}^{\infty} \frac{f^{(k)}(z_1)}{k!} (z - z_1)^k.\]
+Let \(\rho\) be the radius of convergence of this series. Then:
+\[\rho \geq R - |z_1 - z_0|.\]
+- If \(\rho > R - |z_1 - z_0|\), then \(f\) extends analytically to \(D(z_0, R) \cup D(z_1, \rho)\).
+- If \(\rho = R - |z_1 - z_0|\), the disks \(D(z_0, R)\) and \(D(z_1, \rho)\) are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a \textbf{singularity}, and \(f\) cannot be continued beyond \(\zeta_0\).
 
-As a matter of fact, if \(R\) is a convergence radius, then there is at least one singularity on the boundary of the convergence disk.
+\subsubsection{Singularities on the Boundary}
+\begin{theorem}\label{thm:boundarysingularity}
+    Let \(f(z) = \sum_{n=0}^{\infty} c_n (z - z_0)^n\) have radius of convergence \(R > 0\). Then \(\partial D(z_0, R)\) contains at least one singularity of \(f\).
+\end{theorem}
 
-Assume, for the sake of contradiction, that \( f \) can be analytically continued from every point on the boundary \( \partial D(z_0, R) \). Let \( \zeta \in \partial D(z_0, R) \) be arbitrary. Then there exists a radius \( R_\zeta > 0 \) and a function \( f_\zeta \), holomorphic on \( D(\zeta, R_\zeta) \), such that \( f_\zeta \) agrees with \(f\) on the intersection \(D(\zeta,R_\zeta)\cap D(z_0,R)\).
-
-The collection of disks \( \{ D(\zeta, R_\zeta) \}_{\zeta\in\partial D(z_0,R)}\) forms an open cover of the compact set \( \partial D(z_0, R) \). By the Heine--Borel Theorem (\autoref{thm:heineborel}), there exists a finite subcover \( \{ D(\zeta_k, R_{\zeta_k}) \}_{k=1}^n \).
-
-Define the open set
-\[V=\bigcup_{k=1}^n D(\zeta_k, R_{\zeta_k}),\]
-which contains \(\partial D\qty(z_0, R)\). Since \(\partial D\qty(z_0,R)\) is compact and \(V\) is open and the union of finitely many disks, there exists \(\rho> 0\) such that the annular region \(D\qty(z_0,R+\rho)\setminus\overline{D\qty(z_0,R-\rho)}\subset V\); equivalently, the distance from \(\partial D(z_0,R)\) to the boundary \(\partial V\) is positive.
-
-Define a function \(\Phi:V\to\mathbb{C}\) by setting \(\Phi(z)=f_{\zeta_k}(z)\) for each \(z \in D\qty(\zeta_k,R_{\zeta_k})\). The function \(\Phi\) is single-valued and well-defined: for any \(j\neq k\) such that \(D\qty(\zeta_j, R_{\zeta_j})\cap D\qty(\zeta_k, R_{\zeta_k})\neq\emptyset\), we also have
-\[D\qty(\zeta_j,R_{\zeta_j})\cap D\qty(\zeta_k,R_{\zeta_k})\cap D\qty(z_0,R)\neq\emptyset,\]
-on which \(f_{\zeta_j}\), \(f_{\zeta_k}\), and \(f\) agree, and hence must agree on the union. Thus, \(\Phi\) is a well-defined holomorphic function on \(V\), and it agrees with \(f\) on \(D(z_0,R)\cap V\).
-
-It follows that \(f\) has an analytic continuation to the set \(D(z_0,R)\cup V \), which contains the disk \(D(z_0,R+\rho)\). This contradicts the assumption that \(f\) cannot be analytically continued beyond \(D(z_0,R)\). Therefore, the assumption must be false.
-\begin{example}
-    The series \(f(z)=\sum_{n=0}^\infty z^{n!}\) has singularities at every point of its circle of convergence.
-\end{example}
 \begin{proof}
-    By the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}), the series has the convergence radius of \[\varlimsup_{n\to\infty}\sqrt[n]{
-            \begin{cases}
-                1&n\in\cbraces{k!}{k\in\mathbb{N}}\\
-                0&\text{otherwise}
-    \end{cases}}=1.\]
-    It follows that \(f\) is holomorphic on \(\mathbb{D}\). Let \(\qty|z_0|=\frac{1}{2}\) be arbitrary. Let \(\zeta=2z_0\). The function \(f(z)\) has a Taylor expansion at \(z=z_0\) of \[\tilde{f}(z)=\sum_{n=0}^\infty\frac{f^{(n)}\qty(z_0)}{n!}{\qty(z-z_0)}^n.\] Let \(\rho\) be the convergence radius of the series above. If we can show that \(\rho=\frac{1}{2}\), then it follows that by tangency, the intersection of \(\partial\mathbb{D}\) and \(\partial D\qty(z_0,\frac{1}{2})\), or \(\zeta\), is a singularity of \(f\) and \(\tilde{f}\).
+    Assume \(f\) can be analytically continued from every \(\zeta \in \partial D(z_0, R)\). Then for each \(\zeta\), there exists \(r_\zeta > 0\) and a holomorphic \(f_\zeta\) on \(D(\zeta, r_\zeta)\) agreeing with \(f\) on \(D(\zeta, r_\zeta) \cap D(z_0, R)\).
 
-    For the sake of contradiction, assume that \(\rho>\frac{1}{2}\). Hence, \(D\qty(\zeta,\rho-\frac{1}{2})\cap\mathbb{D}\neq\emptyset\). Obviously, the arc defined by \(S=D\qty(\zeta,\rho-\frac{1}{2})\cap\partial\mathbb{D}\) has positive length. Since \(\exp(2\pi i\mathbb{Q})\) is dense in \(\partial\mathbb{D}\), \(\exists\zeta'\in S\) such that \(\zeta'=\exp(2\pi i\frac{p}{q})\) for some \(p,q\in\mathbb{Z}\). Since \(\tilde{f}\) is convergent and continuous on \(D\qty(\zeta,\rho-\frac{1}{2})\), \(\lim_{r\to 1^-}\tilde{f}(r\zeta')=\tilde{f}(\zeta')\). Since \(f\equiv\tilde{f}\) on \(\mathbb{D}\cap D\qty(z_0,\rho)\), it follows that \(\lim_{r\to 1^-}f(r\zeta')=\tilde{f}(\zeta')\). Since \[f(r\zeta')=\sum_{n=1}^{q-1}r^{n!}\zeta'^{n!}+\sum_{n=q}^\infty r^{n!}\zeta'^{n!},\]
-    and for all \(N>q\), \(0<r<1\), \[\sum_{n=q}^\infty r^{n!}\zeta'^{n!}=\sum_{n=q}^\infty r^{n!}>\sum_{n=q}^N r^{n!}>\sum_{n=q}^N r^{N!}=(N-q+1)r^{N!},\]
-    we have that \(\lim_{r\to 1^-}f(r\zeta')=\infty\), which contradicts the statement that \(\lim_{r\to1^-}f(r\zeta')=\tilde{f}(\zeta')\). It follows that \(\rho=\frac{1}{2}\).
+    The disks \(\{D(\zeta, r_\zeta)\}_{\zeta \in \partial D(z_0,R)}\) cover the compact set \(\partial D(z_0, R)\). By Heine-Borel (Theorem~\ref{thm:heineborel}), there is a finite subcover \(\{D(\zeta_k, r_k)\}_{k=1}^n\). Let \(V = \bigcup_{k=1}^n D(\zeta_k, r_k)\). Then:
+    1. \(\partial D(z_0, R) \subset V\), so \(\exists \rho > 0\) such that \(A = \{z : R - \rho \leq |z - z_0| \leq R + \rho\} \subset V\).
+    2. Define \(\Phi: V \to \mathbb{C}\) by \(\Phi(z) = f_{\zeta_k}(z)\) if \(z \in D(\zeta_k, r_k)\). This is well-defined: If \(z \in D(\zeta_i, r_i) \cap D(\zeta_j, r_j)\), then \(D(\zeta_i, r_i) \cap D(\zeta_j, r_j) \cap D(z_0, R) \neq \emptyset\), and \(f_{\zeta_i} = f_{\zeta_j} = f\) there. By the Identity Theorem, \(f_{\zeta_i} = f_{\zeta_j}\) on \(D(\zeta_i, r_i) \cap D(\zeta_j, r_j)\).
+    3. \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on \(D(z_0, R) \cap V\).
+    4. The function:
+    \[
+        F(z) =
+        \begin{cases}
+            f(z) & z \in D(z_0, R) \\
+            \Phi(z) & z \in V
+        \end{cases}
+    \]
+    is holomorphic on \(D(z_0, R) \cup V \supset D(z_0, R + \rho)\), contradicting the maximality of \(R\).
 \end{proof}
-For an open set \(D\) and a holomorphic function \(f\) on \(D\), the pair \((D,f)\) is known as an \textit{analytic element}. Two analytic elements are \textit{direct analytic continuations} of each other if their domains overlap, on which the functions are identically equal. 
 
-Let \(\qty(D_0,f_0)\) be an analytic element and construct a collection of elements \(\cbraces{(D_k,f_k)}_{k=1}^n\) where \(\qty(D_k,f_k)\) is a direct analytic continuation of \(\qty(D_{k-1},f_{k-1})\) for all \(k\in\mathbb{N}\). Then \(\qty(D_n,f_n)\) is an analytic continuation of \(\qty(D_0,f_0)\). Informally, we state that two analytic functions (as opposed to analytic elements) are analytic continuations of each other if their analytic elements are analytic continuations of each other. A \textit{maximal analytic continuation} \(\qty(\tilde{D},\tilde{f})\) is an element whose analytic continuations have domains fully contained in \(\tilde{D}\).
+\subsubsection{Chains and Maximal Continuations}
+\begin{definition}\label{def:analyticchain}
+    A \textbf{chain of analytic continuations} from \((D_0, f_0)\) is a sequence \(\{(D_k, f_k)\}_{k=0}^n\) where \((D_k, f_k)\) is a direct analytic continuation of \((D_{k-1}, f_{k-1})\) for \(1 \leq k \leq n\). Then \((D_n, f_n)\) is an \textbf{analytic continuation} of \((D_0, f_0)\).
+\end{definition}
+
+\begin{definition}\label{def:maximalanalytic}
+    A \textbf{maximal analytic continuation} \((\widetilde{D}, \widetilde{f})\) is an analytic element that has no analytic continuation to a larger domain. The function \(\widetilde{f}\) is a \textbf{complete analytic function}.
+\end{definition}
+
+\subsubsection{Example: Natural Boundary}
+\begin{example}\label{ex:lacunaryseries}
+    The series \(f(z) = \sum_{n=0}^{\infty} z^{n!}\) has \(\mathbb{D} = D(0,1)\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
+\end{example}
+
+\begin{proof}
+    By Cauchy-Hadamard (Theorem~\ref{thm:cauchyhadamard}), \(\limsup_{n \to \infty} |c_n|^{1/n} = 1\) since \(c_n = 1\) if \(n = k!\) and \(0\) otherwise. Thus, \(R = 1\).
+
+    Fix \(\zeta \in \partial\mathbb{D}\). Suppose \(f\) extends analytically to a disk \(D(\zeta, \delta)\). Since roots of unity are dense in \(\partial\mathbb{D}\), there exists \(\zeta' = e^{2\pi i p/q} \in D(\zeta, \delta) \cap \partial\mathbb{D}\) for coprime integers \(p,q\). The extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
+    \[\lim_{r \to 1^{-}} f(r\zeta') = g(\zeta').\]
+    However, for \(0 < r < 1\):
+    \[f(r\zeta') = \underbrace{\sum_{k=0}^{q-1} (r\zeta')^{k!}}_{\text{bounded}} + \sum_{k=q}^{\infty} r^{k!} \underbrace{(\zeta')^{k!}}_{=1 \text{ since } q! \mid k! \text{ for } k \geq q}.\]
+    As \(r \to 1^{-}\), \(\sum_{k=q}^{\infty} r^{k!} \to \infty\) (since terms \(\to 1\) and infinitely many), contradicting finiteness of \(g(\zeta')\). Hence, \(\zeta\) is a singularity.
+\end{proof}
 \section{The Theory of Riemann}\label{sec:riemann}
 First, we will formally introduce the results in \chpref{sec:conformalityintroduction}. Then we will study one of the most famous and historically profound results in complex analysis.
 \subsection{The Riemann Mapping Theorem}
