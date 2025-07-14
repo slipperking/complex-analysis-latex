@@ -2697,11 +2697,11 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
 \begin{proof}
     By the Cauchy-Hadamard Theorem (\autoref{thm:cauchyhadamard}), \(\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}=1\) since \(c_n=1\) if \(n=k!\) and \(0\) otherwise. Thus, \(R=1\).
 
-    Fix \(\zeta\in\partial\mathbb{D}\). Suppose \(f\) extends analytically to a disk \(D(\zeta,\delta)\). Since roots of unity are dense in \(\partial\mathbb{D}\), there exists \(\zeta'=\exp(2\pi i \frac{p}{q})\in D(\zeta,\delta)\cap\partial\mathbb{D}\) for coprime integers \(p,q\). The extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
+    Fix \(\zeta\in\partial\mathbb{D}\). Suppose \(f\) extends analytically to a disk \(D(\zeta,\delta)\). Since \(\exp(2\pi i\mathbb{Q})\) is dense in \(\partial\mathbb{D}\), there exists \(\zeta'=\exp(2\pi i \frac{p}{q})\in D(\zeta,\delta)\cap\partial\mathbb{D}\) for coprime integers \(p,q\). The extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
     \[\lim_{r\to1^{-}}f(r\zeta')=g(\zeta').\]
     However, for \(0<r<1\):
     \[f(r\zeta') = \sum_{k=0}^{q-1} (r\zeta')^{k!}+\sum_{k=q}^{\infty} r^{k!}\zeta'^{k!}.\]
-    As \(r \to 1^{-}\), \(\sum_{k=q}^{\infty} r^{k!} \to \infty\) (since terms \(\to 1\) and infinitely many), contradicting finiteness of \(g(\zeta')\). Hence, \(\zeta\) is a singularity.
+    The second summation is unbounded since \[\sum_{k=q}^\infty r^{k!}\zeta'^{k!}=\sum_{k=q}^\infty r^{k!}>\sum_{k=q}^N r^{k!}>(N-q+1)r^{N!}\] for all \(N>q\). Therefore, as \(r\to1^-\), \(\sum_{k=q}^{\infty} r^{k!}\to\infty\). Hence, \(\zeta\) is a singularity.
 \end{proof}
 \section{The Theory of Riemann}\label{sec:riemann}
 First, we will formally introduce the results in \chpref{sec:conformalityintroduction}. Then we will study one of the most famous and historically profound results in complex analysis.
