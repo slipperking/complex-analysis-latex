@@ -2674,9 +2674,9 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
 \begin{proof}
     Assume \(f\) can be analytically continued from every \(\zeta \in \partial D(z_0, R)\). Then for each \(\zeta\), there exists \(r_\zeta > 0\) and a holomorphic \(f_\zeta\) on \(D(\zeta, r_\zeta)\) agreeing with \(f\) on \(D(\zeta, r_\zeta) \cap D(z_0, R)\).
 
-    The disks \(\cbraces{D\qty(\zeta,r_\zeta)}_{\zeta \in\partial D\qty(z_0,R)}\) cover the compact set \(\partial D\qty(z_0,R)\). By the Heine--Borel Theorem (\autoref{thm:heineborel}), there is a finite subcover \(\qty{D\qty(\zeta_k,r_k)}_{k=1}^n\). Therefore, \(\exists\rho>0\) such that \(A=\cbraces{z}{R-\rho\leq\abs{z-z_0}\leq R+\rho}\subseteq V\), where \(V=\bigcup_{k=1}^n D\qty(\zeta_k,r_k)\).
+    The disks \(\cbraces{D\qty(\zeta,r_\zeta)}_{\zeta \in\partial D\qty(z_0,R)}\) cover the compact set \(\partial D\qty(z_0,R)\). By the Heine--Borel Theorem (\autoref{thm:heineborel}), there is a finite subcover \(\qty{D\qty(\zeta_k,r_k)}_{k=1}^n\). Therefore, \(\exists\rho>0\) such that \(A=\cbraces{z}{R-\rho\leq\abs{z-z_0}\leq R+\rho}\subset V\), where \(V=\bigcup_{k=1}^n D\qty(\zeta_k,r_k)\).
 
-    Define \(\Phi:V\to\mathbb{C}\) by \(\Phi(z)=f_{\zeta_k}(z)\) if \(z\in D\qty(\zeta_k, r_k)\). This is well-defined: If \(z\in D\qty(\zeta_i, r_i)\cap D\qty(\zeta_j,r_j)\), then \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j) \cap D\qty(z_0,R)\neq\emptyset\), and \(f_{\zeta_i}=f_{\zeta_j}=f\) there. By the Identity Theorem (\autoref{thm:identity}), \(f_{\zeta_i}\equiv f_{\zeta_j}\) on \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j)\).
+    Define \(\Phi:V\to\mathbb{C}\) by \(\Phi(z)=f_{\zeta_k}(z)\) if \(z\in D\qty(\zeta_k,r_k)\). This is well-defined: If \(z\in D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j)\), then \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j) \cap D\qty(z_0,R)\neq\emptyset\), and \(f_{\zeta_i}=f_{\zeta_j}=f\) there. By the Identity Theorem (\autoref{thm:identity}), \(f_{\zeta_i}\equiv f_{\zeta_j}\) on \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j)\).
 
     Since \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on \(D\qty(z_0,R)\cap V\), the function:
     \[\widetilde{f}(z)=\begin{cases}
@@ -2701,7 +2701,7 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     \[\lim_{r\to1^{-}}f(r\zeta')=g(\zeta').\]
     However, for \(0<r<1\):
     \[f(r\zeta')=\sum_{k=0}^{q-1}{\qty(r\zeta')}^{k!}+\sum_{k=q}^{\infty}r^{k!}\zeta'^{k!}.\]
-    The second summation is unbounded since \[\sum_{k=q}^\infty r^{k!}\zeta'^{k!}=\sum_{k=q}^\infty r^{k!}>\sum_{k=q}^N r^{k!}>(N-q+1)r^{N!}\] for all \(N>q\). Therefore, as \(r\to1^-\), \(\sum_{k=q}^{\infty} r^{k!}\to\infty\). Hence, \(\zeta\) is a singularity.
+    The second summation is unbounded since \[\sum_{k=q}^\infty r^{k!}\zeta'^{k!}=\sum_{k=q}^\infty r^{k!}>\sum_{k=q}^N r^{k!}>(N-q+1)r^{N!}\] for any integer satisfying \(N>q\). Therefore, as \(r\to1^-\), \(\sum_{k=q}^{\infty} r^{k!}\to\infty\). Hence, \(\zeta\) is a singularity.
 \end{proof}
 The general theory of analytic continuation and its generalizations is formulated by \textit{sheaf theory}.
 \section{The Theory of Riemann}\label{sec:riemann}
