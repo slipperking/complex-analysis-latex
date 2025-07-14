@@ -1896,12 +1896,14 @@ Consider \(R=1\), \(\zeta=e^{i\tau}\), \(z=\rho e^{i\theta}\) in equation~\eqref
     u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})}\nonumber\\
     =\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
 \end{gather}
-If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\exp(i\tau)\) is periodic over \(2\pi\). Thus, it can be expressed as a Fourier series
+If \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\), and therefore \(u\circ\exp(i\theta)\) is periodic over \(2\pi\). Thus, it can be expressed as a Fourier series
 \begin{equation}
-    u\qty(e^{i\tau})\sim\sum_{n=-\infty}^\infty a_ne^{in\tau},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}.\label{eq:poissonintegralformulafourierseries}
+    u\qty(e^{i\theta})\sim\sum_{n=-\infty}^\infty a_ne^{in\theta},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}.\label{eq:poissonintegralformulafourierseries}
 \end{equation}
-This series is not necessarily convergent (hence the usage of ``\(\sim\)''). Notice how \(u\) is continuous on a compact set and therefore is uniformly bounded by some \(M\) (\autoref{thm:continuousfunctionboundedoncompact}). Therefore, the integrand of \(a_n\) is bounded by a finite \(M\geq\abs{u\qty(e^{i\tau})e^{-in\tau}}\). It follows that \(\qty|a_n|\leq M\). By introducing factors of powers of \(\abs{\rho}<1\) and a change of variables, we obtain the convergent sum: \[\sum_{n=-\infty}^\infty a_ne^{in\tau}\rho^{|n|},\qquad\abs{\sum_{n=-\infty}^\infty a_ne^{in\tau}\rho^{|n|}}\leq\sum_{n=-\infty}^\infty\abs{a_ne^{in\tau}\rho^{|n|}}\leq M\frac{1+|\rho|}{1-\abs{\rho}}.\]
-
+This series is not necessarily convergent (hence the usage of ``\(\sim\)''). Notice how \(u\) is continuous on a compact set and therefore is uniformly bounded by some \(M\) (\autoref{thm:continuousfunctionboundedoncompact}). Therefore, the integrand of \(a_n\) is bounded by a finite \(M\geq\abs{u\qty(e^{i\theta})e^{-in\theta}}\). It follows that \(\qty|a_n|\leq M\). By introducing factors of powers of \(\abs{\rho}<1\) and a change of variables, we obtain the convergent sum: \[\sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{|n|},\qquad\abs{\sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{|n|}}\leq\sum_{n=-\infty}^\infty\abs{a_ne^{in\theta}\rho^{|n|}}\leq M\frac{1+|\rho|}{1-\abs{\rho}}.\]
+By substituting the coefficients, we have \begin{align*}
+    \sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{|n|}&=\sum_{n=0}^\infty a_n e^{in\theta}\rho^n+\sum_{n=1}^\infty a_{-n}e^{-in\theta}\rho^n
+\end{align*}
 
 Finally, we will demonstrate that real-valued continuous functions satisfying the mean-value property are logically equivalent to being a solution to the Laplace equation. In \autoref{lemma:holomorphicmeanvalueproperty}, we showed that real solutions to the Laplace equation satisfy the mean-value property. Now we will prove the converse.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
