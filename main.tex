@@ -2686,25 +2686,21 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     is holomorphic on \(D\qty(z_0,R)\cup V\supset D(z_0, R+\rho)\), contradicting the maximality of \(R\).
 \end{proof}
 \begin{definition}\label{def:analyticchain}
-    A \textit{chain of analytic continuations} from \((D_0, f_0)\) is a sequence \(\{(D_k, f_k)\}_{k=0}^n\) where \((D_k, f_k)\) is a direct analytic continuation of \((D_{k-1},f_{k-1})\) for \(1\leq k \leq n\). Then \((D_n, f_n)\) is an \textbf{analytic continuation} of \((D_0, f_0)\).
+    A \textit{chain of analytic continuations} from an analytic element \(\qty(U_0, f_0)\) is a sequence \(\cbraces{\qty(U_k,f_k)}_{k=0}^n\) where \(\qty(U_k,f_k)\) is a direct analytic continuation of \(\qty(D_{k-1},f_{k-1})\) for \(1\leq k\leq n\). Then \(\qty(U_n, f_n)\) is an \textit{analytic continuation} of \(\qty(U_0,f_0)\).
 \end{definition}
-
-\begin{definition}\label{def:maximalanalytic}
-    A \textbf{maximal analytic continuation} \((\widetilde{D}, \widetilde{f})\) is an analytic element that has no analytic continuation to a larger domain. The function \(\widetilde{f}\) is a \textbf{complete analytic function}.
+\begin{definition}\label{def:maximalanalyticcontinuation}
+    A \textit{maximal analytic continuation} \(\qty(\widetilde{D},\widetilde{f})\) is an analytic element that has no analytic continuation to a larger domain.
 \end{definition}
-
-\subsubsection{Example: Natural Boundary}
-\begin{example}\label{ex:lacunaryseries}
-    The series \(f(z) = \sum_{n=0}^{\infty} z^{n!}\) has \(\mathbb{D} = D(0,1)\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
+\begin{example}\label{ex:factoriallacunaryseries}
+    The series \(f(z)=\sum_{n=0}^{\infty}z^{n!}\) has \(\mathbb{D}\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
 \end{example}
-
 \begin{proof}
-    By Cauchy-Hadamard (Theorem~\ref{thm:cauchyhadamard}), \(\limsup_{n \to \infty} |c_n|^{1/n} = 1\) since \(c_n = 1\) if \(n = k!\) and \(0\) otherwise. Thus, \(R = 1\).
+    By the Cauchy-Hadamard Theorem (\autoref{thm:cauchyhadamard}), \(\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}=1\) since \(c_n=1\) if \(n=k!\) and \(0\) otherwise. Thus, \(R=1\).
 
-    Fix \(\zeta \in \partial\mathbb{D}\). Suppose \(f\) extends analytically to a disk \(D(\zeta, \delta)\). Since roots of unity are dense in \(\partial\mathbb{D}\), there exists \(\zeta' = e^{2\pi i p/q} \in D(\zeta, \delta) \cap \partial\mathbb{D}\) for coprime integers \(p,q\). The extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
-    \[\lim_{r \to 1^{-}} f(r\zeta') = g(\zeta').\]
-    However, for \(0 < r < 1\):
-    \[f(r\zeta') = \underbrace{\sum_{k=0}^{q-1} (r\zeta')^{k!}}_{\text{bounded}} + \sum_{k=q}^{\infty} r^{k!} \underbrace{(\zeta')^{k!}}_{=1 \text{ since } q! \mid k! \text{ for } k \geq q}.\]
+    Fix \(\zeta\in\partial\mathbb{D}\). Suppose \(f\) extends analytically to a disk \(D(\zeta,\delta)\). Since roots of unity are dense in \(\partial\mathbb{D}\), there exists \(\zeta'=\exp(2\pi i \frac{p}{q})\in D(\zeta,\delta)\cap\partial\mathbb{D}\) for coprime integers \(p,q\). The extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
+    \[\lim_{r\to1^{-}}f(r\zeta')=g(\zeta').\]
+    However, for \(0<r<1\):
+    \[f(r\zeta') = \sum_{k=0}^{q-1} (r\zeta')^{k!}+\sum_{k=q}^{\infty} r^{k!}\zeta'^{k!}.\]
     As \(r \to 1^{-}\), \(\sum_{k=q}^{\infty} r^{k!} \to \infty\) (since terms \(\to 1\) and infinitely many), contradicting finiteness of \(g(\zeta')\). Hence, \(\zeta\) is a singularity.
 \end{proof}
 \section{The Theory of Riemann}\label{sec:riemann}
