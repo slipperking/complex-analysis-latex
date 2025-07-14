@@ -1311,7 +1311,7 @@ For the next theorem we will briefly introduce the concept of \textit{analytic c
     \end{cases}.\]
     \(\varphi(z)\) is bounded and continuously differentiable on \(D\paren{z_0,r}\) and satisfies the Cauchy--Riemann Equations since
     \[\lim_{z\to z_0}\frac{\varphi(z)-\varphi\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2f(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}f(z)=0,\] meaning that \(\dv{\varphi}{z}\paren{z_0}=0\). For \(z\in D^*\paren{z_0,r}\), \[\varphi'(z)=2\paren{z-z_0}f(z)+\paren{z-z_0}^2f'(z).\] As \(z\to z_0\), \(\varphi(z)\to0\), meaning that \(\varphi\) is holomorphic over \(D\paren{z_0,r}\). By \autoref{thm:cauchydifferentiationformula}, \[\varphi(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
-    which is convergent over \(D\paren{z_0,r}\). Then we can define \[\tilde{f}(z)=\frac{\varphi(z)}{\paren{z-z_0}^2}=\sum_{j=0}^\infty a_{j+2}\paren{z-z_0}^j\] over the same disk of convergence. Over the punctured disk, \(\tilde{f}(z)=f(z)\), and therefore \(\tilde{f}\) is an analytic continuation of \(f\).
+    which is convergent over \(D\paren{z_0,r}\). Then we can define \[\widetilde{f}(z)=\frac{\varphi(z)}{\paren{z-z_0}^2}=\sum_{j=0}^\infty a_{j+2}\paren{z-z_0}^j\] over the same disk of convergence. Over the punctured disk, \(\widetilde{f}(z)=f(z)\), and therefore \(\widetilde{f}\) is an analytic continuation of \(f\).
 \end{proof}
 \subsubsection{Partitions of Unity and the Existence of Bump Functions}
 \begin{definition}[Topological Space]
@@ -1777,10 +1777,10 @@ Let \(P(\zeta,z)=\frac{1-\abs{z}^2}{2\pi\qty|1-\overline{z}\zeta|^2}=\frac{1-\ab
     u(z)=\int_0^{2\pi}u\qty(\zeta)P(\zeta,z)\dd{\tau},\label{eq:poissonintegralformula}
 \end{equation}
 where \(\zeta=e^{i\tau}\). equation~\eqref{eq:poissonintegralformula} is also known as the \textit{Poisson Integral Formula}.
-\(\forall z\in D(0,R)\), \(\forall R>0\), we can apply the transformation \(\tilde{\varphi}_z\qty(\zeta)=R\varphi_{\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\) to extend the automorphism to \(D(0,R)\). Let \(\Phi\) instead be harmonic on \(D(0,R)\) and continuous on \(\overline{D(0,R)}\). Then, \[\Phi(0)=\frac{1}{2\pi}\int_0^{2\pi}\Phi\qty(Re^{i\psi})\dd{\psi}.\]
-It follows that \(u=\Phi\circ\tilde{\varphi}_z\) is also harmonic on \(D(0,R)\) with \(\Phi(0)=u\circ\tilde{\varphi}_{-z}(0)=u(z)\), and from the bijectivity of  \(Re^{i\psi}=\tilde{\varphi}_z\qty(Re^{i\tau})\),
+\(\forall z\in D(0,R)\), \(\forall R>0\), we can apply the transformation \(\widetilde{\varphi}_z\qty(\zeta)=R\varphi_{\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\) to extend the automorphism to \(D(0,R)\). Let \(\Phi\) instead be harmonic on \(D(0,R)\) and continuous on \(\overline{D(0,R)}\). Then, \[\Phi(0)=\frac{1}{2\pi}\int_0^{2\pi}\Phi\qty(Re^{i\psi})\dd{\psi}.\]
+It follows that \(u=\Phi\circ\widetilde{\varphi}_z\) is also harmonic on \(D(0,R)\) with \(\Phi(0)=u\circ\widetilde{\varphi}_{-z}(0)=u(z)\), and from the bijectivity of  \(Re^{i\psi}=\widetilde{\varphi}_z\qty(Re^{i\tau})\),
 \[\dd{\psi}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}e^{i\tau}}^2}e^{i\tau}e^{-i\psi}\dd{\tau}=\dd{\psi}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}e^{i\tau}}^2}\frac{1-\frac{\overline{z}}{R}e^{i\tau}}{1-\frac{z}{R}e^{-i\tau}}\dd{\tau}=\frac{R^2-\abs{z}^2}{\abs{Re^{i\tau}-z}^2}\dd{\tau}.\]
-Then because \(\tilde{\varphi}_z^{-1}(\zeta)=R\varphi_{-\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\),
+Then because \(\widetilde{\varphi}_z^{-1}(\zeta)=R\varphi_{-\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\),
 \[u(z)=\frac{1}{2\pi}\int_0^{2\pi}u\qty(Re^{i\tau})\frac{R^2-\abs{z}^2}{\abs{Re^{i\tau}-z}^2}\dd{\tau}.\]
 The expression \(P(\zeta,z)=\frac{\abs{\zeta}^2-\abs{z}^2}{2\pi\abs{\zeta-z}^2}\) is a general form of the Poisson kernel. Then with \(\zeta=Re^{i\tau}\),
 \begin{equation}
@@ -2056,14 +2056,14 @@ In \chpref{sec:differentialgeometry}, we will prove a profound generalization of
 Given the one-point compactification of \(\mathbb{C}\) into the Riemann sphere \(\riemannsphere\), we can now define and analyze the behavior of functions near the point at infinity. Similar to the classification of isolated singularities in \(\mathbb{C}\), we can classify \(\infty\) as a removable singularity, a pole, or an essential singularity of a holomorphic function.
 
 Let \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic for some \(R>0\). Then \(z=\infty\) is an \textit{isolated singularity} of \(f\). To analyze the nature of the singularity, let \(\zeta=\frac{1}{z}\). We define a new function \(g(\zeta)=f\qty(\frac{1}{\zeta})=f(z)\), which is holomorphic on \(D^*\qty(0,\frac{1}{R})\). Then at \(\zeta=0\), \(g(\zeta)\) has the Laurent expansion of \[g(\zeta)=\sum_{n=-\infty}^\infty c_{-n}\zeta^n=\sum_{n=0}^\infty c_{-n}\zeta^n+\sum_{n=1}^\infty c_{n}\zeta^{-n}=\varphi(\zeta)+\psi(\zeta),\]
-where \(\varphi\) and \(\psi\) are the holomorphic and principal parts of \(g\), respectively. Let \(\tilde{\varphi}(z)=\varphi\qty(\frac{1}{z})\), \(\tilde{\psi}(z)=\psi\qty(\frac{1}{z})\). At \(z=0\), \(f\) then has the Laurent expansion of \[f(z)=\sum_{n=-\infty}^\infty c_nz^n=\sum_{n=0}^\infty c_{-n}z^{-n}+\sum_{n=1}^\infty c_nz^n=\tilde{\varphi}(z)+\tilde{\psi}(z).\]
+where \(\varphi\) and \(\psi\) are the holomorphic and principal parts of \(g\), respectively. Let \(\widetilde{\varphi}(z)=\varphi\qty(\frac{1}{z})\), \(\widetilde{\psi}(z)=\psi\qty(\frac{1}{z})\). At \(z=0\), \(f\) then has the Laurent expansion of \[f(z)=\sum_{n=-\infty}^\infty c_nz^n=\sum_{n=0}^\infty c_{-n}z^{-n}+\sum_{n=1}^\infty c_nz^n=\widetilde{\varphi}(z)+\widetilde{\psi}(z).\]
 
 The classification of the singularity at \(\infty\) is then reduced to the classification of the singularity of \(g\) at \(0\):
 \begin{enumerate}
     \item If \(z=\infty\) is a removable singularity of \(f(z)\), then \(f(z)\) has the form of \[f(z)=c_0+\frac{c_{-1}}{z}+\frac{c_{-2}}{z^2}+\frac{c_{-3}}{z^3}+\cdots.\]
     \item If \(z=\infty\) is a pole of \(f(z)\) with degree \(m\in\mathbb{N}\), then \(f(z)\) can be written as \[f(z)=c_{m}z^m+c_{m-1}z^{m-1}+\cdots+c_0+\frac{c_{-1}}{z}+\cdots,\] where \(c_{m}\neq0\).
     \item If \(z=\infty\) is an essential singularity of \(f(z)\), then \(f(z)\) can be expanded as \[f(z)=\sum_{n=-\infty}^\infty c_{n}z^n,\]
-        where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{n}\neq0\) (infinitely many coefficients of \(\psi\) or \(\tilde{\psi}\) are nonzero).
+        where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{n}\neq0\) (infinitely many coefficients of \(\psi\) or \(\widetilde{\psi}\) are nonzero).
 \end{enumerate}
 \begin{remark}
     Under stereographic projection from the point \(\mqty(0\\0\\1)\) of the unit sphere \(S_2\), a neighborhood of that point maps to a subset of the extended complex plane of the form \(\riemannsphere\setminus K\), where \(K\) is a compact and connected subset of \(\mathbb{C}\). Such sets are referred to as \textit{neighborhoods of \(\infty\)} in the Riemann sphere.
@@ -2657,7 +2657,7 @@ The following result is useful for evaluating integrals on such indentations.
 \end{definition}
 
 Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textit{analytic continuation}, previously introduced in \autoref{def:analyticcontinuation}. By the Identity Theorem (\autoref{thm:identity}), such continuations are unique; if \((U_1, f_1)\) and \((U_2,f_2)\) are analytic elements with \(U_1\cap U_2 \neq \emptyset\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are \textit{direct analytic continuations} of each other. The combined function:
-\[\tilde{f}(z)=
+\[\widetilde{f}(z)=
     \begin{cases}
         f_1(z)&z\in U_1 \\
         f_2(z)&z\in U_2 \setminus U_1
@@ -2674,12 +2674,12 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
 \begin{proof}
     Assume \(f\) can be analytically continued from every \(\zeta \in \partial D(z_0, R)\). Then for each \(\zeta\), there exists \(r_\zeta > 0\) and a holomorphic \(f_\zeta\) on \(D(\zeta, r_\zeta)\) agreeing with \(f\) on \(D(\zeta, r_\zeta) \cap D(z_0, R)\).
 
-    The disks \(\{D(\zeta, r_\zeta)\}_{\zeta \in \partial D(z_0,R)}\) cover the compact set \(\partial D(z_0, R)\). By the Heine--Borel Theorem (\autoref{thm:heineborel}), there is a finite subcover \(\qty{D\qty(\zeta_k,r_k)}_{k=1}^n\). Let \(V=\bigcup_{k=1}^n D\qty(\zeta_k,r_k)\). Therefore, \(\exists\rho>0\) such that \(A=\cbraces{z}{R-\rho\leq\abs{z-z_0}\leq R+\rho}\subseteq V\).
+    The disks \(\cbraces{D\qty(\zeta,r_\zeta)}_{\zeta \in\partial D\qty(z_0,R)}\) cover the compact set \(\partial D\qty(z_0,R)\). By the Heine--Borel Theorem (\autoref{thm:heineborel}), there is a finite subcover \(\qty{D\qty(\zeta_k,r_k)}_{k=1}^n\). Let \(V=\bigcup_{k=1}^n D\qty(\zeta_k,r_k)\). Therefore, \(\exists\rho>0\) such that \(A=\cbraces{z}{R-\rho\leq\abs{z-z_0}\leq R+\rho}\subseteq V\).
 
-    Define \(\Phi:V\to\mathbb{C}\) by \(\Phi(z)=f_{\zeta_k}(z)\) if \(z\in D\qty(\zeta_k, r_k)\). This is well-defined: If \(z\in D\qty(\zeta_i, r_i)\cap D\qty(\zeta_j,r_j)\), then \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j) \cap D\qty(z_0,R)\neq\emptyset\), and \(f_{\zeta_i}=f_{\zeta_j}=f\) there. Hence, \(f_{\zeta_i}\equiv f_{\zeta_j}\) on \(D\qty(\zeta_i,r_i) \cap D\qty(\zeta_j,r_j)\).
+    Define \(\Phi:V\to\mathbb{C}\) by \(\Phi(z)=f_{\zeta_k}(z)\) if \(z\in D\qty(\zeta_k, r_k)\). This is well-defined: If \(z\in D\qty(\zeta_i, r_i)\cap D\qty(\zeta_j,r_j)\), then \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j) \cap D\qty(z_0,R)\neq\emptyset\), and \(f_{\zeta_i}=f_{\zeta_j}=f\) there. By the Identity Theorem (\autoref{thm:identity}), \(f_{\zeta_i}\equiv f_{\zeta_j}\) on \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j)\).
 
     Since \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on \(D\qty(z_0,R)\cap V\), the function:
-    \[\tilde{f}(z)=\begin{cases}
+    \[\widetilde{f}(z)=\begin{cases}
             f(z)&z\in D(z_0, R) \\
             \Phi(z)&z\in V
     \end{cases}\]
@@ -2689,7 +2689,7 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     A \textit{chain of analytic continuations} from an analytic element \(\qty(U_0, f_0)\) is a sequence \(\cbraces{\qty(U_k,f_k)}_{k=0}^n\) where \(\qty(U_k,f_k)\) is a direct analytic continuation of \(\qty(D_{k-1},f_{k-1})\) for \(1\leq k\leq n\). Then \(\qty(U_n, f_n)\) is an \textit{analytic continuation} of \(\qty(U_0,f_0)\).
 \end{definition}
 \begin{definition}\label{def:maximalanalyticcontinuation}
-    A \textit{maximal analytic continuation} \(\qty(\widetilde{D},\widetilde{f})\) is an analytic element that has no analytic continuation to a larger domain. The set \(\widetilde{D}\) is known as the \textit{existence domain} of \(\widetilde{f}\). The boundary set \(\partial\widetilde{D}\) is known as a \textit{natural boundary}. Here, \(\widetilde{f}\) is known as a \textit{complete analytic function}, which may be multi-valued.
+    A \textit{maximal analytic continuation} \(\qty(\widetilde{D},\widetilde{f})\) is an analytic element that has no analytic continuation to a larger domain. The set \(\widetilde{D}\) is known as the \textit{existence domain} of \(\widetilde{f}\). The boundary set \(\partial\widetilde{D}\) is known as a \textit{natural boundary}. Here, \(\widetilde{f}\) is known as a \textit{complete analytic function}, which can be multi-valued.
 \end{definition}
 \begin{example}\label{ex:factoriallacunaryseries}
     The series \(f(z)=\sum_{n=0}^{\infty}z^{n!}\) has \(\mathbb{D}\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
@@ -2700,9 +2700,10 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     Fix \(\zeta\in\partial\mathbb{D}\). Suppose \(f\) extends analytically to a disk \(D(\zeta,\delta)\). Since \(\exp(2\pi i\mathbb{Q})\) is dense in \(\partial\mathbb{D}\), there exists \(\zeta'=\exp(2\pi i \frac{p}{q})\in D(\zeta,\delta)\cap\partial\mathbb{D}\) for coprime integers \(p,q\). The extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
     \[\lim_{r\to1^{-}}f(r\zeta')=g(\zeta').\]
     However, for \(0<r<1\):
-    \[f(r\zeta') = \sum_{k=0}^{q-1} (r\zeta')^{k!}+\sum_{k=q}^{\infty} r^{k!}\zeta'^{k!}.\]
+    \[f(r\zeta')=\sum_{k=0}^{q-1}{\qty(r\zeta')}^{k!}+\sum_{k=q}^{\infty}r^{k!}\zeta'^{k!}.\]
     The second summation is unbounded since \[\sum_{k=q}^\infty r^{k!}\zeta'^{k!}=\sum_{k=q}^\infty r^{k!}>\sum_{k=q}^N r^{k!}>(N-q+1)r^{N!}\] for all \(N>q\). Therefore, as \(r\to1^-\), \(\sum_{k=q}^{\infty} r^{k!}\to\infty\). Hence, \(\zeta\) is a singularity.
 \end{proof}
+The general theory of analytic continuation and its generalizations is known as \textit{sheaf theory}.
 \section{The Theory of Riemann}\label{sec:riemann}
 First, we will formally introduce the results in \chpref{sec:conformalityintroduction}. Then we will study one of the most famous and historically profound results in complex analysis.
 \subsection{The Riemann Mapping Theorem}
