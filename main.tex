@@ -1918,7 +1918,9 @@ This summation can be further simplified:
     &=1+2\qty[\frac{\rho\Re\qty[e^{i(\theta-\tau)}]-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}]\\
     &=\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
 \end{align*}
-Substituting this into equation~\eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch}, we have that \[\sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{|n|}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}.\]
+Substituting this into equation~\eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch}, we have that \[\sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{|n|}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho e^{i\theta}).\]
+Additionally, \[\lim_{\rho\to1^-}\sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{\abs{n}}=u\qty(e^{i\theta}).\]
+
 Finally, we will demonstrate that real-valued continuous functions satisfying the mean-value property are logically equivalent to being a solution to the Laplace equation. In \autoref{lemma:holomorphicmeanvalueproperty}, we showed that real solutions to the Laplace equation satisfy the mean-value property. Now we will prove the converse.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
     Let \(U\subseteq\mathbb{C}\) be open. Let \(f:U\to\mathbb{R}\) be continuous. \(\forall z_0\in U\), \(\exists\lambda>0\) such that \(\overline{D\qty(z_0,\lambda)}\subseteq U\), and if \(\forall0<\varepsilon\le\lambda\), \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi}f\qty(z_0+\varepsilon e^{it})\ddt,\]
