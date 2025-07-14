@@ -2657,11 +2657,11 @@ The following result is useful for evaluating integrals on such indentations.
 \end{definition}
 
 Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textit{analytic continuation}, previously introduced in \autoref{def:analyticcontinuation}. By the Identity Theorem (\autoref{thm:identity}), such continuations are unique; if \((U_1, f_1)\) and \((U_2,f_2)\) are analytic elements with \(U_1\cap U_2 \neq \emptyset\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are \textit{direct analytic continuations} of each other. The combined function:
-\[F(z)=
+\[\tilde{f}(z)=
     \begin{cases}
         f_1(z)&z\in U_1 \\
         f_2(z)&z\in U_2 \setminus U_1
-\end{cases}\] is holomorphic on \(U_1\cup U_2\). 
+\end{cases}\] is holomorphic on \(U_1\cup U_2\).
 
 The most straightforward method of the derivation of analytic continuations uses power series. Let \(f(z)=\sum_{n=0}^{\infty}c_n(z-z_0)^n\) have radius of convergence \(R>0\) (by \autoref{thm:abelradius}). For \(z_1\in D(z_0, R)\), we can expand \(f\) at \(z_1\):
 \[f(z)=\sum_{k=0}^{\infty} \frac{f^{(k)}\qty(z_1)}{k!}\qty(z-z_1)^k.\]
@@ -2674,23 +2674,19 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
 \begin{proof}
     Assume \(f\) can be analytically continued from every \(\zeta \in \partial D(z_0, R)\). Then for each \(\zeta\), there exists \(r_\zeta > 0\) and a holomorphic \(f_\zeta\) on \(D(\zeta, r_\zeta)\) agreeing with \(f\) on \(D(\zeta, r_\zeta) \cap D(z_0, R)\).
 
-    The disks \(\{D(\zeta, r_\zeta)\}_{\zeta \in \partial D(z_0,R)}\) cover the compact set \(\partial D(z_0, R)\). By Heine-Borel (Theorem~\ref{thm:heineborel}), there is a finite subcover \(\{D(\zeta_k, r_k)\}_{k=1}^n\). Let \(V=\bigcup_{k=1}^n D(\zeta_k, r_k)\). Therefore, \(\exists\rho>0\) such that \(A=\cbraces{z}{R-\rho\leq\abs{z-z_0}\leq R+\rho}\subseteq V\).
-    2. Define \(\Phi: V \to \mathbb{C}\) by \(\Phi(z) = f_{\zeta_k}(z)\) if \(z \in D(\zeta_k, r_k)\). This is well-defined: If \(z \in D(\zeta_i, r_i) \cap D(\zeta_j, r_j)\), then \(D(\zeta_i, r_i) \cap D(\zeta_j, r_j) \cap D(z_0, R) \neq \emptyset\), and \(f_{\zeta_i} = f_{\zeta_j} = f\) there. By the Identity Theorem, \(f_{\zeta_i} = f_{\zeta_j}\) on \(D(\zeta_i, r_i) \cap D(\zeta_j, r_j)\).
-    3. \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on \(D(z_0, R) \cap V\).
-    4. The function:
-    \[
-        F(z) =
-        \begin{cases}
-            f(z) & z \in D(z_0, R) \\
-            \Phi(z) & z \in V
-        \end{cases}
-    \]
-    is holomorphic on \(D(z_0, R) \cup V \supset D(z_0, R + \rho)\), contradicting the maximality of \(R\).
-\end{proof}
+    The disks \(\{D(\zeta, r_\zeta)\}_{\zeta \in \partial D(z_0,R)}\) cover the compact set \(\partial D(z_0, R)\). By the Heine--Borel Theorem (\autoref{thm:heineborel}), there is a finite subcover \(\qty{D\qty(\zeta_k,r_k)}_{k=1}^n\). Let \(V=\bigcup_{k=1}^n D\qty(\zeta_k,r_k)\). Therefore, \(\exists\rho>0\) such that \(A=\cbraces{z}{R-\rho\leq\abs{z-z_0}\leq R+\rho}\subseteq V\).
 
-\subsubsection{Chains and Maximal Continuations}
+    Define \(\Phi:V\to\mathbb{C}\) by \(\Phi(z)=f_{\zeta_k}(z)\) if \(z\in D\qty(\zeta_k, r_k)\). This is well-defined: If \(z\in D\qty(\zeta_i, r_i)\cap D\qty(\zeta_j,r_j)\), then \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j) \cap D\qty(z_0,R)\neq\emptyset\), and \(f_{\zeta_i}=f_{\zeta_j}=f\) there. Hence, \(f_{\zeta_i}\equiv f_{\zeta_j}\) on \(D\qty(\zeta_i,r_i) \cap D\qty(\zeta_j,r_j)\).
+
+    Since \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on \(D\qty(z_0,R)\cap V\), the function:
+    \[\tilde{f}(z)=\begin{cases}
+            f(z)&z\in D(z_0, R) \\
+            \Phi(z)&z\in V
+    \end{cases}\]
+    is holomorphic on \(D\qty(z_0,R)\cup V\supset D(z_0, R+\rho)\), contradicting the maximality of \(R\).
+\end{proof}
 \begin{definition}\label{def:analyticchain}
-    A \textbf{chain of analytic continuations} from \((D_0, f_0)\) is a sequence \(\{(D_k, f_k)\}_{k=0}^n\) where \((D_k, f_k)\) is a direct analytic continuation of \((D_{k-1}, f_{k-1})\) for \(1 \leq k \leq n\). Then \((D_n, f_n)\) is an \textbf{analytic continuation} of \((D_0, f_0)\).
+    A \textit{chain of analytic continuations} from \((D_0, f_0)\) is a sequence \(\{(D_k, f_k)\}_{k=0}^n\) where \((D_k, f_k)\) is a direct analytic continuation of \((D_{k-1},f_{k-1})\) for \(1\leq k \leq n\). Then \((D_n, f_n)\) is an \textbf{analytic continuation} of \((D_0, f_0)\).
 \end{definition}
 
 \begin{definition}\label{def:maximalanalytic}
