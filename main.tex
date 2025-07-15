@@ -1526,18 +1526,18 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     where \(\mathrm{int}\paren{\gamma}\) denotes the interior relative to \(\gamma\). The oriented boundary of this domain is \(\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-\). By the Cauchy--Goursat Theorem (\autoref{thm:cauchygoursattheorem}),
     \[\int_{\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-}\frac{f'(z)}{f(z)}\ddz=0,\]
     which rearranges to
-    \[\int_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n\int_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
+    \[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
     Near each \(z_j\), express \(f(z)=\paren{z-z_j}^{k_j}h_j(z)\) where \(h_j\) is holomorphic and non-vanishing on \(D\paren{z_j,\varepsilon_j}\). Differentiation yields
     \[f'(z)=k_j\paren{z-z_j}^{k_j-1}h_j(z)+\paren{z-z_j}^{k_j}h_j'(z),\] and thus
     \[\frac{f'(z)}{f(z)}=\frac{k_j}{z-z_j}+\frac{h_j'(z)}{h_j(z)}.\]
-    Since \(h_j\) is holomorphic and nonvanishing on \(D\paren{z_j,\varepsilon_j}\), the function \(h_j'/h_j\) is holomorphic there. By Cauchy--Goursat,
-    \[\int_{\partial D\paren{z_j,\varepsilon_j}}\frac{h_j'(z)}{h_j(z)}\ddz=0.\]
-    The Cauchy Integral Formula (\autoref{thm:cauchygoursatformula}) gives
-    \[\int_{\partial D\paren{z_j,\varepsilon_j}}\frac{k_j}{z-z_j}\ddz=2\pi ik_j.\]
+    Since \(h_j\) is holomorphic and non-vanishing on \(D\paren{z_j,\varepsilon_j}\), the function \(\frac{h_j'}{h_j}\) is holomorphic there. By the Cauchy--Goursat Integral Theorem,
+    \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{h_j'(z)}{h_j(z)}\ddz=0.\]
+    The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) gives
+    \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{k_j}{z-z_j}\ddz=2\pi ik_j.\]
     Combining results,
-    \[\int_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\pi ik_j=2\pi ik.\]
+    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\pi ik_j=2\pi ik.\]
     Finally, parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
-    \[k=\frac{1}{2\pi i}\int_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(f).\]
+    \[k=\frac{1}{2\pi i}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(f),\] which proves the result.
 \end{proof}
 This profound result proves that the number of zeros of a holomorphic function enclosed by a closed curve is also the number of times the image of the curve winds around the origin.
 \begin{theorem}\label{thm:hurwitzsimplecase}
