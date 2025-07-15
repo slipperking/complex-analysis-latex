@@ -185,7 +185,7 @@ Four main classical theorems exist, relating a function and its line integral in
     \[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
 \end{theorem}
 \begin{theorem}[Green's Theorem]\label{thm:realgreen}
-    Let \(U\) be a positively oriented, multiply connected region in \(\mathbb{R}^2\) with a piecewise smooth oriented boundary \(\partial U\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{U}}\),
+    Let \(U\) be a positively oriented, multiply connected subset of \(\mathbb{R}^2\) with a piecewise smooth oriented boundary \(\partial U\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{U}}\),
     \[\oint_{\partial U} P\ddx+Q\ddy=\iint_U\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
@@ -195,7 +195,7 @@ Four main classical theorems exist, relating a function and its line integral in
     \end{align*}
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
-    Let \(V\) be a positively oriented region in \(\mathbb{R}^3\) with a smooth, positively oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
+    Let \(V\) be a positively oriented subset of \(\mathbb{R}^3\) with a smooth, positively oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
     \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\ddy\ddz.\]
 \end{theorem}
 In 3-dimensional \(\mathbb{R}^3\) space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination of \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where \(\wedge\) denotes an anti-commutative and associative product, where for any two differential forms \(\omega_1\) and \(\omega_2\)
@@ -275,18 +275,18 @@ We also have the definition of the limit of a sequence:
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if and only if \[\lim_{x\to a}f(x)=f(a).\]
 \end{definition}
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
-    Any continuous function on a compact set \(U\) is bounded on \(U\).
+    Any continuous function on a compact set \(K\) is bounded on \(K\).
 \end{theorem}
 \begin{proof}
-    Suppose for the sake of contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(U\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in U\) such that \(|f(x_n)|>n\). The sequence \(\cbraces{x_n}\) lies in \(U\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), \(\cbraces{x_n}\) has an accumulation point in \(U\). In other words, there exists a convergent subsequence \(\cbraces{x_{n_k}}\) with \(\lim_{k\to\infty} x_{n_k}\in U\).
+    Suppose for the sake of contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(K\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in K\) such that \(|f(x_n)|>n\). The sequence \(\cbraces{x_n}\) lies in \(K\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), \(\cbraces{x_n}\) has an accumulation point in \(K\). In other words, there exists a convergent subsequence \(\cbraces{x_{n_k}}\) with \(\lim_{k\to\infty} x_{n_k}\in K\).
 
-    Since \(f\) is continuous, \(\lim_{k\to\infty}f\qty(x_{n_k})=f\qty(\lim_{k\to\infty}x_{n_k})\), which is defined because \(\lim_{k\to\infty} x_{n_k}\in U\). However, this contradicts \(\qty|f\paren{x_{n_k}}|>n_k\to\infty\), hence \(f\) must be bounded on \(U\).
+    Since \(f\) is continuous, \(\lim_{k\to\infty}f\qty(x_{n_k})=f\qty(\lim_{k\to\infty}x_{n_k})\), which is defined because \(\lim_{k\to\infty} x_{n_k}\in K\). However, this contradicts \(\qty|f\paren{x_{n_k}}|>n_k\to\infty\), hence \(f\) must be bounded on \(K\).
 \end{proof}
 \begin{theorem}[Extreme Value Theorem]\label{thm:extremevalue}
-    A continuous function \(f(x)\) over a compact set \(U\) attains its infimum and supremum in \(U\).
+    A continuous function \(f(x)\) defined on a compact set \(K\) attains its infimum and supremum in \(K\).
 \end{theorem}
 \begin{proof}
-    Assume that \(f\) never attains its supremum \(M\in U\). Then, \(f(x)<M\). Define the auxiliary function \(\psi(x)=\frac{1}{M-f(x)}\), which is strictly positive and continuous as the denominator never reaches 0. By \autoref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\). \(f(x)\) also has the representation \(M-\frac{1}{\psi(x)}\), and therefore, \[f(x)\leq M-\frac{1}{\mu},\] which means that \(M\) is not the supremum. Similarly, assume that \(f\) never attains its infimum \(m\in Us\). Then \(f(x)>m\). Let \(\psi(x)=\frac{1}{f(x)-m}\), which is strictly positive and continuous as the denominator never reaches 0. By \autoref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\). \(f(x)\) also has the representation \(m+\frac{1}{\psi(x)}\), and therefore, \[f(x)\geq m+\frac{1}{\mu},\] which means that \(m\) is not the infimum.
+    Assume that \(f\) never attains its supremum \(M\). Then, \(f(x)<M\). Define the auxiliary function \(\psi(x)=\frac{1}{M-f(x)}\), which is strictly positive and continuous as the denominator never reaches \(0\). By \autoref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\). \(f(x)\) also has the representation \(M-\frac{1}{\psi(x)}\), and therefore, \[f(x)\leq M-\frac{1}{\mu},\] which means that \(M\) is not the supremum. Similarly, assume that \(f\) never attains its infimum \(m\). Then \(f(x)>m\). Let \(\psi(x)=\frac{1}{f(x)-m}\), which is strictly positive and continuous as the denominator never reaches \(0\). By \autoref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\). \(f(x)\) also has the representation \(m+\frac{1}{\psi(x)}\), and therefore, \[f(x)\geq m+\frac{1}{\mu},\] which means that \(m\) is not the infimum.
 \end{proof}
 \begin{definition}[Uniform Continuity]\label{def:uniformcontinuity}
     A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous if and only if \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y\in U\) where \(|x-y|<\delta\), \(\abs{f(x)-f(y)}<\varepsilon\).
@@ -380,7 +380,7 @@ The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Alon
 
 If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over a closed set if it is holomorphic over an open set containing the closed set. A function is \textit{entire} if it is holomorphic over \(\mathbb{C}\).
 
-For the purpose of the following contents, a \textit{region} will denote a nonempty, open, connected subset of the complex plane.
+For the purpose of the following contents, a \textit{region} or \textit{domain} will denote a nonempty, open, connected subset of the complex plane.
 \begin{theorem}\label{thm:holomorphycondition}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. Then \(f\) is holomorphic on \(U\) if and only if \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
 \end{theorem}
@@ -1606,31 +1606,31 @@ By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}
 
     For the purpose of the statement, we can choose \(N=\max\paren{N_1,N_2}\).
 \end{proof}
-The following theorem is also a direct consequence of Rouché's Theorem (\autoref{thm:rouche}). While \autoref{thm:hurwitz} concerns the stability of zeros under perturbations of \(f_n(z)\) as \(n\) increases, the stability is also preserved under small additive perturbations of the form \(f(z)+\lambda\) for vanishing \(\lambda\). Observe their similarities in formulation.
+The following theorem is also a direct consequence of Rouché's Theorem (\autoref{thm:rouche}). While \autoref{thm:hurwitz} concerns the stability of zeros under perturbations of \(f_n(z)\) as \(n\) increases, the stability is also preserved under small additive perturbations of the form \(f(z)+\varepsilon\) for vanishing \(\varepsilon\). Observe their similarities in formulation.
 \begin{theorem}\label{thm:holomorphiczerosstabilityundershifts}
     Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f(z)\) be holomorphic and non-constant on \(U\).
 
-    Then, for any compact set \(K\subset U\) where \(f(z)\) has no zeros on \(\partial K\), and any open neighborhood \(V\) of the set \(\cbraces{z\in K}{f(z)=0}\), \(\exists \delta>0\) such that \(\forall\lambda\in D\paren{0,\delta}\),
+    Then, for any compact set \(K\subset U\) where \(f(z)\) has no zeros on \(\partial K\), and any open neighborhood \(V\) of the set \(\cbraces{z\in K}{f(z)=0}\), \(\exists \delta>0\) such that \(\forall\varepsilon\in D\paren{0,\delta}\),
     \begin{enumerate}
-        \item The zeros of \(f(z)+\lambda\) in \(K\) lie in \(V\), that is, \(\cbraces{z\in K}{f(z)+\lambda=0}\subset V\).
-        \item The number of zeros (counting multiplicity) of \(f(z)+\lambda\) in \(K\) is the same as that of \(f(z)\) in \(K\).
+        \item The zeros of \(f(z)+\varepsilon\) in \(K\) lie in \(V\), that is, \(\cbraces{z\in K}{f(z)+\varepsilon=0}\subset V\).
+        \item The number of zeros (counting multiplicity) of \(f(z)+\varepsilon\) in \(K\) is the same as that of \(f(z)\) in \(K\).
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    The proof is exactly the same as in \autoref{thm:hurwitz}. Obviously, \(|f|\) attains its positive infimum on \(\partial K\) by its continuity, or that \(\delta_1=\min_{z\in\partial K}\abs{f(z)}\) is positive. Then \(\forall\abs{\lambda}<\delta_1\), \(\forall z\in \partial K\),
-    \[\abs{f(z)-\paren{f(z)+\lambda}}<\delta_1\leq\abs{f(z)}.\]
-    By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f+\lambda\) have the same number of zeros, counting multiplicity, over \(K\).
+    The proof is exactly the same as in \autoref{thm:hurwitz}. Obviously, \(|f|\) attains its positive infimum on \(\partial K\) by its continuity, or that \(\delta_1=\min_{z\in\partial K}\abs{f(z)}\) is positive. Then \(\forall\abs{\varepsilon}<\delta_1\), \(\forall z\in \partial K\),
+    \[\abs{f(z)-\paren{f(z)+\varepsilon}}<\delta_1\leq\abs{f(z)}.\]
+    By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f+\varepsilon\) have the same number of zeros, counting multiplicity, over \(K\).
 
-    Similarly, \(\delta_2=\max_{z\in K\setminus V}\abs{f(z)}>0\), and \(\forall|\lambda|<\delta_2\), \(\forall z\in K\setminus V\),
-    \[\abs{f(z)-\paren{f(z)+\lambda}}<\delta_2\leq\abs{f(z)}.\]
-    \(K\setminus V\) can be covered by a collection of simply connected sets (with a union equal to \(K\setminus V\)). Thus, by \autoref{thm:rouche}, \(f\) and \(f+\lambda\) never vanish on \(K\setminus V\), and therefore all zeros of \(f+\lambda\) lie in \(V\).
+    Similarly, \(\delta_2=\max_{z\in K\setminus V}\abs{f(z)}>0\), and \(\forall|\varepsilon|<\delta_2\), \(\forall z\in K\setminus V\),
+    \[\abs{f(z)-\paren{f(z)+\varepsilon}}<\delta_2\leq\abs{f(z)}.\]
+    \(K\setminus V\) can be covered by a collection of simply connected sets (with a union equal to \(K\setminus V\)). Thus, by \autoref{thm:rouche}, \(f\) and \(f+\varepsilon\) never vanish on \(K\setminus V\), and therefore all zeros of \(f+\varepsilon\) lie in \(V\).
 
     For the purpose of the statement, we can choose \(\delta=\min\paren{\delta_1,\delta_2}\).
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
 
-Suppose a holomorphic function attained a local maximum of its modulus at a zero. Then, by adding a sufficiently small constant (i.e. a downward shift), the zero could disappear from the region, violating the stability of zeros under small additive perturbations established by \autoref{thm:holomorphiczerosstabilityundershifts}.
+Suppose a holomorphic function attained a local maximum of its modulus at a zero. Then, by adding a sufficiently small constant (such as a downward shift), the zero could disappear from the region, violating the stability of zeros under small additive perturbations established by \autoref{thm:holomorphiczerosstabilityundershifts}.
 
 For comparison, consider the real function \(-x^2\). Shifting it downward by any positive amount removes the zero of multiplicity 2 at \(x=0\) in \(\mathbb{R}\), while shifting it upward causes that zero to split into two simple zeros. The latter behavior agrees with \autoref{thm:holomorphiczerosstabilityundershifts}, and provides a helpful way to visualize the stability of zeros in two dimensions. However, the fact that the zero is not preserved under a positive shift highlights a key difference between real differentiable functions and holomorphic functions.
 
@@ -2748,13 +2748,16 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
 \end{proof}
 The general theory of analytic continuation and its generalizations is formulated by \textit{sheaf theory}.
 \begin{example}
+    Let \(\Log(z)\) denote the principal branch of \(\log(z)\), with \(-\pi<\Arg(z)\leq\pi\). The analytic elements \[\qty(D(1,1),\Log)\qand\qty(D(1,1),\Log+2\pi i)\] are analytic continuations of each other.
+\end{example}
+\begin{example}
     Show that the analytic functions defined by the series \(f(z)=\sum_{n=0}^\infty\alpha^n z^n\) and \(\widetilde{f}(z)=\sum_{n=0}^\infty\frac{(\alpha-1)^n z^n}{(1-z)^{n+1}}\) are analytic continuations of each other.
 \end{example}
 \begin{proof}
     The analytic element \(\qty(D\qty(0,\abs{\frac{1}{\alpha}}),f)\) can be directly continued to the analytic element \(\qty(\mathbb{C}\setminus\qty{\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z})\). The element \(\qty(D\qty(0,\frac{1-z}{\alpha-1}),\widetilde{f})\) can be analytically continued to \[\qty(\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}},z\mapsto\frac{1}{(1-z)\qty(1-\dfrac{z\alpha-z}{1-z})})=\qty(\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z}),\] which is a direction analytic continuation of \(\qty(\mathbb{C}\setminus\qty{\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z})\). Therefore, \(f\) and \(\widetilde{f}\) are analytic continuations of each other.
 \end{proof}
 \section{The Theory of Riemann}\label{sec:riemann}
-\subsection{Biholomorphic Mappings}
+\subsection{Biholomorphy}
 In \chpref{sec:conformalityintroduction}, it was asserted that for a holomorphic function \(f(z)\), the map \(w=f(z)\) is conformal when \(f'(z)\neq 0\).
 
 We have the following immediate assertion:
@@ -2764,8 +2767,23 @@ We have the following immediate assertion:
 \begin{proof}
     The nonemptiness of \(f(U)\) is an immediate conclusion from the fact that \(U\) is nonempty and \(f\) is defined on all of \(U\).
 
-    Let \(w_0\) be an arbitrary point in 
+    Let \(w_0\) be an arbitrary point in \(f(U)\). Then \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). Since \(f\) is non-constant, the function \(f-w_0\) has an isolated zero at \(z_0\). Thus for sufficiently small \(\rho>0\), the only zero of \(f-w_0\) in \(\overline{D\qty(z_0,\rho)}\) is at \(z_0\). 
+
+    By \autoref{thm:holomorphiczerosstabilityundershifts}, then there exists \(\delta>0\) such that \(\forall\varepsilon\in D(0,\delta)\), \(f(z)-w_0-\varepsilon\) has exactly one zero in \(\overline{D\qty(z_0,\rho)}\). In other words, \(\forall w_0\in f(U)\), \(\exists\delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), \(\exists! z\in\overline{D\qty(z_0,\rho)}\) such that \(f(z)=w\). Thus, \(f\qty(D\qty(w_0,\delta))\subseteq f(U)\). Thus, \(f(U)\) is an open set contained point has a fully contained open neighborhood.
+
+    Let \(w_1,w_2\in f(U)\) be arbitrary and distinct. Then there exist \(z_1, z_2\in U\) such that \(f\qty(z_1)=w_1\) and \(f\qty(z_2)=w_2\). By the connectedness of \(U\), there exists a path \(\gamma\subset U\) that connects \(z_1\) and \(z_2\). Then \(f(\gamma)\subset f(U)\) is a curve that joins \(w_1\) and \(w_2\). Thus, \(f(U)\) is connected.
 \end{proof}
+Holomorphic injectivity, or univalence, satisfies the proceeding assertion:
+\begin{lemma}
+    Let \(U\subseteq\mathbb{C}\) be a region and suppose \(f:U\to\mathbb{C}\) is univalent. Then \(f'\) is non-vanishing on \(U\).
+\end{lemma}
+\begin{proof}
+    Suppose, for the sake of contradiction, that \(f\) is univalent on \(U\) such that \(\exists z_0\in U\) such that \(f'\qty(z_0)=0\). In other words, \(f(z)-f\qty(z_0)\) has a zero at \(z_0\) with multiplicity of at least 2. TO BE CONTINUED 
+\end{proof}
+Conversely, we have the following statement on local univalence.
+\begin{lemma}
+    Let \(U\subseteq\mathbb{C}\) be a region and suppose \(f:U\to\mathbb{C}\) is holomorphic. If \(f'\qty(z_0)\neq0\) for some \(z_0\in U\), then there exists an open neighborhood \(V\) of \(z_0\) such that \(f\) is univalent on \(V\).
+\end{lemma}
 \subsection{The Riemann Mapping Theorem}
 The
 
