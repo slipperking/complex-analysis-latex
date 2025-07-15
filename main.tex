@@ -380,7 +380,7 @@ The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Alon
 
 If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over a closed set if it is holomorphic over an open set containing the closed set. A function is \textit{entire} if it is holomorphic over \(\mathbb{C}\).
 
-For simplicity's sake, if we mention that a function is holomorphic on a region, it is implied that the region is connected.
+For simplicity's sake, if we mention that a function is holomorphic on a \textit{region}, it is implied that the set is connected.
 \begin{theorem}\label{thm:holomorphycondition}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. \(f\) is then holomorphic on \(U\) if and only if \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
 \end{theorem}
@@ -397,12 +397,6 @@ For simplicity's sake, if we mention that a function is holomorphic on a region,
     \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta+\frac{o_{\Delta z\to 0}\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
     Taking the limit as \(\Delta z\to0\), the high order infinitesimals on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta.\]
 \end{proof}
-We also have the following:
-\begin{theorem}[Looman--Menchoff Theorem]\label{thm:loomanmenchoff}
-    A function \(f(z)\) is holomorphic over an open set \(U\subset\mathbb{C}\) if and only if it is continuous on \(U\), differentiable on \(U\setminus N\) for some set \(N\) with measure zero, and satisfies the \textit{Cauchy–Riemann equations}.
-\end{theorem}
-Clearly, any function satisfying the criteria in \autoref{thm:holomorphycondition} will also satisfy the criteria for the Looman--Menchoff Theorem (\autoref{thm:loomanmenchoff}). However, the first theorem is a logical equivalence for holomorphy. This implies that any holomorphic function over \(U\) with existent partial derivatives except for on a set with measure zero has the property that those partial derivatives are automatically continuous.
-
 We will prove later in \chpref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+iv(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
@@ -2760,6 +2754,8 @@ The general theory of analytic continuation and its generalizations is formulate
     The analytic element \(\qty(D\qty(0,\abs{\frac{1}{\alpha}}),f)\) can be directly continued to the analytic element \(\qty(\mathbb{C}\setminus\qty{\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z})\). The element \(\qty(D\qty(0,\frac{1-z}{\alpha-1}),\widetilde{f})\) can be analytically continued to \[\qty(\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}},z\mapsto\frac{1}{(1-z)\qty(1-\dfrac{z\alpha-z}{1-z})})=\qty(\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z}),\] which is a direction analytic continuation of \(\qty(\mathbb{C}\setminus\qty{\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z})\). Therefore, \(f\) and \(\widetilde{f}\) are analytic continuations of each other.
 \end{proof}
 \section{The Theory of Riemann}\label{sec:riemann}
+\subsection{Biholomorphic Mappings}
+In \chpref{sec:conformalityintroduction}, it was asserted that for a holomorphic function \(f(z)\), the map \(w=f(z)\) is conformal when \(f'(z)\neq 0\).
 \subsection{The Riemann Mapping Theorem}
 The
 
