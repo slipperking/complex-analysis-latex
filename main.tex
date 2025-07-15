@@ -1888,7 +1888,7 @@ A fundamental problem in the theory of partial differential equations is to find
 
     Hence, \(\forall\varepsilon>0\), \(\exists\eta>0\) such that \(\forall z\) such that \(0<\abs{\xi-z}<\eta\), we have \(\abs{\varphi(\xi)-u(z)}<2\varepsilon\). Then equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary} follows.
 
-    We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (equation~\eqref{eq:poissonintegralformula2}), \(\forall z\in D(0,R)\), \(u(z)-v(z)=\int_0^{2\pi}P(\zeta,z)\paren{u(\zeta)-v(\zeta)}\dd{\tau}=0\). Since \(u-v\) vanishes, we have a contradiction.
+    We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (equation~\eqref{eq:poissonintegralformula2}), \(\forall z\in D(0,R)\), \(u(z)-v(z)=\int_0^{2\pi}P(\zeta,z)\qty[u(\zeta)-v(\zeta)]\dd{\tau}=0\). Since \(u-v\) vanishes, we have a contradiction.
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 Consider \(R=1\), \(\zeta=e^{i\tau}\), and \(z=\rho e^{i\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
@@ -1939,9 +1939,9 @@ We now establish that real-valued continuous functions satisfying the mean-value
 \section{The Theory of Weierstrass}
 While Weierstrass' contributions in complex analysis are mainly characterized by his discoveries on uniform convergence, he also characterized entire and \textit{meromorphic functions} and a unique representation of entire functions, as well as his contributions toward the study of \textit{essential singularities}.
 
-To help understand the behavior of non-removable singularities, we will introduce the concept of \textit{Laurent Series}.
+To help understand the behavior of non-removable singularities, we will introduce the concept of \textit{Laurent series}.
 \subsection{Laurent Series}
-The Laurent Series generalizes the Taylor series to holomorphic functions with isolated singularities. While Taylor series are valid within a disk centered at a point of holomorphy, Laurent series apply to annular regions surrounding a singularity, making them essential for studying functions near non-removable singularities (refer to \autoref{thm:removablesingularitiesriemann}).
+The Laurent series generalizes the Taylor series to holomorphic functions with isolated singularities. While Taylor series are valid within a disk centered at a point of holomorphy, Laurent series apply to annular regions surrounding a singularity, making them essential for studying functions near non-removable singularities (refer to \autoref{thm:removablesingularitiesriemann}).
 
 We now introduce a fundamental result in complex analysis due to Weierstrass, which formalizes the conditions under which the limit of a sequence of holomorphic functions is itself holomorphic. This theorem not only guarantees the holomorphy of the limit function but also the uniform convergence of its derivatives (its statement was used in the proof of \autoref{thm:hurwitzsimplecase}).
 \begin{theorem}[Weierstrass' Uniform Limit Theorem]\label{thm:weierstrassuniformlimit}
@@ -1966,11 +1966,11 @@ The condition of uniform convergence on every compact subset can also be signifi
 \begin{remark}
     From the above result, the uniform convergence on every compact subset in \autoref{thm:weierstrassuniformlimit} can therefore be loosened to the uniform convergence on every simple closed curve.
 \end{remark}
-We will now study the  Laurent Series. Let \(a\in\mathbb{C}\) and \(\qty{c_n}_{n\in\mathbb{Z}}\subset\mathbb{C}\) be constants. A series in the form of
+We will now study Laurent series. Let \(a\in\mathbb{C}\) and \(\qty{c_n}_{n\in\mathbb{Z}}\subset\mathbb{C}\) be constants. A series in the form of
 \begin{equation}\label{eq:laurentseries}
     f(z)=\sum_{n=-\infty}^\infty c_n(z-a)^n
 \end{equation}
-is a Laurent Series at the point \(a\). The series can be separated into a power series with non-negative exponents,
+is a Laurent series at the point \(a\). The series can be separated into a power series with non-negative exponents,
 \begin{equation}
     \varphi(z)=\sum_{n=0}^\infty c_n(z-a)^n,\label{eq:laurentseriesnonnegativeexponents}
 \end{equation} and a power series with negative exponents,
@@ -1978,7 +1978,7 @@ is a Laurent Series at the point \(a\). The series can be separated into a power
     \psi(z)=\sum_{n=1}^{\infty}c_{-n}(z-a)^{-n}.\label{eq:laurentseriesnegativeexponents}
 \end{equation} Equation~\eqref{eq:laurentseries} is said to be convergent at \(z=z_0\) if the two power series are both convergent. Let the convergence radius of equation~\eqref{eq:laurentseriesnonnegativeexponents} be \(R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}}\) by the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}). It follows that the \(\varphi\) is holomorphic on \(D(a,R)\). Let \(\zeta=(z-a)^{-1}\). Then equation~\eqref{eq:laurentseriesnegativeexponents} becomes \(\sum_{n=1}^\infty c_{-n}\zeta^n\). This series converges when \(\abs{\zeta}<\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}}=\lambda\). Let \(r=\frac{1}{\lambda}\). Then \(\psi(z)\) converges when \(\abs{z-a}>\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}\), or when \(z\in\mathbb{C}\setminus\overline{D(a,r)}\).
 
-If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D(a,r)}\) and divergent on \(\mathbb{C}\setminus\overline{D(a,R)}\cup D(a,r)\). If \(r=R\), the series diverges possibly everywhere but on \(\partial D(a,r)\). Similar to power series with positive exponents, the convergence on the boundary varies. For example, \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n^2}\), where \(R=r=1\), converges (absolutely) on \(\partial\mathbb{D}\), whereas \(\sum_{n=-\infty}^\infty z^n\) diverges on all of \(\partial\mathbb{D}\), while \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n}\) converges (conditionally) on all of \(\partial\mathbb{D}\setminus\qty{1}\) and diverges at \(z=1\). If \(r>R\), then the series is divergent on all of \(\mathbb{C}\). The region \(D(a,R)\setminus\overline{D(a,r)}\) is known as the \textit{annulus of convergence}. \(f(z)\) in equation~\eqref{eq:laurentseries} is holomorphic over this annulus. \(\varphi(z)\) is known as the \textit{holomorphic part} of \(f(z)\), and \(\psi(z)\) is known as the \textit{principal part} of the Laurent Series. The properties of the convergence disk in Abel's Theorem (\autoref{thm:abelradius}) can be generalized to Laurent Series. \(f\) is absolutely convergent on the annulus and is uniformly convergent on every compact subset of it.
+If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D(a,r)}\) and divergent on \(\mathbb{C}\setminus\overline{D(a,R)}\cup D(a,r)\). If \(r=R\), the series diverges possibly everywhere but on \(\partial D(a,r)\). Similar to power series with positive exponents, the convergence on the boundary varies. For example, \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n^2}\), where \(R=r=1\), converges (absolutely) on \(\partial\mathbb{D}\), whereas \(\sum_{n=-\infty}^\infty z^n\) diverges on all of \(\partial\mathbb{D}\), while \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n}\) converges (conditionally) on all of \(\partial\mathbb{D}\setminus\qty{1}\) and diverges at \(z=1\). If \(r>R\), then the series is divergent on all of \(\mathbb{C}\). The region \(D(a,R)\setminus\overline{D(a,r)}\) is known as the \textit{annulus of convergence}. \(f(z)\) in equation~\eqref{eq:laurentseries} is holomorphic over this annulus. \(\varphi(z)\) is known as the \textit{holomorphic part} of \(f(z)\), and \(\psi(z)\) is known as the \textit{principal part} of the Laurent series. The properties of the convergence disk in Abel's Theorem (\autoref{thm:abelradius}) can be generalized to Laurent series. In other words, \(f\) is absolutely convergent on the annulus and is uniformly convergent on every compact subset of it.
 \begin{theorem}\label{thm:laurentexpansionofholomorphicfunction}
     Let \(V=\cbraces{z\in\mathbb{C}}{r<\abs{z-a}<R}\) for some \(0\leq r<R\leq\infty\). Let \(f\) be holomorphic on \(V\). Then \(f\) has the unique \textit{Laurent expansion}
     \begin{equation}
@@ -2208,7 +2208,7 @@ Let \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\) and let \(\overline{\mat
     Find the group of holomorphic automorphisms on \(\mathbb{H}^+\).
 \end{example}
 \begin{proof}
-    Let \(z=x+iy\), for \(x,y\in\mathbb{R}\). For \(\Im(z)>0\), the function defined by \(\varphi(z)=\frac{z-i}{z+i}\), known as the \textit{Cayley transform}, satisfies \[\abs{\varphi(z)}=\sqrt{\frac{x^2+(y-1)^2}{x^2+(y+1)^2}}<1\]
+    Let \(z=x+iy\), for \(x,y\in\mathbb{R}\). For \(\Im(z)>0\), the function defined by \(\varphi(z)=\frac{z-i}{z+i}\), known as the \textit{Cayley transform}, satisfies \[\abs{\varphi(z)}=\sqrt{\frac{x^2+(y-1)^2}{x^2+{(y+1)}^2}}<1\]
     since \(y>0\). Therefore, \(\varphi\) maps \(\mathbb{H}^+\) to \(\mathbb{D}\). Since \(\varphi\in\Aut\qty(\extcomplex)\), it is univalent. Furthermore, \(\varphi^{-1}(z)=i\frac{1+z}{1-z}\) is also univalent. Let \(\abs{z}<1\) be arbitrary. Then,
     \begin{align*}
         \Im\qty(\varphi^{-1}(z))=\Re\qty(\frac{z+1}{1-z})=\Re\qty(\frac{(1+z)\qty(1-\overline{z})}{\abs{1-z}^2})=\Re\qty(\frac{1-\Im(z)^2-\Re(z)^2+2i\Im(z)}{\abs{1-z}^2}),
