@@ -660,7 +660,7 @@ Furthermore, for any smooth curve \(\gamma\in C^1([0,1])\) passing through \(z_0
 \[\lim_{\substack{z\to z_0\\z\in\gamma}}\frac{\abs{f(z)-f(z_0)}}{\abs{z-z_0}}=\abs{f'(z_0)}\]
 shows that infinitesimal lengths are locally scaled by a factor of \(\abs{f'(z_0)}\) under the mapping \(f\).
 
-Therefore, at points where \(\abs{f'(z)}\neq 0\), the function \(f\) is conformal: it preserves both angles and local shapes up to scaling. In later chapters, we will study the behavior of \(f\) at critical points where the derivative vanishes, and conformality fails.
+Therefore, at points where \(\abs{f'(z)}\neq 0\), the function \(f\) is conformal; it preserves both angles and local shapes up to scaling.
 \section{Complex Integration}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+iy\) and \(\overline{z}=x-iy\). We can then write their corresponding differentials:
 \[\ddz=\ddx+i\ddy,\quad\dd{\overline{z}}=\ddx-i\ddy.\]
@@ -2758,9 +2758,12 @@ The general theory of analytic continuation and its generalizations is formulate
 In \chpref{sec:conformalityintroduction}, it was asserted that for a holomorphic function \(f(z)\), the map \(w=f(z)\) is conformal when \(f'(z)\neq 0\).
 
 We have the following immediate assertion:
-\begin{lemma}
-    Let \(U\subseteq\mathbb{C}\) be a region (open, nonempty, and connected).
-\end{lemma}
+\begin{theorem}[Open Mapping Theorem]\label{thm:openmapping}
+    Let \(U\subseteq\mathbb{C}\) be a region (open, nonempty, and connected). Let \(f:U\to\mathbb{C}\) be holomorphic and non-constant. Then the image \(f(U)\) is a region.
+\end{theorem}
+\begin{proof}
+    The nonemptiness of \(f(U)\) is trivial. Let \(w_1,w_2\in f(U)\) be arbitrary and distinct. Then \(\exists z_1,z_2\in U\) such that \(f\qty(z_1)=w_1\)  and \(f\qty(z_2)=w_2\).
+\end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
 
