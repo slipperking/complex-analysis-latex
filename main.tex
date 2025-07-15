@@ -1891,48 +1891,58 @@ A fundamental problem in the theory of partial differential equations is to find
     We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (equation~\eqref{eq:poissonintegralformula2}), \(\forall z\in D(0,R)\), \(u(z)-v(z)=\int_0^{2\pi}P(\zeta,z)\paren{u(\zeta)-v(\zeta)}\dd{\tau}=0\). Since \(u-v\) vanishes, we have a contradiction.
 \end{proof}
 \subsubsection{In Harmonic Analysis}
-Consider \(R=1\), \(\zeta=e^{i\tau}\), \(z=\rho e^{i\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
+Consider \(R=1\), \(\zeta=e^{i\tau}\), and \(z=\rho e^{i\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
 \begin{gather}
-    u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})}\nonumber\\
-    =\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
+    u(z)=\frac{1}{2\pi}\int_0^{2\pi} u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau} = \frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{\qty(e^{i\tau}-\rho e^{i\theta})\qty(e^{-i\tau}-\rho e^{-i\theta})} \nonumber \\
+    =\frac{1}{2\pi}\int_0^{2\pi} \frac{\qty(1-\rho^2)u\qty(e^{i\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
 \end{gather}
-Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(i\theta)\) is periodic over \(2\pi\), it can be expressed as a Fourier series,
+Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(i\theta)\) is periodic with period \(2\pi\), it admits a Fourier series representation
 \begin{equation}
-    u\qty(e^{i\theta})\sim\sum_{n=-\infty}^\infty a_ne^{in\theta},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi} u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}.\label{eq:poissonintegralformulafourierseries}
+    u\qty(e^{i\theta}) \sim \sum_{n=-\infty}^\infty a_n e^{in\theta},\quad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi} u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
 \end{equation}
-This series is not necessarily convergent. Notice that \(u\) is continuous on a compact set and therefore is uniformly bounded by some \(M\) (\autoref{thm:continuousfunctionboundedoncompact}). Therefore, the integrand of \(a_n\) is bounded by a finite \(M\geq\abs{u\qty(e^{i\theta})e^{-in\theta}}\). It follows that \(\qty|a_n|\leq M\). By introducing factors of powers of \(\abs{\rho}<1\), we obtain the convergent sum: \[\sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{|n|},\qquad\abs{\sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{|n|}}\leq\sum_{n=-\infty}^\infty\abs{a_ne^{in\theta}\rho^{|n|}}\leq M\frac{1+|\rho|}{1-\abs{\rho}}.\]
-By substituting the coefficients, we have \begin{align*}
-    \sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{|n|}&=\sum_{n=-\infty}^\infty \qty(\frac{1}{2\pi}\int_0^{2\pi}u\qty(e^{i\tau})e^{-in\tau}\dd{\tau})e^{in\theta}\rho^{|n|}\\
-    &=\frac{1}{2\pi}\sum_{n=-\infty}^\infty\int_0^{2\pi}\rho^{|n|}u\qty(e^{i\tau})e^{in(\theta-\tau)}\dd{\tau}.
-\end{align*}
-By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:limitintegralswitch}, we have
-\begin{equation}
-    \frac{1}{2\pi}\sum_{n=-\infty}^\infty\int_0^{2\pi}\rho^{|n|}u\qty(e^{i\tau})e^{in(\theta-\tau)}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi}u\qty(e^{i\tau})\sum_{n=-\infty}^\infty\rho^{|n|}e^{in(\theta-\tau)}\dd{\tau}.\label{eq:poissonintegralformulafourierseriespostintegralsummationswitch}
-\end{equation}
-This summation can be further simplified:
+This series may diverge. Observe that continuity of \(u\) on the compact set \(\partial\mathbb{D}\) implies uniform boundedness: \(\exists M>0\) such that \(\abs{u\qty(e^{i\theta})} \leq M\) for all \(\theta\) (\autoref{thm:continuousfunctionboundedoncompact}). Consequently, \(\abs{a_n} \leq M\). Introducing factors \(\rho^{\abs{n}}\) with \(\abs{\rho}<1\) yields a convergent series:
+\[\sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{\abs{n}}, \quad\abs{\sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M \frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
+Substituting the coefficients gives
 \begin{align*}
-    \sum_{n=-\infty}^\infty\rho^{|n|}e^{in(\theta-\tau)}&=\sum_{n=0}^\infty\rho^n e^{in(\theta-\tau)}+\sum_{n=1}^\infty\rho^n e^{-in(\theta-\tau)}\\
+    \sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{\abs{n}}&=\sum_{n=-\infty}^\infty \qty(\frac{1}{2\pi}\int_0^{2\pi}u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}) e^{in\theta}\rho^{\abs{n}}\\
+    &=\frac{1}{2\pi} \sum_{n=-\infty}^\infty \int_0^{2\pi}\rho^{\abs{n}} u\qty(e^{i\tau}) e^{in(\theta-\tau)}\dd{\tau}.
+\end{align*}
+By the Weierstrass \(M\)-Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:limitintegralswitch},
+\begin{equation}
+    \frac{1}{2\pi}\sum_{n=-\infty}^\infty \int_0^{2\pi} \rho^{\abs{n}}u\qty(e^{i\tau}) e^{in(\theta-\tau)} \dd{\tau}=\frac{1}{2\pi} \int_0^{2\pi} u\qty(e^{i\tau})\sum_{n=-\infty}^\infty \rho^{\abs{n}} e^{in(\theta-\tau)}\dd{\tau}.\label{eq:poissonintegralformulafourierseriespostintegralsummationswitch}
+\end{equation}
+The summation simplifies as follows:
+\begin{align*}
+    \sum_{n=-\infty}^\infty \rho^{\abs{n}} e^{in(\theta-\tau)}&=\sum_{n=0}^\infty \rho^n e^{in(\theta-\tau)}+\sum_{n=1}^\infty \rho^n e^{-in(\theta-\tau)}\\
     &=1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]\\
-    &=1+2\Re\sum_{n=1}^\infty\rho^n e^{in(\theta-\tau)}\\
-    &=1+2\Re\qty[\frac{\rho\exp[i(\theta-\tau)]\qty(1-\rho\exp[-i(\theta-\tau)])}{\qty(1-\rho\exp[i(\theta-\tau)])\qty(1-\rho\exp[-i(\theta-\tau)])}]\\
-    &=1+2\qty[\frac{\rho\Re\qty[e^{i(\theta-\tau)}]-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}]\\
+    &=1+2\Re\sum_{n=1}^\infty\rho^n e^{in(\theta-\tau)} \\
+    &=1+2\Re\qty[\frac{\rho e^{i(\theta-\tau)}}{1-\rho e^{i(\theta-\tau)}}] \\
     &=\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
 \end{align*}
-Substituting this into equation~\eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch}, we have that \[\sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{|n|}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(e^{i\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho e^{i\theta}).\]
-Additionally by the proof of \autoref{thm:dirichletproblemwithlaplaceequationsolution} (specifically the proof of equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}), we have \[\lim_{\rho\to1^-}\sum_{n=-\infty}^\infty a_ne^{in\theta}\rho^{\abs{n}}=u\qty(e^{i\theta}).\]
-Hence, for an arbitrary continuous function \(u\) on \(\partial\mathbb{D}\), its Fourier series is \textit{Abel summable} to \(u\).
+Substituting into \eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch} yields
+\[
+    \sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{\abs{n}} = \frac{1}{2\pi}\int_0^{2\pi} \frac{\qty(1-\rho^2)u\qty(e^{i\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau} = u\qty(\rho e^{i\theta}).
+\]
+Furthermore, by the proof of \autoref{thm:dirichletproblemwithlaplaceequationsolution} (specifically equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}),
+\[
+    \lim_{\rho\to1^-} \sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{\abs{n}} = u\qty(e^{i\theta}).
+\]
+Thus, for any continuous function \(u\) on \(\partial\mathbb{D}\), its Fourier series is \textit{Abel summable} to \(u\).
 
-Finally, we will demonstrate that real-valued continuous functions satisfying the mean-value property are equivalent to being a solution to the Laplace equation. In \autoref{lemma:holomorphicmeanvalueproperty}, we showed that real solutions to the Laplace equation satisfy the mean-value property. Now we will prove the converse.
+We now establish that real-valued continuous functions satisfying the mean-value property are harmonic.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
-    Let \(U\subseteq\mathbb{C}\) be open. Let \(f:U\to\mathbb{R}\) be continuous. \(\forall z_0\in U\), \(\exists\lambda>0\) such that \(\overline{D\qty(z_0,\lambda)}\subseteq U\), and if \(\forall0<\varepsilon\le\lambda\), \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi}f\qty(z_0+\varepsilon e^{it})\ddt,\]
-    then \(f\) is harmonic on \(U\).
+    Let \(U\subseteq\mathbb{C}\) be open and \(f:U\to\mathbb{R}\) continuous. Suppose for every \(z_0 \in U\), there exists \(\lambda>0\) with \(\overline{D\qty(z_0,\lambda)}\subseteq U\) such that for all \(0<\varepsilon\leq\lambda\),
+    \[
+        f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f\qty(z_0 + \varepsilon e^{it}) \dd{t}.
+    \]
+    Then \(f\) is harmonic on \(U\).
 \end{theorem}
 \begin{proof}
-    Fix an arbitrary point \(z_0\in U\), along with a corresponding \(\lambda>0\) such that the closed disk \(\overline{D(z_0,\lambda)}\subseteq U\). Since \(f\in C^0\qty(\partial D(z_0,\lambda))\), by \autoref{thm:dirichletproblemwithlaplaceequationsolution}, there exists a unique function \(u(z)\) that is harmonic on \(D(z_0,\lambda)\), given by \[u(z)=\int_0^{2\pi}f(\zeta)P\qty(\zeta,z)\dd{\tau},\] which agrees with \(f\) on \(\partial D(z_0,\lambda)\).
-
-    Now define \(\psi=f-u\) on \(\overline{D(z_0,\lambda)}\). Then \(\psi\) is continuous, satisfies the mean value property, and vanishes on the boundary. By an extension of the Maximum Principle (see the proof of the Maximum Modulus Principle, \autoref{thm:maximummodulus}, which only uses the mean-value property), any such function must be identically zero throughout the disk. Thus, \(f\equiv u\) on \(\overline{D(z_0,\lambda)}\), and in particular, \(f\) is harmonic at \(z_0\).
-
-    Since \(z_0\in U\) was arbitrary, it follows that \(f\) is harmonic on \(U\).
+    Fix \(z_0 \in U\) and choose \(\lambda>0\) such that \(\overline{D(z_0,\lambda)}\subseteq U\). Since \(f \in C^0\qty(\partial D(z_0,\lambda))\), \autoref{thm:dirichletproblemwithlaplaceequationsolution} guarantees a unique harmonic function \(u\) on \(D(z_0,\lambda)\) satisfying
+    \[
+        u(z) = \int_0^{2\pi} f(\zeta) P\qty(\zeta,z) \dd{\tau},
+    \]
+    with \(u = f\) on \(\partial D(z_0,\lambda)\). Define \(\psi = f - u\) on \(\overline{D(z_0,\lambda)}\). Then \(\psi\) is continuous, satisfies the mean-value property, and vanishes on \(\partial D(z_0,\lambda)\). By the extended Maximum Principle (cf. proof of \autoref{thm:maximummodulus}, which relies solely on the mean-value property), \(\psi \equiv 0\) on \(\overline{D(z_0,\lambda)}\). Thus \(f \equiv u\) on \(\overline{D(z_0,\lambda)}\), implying \(f\) is harmonic at \(z_0\). The arbitrariness of \(z_0\) establishes harmonicity on \(U\).
 \end{proof}
 \section{The Theory of Weierstrass}
 While Weierstrass' contributions in complex analysis are mainly characterized by his discoveries on uniform convergence, he also characterized entire and \textit{meromorphic functions} and a unique representation of entire functions, as well as his contributions toward the study of \textit{essential singularities}.
@@ -2192,7 +2202,8 @@ The group of holomorphic automorphisms on \(\mathbb{D}\), or \(\Aut(\mathbb{D})\
     Suppose we have two Möbius transformations represented by the matrices \(\mqty(a&b\\c&d)\) and \(\mqty(e&f\\g&h)\). Then their composition is a Möbius transformation represented by \(\mqty(a&b\\c&d)\mqty(e&f\\g&h)\).
 \end{lemma}
 \begin{proof}
-    From simple substitution, we have \begin{align*}
+    From simple substitution, we have
+    \begin{align*}
         \frac{a\qty(\dfrac{ez+f}{gz+h})+b}{c\qty(\dfrac{ez+f}{gz+h})+d}&=\frac{aez+af+bgz+bh}{cez+cf+dgz+dh}\\
         &=\frac{\qty(ae+bg)z+(af+bh)}{\qty(ce+dg)z+(cf+dh)},
     \end{align*}
@@ -2206,10 +2217,11 @@ Let \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\) and let \(\overline{\mat
 \end{example}
 \begin{proof}
     Let \(z=x+iy\), for \(x,y\in\mathbb{R}\). For \(\Im(z)>0\), the function defined by \(\varphi(z)=\frac{z-i}{z+i}\), known as the \textit{Cayley transform}, satisfies \[\abs{\varphi(z)}=\sqrt{\frac{x^2+(y-1)^2}{x^2+(y+1)^2}}<1\]
-    since \(y>0\). Therefore, \(\varphi\) maps \(\mathbb{H}^+\) to \(\mathbb{D}\). Since \(\varphi\in\Aut\qty(\extcomplex)\), it is univalent. Furthermore, \(\varphi^{-1}(z)=i\frac{1+z}{1-z}\) is also univalent. Let \(\abs{z}<1\) be arbitrary. Then, \begin{align*}
+    since \(y>0\). Therefore, \(\varphi\) maps \(\mathbb{H}^+\) to \(\mathbb{D}\). Since \(\varphi\in\Aut\qty(\extcomplex)\), it is univalent. Furthermore, \(\varphi^{-1}(z)=i\frac{1+z}{1-z}\) is also univalent. Let \(\abs{z}<1\) be arbitrary. Then,
+    \begin{align*}
         \Im\qty(\varphi^{-1}(z))=\Re\qty(\frac{z+1}{1-z})=\Re\qty(\frac{(1+z)\qty(1-\overline{z})}{\abs{1-z}^2})=\Re\qty(\frac{1-\Im(z)^2-\Re(z)^2+2i\Im(z)}{\abs{1-z}^2}),
     \end{align*}
-    which is positive since \(\Im(z)^2+\Re(z)^2<1\) and the last term is purely imaginary. Hence, \(\varphi\) maps \(\mathbb{H}^+\) to \(\mathbb{D}\) bijectively. 
+    which is positive since \(\Im(z)^2+\Re(z)^2<1\) and the last term is purely imaginary. Hence, \(\varphi\) maps \(\mathbb{H}^+\) to \(\mathbb{D}\) bijectively.
 
     Let \(f\in\Aut\qty(\mathbb{H}^+)\) be arbitrary. It follows that \(\varphi\circ f\circ\varphi^{-1}\in\Aut\qty(\mathbb{D})\). By \autoref{thm:holomorphicautomorphismgrouponunitdisk}, for some \(|a|<1\) and for some \(\tau\in\mathbb{R}\), we have \[\varphi\circ f\circ\varphi^{-1}=\varphi_a\circ\rho_\tau(z),\]
     where \(\varphi_a\) is in the form of equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdiskstatement} and \(\rho_\tau(z)=ze^{i\tau}\). Then we have \[f=\varphi^{-1}\circ\varphi_a\circ\rho_\tau(z)\circ\varphi.\]
@@ -2715,7 +2727,8 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     Define \(\Phi:V\to\mathbb{C}\) by \(\Phi(z)=f_{\zeta_k}(z)\) if \(z\in D\qty(\zeta_k,r_k)\). This is well-defined: If \(z\in D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j)\), then \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j) \cap D\qty(z_0,R)\neq\emptyset\), and \(f_{\zeta_i}=f_{\zeta_j}=f\) there. By the Identity Theorem (\autoref{thm:identity}), \(f_{\zeta_i}\equiv f_{\zeta_j}\) on \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j)\).
 
     Since \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on \(D\qty(z_0,R)\cap V\), the function:
-    \[\widetilde{f}(z)=\begin{cases}
+    \[\widetilde{f}(z)=
+        \begin{cases}
             f(z)&z\in D\qty(z_0,R) \\
             \Phi(z)&z\in V
     \end{cases}\]
