@@ -2185,13 +2185,13 @@ In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C
 
     We will now prove the primary assumption; the singularity at \(z=\infty\) cannot be an essential singularity of \(f(z)\). Let \(w\in\mathbb{C}\) be arbitrary. Then by the Casorati--Weierstrass Theorem (\autoref{thm:casoratiweierstrass}), \(\forall\varepsilon>0\), \(\forall R>0\), \(\exists |z|>R\) such that \(|f(z)-w|<\varepsilon\). Equivalently, \(\forall R>0\), \(\exists\zeta\in D(w,\varepsilon)\) such that \(\abs{f^{-1}(\zeta)}>R\). Since \(f^{-1}\) is continuous on \(\overline{D(w,\varepsilon)}\) by entireness via \autoref{thm:continuousfunctionboundedoncompact}, it is bounded, which is a contradiction.
 \end{proof}
-\subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\extcomplex\)}{the extcomplex}}
+\subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\extcomplex\)}{the Extended Complex Plane}}
 To make more profound conclusions on the structure of \(\Aut\qty(\extcomplex)\), we will introduce certain concepts from group theory.
 \begin{definition}[Coset]\label{def:coset}
     Let \(G\) be a group, and let \(H\leq G\) be a subgroup (operation denoted by juxtaposition). Then the \textit{left coset} of \(H\) in \(G\) with respect to \(g\in G\) is defined as \[gH=\cbraces{gh}{h\in H}.\] The \textit{right coset} is defined as \[Hg=\cbraces{hg}{h\in H}.\] The subgroup \(H\) is \textit{normal} if and only if the left and right cosets are equal. The notation \(H\trianglelefteq G\) is used to represent a normal subgroup. Cosets, like groups and sets, are unordered.
 \end{definition}
 \begin{definition}[Quotient Group]\label{def:quotientgroup}
-    Let \(G\) be a group, and let \(H\trianglelefteq G\) be a normal subgroup. Then the \textit{quotient group} of \(G\) by \(H\) is defined as \[G/H=\cbraces{gH}{g\in G}.\] The operation (denoted with juxtaposition as well) on the quotient group is defined as \((g_1H)(g_2H)=g_1g_2H\), where \(g_1,g_2\in G\) and \(g_1H,g_2H\in G/H\).
+    Let \(G\) be a group, and let \(H\trianglelefteq G\) be a normal subgroup. Then the \textit{quotient group} of \(G\) by \(H\) is defined as \[G/H=\cbraces{gH}{g\in G}.\] The operation on the quotient group is defined as \((g_1H)(g_2H)=g_1g_2H\), where \(g_1,g_2\in G\) and \(g_1H,g_2H\in G/H\).
 \end{definition}
 The normality of \(H\) implies the existence of the quotient group. Let \(g_1,g_1'\in G\) form the same left coset (\(g_1H=g_1'H\)), and let \(g_2,g_2'\in G\) satisfy \(g_2H=g_2'H\). We must ensure that
 \begin{equation*}
@@ -2269,7 +2269,7 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
 \begin{enumerate}
     \item If \(f\) has no zeros in \(\mathbb{C}\), then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)e^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)e^{-\varphi(z)})=f'(z)e^{-\varphi(z)}-\varphi'(z)f(z)e^{-\varphi(z)}=0\). It follows that \(f(z)e^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).\label{itm:entirefunctionconstructednonvanishing}
     \item If \(f(z)\) is entire and has finitely many zeros in \(\mathbb{C}\), namely \(a_0=0,a_1,a_2,\ldots,a_n\) with respective multiplicities \(m_0,m_1,\ldots m_n\) (if \(0\) is not a zero, treat \(m_0=0\)), then at each zero \(a_k\), it has the local Taylor expansion of
-        \[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every zero, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By \ref{itm:entirefunctionconstructednonvanishing}, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write
+        \[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every zero, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By~\ref{itm:entirefunctionconstructednonvanishing}, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write
         \begin{equation}
             f(z)=p(z)\exp(\varphi(z)),\label{eq:weierstrassfactorization_finitezeros}
         \end{equation} where \(p(z)\) is a polynomial with zeros at \(a_k\) with respective multiplicities of \(m_k\). The entire functions \(p(z)\) and \(f(z)\) both have the same zeros with matching multiplicities.
@@ -2461,8 +2461,7 @@ There is not a trivial reason for the definition of the residue at \(\infty\), e
 
 \begin{figure}
     \centerline{\includesvg[width=0.9\linewidth]{riemannsphere.svg}}
-    \caption{The orientation of a neighborhood that does not enclose \(\infty\) after projection.}
-    \label{fig:stereographicprojectionofneighborhood}
+    \caption{The orientation of a neighborhood that does not enclose \(\infty\) after projection.}\label{fig:stereographicprojectionofneighborhood}
 \end{figure}As a matter of fact, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\autoref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\) at \(\zeta=0\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
 
 Residues are extremely important as they allow for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues at poles are generally easy to calculate and have an integral representation. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
@@ -2539,8 +2538,7 @@ Residues are extremely important as they allow for simple evaluation of definite
             \node[anchor=north] at (-0.8,0) {\(-\varepsilon\)};
             \node[anchor=south east] at (0,3) {\(R\)};
         \end{tikzpicture}
-        \caption{An indented semicircular contour with orientation marked.}
-        \label{fig:indentedsemicircularcontour}
+        \caption{An indented semicircular contour with orientation marked.}\label{fig:indentedsemicircularcontour}
     \end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}^+\) (\(C_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (\(C_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
 
     By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}f(z)\ddz=\int_{C_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{C_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
@@ -2772,7 +2770,7 @@ The general theory of analytic continuation and its generalizations is formulate
     Let \(\Log(z)\) denote the principal branch of \(\log(z)\), with \(-\pi<\Arg(z)\leq\pi\). The analytic elements \[\qty(D(1,1),\Log)\qand\qty(D(1,1),\Log+2\pi i)\] are analytic continuations of each other.
 \end{example}
 \begin{example}
-    Show that the analytic functions defined by the series \(f(z)=\sum_{n=0}^\infty\alpha^n z^n\) and \(\widetilde{f}(z)=\sum_{n=0}^\infty\frac{(\alpha-1)^n z^n}{(1-z)^{n+1}}\) are analytic continuations of each other.
+    Show that the analytic functions defined by the series \(f(z)=\sum_{n=0}^\infty\alpha^n z^n\) and \(\widetilde{f}(z)=\sum_{n=0}^\infty\frac{(\alpha-1)^n z^n}{{\qty(1-z)}^{n+1}}\) are analytic continuations of each other.
 \end{example}
 \begin{proof}
     The analytic element \(\qty(D\qty(0,\abs{\frac{1}{\alpha}}),f)\) can be directly continued to the analytic element \(\qty(\mathbb{C}\setminus\qty{\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z})\). The element \(\qty(D\qty(0,\frac{1-z}{\alpha-1}),\widetilde{f})\) can be analytically continued to \[\qty(\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}},z\mapsto\frac{1}{(1-z)\qty(1-\dfrac{z\alpha-z}{1-z})})=\qty(\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z}),\] which is a direction analytic continuation of \(\qty(\mathbb{C}\setminus\qty{\frac{1}{\alpha}},z\mapsto\frac{1}{1-\alpha z})\). Therefore, \(f\) and \(\widetilde{f}\) are analytic continuations of each other.
