@@ -2191,11 +2191,11 @@ To make more profound conclusions on the structure of \(\Aut\qty(\extcomplex)\),
     Let \(G\) be a group, and let \(H\leq G\) be a subgroup (operation denoted by juxtaposition). Then the \textit{left coset} of \(H\) in \(G\) with respect to \(g\in G\) is defined as \[gH=\cbraces{gh}{h\in H}.\] The \textit{right coset} is defined as \[Hg=\cbraces{hg}{h\in H}.\] The subgroup \(H\) is \textit{normal} if and only if the left and right cosets are equal. The notation \(H\trianglelefteq G\) is used to represent a normal subgroup. Cosets, like groups and sets, are unordered.
 \end{definition}
 \begin{definition}[Quotient Group]\label{def:quotientgroup}
-    Let \(G\) be a group, and let \(H\trianglelefteq G\) be a normal subgroup. Then the \textit{quotient group} of \(G\) by \(H\) is defined as \[G/H=\cbraces{gH}{g\in G}.\] The operation (\(*\)) on the quotient group is defined as \((g_1H)*(g_2H)=g_1g_2H\), where \(g_1,g_2\in G\) and \(g_1H,g_2H\in G/H\).
+    Let \(G\) be a group, and let \(H\trianglelefteq G\) be a normal subgroup. Then the \textit{quotient group} of \(G\) by \(H\) is defined as \[G/H=\cbraces{gH}{g\in G}.\] The operation (denoted with juxtaposition as well) on the quotient group is defined as \((g_1H)(g_2H)=g_1g_2H\), where \(g_1,g_2\in G\) and \(g_1H,g_2H\in G/H\).
 \end{definition}
 The normality of \(H\) implies the existence of the quotient group. Let \(g_1,g_1'\in G\) form the same left coset (\(g_1H=g_1'H\)), and let \(g_2,g_2'\in G\) satisfy \(g_2H=g_2'H\). We must ensure that
 \begin{equation*}
-    (g_1H)*(g_2H)=(g_1'H)*(g_2'H)\Longleftrightarrow g_1g_2H=g_1'g_2'H.
+    (g_1H)(g_2H)=(g_1'H)(g_2'H)\Longleftrightarrow g_1g_2H=g_1'g_2'H.
 \end{equation*}
 Let \(e\) be the identity element of \(G\) and \(H\). In order for \(g_1H=g_1'H\) to be true, it follows that \(g_1e=g_1\) is mapped to a value in \(g_1'H\). Therefore, \(\exists h_1\in H\) such that \(g_1=g_1'h_1\). Similarly, for some \(h_2\in H\), \(g_2=g_2'h_2\). Hence, \[g_1g_2=g_1'h_1g_2'h_2=g_1'\qty(h_1g_2')h_2.\]
 We want to ensure that \(g_1g_2\in g_1'g_2'H\), or equivalently prove that \(g_1'\qty(h_1g_2')h_2\in g_1'g_2'H\). By the uniqueness of inverses, the condition above is equivalent to \(h_1g_2'\in g_2'H
@@ -2817,7 +2817,7 @@ We will now study holomorphic functions from a more geometric perspective.
     Let \(\Omega\subseteq\mathbb{C}\) be a region, and let \(\gamma\subset\Omega\) be a rectifiable simple closed curve that is null-homotopic in \(\Omega\). Denote \(\mathrm{int}(\gamma)\) by \(U\). If \(f:\Omega\to\mathbb{C}\) is holomorphic and maps \(\gamma\) injectively to a simple closed curve \(\Gamma\), then \(w=f(z)\) is univalent in \(U\) and \(f(U)=\mathrm{int}(\Gamma)\).
 \end{theorem}
 \begin{proof}
-    Let \(w_0\) be a point such that \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi i}\oint_\Gamma\frac{\dd{w}}{w-w_0}.\]
+    Let \(w_0\) be a point such that \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[k=\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi i}\oint_\Gamma\frac{\dd{w}}{w-w_0}=\frac{1}{2\pi}\Delta_\Gamma\arg(w-w_0).\] If \(w_0\notin U\), 
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
