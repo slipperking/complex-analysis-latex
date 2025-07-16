@@ -2154,6 +2154,31 @@ We will then introduce the converse:
 \end{proof}
 If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textit{transcendental meromorphic function}.
 \subsection{Further Properties of Meromorphic and Entire Functions}
+The generalization of \autoref{thm:argumentprincipleholomorphic} is as follows:
+\begin{theorem}[Argument Principle]\label{thm:argumentprinciplemeromorphic}
+Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be meromorphic. Let \(\gamma\subset U\) be a simple, closed, positively oriented curve that is null-homotopic in \(U\). If \(f\) has no zeros or poles on \(\gamma\), then \(f\) has finitely many zeros and poles in the region bounded by \(\gamma\), and the number of zeros minus poles, counting multiplicities and orders, is given by
+\[k=\frac{1}{2\pi i}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
+Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
+\end{theorem}
+\begin{proof}
+Let \(z_1,\ldots,z_m\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with multiplicities \(k_1,\ldots,k_m\), and \(p_1,\ldots,p_n\) the distinct poles with orders \(l_1,\ldots,l_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) and \(D\qty(p_k,\delta_k)\) centered at each zero and pole, contained in \(\mathrm{int}(\gamma)\) and avoiding \(\gamma\). The function \(\frac{f'(z)}{f(z)}\) is holomorphic on \(\mathrm{int}\paren{\gamma}\setminus\paren{\bigcup_{j=1}^m D\qty(z_j,\varepsilon_j)\cup\bigcup_{k=1}^n D\qty(p_k,\delta_k)}\). The oriented boundary is \(\gamma^+\cup\bigcup_{j=1}^m\partial D\paren{z_j,\varepsilon_j}^-\cup\bigcup_{k=1}^n\partial D\paren{p_k,\delta_k}^-\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}),
+\[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz+\sum_{k=1}^n\oint_{\partial D\paren{p_k,\delta_k}^+}\frac{f'(z)}{f(z)}\ddz.\]
+
+Near each zero \(z_j\), write \(f(z)=\paren{z-z_j}^{k_j}h_j(z)\) with \(h_j\) holomorphic and non-vanishing. Then
+\[\frac{f'(z)}{f(z)}=\frac{k_j}{z-z_j}+\frac{h_j'(z)}{h_j(z)}.\]
+Integration yields \(\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{f'(z)}{f(z)}\ddz=2\pi i k_j\) since \(\frac{h_j'}{h_j}\) is holomorphic.
+
+Near each pole \(p_k\), write \(f(z)=\paren{z-p_k}^{-l_k}g_k(z)\) with \(g_k\) holomorphic and non-vanishing. Differentiation gives
+\[\frac{f'(z)}{f(z)}=-\frac{l_k}{z-p_k}+\frac{g_k'(z)}{g_k(z)}.\]
+Integration yields \(\oint_{\partial D\paren{p_k,\delta_k}}\frac{f'(z)}{f(z)}\ddz=-2\pi i l_k\).
+
+Combining results,
+\[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m2\pi i k_j+\sum_{k=1}^n(-2\pi i l_k)=2\pi i\paren{\sum k_j-\sum l_k}=2\pi ik.\]
+
+Parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
+\[k=\frac{1}{2\pi i}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w),\]
+completing the proof.
+\end{proof}
 \subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
 In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C}\), and \(\extcomplex\). We will now find \(\Aut(\mathbb{C})\).
 \begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{C}\)]\label{thm:holomorphicautomorphismgrouponcomplexplane}
