@@ -2815,11 +2815,13 @@ We will now study holomorphic functions from a more geometric perspective.
     Let \(\Omega\subseteq\mathbb{C}\) be a region, and let \(\gamma\subset\Omega\) be a rectifiable simple closed curve that is null-homotopic in \(\Omega\). Denote \(\mathrm{int}(\gamma)\) by \(U\). If \(f:\Omega\to\mathbb{C}\) is holomorphic and maps \(\gamma\) injectively to a simple closed curve \(\Gamma\), then \(w=f(z)\) is univalent in \(U\) and \(f(U)=\mathrm{int}(\Gamma)\).
 \end{theorem}
 \begin{proof}
-    Let \(w_0\) be a point such that \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[k=\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi i}\oint_\Gamma\frac{\dd{w}}{w-w_0}=\frac{1}{2\pi}\Delta_\Gamma\arg(w-w_0).\] If \(w_0\notin U\), the integral vanishes by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}). On the contrary, if \(w_0\in U\), then \(\Gamma\) winds around \(w_0\) exactly once, and therefore
+    Let \(w_0\) be a point such that \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[k=\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi i}\oint_\Gamma\frac{\dd{w}}{w-w_0}=\frac{1}{2\pi}\Delta_\Gamma\arg(w-w_0).\] If \(w_0\in\mathrm{ext}(\Gamma)\), the integral vanishes by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}). On the contrary, if \(w_0\in\mathrm{int}(\Gamma)\), then \(\Gamma\) winds around \(w_0\) exactly once, and therefore
     \[k=\begin{cases}
-        0&w_0\notin \overline{U}\\
-        1&w_0\in U
+        0&w_0\in \mathrm{ext}(\Gamma)\\
+        1&w_0\in \mathrm{int}(\Gamma)
     \end{cases}.\]
+    In other words, \(\forall w_0\in\mathrm{int}(\Gamma)\), \(f(z)=w_0\) has a unique solution in \(U\). Therefore \(f\) is univalent in \(U\).
+
     When \(w_0\) lies on \(\Gamma\), \(f-w_0\) has no zeros in \(U\). Indeed, for the sake of contradiction, assume that \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). By the Open Mapping Theorem (\autoref{thm:openmapping}), \(\exists\delta>0\) such that \(D\qty(w_0,\delta)\subseteq f(U)\). Then \(\forall w'\in D\qty(w_0,\delta)\), \(f-w'\) has 
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
