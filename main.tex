@@ -1512,7 +1512,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 \begin{theorem}[Argument Principle for Holomorphic Functions]\label{thm:argumentprincipleholomorphic}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a simple, closed, positively oriented curve that is null-homotopic in \(U\). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\), and this number, counting multiplicities, is given by
     \[k=\frac{1}{2\pi i}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
-    Let \(\Gamma\) be the image of \(\gamma\) under \(f\). Then \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(f)\), where \(\Delta_\Gamma\arg(f)\) denotes the total change in argument of \(f(z)\) as \(z\) traverses \(\gamma\).
+    Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
 \end{theorem}
 \begin{proof}
     Let \(z_1,\ldots,z_n\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with the respective multiplicities \(k_1,\ldots,k_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) centered at each \(z_j\) with radii \(\varepsilon_j>0\), each contained in the interior of \(\gamma\) and avoiding \(\gamma\). The function \[\frac{f'(z)}{f(z)}\]
@@ -1531,7 +1531,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Combining results,
     \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\pi ik_j=2\pi ik.\]
     Finally, parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
-    \[k=\frac{1}{2\pi i}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(f),\] which proves the result.
+    \[k=\frac{1}{2\pi i}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w),\] which proves the result.
 \end{proof}
 This profound result proves that the number of zeros of a holomorphic function enclosed by a closed curve is also the number of times the image of the curve winds around the origin.
 \begin{theorem}\label{thm:hurwitzsimplecase}
@@ -2792,6 +2792,8 @@ Conversely, we have the following statement on local univalence and invertibilit
     Let \(w_0=f\qty(z_0)\). Since \(\lim_{z\to z_0}f(z)-w_0=0\) and \(\lim_{z\to z_0}\frac{f(z)-w_0}{z-z_0}\neq0\), it follows that \(z_0\) is a simple zero of \(f(z)-w_0\). Let \(V\) be an open neighborhood (relatively compact in \(U\)) of \(z_0\) whose closure does not contain other zeros of \(f-w_0\). By \autoref{thm:holomorphiczerosstabilityundershifts}, \(\exists\delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), \(f(z)=w\) has only one solution for \(z\) satisfying \(z\in V\). Therefore, we can choose a relatively compact open subset \(W\) of \(V\) such that \(f\qty(W)\subseteq D\qty(w_0,\delta)\), on which \(f\) is univalent.
 \end{proof}
 Moreover, if \(w=f(z)\) is univalent and surjective, mapping \(U\) to \(G\), then its inverse \(z=f^{-1}(w)\) is univalent on \(G\). Such bijective holomorphic functions are known as \textit{biholomorphisms} or \textit{biholomorphic} functions.
+
+We will now study holomorphic functions from a more geometric perspective. 
 \begin{theorem}
     Let \(\Omega\subseteq\mathbb{C}\) be a region, and let \(\gamma\subset\Omega\) be a rectifiable simple closed curve that is null-homotopic in \(U\). Denote \(\mathrm{int}(\gamma)\) by \(U\). If \(f:\Omega\to\mathbb{C}\) is holomorphic and maps \(\gamma\) injectively to a simple closed curve \(\Gamma\), then \(f(z)\) is univalent in \(U\) and \(f(U)=\mathrm{int}(\Gamma)\).
 \end{theorem}
