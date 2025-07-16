@@ -2161,20 +2161,14 @@ Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be meromorphic
 Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k=\frac{1}{2\pi}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
 \end{theorem}
 \begin{proof}
-Let \(z_1,\ldots,z_m\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with multiplicities \(k_1,\ldots,k_m\), and \(p_1,\ldots,p_n\) the distinct poles with orders \(k'_1,\ldots,k'_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) and \(D\qty(p_j,\delta_j)\) centered at each zero and pole, contained in \(\mathrm{int}(\gamma)\) and avoiding \(\gamma\). The function \(\frac{f'(z)}{f(z)}\) is holomorphic on \(\mathrm{int}\paren{\gamma}\setminus\paren{\bigcup_{j=1}^m D\qty(z_j,\varepsilon_j)\cup\bigcup_{k=1}^n D\qty(p_j,\delta_j)}\). The oriented boundary is \(\gamma^+\cup\bigcup_{j=1}^m\partial D\paren{z_j,\varepsilon_j}^-\cup\bigcup_{k=1}^n\partial D\paren{p_k,\delta_k}^-\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}),
-\[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz+\sum_{j=1}^n\oint_{\partial D\paren{p_j,\delta_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
-
+Let \(z_1,\ldots,z_m\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with multiplicities \(k_1,\ldots,k_m\), and \(p_1,\ldots,p_n\) the distinct poles with orders \(k'_1,\ldots,k'_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) and \(D\qty(p_j,\varepsilon'_j)\) centered at each zero and pole, contained in \(\mathrm{int}(\gamma)\) and avoiding \(\gamma\). The function \(\frac{f'(z)}{f(z)}\) is holomorphic on \(\mathrm{int}\paren{\gamma}\setminus\paren{\bigcup_{j=1}^m D\qty(z_j,\varepsilon_j)\cup\bigcup_{k=1}^n D\qty(p_j,\varepsilon'_j)}\). The oriented boundary is \(\gamma^+\cup\bigcup_{j=1}^m\partial D\paren{z_j,\varepsilon_j}^-\cup\bigcup_{j=1}^n\partial D\paren{p_j,\varepsilon'_j}^-\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}),
+\[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz+\sum_{j=1}^n\oint_{\partial D\paren{p_j,\varepsilon'_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
 Near each zero \(z_j\), write \(f(z)=\paren{z-z_j}^{k_j}h_j(z)\) with \(h_j\) holomorphic and non-vanishing. Then
 \[\frac{f'(z)}{f(z)}=\frac{k_j}{z-z_j}+\frac{h_j'(z)}{h_j(z)}.\]
-Integration yields \(\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{f'(z)}{f(z)}\ddz=2\pi i k_j\) since \(\frac{h_j'}{h_j}\) is holomorphic.
-
-Near each pole \(p_j\), write \(f(z)=\paren{z-p_j}^{-k'_j}g_j(z)\) with \(g_j\) holomorphic and non-vanishing. Differentiation gives
+Integration yields \(\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{f'(z)}{f(z)}\ddz=2\pi i k_j\) since \(\frac{h_j'}{h_j}\) is holomorphic. Near each pole \(p_j\), write \(f(z)=\paren{z-p_j}^{-k'_j}g_j(z)\) with \(g_j\) holomorphic and non-vanishing. Differentiation gives
 \[\frac{f'(z)}{f(z)}=-\frac{k'_j}{z-p_j}+\frac{g_j'(z)}{g_j(z)}.\]
-Integration yields \(\oint_{\partial D\paren{p_j,\delta_j}}\frac{f'(z)}{f(z)}\ddz=-2\pi i k'_j\).
-
-Combining results,
-\[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m2\pi i k_j+\sum_{k=1}^n(-2\pi i l_k)=2\pi i\paren{\sum k_j-\sum l_k}=2\pi ik.\]
-
+Integration yields \(\oint_{\partial D\paren{p_j,\varepsilon'_j}}\frac{f'(z)}{f(z)}\ddz=-2\pi i k'_j\). Combining results,
+\[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m2\pi i k_j+\sum_{j=1}^n\qty(-2\pi i k'_j)=2\pi i\paren{\sum_{j=1}^m k_j-\sum_{j=1}^n k'_j}=2\pi ik.\]
 Parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
 \[k=\frac{1}{2\pi i}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w),\]
 completing the proof.
