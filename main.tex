@@ -2206,7 +2206,7 @@ Let us now examine \(\Aut\qty(\extcomplex)\). Let \(f(z)\in \Aut\qty(\extcomplex
 Let \(f(z)\in\Aut\qty(\extcomplex)\) such that \(f(\infty)\neq\infty\). Then, \(g(z)=\frac{1}{f(z)-f(\infty)}\in\Aut\qty(\extcomplex)\) and \(g(\infty)=\infty\). By the property above, \(g(z)=cz+d\) for some complex \(d\) and nonzero \(c\). Hence, \(f(z)=\frac{f(\infty)(cz+d)+1}{cz+d}\). Let \(a=cf(\infty)\), \(b=df(\infty)+1\), \(f(z)=\frac{az+b}{cz+d}\). Then in this specific construction, \(ad-bc=-c\neq0\). Let the matrix \(\mqty(a&b\\c&d)\) correspond to this transformation, where for any nonzero scalar \(k\), \(k\mqty(a&b\\c&d)\) corresponds to \(\mqty(a&b\\c&d)\). Therefore, we can arbitrarily pick \(ad-bc\) to be \(1\).
 
 Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm I},\right.\]
-where \(I=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{A,-A}\)) is taken because \(\mqty(a&b\\c&d)\) refers to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm I}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} (one-to-one) to the \textit{group of Möbius transformations}, consisting of all fractional linear transformations.
+where \(I=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{A,-A}\)) is taken because \(\mqty(a&b\\c&d)\) refers to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm I}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} (one-to-one) to the \textit{group of Möbius transformations}, consisting of all linear fractional transformations.
 
 Therefore, any holomorphic automorphism on \(\extcomplex\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
 \begin{theorem}[The Holomorphic Automorphism Group on \(\extcomplex\)]\label{thm:holomorphicautomorphismgrouponextendedcomplexplane}
@@ -2815,7 +2815,11 @@ We will now study holomorphic functions from a more geometric perspective.
     Let \(\Omega\subseteq\mathbb{C}\) be a region, and let \(\gamma\subset\Omega\) be a rectifiable simple closed curve that is null-homotopic in \(\Omega\). Denote \(\mathrm{int}(\gamma)\) by \(U\). If \(f:\Omega\to\mathbb{C}\) is holomorphic and maps \(\gamma\) injectively to a simple closed curve \(\Gamma\), then \(w=f(z)\) is univalent in \(U\) and \(f(U)=\mathrm{int}(\Gamma)\).
 \end{theorem}
 \begin{proof}
-    Let \(w_0\) be a point such that \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[k=\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi i}\oint_\Gamma\frac{\dd{w}}{w-w_0}=\frac{1}{2\pi}\Delta_\Gamma\arg(w-w_0).\] If \(w_0\notin U\), 
+    Let \(w_0\) be a point such that \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[k=\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi i}\oint_\Gamma\frac{\dd{w}}{w-w_0}=\frac{1}{2\pi}\Delta_\Gamma\arg(w-w_0).\] If \(w_0\notin U\), the integral vanishes by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}). On the contrary, if \(w_0\in U\), then \(\Gamma\) winds around \(w_0\) exactly once, and therefore
+    \[k=\begin{cases}
+        0&w_0\notin U\\
+        1&w_0\in U
+    \end{cases}.\]
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
