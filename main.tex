@@ -14,10 +14,10 @@
 \usepackage{cancel}
 \usepackage{esint}
 \usepackage{graphicx}
-\usepackage{tgpagella}
 \usepackage[english]{babel}
 \usepackage{xparse}
 \usepackage{enumitem}
+\usepackage{tgpagella}
 \usepackage{pgfplots}
 \usepackage[inkscapelatex=false]{svg}
 \pgfplotsset{width=10cm,compat=1.9}
@@ -79,6 +79,7 @@
 \newcommand{\chpref}[1]{\hyperref[#1]{\S\ref*{#1}}}
 
 \DeclareMathOperator*{\residue}{Res}
+
 \title{Complex Analysis}
 \author{Slipper King}
 \date{May 2025}
@@ -359,6 +360,8 @@ By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete
 
 We will now give a geometric visualization of this projection. Let \(z=x+iy\). Then we obtain that \(x=\frac{x_1}{1-x_3}\) and \(y=\frac{x_2}{1-x_3}\). Therefore, \[x:y:1=x_1:x_2:1-x_3.\]
 It follows that the points \(\mqty(0\\0\\0)\), \(\mqty(x\\y\\1)\), and \(\mqty(x_1\\x_2\\1-x_3)\) are collinear in \(\mathbb{R}^3\). Under the linear map \(\mathbf{v}\mapsto\mqty(\dmat[0]{1,1,-1})\mathbf{v}+\mqty(0\\0\\1)\), we get that \(\mqty(0\\0\\1)\), \(\mqty(x\\y\\0)\), and \(\mqty(x_1\\x_2\\x_3)\) are collinear. In other words, this correspondence is a central projection with center \(\mqty(0\\0\\1)\), projecting the points from \(S^2\) onto \(\extcomplex\). In this representation, \(\infty\in\extcomplex\) is no longer considered to be special.
+
+For the purpose of notation, we will define \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\) and define \(\overline{\mathbb{H}^+}=\mathbb{H}^+\cup\mathbb{R}\).
 \subsection{Complex Differentiation}\label{sec:complexdifferentiation}
 For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
 \[\lim_{h\to0}\frac{f(z+h)-f(z)}{h}.\]
@@ -639,7 +642,7 @@ Lastly, the sufficient criteria to pass a limit through an integral:
     For a uniformly convergent series \(\sum_{n=1}^\infty f_n(z)\), the commutation between the limit and the integral becomes a summation-integral switch:
     \[\sum_{n=1}^\infty\int_{\gamma}f_n(z)\ddz=\int_{\gamma}\sum_{n=1}^\infty f_n(z)\ddz.\]
 \end{remark}
-\subsection{The Conformality of Holomorphic Mappings}\label{sec:conformalityintroduction}
+\subsection{The Conformality of Holomorphic Maps}\label{sec:conformalityintroduction}
 Let \(f:U\to\mathbb{C}\) be a holomorphic function defined on an open and connected subset \(U\subseteq\mathbb{C}\), and let \(z_0\in U\) be a point such that \(f'(z_0)\neq 0\). Consider a differentiable curve \(\gamma\in C^1([0,1])\) with \(\gamma(0)=z_0\). The direction of the curve at \(z_0\) is given by the argument of its derivative: \(\arg(\gamma'(0))\).
 
 The image of \(\gamma\) under \(f\), defined by \(\sigma(t)=f(\gamma(t))\), is also a smooth curve passing through \(w_0=f(z_0)\). By the chain rule, the derivative of \(\sigma\) at \(t=0\) is given by
@@ -1600,7 +1603,7 @@ By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}
 \begin{proof}
     By the same logic as with the proof of \autoref{thm:hurwitzsimplecase}, \(f(z)\) is holomorphic over \(U\). Since \(f\not\equiv 0\) on \(U\), its zeros in \(K\), \(\cbraces{z_j}\), are isolated.
 
-    Since \(f\) does not vanish on \(\partial K\), \(\abs{f}\) attains its positive infimum on \(\partial K\). Since \(f_n\rightrightarrows f\) over \(\partial K\) (as it is a compact subset of \(U\)), \(\exists N_1\in\mathbb{N}\) such that \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in \partial K,\forall n>N_1.\] By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f_n\) have the same number of zeros (counting multiplicities) in \(K\) and do not vanish on \(\partial K\). 
+    Since \(f\) does not vanish on \(\partial K\), \(\abs{f}\) attains its positive infimum on \(\partial K\). Since \(f_n\rightrightarrows f\) over \(\partial K\) (as it is a compact subset of \(U\)), \(\exists N_1\in\mathbb{N}\) such that \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in \partial K,\forall n>N_1.\] By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f_n\) have the same number of zeros (counting multiplicities) in \(K\) and do not vanish on \(\partial K\).
 
     The function \(f\) has no zeros in \(K\setminus V\) (as \(V\) contains all zeros of \(f\) in \(K\)). Since \(K\setminus V\) is compact, \(|f|\) attains a positive minimum, and \(f_n\rightrightarrows f\) on this set. Similarly, \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in K\setminus V.\]
     \(K\setminus V\) can be covered by a collection of simply connected sets (with a union equal to \(K\setminus V\)). Thus, by \autoref{thm:rouche}, \(f\) and \(f_n\) never vanish on \(K\setminus V\), and therefore all zeros of \(f_n\) lie in \(V\).
@@ -1902,7 +1905,7 @@ Consider \(R=1\), \(\zeta=e^{i\tau}\), and \(z=\rho e^{i\theta}\) in equation~\e
 \end{gather}
 Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(i\theta)\) is periodic with period \(2\pi\), it admits a Fourier series representation
 \begin{equation}
-    u\qty(e^{i\theta})\sim\sum_{n=-\infty}^\infty a_n e^{in\theta},\qquad a_n=\frac{1}{2\pi}\int_{-\pi}^\pi u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}=\frac{1}{2\pi}\int_0^{2\pi} u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
+    u\qty(e^{i\theta})\sim\sum_{n=-\infty}^\infty a_n e^{in\theta},\qquad a_n=\frac{1}{2\pi}\int_0^{2\pi} u\qty(e^{i\tau})e^{-in\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
 \end{equation}
 This series may diverge. Observe that continuity of \(u\) on the compact set \(\partial\mathbb{D}\) implies uniform boundedness: \(\exists M>0\) such that \(\abs{u\qty(e^{i\theta})} \leq M\) for all \(\theta\) (\autoref{thm:continuousfunctionboundedoncompact}). Consequently, \(\abs{a_n} \leq M\). Introducing factors \(\rho^{\abs{n}}\) with \(\abs{\rho}<1\) yields a convergent series:
 \[\sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{\abs{n}}, \quad\abs{\sum_{n=-\infty}^\infty a_n e^{in\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M \frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
@@ -2156,22 +2159,22 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
 \subsection{Further Properties of Meromorphic and Entire Functions}
 The generalization of \autoref{thm:argumentprincipleholomorphic} is as follows:
 \begin{theorem}[Argument Principle]\label{thm:argumentprinciplemeromorphic}
-Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be meromorphic. Let \(\gamma\subset U\) be a simple, closed, positively oriented curve that is null-homotopic in \(U\). If \(f\) has no zeros or poles on \(\gamma\), then \(f\) has finitely many zeros and poles in the region bounded by \(\gamma\), and the number of zeros, \(k\), minus the number of poles, \(k'\), counting multiplicities and orders, is given by
-\[k-k'=\frac{1}{2\pi i}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
-Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k-k'=\frac{1}{2\pi}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
+    Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be meromorphic. Let \(\gamma\subset U\) be a simple, closed, positively oriented curve that is null-homotopic in \(U\). If \(f\) has no zeros or poles on \(\gamma\), then \(f\) has finitely many zeros and poles in the region bounded by \(\gamma\), and the number of zeros, \(k\), minus the number of poles, \(k'\), counting multiplicities and orders, is given by
+    \[k-k'=\frac{1}{2\pi i}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
+    Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k-k'=\frac{1}{2\pi}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
 \end{theorem}
 \begin{proof}
-Let \(z_1,\ldots,z_m\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with multiplicities \(k_1,\ldots,k_m\), and \(p_1,\ldots,p_n\) the distinct poles with orders \(k'_1,\ldots,k'_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) and \(D\qty(p_j,\varepsilon'_j)\) centered at each zero and pole, contained in \(\mathrm{int}(\gamma)\) and avoiding \(\gamma\). The function \(\frac{f'(z)}{f(z)}\) is holomorphic on \(\mathrm{int}\paren{\gamma}\setminus\paren{\bigcup_{j=1}^m D\qty(z_j,\varepsilon_j)\cup\bigcup_{k=1}^n D\qty(p_j,\varepsilon'_j)}\). The oriented boundary is \(\gamma^+\cup\bigcup_{j=1}^m\partial D\paren{z_j,\varepsilon_j}^-\cup\bigcup_{j=1}^n\partial D\paren{p_j,\varepsilon'_j}^-\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}),
-\[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz+\sum_{j=1}^n\oint_{\partial D\paren{p_j,\varepsilon'_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
-Near each zero \(z_j\), write \(f(z)=\paren{z-z_j}^{k_j}h_j(z)\) with \(h_j\) holomorphic and non-vanishing. Then
-\[\frac{f'(z)}{f(z)}=\frac{k_j}{z-z_j}+\frac{h_j'(z)}{h_j(z)}.\]
-Integration yields \(\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{f'(z)}{f(z)}\ddz=2\pi i k_j\) since \(\frac{h_j'}{h_j}\) is holomorphic. Near each pole \(p_j\), write \(f(z)=\paren{z-p_j}^{-k'_j}g_j(z)\) with \(g_j\) holomorphic and non-vanishing. Differentiation gives
-\[\frac{f'(z)}{f(z)}=-\frac{k'_j}{z-p_j}+\frac{g_j'(z)}{g_j(z)}.\]
-Integration yields \(\oint_{\partial D\paren{p_j,\varepsilon'_j}}\frac{f'(z)}{f(z)}\ddz=-2\pi i k'_j\). Combining results,
-\[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m2\pi i k_j+\sum_{j=1}^n\qty(-2\pi i k'_j)=2\pi i\paren{\sum_{j=1}^m k_j-\sum_{j=1}^n k'_j}=2\pi i\qty(k-k').\]
-Parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
-\[k-k'=\frac{1}{2\pi i}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w),\]
-completing the proof.
+    Let \(z_1,\ldots,z_m\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with multiplicities \(k_1,\ldots,k_m\), and \(p_1,\ldots,p_n\) the distinct poles with orders \(k'_1,\ldots,k'_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) and \(D\qty(p_j,\varepsilon'_j)\) centered at each zero and pole, contained in \(\mathrm{int}(\gamma)\) and avoiding \(\gamma\). The function \(\frac{f'(z)}{f(z)}\) is holomorphic on \(\mathrm{int}\paren{\gamma}\setminus\paren{\bigcup_{j=1}^m D\qty(z_j,\varepsilon_j)\cup\bigcup_{k=1}^n D\qty(p_j,\varepsilon'_j)}\). The oriented boundary is \(\gamma^+\cup\bigcup_{j=1}^m\partial D\paren{z_j,\varepsilon_j}^-\cup\bigcup_{j=1}^n\partial D\paren{p_j,\varepsilon'_j}^-\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}),
+    \[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz+\sum_{j=1}^n\oint_{\partial D\paren{p_j,\varepsilon'_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
+    Near each zero \(z_j\), write \(f(z)=\paren{z-z_j}^{k_j}h_j(z)\) with \(h_j\) holomorphic and non-vanishing. Then
+    \[\frac{f'(z)}{f(z)}=\frac{k_j}{z-z_j}+\frac{h_j'(z)}{h_j(z)}.\]
+    Integration yields \(\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{f'(z)}{f(z)}\ddz=2\pi i k_j\) since \(\frac{h_j'}{h_j}\) is holomorphic. Near each pole \(p_j\), write \(f(z)=\paren{z-p_j}^{-k'_j}g_j(z)\) with \(g_j\) holomorphic and non-vanishing. Differentiation gives
+    \[\frac{f'(z)}{f(z)}=-\frac{k'_j}{z-p_j}+\frac{g_j'(z)}{g_j(z)}.\]
+    Integration yields \(\oint_{\partial D\paren{p_j,\varepsilon'_j}}\frac{f'(z)}{f(z)}\ddz=-2\pi i k'_j\). Combining results,
+    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m2\pi i k_j+\sum_{j=1}^n\qty(-2\pi i k'_j)=2\pi i\paren{\sum_{j=1}^m k_j-\sum_{j=1}^n k'_j}=2\pi i\qty(k-k').\]
+    Parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
+    \[k-k'=\frac{1}{2\pi i}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w),\]
+    completing the proof.
 \end{proof}
 \subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
 In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C}\), and \(\extcomplex\). We will now find \(\Aut(\mathbb{C})\).
@@ -2185,7 +2188,9 @@ In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C
 
     We will now prove the primary assumption; the singularity at \(z=\infty\) cannot be an essential singularity of \(f(z)\). Let \(w\in\mathbb{C}\) be arbitrary. Then by the Casorati--Weierstrass Theorem (\autoref{thm:casoratiweierstrass}), \(\forall\varepsilon>0\), \(\forall R>0\), \(\exists |z|>R\) such that \(|f(z)-w|<\varepsilon\). Equivalently, \(\forall R>0\), \(\exists\zeta\in D(w,\varepsilon)\) such that \(\abs{f^{-1}(\zeta)}>R\). Since \(f^{-1}\) is continuous on \(\overline{D(w,\varepsilon)}\) by entireness via \autoref{thm:continuousfunctionboundedoncompact}, it is bounded, which is a contradiction.
 \end{proof}
-\subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\extcomplex\)}{the Extended Complex Plane}}
+\subsubsection{The Group of Meromorphic Automorphisms on \texorpdfstring{\(\extcomplex\)}{the Extended Complex Plane}}
+It is generally common to consider a meromorphic function as a function in the form of \(f:U\to\extcomplex\). Let \(\Aut\qty(\extcomplex)\) denote the group of meromorphic automorphisms on \(\extcomplex\).
+
 To make more profound conclusions on the structure of \(\Aut\qty(\extcomplex)\), we will introduce certain concepts from group theory.
 \begin{definition}[Coset]\label{def:coset}
     Let \(G\) be a group, and let \(H\leq G\) be a subgroup (operation denoted by juxtaposition). Then the \textit{left coset} of \(H\) in \(G\) with respect to \(g\in G\) is defined as \[gH=\cbraces{gh}{h\in H}.\] The \textit{right coset} is defined as \[Hg=\cbraces{hg}{h\in H}.\] The subgroup \(H\) is \textit{normal} if and only if the left and right cosets are equal. The notation \(H\trianglelefteq G\) is used to represent a normal subgroup. Cosets, like groups and sets, are unordered.
@@ -2208,8 +2213,8 @@ Let \(f(z)\in\Aut\qty(\extcomplex)\) such that \(f(\infty)\neq\infty\). Then, \(
 Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm I},\right.\]
 where \(I=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{A,-A}\)) is taken because \(\mqty(a&b\\c&d)\) refers to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm I}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} (one-to-one) to the \textit{group of Möbius transformations}, consisting of all linear fractional transformations.
 
-Therefore, any holomorphic automorphism on \(\extcomplex\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
-\begin{theorem}[The Holomorphic Automorphism Group on \(\extcomplex\)]\label{thm:holomorphicautomorphismgrouponextendedcomplexplane}
+Therefore, any meromorphic automorphism on \(\extcomplex\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
+\begin{theorem}[The Meromorphic Automorphism Group on \(\extcomplex\)]\label{thm:meromorphicautomorphismgrouponextendedcomplexplane}
     \(\forall f\in \Aut\qty(\extcomplex)\), \(f\) is a Möbius transformation. In other words, \(\exists a,b,c,d\in\mathbb{C}\) satisfying \(ad-bc\neq 0\) such that \[f(z)=\frac{az+b}{cz+d}.\]
 \end{theorem}
 The group of holomorphic automorphisms on \(\mathbb{D}\), or \(\Aut(\mathbb{D})\), is also a subgroup of \(\Aut\qty(\extcomplex)\). We have the following property on Möbius transformations:
@@ -2224,24 +2229,7 @@ The group of holomorphic automorphisms on \(\mathbb{D}\), or \(\Aut(\mathbb{D})\
     \end{align*}
     which corresponds to the product \(\mqty(a&b\\c&d)\mqty(e&f\\g&h)\).
 \end{proof}
-We have now introduced three of the most important regions in complex analysis: \(\mathbb{D}\), \(\mathbb{C}\), and \(\extcomplex\). Their importance will be briefly explained by the Uniformization Theorem (\autoref{thm:uniformization}).
-
-Let \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\) and let \(\overline{\mathbb{H}^+}=\mathbb{H}^+\cup\mathbb{R}\).
-\begin{example}
-    Find the group of holomorphic automorphisms on \(\mathbb{H}^+\).
-\end{example}
-\begin{proof}
-    Let \(z=x+iy\), for \(x,y\in\mathbb{R}\). For \(\Im(z)>0\), the function defined by \(\varphi(z)=\frac{z-i}{z+i}\), known as the \textit{Cayley transform}, satisfies \[\abs{\varphi(z)}=\sqrt{\frac{x^2+(y-1)^2}{x^2+{(y+1)}^2}}<1\]
-    since \(y>0\). Therefore, \(\varphi\) maps \(\mathbb{H}^+\) to \(\mathbb{D}\). Since \(\varphi\in\Aut\qty(\extcomplex)\), it is univalent. Furthermore, \(\varphi^{-1}(z)=i\frac{1+z}{1-z}\) is also univalent. Let \(\abs{z}<1\) be arbitrary. Then,
-    \begin{align*}
-        \Im\qty(\varphi^{-1}(z))=\Re\qty(\frac{z+1}{1-z})=\Re\qty(\frac{(1+z)\qty(1-\overline{z})}{\abs{1-z}^2})=\Re\qty(\frac{1-\Im(z)^2-\Re(z)^2+2i\Im(z)}{\abs{1-z}^2}),
-    \end{align*}
-    which is positive since \(\Im(z)^2+\Re(z)^2<1\) and the last term is purely imaginary. Hence, \(\varphi\) maps \(\mathbb{H}^+\) to \(\mathbb{D}\) bijectively.
-
-    Let \(f\in\Aut\qty(\mathbb{H}^+)\) be arbitrary. It follows that \(\varphi\circ f\circ\varphi^{-1}\in\Aut\qty(\mathbb{D})\). By \autoref{thm:holomorphicautomorphismgrouponunitdisk}, for some \(|a|<1\) and for some \(\tau\in\mathbb{R}\), we have \[\varphi\circ f\circ\varphi^{-1}=\varphi_a\circ\rho_\tau(z),\]
-    where \(\varphi_a\) is in the form of equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdiskstatement} and \(\rho_\tau(z)=ze^{i\tau}\). Then we have \[f=\varphi^{-1}\circ\varphi_a\circ\rho_\tau(z)\circ\varphi.\]
-    TO BE CONTINUED
-\end{proof}
+We have now introduced three of the most important regions in complex analysis: \(\mathbb{D}\), \(\mathbb{C}\), and \(\extcomplex\). Their importance will be later explained by the Uniformization Theorem (\autoref{thm:uniformization}).
 \subsubsection{The Construction of Entire and Meromorphic Functions}
 It is common knowledge in algebra that any polynomial can be factored into linear factors. When can this factorization be extended to transcendental entire functions?
 
@@ -2422,6 +2410,9 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \begin{remark}
     For a general power series, there is no assurance that it corresponds to the Taylor expansion of an entire function. However, for any polynomial of degree \(n\), there always exists an entire function whose Taylor expansion agrees with the polynomial up to the first \(n+1\) terms, which is the fundamental difference between a polynomial and a transcendental entire function.
 \end{remark}
+\begin{example}[Poisson--Jensen Formula]\label{ex:poissonjensenformula}
+    Let \(R>0\) be a positive and finite constant. Suppose \(f\) is a meromorphic function on the open disk \(D(0,R)\) such that \(f\) is not identically zero. Let \(k_1,\ldots,k_m\) and \(k'_1,\ldots,k'_n\) be the zeros and poles of \(f\), counted with multiplicity and order, respectively.
+\end{example}
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
@@ -2539,7 +2530,7 @@ Residues are extremely important as they allow for simple evaluation of definite
             \node[anchor=south east] at (0,3) {\(R\)};
         \end{tikzpicture}
         \caption{An indented semicircular contour with orientation marked.}\label{fig:indentedsemicircularcontour}
-    \end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in the upper half-plane \(\mathbb{H}^+\) (\(C_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (\(C_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
+    \end{figure}Let \(f(z)=\frac{e^{iz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in \(\overline{\mathbb{H}^+}\) (\(C_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (\(C_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
 
     By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}f(z)\ddz=\int_{C_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{C_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
     We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^\pi\frac{\exp(iRe^{i\theta})}{Re^{i\theta}}Rie^{i\theta}\dd{\theta}=i\int_0^{\pi}e^{iR\cos\theta}e^{-R\sin\theta}\dd{\theta}.\]
@@ -2683,11 +2674,13 @@ Residues are extremely important as they allow for simple evaluation of definite
     Since the integrands are continuous and uniformly convergent to \(0\) with respect to \(z\), we have \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz+\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz\to 0\] as \(R\to\infty\). By rearrangement of equation~\eqref{eq:fouriertransformofsechpix_rectangularcontourintegral}, \[I(\xi)\qty(1+e^{2\pi\xi})=2\exp(\pi\xi),\]
     or that \[I(\xi)=\frac{2}{e^{-\pi\xi}+e^{\pi\xi}}=\sech(\pi\xi),\] which proves the result.
 \end{proof}
-Contour integration is a powerful tool for evaluating real improper integrals. Often, the most challenging aspect is selecting an appropriate contour that encloses the relevant singularities.
+Contour integration provides a powerful method for evaluating real improper integrals by leveraging the Residue Theorem (\autoref{thm:residuethm}). The primary challenge often lies in constructing a suitable contour in the complex plane that encloses the relevant singularities of the integrand \(f\) while ensuring that the contribution from the contributions from the remaining segments of the contour either vanishes or can be calculated with ease.
 
-Generally, if the function is even and integrated over \(\mathbb{R}_{\geq0}\), then extend the integral to the entire real line. If the function seems to decay sufficiently fast in \(\mathbb{H}^+\), consider using a semicircular contour in the upper half-plane, as shown in \autoref{fig:semicircularcontour}. If there are singularities along the real axis, then it is customary to insert small semicircular indentations around them, as in \autoref{fig:indentedsemicircularcontour}. If a function is a constant multiple of the function over an imaginary shift and the function vanishes near the ends of the real axis, then it is common to consider a rectangular contour.
+If the function \(f\) is even and integrated on a domain such as \(\mathbb{R}_{\geq0}\), then the integral can be extended to the entire real axis. If \(f\) decays sufficiently rapidly in the upper half plane \(\mathbb{H}^+\), a semicircular contour is generally preferable, as illustrated in \autoref{fig:semicircularcontour}. In the presence of singularities on the contour itself, we can insert arc indentations around them, as shown in \autoref{fig:indentedsemicircularcontour}.
 
-The following result is useful for evaluating integrals on such indentations.
+If \(f(z)\) is a constant multiple of \(f(z+iy)\) for some \(y\in\mathbb{R}\), it is a strong indication to use a rectangular contour. If \(f(z)\) is a constant multiple of \(f\qty(ze^{i\tau})\) for some \(\tau\in\mathbb{R}\), a wedge-shaped contour is an appropriate choice.
+
+The following result is useful for evaluating integrals on indentations along a contour.
 \begin{theorem}\label{thm:residueoverarc}
     Let \(\lambda>0\) and let \(a\in\mathbb{C}\). Suppose \(f(z)\) is a holomorphic function on \(D^*(a,\lambda)\) with a simple pole at \(z=a\in U\). Let \(0<\varepsilon<\lambda\) and define \(\gamma_\varepsilon\subseteq\partial D(a, \varepsilon)\) be a counterclockwise-oriented, connected arc subtending an angle \(\vartheta\). Then,
     \[\lim_{\varepsilon\to 0}\int_{\gamma_\varepsilon}f(z)\ddz=i\vartheta\cdot\residue_{z=a}f(z).\]
@@ -2786,7 +2779,7 @@ We have the following immediate assertion:
 \begin{proof}
     The nonemptiness of \(f(U)\) is an immediate conclusion from the fact that \(U\) is nonempty and \(f\) is defined on all of \(U\).
 
-    Let \(w_0\) be an arbitrary point in \(f(U)\). Then \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). Since \(f\) is non-constant, the function \(f-w_0\) has an isolated zero at \(z_0\). Thus for sufficiently small \(\rho>0\), the only zero of \(f-w_0\) in \(\overline{D\qty(z_0,\rho)}\) is at \(z_0\). 
+    Let \(w_0\) be an arbitrary point in \(f(U)\). Then \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). Since \(f\) is non-constant, the function \(f-w_0\) has an isolated zero at \(z_0\). Thus for sufficiently small \(\rho>0\), the only zero of \(f-w_0\) in \(\overline{D\qty(z_0,\rho)}\) is at \(z_0\).
 
     By \autoref{thm:holomorphiczerosstabilityundershifts}, then there exists \(\delta>0\) such that \(\forall\varepsilon\in D(0,\delta)\), \(f(z)-w_0-\varepsilon\) has exactly one zero in \(\overline{D\qty(z_0,\rho)}\). In other words, \(\forall w_0\in f(U)\), \(\exists\delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), \(\exists! z\in\overline{D\qty(z_0,\rho)}\) such that \(f(z)=w\). Thus, \(f\qty(D\qty(w_0,\delta))\subseteq f(U)\). Thus, \(f(U)\) is an open set contained point has a fully contained open neighborhood.
 
@@ -2797,7 +2790,7 @@ Holomorphic injectivity, or univalence, satisfies the proceeding assertion:
     Let \(U\subseteq\mathbb{C}\) be a region and suppose \(f:U\to\mathbb{C}\) is univalent. Then \(f'\) is non-vanishing on \(U\).
 \end{lemma}
 \begin{proof}
-    Suppose, for the sake of contradiction, that \(f\) is univalent on \(U\) such that \(\exists z_0\in U\) such that \(f'\qty(z_0)=0\). Let \(w_0=f\qty(z_0)\). The previous statement is equivalent to: \(f(z)-w_0\) has a zero at \(z_0\) with multiplicity \(m\geq 2\). 
+    Suppose, for the sake of contradiction, that \(f\) is univalent on \(U\) such that \(\exists z_0\in U\) such that \(f'\qty(z_0)=0\). Let \(w_0=f\qty(z_0)\). The previous statement is equivalent to: \(f(z)-w_0\) has a zero at \(z_0\) with multiplicity \(m\geq 2\).
 
     Since this zero is isolated, let \(\rho>0\) be chosen such that \(z_0\) is the only zero of \(f-w_0\) contained in \(\overline{D\qty(z_0,\rho)}\subset U\). By \autoref{thm:holomorphiczerosstabilityundershifts}, \(\exists \delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), the equation \(f(z)=w\) has \(m\) solutions in \(\overline{D\qty(z_0,\rho)}\). This contradicts the univalence of \(f\).
 \end{proof}
@@ -2810,23 +2803,40 @@ Conversely, we have the following statement on local univalence and invertibilit
 \end{proof}
 Moreover, if \(w=f(z)\) is univalent and surjective, mapping \(U\) to \(G\), then its inverse \(z=f^{-1}(w)\) is univalent on \(G\). Such bijective holomorphic functions are known as \textit{biholomorphisms} or \textit{biholomorphic} functions.
 
-We will now study holomorphic functions from a more geometric perspective. 
+We will now study holomorphic functions from a more geometric perspective.
 \begin{theorem}
     Let \(\Omega\subseteq\mathbb{C}\) be a region, and let \(\gamma\subset\Omega\) be a rectifiable simple closed curve that is null-homotopic in \(\Omega\). Denote \(\mathrm{int}(\gamma)\) by \(U\). If \(f:\Omega\to\mathbb{C}\) is holomorphic and maps \(\gamma\) injectively to a simple closed curve \(\Gamma\), then \(w=f(z)\) is univalent in \(U\) and \(f(U)=\mathrm{int}(\Gamma)\).
 \end{theorem}
 \begin{proof}
-    Let \(w_0\) be a point such that \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[k=\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi i}\oint_\Gamma\frac{\dd{w}}{w-w_0}=\frac{1}{2\pi}\Delta_\Gamma\arg(w-w_0).\] If \(w_0\in\mathrm{ext}(\Gamma)\), the integral vanishes by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}). On the contrary, if \(w_0\in\mathrm{int}(\Gamma)\), then \(\Gamma\) winds around \(w_0\) exactly once, and therefore
-    \[k=\begin{cases}
-        0&w_0\in \mathrm{ext}(\Gamma)\\
-        1&w_0\in \mathrm{int}(\Gamma)
-    \end{cases}.\]
-    In other words, \(\forall w_0\in\mathrm{int}(\Gamma)\), \(f(z)=w_0\) has a unique solution in \(U\). Therefore \(f\) is univalent in \(U\).
+    Let \(w_0\in\mathbb{C}\). First \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[k=\frac{1}{2\pi i}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi i}\oint_\Gamma\frac{\dd{w}}{w-w_0}=\frac{1}{2\pi}\Delta_\Gamma\arg(w-w_0).\] If \(w_0\in\mathrm{ext}(\Gamma)\), the integral vanishes by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}). On the contrary, if \(w_0\in\mathrm{int}(\Gamma)\), then \(\Gamma\) winds around \(w_0\) exactly once, and hence, in other words, \(\forall w_0\in\mathrm{int}(\Gamma)\), \(f(z)=w_0\) has a unique solution in \(U\). This verifies the univalence of \(f\) in \(U\).
 
-    If \(w_0\) lies on \(\Gamma\), \(f-w_0\) has no zeros in \(U\). Indeed, for the sake of contradiction, assume that \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). By the Open Mapping Theorem (\autoref{thm:openmapping}) and \autoref{thm:holomorphiczerosstabilityundershifts}, \(\exists\delta>0\) such that \(D\qty(w_0,\delta)\subseteq f(U)\) and \(\forall w'\in D\qty(w_0,\delta)\), \(f-w'\) has zeros in \(U\). Since \(w_0\) lies on \(\Gamma\), a subset of \(D\qty(w_0,\delta)\) lies in the exterior of \(\Gamma\). It was previously established that \(f-w'\) has no zeros if \(w'\in D\qty(w_0,\delta)\cap\mathrm{ext}(\Gamma)\). Therefore, we have a contradiction.
+    If \(w_0\) lies on \(\Gamma\), \(f-w_0\) has no zeros in \(U\). Indeed, for the sake of contradiction, assume that \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). By the Open Mapping Theorem (\autoref{thm:openmapping}) and \autoref{thm:holomorphiczerosstabilityundershifts}, \(\exists\delta>0\) such that \(D\qty(w_0,\delta)\subseteq f(U)\) and \(\forall w'\in D\qty(w_0,\delta)\), \(f-w'\) has zeros in \(U\). Since \(w_0\) lies on \(\Gamma\), a subset of \(D\qty(w_0,\delta)\) lies in the exterior of \(\Gamma\). It was previously established that \(f-w'\) has no zeros if \(w'\in D\qty(w_0,\delta)\cap\mathrm{ext}(\Gamma)\). Thus, we have a contradiction. We then have \[k=
+        \begin{cases}
+            0&w_0\in\overline{\mathrm{ext}(\Gamma)}\\
+            1&w_0\in \mathrm{int}(\Gamma)
+    \end{cases}.\]
+    Hence, for any arbitrary \(z_0\in U\), \(w_0=f\qty(z_0)\) must lie in \(\mathrm{int}(\Gamma)\). Indeed, if \(f\qty(z_0)\) lies in \(\mathrm{ext}(\Gamma)\) or \(\Gamma\), then \(k\) would be nonzero in those areas. It follows that \(f(U)=\mathrm{int}(\Gamma)\).
+\end{proof}
+We will now give examples of conformal maps.
+\begin{example}
+    The only biholomorphisms which map \(\mathbb{D}\) to itself are in the form of
+    \begin{equation}
+        w=e^{i\theta}\frac{z-a}{1-\overline{a}z},\quad a\in\mathbb{D},\theta\in\mathbb{R}.\label{eq:biholomorphismunitdiskautomorphism}
+    \end{equation}
+    This follows directly from \autoref{thm:holomorphicautomorphismgrouponunitdisk}.
+\end{example}
+\begin{example}
+    The only biholomorphisms which map \(\mathbb{H}^+\) to \(\mathbb{D}\) are in the form of
+    \begin{equation}
+        w=e^{i\theta}\frac{z-a}{z-\overline{a}},\quad a\in\mathbb{H}^+,\theta\in\mathbb{R}.\label{eq:biholomorphismunitdisktoupperhalfplane}
+    \end{equation}
+\end{example}
+\begin{proof}
+    First assume \(z\in\mathbb{R}\). It follows that \[\abs{w}=\abs{e^{i\theta}\frac{z-a}{z-\overline{a}}}=1.\] Therefore, this transformation maps \(\mathbb{R}\) to \(\partial\mathbb{D}\). The inverse mapping is equal to \[z=\frac{w\overline{a}-ae^{i\theta}}{w-e^{i\theta}}.\]
+    It can be 
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
-
 
 TO BE CONTINUED
 
@@ -2836,6 +2846,9 @@ We have already seen that certain functions such as the inverse trigonometric fu
 
 \end{theorem}
 \section{Differential Geometry}\label{sec:differentialgeometry}
+Émile Picard's original proof of his characterization on the value distribution near essential singularities is generally considered to be too advanced in many elementary complex analysis courses. His results were later
+
+
 \begin{theorem}[Great Picard Theorem]\label{thm:greatpicard}
 
 \end{theorem}
@@ -2846,8 +2859,40 @@ The original proof introduced by
 \section{Some Differences in Multivariable Complex Analysis}
 \section{Elliptic Function Theory}
 \section{The Riemann--\texorpdfstring{\(\zeta\)}{Zeta} Function}
-The Riemann--\(\zeta\) function is one of the most important aspects in analytic number theory due to its connection with the distribution of prime numbers. We will also introduce one of the most profound theorems in number theory on the distribution of prime numbers.
+The Riemann--\(\zeta\) function is one of the most important functions in analytic number theory due to its connection with the distribution of prime numbers. We will also introduce one of the most profound theorems in number theory on the distribution of prime numbers.
 
-Let us first introduce the \(\Gamma\) function, which generalizes the factorial. Let \[\Gamma(z)=\int_0^\infty e^{-t}t^{z-1}\dd{t},\]
-where \(z\in\mathbb{C}\). By letting \(z=x+iy\) where \(x,y\in\mathbb{R}\), we have \(\abs{e^{-t}t^{z-1}}=e^{-t}t^{x-1}\)
+Let us first introduce the Gamma function \(\Gamma(z)\). Let
+\begin{equation}
+    \Gamma(z)=\int_0^\infty e^{-t}t^{z-1}\dd{t},\label{eq:gammafunction}
+\end{equation} where \(z\in\mathbb{C}\). By letting \(z=x+iy\) where \(x,y\in\mathbb{R}\), we have \(\abs{e^{-t}t^{z-1}}=e^{-t}t^{x-1}\). Notice that for \(x>0\),
+\begin{align*}
+    \abs{\Gamma(x)}&=\int_0^1 e^{-t}t^{x-1}\ddt+\int_1^\infty e^{-t}t^{x-1}\ddt\\
+    &\leq \int_0^1 t^{x-1}\ddt+\int_1^\infty e^{-t}t^{x-1}\ddt\\
+    &=\frac{1}{x}+\int_1^\infty e^{-t}t^{x-1}\ddt.
+\end{align*}
+Since \(\int_1^\infty\frac{\ddt}{t^2}\) is convergent and \(\lim_{t\to\infty}\frac{e^{-t}t^{z-1}}{t^{-2}}=0\), then by comparison, the second integral is convergent.
+
+Therefore, \(\Gamma(x)\) is convergent on \(\mathbb{R}_{>0}\). It follows that \(\Gamma(z)\) is absolutely convergent on the right half-plane \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). Furthermore, \(\Gamma(z)\) is well-defined and holomorphic on \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). From integration by parts, we get
+\begin{align*}
+    \Gamma(z+1)&=\int_0^\infty e^{-t}t^z\ddt\\
+    &=-\eval{e^{-t}t^z}_0^\infty+z\int_0^\infty e^{-t}t^{z-1}\ddt.\\
+    &=z\Gamma(z).
+\end{align*}
+Additionally, \[\Gamma(1)=\int_0^\infty e^{-t}\ddt=-\eval{e^{-t}}_0^\infty=1.\]
+Hence, we have \(\Gamma(z+1)=z!\), and the \(\Gamma\) function generalizes the factorial. We also have \[\Gamma(z+n)=\Gamma(z)\prod_{k=0}^{n-1}(z+k),\quad\Re(z)>0, n\in\mathbb{N}.\]
+Therefore we can derive its analytic continuation:
+\[\Gamma(z)=\frac{\Gamma(z+n)}{\prod_{k=0}^{n-1}(z+k)},\quad\Re(z)>-n.\]
+Since the numerator is holomorphic on \(\Re(z)>-n\) and \(n\) was arbitrary, the analytic continuation of \(\Gamma\) has simple poles at each of \(\mathbb{Z}_{\leq0}\). Hence \(\Gamma(z)\) is meromorphic on \(\mathbb{C}\).
+
+By equation~\eqref{eq:residueatpole}, the residue at each pole is equal to
+\[\residue_{z=-n}\Gamma(z)=\lim_{z\to -n}\frac{\Gamma(z+n+1)}{\prod_{k=0}^{n-1}(z+k)}=\frac{1}{\prod_{k=1}^n(-k)}=\frac{{(-1)}^n}{n!}.\]
+We will now study two alternate representations for the Gamma function. Let \[f_n(z)=\int_0^n{\qty(1-\frac{t}{n})}^n t^{z-1}\ddt=n^z\int_0^1{\qty(1-t)}^n t^{z-1}\ddt,\quad\Re(z)>0.\]
+By integration by parts, we have
+\begin{align*}
+    f_n(z)&=n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z \ddt]\\
+    &=\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)}\\
+    &=n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}\\
+    &=\frac{n^z n!}{\prod_{k=0}^n(z+k)}.
+\end{align*}
+Let us now analyze the difference \[\lim_{n\to\infty}\qty[\int_0^n e^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n e^{-t}t^{z-1}\qty[1-e^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\]
 \end{document}
