@@ -739,7 +739,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
     \[\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\]
     The rightmost term in equation~\eqref{eq:pompeiu_directintermediate} can be parameterized with \(\zeta=z+\varepsilon \ee^{\ii t}\), \(t\in[0,2\pi]\). Then,
     \begin{gather*}
-        \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f\paren{z+\varepsilon \ee^{\ii t}}}{\varepsilon \ee^{\ii t}}\cdot i\varepsilon \ee^{\ii t}\dd{t}=i\int_0^{2\pi}f(z+\varepsilon \ee^{\ii t})\dd{t}\\
+        \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f\paren{z+\varepsilon \ee^{\ii t}}}{\varepsilon \ee^{\ii t}}\cdot i\varepsilon \ee^{\ii t}\dd{t}=\ii\int_0^{2\pi}f(z+\varepsilon \ee^{\ii t})\dd{t}\\
         =\ii\int_0^{2\pi}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}+\ii\int_0^{2\pi}f(z)\dd{t}.
     \end{gather*}
     Because \(f\in C^1\left(\overline{U}\right)\), by \autoref{lemma:c1lipschitz}, \(f\) is Lipschitz continuous on \(\overline{U}\), and \(\exists M\in\mathbb{R}_{>0}\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). On \(\partial D(z,\varepsilon)\), we get that \(\abs{f(z+\varepsilon \ee^{\ii t})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\pi}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}}\leq\int_0^{2\pi}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}\leq 2M\pi\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain
@@ -2293,7 +2293,7 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
         The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{\ee-1}\abs{\zeta}\). By equation~\eqref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
 
         Therefore, we have \[\abs{E_{p_n}\qty(\frac{z}{a_n})-1}=\abs{\exp(Q_{p_n}\qty(\frac{z}{a_n}))-1}\leq (\ee-1)\abs{Q_{p_n}\qty(\frac{z}{a_n})}\leq2(\ee-1)\abs{\frac{R}{a_n}}^{p_n+1},\]
-        which has a convergent series by definition. Therefore, \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) is absolutely convergent on \(\overline{D(0,R)}\). 
+        which has a convergent series by definition. Therefore, \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) is absolutely convergent on \(\overline{D(0,R)}\).
 
         Letting \(R\to\infty\), for any such sequence \(\qty{a_n}_{n\in\mathbb{N}}\), we can define the entire function
         \begin{equation}
@@ -2418,7 +2418,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by \[B(z)=\prod_{k=1}^\infty \qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_k}(z)],\] where \(\varphi_a(z)\) is a Möbius transformation in the form of equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}, is uniformly convergent on compact subsets of \(\mathbb{D}\) to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\qty{a_k}\).
 \end{example}
 \begin{proof}
-    By the Blaschke condition, it is satisfied that \(\lim_{k\to\infty}1-\abs{a_k}\to 0\). In other words, \(\forall 0<R<1\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(1-\abs{a_k}<1-R\), or that \(\abs{a_k}>R\). 
+    By the Blaschke condition, it is satisfied that \(\lim_{k\to\infty}1-\abs{a_k}\to 0\). In other words, \(\forall 0<R<1\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(1-\abs{a_k}<1-R\), or that \(\abs{a_k}>R\).
 \end{proof}
 \begin{example}[Poisson--Jensen Formula]\label{ex:poissonjensenformula}
     Let \(R>0\) be a positive and finite constant. Suppose \(f\) is a meromorphic function on the open disk \(D(0,R)\) such that \(f\) is not identically zero. Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Assume \(f\) is continuous (except for at each \(b_k\)) up to \(\overline{D(0,R)}\). Then it follows that
