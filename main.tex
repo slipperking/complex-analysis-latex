@@ -2302,8 +2302,8 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
         \begin{theorem}[Weierstrass Factorization Theorem]\label{thm:weierstrassfactorization}
             Suppose \(f(z)\) is an entire function. Let \(\qty{a_n}_{n\in\mathbb{N}}\) be the sequence of all nonzero zeros of \(f\) satisfying \(a_n\to\infty\) as \(n\to\infty\) and \(0<\qty|a_n|\leq\qty|a_{n+1}|\) (equality of \(a_n\) and \(a_{n+1}\) treated as multiplicities) for all \(n\). Let \(m\) be the multiplicity of \(f(z)\) at \(z=0\) (let \(m=0\) if there is no zero at \(0\)). Then there exists a sequence \(\qty{p_n}_{n\in\mathbb{N}}\) such that \(\forall R>0\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. Then, we can write
             \begin{equation}
-                f(z)=z^me^{\varphi(z)}\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:weierstrassfactorization_statement}
-            \end{equation} on \(D(0,R)\), where \(E_p(z)\) is the \(p\)th Weierstrass elementary factor defined in equation~\eqref{eq:weierstrasselementaryfactor} and \(\varphi(z)\) is an entire function. If we let \(p_n=n\), we can write \[f(z)=z^me^{\varphi(z)}\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{n}\qty(\frac{z}{a_n})^n].\]
+                f(z)=z^m\ee^{\varphi(z)}\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:weierstrassfactorization_statement}
+            \end{equation} on \(D(0,R)\), where \(E_p(z)\) is the \(p\)th Weierstrass elementary factor defined in equation~\eqref{eq:weierstrasselementaryfactor} and \(\varphi(z)\) is an entire function. The infinite product converges uniformly on \(\overline{D(0,R)}\) and converges absolutely on \(\mathbb{C}\). If we let \(p_n=n\), we can write \[f(z)=z^m\ee^{\varphi(z)}\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{n}\qty(\frac{z}{a_n})^n].\]
         \end{theorem}
         \begin{proof}
             By the argument of equation~\eqref{eq:entirefunctionconstructedfrominfinitelymanyzeros}, construct \(\psi(z)\) to be entire and have zeros at \(\qty{a_n}_{n\in\mathbb{N}}\). Thus, \(z^m\psi(z)\) and \(f(z)\) have the same zeros and corresponding multiplicities. Then the function \(z^m\frac{\psi(z)}{f(z)}\) has removable singularities on all of \(\qty{a_n}_{n\in\mathbb{N}}\cup\qty{0}\) and has an analytic continuation (\autoref{thm:removablesingularitiesriemann}) to an entire and non-vanishing function. Therefore, it can be written as \(z^m\frac{\psi(z)}{f(z)}=\ee^{\phi(z)}\), where \(\phi\). Let \(\varphi=-\phi\), and from rearrangement, we obtain equation~\eqref{eq:weierstrassfactorization_statement}
@@ -2317,7 +2317,15 @@ By the construction above, we have:
     Let \(\varphi(z)\) be any entire function with zeros only at each pole of \(f\) (with multiplicities matching the order of each pole). If there are infinitely many poles, we can explicitly construct such a \(\varphi\) by the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}). If there are finitely many poles, construct \(\varphi\) using equation~\eqref{eq:weierstrassfactorization_finitezeros}. It follows that \(\varphi f\) has can be analytically continued (on its removable singularities) to an entire function \(\phi(z)\) with the same zeros as \(f(z)\). Hence, \[f(z)\varphi(z)=\phi(z)\Longleftrightarrow f(z)=\frac{\phi(z)}{\varphi(z)},\]
     which is an explicit construction.
 \end{proof}
-Therefore, any meromorphic function on \(\mathbb{C}\) can be expressed as the quotient of two infinite products. Hence, any meromorphic function on \(\mathbb{C}\) can be explicitly written in terms of its zeros and poles. We will now study the construction of meromorphic functions in terms of their poles and the principal parts of their Laurent expansions at each pole.
+Therefore, any meromorphic function on \(\mathbb{C}\) can be expressed as the quotient of two infinite products. Hence, any meromorphic function on \(\mathbb{C}\) can be explicitly written in terms of its zeros and poles.
+\begin{example}\label{ex:sinproductformula}
+    Prove that \[\sin(\pi z)=\pi z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
+    is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
+\end{example}
+\begin{proof}
+
+\end{proof}
+We will now study the construction of meromorphic functions from their poles and the principal parts of their Laurent expansions at each pole.
 
 Suppose \(n\in\mathbb{N}\) and \(\qty{a_k}_{k=1}^n\subset\mathbb{C}\) is a sequence of distinct values. Let \(\qty{\psi_k(z)}_{k=1}^n\) be a collection of functions in the form of
 \begin{equation}
@@ -2884,10 +2892,13 @@ The original proof introduced by
 \section{The Prime Number Theorem}
 The Riemann--\(\zeta\) function is one of the most important functions in analytic number theory due to its connection with the distribution of prime numbers. We will also introduce one of the most profound theorems in number theory on the distribution of prime numbers.
 \subsection{The \texorpdfstring{\(\Gamma\)}{Gamma} Function}
-Let us first introduce the Gamma function \(\Gamma(z)\). Define
-\begin{equation}
-    \Gamma(z)=\int_0^\infty \ee^{-t}t^{z-1}\dd{t},\label{eq:gammafunction}
-\end{equation} where \(z\in\mathbb{C}\). By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
+\begin{definition}\label{def:gammafunction}
+    The Gamma function is defined by
+    \begin{equation}
+        \Gamma(z)=\int_0^\infty \ee^{-t}t^{z-1}\dd{t},\label{eq:gammafunction}
+    \end{equation} where \(z\in\mathbb{C}\).
+\end{definition}
+By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
 \begin{align*}
     \abs{\Gamma(x)} & =\int_0^1 \ee^{-t}t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt \\
     & \leq\int_0^1 t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt      \\
@@ -2909,38 +2920,98 @@ Since the numerator is holomorphic on \(\Re(z)>-n\) and \(n\) was arbitrary, the
 
 By equation~\eqref{eq:residueatpole}, the residue at each pole is equal to
 \[\residue_{z=-n}\Gamma(z)=\lim_{z\to -n}\frac{\Gamma(z+n+1)}{\prod_{k=0}^{n-1}(z+k)}=\frac{1}{\prod_{k=1}^n(-k)}=\frac{{(-1)}^n}{n!}.\]
-We will now study two alternate representations for the Gamma function. Let \[f_n(z)=\int_0^n{\qty(1-\frac{t}{n})}^n t^{z-1}\ddt=n^z\int_0^1{\qty(1-t)}^n t^{z-1}\ddt,\quad\Re(z)>0.\]
-By integration by parts, we have
-\begin{align}
-    f_n(z) & =n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z \ddt]                                     \nonumber \\
-    & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)} \nonumber \\
-    & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \nonumber \\
-    & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.\label{eq:gammafunctiongaussformula}
-\end{align}
-Let us now analyze the difference
-\begin{equation}
-    \lim_{n\to\infty}\qty[\int_0^n \ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\label{eq:gammafunctiongaussformulaintermediate1}
-\end{equation}
-Since \[\dv{t}(\ee^t{\qty(1-\frac{t}{n})}^n)=\ee^t
-\qty(1-\frac{t}{n})^n-\ee^t\qty(1-\frac{t}{n})^{n-1}=-\ee^t\frac{t}{n}{\qty(1-\frac{t}{n})}^{n-1},\]
-we have
-\begin{equation}
-    1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunctiongaussformulaintermediate2}
-\end{equation}
-Additionally, since \[\dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2}=\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)\] has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\]
-which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \(\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\) as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq e\). From equation~\eqref{eq:gammafunctiongaussformulaintermediate2}, we have \[1-e^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
-it follows that \(1-e^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqref{eq:gammafunctiongaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{e}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From equation~\eqref{eq:gammafunctiongaussformula}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), which is known as the \textit{Gauss formula} for the Gamma function. Since the Gauss formula is valid on the right half-plane, we can analytically continue \(\Gamma(z)\) to the entire complex plane except for the poles at \(\mathbb{Z}_{\leq0}\) by the Identity Theorem (\autoref{thm:identity}). Since
-\begin{align*}
-    \frac{n^z n!}{\prod_{k=0}^n\qty(z+k)} & =\frac{\exp\qty[z\ln(n)]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}                                                                                                 \\
-    & =\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]} \\
-    & =\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
-\end{align*}
-Therefore,
-\begin{align}
-    \frac{1}{\Gamma(z)} & =\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)]\nonumber \\
-    & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\exp\qty(z\gamma).\label{eq:gammafunctionweierstrassformula}
-\end{align}
-The constant \(\gamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. Equation~\eqref{eq:gammafunctionweierstrassformula} is known as the \textit{Weierstrass formula} for the reciprocal Gamma function. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\pi^2}{6}\) is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
+We will now study two representations for the Gamma function.
+\begin{theorem}[Gauss Formula]\label{thm:gammafunctiongaussformula}
+    The Gamma function satisfies
+    \begin{equation}
+        \Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n (z+k)}\label{eq:gammafunctiongaussformula}
+    \end{equation}
+    for \(\Re(z)>0\).
+\end{theorem}
+\begin{proof}
+    \[f_n(z)=\int_0^n{\qty(1-\frac{t}{n})}^n t^{z-1}\ddt=n^z\int_0^1{\qty(1-t)}^n t^{z-1}\ddt,\quad\Re(z)>0.\]
+    By integration by parts, we have
+    \begin{align}
+        f_n(z) & =n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z \ddt]                                     \nonumber \\
+        & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)} \nonumber \\
+        & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \nonumber \\
+        & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.\label{eq:gammafunctiongaussformulaprelimit}
+    \end{align}
+    Let us now analyze the difference
+    \begin{equation}
+        \lim_{n\to\infty}\qty[\int_0^n \ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\label{eq:gammafunctiongaussformulaintermediate1}
+    \end{equation}
+    Since \[\dv{t}(\ee^t{\qty(1-\frac{t}{n})}^n)=\ee^t
+    \qty(1-\frac{t}{n})^n-\ee^t\qty(1-\frac{t}{n})^{n-1}=-\ee^t\frac{t}{n}{\qty(1-\frac{t}{n})}^{n-1},\]
+    we have
+    \begin{equation}
+        1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunctiongaussformulaintermediate2}
+    \end{equation}
+    Additionally, since \[\dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2}=\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)\] has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\]
+    which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \(\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\) as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq \ee\). From equation~\eqref{eq:gammafunctiongaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
+    it follows that \(1-\ee^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqref{eq:gammafunctiongaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{\ee}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From equation~\eqref{eq:gammafunctiongaussformulaprelimit}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), or equation~\eqref{eq:gammafunctiongaussformula}
+\end{proof}
+The \textit{Weierstrass Formula} is a direct consequence of the Gauss formula.
+\begin{theorem}[Weierstrass Formula]\label{thm:gammafunctionweierstrassformula}
+    The reciprocal Gamma function has the entire Weierstrass factorization of
+    \begin{equation}
+        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma).\label{eq:gammafunctionweierstrassformula}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Since the Gauss formula agrees with equation~\eqref{eq:gammafunction} on the right half-plane, the analytic continuation of \(\Gamma(z)\) is unique on the entire complex plane except for the poles at \(\mathbb{Z}_{\leq0}\) by the Identity Theorem (\autoref{thm:identity}). Since
+    \begin{align*}
+        \frac{n^z n!}{\prod_{k=0}^n\qty(z+k)} & =\frac{\exp\qty[z\ln(n)]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}                                                                                                 \\
+        & =\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]} \\
+        & =\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
+    \end{align*}
+    Therefore,
+    \begin{align*}
+        \frac{1}{\Gamma(z)} & =\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)] \\
+        & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma).
+    \end{align*}
+    The constant \(\gamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\pi^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
+\end{proof}
+We have two famous identities on the \(\Gamma\) function:
+\begin{theorem}[Euler's Reflection Formula]\label{thm:eulerreflection}
+    The analytic continuation of the \(\Gamma\) function can be analytically continued to the left half-plane with the functional equation of
+    \begin{equation}
+        \Gamma(z)\Gamma(1-z)=\pi\csc(\pi z)\label{eq:eulerreflection}
+    \end{equation} for \(z\in\mathbb{C}\setminus\mathbb{N}\).
+\end{theorem}
+\begin{proof}
+    By the Weierstrass Formula (\autoref{thm:gammafunctionweierstrassformula}), we have
+    \begin{equation*}
+        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma),\qquad\frac{1}{\Gamma(-z)}=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\exp\qty(-z\gamma).
+    \end{equation*}
+    Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \autoref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\pi z)}{\pi},\] which confirms equation~\eqref{eq:eulerreflection}.
+\end{proof}
+\begin{theorem}[Legendre's Duplication Formula]\label{thm:legendreduplication}
+
+\end{theorem}
 \subsection{The Riemann--\texorpdfstring{\(\zeta\)}{zeta} Function}
 The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is now known as the \textit{Euler product}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\Pi(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
+
+Following Riemann's own convention, we will denote our primary variable with \(s=\sigma+\ii t\).
+\begin{definition}\label{def:riemannzetafunction}
+    For \(s=\sigma+\ii t\), define the Riemann--\(\zeta\) function by the series \[\zeta(s)=\sum_{n=1}^\infty \frac{1}{n^s}\] for \(\sigma>1\)
+\end{definition}
+Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\alpha)\) absolute converges by integral comparison. Therefore, \(\forall \sigma\geq\alpha\), \[\abs{\sum_{n=1}^\infty\frac{1}{n^s}}\leq \sum_{n=1}^\infty\frac{1}{n^\sigma}\leq\sum_{n=1}^\infty\frac{1}{n^\alpha}.\] Hence, \(\zeta(s)\) is uniformly and absolutely convergent on \(\cbraces{s\in\mathbb{C}}{\Re(s)\geq\alpha}\). We will now explain the simple connection between \(\zeta\) and the prime numbers. Let \(p_1=2,p_2=3,p_3=5,\ldots\) be the sequence of all prime numbers in increasing order.
+\begin{theorem}[Euler Product Formula]\label{thm:riemannzetafunctioninfiniteproduct}
+    For \(\Re(s)=\sigma>1\), we have
+    \begin{equation}
+        \zeta(z)=\prod_{n=1}^\infty\qty(1-\frac{1}{p_n^s})^{-1},
+    \end{equation} where \(p_n\) is the \(n\)th prime number.
+\end{theorem}
+\begin{proof}
+    Since \(\sum_{n=1}^\infty \abs{p_n^{-s}}=\sum_{n=1}^\infty \frac{1}{p_n^\sigma}\) is an 
+\end{proof}
+We will now show the beautiful relationship between the \(\zeta\) and \(\Gamma\) functions.
+
+Start from the integral form of the \(\Gamma\) function, and perform a change of variables: \[\Gamma(s)=\int_0^\infty \ee^{-x}x^{s-1}\ddx=n^s\int_0^\infty \ee^{-xn}x^{s-1}\ddx.\quad \Re(s)>1\]
+By rearrangement and subsequent summation by \(n\), we have \[\Gamma(s)\zeta(s)=\sum_{n=1}^\infty\int_0^\infty \ee^{-xn}x^{s-1}\ddx.\]
+Since \[\int_0^\infty\sum_{n=1}^\infty\abs{\ee^{-xn}x^{s-1}}\ddx=\int_0^\infty\sum_{n=1}^\infty \ee^{-xn}x^{\sigma-1}\ddx=\int_0^\infty \frac{x^{\sigma-1}}{e^{-x}-1}\ddx\] is convergent, by Fubini's Theorem (with a counting measure on \(\mathbb{N}\) and a Lebesgue measure on \(\mathbb{R}_{\geq 0}\)), the operations of integration and summation may be exchanged (a statement in measure theory that we now take for granted). Therefore, we have
+\begin{equation}
+    \Gamma(s)\zeta(s)=\int_0^\infty\frac{x^{s-1}}{e^{-x}-1}\ddx.\label{eq:gammazetaproduct}
+\end{equation}
 \end{document}
