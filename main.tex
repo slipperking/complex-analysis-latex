@@ -2328,7 +2328,8 @@ Therefore, any meromorphic function on \(\mathbb{C}\) can be expressed as the qu
         \frac{n+1}{2}&n\in \mathbb{N}\setminus 2\mathbb{N}.
     \end{cases}\]
     For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\pi^2}{3}\) converges. Therefore, \[\sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\). 
-    \[\sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
+    \[\sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2}).\]
+    Notice that \[\ee^{\varphi(z)}=\frac{\sin(\pi z )}{z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})}.\]
 \end{proof}
 We will now study the construction of meromorphic functions from their poles and the principal parts of their Laurent expansions at each pole.
 
@@ -2525,7 +2526,7 @@ Residues are extremely important as they allow for simple evaluation of definite
         \int_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz & =\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^\pi\frac{R\ii}{\qty(R^2e^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta} \\
         & =2\pi\ii\residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
     \end{align*}
-    We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii e^{\ii\theta}}{\qty(R^2e^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2e^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\pi]\), and we can commute the limit with the integral. Therefore, we have \[\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx=\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz-\int_0^{\pi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.\]
+    We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii \ee^{\ii\theta}}{\qty(R^2e^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2e^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\pi]\), and we can commute the limit with the integral. Therefore, we have \[\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx=\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz-\int_0^{\pi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.\]
 \end{proof}
 \begin{example}[Dirichlet Integral]
     Evaluate the improper integral \(\int_0^\infty \frac{\sin x}{x}\dd x\).
@@ -3015,8 +3016,8 @@ We will now show the beautiful relationship between the \(\zeta\) and \(\Gamma\)
 
 Start from the integral form of the \(\Gamma\) function, and perform a change of variables: \[\Gamma(s)=\int_0^\infty \ee^{-x}x^{s-1}\ddx=n^s\int_0^\infty \ee^{-xn}x^{s-1}\ddx.\quad \Re(s)>1\]
 By rearrangement and subsequent summation by \(n\), we have \[\Gamma(s)\zeta(s)=\sum_{n=1}^\infty\int_0^\infty \ee^{-xn}x^{s-1}\ddx.\]
-Since \[\int_0^\infty\sum_{n=1}^\infty\abs{\ee^{-xn}x^{s-1}}\ddx=\int_0^\infty\sum_{n=1}^\infty \ee^{-xn}x^{\sigma-1}\ddx=\int_0^\infty \frac{x^{\sigma-1}}{e^{-x}-1}\ddx\] is convergent, by Fubini's Theorem (with a counting measure on \(\mathbb{N}\) and a Lebesgue measure on \(\mathbb{R}_{\geq 0}\)), the operations of integration and summation may be exchanged (a statement in measure theory that we now take for granted). Therefore, we have
+Since \[\int_0^\infty\sum_{n=1}^\infty\abs{\ee^{-xn}x^{s-1}}\ddx=\int_0^\infty\sum_{n=1}^\infty \ee^{-xn}x^{\sigma-1}\ddx=\int_0^\infty \frac{x^{\sigma-1}}{\ee^{-x}-1}\ddx\] is convergent, by Fubini's Theorem (with a counting measure on \(\mathbb{N}\) and a Lebesgue measure on \(\mathbb{R}_{\geq 0}\)), the operations of integration and summation may be exchanged (a statement in measure theory that we now take for granted). Therefore, we have
 \begin{equation}
-    \Gamma(s)\zeta(s)=\int_0^\infty\frac{x^{s-1}}{e^{-x}-1}\ddx.\label{eq:gammazetaproduct}
+    \Gamma(s)\zeta(s)=\int_0^\infty\frac{x^{s-1}}{\ee^{-x}-1}\ddx.\label{eq:gammazetaproduct}
 \end{equation}
 \end{document}
