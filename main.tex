@@ -1685,7 +1685,7 @@ As a matter of fact, the theorem follows for any continuous function satisfying 
 The following important result can be directly obtained from the Maximum Modulus Principle.
 \begin{lemma}[Schwarz Lemma]\label{lemma:schwarz}
     If \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
-    Any one of the inequalities becomes equalities if and only if \(f(z)\) is in the form of \(ze^{i\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
+    Any one of the inequalities becomes equalities if and only if \(f(z)\) is in the form of \(ze^{\ii\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
 \end{lemma}
 \begin{proof}
     Define the auxiliary function \[g(z)=
@@ -2502,17 +2502,17 @@ Residues are extremely important as they allow for simple evaluation of definite
         \end{tikzpicture}
         \caption{A semicircular contour with orientation marked.}
         \label{fig:semicircularcontour}
-    \end{figure}Consider \(\gamma\) to be a closed semicircle with radius \(R\geq 2\) as in \autoref{fig:semicircularcontour}. Notice that the function \(z\mapsto\frac{1}{\qty(z^2+1)^{n+1}}\) has singularities at only \(z=i\) and \(z=-i\), both of which are poles of order \(n+1\). By equation~\eqref{eq:residueatpole}, the residue at \(z=i\) is
+    \end{figure}Consider \(\gamma\) to be a closed semicircle with radius \(R\geq 2\) as in \autoref{fig:semicircularcontour}. Notice that the function \(z\mapsto\frac{1}{\qty(z^2+1)^{n+1}}\) has singularities at only \(z=\ii\) and \(z=-\ii\), both of which are poles of order \(n+1\). By equation~\eqref{eq:residueatpole}, the residue at \(z=\ii\) is
     \begin{align*}
-        \residue_{z=i}\frac{1}{\qty(z^2+1)^{n+1}} & =\left.\frac{1}{n!}\dv[n]{z}\qty((z+i)^{-n-1})\right|_{z=i}=\frac{1}{n!}\frac{(-1)^n\prod_{k=1}^n (n+k)}{(2i)^{2n+1}} \\
-        & =\frac{(-1)^n(2n)!}{(n!)^2(2i)^{2n+1}}=\frac{(2n!)}{i2^{2n+1}(n!)^2}.
+        \residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}} & =\left.\frac{1}{n!}\dv[n]{z}\qty((z+\ii)^{-n-1})\right|_{z=\ii}=\frac{1}{n!}\frac{(-1)^n\prod_{k=1}^n (n+k)}{(2\ii)^{2n+1}} \\
+        & =\frac{(-1)^n(2n)!}{(n!)^2(2\ii)^{2n+1}}=\frac{(2n!)}{2^{2n+1}\ii(n!)^2}.
     \end{align*}
     The singularity at \(z=-i\) is not relevant, as it is not enclosed by the contour. By the Residue Theorem (\autoref{thm:residuethm}), we have
     \begin{align*}
-        \int_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz & =\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^\pi\frac{Ri}{\qty(R^2e^{2i\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta} \\
-        & =2\pi\ii\cdot\residue_{z=i}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
+        \int_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz & =\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^\pi\frac{Ri}{\qty(R^2e^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta} \\
+        & =2\pi\ii\cdot\residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
     \end{align*}
-    We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{Rie^{i\theta}}{\qty(R^2e^{2i\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2e^{2i\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\pi]\), and we can commute the limit with the integral. Therefore, we have \[\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx=\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz-\int_0^{\pi}\lim_{R\to\infty}\frac{Ri}{\qty(R^2\ee^{2i\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.\]
+    We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii e^{\ii\theta}}{\qty(R^2e^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2e^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\pi]\), and we can commute the limit with the integral. Therefore, we have \[\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx=\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz-\int_0^{\pi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.\]
 \end{proof}
 \begin{example}[Dirichlet Integral]
     Evaluate the improper integral \(\int_0^\infty \frac{\sin x}{x}\dd x\).
