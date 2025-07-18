@@ -363,7 +363,7 @@ By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete
 We will now give a geometric visualization of this projection. Let \(z=x+\ii y\). Then we obtain that \(x=\frac{x_1}{1-x_3}\) and \(y=\frac{x_2}{1-x_3}\). Therefore, \[x:y:1=x_1:x_2:1-x_3.\]
 It follows that the points \(\mqty(0\\0\\0)\), \(\mqty(x\\y\\1)\), and \(\mqty(x_1\\x_2\\1-x_3)\) are collinear in \(\mathbb{R}^3\). Under the linear map \(\mathbf{v}\mapsto\mqty(\dmat[0]{1,1,-1})\mathbf{v}+\mqty(0\\0\\1)\), we get that \(\mqty(0\\0\\1)\), \(\mqty(x\\y\\0)\), and \(\mqty(x_1\\x_2\\x_3)\) are collinear. In other words, this correspondence is a central projection with center \(\mqty(0\\0\\1)\), projecting the points from \(S^2\) onto \(\extcomplex\). In this representation, \(\infty\in\extcomplex\) is no longer considered to be special.
 
-For the purpose of notation, we will define \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\) and define \(\overline{\mathbb{H}^+}=\mathbb{H}^+\cup\mathbb{R}\).
+For the purpose of notation, we will define \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\).
 \subsection{Complex Differentiation}\label{sec:complexdifferentiation}
 For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
 \[\lim_{h\to0}\frac{f(z+h)-f(z)}{h}.\]
@@ -399,7 +399,7 @@ For the purpose of the following contents, a \textit{region} or \textit{domain} 
     \[v\paren{x,y}-v\paren{x_0,y_0}=\beta\paren{x-x_0}+\alpha\paren{y-y_0}+o_{\Delta z\to 0}\paren{\abs{\Delta z}},\]
     where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\) and \(o_{\Delta z\to 0}\paren{\abs{\Delta z}}\) denotes a value with higher infinitesimal order to \(\abs{\Delta z}\), or that \(\lim_{\Delta z\to0}\frac{o_{\Delta z\to 0}\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\). Then letting \(\Delta z=x-x_0+\ii\paren{y-y_0}\),
     \[f\paren{z}-f\paren{z_0}=\alpha{\Delta z}+\ii\beta{\Delta z}+o_{\Delta z\to 0}\paren{\abs{\Delta z}}+o_{\Delta z\to 0}\paren{\abs{\Delta z}},\]
-    \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+i\beta+\frac{o_{\Delta z\to 0}\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
+    \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta+\frac{o_{\Delta z\to 0}\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
     Taking the limit as \(\Delta z\to0\), the high order infinitesimals on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta.\]
 \end{proof}
 We will prove later in \chpref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+\ii v(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
@@ -438,7 +438,7 @@ On the contrary, by the rules of the derivative,
 \end{equation*}
 The Laplacian is equal to
 \begin{align}
-    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{z}+\pdv{}{\overline{z}}}^2+\paren{\ii\pdv{z}-\ii\pdv{}{\overline{z}}}^2                                               \nonumber     \\
+    \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{z}+\pdv{}{\overline{z}}}^2+\paren{\ii\pdv{z}-\ii\pdv{}{\overline{z}}}^2                                               \nonumber \\
     & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \nonumber \\
     & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
 \end{align}
@@ -451,7 +451,7 @@ Univariate functions formed by taking compositions, sums, products, and powers o
 \end{enumerate}
 Power functions are easily extendable to the complex plane by simply changing the real variable to a complex variable. The other two functions have to be redefined and reinterpreted for the complex plane. It is well known that the exponential function can be expanded as
 \begin{align*}
-    \ee^x & =\frac{x^0}{0!}+\frac{x^1}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}\cdots                \\
+    \ee^x & =\frac{x^0}{0!}+\frac{x^1}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}\cdots                          \\
     & =\frac{x^0}{0!\ii^0}+\ii\frac{x^1}{1!\ii^1}-\frac{x^2}{2!\ii^2}-i\frac{x^3}{3!\ii^3}+\cdots \\
     & =\cos(\frac{x}{\ii})+\ii\sin(\frac{x}{\ii}).
 \end{align*}
@@ -461,7 +461,7 @@ This is better written as
 \end{equation} which is the famous \textit{Euler Formula}. Then for any complex number \(z=x+\ii y\), \(\ee^z=\ee^{x+\ii y}=\ee^x\paren{\cos(y)+\ii\sin(y)}\). Then trigonometric functions and exponential functions can be written in terms of each other:
 \begin{align*}
     \sin(z)  & =\frac{\ee^{\ii z}-\ee^{-\ii z}}{2\ii}, & \cos(z)  & =\frac{\ee^{\ii z}+\ee^{-\ii z}}{2}, & \tan(z)  & =\frac{\ee^{\ii z}-\ee^{-\ii z}}{\ii \paren{\ee^{\ii z}+\ee^{-\ii z}}} \\
-    \sinh(z) & =\frac{\ee^z-\ee^{-z}}{2},      & \cosh(z) & =\frac{\ee^z+\ee^{-z}}{2},     & \tanh(z) & =\frac{\ee^z-\ee^{-z}}{\ee^z+\ee^{-z}}x.
+    \sinh(z) & =\frac{\ee^z-\ee^{-z}}{2},              & \cosh(z) & =\frac{\ee^z+\ee^{-z}}{2},           & \tanh(z) & =\frac{\ee^z-\ee^{-z}}{\ee^z+\ee^{-z}}x.
 \end{align*}
 Then the following relationships are derived:
 \[\sin(z)=-\ii\sinh(\ii z),\quad\cos(z)=\cosh(\ii z),\quad\tan(z)=-\ii\tanh(\ii z).\]
@@ -483,7 +483,7 @@ Since all elementary functions can be written in terms of exponential functions 
         and indeed, the condition described by \autoref{thm:holomorphycondition} is satisfied.
     \item For any two complex numbers \(z_1\) and \(z_2\), \(\ee^{z_1}\ee^{z_2}=\ee^{z_1+z_2}\).
 
-        In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(\ee^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textit{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(\paren{z_1,z_2}\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
+        In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(\ee^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textit{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(z_1\) and \(z_2\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
     \item The region \(\ee^z\) is univalent over:
 
         Let \(z_1=x_1+\ii y_1\), \(z_2=x_2+\ii y_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(\ee^{z_1}=\ee^{z_2}\). Then, \[\ee^{x_1}\ee^{\ii y_1}=\ee^{x_2}\ee^{\ii y_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any horizontal strip \(2\pi k\leq \Im(z)< 2\pi (k+1)\) (or \(2\pi k< \Im(z)\leq 2\pi (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\pi\) is a region over which \(\log\) is univalent.
@@ -515,9 +515,9 @@ Thus, the composition \(\cos(z)=w\circ\zeta\circ\xi\) is univalent on the strip 
 
 Consider \(z=\frac{\ee^{\ii w}+\ee^{-\ii w}}{2}\). Then,
 \begin{align*}
-    \paren{\ee^{\ii w}}^2+1 & =2z\ee^{\ii w}                     \\
+    \paren{\ee^{\ii w}}^2+1 & =2z\ee^{\ii w}                \\
     \ee^{\ii w}             & =\frac{2z\pm\sqrt{4z^2-4}}{2} \\
-    w                  & =-\ii\log(z\pm\sqrt{z^2-1}).
+    w                       & =-\ii\log(z\pm\sqrt{z^2-1}).
 \end{align*}
 Then \(\arccos\) is also a multi-valued function. We can also define \(\arcsin(z)=\frac{\pi}{2}-\arccos{z}\).
 
@@ -699,17 +699,17 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     For real-valued functions \(\xi_1,\xi_2,\eta_1,\eta_2\), let \[\omega_1=\xi_1+\ii\eta_1\qq{and let}\omega_2=\xi_2+\ii\eta_2.\]
     Then,
     \begin{align}
-        \omega & =\paren{\xi_1+\ii\eta_1}\ddz+\paren{\xi_2+\ii\eta_2}\dd{\overline{z}}\label{eq:complexgreen_omegaexpansionintermediate}                                                     \\
-        & =\paren{\xi_1+\ii\eta_1}\paren{\ddx+\ii\ddy}+\paren{\xi_2+\ii\eta_2}\paren{\ddx-\ii\ddy}\nonumber                                                                               \\
-        & =\xi_1\ddx+\ii\eta_1\ddx+\ii\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+\ii\eta_2\ddx-\ii\xi_2\ddy+\eta_2\ddy\nonumber                                                                       \\
+        \omega & =\paren{\xi_1+\ii\eta_1}\ddz+\paren{\xi_2+\ii\eta_2}\dd{\overline{z}}\label{eq:complexgreen_omegaexpansionintermediate}                                                   \\
+        & =\paren{\xi_1+\ii\eta_1}\paren{\ddx+\ii\ddy}+\paren{\xi_2+\ii\eta_2}\paren{\ddx-\ii\ddy}\nonumber                                                                         \\
+        & =\xi_1\ddx+\ii\eta_1\ddx+\ii\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+\ii\eta_2\ddx-\ii\xi_2\ddy+\eta_2\ddy\nonumber                                                                 \\
         & =\qty[\paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy]+\ii\qty[\paren{\eta_1+\eta_2}\ddx+\paren{\xi_1-\xi_2}\ddy]\label{eq:complexgreen_realandcomplexdxdyintermediate}
     \end{align}
     Each of \(\xi_1,\xi_2,\eta_1,\eta_2\) are real-valued functions that can be represented with a domain of \(\mathbb{R}^2\). We then will apply the \(\dd=\partial+\overline{\partial}\) definition of the exterior derivative and relate it to equation~\eqref{eq:complexgreen}. Starting with equation~\eqref{eq:complexgreen_omegaexpansionintermediate},
     \begin{align}
-        \dd{\omega} & =\paren{\partial+\overline{\partial}}\paren{\xi_1+\ii\eta_1}\ddz+\paren{\partial+\overline{\partial}}\paren{\xi_2+\ii\eta_2}\dd{\overline{z}}\nonumber                                                         \\
-        & =\paren{\pdv{\xi_1}{\overline{z}}+\ii\pdv{\eta_1}{\overline{z}}}\dd{\overline{z}}\wedge\ddz+\paren{\pdv{\xi_2}{z}+\ii\pdv{\eta_2}{z}}\ddz\wedge\dd{\overline{z}}\nonumber                                      \\
-        & =2\paren{\ii\pdv{\xi_1}{\overline{z}}-\pdv{\eta_1}{\overline{z}}-\ii\pdv{\xi_2}{z}+\pdv{\eta_2}{z}}\ddx\wedge\ddy\nonumber                                                                                     \\
-        & =\paren{\ii\pdv{\xi_1}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\ii\pdv{\eta_1}{y}-\ii\pdv{\xi_2}{x}-\pdv{\xi_2}{y}+\pdv{\eta_2}{x}-\ii\pdv{\eta_2}{y}}\ddx\wedge\ddy\nonumber                                            \\
+        \dd{\omega} & =\paren{\partial+\overline{\partial}}\paren{\xi_1+\ii\eta_1}\ddz+\paren{\partial+\overline{\partial}}\paren{\xi_2+\ii\eta_2}\dd{\overline{z}}\nonumber                                                       \\
+        & =\paren{\pdv{\xi_1}{\overline{z}}+\ii\pdv{\eta_1}{\overline{z}}}\dd{\overline{z}}\wedge\ddz+\paren{\pdv{\xi_2}{z}+\ii\pdv{\eta_2}{z}}\ddz\wedge\dd{\overline{z}}\nonumber                                    \\
+        & =2\paren{\ii\pdv{\xi_1}{\overline{z}}-\pdv{\eta_1}{\overline{z}}-\ii\pdv{\xi_2}{z}+\pdv{\eta_2}{z}}\ddx\wedge\ddy\nonumber                                                                                   \\
+        & =\paren{\ii\pdv{\xi_1}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\ii\pdv{\eta_1}{y}-\ii\pdv{\xi_2}{x}-\pdv{\xi_2}{y}+\pdv{\eta_2}{x}-\ii\pdv{\eta_2}{y}}\ddx\wedge\ddy\nonumber                                      \\
         & =\paren{\pdv{\eta_2}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\pdv{\xi_2}{y}}\dd{A}+\ii\paren{\pdv{\xi_1}{x}-\pdv{\eta_1}{y}-\pdv{\xi_2}{x}-\pdv{\eta_2}{y}}\dd{A}.\label{eq:complexgreen_exteriorderivativeresult}
     \end{align}
     From equation~\eqref{eq:complexgreen_realandcomplexdxdyintermediate}, we can apply \autoref{thm:realgreen}. For the real component of \(\omega\), we obtain
@@ -1102,7 +1102,7 @@ We have also already seen the utility of parameterization via a polar transforma
     since all of the higher order terms vanish:
     \[\int_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\int_0^{2\pi} \ee^{\ii\theta\qty(2k-2n-1)}\ii\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{2\pi}\ee^{2\ii\theta(k-n)}\dd{\theta}=
         \begin{cases}
-            0      & k< n \\
+            0       & k< n \\
             2\pi\ii & k=n
     \end{cases}.\]
     Therefore, \[2^{2n}\ii\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi\ii\binom{2n}{n}\Longleftrightarrow\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi\frac{\qty(2n)!}{2^{2n}\qty(n!)^2}=2\pi\frac{\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}\qty(2k)^2}.\]
@@ -1145,7 +1145,7 @@ We have also already seen the utility of parameterization via a polar transforma
                 \begin{cases}
                     0    & z\in\mathrm{int}(\gamma) \\
                     f(z) & z\in\mathrm{ext}(\gamma)
-                \end{cases} \\&=
+                \end{cases}                                                                                                                               \\ & =
                 \begin{cases}
                     w      & z\in\mathrm{int}(\gamma) \\
                     w-f(z) & z\in\mathrm{ext}(\gamma)
@@ -1153,10 +1153,10 @@ We have also already seen the utility of parameterization via a polar transforma
             \end{align*} as expected.
         \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that
             \begin{align}
-                I & =\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber                                              \\
+                I & =\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
                 & =\int_0^{2\pi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
                 \begin{cases}
-                    0          & z\in\mathrm{int}(\gamma)            \\
+                    0            & z\in\mathrm{int}(\gamma)            \\
                     2\pi\ii f(z) & z\in\mathrm{ext}(\gamma)\cap D(0,R)
                 \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
             \end{align} when \(\gamma\subset D(0,R)\).
@@ -1915,8 +1915,8 @@ This series may diverge. Observe that continuity of \(u\) on the compact set \(\
 \[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}, \quad\abs{\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M \frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
 Substituting the coefficients gives
 \begin{align*}
-    \sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}&=\sum_{n=-\infty}^\infty \qty(\frac{1}{2\pi}\int_0^{2\pi}u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}) \ee^{\ii n\theta}\rho^{\abs{n}}\\
-    &=\frac{1}{2\pi} \sum_{n=-\infty}^\infty \int_0^{2\pi}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)}\dd{\tau}.
+    \sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}} & =\sum_{n=-\infty}^\infty \qty(\frac{1}{2\pi}\int_0^{2\pi}u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}) \ee^{\ii n\theta}\rho^{\abs{n}} \\
+    & =\frac{1}{2\pi} \sum_{n=-\infty}^\infty \int_0^{2\pi}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)}\dd{\tau}.
 \end{align*}
 By the Weierstrass \(M\)-Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:limitintegralswitch},
 \begin{equation}
@@ -1924,11 +1924,11 @@ By the Weierstrass \(M\)-Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:
 \end{equation}
 The summation simplifies as follows:
 \begin{align*}
-    \sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)}&=\sum_{n=0}^\infty \rho^n \ee^{\ii n(\theta-\tau)}+\sum_{n=1}^\infty \rho^n \ee^{-in(\theta-\tau)}\\
-    &=1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]\\
-    &=1+2\Re\sum_{n=1}^\infty\rho^n \ee^{\ii n(\theta-\tau)} \\
-    &=1+2\Re\qty[\frac{\rho \ee^{\ii(\theta-\tau)}}{1-\rho \ee^{\ii(\theta-\tau)}}] \\
-    &=\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
+    \sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)} & =\sum_{n=0}^\infty \rho^n \ee^{\ii n(\theta-\tau)}+\sum_{n=1}^\infty \rho^n \ee^{-in(\theta-\tau)} \\
+    & =1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]                                                    \\
+    & =1+2\Re\sum_{n=1}^\infty\rho^n \ee^{\ii n(\theta-\tau)}                                            \\
+    & =1+2\Re\qty[\frac{\rho \ee^{\ii(\theta-\tau)}}{1-\rho \ee^{\ii(\theta-\tau)}}]                     \\
+    & =\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
 \end{align*}
 Substituting into \eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch} yields
 \[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho \ee^{\ii\theta}).\]
@@ -2035,11 +2035,11 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     \end{equation}
     where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \[\int_{\gamma}(z-a)^k\ddz=
         \begin{cases}
-            0                     & k\geq0   \\
+            0                      & k\geq0   \\
             2\pi\ii\dv[-k-1]{z}(1) & k\leq -1
         \end{cases}=
         \begin{cases}
-            0      & k\neq-1 \\
+            0       & k\neq-1 \\
             2\pi\ii & k=-1    \\
     \end{cases}.\]
     Multiplying equation~\eqref{eq:laurentexpansionofholomorphicfunction_uniquenessstatement} by \((z-a)^{-m-1}\) and from integrating over \(\gamma\), we get that \[\oint_\gamma\frac{f(z)\ddz}{(z-a)^{m+1}}=\oint_{\gamma}\sum_{n=-\infty}^\infty c'_n(z-a)^{n-m-1}\ddz,\] implying that \[2\pi \ii c_m=\sum_{n=-\infty}^\infty c'_n\oint_{\gamma}(z-a)^{n-m-1}\ddz=2\pi\ii c'_m,\]
@@ -2228,8 +2228,8 @@ The group of holomorphic automorphisms on \(\mathbb{D}\), or \(\Aut(\mathbb{D})\
 \begin{proof}
     From simple substitution, we have
     \begin{align*}
-        \frac{a\qty(\dfrac{ez+f}{gz+h})+b}{c\qty(\dfrac{ez+f}{gz+h})+d}&=\frac{aez+af+bgz+bh}{cez+cf+dgz+dh}\\
-        &=\frac{\qty(ae+bg)z+(af+bh)}{\qty(ce+dg)z+(cf+dh)},
+        \frac{a\qty(\dfrac{ez+f}{gz+h})+b}{c\qty(\dfrac{ez+f}{gz+h})+d} & =\frac{aez+af+bgz+bh}{cez+cf+dgz+dh}                \\
+        & =\frac{\qty(ae+bg)z+(af+bh)}{\qty(ce+dg)z+(cf+dh)},
     \end{align*}
     which corresponds to the product \(\mqty(a&b\\c&d)\mqty(e&f\\g&h)\).
 \end{proof}
@@ -2405,9 +2405,9 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 
     Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\Psi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\Psi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that
     \begin{align*}
-        f^{(n)}\qty(z_k)&=\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}\\
-        &=\qty[\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)]_{z=z_k}\\
-        &=n!w_{k,n},
+        f^{(n)}\qty(z_k) & =\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}          \\
+        & =\qty[\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)]_{z=z_k} \\
+        & =n!w_{k,n},
     \end{align*}
     as desired.
 \end{proof}
@@ -2553,7 +2553,7 @@ Residues are extremely important as they allow for simple evaluation of definite
     We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^\pi\frac{\exp(\ii R\ee^{\ii\theta})}{R\ee^{\ii\theta}}Ri\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\pi}\ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}.\]
     Notice that \(\frac{2}{\pi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\):
     \begin{align*}
-        \abs{\ii\int_0^\pi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                                                  \\
+        \abs{\ii\int_0^\pi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                                                    \\
         & <2\int_0^{\frac{\pi}{2}}\ee^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}\ee^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-\ee^{-R})\to 0.
     \end{align*}
     Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\exp(\varepsilon\qty(i\cos\theta-\sin\theta))\dd{\theta}=i\int_\pi^0\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}.\]
@@ -2626,10 +2626,10 @@ Residues are extremely important as they allow for simple evaluation of definite
     where \(R>1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{R\to\infty}\int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=2\pi\ii\Res[f,\exp(\ii\frac{\pi}{\beta})].\]
     By equation~\eqref{eq:residueatpole}, it follows that
     \begin{align*}
-        \residue\qty[f,\exp(\ii\frac{\pi}{\beta})]&=\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\flatfrac{\qty[z-\exp(\ii\frac{\pi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]}\\
-        &=\lim_{z\to\exp(\ii\frac{\pi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}\\
-        &=\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}\\
-        &=-\frac{1}{\beta}\exp(\ii\frac{\pi}{\beta}(\alpha+1)).
+        \residue\qty[f,\exp(\ii\frac{\pi}{\beta})] & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\flatfrac{\qty[z-\exp(\ii\frac{\pi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]} \\
+        & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}                                     \\
+        & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}                             \\
+        & =-\frac{1}{\beta}\exp(\ii\frac{\pi}{\beta}(\alpha+1)).
     \end{align*}
     We can write the integral on \(\Gamma_2\) in terms of \(I\): \[\int_{\Gamma_2}f(z)\ddz=\int_R^0 f\qty[r\exp(\ii\frac{2\pi}{\beta})]\exp(\ii\frac{2\pi}{\beta})\dd{r}=-\exp[\ii\frac{2\pi}{\beta}(1+\alpha)]\int_0^R\frac{r^\alpha}{1+r^\beta}\dd{r}.\]
     We also have \[\int_{C_R}f(z)\ddz=R\ii\int_{0}^{\frac{2\pi}{\beta}}f\qty(R\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}.\] We can show that the integrand can be dominated as follows:
@@ -2680,10 +2680,10 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{equation}
     By equation~\eqref{eq:residueatpole}, we have
     \begin{align*}
-        \Res(f,\frac{\ii}{2})&=\lim_{z\to\frac{\ii}{2}}\qty(z-\frac{\ii}{2})\frac{\exp(-2\pi \ii z\xi)}{\cosh(\pi z)}\\
-        &=\lim_{z\to\frac{\ii}{2}}\dv{z}(\frac{\cosh(\pi z)}{\exp(-2\pi \ii z\xi)})^{-1}\\
-        &=\lim_{z\to\frac{\ii}{2}}\frac{\exp(-2\pi \ii z\xi)}{\pi\sinh(\pi z)+2\pi\ii\xi\cosh(\pi z)}\\
-        &=\frac{\exp(\pi\xi)}{\pi \ii}.
+        \Res(f,\frac{\ii}{2}) & =\lim_{z\to\frac{\ii}{2}}\qty(z-\frac{\ii}{2})\frac{\exp(-2\pi \ii z\xi)}{\cosh(\pi z)}      \\
+        & =\lim_{z\to\frac{\ii}{2}}\dv{z}(\frac{\cosh(\pi z)}{\exp(-2\pi \ii z\xi)})^{-1}              \\
+        & =\lim_{z\to\frac{\ii}{2}}\frac{\exp(-2\pi \ii z\xi)}{\pi\sinh(\pi z)+2\pi\ii\xi\cosh(\pi z)} \\
+        & =\frac{\exp(\pi\xi)}{\pi \ii}.
     \end{align*}
     The sum of the horizontal line integrals is equal to \[\int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+\ii)\ddz=\int_{-R}^R f(z)\ddz-\int_R^{-R}\ee^{2\pi\xi}f(z)\ddz=\qty(1+\ee^{2\pi\xi})\int_{-R}^R f(z)\ddz.\] As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+\ee^{2\pi\xi})I(\xi)\).
     The remaining two integrals can be written as \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz,\qquad\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz.\]
@@ -2714,9 +2714,9 @@ The following result is useful for evaluating integrals on indentations along a 
     So,
     \begin{align*}
         \int_{\gamma_\varepsilon}f(z)\ddz
-        &= \varepsilon \ii\int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon\ee^{\ii\theta}}+\varphi\qty(a+\varepsilon\ee^{\ii\theta}))\ee^{\ii\theta}\dd{\theta} \\
-        &= \ii c_{-1}\int_\alpha^\beta\dd{\theta}+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon \ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}\\
-        &= \ii c_{-1}\vartheta+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}.
+        & = \varepsilon \ii\int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon\ee^{\ii\theta}}+\varphi\qty(a+\varepsilon\ee^{\ii\theta}))\ee^{\ii\theta}\dd{\theta} \\
+        & = \ii c_{-1}\int_\alpha^\beta\dd{\theta}+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon \ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}          \\
+        & = \ii c_{-1}\vartheta+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}.
     \end{align*}
     Let \(\varepsilon<\frac{\lambda}{2}\). Since \(\varphi\) is continuous on the disk \(\overline{D\qty(a,\frac{\lambda}{2})}\), it is bounded. Therefore, letting \(\varepsilon\to0\), we have
     \[\lim_{\varepsilon\to 0} \varepsilon \ii \int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\lim_{\varepsilon\to 0}\varepsilon \ii\int_\alpha^\beta\varphi(a)\ee^{\ii\theta}\dd{\theta}=0.\]
@@ -2730,8 +2730,8 @@ The following result is useful for evaluating integrals on indentations along a 
 Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textit{analytic continuation}, previously introduced in \autoref{def:analyticcontinuation}. By the Identity Theorem (\autoref{thm:identity}), such continuations are unique; if \(\qty(U_1,f_1)\) and \(\qty(U_2,f_2)\) are analytic elements with \(U_1\cap U_2 \neq \emptyset\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are \textit{direct analytic continuations} of each other. The combined function:
 \[\widetilde{f}(z)=
     \begin{cases}
-        f_1(z)&z\in U_1 \\
-        f_2(z)&z\in U_2 \setminus U_1
+        f_1(z) & z\in U_1               \\
+        f_2(z) & z\in U_2 \setminus U_1
 \end{cases}\] is holomorphic on \(U_1\cup U_2\).
 
 The most straightforward method of the derivation of analytic continuations uses power series. Let \(f(z)=\sum_{n=0}^{\infty}c_n\qty(z-z_0)^n\) have radius of convergence \(R>0\) (by \autoref{thm:abelradius}). For \(z_1\in D\qty(z_0,R)\), we can expand \(f\) at \(z_1\):
@@ -2752,8 +2752,8 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     Since \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on \(D\qty(z_0,R)\cap V\), the function:
     \[\widetilde{f}(z)=
         \begin{cases}
-            f(z)&z\in D\qty(z_0,R) \\
-            \Phi(z)&z\in V
+            f(z)    & z\in D\qty(z_0,R) \\
+            \Phi(z) & z\in V
     \end{cases}\]
     is holomorphic on \(D\qty(z_0,R)\cup V\supset D(z_0, R+\rho)\), contradicting the maximality of \(R\).
 \end{proof}
@@ -2829,8 +2829,8 @@ We will now study holomorphic functions from a more geometric perspective.
 
     If \(w_0\) lies on \(\Gamma\), \(f-w_0\) has no zeros in \(U\). Indeed, for the sake of contradiction, assume that \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). By the Open Mapping Theorem (\autoref{thm:openmapping}) and \autoref{thm:holomorphiczerosstabilityundershifts}, \(\exists\delta>0\) such that \(D\qty(w_0,\delta)\subseteq f(U)\) and \(\forall w'\in D\qty(w_0,\delta)\), \(f-w'\) has zeros in \(U\). Since \(w_0\) lies on \(\Gamma\), a subset of \(D\qty(w_0,\delta)\) lies in the exterior of \(\Gamma\). It was previously established that \(f-w'\) has no zeros if \(w'\in D\qty(w_0,\delta)\cap\mathrm{ext}(\Gamma)\). Thus, we have a contradiction. We then have \[k=
         \begin{cases}
-            0&w_0\in\overline{\mathrm{ext}(\Gamma)}\\
-            1&w_0\in \mathrm{int}(\Gamma)
+            0 & w_0\in\overline{\mathrm{ext}(\Gamma)} \\
+            1 & w_0\in \mathrm{int}(\Gamma)
     \end{cases}.\]
     Hence, for any arbitrary \(z_0\in U\), \(w_0=f\qty(z_0)\) must lie in \(\mathrm{int}(\Gamma)\). Indeed, if \(f\qty(z_0)\) lies in \(\mathrm{ext}(\Gamma)\) or \(\Gamma\), then \(k\) would be nonzero in those areas. It follows that \(f(U)=\mathrm{int}(\Gamma)\).
 \end{proof}
@@ -2872,7 +2872,6 @@ We have already seen that certain functions such as the inverse trigonometric fu
 \section{Differential Geometry}\label{sec:differentialgeometry}
 Émile Picard's original proof of his characterization on the value distribution near essential singularities is generally considered to be too advanced in many elementary complex analysis courses. His results were later
 
-
 \begin{theorem}[Great Picard Theorem]\label{thm:greatpicard}
 
 \end{theorem}
@@ -2890,17 +2889,17 @@ Let us first introduce the Gamma function \(\Gamma(z)\). Let
     \Gamma(z)=\int_0^\infty \ee^{-t}t^{z-1}\dd{t},\label{eq:gammafunction}
 \end{equation} where \(z\in\mathbb{C}\). By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
 \begin{align*}
-    \abs{\Gamma(x)}&=\int_0^1 \ee^{-t}t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt\\
-    &\leq\int_0^1 t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt\\
-    &=\frac{1}{x}+\int_1^\infty \ee^{-t}t^{x-1}\ddt.
+    \abs{\Gamma(x)} & =\int_0^1 \ee^{-t}t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt \\
+    & \leq\int_0^1 t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt      \\
+    & =\frac{1}{x}+\int_1^\infty \ee^{-t}t^{x-1}\ddt.
 \end{align*}
 Since \(\int_1^\infty\frac{\ddt}{t^2}\) is convergent and \(\lim_{t\to\infty}\frac{\ee^{-t}t^{z-1}}{t^{-2}}=0\), then by comparison, the second integral is convergent.
 
 Therefore, \(\Gamma(x)\) is convergent on \(\mathbb{R}_{>0}\). It follows that \(\Gamma(z)\) is absolutely convergent on the right half-plane \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). Furthermore, \(\Gamma(z)\) is well-defined and holomorphic on \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). From integration by parts, we get
 \begin{align*}
-    \Gamma(z+1)&=\int_0^\infty \ee^{-t}t^z\ddt\\
-    &=-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt.\\
-    &=z\Gamma(z).
+    \Gamma(z+1) & =\int_0^\infty \ee^{-t}t^z\ddt                                   \\
+    & =-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt. \\
+    & =z\Gamma(z).
 \end{align*}
 Additionally, \[\Gamma(1)=\int_0^\infty \ee^{-t}\ddt=-\eval{\ee^{-t}}_0^\infty=1.\]
 Hence, we have \(\Gamma(z+1)=z!\), and the \(\Gamma\) function generalizes the factorial. We also have \[\Gamma(z+n)=\Gamma(z)\prod_{k=0}^{n-1}(z+k),\quad\Re(z)>0, n\in\mathbb{N}.\]
@@ -2913,10 +2912,10 @@ By equation~\eqref{eq:residueatpole}, the residue at each pole is equal to
 We will now study two alternate representations for the Gamma function. Let \[f_n(z)=\int_0^n{\qty(1-\frac{t}{n})}^n t^{z-1}\ddt=n^z\int_0^1{\qty(1-t)}^n t^{z-1}\ddt,\quad\Re(z)>0.\]
 By integration by parts, we have
 \begin{align*}
-    f_n(z)&=n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z \ddt]\\
-    &=\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)}\\
-    &=n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}\\
-    &=\frac{n^z n!}{\prod_{k=0}^n(z+k)}.
+    f_n(z) & =n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z \ddt]                                     \\
+    & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)} \\
+    & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \\
+    & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.
 \end{align*}
 Let us now analyze the difference \[\lim_{n\to\infty}\qty[\int_0^n \ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\]
 Since \[\dv{t}(\ee^t{\qty(1-\frac{t}{n})}^n)=\ee^t
