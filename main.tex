@@ -2932,7 +2932,11 @@ which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluate
 it follows that \(1-e^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqref{eq:gammafunctiongaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{e}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From equation~\eqref{eq:gammafunctiongaussformula}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), which is known as the \textit{Gauss formula} for the Gamma function. Since the Gauss formula is valid on the right half-plane, we can analytically continue \(\Gamma(z)\) to the entire complex plane except for the poles at \(\mathbb{Z}_{\leq0}\) by the Identity Theorem (\autoref{thm:identity}). Since \begin{align*}
     \frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}&=\frac{\exp\qty[z\ln(n)]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\\
     &=\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]}\\
-    &=\frac{\exp\qty(-z\gamma)}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]}
+    &=\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
 \end{align*}
-
+Therefore, 
+\begin{align*}
+    \frac{1}{\Gamma(z)}&=\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)]\\
+    &=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\exp\qty(z\gamma).
+\end{align*}
 \end{document}
