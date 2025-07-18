@@ -2917,13 +2917,17 @@ By integration by parts, we have
     & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \\
     & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.
 \end{align*}
-Let us now analyze the difference \[\lim_{n\to\infty}\qty[\int_0^n \ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\]
+Let us now analyze the difference 
+\begin{equation}
+    \lim_{n\to\infty}\qty[\int_0^n \ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\label{eq:gammafunctiongaussformulaintermediate1}
+\end{equation}
 Since \[\dv{t}(\ee^t{\qty(1-\frac{t}{n})}^n)=\ee^t
 \qty(1-\frac{t}{n})^n-\ee^t\qty(1-\frac{t}{n})^{n-1}=-\ee^t\frac{t}{n}{\qty(1-\frac{t}{n})}^{n-1},\]
 we have 
 \begin{equation}
-    1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunctiongaussformulaintermediate1}
+    1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunctiongaussformulaintermediate2}
 \end{equation}
 Additionally, since \[\dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2}=\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)\] has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\] 
-which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \(\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\) as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq e\). From equation~\eqref{eq:gammafunctiongaussformulaintermediate1}, we have \[1-e^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\]
+which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \(\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\) as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq e\). From equation~\eqref{eq:gammafunctiongaussformulaintermediate2}, we have \[1-e^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
+it follows that \(1-e^{t}\qty(1-\frac{t}{n})^n\) is positive. By equation~\eqref{eq:gammafunctiongaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\]
 \end{document}
