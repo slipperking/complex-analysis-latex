@@ -2553,13 +2553,13 @@ Residues are extremely important as they allow for simple evaluation of definite
     We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^\pi\frac{\exp(\ii R\ee^{\ii\theta})}{R\ee^{\ii\theta}}Ri\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\pi}\ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}.\]
     Notice that \(\frac{2}{\pi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\):
     \begin{align*}
-        \abs{i\int_0^\pi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                                                  \\
+        \abs{\ii\int_0^\pi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                                                  \\
         & <2\int_0^{\frac{\pi}{2}}\ee^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}\ee^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-\ee^{-R})\to 0.
     \end{align*}
     Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\exp(\varepsilon\qty(i\cos\theta-\sin\theta))\dd{\theta}=i\int_\pi^0\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}.\]
     Obviously, \[\abs{\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}}\leq 1,\]
     and therefore, the integral and the limit may commute:
-    \[\lim_{\varepsilon\to 0}\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\lim_{\varepsilon\to 0^+}\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}=i\int_{\pi}^0\dd{\theta}=-i\pi.\]
+    \[\lim_{\varepsilon\to 0}\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\lim_{\varepsilon\to 0^+}\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}=\ii\int_{\pi}^0\dd{\theta}=-\ii\pi.\]
     Evaluating the integral over the line segments, we have
     \begin{align*}
         \int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz & =\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{\ee^{\ii z}}{z}\dd{z}=\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{\ee^{-\ii z}}{z}\dd{z} \\
@@ -2687,7 +2687,7 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{align*}
     The sum of the horizontal line integrals is equal to \[\int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+\ii)\ddz=\int_{-R}^R f(z)\ddz-\int_R^{-R}\ee^{2\pi\xi}f(z)\ddz=\qty(1+\ee^{2\pi\xi})\int_{-R}^R f(z)\ddz.\] As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+\ee^{2\pi\xi})I(\xi)\).
     The remaining two integrals can be written as \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz,\qquad\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz.\]
-    They can be bounded with \[\abs{\int_0^1 \frac{\exp(-2\pi\ii(R+iz)\xi)}{\cosh(\pi(R+iz))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}\ee^{\pi iz}+\ee^{-\pi R}\ee^{-\pi iz}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz\] and \[\abs{\int_1^0 \frac{\exp(2\pi\ii(R-iz)\xi)}{\cosh(\pi(-R+iz))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{-\pi R}\ee^{\pi \ii z}+\ee^{\pi R}\ee^{-\pi \ii z}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz\]
+    They can be bounded with \[\abs{\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}\ee^{\pi \ii z}+\ee^{-\pi R}\ee^{-\pi \ii z}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz\] and \[\abs{\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{-\pi R}\ee^{\pi \ii z}+\ee^{\pi R}\ee^{-\pi \ii z}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz\]
     Since the integrands are continuous and uniformly convergent to \(0\) with respect to \(z\), we have \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz+\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz\to 0\] as \(R\to\infty\). By rearrangement of equation~\eqref{eq:fouriertransformofsechpix_rectangularcontourintegral}, \[I(\xi)\qty(1+\ee^{2\pi\xi})=2\exp(\pi\xi),\]
     or that \[I(\xi)=\frac{2}{\ee^{-\pi\xi}+\ee^{\pi\xi}}=\sech(\pi\xi),\] which proves the result.
 \end{proof}
@@ -2888,7 +2888,7 @@ The Riemann--\(\zeta\) function is one of the most important functions in analyt
 Let us first introduce the Gamma function \(\Gamma(z)\). Let
 \begin{equation}
     \Gamma(z)=\int_0^\infty \ee^{-t}t^{z-1}\dd{t},\label{eq:gammafunction}
-\end{equation} where \(z\in\mathbb{C}\). By letting \(z=x+iy\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
+\end{equation} where \(z\in\mathbb{C}\). By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
 \begin{align*}
     \abs{\Gamma(x)}&=\int_0^1 \ee^{-t}t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt\\
     &\leq\int_0^1 t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt\\
