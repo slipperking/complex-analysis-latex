@@ -780,7 +780,7 @@ From the above result, we can directly obtain the following theorem:
 \begin{proof}
     Let \(\psi(z)=zf(z)\). Applying \autoref{thm:cauchyintegralformula} on \(\psi(\zeta)\) with \(z=0\), we obtain \[0=\frac{1}{2\pi\ii}\oint_{\partial U}\frac{\psi(\zeta)}{\zeta}\ddzeta=\frac{1}{2\pi\ii}\oint_{\partial U} f\paren{\zeta}\ddzeta.\]
     Alternatively, we can use Green's Theorem (\autoref{thm:complexgreen}) with \(\omega=f(\zeta)\ddzeta\):
-    \[\oint_{\partial U}f(\zeta)\ddzeta=\int_{\partial U}\omega=\int_{U}\dd{\omega}=\int_U\pdv{f}{\overline{\zeta}}\dd{\overline{\zeta}}\wedge\ddzeta=0.\]
+    \[\oint_{\partial U}f(\zeta)\ddzeta=\oint_{\partial U}\omega=\int_{U}\dd{\omega}=\int_U\pdv{f}{\overline{\zeta}}\dd{\overline{\zeta}}\wedge\ddzeta=0.\]
 \end{proof}
 \begin{theorem}\label{thm:onedimensionalpartialconjugatesolution}
     For a compactly supported function \(\psi(z)\in C^1\paren{\mathbb{C}}\), a solution satisfying \(u(z)\in C^1\paren{\mathbb{C}}\) to the non-homogeneous Cauchy--Riemann equation \[\pdv{u(z)}{\overline{z}}=\psi(z)\] is
@@ -1542,9 +1542,9 @@ This profound result proves that the number of zeros of a holomorphic function e
     Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\). If \(\forall n\in\mathbb{N}\), \(f_n(z)\) has no zeros in \(U\), then \(f\) is either identically 0 or has no zeros in \(U\).
 \end{theorem}
 \begin{proof}
-    By the holomorphy of \(f_n(z)\), for any simple closed rectifiable curve \(\gamma\subset U\) (whose interior is a subset of \(U\)), by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), \[\int_{\gamma}f_n(\zeta)\ddzeta=0.\] Since \(\gamma\) is a subset of any compact subset of \(U\), \(\cbraces{f_n(\zeta)}\) uniformly converges on \(\gamma\), and by \autoref{thm:limitintegralswitch},
+    By the holomorphy of \(f_n(z)\), for any simple closed rectifiable curve \(\gamma\subset U\) (whose interior is a subset of \(U\)), by the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), \[\oint_{\gamma}f_n(\zeta)\ddzeta=0.\] Since \(\gamma\) is a subset of any compact subset of \(U\), \(\cbraces{f_n(\zeta)}\) uniformly converges on \(\gamma\), and by \autoref{thm:limitintegralswitch},
     \begin{equation}
-        \lim_{n\to\infty}\int_{\gamma}f_n(\zeta)\ddzeta=\int_{\gamma}\lim_{n\to\infty}f_n(\zeta)\ddzeta=\int_{\gamma}f(\zeta)\ddzeta=0.\label{eq:hurwitzsimplecase_integrallimitswitchforholomorphy}
+        \lim_{n\to\infty}\oint_{\gamma}f_n(\zeta)\ddzeta=\oint_{\gamma}\lim_{n\to\infty}f_n(\zeta)\ddzeta=\oint_{\gamma}f(\zeta)\ddzeta=0.\label{eq:hurwitzsimplecase_integrallimitswitchforholomorphy}
     \end{equation}
     Then by Morera's Theorem (\autoref{thm:morera}), \(f(z)\) is holomorphic, and \(f'(z)\) is holomorphic. We aim to show that \(f'_n(z)\rightrightarrows f'(z)\).
 
@@ -1554,7 +1554,7 @@ This profound result proves that the number of zeros of a holomorphic function e
 
     Through the proof of \autoref{thm:identityaccumulationofzeros}, if \(f\not\equiv0\) over \(U\), then the zeros of \(f\) do not have an accumulation point in \(U\) and are therefore discrete. In this case, let \(\gamma\subset U\) be a curve that does not pass through the zeros of \(f\). Since each function in the sequence \(f_n\) does not contain zeros in \(U\), by the Argument Principle, (\autoref{thm:argumentprincipleholomorphic}),
     \begin{equation}
-        \lim_{n\to\infty}\int_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\label{eq:hurwitzsimplecase_argumentprinciple}
+        \lim_{n\to\infty}\oint_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\label{eq:hurwitzsimplecase_argumentprinciple}
     \end{equation}
     Since \(f\) and \(f'\) are holomorphic over \(\gamma\), by \autoref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\paren{\abs{f(z)},\abs{f'(z)}}<M\).
 
@@ -1571,7 +1571,7 @@ This profound result proves that the number of zeros of a holomorphic function e
         & =0.
     \end{align*}
     Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). By \autoref{thm:limitintegralswitch}, we can pass the limit through the integral in equation~\eqref{eq:hurwitzsimplecase_argumentprinciple}. Then,
-    \[\lim_{n\to\infty}\int_\gamma \frac{f'_n(z)}{f_n(z)}\ddz=\int_\gamma \frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\autoref{thm:argumentprincipleholomorphic}), \(f(z)\) has no zeros in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
+    \[\lim_{n\to\infty}\oint_\gamma \frac{f'_n(z)}{f_n(z)}\ddz=\oint_\gamma \frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\autoref{thm:argumentprincipleholomorphic}), \(f(z)\) has no zeros in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
 \end{proof}
 \begin{theorem}[Rouché's Theorem]\label{thm:rouche}
     Let \(U\subseteq\mathbb{C}\) be open and \(f,g\) be two holomorphic functions over \(U\). Let \(\gamma\subset U\) be a simple, closed, rectifiable curve, and \(\forall z\in\gamma\)
@@ -2935,8 +2935,9 @@ it follows that \(1-e^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqr
     &=\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
 \end{align*}
 Therefore, 
-\begin{align*}
-    \frac{1}{\Gamma(z)}&=\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)]\\
-    &=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\exp\qty(z\gamma).
-\end{align*}
+\begin{align}
+    \frac{1}{\Gamma(z)}&=\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)]\nonumber\\
+    &=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\exp\qty(z\gamma).\label{eq:gammafunctionweierstrassformula}
+\end{align}
+The constant \(\gamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. Equation~\eqref{eq:gammafunctionweierstrassformula} is known as the \textit{Weierstrass formula} for the reciprocal Gamma function.
 \end{document}
