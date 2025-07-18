@@ -1145,7 +1145,7 @@ We have also already seen the utility of parameterization via a polar transforma
                 \begin{cases}
                     0    & z\in\mathrm{int}(\gamma) \\
                     f(z) & z\in\mathrm{ext}(\gamma)
-                \end{cases}                                                                                                                               \\ & =
+                \end{cases}                                                                                                                               \\  & =
                 \begin{cases}
                     w      & z\in\mathrm{int}(\gamma) \\
                     w-f(z) & z\in\mathrm{ext}(\gamma)
@@ -2881,10 +2881,10 @@ We have already seen that certain functions such as the inverse trigonometric fu
 The original proof introduced by
 \section{Some Differences in Multivariable Complex Analysis}
 \section{Elliptic Function Theory}
-\section{The Riemann--\texorpdfstring{\(\zeta\)}{Zeta} Function}
+\section{The Prime Number Theorem}
 The Riemann--\(\zeta\) function is one of the most important functions in analytic number theory due to its connection with the distribution of prime numbers. We will also introduce one of the most profound theorems in number theory on the distribution of prime numbers.
-
-Let us first introduce the Gamma function \(\Gamma(z)\). Let
+\subsection{The \texorpdfstring{\(\Gamma\)}{Gamma} Function}
+Let us first introduce the Gamma function \(\Gamma(z)\). Define
 \begin{equation}
     \Gamma(z)=\int_0^\infty \ee^{-t}t^{z-1}\dd{t},\label{eq:gammafunction}
 \end{equation} where \(z\in\mathbb{C}\). By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
@@ -2912,9 +2912,9 @@ By equation~\eqref{eq:residueatpole}, the residue at each pole is equal to
 We will now study two alternate representations for the Gamma function. Let \[f_n(z)=\int_0^n{\qty(1-\frac{t}{n})}^n t^{z-1}\ddt=n^z\int_0^1{\qty(1-t)}^n t^{z-1}\ddt,\quad\Re(z)>0.\]
 By integration by parts, we have
 \begin{align}
-    f_n(z) & =n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z \ddt]                                     \nonumber\\
-    & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)} \nonumber\\
-    & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \nonumber\\
+    f_n(z) & =n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z \ddt]                                     \nonumber \\
+    & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)} \nonumber \\
+    & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \nonumber \\
     & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.\label{eq:gammafunctiongaussformula}
 \end{align}
 Let us now analyze the difference
@@ -2931,14 +2931,16 @@ Additionally, since \[\dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\ee^u\qty(1-\frac{u
 which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \(\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\) as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq e\). From equation~\eqref{eq:gammafunctiongaussformulaintermediate2}, we have \[1-e^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
 it follows that \(1-e^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqref{eq:gammafunctiongaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{e}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From equation~\eqref{eq:gammafunctiongaussformula}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), which is known as the \textit{Gauss formula} for the Gamma function. Since the Gauss formula is valid on the right half-plane, we can analytically continue \(\Gamma(z)\) to the entire complex plane except for the poles at \(\mathbb{Z}_{\leq0}\) by the Identity Theorem (\autoref{thm:identity}). Since
 \begin{align*}
-    \frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}&=\frac{\exp\qty[z\ln(n)]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\\
-    &=\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]}\\
-    &=\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
+    \frac{n^z n!}{\prod_{k=0}^n\qty(z+k)} & =\frac{\exp\qty[z\ln(n)]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}                                                                                                 \\
+    & =\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]} \\
+    & =\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
 \end{align*}
 Therefore,
 \begin{align}
-    \frac{1}{\Gamma(z)}&=\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)]\nonumber\\
-    &=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\exp\qty(z\gamma).\label{eq:gammafunctionweierstrassformula}
+    \frac{1}{\Gamma(z)} & =\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)]\nonumber \\
+    & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})e^{-\frac{z}{k}}]\exp\qty(z\gamma).\label{eq:gammafunctionweierstrassformula}
 \end{align}
 The constant \(\gamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. Equation~\eqref{eq:gammafunctionweierstrassformula} is known as the \textit{Weierstrass formula} for the reciprocal Gamma function. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\pi^2}{6}\) is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
+\subsection{The Riemann--\texorpdfstring{\(\zeta\)}{zeta} Function}
+In Riemann's original paper, he used a modified version of the Riemann--\(\zeta\) function, known as the Riemann--\(\xi\) function. Following his own convention, we will use \(s=\sigma+\ii t\) as our primary variable.
 \end{document}
