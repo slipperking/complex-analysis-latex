@@ -742,7 +742,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
         \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f\paren{z+\varepsilon \ee^{\ii t}}}{\varepsilon \ee^{\ii t}}\cdot i\varepsilon \ee^{\ii t}\dd{t}=i\int_0^{2\pi}f(z+\varepsilon \ee^{\ii t})\dd{t}\\
         =\ii\int_0^{2\pi}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}+\ii\int_0^{2\pi}f(z)\dd{t}.
     \end{gather*}
-    Because \(f\in C^1\left(\overline{U}\right)\), by \autoref{lemma:c1lipschitz}, \(f\) is Lipschitz continuous on \(\overline{U}\), and \(\exists M\in\mathbb{R}_{>0}\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). On \(\partial D(z,\varepsilon)\), we get that \(\abs{f(z+\varepsilon \ee^{\iit})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\pi}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}}\leq\int_0^{2\pi}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}\leq 2M\pi\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain
+    Because \(f\in C^1\left(\overline{U}\right)\), by \autoref{lemma:c1lipschitz}, \(f\) is Lipschitz continuous on \(\overline{U}\), and \(\exists M\in\mathbb{R}_{>0}\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). On \(\partial D(z,\varepsilon)\), we get that \(\abs{f(z+\varepsilon \ee^{\ii t})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\pi}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}}\leq\int_0^{2\pi}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}\leq 2M\pi\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain
     \begin{equation}
         2\pi \ii f(z)=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}+\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}. \label{eq:pompeiu_epsilonlimitintermediate}
     \end{equation}
@@ -1730,7 +1730,7 @@ Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac
 \begin{equation}
     z-\overline{a}zw=w-a\Longleftrightarrow w=\frac{z+a}{1+\overline{a}z}.\label{eq:inversemobiustransformation}
 \end{equation}
-It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in \mathbb{D}\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(i\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
+It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in \mathbb{D}\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
 \begin{theorem}[The Holomorphic Automorphism Group on the Unit Disk]\label{thm:holomorphicautomorphismgrouponunitdisk}
     \(\forall f\in \Aut(\mathbb{D})\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
 \end{theorem}
@@ -1907,39 +1907,39 @@ Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho \ee^{\ii\theta}\) in equ
     u(z)=\frac{1}{2\pi}\int_0^{2\pi} u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau} = \frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho \ee^{\ii\theta})\qty(\ee^{-i\tau}-\rho \ee^{-i\theta})} \nonumber \\
     =\frac{1}{2\pi}\int_0^{2\pi} \frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
 \end{gather}
-Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(i\theta)\) is periodic with period \(2\pi\), it admits a Fourier series representation
+Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(\ii\theta)\) is periodic with period \(2\pi\), it admits a Fourier series representation
 \begin{equation}
-    u\qty(\ee^{\ii\theta})\sim\sum_{n=-\infty}^\infty a_n \ee^{\iin\theta},\qquad a_n=\frac{1}{2\pi}\int_0^{2\pi} u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
+    u\qty(\ee^{\ii\theta})\sim\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta},\qquad a_n=\frac{1}{2\pi}\int_0^{2\pi} u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
 \end{equation}
 This series may diverge. Observe that continuity of \(u\) on the compact set \(\partial\mathbb{D}\) implies uniform boundedness: \(\exists M>0\) such that \(\abs{u\qty(\ee^{\ii\theta})} \leq M\) for all \(\theta\) (\autoref{thm:continuousfunctionboundedoncompact}). Consequently, \(\abs{a_n} \leq M\). Introducing factors \(\rho^{\abs{n}}\) with \(\abs{\rho}<1\) yields a convergent series:
-\[\sum_{n=-\infty}^\infty a_n \ee^{\iin\theta}\rho^{\abs{n}}, \quad\abs{\sum_{n=-\infty}^\infty a_n \ee^{\iin\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M \frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
+\[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}, \quad\abs{\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M \frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
 Substituting the coefficients gives
 \begin{align*}
-    \sum_{n=-\infty}^\infty a_n \ee^{\iin\theta}\rho^{\abs{n}}&=\sum_{n=-\infty}^\infty \qty(\frac{1}{2\pi}\int_0^{2\pi}u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}) \ee^{\iin\theta}\rho^{\abs{n}}\\
-    &=\frac{1}{2\pi} \sum_{n=-\infty}^\infty \int_0^{2\pi}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\iin(\theta-\tau)}\dd{\tau}.
+    \sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}&=\sum_{n=-\infty}^\infty \qty(\frac{1}{2\pi}\int_0^{2\pi}u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}) \ee^{\ii n\theta}\rho^{\abs{n}}\\
+    &=\frac{1}{2\pi} \sum_{n=-\infty}^\infty \int_0^{2\pi}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)}\dd{\tau}.
 \end{align*}
 By the Weierstrass \(M\)-Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:limitintegralswitch},
 \begin{equation}
-    \frac{1}{2\pi}\sum_{n=-\infty}^\infty \int_0^{2\pi} \rho^{\abs{n}}u\qty(\ee^{\ii\tau}) \ee^{\iin(\theta-\tau)} \dd{\tau}=\frac{1}{2\pi} \int_0^{2\pi} u\qty(\ee^{\ii\tau})\sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\iin(\theta-\tau)}\dd{\tau}.\label{eq:poissonintegralformulafourierseriespostintegralsummationswitch}
+    \frac{1}{2\pi}\sum_{n=-\infty}^\infty \int_0^{2\pi} \rho^{\abs{n}}u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)} \dd{\tau}=\frac{1}{2\pi} \int_0^{2\pi} u\qty(\ee^{\ii\tau})\sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)}\dd{\tau}.\label{eq:poissonintegralformulafourierseriespostintegralsummationswitch}
 \end{equation}
 The summation simplifies as follows:
 \begin{align*}
-    \sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\iin(\theta-\tau)}&=\sum_{n=0}^\infty \rho^n \ee^{\iin(\theta-\tau)}+\sum_{n=1}^\infty \rho^n \ee^{-in(\theta-\tau)}\\
+    \sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)}&=\sum_{n=0}^\infty \rho^n \ee^{\ii n(\theta-\tau)}+\sum_{n=1}^\infty \rho^n \ee^{-in(\theta-\tau)}\\
     &=1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]\\
-    &=1+2\Re\sum_{n=1}^\infty\rho^n \ee^{\iin(\theta-\tau)} \\
+    &=1+2\Re\sum_{n=1}^\infty\rho^n \ee^{\ii n(\theta-\tau)} \\
     &=1+2\Re\qty[\frac{\rho \ee^{\ii(\theta-\tau)}}{1-\rho \ee^{\ii(\theta-\tau)}}] \\
     &=\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
 \end{align*}
 Substituting into \eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch} yields
-\[\sum_{n=-\infty}^\infty a_n \ee^{\iin\theta}\rho^{\abs{n}}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho \ee^{\ii\theta}).\]
+\[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho \ee^{\ii\theta}).\]
 Furthermore, by the proof of \autoref{thm:dirichletproblemwithlaplaceequationsolution} (specifically equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}),
-\[\lim_{\rho\to1^-}\sum_{n=-\infty}^\infty a_n \ee^{\iin\theta}\rho^{\abs{n}}=u\qty(\ee^{\ii\theta}).\]
+\[\lim_{\rho\to1^-}\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=u\qty(\ee^{\ii\theta}).\]
 Thus, for any continuous function \(u\) on \(\partial\mathbb{D}\), its Fourier series is \textit{Abel summable} to \(u\).
 
 We now establish that real-valued continuous functions satisfying the mean-value property are harmonic.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
     Let \(U\subseteq\mathbb{C}\) be open and \(f:U\to\mathbb{R}\) continuous. Suppose for every \(z_0\in U\), there exists \(\lambda>0\) with \(\overline{D\qty(z_0,\lambda)}\subseteq U\) such that for all \(0<\varepsilon\leq\lambda\),
-    \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi} f\qty(z_0+\varepsilon \ee^{\iit})\dd{t}.\]
+    \[f(z_0)=\frac{1}{2\pi}\int_0^{2\pi} f\qty(z_0+\varepsilon \ee^{\ii t})\dd{t}.\]
     Then \(f\) is harmonic on \(U\).
 \end{theorem}
 \begin{proof}
@@ -2547,13 +2547,13 @@ Residues are extremely important as they allow for simple evaluation of definite
             \node[anchor=south east] at (0,3) {\(R\)};
         \end{tikzpicture}
         \caption{An indented semicircular contour with orientation marked.}\label{fig:indentedsemicircularcontour}
-    \end{figure}Let \(f(z)=\frac{\ee^{\iiz}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in \(\overline{\mathbb{H}^+}\) (\(C_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (\(C_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
+    \end{figure}Let \(f(z)=\frac{\ee^{\ii z}}{z}\). Consider a closed contour \(\gamma\) in the form of \autoref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in \(\overline{\mathbb{H}^+}\) (\(C_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (\(C_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
 
     By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that \[\int_{\gamma}f(z)\ddz=\int_{C_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{C_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
-    We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^\pi\frac{\exp(iR\ee^{\ii\theta})}{R\ee^{\ii\theta}}Ri\ee^{\ii\theta}\dd{\theta}=i\int_0^{\pi}\ee^{\iiR\cos\theta}\ee^{-R\sin\theta}\dd{\theta}.\]
+    We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^\pi\frac{\exp(\ii R\ee^{\ii\theta})}{R\ee^{\ii\theta}}Ri\ee^{\ii\theta}\dd{\theta}=i\int_0^{\pi}\ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}.\]
     Notice that \(\frac{2}{\pi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\):
     \begin{align*}
-        \abs{i\int_0^\pi \ee^{\iiR\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                                                  \\
+        \abs{i\int_0^\pi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                                                  \\
         & <2\int_0^{\frac{\pi}{2}}\ee^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}\ee^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-\ee^{-R})\to 0.
     \end{align*}
     Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\exp(\varepsilon\qty(i\cos\theta-\sin\theta))\dd{\theta}=i\int_\pi^0\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}.\]
@@ -2596,7 +2596,7 @@ Residues are extremely important as they allow for simple evaluation of definite
             \node[anchor=south] at (2.5,2.5) {\(R\)};
         \end{tikzpicture}
         \caption{A wedge contour with orientation marked.}\label{fig:wedgecontour}
-    \end{figure}Let \(f(z)=\ee^{\iiz^2}\). Choose the wedge contour composed of \[\Gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\Gamma_2=\cbraces{r\ee^{\ii\frac{\pi}{4}}}{0\leq r\leq R},\quad C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that
+    \end{figure}Let \(f(z)=\ee^{\ii z^2}\). Choose the wedge contour composed of \[\Gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\Gamma_2=\cbraces{r\ee^{\ii\frac{\pi}{4}}}{0\leq r\leq R},\quad C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\frac{\pi}{4}}\] as in \autoref{fig:wedgecontour}. By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have that
     \begin{equation}
         \int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=0.\label{eq:fresnelwedgecontourintegral}
     \end{equation} The third integral can be written as \[\int_{C_R}f(z)\ddz=R\ii\int_0^{\frac{\pi}{4}}\exp[\ii{\qty(R\ee^{\ii\theta})}^2]\ee^{\ii\theta}\dd{\theta}.\]
@@ -2623,17 +2623,17 @@ Residues are extremely important as they allow for simple evaluation of definite
 
     The contour is the union of the following curves:
     \[\Gamma_1=\cbraces{r\in\mathbb{R}}{0\leq r\leq R},\quad\Gamma_2=\cbraces{r\exp(\ii\frac{2\pi}{\beta})}{0\leq r\leq R},\quad C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\pi}{\beta}},\]
-    where \(R>1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{R\to\infty}\int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=2\pi\ii\Res[f,\exp(i\frac{\pi}{\beta})].\]
+    where \(R>1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{R\to\infty}\int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=2\pi\ii\Res[f,\exp(\ii\frac{\pi}{\beta})].\]
     By equation~\eqref{eq:residueatpole}, it follows that
     \begin{align*}
-        \residue\qty[f,\exp(i\frac{\pi}{\beta})]&=\lim_{z\to\exp(i\frac{\pi}{\beta})}\flatfrac{\qty[z-\exp(i\frac{\pi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]}\\
-        &=\lim_{z\to\exp(i\frac{\pi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}\\
+        \residue\qty[f,\exp(\ii\frac{\pi}{\beta})]&=\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\flatfrac{\qty[z-\exp(\ii\frac{\pi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]}\\
+        &=\lim_{z\to\exp(\ii\frac{\pi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}\\
         &=\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}\\
         &=-\frac{1}{\beta}\exp(\ii\frac{\pi}{\beta}(\alpha+1)).
     \end{align*}
-    We can write the integral on \(\Gamma_2\) in terms of \(I\): \[\int_{\Gamma_2}f(z)\ddz=\int_R^0 f\qty[r\exp(\ii\frac{2\pi}{\beta})]\exp(i\frac{2\pi}{\beta})\dd{r}=-\exp[i\frac{2\pi}{\beta}(1+\alpha)]\int_0^R\frac{r^\alpha}{1+r^\beta}\dd{r}.\]
+    We can write the integral on \(\Gamma_2\) in terms of \(I\): \[\int_{\Gamma_2}f(z)\ddz=\int_R^0 f\qty[r\exp(\ii\frac{2\pi}{\beta})]\exp(\ii\frac{2\pi}{\beta})\dd{r}=-\exp[\ii\frac{2\pi}{\beta}(1+\alpha)]\int_0^R\frac{r^\alpha}{1+r^\beta}\dd{r}.\]
     We also have \[\int_{C_R}f(z)\ddz=R\ii\int_{0}^{\frac{2\pi}{\beta}}f\qty(R\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}.\] We can show that the integrand can be dominated as follows:
-    \[\abs{\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[i\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}.\]
+    \[\abs{\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}.\]
     The dominating integrand \(R\mapsto\frac{R^{\alpha+1}}{R^\beta-1}\) approaches \(0\) as \(R\to\infty\) since \(0<\alpha+1<\beta\). Therefore, \(\forall\varepsilon>0\), \(\exists N>2\) such that \(\forall R>N\), \(\frac{R^{\alpha+1}}{R^\beta-1}<\varepsilon\). Let \(\varepsilon\) be arbitrary. Then letting \(R>N\), the integrand is uniformly bounded, and therefore, \[\lim_{R\to\infty}\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=\int_0^{\frac{2\pi}{\beta}}\lim_{R\to\infty}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=0.\]
     By letting \(R\to\infty\), we have \[\qty[1-\exp(\ii\frac{2\pi}{\beta}(1+\alpha))]I=-\frac{2\pi\ii}{\beta}\exp(\ii\frac{\pi}{\beta}(\alpha+1)).\]
     It follows that \[I=\frac{2\pi\ii}{\beta}\brackets{\exp(\ii\frac{\pi}{\beta}(\alpha+1))-\exp(-\ii\frac{\pi}{\beta}(\alpha+1))}^{-1}=\frac{\pi}{\beta}\csc(\frac{\pi}{\beta}(\alpha+1)).\]
