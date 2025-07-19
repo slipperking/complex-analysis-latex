@@ -2228,7 +2228,7 @@ The group of holomorphic automorphisms on \(\mathbb{D}\), or \(\Aut(\mathbb{D})\
 \begin{proof}
     From simple substitution, we have
     \begin{align*}
-        \frac{a\qty(\dfrac{ez+f}{gz+h})+b}{c\qty(\dfrac{ez+f}{gz+h})+d} & =\frac{aez+af+bgz+bh}{cez+cf+dgz+dh}                \\
+        \frac{a\frac{ez+f}{gz+h}+b}{c\frac{ez+f}{gz+h}+d} & =\frac{aez+af+bgz+bh}{cez+cf+dgz+dh}                \\
         & =\frac{\qty(ae+bg)z+(af+bh)}{\qty(ce+dg)z+(cf+dh)},
     \end{align*}
     which corresponds to the product \(\mqty(a&b\\c&d)\mqty(e&f\\g&h)\).
@@ -2323,15 +2323,16 @@ Therefore, any meromorphic function on \(\mathbb{C}\) can be expressed as the qu
     is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
 \end{example}
 \begin{proof}
-    The zeros of \(\sin(\pi z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=\begin{cases}
-        -\frac{n}{2}&n\in 2\mathbb{N}\\
-        \frac{n+1}{2}&n\in \mathbb{N}\setminus 2\mathbb{N}.
+    The zeros of \(\sin(\pi z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
+        \begin{cases}
+            -\frac{n}{2}&n\in 2\mathbb{N}\\
+            \frac{n+1}{2}&n\in \mathbb{N}\setminus 2\mathbb{N}.
     \end{cases}\]
-    For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\pi^2}{3}\) converges. Therefore, \[\sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\). 
+    For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\pi^2}{3}\) converges. Therefore, \[\sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
     \begin{equation*}
         \sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty[1-\frac{z^2}{n^2}].
     \end{equation*}
-    Notice that 
+    Notice that
     \begin{equation}
         \ee^{\varphi(z)}=\frac{\sin(\pi z )}{z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})}.\label{eq:sinproductformula_intermediate}
     \end{equation} As \(z\to 0\), we have \[\lim_{z\to 0}\ee^{\varphi(0)}=\lim_{z\to 0}\frac{\pi\cos(\pi z)}{\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})+z\qty[\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})]'}=\frac{\pi}{1+0}=\pi,\] since \(\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\) is even and therefore has a vanishing derivative at \(z=0\).
@@ -2868,12 +2869,12 @@ We will now give examples of biholomorphisms.
     \end{equation}
 \end{example}
 \begin{proof}
-    First assume \(z\in\overline{\mathbb{R}}=\mathbb{R}\cup\qty{\infty}\). It follows that \[\abs{w}=\abs{\ee^{\ii\theta}\frac{z-a}{z-\overline{a}}}=1.\] Therefore, this transformation maps \(\overline{\mathbb{R}}\) to \(\partial\mathbb{D}\). The inverse mapping is equal to 
+    First assume \(z\in\overline{\mathbb{R}}=\mathbb{R}\cup\qty{\infty}\). It follows that \[\abs{w}=\abs{\ee^{\ii\theta}\frac{z-a}{z-\overline{a}}}=1.\] Therefore, this transformation maps \(\overline{\mathbb{R}}\) to \(\partial\mathbb{D}\). The inverse mapping is equal to
     \begin{equation}
         z=\frac{w\overline{a}-a\ee^{\ii\theta}}{w-\ee^{\ii\theta}}.\label{eq:biholomorphismunitdisktoupperhalfplane_inverse}
     \end{equation}
     Assume \(w=\ee^{\ii\tau}\) for an arbitrary \(\tau\in\mathbb{R}\). We then have \[\Im(z)=\Im\qty[\frac{\qty(\ee^{\ii\tau}\overline{a}-a\ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\ee^{-\ii\theta})}{\abs{\ee^{\ii\tau}-\ee^{\ii\theta}}^2}]=2\Im\qty[\frac{\Re(a)-\Re\qty(a\ee^{\ii\theta-\ii\tau})}{\abs{\ee^{\ii\tau}-\ee^{\ii\theta}}^2}]=0.\]
-    Hence, \(z\) maps \(\partial\mathbb{D}\) to \(\overline{\mathbb{R}}\), and \(w\) maps \(\overline{\mathbb{R}}\) to \(\partial\mathbb{D}\) univalently and surjectively. Since on the Riemann sphere, the hemisphere bounded by the extended real line (oriented clockwise) is the upper half plane, \(w\) is a biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\) by \autoref{thm:boundaryofconformalmap}. 
+    Hence, \(z\) maps \(\partial\mathbb{D}\) to \(\overline{\mathbb{R}}\), and \(w\) maps \(\overline{\mathbb{R}}\) to \(\partial\mathbb{D}\) univalently and surjectively. Since on the Riemann sphere, the hemisphere bounded by the extended real line (oriented clockwise) is the upper half plane, \(w\) is a biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\) by \autoref{thm:boundaryofconformalmap}.
 
     Let \(\psi(z)\) be the biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\) in the form of \(\psi(z)=\frac{z-\ii}{z+\ii}\) (for \(\theta=0\) and \(a=\ii\)). Let \(f\) be an arbitrary biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\). It follows that \(\varphi=f\circ\psi^{-1}\) is a holomorphic automorphism of \(\mathbb{D}\). Since \(\varphi\in\Aut(\mathbb{D})\), we have \[f(z)=\varphi\circ\psi(z)=\ee^{\ii\theta}\frac{z\qty(1-a)-\ii\qty(a+1)}{z\qty(1-\overline{a})+\ii\qty(\overline{a}+1)}=\ee^{\ii\theta}\frac{z\frac{1-a}{1-\overline{a}}+\ii\frac{a+1}{\overline{a}-1}}{z-\ii\frac{\overline{a}+1}{\overline{a}-1}}=\ee^{\ii\theta}\frac{1-a}{1-\overline{a}}\frac{z-\ii\frac{a+1}{1-a}}{z-\overline{\ii\frac{a+1}{1-a}}}.\]
     Obviously, \(\ee^{\ii\theta}\frac{1-a}{1-\overline{a}}\) attains every value on the unit disk for varying \(a\) and \(\theta\). Similarly, the values attained by \(\ii\frac{a+1}{1-a}\) cover the upper half-plane for \(a\in\mathbb{D}\) (since it is in the form of equation~\eqref{eq:biholomorphismunitdisktoupperhalfplane_inverse}). Thus, all biholomorphisms from \(\mathbb{H}^+\) to \(\mathbb{D}\) are in the form of equation~\eqref{eq:biholomorphismunitdisktoupperhalfplane}.
@@ -2882,7 +2883,7 @@ We will now give examples of biholomorphisms.
     The only biholomorphisms which map \(\mathbb{H}^+\) to itself are in the form of \[w=\frac{az+b}{cz+d},\quad a,b,c,d\in\mathbb{R},ad-bc>0.\]
 \end{example}
 \begin{proof}
-    In \autoref{thm:meromorphicautomorphismgrouponextendedcomplexplane}, we showed that all Möbius transformations are meromorphic automorphisms of the extended complex plane \(\extcomplex\), forming the group \(\Aut\qty(\extcomplex)\), which is isomorphic to \(\mathrm{PSL}_2(\mathbb{C})\) via the isomorphism \[\frac{az+b}{cz+d}\mapsto\qty{\mqty(a&b\\c&d),-\mqty(a&b\\c&d)}.\] 
+    In \autoref{thm:meromorphicautomorphismgrouponextendedcomplexplane}, we showed that all Möbius transformations are meromorphic automorphisms of the extended complex plane \(\extcomplex\), forming the group \(\Aut\qty(\extcomplex)\), which is isomorphic to \(\mathrm{PSL}_2(\mathbb{C})\) via the isomorphism \[\frac{az+b}{cz+d}\mapsto\qty{\mqty(a&b\\c&d),-\mqty(a&b\\c&d)}.\]
 
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
@@ -3022,7 +3023,7 @@ Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\al
     \end{equation} where \(p_n\) is the \(n\)th prime number.
 \end{theorem}
 \begin{proof}
-    Since \(\sum_{n=1}^\infty \abs{p_n^{-s}}=\sum_{n=1}^\infty \frac{1}{p_n^\sigma}\) is an 
+    Since \(\sum_{n=1}^\infty \abs{p_n^{-s}}=\sum_{n=1}^\infty \frac{1}{p_n^\sigma}\) is an
 \end{proof}
 We will now show the beautiful relationship between the \(\zeta\) and \(\Gamma\) functions.
 
