@@ -375,7 +375,7 @@ By comparing the real and imaginary parts, we obtain necessary conditions for co
 \begin{equation}
     \pdv{u}{x}=\pdv{v}{y}\qand\pdv{v}{x}=-\pdv{u}{y}\label{eq:cauchyriemanneqs1}
 \end{equation}
-By multiplying the second equation by \(i\) and adding it to the first, we obtain the logical equivalence with:
+By multiplying the second equation by \(\ii\) and adding it to the first, we obtain the logical equivalence with:
 \begin{equation}
     \pdv{f}{x}=-\ii\pdv{f}{y}\label{eq:cauchyriemanneqs2}
 \end{equation}
@@ -452,7 +452,7 @@ Univariate functions formed by taking compositions, sums, products, and powers o
 Power functions are easily extendable to the complex plane by simply changing the real variable to a complex variable. The other two functions have to be redefined and reinterpreted for the complex plane. It is well known that the exponential function can be expanded as
 \begin{align*}
     \ee^x & =\frac{x^0}{0!}+\frac{x^1}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}\cdots                          \\
-    & =\frac{x^0}{0!\ii^0}+\ii\frac{x^1}{1!\ii^1}-\frac{x^2}{2!\ii^2}-i\frac{x^3}{3!\ii^3}+\cdots \\
+    & =\frac{x^0}{0!\ii^0}+\ii\frac{x^1}{1!\ii^1}-\frac{x^2}{2!\ii^2}-\ii\frac{x^3}{3!\ii^3}+\cdots \\
     & =\cos(\frac{x}{\ii})+\ii\sin(\frac{x}{\ii}).
 \end{align*}
 This is better written as
@@ -739,7 +739,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
     \[\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\]
     The rightmost term in equation~\eqref{eq:pompeiu_directintermediate} can be parameterized with \(\zeta=z+\varepsilon \ee^{\ii t}\), \(t\in[0,2\pi]\). Then,
     \begin{gather*}
-        \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f\paren{z+\varepsilon \ee^{\ii t}}}{\varepsilon \ee^{\ii t}}\cdot i\varepsilon \ee^{\ii t}\dd{t}=\ii\int_0^{2\pi}f(z+\varepsilon \ee^{\ii t})\dd{t}\\
+        \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\pi}\frac{f\paren{z+\varepsilon \ee^{\ii t}}}{\varepsilon \ee^{\ii t}}\cdot \ii\varepsilon \ee^{\ii t}\dd{t}=\ii\int_0^{2\pi}f(z+\varepsilon \ee^{\ii t})\dd{t}\\
         =\ii\int_0^{2\pi}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}+\ii\int_0^{2\pi}f(z)\dd{t}.
     \end{gather*}
     Because \(f\in C^1\left(\overline{U}\right)\), by \autoref{lemma:c1lipschitz}, \(f\) is Lipschitz continuous on \(\overline{U}\), and \(\exists M\in\mathbb{R}_{>0}\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). On \(\partial D(z,\varepsilon)\), we get that \(\abs{f(z+\varepsilon \ee^{\ii t})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\pi}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}}\leq\int_0^{2\pi}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}\leq 2M\pi\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain
@@ -1048,7 +1048,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     The difference \(\paren{\int_{\overrightarrow{PM}}-\int_{\overrightarrow{P_1M_1}}}f(z)\ddz\) between the two is then equal to
     \begin{gather*}
         \ii\int_{y_{\varphi}}^{y_{\psi}}\paren{f\paren{a+\ii y}-f\paren{a+\varepsilon+\ii y}}\ddz\\
-        {}+{i\paren{\int_{\psi(a)}^{y_\varphi}+\int_{y_\psi}^{\varphi(a)}}f(a+\ii y)-i\paren{\int_{\psi(a+\varepsilon)}^{y_\varphi}z+\int_{y_\psi}^{\varphi\paren{a+\varepsilon}}}f(a+\varepsilon+\ii y)}.
+        {}+{\ii\paren{\int_{\psi(a)}^{y_\varphi}+\int_{y_\psi}^{\varphi(a)}}f(a+\ii y)-\ii\paren{\int_{\psi(a+\varepsilon)}^{y_\varphi}z+\int_{y_\psi}^{\varphi\paren{a+\varepsilon}}}f(a+\varepsilon+\ii y)}.
     \end{gather*}
     The first term vanishes by uniform continuity (through the same argument used for \(M_1'N_1'\to M_1N_1\)) and the remaining four integrals all equal 0 as they are all integrable on a degenerating interval (as \(\varepsilon\to0\), \(y_\varphi\to\varphi(a)\) and \(y_\psi\to\psi(a)\) because \(\varphi, \psi\in C^0\)). Therefore, \[\int_{\overrightarrow{P_1M_1}}f(z)\ddz\to\int_{\overrightarrow{PM}}f(z)\ddz,\]
     and through similar logic, \[\int_{\overrightarrow{N_1Q_1}}f(z)\ddz\to\int_{\overrightarrow{NQ}}f(z)\ddz.\] Therefore, \[\oint_{MNQP}f(z)\ddz=0.\]
@@ -1246,7 +1246,7 @@ The differentiation formula above can be thought of as a generalization of \auto
 \begin{proof}
     \(|f(0)|\leq M\) is obviously true by letting \(z=0\). Then \(\forall R>0\), by Cauchy's Estimate (\autoref{thm:cauchysestimate}), \[\abs{f^{(n)}(0)}\leq Mn!\frac{\ee^{R}}{R^n}.\]
     By letting \(R=n\), the conclusion follows. In fact, this is the tightest possible inequality. Consider \(\varphi(R)=Mn!\frac{\ee^R}{R^n}\) to be a function of \(R\). It attains its minimum as its derivative vanishes:
-    \[\varphi'(R)=Mn!\frac{\ee^RR^n-ne^RR^{n-1}}{R^{2n}}=0\Longleftrightarrow R^n=nR^{n-1}\Longleftrightarrow R=n.\] To confirm it as a minimum, we calculate the second order derivative:
+    \[\varphi'(R)=Mn!\frac{\ee^RR^n-n\ee^RR^{n-1}}{R^{2n}}=0\Longleftrightarrow R^n=nR^{n-1}\Longleftrightarrow R=n.\] To confirm it as a minimum, we calculate the second order derivative:
     \[\varphi''(R)=Mn!\ee^R\qty(\frac{1}{R^n}-\frac{2n}{R^{n+1}}+\frac{n(n+1)}{R^{n+2}})\Longrightarrow\varphi''(n)=M(n-1)!\frac{\ee^n}{n^n},\]
     which is positive and convex.
 \end{proof}
@@ -1648,7 +1648,7 @@ Before the theorem, we first introduce the mean-value property of holomorphic fu
 \end{lemma}
 \begin{proof}
     By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\pi\ii}\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}.\]
-    Observe that \[f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}=\frac{1}{2\pi\varepsilon}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\abs{i\varepsilon \ee^{\ii t}\dd{t}}=\frac{1}{2\pi}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t},\]
+    Observe that \[f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}=\frac{1}{2\pi\varepsilon}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\abs{\ii\varepsilon \ee^{\ii t}\dd{t}}=\frac{1}{2\pi}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t},\]
     and the conclusion follows.
 \end{proof}
 Since the real and imaginary parts of holomorphic functions are real-valued harmonic functions, they also satisfy the mean-value property. Furthermore, if a real continuous function satisfies the mean-value property, it is harmonic (to be proved in \autoref{thm:meanvaluepropertysolutionsareharmonic}). This equivalence allows for the alternative definition of harmonic functions.
@@ -1685,7 +1685,7 @@ As a matter of fact, the theorem follows for any continuous function satisfying 
 The following important result can be directly obtained from the Maximum Modulus Principle.
 \begin{lemma}[Schwarz Lemma]\label{lemma:schwarz}
     If \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
-    Any one of the inequalities becomes equalities if and only if \(f(z)\) is in the form of \(ze^{\ii\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
+    Any one of the inequalities becomes equalities if and only if \(f(z)\) is in the form of \(z\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
 \end{lemma}
 \begin{proof}
     Define the auxiliary function \[g(z)=
@@ -1736,7 +1736,7 @@ It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is sur
 \end{theorem}
 \begin{proof}
     Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(z)\). It follows that \(\psi\in\Aut(\mathbb{D})\). Furthermore, \(\psi(0)=\varphi_{f(0)} f(0)=0\). By the Schwarz Lemma (\autoref{lemma:schwarz}), \(\qty|\psi'(0)|\leq1\). Since \(\psi^{-1}\in\Aut(\mathbb{D})\) with \(\psi^{-1}(0)=0\), \(\abs{\qty(\psi^{-1})'(0)}\leq1\). Then, \[\abs{\qty(\psi^{-1})'(0)}=\frac{1}{\psi'\qty(\psi^{-1}(0))}=\frac{1}{\psi'(0)}\leq 1.\]
-    Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \autoref{lemma:schwarz}, \(\psi(z)=ze^{\ii\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By equation~\eqref{eq:inversemobiustransformation}, it follows that \(f(z)=\varphi_{-f(0)}\circ\rho_\tau(z)\).
+    Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \autoref{lemma:schwarz}, \(\psi(z)=z\ee^{\ii\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By equation~\eqref{eq:inversemobiustransformation}, it follows that \(f(z)=\varphi_{-f(0)}\circ\rho_\tau(z)\).
 \end{proof}
 As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk}, we have the following result:
 \begin{lemma}[Schwarz--Pick Lemma]\label{lemma:schwarzpick}
@@ -1904,7 +1904,7 @@ A fundamental problem in the theory of partial differential equations is to find
 \subsubsection{In Harmonic Analysis}
 Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho \ee^{\ii\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
 \begin{gather}
-    u(z)=\frac{1}{2\pi}\int_0^{2\pi} u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau} = \frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho \ee^{\ii\theta})\qty(\ee^{-i\tau}-\rho \ee^{-i\theta})} \nonumber \\
+    u(z)=\frac{1}{2\pi}\int_0^{2\pi} u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau} = \frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho \ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\rho \ee^{-\ii\theta})} \nonumber \\
     =\frac{1}{2\pi}\int_0^{2\pi} \frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
 \end{gather}
 Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(\ii\theta)\) is periodic with period \(2\pi\), it admits a Fourier series representation
@@ -2064,7 +2064,7 @@ An \textit{isolated singularity} of a complex function is a point \(a\in\mathbb{
             The function \(\ee^{\frac{1}{z}}\) has an essential singularity at \(z=0\).
         \end{example}
         \begin{proof}
-            Observe that \(\lim_{\substack{z\to 0\\z\in\mathbb{R}_{>0}}}=\infty\). Similarly, \(\lim_{\substack{z\to0\\z\in\mathbb{R}_{<0}}}=0\), and \(\lim_{\substack{z\to0\\z\in i\mathbb{R}_{>0}}}\) is divergent. Therefore, the limit does not exist.
+            Observe that \(\lim_{\substack{z\to 0\\z\in\mathbb{R}_{>0}}}=\infty\). Similarly, \(\lim_{\substack{z\to0\\z\in\mathbb{R}_{<0}}}=0\), and \(\lim_{\substack{z\to0\\z\in \ii\mathbb{R}_{>0}}}\) is divergent. Therefore, the limit does not exist.
         \end{proof}
         The implication on its Laurent expansion at \(a\) is:
         \begin{theorem}
@@ -2175,7 +2175,7 @@ The generalization of \autoref{thm:argumentprincipleholomorphic} is as follows:
     Integration yields \(\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{f'(z)}{f(z)}\ddz=2\pi\ii k_j\) since \(\frac{h_j'}{h_j}\) is holomorphic. Near each pole \(p_j\), write \(f(z)=\paren{z-p_j}^{-k'_j}g_j(z)\) with \(g_j\) holomorphic and non-vanishing. Differentiation gives
     \[\frac{f'(z)}{f(z)}=-\frac{k'_j}{z-p_j}+\frac{g_j'(z)}{g_j(z)}.\]
     Integration yields \(\oint_{\partial D\paren{p_j,\varepsilon'_j}}\frac{f'(z)}{f(z)}\ddz=-2\pi\ii k'_j\). Combining results,
-    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m2\pi i k_j+\sum_{j=1}^n\qty(-2\pi\ii k'_j)=2\pi\ii\paren{\sum_{j=1}^m k_j-\sum_{j=1}^n k'_j}=2\pi\ii\qty(k-k').\]
+    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m2\pi \ii k_j+\sum_{j=1}^n\qty(-2\pi\ii k'_j)=2\pi\ii\paren{\sum_{j=1}^m k_j-\sum_{j=1}^n k'_j}=2\pi\ii\qty(k-k').\]
     Parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
     \[k-k'=\frac{1}{2\pi\ii}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\pi\ii}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w),\]
     completing the proof.
@@ -2528,10 +2528,10 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{align*}
     The singularity at \(z=-\ii\) is not relevant, as it is not enclosed by the contour. By the Residue Theorem (\autoref{thm:residuethm}), we have
     \begin{align*}
-        \int_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz & =\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^\pi\frac{R\ii}{\qty(R^2e^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta} \\
+        \int_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz & =\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^\pi\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta} \\
         & =2\pi\ii\residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
     \end{align*}
-    We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii \ee^{\ii\theta}}{\qty(R^2e^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2e^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\pi]\), and we can commute the limit with the integral. Therefore, we have \[\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx=\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz-\int_0^{\pi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.\]
+    We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii \ee^{\ii\theta}}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2\ee^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\pi]\), and we can commute the limit with the integral. Therefore, we have \[\int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx=\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz-\int_0^{\pi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.\]
 \end{proof}
 \begin{example}[Dirichlet Integral]
     Evaluate the improper integral \(\int_0^\infty \frac{\sin x}{x}\dd x\).
@@ -2575,10 +2575,10 @@ Residues are extremely important as they allow for simple evaluation of definite
         \abs{\ii\int_0^\pi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                                                    \\
         & <2\int_0^{\frac{\pi}{2}}\ee^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}\ee^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}=\frac{\pi}{R}\qty(1-\ee^{-R})\to 0.
     \end{align*}
-    Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\exp(\varepsilon\qty(i\cos\theta-\sin\theta))\dd{\theta}=i\int_\pi^0\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}.\]
+    Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=\ii\int_{\pi}^0\exp(\varepsilon\qty(\ii\cos\theta-\sin\theta))\dd{\theta}=\ii\int_\pi^0\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}.\]
     Obviously, \[\abs{\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}}\leq 1,\]
     and therefore, the integral and the limit may commute:
-    \[\lim_{\varepsilon\to 0}\int_{C_\varepsilon}f(z)\ddz=i\int_{\pi}^0\lim_{\varepsilon\to 0^+}\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}=\ii\int_{\pi}^0\dd{\theta}=-\ii\pi.\]
+    \[\lim_{\varepsilon\to 0}\int_{C_\varepsilon}f(z)\ddz=\ii\int_{\pi}^0\lim_{\varepsilon\to 0^+}\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}=\ii\int_{\pi}^0\dd{\theta}=-\ii\pi.\]
     Evaluating the integral over the line segments, we have
     \begin{align*}
         \int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz & =\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{\ee^{\ii z}}{z}\dd{z}=\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{\ee^{-\ii z}}{z}\dd{z} \\
