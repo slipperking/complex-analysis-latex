@@ -2840,7 +2840,7 @@ Conversely, we have the following statement on local univalence and invertibilit
 Moreover, if \(w=f(z)\) is univalent and surjective, mapping \(U\) to \(G\), then its inverse \(z=f^{-1}(w)\) is univalent on \(G\). Such bijective holomorphic functions are known as \textit{biholomorphisms} or \textit{biholomorphic} functions.
 
 We will now study holomorphic functions from a more geometric perspective.
-\begin{theorem}
+\begin{theorem}\label{thm:boundaryofconformalmap}
     Let \(\Omega\subseteq\mathbb{C}\) be a region, and let \(\gamma\subset\Omega\) be a rectifiable simple closed curve that is null-homotopic in \(\Omega\). Denote \(\mathrm{int}(\gamma)\) by \(U\). If \(f:\Omega\to\mathbb{C}\) is holomorphic and maps \(\gamma\) injectively to a simple closed curve \(\Gamma\), then \(w=f(z)\) is univalent in \(U\) and \(f(U)=\mathrm{int}(\Gamma)\).
 \end{theorem}
 \begin{proof}
@@ -2870,14 +2870,14 @@ We will now give examples of conformal maps.
 \begin{proof}
     First assume \(z\in\mathbb{R}\). It follows that \[\abs{w}=\abs{\ee^{\ii\theta}\frac{z-a}{z-\overline{a}}}=1.\] Therefore, this transformation maps \(\mathbb{R}\) to \(\partial\mathbb{D}\). The inverse mapping is equal to \[z=\frac{w\overline{a}-a\ee^{\ii\theta}}{w-\ee^{\ii\theta}}.\]
     Assume \(w=\ee^{\ii\tau}\) for an arbitrary \(\tau\in\mathbb{R}\). We then have \[\Im(z)=\Im\qty[\frac{\qty(\ee^{\ii\tau}\overline{a}-a\ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\ee^{-\ii\theta})}{\abs{\ee^{\ii\tau}-\ee^{\ii\theta}}^2}]=2\Im\qty[\frac{\Re(a)-\Re\qty(a\ee^{\ii\theta-\ii\tau})}{\abs{\ee^{\ii\tau}-\ee^{\ii\theta}}^2}]=0.\]
-    Hence, \(z\) maps \(\partial\mathbb{D}\) to \(\mathbb{R}\), and \(w\) maps \(\mathbb{R}\) to \(\partial\mathbb{D}\) univalently and surjectively. Since \(\mathbb{R}\cup\qty{\infty}\) is a closed curve, \(w\) is a biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\). 
+    Hence, \(z\) maps \(\partial\mathbb{D}\) to \(\mathbb{R}\), and \(w\) maps \(\mathbb{R}\) to \(\partial\mathbb{D}\) univalently and surjectively. Since \(\mathbb{R}\) can be considered as a circle of infinite radius, \(w\) is a biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\) by \autoref{thm:boundaryofconformalmap}. 
 \end{proof}
 \begin{example}\label{ex:upperhalfplaneholomorphicautomorphisms}
     The only biholomorphisms which map \(\mathbb{H}^+\) to itself are in the form of \[w=\frac{az+b}{cz+d},\quad a,b,c,d\in\mathbb{R},ad-bc>0.\]
 \end{example}
 \begin{proof}
     In \autoref{thm:meromorphicautomorphismgrouponextendedcomplexplane}, we showed that all Möbius transformations are meromorphic automorphisms of the extended complex plane \(\widehat{\mathbb{C}}\), forming the group \(\Aut\qty(\extcomplex)\), which is isomorphic to \(\mathrm{PSL}_2(\mathbb{C})\) via the isomorphism \[\frac{az+b}{cz+d}\mapsto\qty{\mqty(a&b\\c&d),-\mqty(a&b\\c&d)}.\] 
-    
+
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
