@@ -2257,6 +2257,13 @@ Similar to series, absolute convergence is a stronger condition than convergence
     \end{align*}
     which therefore satisfies \autoref{thm:cauchycriterionsequenceconvergence}.
 \end{proof}
+We have the following result on the uniform convergence of infinite products:
+\begin{theorem}
+    Let \(\prod_{n=1}^\infty\qty(1+f_n(z))\) be an infinite product. If \(\forall n\in\mathbb{N}\), \(\exists M_n\in\mathbb{R}_{\geq0}\) such that \(\abs{f_n(z)}\leq M_n\) for all \(z\in U\subseteq\mathbb{C}\) and \(\sum_{n=1}^\infty M_n\) converges, then the infinite product converges uniformly on \(U\).
+\end{theorem}
+\begin{proof}
+    By assumption, \(\sum_{n=1}^\infty M_n\) converges. Therefore, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall m,n>N\), \(\sum_{k=m+1}^n M_k<\varepsilon\), and hence, \(\sum_{k=m+1}^n \abs{f_k(z)}<\varepsilon\). 
+\end{proof}
 We will now study the construction of an entire function \(f(z)\) via its zeros. We have the following cases:
 \begin{enumerate}
     \item If \(f\) has no zeros in \(\mathbb{C}\), then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)\ee^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)\ee^{-\varphi(z)})=f'(z)\ee^{-\varphi(z)}-\varphi'(z)f(z)\ee^{-\varphi(z)}=0\). It follows that \(f(z)\ee^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).\label{itm:entirefunctionconstructednonvanishing}
@@ -2441,7 +2448,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     \end{equation} where \(\varphi_a(z)\) is a Möbius transformation in the form of equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}, is uniformly convergent on compact subsets of \(\mathbb{D}\) to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\qty{a_k}\).
 \end{example}
 \begin{proof}
-    By the Blaschke condition, it is satisfied that \(\lim_{k\to\infty}1-\abs{a_k}\to 0\). In other words, \(\forall 0<R<1\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(1-\abs{a_k}<1-R\), or that \(\abs{a_k}>R\). For \(\abs{z}\leq R\), the \(N\)th partial product can be written as \[\abs{\prod_{k=1}^N \qty[\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}]}\leq \prod_{k=1}^N \qty[\frac{\abs{a_k}+R}{1-R\abs{a_k}}].\] 
+    By the Blaschke condition, it is satisfied that \(\lim_{k\to\infty}1-\abs{a_k}\to 0\). In other words, \(\forall 0<R<1\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(1-\abs{a_k}<1-R\), or that \(\abs{a_k}>R\). It is evident that \[\abs{\prod_{k=1}^N \qty[\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}]}\leq \prod_{k=1}^N \qty[\frac{\abs{a_k}+R}{1-R\abs{a_k}}].\] 
 \end{proof}
 \begin{example}[Poisson--Jensen Formula]\label{ex:poissonjensenformula}
     Let \(R>0\) be a positive and finite constant. Suppose \(f\) is a meromorphic function on the open disk \(D(0,R)\) such that \(f\) is not identically zero. Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Assume \(f\) is continuous (except for at each \(b_k\)) up to \(\overline{D(0,R)}\). Then it follows that
