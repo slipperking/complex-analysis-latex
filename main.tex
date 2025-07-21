@@ -2258,11 +2258,11 @@ Similar to series, absolute convergence is a stronger condition than convergence
     which therefore satisfies \autoref{thm:cauchycriterionsequenceconvergence}.
 \end{proof} We will now provide the following assertion on the locally uniform convergence of infinite products:
 \begin{lemma}
-    If \(f(z)=\prod_{n=1}^\infty f_n(z)\) is an infinite product of holomorphic functions \(\qty{f_n}\) on some open set \(U\subseteq\mathbb{C}\) such that each \(\log\qty(f_n)\) is holomorphic and \(\sum_{n=1}^\infty\log\qty(f_n(z))\) converges uniformly on a compact subset \(K\subset U\), then \(f(z)\) converges uniformly on \(K\).
+    If \(f(z)=\prod_{n=1}^\infty f_n(z)\) is an infinite product of holomorphic functions \(\qty{f_n}\) on some open set \(U\subseteq\mathbb{C}\) such that each \(\log\qty(f_n)\) is holomorphic and \(\sum_{n=1}^\infty\log\qty(f_n(z))\) converges uniformly on every compact subset \(K\subset U\), then \(f(z)\) converges uniformly on each \(K\).
 \end{lemma}
 \begin{proof}
     Let \(K\) be a compact subset of \(U\). Since \(\sum_{n=1}^\infty\log\qty(f_n(z))\) converges uniformly on \(K\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{\sum_{k=m+1}^n\log\qty(f_k(z))}<\varepsilon\) for all \(z\in K\). Additionally, we have: \[\abs{\prod_{k=1}^n f_k(z)-\prod_{k=1}^m f_k(z)}=\abs{\exp[\sum_{k=1}^n \log\qty(f_k(z))]-\exp[\sum_{k=1}^m \log\qty(f_k(z))]}.\]
-    
+    By \autoref{thm:weierstrassuniformlimit}, the uniform limit \(\sum_{k=1}^\infty\log\qty(f_k(z))\) is holomorphic on \(U\). Therefore, it is bounded on \(K\). It follows that each partial sum is uniformly bounded on \(K\). Since the exponential function is Lipschitz continuous on compact subsets of \(\mathbb{C}\), there exists a finite constant \(M>0\) such that \[\abs{\exp[\sum_{k=1}^n \log\qty(f_k(z))]-\exp[\sum_{k=1}^m \log\qty(f_k(z))]}\leq M\abs{\sum_{k=m+1}^n\log\qty(f_k(z))}\]
 \end{proof}
 We will now study the construction of an entire function \(f(z)\) via its zeros. We have the following cases:
 \begin{enumerate}
