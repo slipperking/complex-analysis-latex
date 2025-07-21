@@ -2256,7 +2256,10 @@ Similar to series, absolute convergence is a stronger condition than convergence
         & =\abs{Q_n-Q_m}<\varepsilon,
     \end{align*}
     which therefore satisfies \autoref{thm:cauchycriterionsequenceconvergence}.
-\end{proof}
+\end{proof} We will now provide the following assertion on the locally uniform convergence of infinite products:
+\begin{lemma}
+    If \(f(z)=\prod_{n=1}^\infty f_n(z)\) is an infinite product of holomorphic functions \(\qty{f_n}\) on some open set \(U\subseteq\mathbb{C}\) such that \(\sum_{n=1}^\infty\log\qty(f_n(z))\) converges uniformly on a compact subset \(K\subset U\), then \(f(z)\) converges uniformly on \(K\).
+\end{lemma}
 We will now study the construction of an entire function \(f(z)\) via its zeros. We have the following cases:
 \begin{enumerate}
     \item If \(f\) has no zeros in \(\mathbb{C}\), then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)\ee^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)\ee^{-\varphi(z)})=f'(z)\ee^{-\varphi(z)}-\varphi'(z)f(z)\ee^{-\varphi(z)}=0\). It follows that \(f(z)\ee^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).\label{itm:entirefunctionconstructednonvanishing}
