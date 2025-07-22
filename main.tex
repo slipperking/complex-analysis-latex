@@ -2264,7 +2264,13 @@ Similar to series, absolute convergence is a stronger condition than convergence
     Let \(K\) be an arbitrary compact subset of \(U\). Since \(\sum_{k=1}^\infty f_k(z)\) converges uniformly on \(K\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{\sum_{k=m+1}^n f_k(z)}<\varepsilon\) for all \(z\in K\). Additionally, we have: \[\abs{\prod_{k=1}^n \exp\qty[f_k(z)]-\prod_{k=1}^m\exp\qty[f_k(z)]}=\abs{\exp[\sum_{k=1}^n f_k(z)]-\exp[\sum_{k=1}^m f_k(z)]}.\]
     By \autoref{thm:weierstrassuniformlimit}, the uniform limit \(\sum_{k=1}^\infty f_k(z)\) is holomorphic on \(U\). By continuity and \autoref{thm:continuousfunctionboundedoncompact}, this limit is bounded on \(K\). It follows that each partial sum is uniformly bounded on \(K\). Since the exponential function is Lipschitz continuous on compact subsets of \(\mathbb{C}\), there exists a finite constant \(M>0\) such that \[\abs{\exp[\sum_{k=1}^n f_k(z)]-\exp[\sum_{k=1}^m f_k(z)]}\leq M\abs{\sum_{k=m+1}^n f_k(z)}<M\varepsilon.\] The criterion of uniform convergence on compact subsets is also known as \textit{locally uniform convergence}. 
 \end{proof}
-
+We also have:
+\begin{lemma}\label{lemma:infiniteproductlocallyuniformconvergencecriterion2}
+    Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty \abs{f_k(z)}\) is uniformly convergent on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on compact subsets of \(U\).
+\end{lemma}
+\begin{proof}
+    Let \(K\subset U\) be an arbitrary compact set.
+\end{proof}
 We will now study the construction of an entire function \(f(z)\) via its zeros. We have the following cases:
 \begin{enumerate}
     \item If \(f\) has no zeros in \(\mathbb{C}\), then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)\ee^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)\ee^{-\varphi(z)})=f'(z)\ee^{-\varphi(z)}-\varphi'(z)f(z)\ee^{-\varphi(z)}=0\). It follows that \(f(z)\ee^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).\label{itm:entirefunctionconstructednonvanishing}
