@@ -2277,7 +2277,7 @@ We also have:
     \end{align*}
     where the second inequality can be easily verified by expanding \(\prod_{k=m+1}^n\qty(1+{f_k(z)})-1\) and the triangle inequality.
 
-    Since \(\ee^{\varepsilon}-1\to 0^+\), it follows that \(F(z)=\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on \(K\). Let \(\xi\in U\) be a point satisfying \(F(\xi)=0\). Since there exists an \(m\in\mathbb{N}\) such that \[\prod_{k=m+1}^\infty \qty(1+f_k(z))\] is non-vanishing at \(z=\xi\), and from the fact that \[F(z)=\prod_{k=1}^m  \qty(1+f_k(z))\prod_{k=m+1}^\infty \qty(1+f_k(z)),\] we can analyze the zeros of the finite product to obtain the conclusion.
+    Since \(\ee^{\varepsilon}-1\to 0^+\), it follows that \(F(z)=\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on \(K\). Let \(\xi\in U\) be a point satisfying \(F(\xi)=0\). Since there exists an \(m\in\mathbb{N}\) such that \[\prod_{k=m+1}^\infty \qty(1+f_k(z))\] is non-vanishing at \(z=\xi\), and from the fact that \[F(z)=\prod_{k=1}^m \qty(1+f_k(z))\cdot\prod_{k=m+1}^\infty \qty(1+f_k(z)),\] we can analyze the zeros of the finite product to obtain the conclusion.
 \end{proof}
 We will now study the construction of an entire function \(f(z)\) via its zeros. We have the following cases:
 \begin{enumerate}
@@ -2340,25 +2340,7 @@ By the construction above, we have:
     which is an explicit construction.
 \end{proof}
 Therefore, any meromorphic function on \(\mathbb{C}\) can be expressed as the quotient of two infinite products. Hence, any meromorphic function on \(\mathbb{C}\) can be explicitly written in terms of its zeros and poles.
-\begin{example}\label{ex:sinproductformula}
-    Prove that \[\sin(\pi z)=\pi z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
-    is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
-\end{example}
-\begin{proof}
-    The zeros of \(\sin(\pi z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
-        \begin{cases}
-            -\frac{n}{2}&n\in 2\mathbb{N}\\
-            \frac{n+1}{2}&n\in \mathbb{N}\setminus 2\mathbb{N}.
-    \end{cases}\]
-    For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\pi^2}{3}\) converges. Therefore, \[\sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
-    \begin{equation*}
-        \sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty[1-\frac{z^2}{n^2}].
-    \end{equation*}
-    Notice that
-    \begin{equation}
-        \ee^{\varphi(z)}=\frac{\sin(\pi z )}{z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})}.\label{eq:sinproductformula_intermediate}
-    \end{equation} As \(z\to 0\), we have \[\lim_{z\to 0}\ee^{\varphi(0)}=\lim_{z\to 0}\frac{\pi\cos(\pi z)}{\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})+z\qty[\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})]'}=\frac{\pi}{1+0}=\pi,\] since \(\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\) is even and therefore has a vanishing derivative at \(z=0\).
-\end{proof}
+
 We will now study the construction of meromorphic functions from their poles and the principal parts of their Laurent expansions at each pole.
 
 Suppose \(n\in\mathbb{N}\) and \(\qty{a_k}_{k=1}^n\subset\mathbb{C}\) is a sequence of distinct values. Let \(\qty{\psi_k(z)}_{k=1}^n\) be a collection of functions in the form of
@@ -2456,6 +2438,25 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \begin{remark}
     For a general power series, there is no assurance that it corresponds to the Taylor expansion of an entire function. However, for any polynomial of degree \(n\), there always exists an entire function whose Taylor expansion agrees with the polynomial up to the first \(n+1\) terms, which is the fundamental difference between a polynomial and a transcendental entire function.
 \end{remark}
+\begin{example}\label{ex:sinproductformula}
+    Prove that \[\sin(\pi z)=\pi z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
+    is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
+\end{example}
+\begin{proof}
+    The zeros of \(\sin(\pi z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
+        \begin{cases}
+            -\frac{n}{2}&n\in 2\mathbb{N}\\
+            \frac{n+1}{2}&n\in \mathbb{N}\setminus 2\mathbb{N}.
+    \end{cases}\]
+    For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\pi^2}{3}\) converges. Therefore, \[\sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
+    \begin{equation*}
+        \sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty[1-\frac{z^2}{n^2}].
+    \end{equation*}
+    Notice that
+    \begin{equation}
+        \ee^{\varphi(z)}=\frac{\sin(\pi z )}{z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})}.\label{eq:sinproductformula_intermediate}
+    \end{equation} As \(z\to 0\), we have \[\lim_{z\to 0}\ee^{\varphi(0)}=\lim_{z\to 0}\frac{\pi\cos(\pi z)}{\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})+z\qty[\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})]'}=\frac{\pi}{1+0}=\pi,\] since \(\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\) is even and therefore has a vanishing derivative at \(z=0\).
+\end{proof}
 \begin{example}[Blaschke Product]\label{ex:blaschkeproduct}
     Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by 
     \begin{equation}
