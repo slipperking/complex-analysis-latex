@@ -2443,7 +2443,11 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     Prove the pole expansion formula of \[\csc^2(\pi z)=\frac{1}{\pi^2}\sum_{n=-\infty}^\infty \frac{1}{\qty(z-n)^2}\] for \(z\in\mathbb{C}\setminus\mathbb{Z}\).
 \end{example}
 \begin{proof}
-    It is evident that \(f(z)=\csc(\pi z)\) has double poles at each of \(z=n\in\mathbb{Z}\). The principal part of the Laurent expansion at each \(n\) is \[\psi_n(\zeta)=\lim_{z\to n}\frac{\dv{z}[z^2 f(z)]}{\zeta-n}+\lim_{z\to n}\frac{z^2 f(z)}{\qty(\zeta-n)^2}\]
+    It is evident that \(f(z)=\csc(\pi z)\) has double poles at each of \(z=n\in\mathbb{Z}\). The principal part of the Laurent expansion at each \(n\) is 
+    \begin{align*}
+        \psi_n(\zeta)&=\lim_{z\to n}\frac{\dv{z}[\qty(z-n)^2 f(z)]}{\zeta-n}+\lim_{z\to n}\frac{\qty(z-n)^2 f(z)}{\qty(\zeta-n)^2}\\
+        &=\lim_{z\to n}\frac{2\frac{z-n}{\sin(\pi z)}+\qty(z-n)^2 f'(z)}{\zeta-n}+\lim_{z\to n}\frac{\frac{2\qty(z-n)}n{\pi\cos(\pi z)}}{\qty(\zeta-n)^2}
+    \end{align*}
 \end{proof}
 \begin{example}\label{ex:cscpoleexpansion}
     Prove the pole expansion formula of \[\csc(\pi z)=\frac{1}{\pi}\qty[\frac{1}{z}+2z\sum_{n=1}^\infty \frac{(-1)^n}{z^2-n^2}]\] for \(z\in\mathbb{C}\setminus\mathbb{Z}\).
