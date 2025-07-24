@@ -1203,9 +1203,9 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
         f^{(k)}(z) & =\frac{k!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)^{k+1}}\ddzeta                                                                           \\
         & =\frac{k!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+1}}\paren{\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j}^{k+1}\ddzeta \\
         & =f^{(k)}\paren{z_0}+\frac{(k+1)!\paren{z-z_0}}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta                               \\
-        & \quad+\mathcal{O}_{z\to z_0}\paren{\abs{z-z_0}^2},
+        & \quad+\order{\abs{z-z_0}^2},
     \end{align*}
-    where the remainder terms \(\mathcal{O}_{z\to z_0}\qty(\abs{z-z_0}^2)\) resemble
+    where the remainder terms \(\order{\abs{z-z_0}^2}\) resemble
     \[\paren{z-z_0}^2\frac{k!}{2\pi\ii}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+\mathcal{O}_{z\to z_0}\paren{\abs{z-z_0}^3}.\]
     The difference quotient is equal to \[\frac{f^{(k)}(z)-f^{(k)}\paren{z_0}}{z-z_0}=\frac{(k+1)!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta+\mathcal{O}_{z\to z_0}\abs{z-z_0}.\] As \(z\to z_0\), the remainder terms vanish, and \[f^{(k+1)}\paren{z_0}=\frac{(k+1)!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta.\]
     By induction, equation~\eqref{eq:cauchydifferentiationformula_statement} is valid. By substituting equation~\eqref{eq:cauchydifferentiationformula_kernelexpansion} into \eqref{eq:cauchygoursatformula}, we obtain \[f(z)=\frac{1}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z_0}\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j\ddzeta=\frac{1}{2\pi\ii}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)\ddzeta}{\paren{\zeta-z_0}^{j+1}}.\]
@@ -2444,7 +2444,10 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \end{example}
 \begin{proof}
     It is evident that \(\csc^2(\pi z)\) has double poles at each of \(z=n\in\mathbb{Z}\). Therefore, \((z-n)^2\csc^2(\pi z)\) is holomorphic (or has an analytic continuation that is holomorphic) on \(D(n,1)\). Therefore, we can write its Taylor expansion on \(D(n,1)\):
-    \[(\zeta-n)^2\csc^2(\pi\zeta)=\lim_{\zeta\to n}\qty(\zeta-n)\csc[2](\pi\zeta)\]
+    \begin{align*}
+        (z-n)^2\csc^2(\pi z)&=\lim_{\zeta\to n}\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)}+\lim_{\zeta\to n}\dv{\zeta}(\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)})(z-n)+\order{(z-n)^2}\\
+        
+    \end{align*}
 \end{proof}
 \begin{example}\label{ex:cscpoleexpansion}
     Prove the pole expansion formula of \[\csc(\pi z)=\frac{1}{\pi}\qty[\frac{1}{z}+2z\sum_{n=1}^\infty \frac{(-1)^n}{z^2-n^2}]\] for \(z\in\mathbb{C}\setminus\mathbb{Z}\).
