@@ -1269,7 +1269,7 @@ The differentiation formula above can be thought of as a generalization of \auto
     \begin{equation}
         \sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\left\|f\right\|_{L^1(V)},\label{eq:nthderivativeboundedl1norm_statement}
     \end{equation}
-    where \(\left\|f\right\|_{L^p(V)}\) denotes \[\paren{\int_V\abs{f(z)}^p\ddx\wedge\ddy}^{\flatfrac{1}{p}}.\]
+    where \(\qty||f||_{L^p(V)}\) denotes \[\paren{\int_V\abs{f(z)}^p\ddx\wedge\ddy}^{\flatfrac{1}{p}}.\]
 \end{theorem}
 \begin{proof}
     Let \(\varphi\in C^\infty\paren{\mathbb{C}}\)  satisfy \(\supp(\varphi)\subset V\) and be identically equal to 1 over some open neighborhood \(W\) of \(K\) relatively compact in \(V\). Since \(f\in C^\infty\paren{U}\), by the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}) on \(f(z)\varphi(z)\in C^\infty\paren{\overline{U}}\), \[f(z)\varphi(z)=\frac{1}{2\pi\ii}\paren{\int_{\partial U}\frac{f(\zeta)\varphi(\zeta)}{\zeta-z}\ddzeta-\int_{U}\pdv{f(\zeta)\varphi(\zeta)}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
@@ -2552,7 +2552,7 @@ It then follows that the residue at a removable singularity is 0. As a direct co
 Multiplying by \((z-a)^{m}\), we obtain that \[{(z-a)^m}f(z)=c_{-m}+c_{1-m}(z-a)+\cdots+c_{-1}(z-a)^{m-1}+\cdots.\]
 By the definition of a Taylor series, we find that
 \begin{equation}
-    c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\left.\dv[m-1]{z}\qty[(z-a)^m f(z)]\right|_{z=a}.\label{eq:residueatpole}
+    c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\lim_{z\to a}\dv[m-1]{z}\qty[(z-a)^m f(z)].\label{eq:residueatpole}
 \end{equation}
 
 Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\pi\ii}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
