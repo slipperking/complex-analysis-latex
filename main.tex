@@ -3133,7 +3133,13 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
     For any \(\Re\qty(z_1),\Re\qty(z_2)>0\), we have \[\mathrm{B}\qty(z_1,z_2)=\frac{\Gamma\qty(z_1)\Gamma\qty(z_2)}{\Gamma\qty(z_1+z_2)}.\]
 \end{theorem}
 \begin{proof}
-    Consider the product \(\Gamma\qty(z_1)\Gamma\qty(z_2)\). By letting \(s=rt\), we have \[\Gamma\qty(z_1)\Gamma\qty(z_2)=\int_0^\infty \ee^{-t} t^{z_1-1}\qty[\int_0^\infty\ee^{-s}s^{z_2-1}\dd{s}]\ddt=\int_0^\infty r^{z_2-1}\qty[\int_0^\infty \ee^{-t(r+1)}t^{z_1+z_2-1}\ddt]\dd{r}.\] 
+    Consider the product \(\Gamma\qty(z_1)\Gamma\qty(z_2)\). By letting \(s=rt\), we have 
+    \begin{align*}
+        \Gamma\qty(z_1)\Gamma\qty(z_2)&=\int_0^\infty \ee^{-t} t^{z_1-1}\qty[\int_0^\infty\ee^{-s}s^{z_2-1}\dd{s}]\ddt\\
+        &=\int_0^\infty \ee^{-t}t^{z_1-1}\qty[\int_0^\infty t^{z_2}\ee^{-tr}r^{z_2-1}\ddt]\dd{r}.\\
+        &=\int_0^\infty r^{z_2-1}\qty[\int_0^\infty \ee^{-t(r+1)}t^{z_1+z_2-1}\ddt]\dd{r}.
+    \end{align*}
+    The interchanging of the order of integration is justified by Fubini's Theorem.
 \end{proof}
 \subsection{The Riemann--\texorpdfstring{\(\zeta\)}{zeta} Function}
 The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is currently known as the \textit{Euler Product Formula}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\Pi(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
