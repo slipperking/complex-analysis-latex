@@ -3130,7 +3130,8 @@ The identity above is a special case of the following result:
 \begin{proof}
     As in the proof of \autoref{thm:gammafunction_legendreduplication}, we have
     \begin{align*}
-        \prod_{k=0}^{m-1}\Gamma\qty(z+\frac{k}{m}) & =\lim_{n\to\infty}\frac{n^{mz+\frac{m-1}{2}}n!^m}{\prod_{k=0}^n\qty(z+k)\prod_{k=0}^n\qty(z+\frac{k}{m})}
+        \prod_{k=0}^{m-1}\Gamma\qty(z+\frac{k}{m}) & =\lim_{n\to\infty}\prod_{k=0}^{m-1}\frac{n^{z+\frac{k}{m}}n!}{\prod_{j=0}^n\qty(z+\frac{k}{m}+j)}\\
+        &=\lim_{n\to\infty}\frac{n^{mz}+\frac{m-1}{2}}{}
     \end{align*}
 \end{proof}
 The Gamma function as in equation~\eqref{eq:gammafunction} is commonly referred to as the \textit{Euler Integral of the Second Kind}. The \textit{Euler Integral of the First Kind} is also known as the \textit{Beta function}, and is defined by \[\mathrm{B}\qty(z_1,z_2)=\int_0^1 t^{z_1-1}(1-t)^{z_2-1}\ddt.\] By a change of variables (by letting \(\tau=1-t\)), we derive the symmetry of the Beta function: \[\mathrm{B}\qty(z_1,z_2)=\int_0^1 \tau^{z_2-1}(1-\tau)^{z_1-1}\dd\tau=\mathrm{B}\qty(z_2,z_1).\]
