@@ -3134,13 +3134,21 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
 \end{theorem}
 \begin{proof}
     Consider the product \(\Gamma\qty(z_1)\Gamma\qty(z_2)\). By letting \(s=ut\) and \(v=t(u+1)\), we have
-    \begin{align*}
-        \Gamma\qty(z_1)\Gamma\qty(z_2)&=\int_0^\infty\ee^{-s}s^{z_2-1}\qty[\int_0^\infty \ee^{-t} t^{z_1-1}\ddt]\dd{s}\\
-        &=\int_0^\infty u^{z_2-1}\qty[\int_0^\infty \ee^{-v}\qty(\frac{v}{u+1})^{z_1+z_2-1}\dd(\frac{v}{u+1})]\dd{u}.\\
-        &=\int_0^\infty \frac{u^{z_2-1}}{\qty(u+1)^{z_1+z_2}}\qty[\int_0^\infty \ee^{-v}v^{z_1+z_2-1}\dd{v}]\dd{u}.
-    \end{align*}
+    \begin{align}
+        \Gamma\qty(z_1)\Gamma\qty(z_2)&=\int_0^\infty\ee^{-s}s^{z_2-1}\qty[\int_0^\infty \ee^{-t} t^{z_1-1}\ddt]\dd{s}\nonumber\\
+        &=\int_0^\infty u^{z_2-1}\qty[\int_0^\infty \ee^{-v}\qty(\frac{v}{u+1})^{z_1+z_2-1}\dd(\frac{v}{u+1})]\dd{u}.\nonumber\\
+        &=\int_0^\infty \frac{u^{z_2-1}}{\qty(u+1)^{z_1+z_2}}\qty[\int_0^\infty \ee^{-v}v^{z_1+z_2-1}\dd{v}]\dd{u}.\label{eq:betagammafunctionrelationship_intermediate}
+    \end{align}
     Let \(r=\frac{u}{u+1}\), \(u=\frac{r}{1-r}\), and \(\dd{u}=\frac{1}{(1-r)^2}\). Then we have \[\Gamma\qty(z_1)\Gamma\qty(z_2)=\Gamma\qty(z_1+z_2)\int_0^1 r^{z_2-1}(1-r)^{z_1-1}\dd{r}=\Gamma\qty(z_1+z_2)\mathrm{B}\qty(z_1,z_2),\]
     as desired.
+\end{proof}
+\begin{example}[MIT Integration Bee 2023 Finals]
+    Evaluate \[\int_0^{\frac{\pi}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx.\]
+\end{example}
+\begin{proof}
+    By rewriting the integral, and letting \(u=\tan(x)\), we have \begin{align*}
+        \int_0^{\frac{\pi}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx & =\int_0^\infty \frac{u^{\frac{1}{3}}}{}
+    \end{align*}
 \end{proof}
 \subsection{The Riemann--\texorpdfstring{\(\zeta\)}{zeta} Function}
 The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is currently known as the \textit{Euler Product Formula}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\Pi(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
