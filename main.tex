@@ -3110,7 +3110,7 @@ We have two famous identities on the \(\Gamma\) function:
 \begin{proof}
     From \autoref{thm:gammafunctiongaussformula}, we have \[\Gamma(z)\Gamma\qty(z+\frac{1}{2})=\lim_{n\to\infty}\frac{n^{2z+\frac{1}{2}}n!^2}{\prod_{k=0}^n(z+k)\qty(z+k+\frac{1}{2})}=\lim_{n\to\infty}\frac{2^{2n+2}n^{2z+\frac{1}{2}}n!^2}{\prod_{k=0}^{2n+1}(2z+k)}\]
     where the left-hand side is defined since \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{2})\).
-    By expansion of the value, we have 
+    By expansion of the value, we have
     \begin{align*}
         \Gamma(z)\Gamma\qty(z+\frac{1}{2})&=\lim_{n\to\infty}\frac{\qty(2n)^{2z}(2n)!}{\prod_{k=0}^{2n}(2z+k)}\cdot\frac{n^{\frac{1}{2}}n!^2 2^{2n+2-2z}}{\qty(2z+2n+1)(2n)!}\\
         &=\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!^2 2^{2-2z}}{(2z+2n+1)\prod_{k=0}^{n-1}\qty(k+\frac{1}{2})\prod_{k=1}^n k}\\
@@ -3133,13 +3133,14 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
     For any \(\Re\qty(z_1),\Re\qty(z_2)>0\), we have \[\mathrm{B}\qty(z_1,z_2)=\frac{\Gamma\qty(z_1)\Gamma\qty(z_2)}{\Gamma\qty(z_1+z_2)}.\]
 \end{theorem}
 \begin{proof}
-    Consider the product \(\Gamma\qty(z_1)\Gamma\qty(z_2)\). By letting \(s=ut\) and \(v=t(u+1)\), we have 
+    Consider the product \(\Gamma\qty(z_1)\Gamma\qty(z_2)\). By letting \(s=ut\) and \(v=t(u+1)\), we have
     \begin{align*}
         \Gamma\qty(z_1)\Gamma\qty(z_2)&=\int_0^\infty\ee^{-s}s^{z_2-1}\qty[\int_0^\infty \ee^{-t} t^{z_1-1}\ddt]\dd{s}\\
         &=\int_0^\infty u^{z_2-1}\qty[\int_0^\infty \ee^{-v}\qty(\frac{v}{u+1})^{z_1+z_2-1}\dd(\frac{v}{u+1})]\dd{u}.\\
         &=\int_0^\infty \frac{u^{z_2-1}}{\qty(u+1)^{z_1+z_2}}\qty[\int_0^\infty \ee^{-v}v^{z_1+z_2-1}\dd{v}]\dd{u}.
     \end{align*}
-    Let \(r=\frac{u}{u+1}\), \(u=\frac{r}{1-r}\)
+    Let \(r=\frac{u}{u+1}\), \(u=\frac{r}{1-r}\), and \(\dd{u}=\frac{1}{(1-r)^2}\). Then we have \[\Gamma\qty(z_1)\Gamma\qty(z_2)=\Gamma\qty(z_1+z_2)\int_0^1 r^{z_2-1}(1-r)^{z_1-1}\dd{r}=\Gamma\qty(z_1+z_2)\mathrm{B}\qty(z_1,z_2),\]
+    as desired.
 \end{proof}
 \subsection{The Riemann--\texorpdfstring{\(\zeta\)}{zeta} Function}
 The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is currently known as the \textit{Euler Product Formula}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\Pi(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
