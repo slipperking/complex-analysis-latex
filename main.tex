@@ -3100,7 +3100,7 @@ We have two famous identities on the \(\Gamma\) function:
     \end{equation*}
     Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \autoref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\pi z)}{\pi},\] which confirms equation~\eqref{eq:gammafunction_eulerreflection}.
 \end{proof}
-\begin{example}
+\begin{example}\label{ex:gammafunction_onehalf}
     Evaluate \(\Gamma\qty(\frac{1}{2})\).
 \end{example}
 \begin{proof}
@@ -3118,9 +3118,13 @@ We have two famous identities on the \(\Gamma\) function:
     where the left-hand side is defined since \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{2})\).
     By expansion of the value, we have 
     \begin{align*}
-        \Gamma(z)\Gamma\qty(z+\frac{1}{2})&=\lim_{n\to\infty}\frac{\qty(2n)^{2z}(2n)!}{\prod_{k=0}^{2n}(2z+k)}\cdot\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!^2 2^{2n+2-2z}}{\qty(2z+2n+1)(2n)!}\\
-        &=\Gamma(2z)\lim_{n\to\infty}\frac{\sqrt{n}n!^2 2^{2-2z}}{(2z+2n+1)\prod_{k=0}^{n-1}\qty(k+\frac{1}{2})\prod_{k=1}^n k}
+        \Gamma(z)\Gamma\qty(z+\frac{1}{2})&=\lim_{n\to\infty}\frac{\qty(2n)^{2z}(2n)!}{\prod_{k=0}^{2n}(2z+k)}\cdot\frac{n^{\frac{1}{2}}n!^2 2^{2n+2-2z}}{\qty(2z+2n+1)(2n)!}\\
+        &=\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!^2 2^{2-2z}}{(2z+2n+1)\prod_{k=0}^{n-1}\qty(k+\frac{1}{2})\prod_{k=1}^n k}\\
+        &=2^{2-2z}\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!}{\prod_{k=0}^n\qty(k+\frac{1}{2})}\cdot\frac{n}{2z+2n+1}\\
+        &=2^{1-2z}\Gamma(2z)\Gamma\qty(\frac{1}{2})\\
+        &=2^{1-2z}\Gamma(2z)\sqrt{\pi},
     \end{align*}
+    where the last step is derived from \autoref{ex:gammafunction_onehalf}.
 \end{proof}
 The identity above is a special case of the following result:
 \begin{theorem}[Gauss Multiplication Theorem]
