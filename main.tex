@@ -58,7 +58,7 @@
 \providecommand*{\definitionautorefname}{Definition}
 \providecommand*{\corollaryautorefname}{Corollary}
 \providecommand*{\exampleautorefname}{Example}
-\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
 \numberwithin{figure}{section}
 \DeclarePairedDelimiter{\paren}{(}{)}
 \let\parendefault\paren
@@ -3052,23 +3052,23 @@ We will now study two representations for the Gamma function.
     \end{align}
     Let us now analyze the difference
     \begin{equation}
-        \lim_{n\to\infty}\qty[\int_0^n \ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\label{eq:gammafunctiongaussformulaintermediate1}
+        \lim_{n\to\infty}\qty[\int_0^n \ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\label{eq:gammafunction_gaussformulaintermediate1}
     \end{equation}
     Since \[\dv{t}(\ee^t{\qty(1-\frac{t}{n})}^n)=\ee^t
     \qty(1-\frac{t}{n})^n-\ee^t\qty(1-\frac{t}{n})^{n-1}=-\ee^t\frac{t}{n}{\qty(1-\frac{t}{n})}^{n-1},\]
     we have
     \begin{equation}
-        1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunctiongaussformulaintermediate2}
+        1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunction_gaussformulaintermediate2}
     \end{equation}
     Additionally, since \[\dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2}=\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)\] has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\]
-    which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \(\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\) as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq \ee\). From equation~\eqref{eq:gammafunctiongaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
-    it follows that \(1-\ee^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqref{eq:gammafunctiongaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{\ee}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From equation~\eqref{eq:gammafunctiongaussformulaprelimit}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), or equation~\eqref{eq:gammafunctiongaussformula}
+    which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \(\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\) as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq \ee\). From equation~\eqref{eq:gammafunction_gaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
+    it follows that \(1-\ee^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqref{eq:gammafunction_gaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{\ee}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From equation~\eqref{eq:gammafunctiongaussformulaprelimit}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), or equation~\eqref{eq:gammafunctiongaussformula}
 \end{proof}
 The \textit{Weierstrass Formula} is a direct consequence of the Gauss formula.
-\begin{theorem}[Weierstrass Formula]\label{thm:gammafunctionweierstrassformula}
+\begin{theorem}[Weierstrass Formula]\label{thm:gammafunction_weierstrassformula}
     The reciprocal Gamma function has the entire Weierstrass factorization of
     \begin{equation}
-        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma).\label{eq:gammafunctionweierstrassformula}
+        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma).\label{eq:gammafunction_weierstrassformula}
     \end{equation}
 \end{theorem}
 \begin{proof}
@@ -3086,18 +3086,25 @@ The \textit{Weierstrass Formula} is a direct consequence of the Gauss formula.
     The constant \(\gamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\pi^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
 \end{proof}
 We have two famous identities on the \(\Gamma\) function:
-\begin{theorem}[Euler's Reflection Formula]\label{thm:eulerreflection}
+\begin{theorem}[Euler's Reflection Formula]\label{thm:gammafunction_eulerreflection}
     The analytic continuation of the \(\Gamma\) function can be analytically continued to the left half-plane with the functional equation of
     \begin{equation}
-        \Gamma(z)\Gamma(1-z)=\pi\csc(\pi z)\label{eq:eulerreflection}
+        \Gamma(z)\Gamma(1-z)=\pi\csc(\pi z)\label{eq:gammafunction_eulerreflection}
     \end{equation} for \(z\in\mathbb{C}\setminus\mathbb{N}\).
 \end{theorem}
 \begin{proof}
-    By the Weierstrass Formula (\autoref{thm:gammafunctionweierstrassformula}), we have
+    By the Weierstrass Formula (\autoref{thm:gammafunction_weierstrassformula}), we have
     \begin{equation*}
         \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma),\qquad\frac{1}{\Gamma(-z)}=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\exp\qty(-z\gamma).
     \end{equation*}
-    Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \autoref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\pi z)}{\pi},\] which confirms equation~\eqref{eq:eulerreflection}.
+    Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \autoref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\pi z)}{\pi},\] which confirms equation~\eqref{eq:gammafunction_eulerreflection}.
+\end{proof}
+\begin{example}
+    Evaluate \(\Gamma\qty(\frac{1}{2})\).
+\end{example}
+\begin{proof}
+    By the Reflection Formula (\autoref{thm:gammafunction_eulerreflection}), we have that \[\Gamma\qty(\frac{1}{2})^2=\pi\csc(\frac{\pi}{2})=\pi,\]
+    and it follows that \(\Gamma\qty(\frac{1}{2})=\sqrt{\pi}\) as it is positive.
 \end{proof}
 \begin{theorem}[Legendre's Duplication Formula]\label{thm:legendreduplication}
 
