@@ -1508,7 +1508,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 
     Let \(S^*=\cbraces{z\in U}{\forall n\in\mathbb{Z}_{\geq0}, f^{(n)}(z)=0}\). \(\forall z\in D\paren{z_\infty,\varepsilon}\), since \(f(z)\) locally vanishes (and has vanishing derivatives as a consequence), \(D\paren{z_\infty,\varepsilon}\subseteq S^*\). Furthermore, \(\forall z'\in S^*\), \(\exists\varepsilon'>0\) such that \(f(z)\) has a convergent Taylor series with vanishing coefficients on \(D(z',\varepsilon')\subseteq U\). Then \(f\equiv0\) on \(D\paren{z',\varepsilon'}\). Then \(\forall z\in D(z',\varepsilon')\), since \(f\) is constant at \(z\), it also has vanishing derivatives. It follows that \(D(z',\varepsilon')\subseteq S^*\). Since every point in \(S^*\) has an open neighborhood also in \(S^*\), \(S^*\) is open.
 
-    \(\forall k\in\mathbb{Z}_{\geq0}\), \(f^{(k)}\) is continuous in \(U\) by the holomorphy of \(f\). Let \(S_k=\cbraces{z\in U}{f^{(k)}(z)=0}\). For any sequence \(\cbraces{z'_n}\in S_k\) converging to some \(z'_\infty\in U\), by the continuity of \(f\), \[\lim_{n\to\infty} f^{(k)}\paren{z'_n}=f^{(k)}\paren{\lim_{n\to\infty}z'_n}=f^{(k)}\paren{z'_\infty}=0,\] and therefore \(z'_\infty\in S_k\). Thus, \(S_k\) contains all of its accumulation points in \(U\) and is therefore closed in \(U\) (if \(z'_\infty\notin U\), then it is no longer relevant; we are concerned about it being closed within \(U\)). Since \(S^*=\bigcap_{k\in\mathbb{Z}_{\geq0}} S_k\) and each of \(S_k\) is closed in \(U\), \(S^*\) is the intersection of closed sets and consequently closed.
+    It is evident that \(\forall k\in\mathbb{Z}_{\geq0}\), \(f^{(k)}\) is continuous in \(U\) by the holomorphy of \(f\). Let \(S_k=\cbraces{z\in U}{f^{(k)}(z)=0}\). For any sequence \(\cbraces{z'_n}\in S_k\) converging to some \(z'_\infty\in U\), by the continuity of \(f\), \[\lim_{n\to\infty} f^{(k)}\paren{z'_n}=f^{(k)}\paren{\lim_{n\to\infty}z'_n}=f^{(k)}\paren{z'_\infty}=0,\] and therefore \(z'_\infty\in S_k\). Thus, \(S_k\) contains all of its accumulation points in \(U\) and is therefore closed in \(U\) (if \(z'_\infty\notin U\), then it is no longer relevant; we are concerned about it being closed within \(U\)). Since \(S^*=\bigcap_{k\in\mathbb{Z}_{\geq0}} S_k\) and each of \(S_k\) is closed in \(U\), \(S^*\) is the intersection of closed sets and consequently closed.
 
     Since \(S^*\) is nonempty and clopen in the connected set \(U\), \(S^*=U\) (by \autoref{thm:connectedtopologicalspaceclopensets}). It follows that \(f\equiv 0\) on \(U\).
 \end{proof}
@@ -1568,14 +1568,14 @@ This profound result proves that the number of zeros of a holomorphic function e
 
     Since \(\gamma\) does not pass through the zeros of \(f\), \(\exists\lambda>0\) such that \(\forall z\in\gamma\), \(\abs{f(z)}>\lambda\). By the uniform convergence of \(\cbraces{f_n(z)}\), \(\exists N\in\mathbb{N}\) such that
     \[\abs{f_n(z)-f(z)}<\frac{\lambda}{2},\quad\forall n>N,\forall z\in\gamma.\]
-    Then \(\abs{f_n(z)}>\frac{\lambda}{2}\) on \(\gamma\). It follows that \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded: \[\abs{\frac{1}{f(z)}}<\frac{1}{\lambda},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\lambda},\quad\forall z\in\gamma,\forall n>N.\]
+    Then \(\abs{f_n(z)}>\frac{\lambda}{2}\) on \(\gamma\). Hence, \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded; \[\abs{\frac{1}{f(z)}}<\frac{1}{\lambda},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\lambda},\quad\forall z\in\gamma,\forall n>N.\]
     Then,
     \begin{align*}
         \abs{\frac{f'}{f}-\frac{f'_n}{f_n}}                                               & =\abs{\frac{f'f_n-f'_nf}{f_nf}}                                                                                                           \\
         & <2\frac{\abs{f'f_n-f'f}+\abs{f'f-f'_nf}}{\lambda^2}                                                                                       \\
         & <\frac{2M}{\lambda^2}\cdot\paren{\abs{f_n-f}+\abs{f'-f'_n}}.                                                                              \\
         \sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}}                  & \leq\frac{2M}{\lambda^2}\paren{\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\sup_{z\in\gamma}\abs{f'(z)-f'_n(z)}}                                   \\
-        \lim_{n\to\infty}\sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}} & \leq\frac{2M}{\lambda^2}\paren{\lim_{n\to\infty}\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\lim_{n\to\infty}\sup_{z\in\gamma}\abs{f'(z)-f'_n(z)}} \\
+        \lim_{n\to\infty}\sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}} & \leq\frac{2M}{\lambda^2}\paren{\lim_{n\to\infty}\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\abs{f'(z)-f'_n(z)}} \\
         & =0.
     \end{align*}
     Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). By \autoref{thm:limitintegralswitch}, we can pass the limit through the integral in equation~\eqref{eq:hurwitzsimplecase_argumentprinciple}. Then,
