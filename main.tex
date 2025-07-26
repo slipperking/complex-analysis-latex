@@ -1164,7 +1164,7 @@ We have also already seen the utility of parameterization via a polar transforma
                     2\pi\ii f(z) & z\in\mathrm{ext}(\gamma)\cap D(0,R)
                 \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
             \end{align} when \(\gamma\subset D(0,R)\).
-            We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities, 
+            We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities,
             \begin{align*}
                 \qty|\int_0^{2\pi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}|&\leq\int_0^{2\pi}\qty|\frac{z}{R\ee^{\ii\theta}-z}|\dd{\theta}\\
                 &\leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.
@@ -1591,8 +1591,10 @@ This profound result proves that the number of zeros of a holomorphic function e
     It is obvious that \(g(z)\) has no zeros on \(\gamma\). Otherwise, \(\exists z_0\in\gamma\) such that \(g\paren{z_0}=0\), implying that \(\abs{f\paren{z_0}}<\abs{f\paren{z_0}}\) which is impossible. Similarly, \(f(z)\) has no zeros on \(\gamma\), since \(\abs{g(z)}<0\) is an impossibility.
 
     Let \(k_f\) and \(k_g\) denote the number of zeros of \(f\) and \(g\) enclosed by \(\gamma\), respectively. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}),
-    \[k_g-k_f=\int_{\gamma}\frac{g'(z)}{g(z)}\ddz-\int_\gamma\frac{f'(z)}{f(z)}\ddz=\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\dfrac{g(z)}{f(z)})'}{\dfrac{g(z)}{f(z)}}\ddz.\]
-
+    \begin{align*}
+        k_g-k_f&=\int_{\gamma}\frac{g'(z)}{g(z)}\ddz-\int_\gamma\frac{f'(z)}{f(z)}\ddz\\
+        &=\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\dfrac{g(z)}{f(z)})'}{\dfrac{g(z)}{f(z)}}\ddz.
+    \end{align*}
     Let \(w=h(z)=\frac{g(z)}{f(z)}\) with \(\Gamma=h(\gamma)\). Then, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}.\]
     From equation~\eqref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
 \end{proof}
@@ -1656,7 +1658,11 @@ Before the theorem, we first introduce the mean-value property of holomorphic fu
 \end{lemma}
 \begin{proof}
     By the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\pi\ii}\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}.\]
-    Observe that \[f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}=\frac{1}{2\pi\varepsilon}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\abs{\ii\varepsilon \ee^{\ii t}\dd{t}}=\frac{1}{2\pi}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t},\]
+    Observe that
+    \begin{align*}
+        f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}&=\frac{1}{2\pi\varepsilon}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\abs{\ii\varepsilon \ee^{\ii t}\dd{t}}\\
+        &=\frac{1}{2\pi}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t},
+    \end{align*}
     and the conclusion follows.
 \end{proof}
 Since the real and imaginary parts of holomorphic functions are real-valued harmonic functions, they also satisfy the mean-value property. Furthermore, if a real continuous function satisfies the mean-value property, it is harmonic (to be proved in \autoref{thm:meanvaluepropertysolutionsareharmonic}). This equivalence allows for the alternative definition of harmonic functions.
@@ -1664,7 +1670,8 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
     Let \(f(z)\) be holomorphic on an open connected region \(U\subseteq\mathbb{C}\). If \(\exists z_0\in U\) and an open neighborhood \(V\subseteq U\) of \(z_0\) such that \(\forall z\in V\), \(\abs{f\paren{z_0}}\geq\abs{f(z)}\), then \(f\) is a constant function on \(U\).
 \end{theorem}
 \begin{proof}
-    Assume that \(z_0\) exists. We will first prove that the set \(S=\cbraces{z}{f(z)=f\paren{z_0},z\in V}\) is all of \(V\). This is equivalent to proving that \(S\) is nonempty, open, and closed in \(V\).
+    Assume that \(z_0\) exists. We will first prove that the set \[S=\cbraces{z}{f(z)=f\paren{z_0},z\in V}\]
+    is all of \(V\). This is equivalent to proving that \(S\) is nonempty, open, and closed in \(V\).
 
     Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=0,\] and \(z_\infty\in S\). Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with it being closed within \(V\)).
 
@@ -1731,7 +1738,11 @@ First, we will observe the image of \(\partial \mathbb{D}\). Let \(\abs{z}=1\). 
 \[\abs{\varphi_a(z)}=\abs{\frac{1}{z}}\abs{\frac{z-a}{\frac{1}{z}-\overline{a}}}=\abs{\frac{z-a}{\overline{z}-\overline{a}}}=1.\]
 Therefore, the image of \(\partial \mathbb{D}\) lies on \(\partial \mathbb{D}\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\autoref{thm:maximummodulus}), for \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(\mathbb{D}\) to \(\mathbb{D}\). We next aim to show that \(f:\mathbb{D}\to \mathbb{D}\) is bijective.
 
-Let us first confirm injectivity. \(\forall z_1,z_2\in \mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that \[\qty(z_1-a)\qty(1-\overline{a}z_2)=\qty(z_2-a)\qty(1-\overline{a}z_1)\Longleftrightarrow z_1-a-\overline{a}z_1z_2+\abs{a}^2z_2=z_2-a-\overline{a}z_1z_2+\abs{a}^2z_1.\]
+Let us first confirm injectivity. \(\forall z_1,z_2\in \mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that 
+\begin{gather*}
+    \qty(z_1-a)\qty(1-\overline{a}z_2)=\qty(z_2-a)\qty(1-\overline{a}z_1),\\
+    z_1-a-\overline{a}z_1z_2+\abs{a}^2z_2=z_2-a-\overline{a}z_1z_2+\abs{a}^2z_1.
+\end{gather*}
 Then, \[\abs{a}^2\paren{z_2-z_1}=z_2-z_1.\Longleftrightarrow\qty(|a|^2-1)\qty(z_2-z_1)=0.\] Since \(\abs{a}<1\), then \(\abs{a}^2-1\neq0\), and we get \(z_2-z_2=0\). This proves the univalence of \(\varphi_a(z)\).
 
 Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac{w-a}{1-\overline{a}w}\). Then,
