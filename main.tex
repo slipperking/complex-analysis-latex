@@ -191,15 +191,15 @@ Four main classical theorems exist, relating a function and its line integral in
     \[\oint_{\partial U} P\ddx+Q\ddy=\iint_U\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
-    Suppose that \(S\subset\mathbb{R}^3\) is a positively oriented surface with a positively oriented, piecewise smooth boundary curve \(\partial S\). Let \(P(x,y,z), Q(x,y,z), R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
+    Suppose that \(S\subset\mathbb{R}^3\) is a positively oriented surface with a positively oriented, piecewise smooth boundary curve \(\partial S\). Suppose that \(P(x,y,z), Q(x,y,z), R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
     \begin{align*}
         \oint_{\partial S}&P\ddx+Q\ddy+R\ddz\\
         &=\iint_S\qty(\pdv{R}{y}-\pdv{Q}{z})\ddy\ddz+\qty(\pdv{P}{z}-\pdv{R}{x})\ddz\ddx+\qty(\pdv{Q}{x}-\pdv{P}{y})\ddx\ddy.
     \end{align*}
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
-    Let \(V\subset\mathbb{R}^3\) be a positively oriented volume with a piecewise smooth, positively oriented boundary surface \(\partial V\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
-    \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\ddy\ddz.\]
+    Suppose that \(V\subset\mathbb{R}^3\) is a positively oriented region with a positively oriented, piecewise smooth boundary surface \(\partial V\). Suppose that \(P(x,y,z), Q(x,y,z), R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
+    \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\qty(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z})\ddx\ddy\ddz.\]
 \end{theorem}
 In 3-dimensional \(\mathbb{R}^3\) space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination of \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where \(\wedge\) denotes an anti-commutative and associative product, where for any two differential forms \(\omega_1\) and \(\omega_2\)
 \[\omega_1\wedge\omega_2=-\omega_2\wedge\omega_1.\]
@@ -334,7 +334,7 @@ We will now give statements relating to operations on Riemann integrals:
 \begin{lemma}\label{lemma:integralwithparameterproperties}
     Let \(f(x,u)\) be a continuous complex function on the rectangle defined by \(a\leq x\leq b\), \(\alpha\leq u\leq\beta\) (where \(a<b\), \(\alpha<\beta\)). Then,
     \begin{enumerate}
-        \item For an arbitrary point \(u_0\in [\alpha,\beta]\), we have \(\lim_{u\to u_0}\int_a^b f(x,u)\ddx=\int_a^b f\qty(x,u_0)\ddx\).
+        \item For an arbitrary point \(u_0\in [\alpha,\beta]\), we have \[\lim_{u\to u_0}\int_a^b f(x,u)\ddx=\int_a^b f\qty(x,u_0)\ddx.\]
         \item The order of integration can be switched: \[\int_a^b\int_\alpha^\beta f(x,u)\dd{u}\ddx=\int_\alpha^\beta\int_a^b f(x,u)\ddx\dd{u}\]
     \end{enumerate}
 \end{lemma}
