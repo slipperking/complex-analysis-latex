@@ -1812,7 +1812,7 @@ Let \(P(\zeta,z)=\frac{1-\abs{z}^2}{2\pi\qty|1-\overline{z}\zeta|^2}=\frac{1-\ab
 where \(\zeta=\ee^{\ii\tau}\). Equation~\eqref{eq:poissonintegralformula} is also known as the \textit{Poisson Integral Formula}.
 \(\forall z\in D(0,R)\), \(\forall R>0\), we can apply the transformation \(\widetilde{\varphi}_z\qty(\zeta)=R\varphi_{\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\) to extend the automorphism to \(D(0,R)\). Let \(\Phi\) instead be harmonic on \(D(0,R)\) and continuous on \(\overline{D(0,R)}\). Then, \[\Phi(0)=\frac{1}{2\pi}\int_0^{2\pi}\Phi\qty(R\ee^{\ii\psi})\dd{\psi}.\]
 It follows that \(u=\Phi\circ\widetilde{\varphi}_z\) is also harmonic on \(D(0,R)\) with \(\Phi(0)=u\circ\widetilde{\varphi}_{-z}(0)=u(z)\), and from the bijectivity of  \(R\ee^{\ii\psi}=\widetilde{\varphi}_z\qty(R\ee^{\ii\tau})\),
-\[\dd{\psi}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}^2}\ee^{\ii\tau}\ee^{-\ii\psi}\dd{\tau}=\dd{\psi}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}^2}\frac{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}{1-\frac{z}{R}\ee^{-\ii\tau}}\dd{\tau}=\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\tau}-z}^2}\dd{\tau}.\]
+\[\dd{\psi}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}^2}\ee^{\ii\tau}\ee^{-\ii\psi}\dd{\tau}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}^2}\frac{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}{1-\frac{z}{R}\ee^{-\ii\tau}}\dd{\tau}=\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\tau}-z}^2}\dd{\tau}.\]
 Then because \(\widetilde{\varphi}_z^{-1}(\zeta)=R\varphi_{-\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\),
 \[u(z)=\frac{1}{2\pi}\int_0^{2\pi}u\qty(R\ee^{\ii\tau})\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\tau}-z}^2}\dd{\tau}.\]
 The expression \(P(\zeta,z)=\frac{\abs{\zeta}^2-\abs{z}^2}{2\pi\abs{\zeta-z}^2}\) is a general form of the Poisson kernel. Then with \(\zeta=R\ee^{\ii\tau}\),
@@ -1826,7 +1826,7 @@ The Poisson kernel can also be rewritten as
 Thus, equation~\eqref{eq:poissonintegralformula2} is equivalent to:
 \[u(z)=\frac{1}{2\pi}\int_0^{2\pi}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
 Since \(\ddzeta=\ii R\ee^{\ii\tau}\dd{\tau}\), \(\dd{\tau}=\frac{\ddzeta}{\ii\zeta}\), and \[u(z)=\frac{1}{2\pi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Re\qty(\frac{\zeta+z}{\zeta-z})\ddzeta=\Re\qty[\frac{1}{2\pi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta],\]
-where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \(\frac{1}{2\pi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\) is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\pi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+\ii c\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \autoref{lemma:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+\ii v(z)\),
+where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \[\frac{1}{2\pi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\] is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\pi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+\ii c\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \autoref{lemma:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+\ii v(z)\),
 \begin{equation}
     v(z)=c+\frac{1}{2\pi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Im\qty(\frac{\zeta+z}{\zeta-z})\ddzeta.\label{eq:schwarzintegralformulaimaginarypart}
 \end{equation}
@@ -1855,14 +1855,14 @@ A fundamental problem in the theory of partial differential equations is to find
     where \(\zeta=R\ee^{\ii\tau}\).
 \end{theorem}
 \begin{proof}
-    Since \(P(\zeta,z)=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}\), it follows that from equation~\eqref{eq:laplaciancomplexform}, \(\laplacian_z P(\zeta,z)=4\pdv{P(\zeta,z)}{z}{\overline{z}}=0\) (since each term is independent of either \(z\) or \(\overline{z}\)). Then by \autoref{thm:leibnizintegralrule}, equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution} becomes \[\laplacian u(z)=\laplacian\int_0^{2\pi}\varphi(\zeta)P(\zeta,z)\dd{\tau}=\int_0^{2\pi}\laplacian\qty[\varphi(\zeta)P(\zeta,z)]\dd{\tau}=0.\]
+    Since \(P(\zeta,z)=\frac{1}{4\pi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}\), from equation~\eqref{eq:laplaciancomplexform}, we have that \(\laplacian_z P(\zeta,z)=4\pdv{P(\zeta,z)}{z}{\overline{z}}=0\) (since each term is independent of either \(z\) or \(\overline{z}\)). Then by \autoref{thm:leibnizintegralrule}, equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution} becomes \[\laplacian u(z)=\laplacian\int_0^{2\pi}\varphi(\zeta)P(\zeta,z)\dd{\tau}=\int_0^{2\pi}\laplacian\qty[\varphi(\zeta)P(\zeta,z)]\dd{\tau}=0.\]
     As integrals are defined with limits, we aim to prove that for fixed \(\xi=R\ee^{\ii\vartheta}\in\partial D(0,R)\),
     \begin{equation}
         \lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\label{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}
     \end{equation}
     Let \(0<\rho<R\) and \(z=\rho \ee^{\ii\theta}\). Then,
     \[\abs{\varphi(\xi)-u(z)}=\abs{\varphi\qty(R\ee^{\ii\vartheta})-u\qty(\rho \ee^{\ii\theta})}=\abs{\varphi\qty(R\ee^{\ii\vartheta})-\int_0^{2\pi}P(\zeta,z)\varphi\qty(\zeta)\dd{\tau}}.\]
-    For a constant harmonic function identically equal to 1, we get \(1=\int_0^{2\pi}P(\zeta,z)\dd{\tau}\) from equation~\eqref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\pi}P(\zeta,z)\qty(\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta))\dd{\tau}}.\]
+    For a constant harmonic function identically equal to 1, we get \(\int_0^{2\pi}P(\zeta,z)\dd{\tau}=1\) from equation~\eqref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\pi}P(\zeta,z)\qty(\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta))\dd{\tau}}.\]
     By the continuity of \(\varphi\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty|\vartheta-\tau|<\delta<\frac{\pi}{2}\), \(\abs{\varphi(R\ee^{\ii\vartheta})-\varphi(\zeta)}<\varepsilon\). Therefore,
     \begin{align*}
         \abs{\varphi(\xi)-u(z)} & =\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}>\delta})P(\zeta,z)\paren{\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta)}\dd{\tau}} \\&=\abs{I_1+I_2}\leq\abs{I_1}+\abs{I_2}.
