@@ -2487,12 +2487,12 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
         &=\lim_{\zeta\to n}\frac{2}{2\pi^2\cos(2\pi\zeta)}+\order{(z-n)^2}\\
         &=\frac{1}{\pi^2}+\order{(z-n)^2},
     \end{align*}
-    where the linear term vanishes since \(\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)}\) is even around \(\zeta=n\). Hence, the principal part of \(\csc^2(\pi z)\) at \(z=n\) is \(\psi_n(z)=\frac{1}{\pi^2(z-n)^2}\). Since
+    where the linear term vanishes since \(\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)}\) is even around \(\zeta=n\). Hence, the principal part of \(\csc^2(\pi z)\) at \(z=n\) is \(\psi_n(z)=\frac{1}{\pi^2(z-n)^2}\). Let \(z=x+\ii y\). Since
     \begin{align*}
-        \abs{\sum_{n=-\infty}^\infty\psi_n(z)}&\leq\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{\qty|z-n|^2}\leq\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{\qty[\Re(z)-n]^2}\\
-        &=\frac{1}{\pi^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{\Re(z)}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{\Re(z)}]^2}+\frac{1}{\qty{\Re(z)}^2}+\frac{1}{\qty[1-\qty{\Re(z)}]^2}]\\
-        &\leq\frac{1}{\pi^2}\qty[2\sum_{n=1}^\infty\frac{1}{n^2}+\frac{1}{\qty{\Re(z)}^2}+\frac{1}{\qty[1-\qty{\Re(z)}]^2}]
-    \end{align*} (where \(\qty{\Re(z)}\) is the fractional part of the real component of \(z\)), it converges uniformly on compact subsets of \(\mathbb{C}\setminus\mathbb{Z}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). It follows that this sum is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\) by \autoref{thm:weierstrassuniformlimit}. The difference \[f(z)=\csc[2](\pi z)-\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{(z-n)^2}\] is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\). Since the principal parts of \(f\) at each \(z=n\) are zero, it follows that \(f\) is entire. Therefore, it is bounded on every compact subset of the complex plane. Since \(f\) is bounded on the compact rectangle \(K=\cbraces{z\in\mathbb{C}}{0\leq\Re(z)\leq 1,-1\leq\Im(z)\leq 1}\), for some \(M>0\), we have \(\abs{f}\leq M\) on \(K\). For \(0\leq x=\Re(z)\leq 1\) satisfying \(\abs{y}=\abs{\Im(z)}>1\), by the reverse triangle inequality, we have
+        \abs{\sum_{n=-\infty}^\infty\psi_n(z)}&\leq\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{\qty|z-n|^2}\leq\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{\qty[x-n]^2}\\
+        &=\frac{1}{\pi^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}]\\
+        &\leq\frac{1}{\pi^2}\qty[2\sum_{n=1}^\infty\frac{1}{n^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}]
+    \end{align*} (where \(\qty{x}\) is the fractional part of the real component of \(z\)), it converges uniformly on compact subsets of \(\mathbb{C}\setminus\mathbb{Z}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). It follows that this sum is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\) by \autoref{thm:weierstrassuniformlimit}. The difference \[f(z)=\csc[2](\pi z)-\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{(z-n)^2}\] is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\). Since the principal parts of \(f\) at each \(z=n\) are zero, it follows that \(f\) is entire. Therefore, it is bounded on every compact subset of the complex plane. Since \(f\) is bounded on the compact rectangle \(K=\cbraces{z\in\mathbb{C}}{0\leq\Re(z)\leq 1,-1\leq\Im(z)\leq 1}\), for some \(M>0\), we have \(\abs{f}\leq M\) on \(K\). For \(0\leq x=\Re(z)\leq 1\) satisfying \(\abs{y}=\abs{\Im(z)}>1\), by the reverse triangle inequality, we have
     \begin{align*}
         \abs{f(z)}&\leq\abs{\csc[2](\pi z)}+\frac{1}{\pi^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\abs{z}^2}+\frac{1}{\abs{1-z}^2}]\\
         &\leq \frac{1}{\abs{\sin^2\qty[\pi(x+\ii y)]}}+\frac{1}{\pi^2}\qty[\frac{\pi^2}{3}+\frac{2}{y^2}]\\
@@ -2511,7 +2511,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     Prove the pole expansion formula of \[\csc(\pi z)=\frac{1}{\pi}\qty[\frac{1}{z}+2z\sum_{n=1}^\infty \frac{(-1)^n}{z^2-n^2}]\] for \(z\in\mathbb{C}\setminus\mathbb{Z}\).
 \end{example}
 \begin{proof}
-    Since \(\csc\) has simple poles at each of \(z=n\in\mathbb{Z}\), it follows that \((z-n)\csc(\pi z)\) is holomorphic on \(D(n,1)\). Therefore, by repeatedly applying L'Hôpital's Rule, we can write its Taylor expansion that converges on \(D(n,1)\):
+    Since \(\csc\) has simple poles at each of \(z=n\in\mathbb{Z}\), it follows that \((z-n)\csc(\pi z)\) is holomorphic on \(D(n,1)\). By repeatedly applying L'Hôpital's Rule, we can write its Taylor expansion that converges on \(D(n,1)\):
     \begin{align*}
         (z-n)\csc(\pi z)&=\lim_{\zeta\to n}\frac{\zeta-n}{\sin(\pi\zeta)}+\order{z-n}\\
         &=\lim_{\zeta\to n}\frac{1}{\pi\cos(\pi\zeta)}+\order{z-n}\\
@@ -2555,7 +2555,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
         &=\abs{\frac{\qty(\overline{a_k}z+\abs{a_k})\qty(1-\abs{a_k})}{\abs{a_k}\qty(1-\overline{a_k}z)}}\\
         &\leq\qty(1-\abs{a_k})\frac{\abs{\overline{a_k}}(1+R)}{\abs{a_k}\qty(1-\abs{a_k}R)}<\qty(1-\abs{a_k})\frac{1+R}{1-R}.
     \end{align*}
-    Since \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}<\frac{1+R}{1-R}\sum_{k=1}^\infty\qty(1-\abs{a_k})\] is convergent by the Blaschke condition, by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series \(\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\) converges uniformly on \(\overline{D(0,R)}\). By \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion2}, the infinite product in equation~\eqref{eq:blaschkeproduct_statement} converges uniformly on compact subsets of \(\mathbb{D}\). The properties of its zeros follow from the lemma.
+    Since \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}<\frac{1+R}{1-R}\sum_{k=1}^\infty\qty(1-\abs{a_k})\] is convergent (Blaschke condition), by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series \(\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\) converges uniformly on \(\overline{D(0,R)}\). By \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion2}, the infinite product in equation~\eqref{eq:blaschkeproduct_statement} converges uniformly on compact subsets of \(\mathbb{D}\). The properties of its zeros follow from the lemma.
 
     Lastly, since \(\abs{\varphi_{a_k}}\leq 1\) and each partial product is bounded by 1, it follows that \(\abs{B(z)}\leq 1\) on \(\mathbb{D}\).
 \end{proof}
