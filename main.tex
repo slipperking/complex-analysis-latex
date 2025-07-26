@@ -341,7 +341,8 @@ We will now give statements relating to operations on Riemann integrals:
 \begin{proof}
     The second part is self-explanatory as it can be interpreted as an area integral.
 
-    Let \(\varphi(u)=\int_a^b f(x,u)\ddx\). Since \(f(x,u)\) is continuous on a compact set with respect to both \(x\) and \(u\), by \autoref{lemma:uniformcontinuousovercompactset}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\]
+    Let \[\varphi(u)=\int_a^b f(x,u)\ddx.\]
+    Since \(f(x,u)\) is continuous on a compact set with respect to both \(x\) and \(u\), by \autoref{lemma:uniformcontinuousovercompactset}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\]
 \end{proof}
 \section{Complex Prerequisites}
 \subsection{The Complex Plane}
@@ -600,9 +601,10 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     To prove \ref{itm:abelradius_differentiation}, first observe that \(\sum_{n=1}^\infty na_nz^n\) and \(\sum_{n=1}^\infty a_nz^n\) have the same convergence radius since \(\varlimsup_{n\to\infty}\sqrt[n]{n}=1\). For \(z\in D(0, R)\), let \(f(z)=S_n(z)+R_n(z)\), where \[S_n(z)=\sum_{k=0}^{n-1}a_kz^k,\quad R_n(z)=\sum_{k=n}^\infty a_kz^k.\]
     Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_nz^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=0.\]
     By analyzing the difference,
-    \begin{equation}
-        \frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=\qty[\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)]+S'_n(z)-f_1(z)+\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}.\label{eq:abelradius_differentiationintermediate}
-    \end{equation}
+    \begin{align}
+        \frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=\qty[\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)]\nonumber\\
+        &\quad+S'_n(z)-f_1(z)+\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}.\label{eq:abelradius_differentiationintermediate}
+    \end{align}
     Since \(S'_n(z)\to f_1(z)\) as \(n\to\infty\), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{S'_n(z)-f_1(z)}<\frac{\varepsilon}{3}\). Since \(\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}=\sum_{k=n}^\infty a_k\frac{z^k-z_0^k}{z-z_0}=\sum_{k=n}^\infty a_k\qty(z^{k-1}+z^{k-2}z+\cdots+zz_0^{k-2}+z_0^{k-1})\) for \(z\neq z_0\), \(|z|<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty \abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) converges, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
 
     Finally, \(\forall n>\max\qty(N,N')\), \(\exists\delta>0\) such that \(\forall z\in D\qty(z_0, \delta)\setminus\qty{0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
