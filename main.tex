@@ -1164,7 +1164,11 @@ We have also already seen the utility of parameterization via a polar transforma
                     2\pi\ii f(z) & z\in\mathrm{ext}(\gamma)\cap D(0,R)
                 \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
             \end{align} when \(\gamma\subset D(0,R)\).
-            We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities, \[\qty|\int_0^{2\pi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}|\leq\int_0^{2\pi}\qty|\frac{z}{R\ee^{\ii\theta}-z}|\dd{\theta}\leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.\]
+            We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities, 
+            \begin{align*}
+                \qty|\int_0^{2\pi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}|&\leq\int_0^{2\pi}\qty|\frac{z}{R\ee^{\ii\theta}-z}|\dd{\theta}\\
+                &\leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.
+            \end{align*}
     \end{enumerate}
     By plugging the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\pi\ii}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
         \begin{cases}
@@ -1179,7 +1183,7 @@ The Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}) can al
     \begin{equation}
         f^{(n)}(z)=\frac{n!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{n+1}}\ddzeta.\label{eq:cauchydifferentiationformula_statement}
     \end{equation}
-    Additionally, by the openness of \(U\), \(\forall z_0\in U\), \(\forall r>0\) such that the closed disk \(\overline{D\paren{z_0,r}}\subset U\), \(f\) has the uniformly and absolutely convergent Taylor expansion
+    Additionally, since \(U\) is open, \(\forall z_0\in U\), \(\forall r>0\) such that the closed disk \(\overline{D\paren{z_0,r}}\subset U\), \(f\) has the uniformly and absolutely convergent Taylor expansion
     \begin{equation}
         f(z)=\sum_{j=0}^\infty a_j\paren{z-z_0}^j,\label{eq:cauchydifferentiationformula_taylorseries}
     \end{equation}
@@ -1232,7 +1236,7 @@ The differentiation formula above can be thought of as a generalization of \auto
     Prove the integral form \[P_n(z)=\frac{1}{2\pi\ii}\oint_\gamma\frac{\qty(\zeta^2-1)^n}{2^n(\zeta-z)^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
 \end{example}
 \begin{proof}
-    From the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\pi \ii}\int_{\gamma}\frac{\qty(\zeta^2-1)^n}{(\zeta-z)^{n+1}}\ddzeta,\] as desired.
+    By applying the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\pi \ii}\int_{\gamma}\frac{\qty(\zeta^2-1)^n}{(\zeta-z)^{n+1}}\ddzeta,\] as desired.
 \end{proof}
 \begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
     For a function \(f:U\to\mathbb{C}\) holomorphic over \(U\subseteq\mathbb{C}\) and \(\forall z_0\in U\) and \(\forall R>0\) such that \(\overline{D\paren{z_0,R}}\subseteq{U}\), \(\forall n\in\mathbb{N}\), \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!M}{R^n},\]
@@ -1454,7 +1458,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 \begin{proof}
     By the openness of \(\Omega_k\), \(\forall z\in\Omega\), \(\exists r_z>0\) such that \(\overline{D\paren{z,r_z}}\subset\Omega_{k_z}\) for some \(k_z\in\mathbb{Z}_{\ge0}\).
 
-    Then, \(\cbraces{D\paren{z,r}}{z\in\Omega, 0<r<r_z}\) forms an open basis of \(\Omega\). Then by \autoref{lemma:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\cbraces{D\paren{z_j,r_{z_j}}}\) of \(\Omega\), and since it is a subcollection of the basis, \[D\paren{z_j,r_{z_j}}\subset\overline{D\paren{z_j,r_{z_j}}}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\] The most trivial bump function has the form \[\theta(z)=
+    Then, \(\cbraces{D\paren{z,r}}{z\in\Omega, 0<r<r_z}\) forms an open basis of \(\Omega\). By \autoref{lemma:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\cbraces{D\paren{z_j,r_{z_j}}}\) of \(\Omega\), and since it is a subcollection of the basis, \[D\paren{z_j,r_{z_j}}\subset\overline{D\paren{z_j,r_{z_j}}}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\] The most trivial bump function has the form \[\theta(z)=
         \begin{cases}
             \exp\paren{\frac{1}{\abs{z}^2-1}} & \abs{z}<1   \\
             0                                 & \abs{z}\ge1
