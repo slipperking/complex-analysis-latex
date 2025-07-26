@@ -5,7 +5,6 @@
 \usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns}
 \usepackage{pifont}
 \usepackage[labelfont=bf, textfont=it]{caption}
-\usepackage[left=3.5cm,right=3.5cm]{geometry}
 \usepackage{physics}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -188,13 +187,15 @@ Four main classical theorems exist, relating a function and its line integral in
     \[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
 \end{theorem}
 \begin{theorem}[Green's Theorem]\label{thm:realgreen}
-    Let \(U\) be a positively oriented, multiply connected subset of \(\mathbb{R}^2\) with a piecewise smooth oriented boundary \(\partial U\). For \(P(x,y),Q(x,y)\in C^1\paren{\overline{U}}\),
+    Let \(U\) be a positively oriented, multiply connected subset of \(\mathbb{R}^2\) with a piecewise smooth oriented boundary \(\partial U\). For two functions \(P(x,y),Q(x,y)\in C^1\paren{\overline{U}}\),
     \[\oint_{\partial U} P\ddx+Q\ddy=\iint_U\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
-    Let \(S\subset\mathbb{R}^3\) be a positively oriented, smooth surface with a positively oriented boundary curve \(\partial S\). Let \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
+    Let \(S\subset\mathbb{R}^3\) be a positively oriented, smooth surface with a positively oriented boundary curve \(\partial S\). For arbitrary functions \(P(x,y,z),Q(x,y,z),R(x,y,z)\in C^1\paren{\overline{S}}\), we have
     \begin{align*}
-        \oint_{\partial S}P\ddx+Q\ddy+R\ddz & =\iint_S\left(\pdv{R}{y}-\pdv{Q}{z}\right)\ddy\ddz+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\ddy.
+        \oint_{\partial S}P\ddx+Q\ddy+R\ddz & =\iint_S\qty(\pdv{R}{y}-\pdv{Q}{z})\ddy\ddz\\
+        &\quad+\qty(\pdv{P}{z}-\pdv{R}{x})\ddz\ddx\\
+        &\qquad+\qty(\pdv{Q}{x}-\pdv{P}{y})\ddx\ddy.
     \end{align*}
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
@@ -1820,7 +1821,7 @@ Let \(Q(\zeta,z)=\frac{\Im\qty(z\overline{\zeta})}{\pi\abs{\zeta-z}^2}\), known 
 where \(\zeta=R\ee^{\ii\tau}\). Two harmonic functions are said to be \textit{conjugate} if they are the real and imaginary parts of a holomorphic function. As seen above, on open disks, any harmonic function will admit a unique conjugate, (up to an additive constant \(v(0)\)). For a harmonic function \(u\), we can construct its harmonic conjugate from equation~\eqref{eq:harmonicconjugate}.
 
 The Poisson kernel is important in many branches of mathematics. We will introduce two of the important uses below.
-\subsubsection{The Solution to Laplace's Equation under Dirichlet Boundary Conditions on a Disk}
+\subsubsection{Laplace's Equation under Dirichlet Boundary Conditions on a Disk}
 A fundamental problem in the theory of partial differential equations is to find a function \(u\) that is continuous on the closed disk \(\overline{D(0,R)}\), harmonic on the open disk \(D(0,R)\), and identically equal to a given boundary function on \(\partial D(0,R)\). This is known as the \textit{Dirichlet problem} for the Laplace equation on a disk.
 \begin{theorem}\label{thm:dirichletproblemwithlaplaceequationsolution}
     For a continuous function \(\varphi\in C^0(\partial D(0,R))\), the unique real-valued solution \(u\in C^0\qty(\overline{D(0,R)})\) that solves \[\laplacian u(z)=0\quad\forall z\in D(0,R),\qquad u(z)=\varphi(z) \quad\forall z\in\partial D(0,R)\] is given by the Poisson integral formula:
