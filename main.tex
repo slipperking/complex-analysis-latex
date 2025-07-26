@@ -2762,14 +2762,14 @@ Residues are extremely important as they allow for simple evaluation of definite
     \begin{equation}
         \int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=0.\label{eq:fresnelwedgecontourintegral}
     \end{equation} The third integral can be written as \[\int_{C_R}f(z)\ddz=R\ii\int_0^{\frac{\pi}{4}}\exp[\ii{\qty(R\ee^{\ii\theta})}^2]\ee^{\ii\theta}\dd{\theta}.\]
-    Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as 
+    Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as
     \begin{align*}
         \abs{\int_{C_R}f(z)\ddz}&\leq R{\int_0^{\frac{\pi}{4}}\ee^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}\ee^{-\frac{4}{\pi}R^2\theta}\dd{\theta}\\
         &=-\frac{\pi}{4R}\eval{\ee^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-\ee^{-R^2}).
     \end{align*}
     As \(R\to\infty\), this integral tends to 0. Let \(z=r\ee^{\ii\frac{\pi}{4}}\) on \(\Gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\Gamma_2}f(z)\ddz=\int_\infty^0\exp[\ii\qty(r\ee^{\ii\frac{\pi}{4}})^2]\ee^{\ii\frac{\pi}{4}}\dd{r}=\ee^{\ii\frac{\pi}{4}}\int_\infty^0\exp(-r^2)\dd{r}.\]
     From equation~\eqref{eq:fresnelwedgecontourintegral}, we have that \[\int_0^\infty \ee^{\ii r^2}\dd{r}=\ee^{\ii\frac{\pi}{4}}\int_0^\infty \ee^{-r^2}\dd{r}.\] Since \(\int_0^\infty \ee^{-r^2}\dd{r}=\frac{\sqrt{\pi}}{2}\), we have \[\int_0^\infty \ee^{\ii r^2}\dd{r}=\qty(\frac{\sqrt{2}}{2}+\ii\frac{\sqrt{2}}{2})\frac{\sqrt{\pi}}{2}.\]
-    Since \(\ee^{\ii r^2}=\cos(r^2)+\ii\sin(r^2)\), we have 
+    Since \(\ee^{\ii r^2}=\cos(r^2)+\ii\sin(r^2)\), we have
     \begin{gather*}
         \int_0^\infty\cos(r^2)\dd{r}=\Re\qty[\int_0^\infty \ee^{\ii r^2}\dd{r}]=\frac{\sqrt{2\pi}}{4},\\
         \int_0^\infty\sin(r^2)\dd{r}=\Im\qty[\int_0^\infty \ee^{\ii r^2}\dd{r}]=\frac{\sqrt{2\pi}}{4},
@@ -2793,8 +2793,8 @@ Residues are extremely important as they allow for simple evaluation of definite
 
     The contour is the union of the following curves:\
     \begin{gather*}
-    \Gamma_1=\cbraces{x\in\mathbb{R}}{0\leq x\leq R},\qquad\Gamma_2=\cbraces{r\exp(\ii\frac{2\pi}{\beta})}{0\leq r\leq R},\\
-    C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\pi}{\beta}},
+        \Gamma_1=\cbraces{x\in\mathbb{R}}{0\leq x\leq R},\qquad\Gamma_2=\cbraces{r\exp(\ii\frac{2\pi}{\beta})}{0\leq r\leq R},\\
+        C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\pi}{\beta}},
     \end{gather*}
     where \(R>1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{R\to\infty}\int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=2\pi\ii\Res[f,\exp(\ii\frac{\pi}{\beta})].\]
     By equation~\eqref{eq:residueatpole}, it follows that
@@ -2804,9 +2804,10 @@ Residues are extremely important as they allow for simple evaluation of definite
         & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}                             \\
         & =-\frac{1}{\beta}\exp(\ii\frac{\pi}{\beta}(\alpha+1)).
     \end{align*}
-    We can write the integral on \(\Gamma_2\) in terms of \(I\): \begin{align*}
-    \int_{\Gamma_2}f(z)\ddz&=\int_R^0 f\qty[r\exp(\ii\frac{2\pi}{\beta})]\exp(\ii\frac{2\pi}{\beta})\dd{r}\\
-    &=-\exp[\ii\frac{2\pi}{\beta}(1+\alpha)]\int_0^R\frac{r^\alpha}{1+r^\beta}\dd{r}.
+    We can write the integral on \(\Gamma_2\) in terms of \(I\):
+    \begin{align*}
+        \int_{\Gamma_2}f(z)\ddz&=\int_R^0 f\qty[r\exp(\ii\frac{2\pi}{\beta})]\exp(\ii\frac{2\pi}{\beta})\dd{r}\\
+        &=-\exp[\ii\frac{2\pi}{\beta}(1+\alpha)]\int_0^R\frac{r^\alpha}{1+r^\beta}\dd{r}.
     \end{align*}
     We also have \[\int_{C_R}f(z)\ddz=R\ii\int_{0}^{\frac{2\pi}{\beta}}f\qty(R\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}.\] We can show that the integrand can be dominated as follows:
     \[\abs{\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}.\]
@@ -2861,9 +2862,21 @@ Residues are extremely important as they allow for simple evaluation of definite
         & =\lim_{z\to\frac{\ii}{2}}\frac{\exp(-2\pi \ii z\xi)}{\pi\sinh(\pi z)+2\pi\ii\xi\cosh(\pi z)} \\
         & =\frac{\exp(\pi\xi)}{\pi \ii}.
     \end{align*}
-    The sum of the horizontal line integrals is equal to \[\int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+\ii)\ddz=\int_{-R}^R f(z)\ddz-\int_R^{-R}\ee^{2\pi\xi}f(z)\ddz=\qty(1+\ee^{2\pi\xi})\int_{-R}^R f(z)\ddz.\] As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+\ee^{2\pi\xi})I(\xi)\).
-    The remaining two integrals can be written as \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz,\qquad\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz.\]
-    They can be bounded with \[\abs{\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}\ee^{\pi \ii z}+\ee^{-\pi R}\ee^{-\pi \ii z}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz\] and \[\abs{\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz}\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{-\pi R}\ee^{\pi \ii z}+\ee^{\pi R}\ee^{-\pi \ii z}}}\ddz\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz\]
+    The sum of the horizontal line integrals is equal to
+    \begin{align*}
+        \int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+\ii)\ddz&=\int_{-R}^R f(z)\ddz-\int_R^{-R}\ee^{2\pi\xi}f(z)\ddz\\
+        &=\qty(1+\ee^{2\pi\xi})\int_{-R}^R f(z)\ddz.
+    \end{align*} As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+\ee^{2\pi\xi})I(\xi)\).
+    The remaining two integrals can be written as \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz,\quad\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz.\]
+    They can be bounded with 
+    \begin{align*}
+        \abs{\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz}&\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}\ee^{\pi \ii z}+\ee^{-\pi R}\ee^{-\pi \ii z}}}\ddz\\
+        &\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz
+    \end{align*} and 
+    \begin{align*}
+        \abs{\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz}&\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{-\pi R}\ee^{\pi \ii z}+\ee^{\pi R}\ee^{-\pi \ii z}}}\ddz\\
+        &\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz
+    \end{align*}
     Since the integrands are continuous and uniformly convergent to \(0\) with respect to \(z\), we have \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz+\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz\to 0\] as \(R\to\infty\). By rearrangement of equation~\eqref{eq:fouriertransformofsechpix_rectangularcontourintegral}, \[I(\xi)\qty(1+\ee^{2\pi\xi})=2\exp(\pi\xi),\]
     or that \[I(\xi)=\frac{2}{\ee^{-\pi\xi}+\ee^{\pi\xi}}=\sech(\pi\xi),\] which proves the result.
 \end{proof}
