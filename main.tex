@@ -1648,7 +1648,7 @@ A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus 
 
 Suppose a holomorphic function attained a local maximum of its modulus at a zero. Then, by adding a sufficiently small constant (such as a downward shift), the zero could disappear from the region, violating the stability of zeros under small additive perturbations established by \autoref{thm:holomorphiczerosstabilityundershifts}.
 
-For comparison, consider the real function \(-x^2\). Shifting it downward by any positive amount removes the zero of multiplicity 2 at \(x=0\) in \(\mathbb{R}\), while shifting it upward causes that zero to split into two simple zeros. The latter behavior agrees with \autoref{thm:holomorphiczerosstabilityundershifts}, and provides a helpful way to visualize the stability of zeros in two dimensions. However, the fact that the zero is not preserved under a positive shift highlights a key difference between real differentiable functions and holomorphic functions.
+For comparison, consider the real function \(-x^2\). Shifting it downward by any positive amount removes the zero of multiplicity 2 at \(x=0\) in \(\mathbb{R}\), while shifting it upward causes that zero to split into two simple zeros. The latter behavior agrees with \autoref{thm:holomorphiczerosstabilityundershifts}, and provides a heuristic way to visualize the stability of zeros in two dimensions. However, the fact that the zero is not preserved under a positive shift highlights a key difference between real differentiable functions and holomorphic functions.
 
 This preludes to the following fact: a non-constant holomorphic function cannot attain a local (nonzero) minimum or maximum of its modulus inside its domain (with respect to an open neighborhood of the point).
 
@@ -2243,7 +2243,7 @@ Let us now examine \(\Aut\qty(\extcomplex)\). Let \(f(z)\in \Aut\qty(\extcomplex
 Let \(f(z)\in\Aut\qty(\extcomplex)\) such that \(f(\infty)\neq\infty\). Then, \(g(z)=\frac{1}{f(z)-f(\infty)}\in\Aut\qty(\extcomplex)\) and \(g(\infty)=\infty\). By the property above, \(g(z)=cz+d\) for some complex \(d\) and nonzero \(c\). Hence, \(f(z)=\frac{f(\infty)(cz+d)+1}{cz+d}\). Let \(a=cf(\infty)\), \(b=df(\infty)+1\), \(f(z)=\frac{az+b}{cz+d}\). Then in this specific construction, \(ad-bc=-c\neq0\). Let the matrix \(\mqty(a&b\\c&d)\) correspond to this transformation, where for any nonzero scalar \(k\), \(k\mqty(a&b\\c&d)\) corresponds to \(\mqty(a&b\\c&d)\). Therefore, we can arbitrarily pick \(ad-bc\) to be \(1\).
 
 Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm\vb{I}},\right.\]
-where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because \(\mqty(a&b\\c&d)\) refers to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} (one-to-one and homomorphic, or that the operation is preserved) to the \textit{group of Möbius transformations}, consisting of all linear fractional transformations.
+where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} (one-to-one and homomorphic, or that the operation is preserved) to the \textit{group of Möbius transformations}, consisting of all linear fractional transformations.
 
 Therefore, any meromorphic automorphism on \(\extcomplex\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
 \begin{theorem}[The Meromorphic Automorphism Group on \(\extcomplex\)]\label{thm:meromorphicautomorphismgrouponextendedcomplexplane}
@@ -2267,7 +2267,11 @@ It is common knowledge in algebra that any polynomial can be factored into linea
 
 We will start by introducing the concept of \textit{infinite products}. Let \(\prod_{k=1}^n\qty(1+u_k)\) be an infinite product. If the limit \(\lim_{n\to\infty}\prod_{k=1}^n\qty(1+u_k)\) exists and is finite, then the infinite product is said to be \textit{convergent}.
 
-For \(x\in\mathbb{R}_{\geq0}\), since \(\ee^x\geq x\) and \(\ee^0=1\), we can integrate over \([0,x]\) to get that \(\ee^x\geq x+1\). Therefore, \[\exp(\sum_{k=1}^n\abs{u_k})\geq\prod_{k=1}^n \qty(1+\abs{u_k})=1+\sum_{k=1}^n\abs{u_k}+\sum_{\substack{j,k\in\qty{1,\ldots,n}\\j<k}}\abs{u_j u_k}+\cdots+\prod_{k=1}^n\abs{u_k}>\sum_{k=1}^n\abs{u_k}.\]
+For \(x\in\mathbb{R}_{\geq0}\), since \(\ee^x\geq x\) and \(\ee^0=1\), we can integrate over \([0,x]\) to get that \(\ee^x\geq x+1\). Therefore, 
+\begin{align*}
+    \exp(\sum_{k=1}^n\abs{u_k})&\geq\prod_{k=1}^n \qty(1+\abs{u_k})=1+\sum_{k=1}^n\abs{u_k}\\
+    &\quad+\sum_{\substack{j,k\in\qty{1,\ldots,n}\\j<k}}\abs{u_j u_k}+\cdots+\prod_{k=1}^n\abs{u_k}>\sum_{k=1}^n\abs{u_k}.
+\end{align*}
 Since the convergence of \(\sum_{k=1}^\infty\qty|u_k|\) is the same as that of \(\exp(\sum_{k=1}^\infty\abs{u_k})\), it follows that the convergence of \(\sum_{k=1}^\infty\abs{u_k}\) is equivalent to that of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\). If \(\sum_{k=1}^\infty\abs{u_k}\) is convergent, then \(\prod_{k=1}^\infty\qty(1+u_k)\) is \textit{absolutely convergent}. As with the order of summing an absolutely convergent series is unimportant, we may also rearrange terms in an absolutely convergent infinite product.
 
 Similar to series, absolute convergence is a stronger condition than convergence:
@@ -2304,14 +2308,14 @@ We also have:
         &\leq\abs{F_m(z)}\abs{\exp\qty(\sum_{k=m+1}^n\abs{f_k(z)})-1}\\
         &\leq e^M\qty(\ee^\varepsilon -1),
     \end{align*}
-    where the second inequality can be easily verified by expanding \(\prod_{k=m+1}^n\qty(1+{f_k(z)})-1\) and the triangle inequality.
+    where the second inequality can be easily verified by expanding the product \(\prod_{k=m+1}^n\qty(1+{f_k(z)})-1\) and the triangle inequality.
 
     Since \(\ee^{\varepsilon}-1\to 0^+\), it follows that \(F(z)=\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on \(K\). Let \(\xi\in U\) be a point satisfying \(F(\xi)=0\). Since there exists an \(m\in\mathbb{N}\) such that \[\prod_{k=m+1}^\infty \qty(1+f_k(z))\] is non-vanishing at \(z=\xi\), and from the fact that \[F(z)=\prod_{k=1}^m \qty(1+f_k(z))\cdot\prod_{k=m+1}^\infty \qty(1+f_k(z)),\] we can analyze the zeros of the finite product to obtain the conclusion.
 \end{proof}
 We will now study the construction of an entire function \(f(z)\) via its zeros. We have the following cases:
 \begin{enumerate}
     \item If \(f\) has no zeros in \(\mathbb{C}\), then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)\ee^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)\ee^{-\varphi(z)})=f'(z)\ee^{-\varphi(z)}-\varphi'(z)f(z)\ee^{-\varphi(z)}=0\). It follows that \(f(z)\ee^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).\label{itm:entirefunctionconstructednonvanishing}
-    \item If \(f(z)\) is entire and has finitely many zeros in \(\mathbb{C}\), namely \(a_0=0,a_1,a_2,\ldots,a_n\) with respective multiplicities \(m_0,m_1,\ldots m_n\) (if \(0\) is not a zero, treat \(m_0=0\)), then at each zero \(a_k\), it has the local Taylor expansion of
+    \item If \(f\) is entire and has finitely many zeros in \(\mathbb{C}\), namely \(a_0=0,a_1,a_2,\ldots,a_n\) with respective multiplicities \(m_0,m_1,\ldots m_n\) (if \(0\) is not a zero, treat \(m_0=0\)), then at each zero \(a_k\), it has the local Taylor expansion of
         \[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every zero, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By~\ref{itm:entirefunctionconstructednonvanishing}, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write
         \begin{equation}
             f(z)=p(z)\exp(\varphi(z)),\label{eq:weierstrassfactorization_finitezeros}
