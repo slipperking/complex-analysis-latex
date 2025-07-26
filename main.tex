@@ -1781,7 +1781,7 @@ As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk},
     \begin{equation}
         \abs{\dv{w}{z}}\leq\frac{1-\overline{w}w}{1-\overline{z}z}\Longleftrightarrow\frac{\abs{\dd{w}}}{1-\overline{w}w}\leq\frac{\abs{\ddz}}{1-\overline{z}z}.\label{eq:schwarzpick_nonincreasingmetric}
     \end{equation}
-    By the Schwarz Lemma (\autoref{lemma:schwarz}), under the equality condition of \(\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1\), \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\]
+    By the Schwarz Lemma (\autoref{lemma:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\]
 \end{proof}
 \begin{remark}
     In \chpref{sec:differentialgeometry}, we will introduce the \textit{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-|z|^2)^2}.\]
@@ -1794,12 +1794,16 @@ Then equation~\eqref{eq:cauchygoursatformula} can be written as:
 \[f(z)=\int_{\partial U}f(\zeta)H(\zeta,z)\ddzeta.\] There also exist other integral formulae for functions, varying in the kernel of the expression.
 
 Let \(z\in \mathbb{D}\) and notice that \(\varphi_z(\zeta)=\frac{\zeta-z}{1-\overline{z}\zeta}\in\Aut(\mathbb{D})\) maps \(\partial\mathbb{D}\) to \(\partial\mathbb{D}\) bijectively. Let \(\Phi:\mathbb{D}\to\mathbb{R}\) be harmonic such that \(\Phi\) is continuous on \(\overline{\mathbb{D}}\). By the mean-value property introduced in \autoref{lemma:holomorphicmeanvalueproperty}, we have \[\Phi (0)=\frac{1}{2\pi\rho}\int_0^{2\pi}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi},\]
-where \(0<\rho<1\). By the uniform continuity of \(\Phi\) on \(\overline{\mathbb{D}}\) (\autoref{lemma:uniformcontinuousovercompactset}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\rho\in\qty(\frac{1}{2},1)\) satisfying \(1-\rho<\delta\), \(\forall\psi\in[0,2\pi]\), \(\abs{\Phi\qty(\ee^{\ii\psi})-\Phi\qty(\rho \ee^{\ii\psi})}<\varepsilon\). It then follows that \[\abs{\frac{1}{2\pi\rho}\int_0^{2\pi}\Phi\qty(\ee^{\ii\psi})\dd{\psi}-\frac{1}{2\pi\rho}\int_0^{2\pi}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi}}<\frac{\varepsilon}{\rho}<2\varepsilon.\]
+where \(0<\rho<1\). By the uniform continuity of \(\Phi\) on \(\overline{\mathbb{D}}\) (\autoref{lemma:uniformcontinuousovercompactset}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\rho\in\qty(\frac{1}{2},1)\) satisfying \(1-\rho<\delta\) and \(\forall\psi\in[0,2\pi]\), \[\abs{\Phi\qty(\ee^{\ii\psi})-\Phi\qty(\rho \ee^{\ii\psi})}<\varepsilon.\] It then follows that \[\abs{\frac{1}{2\pi\rho}\int_0^{2\pi}\Phi\qty(\ee^{\ii\psi})\dd{\psi}-\frac{1}{2\pi\rho}\int_0^{2\pi}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi}}<\frac{\varepsilon}{\rho}<2\varepsilon.\]
 Hence,
 \begin{equation}
     \lim_{\rho\to1^-}\frac{1}{2\pi\rho}\int_0^{2\pi}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi}=\frac{1}{2\pi}\int_0^{2\pi}\Phi\qty(\ee^{\ii\psi})\dd{\psi}=\Phi(0).\label{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}
 \end{equation}
-Let \(u(\zeta)=\Phi\circ\varphi_z(\zeta)\), which is also harmonic on \(\mathbb{D}\). By the univalence of \(\varphi_z\), let \(\ee^{\ii\psi}=\varphi_z\qty(\ee^{\ii\tau})\). It follows that \[\ii\ee^{\ii\psi}\dd{\psi}=\ii\frac{1-\overline{z}z}{(1-\overline{z}\ee^{\ii\tau})^2}\ee^{\ii\tau}\dd{\tau}\Longleftrightarrow\dd{\psi}=\frac{1-\overline{z}z}{(1-\overline{z}\ee^{\ii\tau})^2}\frac{1-\overline{z}\ee^{\ii\tau}}{\ee^{\ii\tau}-z}\ee^{\ii\tau}\dd{\tau}=\frac{1-\abs{z}^2}{\abs{1-\overline{z}\ee^{\ii\tau}}^2}\dd{\tau}.\]
+Let \(u(\zeta)=\Phi\circ\varphi_z(\zeta)\), which is also harmonic on \(\mathbb{D}\). By the univalence of \(\varphi_z\), let \(\ee^{\ii\psi}=\varphi_z\qty(\ee^{\ii\tau})\). It follows that 
+\begin{gather*}
+    \ii\ee^{\ii\psi}\dd{\psi}=\ii\frac{1-\overline{z}z}{(1-\overline{z}\ee^{\ii\tau})^2}\ee^{\ii\tau}\dd{\tau},\\
+    \dd{\psi}=\frac{1-\overline{z}z}{(1-\overline{z}\ee^{\ii\tau})^2}\frac{1-\overline{z}\ee^{\ii\tau}}{\ee^{\ii\tau}-z}\ee^{\ii\tau}\dd{\tau}=\frac{1-\abs{z}^2}{\abs{1-\overline{z}\ee^{\ii\tau}}^2}\dd{\tau}.
+\end{gather*}
 Then from equation~\eqref{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}, since \(\Phi(0)=u\circ\varphi_{-z}(0)=u(z)\), \[\Phi(0)=\frac{1}{2\pi}\int_0^{2\pi}u\qty(\ee^{\ii\tau})\frac{1-\abs{z}^2}{\abs{1-\overline{z}\ee^{\ii\tau}}^2}\dd{\tau}=u(z).\]
 Let \(P(\zeta,z)=\frac{1-\abs{z}^2}{2\pi\qty|1-\overline{z}\zeta|^2}=\frac{1-\abs{z}^2}{2\pi\abs{\zeta-z}^2}\), known as the \textit{Poisson kernel}. Then,
 \begin{equation}
