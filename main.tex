@@ -2507,32 +2507,6 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     \end{align*}
     which completes the proof.
 \end{proof}
-\begin{example}\label{ex:cscpoleexpansion}
-    Prove the pole expansion formula of \[\csc(\pi z)=\frac{1}{\pi}\qty[\frac{1}{z}+2z\sum_{n=1}^\infty \frac{(-1)^n}{z^2-n^2}]\] for \(z\in\mathbb{C}\setminus\mathbb{Z}\).
-\end{example}
-\begin{proof}
-    Since \(\csc\) has simple poles at each of \(z=n\in\mathbb{Z}\), it follows that \((z-n)\csc(\pi z)\) is holomorphic on \(D(n,1)\). By repeatedly applying L'Hôpital's Rule, we can write its Taylor expansion that converges on \(D(n,1)\):
-    \begin{align*}
-        (z-n)\csc(\pi z)&=\lim_{\zeta\to n}\frac{\zeta-n}{\sin(\pi\zeta)}+\order{z-n}\\
-        &=\lim_{\zeta\to n}\frac{1}{\pi\cos(\pi\zeta)}+\order{z-n}\\
-        &=\frac{(-1)^n}{\pi}+\order{z-n}.
-    \end{align*}
-    Hence, the principal part of \(\csc(\pi z)\) at \(z=n\) is \(\psi_n(z)=\frac{(-1)^n}{\pi(z-n)}\). Let \(z=x+\ii y\) and let \(\widetilde{z}=\qty{x}+\ii y\) where \(\qty{x}\) is the fractional part of \(x\). Suppose \(K\subset\mathbb{C}\setminus\mathbb{Z}\) is compact. For \(z\in K\), we have \begin{align*}
-        \PV{\abs{\sum_{n=-\infty}^\infty\psi_n(z)}}&=\PV{\abs{\sum_{n=-\infty}^\infty\psi_n\qty(\widetilde{z})}}=\abs{\lim_{N\to\infty}\sum_{n=-N}^N\psi_n(\widetilde{z})}\\
-        &=\frac{1}{\pi}\abs{\frac{1}{\widetilde{z}}+2z\sum_{n=1}^\infty\frac{(-1)^n}{\widetilde{z}^2-n^2}}\\
-        &\leq\frac{1}{\pi}\qty[\frac{1}{\qty{x}}+2\sup_{\zeta\in K}\abs{\zeta}\qty(\frac{1}{1-\qty{x}^2}+\sum_{n=2}^\infty\frac{1}{n^2-\qty{x}^2})],\\
-        &\leq\frac{1}{\pi}\qty[\frac{1}{\qty{x}}+2\sup_{\zeta\in K}\abs{\zeta}\qty(\frac{1}{1-\qty{x}^2}+\sum_{n=1}^\infty\frac{1}{n^2})],\\
-    \end{align*}
-    where \(\PV\) denotes the Cauchy principal value. Since \(\sum_{n=1}^\infty\frac{1}{n^2}\) is convergent, it follows that the principal (symmetric) value summation is uniformly convergent on compact subsets of \(\mathbb{C}\setminus\mathbb{Z}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). It follows that this sum is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\) by \autoref{thm:weierstrassuniformlimit}. Since the function defined by \[f(z)=\csc(\pi z)-\frac{1}{\pi}\qty[\frac{1}{z}+2z\sum_{n=1}^\infty \frac{(-1)^n}{z^2-n^2}]\] is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\) and has a principal part of zero at each \(z=n\), it follows that \(f\) is entire. Therefore, it is bounded on every compact subset of the complex plane. Since \(f\) is bounded on the compact rectangle \[K=\cbraces{z\in\mathbb{C}}{0\leq\Re(z)\leq 1,-1\leq\Im(z)\leq 1},\] for some finite \(M>0\), we have \(\abs{f}\leq M\) on \(K\). For \(0\leq x=\Re(z)\leq 1\) satisfying \(\abs{y}=\abs{\Im(z)}>1\), by the reverse triangle inequality, we have
-    \begin{align*}
-        \abs{f(z)}&\leq\abs{\csc(\pi z)}+\frac{1}{\pi}\qty[\frac{1}{\abs{z}}+2\abs{z}\sum_{n=1}^\infty\frac{1}{z^2-n^2}]\\
-        &\leq\sqrt{\abs{\csc^2(\pi z)}}+\frac{1}{\pi}\qty[\frac{1}{\abs{y}}+2\qty(\abs{y}+1)\sum_{n=1}^\infty\frac{1}{x^2+y^2-n^2-2\ii xy}]\\
-    \end{align*}
-    where the bound for \(\abs{\csc^2(\pi z)}\) is given heuristically by the steps preceding equation~\eqref{eq:csc^2poleexpansionuniformbound} in \autoref{ex:csc^2poleexpansion}.
-\end{proof}
-\begin{example}\label{ex:cotpoleexpansion}
-    Prove the pole expansion formula of \[\cot(\pi z)=\frac{1}{\pi}\qty[\frac{1}{z}+2z\sum_{n=1}^\infty \frac{1}{z^2-n^2}]\] for \(z\in\mathbb{C}\setminus\mathbb{Z}\).
-\end{example}
 \begin{example}\label{ex:sinproductformula}
     Prove that \[\sin(\pi z)=\pi z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
     is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
@@ -2559,7 +2533,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     \end{equation} where \(\varphi_a(z)\) is a Möbius transformation in the form of equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}, is uniformly convergent on compact subsets of \(\mathbb{D}\) to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\qty{a_k}\).
 \end{example}
 \begin{proof}
-    By the Blaschke condition, it is satisfied that \(\lim_{k\to\infty}1-\abs{a_k}\to 0\). In other words, \(\forall 0<R<1\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(1-\abs{a_n}<1-R\), or that \(\abs{a_n}>R\). If we can prove that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,R)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
+    If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,R)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
     \begin{align*}
         \abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}&=\abs{\frac{\overline{a_k}}{\abs{a_k}}\frac{a_k-z}{1-\overline{a_k}z}-1}=\abs{\frac{\abs{a_k}^2-\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}-1}\\
         &=\abs{\frac{\abs{a_k}^2-\overline{a_k}z-\abs{a_k}+\abs{a_k}\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}}\\
