@@ -1265,7 +1265,11 @@ The differentiation formula above can be thought of as a generalization of \auto
     Let \(f:\mathbb{C}\to\mathbb{C}\) be entire. Then, \(\forall z_0\in\mathbb{C}\), \(\forall R>0\), \(f\) is holomorphic over \(\overline{D\paren{z_0,R}}\). By \autoref{thm:cauchysestimate}, \[\abs{f'\paren{z_0}}\leq\frac{M}{R},\] where \(M=\sup_{z\in\mathbb{C}}\abs{f(z)}\). By letting \(R\to\infty\), \(f'\paren{z_0}\) where \(z_0\) is any arbitrary value in \(\mathbb{C}\). Therefore, \(f(z)\) is constant.
 
     Alternatively, let \(a,b\in\mathbb{C}\) be distinct and arbitrarily chosen. Let \(f:\mathbb{C}\to\mathbb{C}\) be entire and bounded such that \(\abs{f}\leq M\) for some \(M>0\). Let \(R>\abs{a},\abs{b}\). Since \(a\neq b\), \(\exists\varepsilon>0\) such that \(\overline{D(a,\varepsilon)}\cup\overline{D(b,\varepsilon)}=\emptyset\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have \[\int_{\partial D(0,R)}\frac{f(z)}{(z-a)(z-b)}\ddz=\qty(\int_{\partial D(a,\varepsilon)}+\int_{\partial D(b,\varepsilon)})\frac{f(z)}{(z-a)(z-b)}\ddz.\]
-    Since \(z\mapsto\frac{f(z)}{z-a}\) is holomorphic on the disk centered at \(b\) and \(z\mapsto\frac{f(z)}{z-b}\) is holomorphic on the disk centered at \(a\), by the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), we have \[\int_{\partial D(0,R)}\frac{f(z)}{(z-a)(z-b)}\ddz=2\pi\ii\qty(\frac{f(b)}{b-a}-\frac{f(a)}{a-b})\]
+    Since \(z\mapsto\frac{f(z)}{z-a}\) is holomorphic on the disk centered at \(b\) and \(z\mapsto\frac{f(z)}{z-b}\) is holomorphic on the disk centered at \(a\), by the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), we have \[\int_{\partial D(0,R)}\frac{f(z)}{(z-a)(z-b)}\ddz=2\pi\ii\qty(\frac{f(b)}{b-a}-\frac{f(a)}{a-b}).\]
+    On the contrary, we also have \begin{align*}
+        \abs{(\int_{\partial D(a,\varepsilon)}+\int_{\partial D(b,\varepsilon)})\frac{f(z)}{(z-a)(z-b)}\ddz} &\leq M\qty \int_{\partial D(0,R)}\frac{\abs{\ddz}}{\abs{z-a}\abs{z-b}}\\
+        &=\frac{2\pi MR}{(R-a)(R-b)}
+    \end{align*}
 \end{proof}
 \begin{theorem}[Morera's Theorem]\label{thm:morera}
     Let \(U\subseteq\mathbb{C}\) and \(f:U\to\mathbb{C}\) be continuous over \(U\). If for any rectifiable closed curve \(\gamma\subset U\), \[\oint_{\gamma}f(\zeta)\ddzeta=0,\] then \(f\) is holomorphic over \(U\).
