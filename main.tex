@@ -3146,7 +3146,9 @@ The following theorem is important in many areas of mathematical analysis and ha
 
     For the proof of the necessity, we will first assume the normality of \(\mathcal{F}\) in \(K\).
 
-    For the sake of contradiction, assume that \(\mathcal{F}\) is not uniformly bounded. Then \(\forall n\in\mathbb{N}\), \(\exists f_n\in\mathcal{F}\) and \(\exists z_n\in K\) such that \(\abs{f_n\qty(z_n)}>n\). By assumption, this sequence has a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) that uniformly converges. Hence, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\forall z\in K\), \(\sup_{z\in K}\abs{f_{n_k}(z)-f(z)}<1\). By the reverse triangle inequality, it follows that \(\abs{f_{n_k}(z)}<\abs{f(z)}+1\)
+    For the sake of contradiction, assume that \(\mathcal{F}\) is not uniformly bounded. Then \(\forall n\in\mathbb{N}\), \(\exists f_n\in\mathcal{F}\) and \(\exists z_n\in K\) such that \(\abs{f_n\qty(z_n)}>n\). By assumption, this sequence has a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) that uniformly converges. Hence, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\forall z\in K\), \(\abs{f_{n_k}(z)-f(z)}<1\). By the reverse triangle inequality, it follows that \(\abs{f_{n_k}(z)}<\abs{f(z)}+1\). Since \(f\) is continuous on \(K\) by \autoref{thm:uniformlimit}, it is bounded by some \(M_1\) (\autoref{thm:continuousfunctionboundedoncompact}). Let \(M_2=\max_{k=1}^N\sup_{z\in K}\abs{f_{n_k}(z)}\). It follows that this subsequence is uniformly bounded by \(\max\qty(M_1+1,M_2)\). However, since \(\abs{f_{n_k}\qty(z_{n_k})}>n_k\to\infty\) for any \(k\), this subsequence cannot be uniformly bounded, and hence we have a contradiction.
+
+    
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
