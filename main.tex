@@ -303,8 +303,8 @@ We also have the definition of the limit of a sequence:
 
     Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{proof}
-\begin{theorem}\label{thm:heinecantor}
-    A continuous function over a compact set \(K\) is uniformly continuous over \(K\).
+\begin{theorem}[Heine--Cantor]\label{thm:heinecantor}
+    A continuous function on a compact set \(K\) is uniformly continuous on \(K\).
 \end{theorem}
 \begin{proof}
     Suppose for contradiction that \(f:K\to\mathbb{R}\) is continuous but not uniformly continuous on compact \(K\). Then \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in K\) with \(|x-y|<\delta\) and \(|f(x)-f(y)|\geq\varepsilon\).
@@ -3108,7 +3108,7 @@ In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta
     A family of functions \(\mathcal{F}\) that is pointwise equicontinuous on every point \(z\in K\subset\mathbb{C}\) for a compact set \(K\) is uniformly equicontinuous on \(K\).
 \end{lemma}
 \begin{proof}
-    
+    Fix \(z\in K\). By pointwise equicontinuity, \(\forall\varepsilon>0\), \(\exists\delta_z>0\) such that \(\forall f\in\mathcal{F}\), \(\forall \zeta\in D\qty(z,\delta_z)\cap K\), \(\abs{\zeta-z}<\frac{\varepsilon}{2}\). The collection \(\qty{D\qty(z,\delta_z)}\) is an open cover of \(K\), and by the Heine--Borel Theorem, it admits a finite subcover \(\qty{D\qty(z_k,\delta_{z_k})}_{k=1}^n\) for some finite \(n\in\mathbb{N}\).
 \end{proof}
 The following theorem is important in many areas of mathematical analysis and has a plethora of generalizations. It was first introduced by Ascoli (who proved the sufficiency of compactness) and later formalized by Arzelà, who proved the necessity of uniform equicontinuity and uniform boundedness.
 \begin{theorem}[Arzelà--Ascoli Theorem]\label{thm:arzelaascoli}
