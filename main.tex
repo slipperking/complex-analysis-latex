@@ -3105,12 +3105,12 @@ The following notion was introduced and formalized by the Italian mathematicians
 \end{definition}
 In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta\) may be chosen independently of \(z_0\). In the case of (pointwise) equicontinuity, it is chosen independently of \(f\in\mathcal{F}\). A family of functions is said to be be \textit{uniformly equicontinuous} on \(U\) if \(\delta\) can be chosen independently of both \(z_0\) and \(f\in\mathcal{F}\) (in other words, it attains a positive infimum in \(U\)).
 
-The following theorem is important in many areas of mathematical analysis and has a plethora of generalizations. It was first introduced by Ascoli (who proved the sufficiency of compactness) and later formalized by Arzelà, who proved the necessity.
+The following theorem is important in many areas of mathematical analysis and has a plethora of generalizations. It was first introduced by Ascoli (who proved the sufficiency of compactness) and later formalized by Arzelà, who proved the necessity of uniform equicontinuity and uniform boundedness.
 \begin{theorem}[Arzelà--Ascoli Theorem]\label{thm:arzelaascoli}
-    Let \(\mathcal{F}\) be a family of functions defined on a compact subset \(K\subseteq\mathbb{R}^n\). If \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\), then \(\mathcal{F}\) is normal on \(K\).
+    Let \(\mathcal{F}\) be a family of functions defined on a compact subset \(K\subseteq\mathbb{R}^n\). Then, \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\) if and only if \(\mathcal{F}\) is normal on \(K\).
 \end{theorem}
 \begin{proof}
-    Let \(\qty{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(x)}\leq M\) for all \(x\in K\) and all \(n\in\mathbb{N}\).
+    We will first prove the sufficiency of uniform boundedness and uniform equicontinuity. Let \(\qty{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(x)}\leq M\) for all \(x\in K\) and all \(n\in\mathbb{N}\).
 
     Let \(\qty{\zeta_k}_{k\in\mathbb{N}}\) be a countably dense subset of \(K\). By the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), there exists a subsequence of \(\qty{f_n}_{n\in\mathbb{N}}\), namely \(\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\), such that \(\qty{f_{n_{1,j}}\qty(\zeta_1)}_{j\in\mathbb{N}}\) is convergent. The set \(\qty{f_{n_{1,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\) is also bounded by \(M\), and hence, by the Bolzano--Weierstrass Theorem, it too has a convergent subsequence \(\qty{f_{n_{2,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\). Similarly, there exists a subsequence of \(\qty{f_{n_{2,j}}}_{j\in\mathbb{N}}\), namely \(\qty{f_{n_{3,j}}}_{j\in\mathbb{N}}\), such that \(\qty{f_{n_{3,j}}\qty(\zeta_3)}_{j\in\mathbb{N}}\) is convergent.
 
@@ -3143,6 +3143,8 @@ The following theorem is important in many areas of mathematical analysis and ha
         &=\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon.
     \end{align*}
     Hence, the sequence is uniformly convergent on \(K\) by the Cauchy Criterion (\autoref{thm:cauchycriterionuniformconvergence}).
+
+    For the proof of the necessity, we will first prove the normality if \(\mathcal{F}\). 
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
