@@ -3108,7 +3108,7 @@ In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta
     A family of functions \(\mathcal{F}\) that is pointwise equicontinuous on every point \(z\in K\subset\mathbb{C}\) for a compact set \(K\) is uniformly equicontinuous on \(K\).
 \end{theorem}
 \begin{proof}
-    Fix \(z\in K\). By pointwise equicontinuity, \(\forall\varepsilon>0\), \(\exists\delta_z>0\) such that \(\forall f\in\mathcal{F}\), \(\forall \zeta\in D\qty(z,\delta_z)\cap K\), 
+    Fix \(z\in K\). By pointwise equicontinuity, \(\forall\varepsilon>0\), \(\exists\delta_z>0\) such that \(\forall f\in\mathcal{F}\), \(\forall \zeta\in D\qty(z,\delta_z)\cap K\),
     \begin{equation}
         \abs{f(\zeta)-f(z)}<\frac{\varepsilon}{2}.\label{eq:heinecantorfamily_equicontinuityconsequence}
     \end{equation}
@@ -3161,9 +3161,18 @@ The following theorem is important in many areas of mathematical analysis and ha
 
     For the sake of contradiction, assume that \(\mathcal{F}\) is not uniformly bounded. Then \(\forall n\in\mathbb{N}\), \(\exists f_n\in\mathcal{F}\) and \(\exists z_n\in K\) such that \(\abs{f_n\qty(z_n)}>n\). By assumption, this sequence has a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) that uniformly converges. Hence, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\forall z\in K\), \(\abs{f_{n_k}(z)-f(z)}<1\). By the reverse triangle inequality, it follows that \(\abs{f_{n_k}(z)}<\abs{f(z)}+1\). Since \(f\) is continuous on \(K\) by \autoref{thm:uniformlimit}, it is bounded by some \(M_1\) (\autoref{thm:continuousfunctionboundedoncompact}). Let \(M_2=\max_{k=1}^N\sup_{z\in K}\abs{f_{n_k}(z)}\). It follows that this subsequence is uniformly bounded by \(\max\qty(M_1+1,M_2)\). However, since \(\abs{f_{n_k}\qty(z_{n_k})}>n_k\to\infty\) for any \(k\), this subsequence cannot be uniformly bounded, and hence we have a contradiction.
 
-    We will now assume that \(\mathcal{F}\) is not pointwise equicontinuous at some point \(z_0\). In other words, \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists f\in\mathcal{F}\), \(\exists z\in K\) such that \(\abs{z-z_0}<\delta\) satisfying \[\abs{f(z)-f\qty(z_0)}>\varepsilon.\]
-    
-    
+    We will now assume that \(\mathcal{F}\) is not pointwise equicontinuous at some arbitrary point \(z_0\in K\). In other words, \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists f\in\mathcal{F}\), \(\exists z\in K\) such that \(\abs{z-z_0}<\delta\) satisfying \[\abs{f(z)-f(z_0)}>\varepsilon.\]
+    Let us define sequences \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) and \(\qty{z_n}_{n\in\mathbb{N}}\subseteq K\) such that \(\abs{z_n-z_0}<\frac{1}{n}\) and
+    \[\abs{f_n(z_n) - f_n(z_0)} > \varepsilon.\]
+    Since \(\mathcal{F}\) is assumed to be normal, the sequence \(\qty{f_n}_{n\in\mathbb{N}}\) has a uniformly convergent subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converging to a continuous function \(f\). In particular, since uniform convergence preserves continuity (\autoref{thm:uniformlimit}), the limit \(f\) is continuous at \(z_0\), and hence,
+    \[f_{n_k}\qty(z_0)\to\qtyf(z_0),\qquad f_{n_k}(z_{n_k})\to f(z_0),\]
+    because \(z_{n_k}\to z_0\) and \(f_{n_k} \to f\) uniformly.
+
+    Thus,
+    \[\abs{f_{n_k}\qty(z_{n_k})-f_{n_k}\qty(z_0)}\to 0,\]
+    which contradicts the result that \(\abs{f_{n_k}\qty(z_{n_k})-f_{n_k}\qty(z_0)}>\varepsilon\) for all \(k\).
+
+    Hence, by contradiction, \(\mathcal{F}\) is pointwise equicontinuous on all of \(K\). By \autoref{thm:heinecantorfamily}, \(\mathcal{F}\) must be uniformly equicontinuous on \(K\).
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
