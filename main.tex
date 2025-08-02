@@ -1267,7 +1267,8 @@ The differentiation formula above can be thought of as a generalization of \auto
 
     Alternatively, let \(a,b\in\mathbb{C}\) be distinct and arbitrarily chosen. Let \(f:\mathbb{C}\to\mathbb{C}\) be entire and bounded such that \(\abs{f}\leq M\) for some \(M>0\). Let \(R>\abs{a},\abs{b}\). Since \(a\neq b\), \(\exists\varepsilon>0\) such that \(\overline{D(a,\varepsilon)}\cup\overline{D(b,\varepsilon)}=\emptyset\). By the Cauchy--Goursat Integral Theorem (\autoref{thm:cauchygoursattheorem}), we have \[\int_{\partial D(0,R)}\frac{f(z)}{(z-a)(z-b)}\ddz=\qty(\int_{\partial D(a,\varepsilon)}+\int_{\partial D(b,\varepsilon)})\frac{f(z)}{(z-a)(z-b)}\ddz.\]
     Since \(z\mapsto\frac{f(z)}{z-a}\) is holomorphic on the disk centered at \(b\) and \(z\mapsto\frac{f(z)}{z-b}\) is holomorphic on the disk centered at \(a\), by the Cauchy--Goursat Integral Formula (\autoref{thm:cauchygoursatformula}), we have \[\int_{\partial D(0,R)}\frac{f(z)}{(z-a)(z-b)}\ddz=2\pi\ii\qty(\frac{f(b)}{b-a}+\frac{f(a)}{a-b}).\]
-    On the contrary, we also have \begin{align*}
+    On the contrary, we also have
+    \begin{align*}
         \abs{\qty(\int_{\partial D(a,\varepsilon)}+\int_{\partial D(b,\varepsilon)})\frac{f(z)}{(z-a)(z-b)}\ddz} &\leq M\int_{\partial D(0,R)}\frac{\abs{\ddz}}{\abs{z-a}\abs{z-b}}\\
         &=\frac{2\pi MR}{(R-a)(R-b)}\\
         &\to 0\qas{R\to\infty}.
@@ -3109,9 +3110,9 @@ The following theorem is important in many areas of mathematical analysis and ha
     Let \(\mathcal{F}\) be a family of functions defined on a compact subset \(K\subseteq\mathbb{R}^n\). If \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\), then \(\mathcal{F}\) is normal on \(K\).
 \end{theorem}
 \begin{proof}
-    Let \(\qty{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(x)}\leq M\) for all \(x\in K\) and all \(n\in\mathbb{N}\). 
-    
-    Let \(\qty{\zeta_k}_{k\in\mathbb{N}}\) be a countably dense subset of \(K\). By the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), there exists a subsequence of \(\qty{f_n}_{n\in\mathbb{N}}\), namely \(\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\), such that \(\qty{f_{n_{1,j}}\qty(\zeta_1)}_{j\in\mathbb{N}}\) is convergent. The set \(\qty{f_{n_{1,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\) is also bounded by \(M\), and hence, by the Bolzano--Weierstrass Theorem, it too has a convergent subsequence \(\qty{f_{n_{2,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\). Similarly, there exists a subsequence of \(\qty{f_{n_{2,j}}}_{j\in\mathbb{N}}\), namely \(\qty{f_{n_{3,j}}}_{j\in\mathbb{N}}\), such that \(\qty{f_{n_{3,j}}\qty(\zeta_3)}_{j\in\mathbb{N}}\) is convergent. 
+    Let \(\qty{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(x)}\leq M\) for all \(x\in K\) and all \(n\in\mathbb{N}\).
+
+    Let \(\qty{\zeta_k}_{k\in\mathbb{N}}\) be a countably dense subset of \(K\). By the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), there exists a subsequence of \(\qty{f_n}_{n\in\mathbb{N}}\), namely \(\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\), such that \(\qty{f_{n_{1,j}}\qty(\zeta_1)}_{j\in\mathbb{N}}\) is convergent. The set \(\qty{f_{n_{1,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\) is also bounded by \(M\), and hence, by the Bolzano--Weierstrass Theorem, it too has a convergent subsequence \(\qty{f_{n_{2,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\). Similarly, there exists a subsequence of \(\qty{f_{n_{2,j}}}_{j\in\mathbb{N}}\), namely \(\qty{f_{n_{3,j}}}_{j\in\mathbb{N}}\), such that \(\qty{f_{n_{3,j}}\qty(\zeta_3)}_{j\in\mathbb{N}}\) is convergent.
 
     By the method of construction, we have:
     \begin{gather}
@@ -3121,21 +3122,27 @@ The following theorem is important in many areas of mathematical analysis and ha
         n_{k,1}<n_{k,2}<\cdots<n_{k,j}<\cdots\nonumber\\
         \ddots,\label{eq:arzelaascoli_indexsequences}
     \end{gather}
-    and furthermore, the sequence in each row is a subsequence of the previous row. As a result, we have \begin{gather}
+    and furthermore, the sequence in each row is a subsequence of the previous row. As a result, we have
+    \begin{gather}
         n_{1,1}\leq n_{2,1}\leq \cdots\leq n_{k,1}\leq \cdots\nonumber\\
         n_{1,2}\leq n_{2,2}\leq \cdots\leq n_{k,2}\leq \cdots\nonumber\\
         \vdots\nonumber\\
         n_{1,j}\leq n_{2,j}\leq \cdots\leq n_{j,k}\leq \cdots\nonumber\\
         \ddots.\label{eq:arzelaascoli_indexsequencestransposed}
     \end{gather}
-    We will now invoke a diagonalization argument. Since the sequences above in equation~\eqref{eq:arzelaascoli_indexsequences} are strictly increasing and from the results of equation~\eqref{eq:arzelaascoli_indexsequencestransposed}, it follows that \(\qty{n_{j,j}}_{j\in\mathbb{N}}\) is strictly increasing. Let \(n_{j,j}\) be denoted by \(n'_{j}\). Since \(\mathcal{F}\) is uniformly equicontinuous on \(K\), \(\forall\varepsilon>0\), \(\exists\delta=\delta(\varepsilon)>0\) such that \(\forall z,z'\in K\) satisfying \(\abs{z-z'}<\delta\), \(\forall j\in\mathbb{N}\), we have 
+    We will now invoke a diagonalization argument. Since the sequences above in equation~\eqref{eq:arzelaascoli_indexsequences} are strictly increasing and from the results of equation~\eqref{eq:arzelaascoli_indexsequencestransposed}, it follows that \(\qty{n_{j,j}}_{j\in\mathbb{N}}\) is strictly increasing. Let \(n_{j,j}\) be denoted by \(n'_{j}\). Since \(\mathcal{F}\) is uniformly equicontinuous on \(K\), \(\forall\varepsilon>0\), \(\exists\delta=\delta(\varepsilon)>0\) such that \(\forall z,z'\in K\) satisfying \(\abs{z-z'}<\delta\), \(\forall j\in\mathbb{N}\), we have
     \begin{equation}
         \abs{f_{n'_j}(z)-f_{n'_j}(z')}<\frac{\varepsilon}{3}.\label{eq:arzelaascoli_uniformequicontinuitydirectconsequence}
     \end{equation} Since each \(\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is convergent at \(\zeta_k\) (for a fixed \(k\)) by construction, and since \(\qty{n'_j}_{j\geq k}\) is a subsequence of \(\qty{n_{k,j}}_{j\in\mathbb{N}}\), it is evident that \(\qty{f_{n'_j}}_{j\in\mathbb{N}}\) is convergent at each \(\zeta_k\). We then have that \(\forall k\in\mathbb{N}\), \(\exists N=N(\varepsilon,k)\in\mathbb{N}\) such that \(\forall i,j>N\), \[\abs{f_{n'_i}\qty(\zeta_k)-f_{n'_j}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
-    For the fixed value of \(\varepsilon\), the collection \(\qty{D\qty(\zeta_k,\delta)}_{k\in\mathbb{N}}\) forms an open cover of \(K\), and by the Heine--Borel Theorem (\autoref{thm:heineborel}), it admits finite subcovering \(\qty{D\qty(\zeta_k,\delta)}_{k\in\qty{1,\ldots,l}}\) for some finite \(l=l(\varepsilon)\in\mathbb{N}\). 
+    For the fixed value of \(\varepsilon\), the collection \(\qty{D\qty(\zeta_k,\delta)}_{k\in\mathbb{N}}\) forms an open cover of \(K\), and by the Heine--Borel Theorem (\autoref{thm:heineborel}), it admits finite subcovering \(\qty{D\qty(\zeta_k,\delta)}_{k\in\qty{1,\ldots,l}}\) for some finite \(l=l(\varepsilon)\in\mathbb{N}\).
 
     Hence, \(\exists k=k(\varepsilon)\leq l\) such that any point \(z\in K\) lies in \(D\qty(\zeta_k,\delta)\). By equation~\eqref{eq:arzelaascoli_uniformequicontinuitydirectconsequence}, we have that \[\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}<\frac{\varepsilon}{3},\qquad \abs{f_{n'_i}(z)-f_{n'_i}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
-    Letting \(N'=N'(\varepsilon)=\max\qty(N(\varepsilon,1),\ldots,N(\varepsilon, l(\varepsilon)))\), we have that \(\forall i,j>N'\), \(\forall z\in K\), \[\abs{f_{n'_j}(z)-f_{n'_i}(z)}\leq\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}+\abs{f_{n'_j}\qty(\zeta_{k})-f_{n'_i}\qty(\zeta_{k})}+\abs{f_{n'_j}\qty(\zeta_{k})-f_{n'_i}(z)}\]
+    Letting \(\widetilde{N}=\widetilde{N}(\varepsilon)=\max\qty[N(\varepsilon,1),\ldots,N(\varepsilon, l(\varepsilon))]\), we have that \(\forall i,j>\widetilde{N}\), \(\forall z\in K\),
+    \begin{align*}
+        \abs{f_{n'_j}(z)-f_{n'_i}(z)}&\leq\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}+\abs{f_{n'_j}\qty(\zeta_k)-f_{n'_i}\qty(\zeta_{k})}+\abs{f_{n'_j}\qty(\zeta_{k})-f_{n'_i}(z)}\\
+        &=\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon.
+    \end{align*}
+    Hence, the sequence is uniformly convergent on \(K\) by the Cauchy Criterion (\autoref{thm:cauchycriterionuniformconvergence}).
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
