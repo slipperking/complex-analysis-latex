@@ -609,7 +609,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     Since \(S'_n(z)\to f_1(z)\) as \(n\to\infty\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{S'_n(z)-f_1(z)}<\frac{\varepsilon}{3}\). Since \[\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}=\sum_{k=n}^\infty a_k\frac{z^k-z_0^k}{z-z_0}=\sum_{k=n}^\infty a_k\qty(z^{k-1}+z^{k-2}z+\cdots+z_0^{k-1})\]
     for \(z\neq z_0\), \(|z|<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty \abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) is absolutely convergent, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
 
-    Finally, \(\forall n>\max\qty(N,N')\), \(\exists\delta>0\) such that \(\forall z\in D\qty(z_0, \delta)\setminus\qty{z_0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
+    Finally, for a fixed \(n>\max\qty(N,N')\), \(\exists\delta>0\) such that \(\forall z\in D\qty(z_0, \delta)\setminus\qty{z_0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
     From equation~\eqref{eq:abelradius_differentiationintermediate}, we get:
     \[\qty|\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}|<\varepsilon,\] confirming \ref{itm:abelradius_differentiation}.
 \end{proof}
@@ -632,14 +632,14 @@ Lastly, the sufficient criteria to pass a limit through an integral:
     Let \(\gamma\) be a closed, rectifiable curve that the sequence \(\cbraces{f_n(z)}\) is continuous on. If \(\cbraces{f_n(z)}\) uniformly converges to \(f\), then \[\lim_{n\to\infty}\int_{\gamma}f_n(z)\ddz=\int_{\gamma}f(z)\ddz.\]
 \end{theorem}
 \begin{proof}
-    Since \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) on \(\gamma\), \(\forall\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that for all \(n > N\), \[\abs{f_n(z)-f(z)}<\frac{\varepsilon}{\lambda(\gamma)},\quad \forall z\in\gamma,\] where \(\lambda(\gamma)\) is the length of the rectifiable curve \(\gamma\). Since each \(f_n\) is continuous and \(\gamma\) is rectifiable, each integral \(\int_\gamma f_n(z)\ddz\) is convergent and well-defined.
+    Since \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) on \(\gamma\), \(\forall\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that for all \(n > N\), \[\abs{f_n(z)-f(z)}<\frac{\varepsilon}{\mathrm{length}(\gamma)},\quad \forall z\in\gamma,\] where \(\lambda(\gamma)\) is the length of the rectifiable curve \(\gamma\). Since each \(f_n\) is continuous and \(\gamma\) is rectifiable, each integral \(\int_\gamma f_n(z)\ddz\) is convergent and well-defined.
 
     Then \(\forall n>N\),
     \begin{align*}
         \abs{\int_\gamma f_n(z)\ddz-\int_\gamma f(z)\ddz}
         & =\abs{\int_\gamma\paren{f_n(z)-f(z)}\ddz}                               \\
         & \leq\int_\gamma\abs{f_n(z)-f(z)}\abs{\ddz}                              \\
-        & <\int_\gamma \frac{\varepsilon}{\lambda(\gamma)}\abs{\ddz}=\varepsilon.
+        & <\int_\gamma\frac{\varepsilon}{\mathrm{length}(\gamma)}\abs{\ddz}=\varepsilon.
     \end{align*}
     Therefore, \[\lim_{n\to\infty}\int_\gamma f_n(z)\ddz=\int_\gamma f(z)\ddz,\] as desired.
 \end{proof}
