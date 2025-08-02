@@ -78,6 +78,7 @@
 \newcommand{\ee}{\mathrm{e}}
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\chpref}[1]{\hyperref[#1]{\S\ref*{#1}}}
+\newcommand{\interior}[1]{\overset{\circ}{#1}}
 
 \DeclareMathOperator*{\residue}{Res}
 
@@ -98,7 +99,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     For a set \(X\in\mathbb{C}^n\), define the \textit{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and its accumulation points.
 \end{definition}
 \begin{definition}[Interior]\label{def:interior}
-    For a set \(X\in\mathbb{C}^n\), the \textit{interior} of \(X\), denoted \(X^\circ\), is the union of all open sets contained in \(X\), or the set of points \(z\in\mathbb{C}^n\) such that there exists an open neighborhood of \(z\) that is fully contained in \(X\).
+    For a set \(X\in\mathbb{C}^n\), the \textit{interior} of \(X\), denoted \(\interior{X}\), is the union of all open sets contained in \(X\), or the set of points \(z\in\mathbb{C}^n\) such that there exists an open neighborhood of \(z\) that is fully contained in \(X\).
 \end{definition}
 \begin{definition}[Compact Set]\label{def:compactsets}
     A set \(X\in\mathbb{C}^n\) is compact if and only if \(X\) is closed and bounded.
@@ -1383,7 +1384,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     The topological space of \(X=\paren{\bigcup_{n\in 2\mathbb{Z}}(n,n+1),\tau}\), where \(\tau\) is the unique topology formed by the basis \(\cbraces{(n,n+1)}{n\in 2\mathbb{Z}}\), which is disconnected. Consider \((0,1)\subset X\). Obviously, \((0,1)\in\tau\) so it is open. However, \(\bigcup_{n\in 2\mathbb{Z}}(n,n+1)\setminus (0,1)=\bigcup_{\substack{n\in 2\mathbb{Z}\\n\neq 0}}(n,n+1)\in\tau\), and therefore, \((0,1)\) is also closed under \(\tau\). In fact, every set in \(\tau\) is clopen.
 \end{example}
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
-    For a topological space \(X\), an \textit{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\), such that \(\forall n\in\mathbb{N}\), \(K_n\subset \overset{\circ}{K_{n+1}}\), and \[X=\bigcup_{n\in\mathbb{N}}K_n\]
+    For a topological space \(X\), an \textit{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\), such that \(\forall n\in\mathbb{N}\), \(K_n\subset \interior{K_{n+1}}\), and \[X=\bigcup_{n\in\mathbb{N}}K_n\]
 \end{definition}
 \begin{lemma}\label{lemma:locallyfiniteopencoverexistence}
     Let \(\Omega\subseteq\mathbb{C}\) be an open set and \(\mathfrak{B}\) be an (open) basis of (the standard topology under) \(\Omega\). Then there exists a collection of sets \(\left\{U_n\right\}_{n\in\mathbb{N}}\) in \(\mathfrak{B}\) such that
@@ -1442,7 +1443,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
         \end{tikzpicture}
         \caption{The geometry of the finite subcover of \(V_n\subset W_n\) for some \(n\in\mathbb{N}\).}
         \label{fig:locallyfiniteopencoverexistence}
-    \end{figure}Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\), with each \(K_n\) compact and \(K_n\subseteq K_{n+1}^\circ\). For each \(n\in\mathbb{N}\), define \(W_n=K_{n+1}^\circ\setminus K_{n-2}\), which is open, and \(V_n=K_n\setminus K_{n-1}^\circ\), which is compact (as in \autoref{fig:locallyfiniteopencoverexistence}).
+    \end{figure}Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\), with each \(K_n\) compact and \(K_n\subseteq \interior{K_{n+1}}\). For each \(n\in\mathbb{N}\), define \(W_n=\interior{K_{n+1}}\setminus K_{n-2}\), which is open, and \(V_n=K_n\setminus \interior{K_{n-1}}\), which is compact (as in \autoref{fig:locallyfiniteopencoverexistence}).
 
     By construction, \(V_n\subseteq W_n\) for all \(n\in\mathbb{N}\). The sets \(\{V_n\}\) form compact shells exhausting \(\Omega\), since \(\bigcup_{n\in\mathbb{N}}V_n=\Omega\).
 
@@ -1450,7 +1451,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 
     Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{n,i},n}\) for \(n\in\mathbb{N}\) and \(i=1,\ldots,k_n\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving \ref{itm:locallyfiniteopencoverexistence_cover}.
 
-    For \ref{itm:locallyfiniteopencoverexistence_localfiniteness}, let \(K\subset\Omega\) be compact. Then \(\exists N\in\mathbb{N}\) such that \(K\subset K_N^\circ\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textit{locally finite}.
+    For \ref{itm:locallyfiniteopencoverexistence_localfiniteness}, let \(K\subset\Omega\) be compact. Then \(\exists N\in\mathbb{N}\) such that \(K\subset \interior{K_N}\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textit{locally finite}.
 \end{proof}
 \begin{remark}
     The property of local finiteness of an open collection \(S\) in \(\Omega\) is commonly stated as:
