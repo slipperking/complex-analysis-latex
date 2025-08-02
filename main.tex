@@ -126,7 +126,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 
     We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B^n(z_\infty, \delta)\), and hence \(Q_k\cap X=\emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
-\begin{theorem}[Heine-Borel Theorem]\label{thm:heineborel}
+\begin{theorem}[Heine--Borel]\label{thm:heineborel}
     A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has a finite subcover.
 \end{theorem}
 \begin{proof}
@@ -314,6 +314,7 @@ We also have the definition of the limit of a sequence:
 
     By continuity, \(f(x_{n_k})\to f\paren{x_{n_\infty}}\) and \(f(y_{n_k})\to f\paren{x_{n_\infty}}\), so \(\qty|f(x_{n_k})-f(y_{n_k})|\to 0\), contradicting \(\qty|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon\). Therefore, \(f\) is uniformly continuous on \(K\).
 \end{proof}
+A more general version of this proof can be achieved by using the Heine--Borel Theorem (\autoref{thm:heineborel}) in analogously to the proof of \autoref{thm:heinecantorfamily}.
 \begin{definition}
     A function \(f\) is Lipschitz continuous over \(U\) if \(\exists M\in\mathbb{R}_{\geq0}\) such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq M|x-y|\). The smallest possible \(M\) satisfying the above condition is known as the Lipschitz constant.
 \end{definition}
@@ -3116,7 +3117,7 @@ In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta
     \end{equation}
     The collection \(\qty{D\qty(z,\frac{\delta_z}{2})}_{z\in K}\) forms an open cover of \(K\), and by the Heine--Borel Theorem, it admits a finite subcover \(\qty{D\qty(z_k,\frac{\delta_{z_k}}{2})}_{k=1}^n\) for some finite \(n\in\mathbb{N}\). Let \(\delta=\min_{k=1}^n\qty(\frac{\delta_{z_k}}{2})\).
 
-    For any \(z,w\in K\) such that \(\abs{z-w}<\delta\), \(\exists j\leq n\) such that \(z\in D\qty(z_j,\frac{\delta_{z_j}}{2})\). Evidently, \[\abs{z_j-w}\leq\abs{z_j-z}+\abs{z-w}<\frac{\delta_{z_j}}{2}+\delta\leq\delta_{z_j}.\]
+    For any \(z,w\in K\) such that \(\abs{z-w}<\delta\), \(\exists j\in\mathbb{N}_{\leq n}\) such that \(z\in D\qty(z_j,\frac{\delta_{z_j}}{2})\). Evidently, \[\abs{z_j-w}\leq\abs{z_j-z}+\abs{z-w}<\frac{\delta_{z_j}}{2}+\delta\leq\delta_{z_j}.\]
     Therefore, from equation~\eqref{eq:heinecantorfamily_equicontinuityconsequence}, we have \(\forall f\in\mathcal{F}\), \[\abs{f\qty(z_j)-f\qty(w)}<\frac{\varepsilon}{2},\qquad\abs{f\qty(z_j)-f(z)}<\frac{\varepsilon}{2}.\]
     Hence, \(\forall f\in\mathcal{F}\), we have \[\abs{f\qty(z)-f(w)}\leq\abs{f(w)-f\qty(z_j)}+\abs{f\qty(z_j)-f(z)}<\varepsilon,\] which proves the uniform equicontinuity of \(\mathcal{F}\).
 \end{proof}
