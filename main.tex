@@ -3105,7 +3105,7 @@ The following notion was introduced and formalized by the Italian mathematicians
 In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta\) may be chosen independently of \(z_0\). In the case of (pointwise) equicontinuity, it is chosen independently of \(f\in\mathcal{F}\). A family of functions is said to be be \textit{uniformly equicontinuous} on \(U\) if \(\delta\) can be chosen independently of both \(z_0\) and \(f\in\mathcal{F}\) (in other words, it attains a positive infimum in \(U\)).
 
 The following theorem is important in many areas of mathematical analysis and has a plethora of generalizations. It was first introduced by Ascoli (who proved the sufficiency of compactness) and later formalized by Arzelà.
-\begin{theorem}[Arzelà--Ascoli Theorem]\label{thm:arzelascoli}
+\begin{theorem}[Arzelà--Ascoli Theorem]\label{thm:arzelaascoli}
     Let \(\mathcal{F}\) be a family of functions defined on a compact subset \(K\subseteq\mathbb{R}^n\). If \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\), then \(\mathcal{F}\) is normal on \(K\).
 \end{theorem}
 \begin{proof}
@@ -3119,17 +3119,22 @@ The following theorem is important in many areas of mathematical analysis and ha
         n_{2,1}<n_{2,2}<\cdots<n_{2,j}\nonumber<\cdots\\
         \vdots\nonumber\\
         n_{k,1}<n_{k,2}<\cdots<n_{k,j}<\cdots\nonumber\\
-        \ddots,\label{eq:arzelascoli_indexsequences}
+        \ddots,\label{eq:arzelaascoli_indexsequences}
     \end{gather}
     and furthermore, the sequence in each row is a subsequence of the previous row. As a result, we have \begin{gather}
         n_{1,1}\leq n_{2,1}\leq \cdots\leq n_{k,1}\leq \cdots\nonumber\\
         n_{1,2}\leq n_{2,2}\leq \cdots\leq n_{k,2}\leq \cdots\nonumber\\
         \vdots\nonumber\\
         n_{1,j}\leq n_{2,j}\leq \cdots\leq n_{j,k}\leq \cdots\nonumber\\
-        \ddots.\label{eq:arzelascoli_indexsequencestransposed}
+        \ddots.\label{eq:arzelaascoli_indexsequencestransposed}
     \end{gather}
-    We will now invoke a diagonalization argument. Since the sequences above in equation~\eqref{eq:arzelascoli_indexsequences} are strictly increasing and from the results of equation~\eqref{eq:arzelascoli_indexsequencestransposed}, it follows that \(\qty{n_{j,j}}_{j\in\mathbb{N}}\) is strictly increasing. Let \(n_{j,j}\) be denoted by \(n'_{j}\). Since \(\mathcal{F}\) is uniformly equicontinuous on \(K\), \(\forall\varepsilon>0\), \(\exists\delta=\delta(\varepsilon)>0\) such that \(\forall z,z'\in K\) satisfying \(\abs{z-z'}<\delta\), \(\forall j\in\mathbb{N}\), we have \[\abs{f_{n'_j}(z)-f_{n'_j}(z')}<\frac{\varepsilon}{3}.\] Since each \(\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is convergent at \(\zeta_k\) (for a fixed \(k\)) by construction, we have that \(\forall k\in\mathbb{N}\), \(\exists N=N(\varepsilon,k)\in\mathbb{N}\) such that \(\forall n,m>N\), \[\abs{f_{n_{k,m}}\qty(\zeta_k)-f_{n_{k,n}}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
-    For the fixed value of \(\varepsilon\), the collection \(\qty{D\qty(\zeta_k,\delta)}_{k\in\mathbb{N}}\) forms an open cover of \(K\), and by the Heine--Borel Theorem (\autoref{thm:heineborel}), it admits finite subcovering \(\qty{D\qty(\zeta_k,\delta)}_{k\in\qty{1,\ldots,K}}\) for some finite \(K\in\mathbb{N}\). 
+    We will now invoke a diagonalization argument. Since the sequences above in equation~\eqref{eq:arzelaascoli_indexsequences} are strictly increasing and from the results of equation~\eqref{eq:arzelaascoli_indexsequencestransposed}, it follows that \(\qty{n_{j,j}}_{j\in\mathbb{N}}\) is strictly increasing. Let \(n_{j,j}\) be denoted by \(n'_{j}\). Since \(\mathcal{F}\) is uniformly equicontinuous on \(K\), \(\forall\varepsilon>0\), \(\exists\delta=\delta(\varepsilon)>0\) such that \(\forall z,z'\in K\) satisfying \(\abs{z-z'}<\delta\), \(\forall j\in\mathbb{N}\), we have 
+    \begin{equation}
+        \abs{f_{n'_j}(z)-f_{n'_j}(z')}<\frac{\varepsilon}{3}.\label{eq:arzelaascoli_uniformequicontinuitydirectconsequence}
+    \end{equation} Since each \(\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is convergent at \(\zeta_k\) (for a fixed \(k\)) by construction, we have that \(\forall k\in\mathbb{N}\), \(\exists N=N(\varepsilon,k)\in\mathbb{N}\) such that \(\forall n,m>N\), \[\abs{f_{n_{k,m}}\qty(\zeta_k)-f_{n_{k,n}}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
+    For the fixed value of \(\varepsilon\), the collection \(\qty{D\qty(\zeta_k,\delta)}_{k\in\mathbb{N}}\) forms an open cover of \(K\), and by the Heine--Borel Theorem (\autoref{thm:heineborel}), it admits finite subcovering \(\qty{D\qty(\zeta_k,\delta)}_{k\in\qty{1,\ldots,l}}\) for some finite \(l=l(\varepsilon)\in\mathbb{N}\). 
+
+    Hence, \(\exists k\leq l\) such that any point \(z\in K\) lies in \(D\qty(\zeta_k,\delta)\). By equation~\eqref{eq:arzelaascoli_uniformequicontinuitydirectconsequence}, we have that \[\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}<\varepsilon.\]
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
