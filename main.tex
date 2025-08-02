@@ -3103,8 +3103,10 @@ The following notion was introduced and formalized by the Italian mathematicians
 \begin{definition}[Equicontinuity]\label{def:equicontinuity}
     A family of functions \(\mathcal{F}\) defined on a region \(U\subseteq\mathbb{C}\) is said to be \textit{equicontinuous} at a point \(z_0\in U\) if for every \(\varepsilon>0\), there exists a \(\delta>0\) (that may depend on \(z_0\)) such that for all \(f\in\mathcal{F}\) and all \(z\in U\) with \(\abs{z-z_0}<\delta\), we have \(\abs{f(z)-f(z_0)}<\varepsilon\).
 \end{definition}
-In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta\) may be chosen independently of \(z_0\). In the case of (pointwise) equicontinuity, it is chosen independently of \(f\in\mathcal{F}\). A family of functions is said to be be \textit{uniformly equicontinuous} on \(U\) if \(\delta\) can be chosen independently of both \(z_0\) and \(f\in\mathcal{F}\) (in other words, it attains a positive infimum in \(U\)).
-
+In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta\) may be chosen independently of \(z_0\). In the case of (pointwise) equicontinuity, it is chosen independently of \(f\in\mathcal{F}\). A family of functions is said to be be \textit{uniformly equicontinuous} on \(U\) if \(\delta\) can be chosen independently of both \(z_0\) and \(f\in\mathcal{F}\) (in other words, it attains a positive infimum in \(U\)). Similar to \autoref{lemma:uniformcontinuousovercompactset}
+\begin{lemma}\label{lemma:uniformequicontinuousovercompactset}
+    A family of functions \(\mathcal{F}\) that is pointwise equicontinuous on every point \(z\in K\subset\mathbb{C}\) for a compact set \(K\) is uniformly equicontinuous on \(K\).
+\end{lemma}
 The following theorem is important in many areas of mathematical analysis and has a plethora of generalizations. It was first introduced by Ascoli (who proved the sufficiency of compactness) and later formalized by Arzelà, who proved the necessity of uniform equicontinuity and uniform boundedness.
 \begin{theorem}[Arzelà--Ascoli Theorem]\label{thm:arzelaascoli}
     Let \(\mathcal{F}\) be a family of complex continuous functions defined on a compact subset \(K\subseteq\mathbb{R}^n\). Then, \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\) if and only if \(\mathcal{F}\) is normal on \(K\).
@@ -3148,7 +3150,9 @@ The following theorem is important in many areas of mathematical analysis and ha
 
     For the sake of contradiction, assume that \(\mathcal{F}\) is not uniformly bounded. Then \(\forall n\in\mathbb{N}\), \(\exists f_n\in\mathcal{F}\) and \(\exists z_n\in K\) such that \(\abs{f_n\qty(z_n)}>n\). By assumption, this sequence has a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) that uniformly converges. Hence, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\forall z\in K\), \(\abs{f_{n_k}(z)-f(z)}<1\). By the reverse triangle inequality, it follows that \(\abs{f_{n_k}(z)}<\abs{f(z)}+1\). Since \(f\) is continuous on \(K\) by \autoref{thm:uniformlimit}, it is bounded by some \(M_1\) (\autoref{thm:continuousfunctionboundedoncompact}). Let \(M_2=\max_{k=1}^N\sup_{z\in K}\abs{f_{n_k}(z)}\). It follows that this subsequence is uniformly bounded by \(\max\qty(M_1+1,M_2)\). However, since \(\abs{f_{n_k}\qty(z_{n_k})}>n_k\to\infty\) for any \(k\), this subsequence cannot be uniformly bounded, and hence we have a contradiction.
 
-    Next, assume that \(\mathcal{F}\) is not uniformly equicontinuous. In other words, \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists f\in\mathcal{F}\), \(\exists z,z'\in K\) such that \(\abs{z-z'}<\delta\) satisfying \[\abs{f(z)-f(z')}>\varepsilon\]
+    We will now assume that \(\mathcal{F}\) is not pointwise equicontinuous at some point \(z_0\). In other words, \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists f\in\mathcal{F}\), \(\exists z\in K\) such that \(\abs{z-z_0}<\delta\) satisfying \[\abs{f(z)-f\qty(z_0)}>\varepsilon.\]
+    
+    
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The
