@@ -194,8 +194,8 @@ Four main classical theorems exist, relating a function and its line integral in
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
     Suppose that \(S\subset\mathbb{R}^3\) is a positively oriented surface with a positively oriented, piecewise smooth boundary curve \(\partial S\). Suppose that \(P(x,y,z), Q(x,y,z), R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
     \begin{align*}
-        \oint_{\partial S}&P\ddx+Q\ddy+R\ddz\\
-        &=\iint_S\qty(\pdv{R}{y}-\pdv{Q}{z})\ddy\ddz+\qty(\pdv{P}{z}-\pdv{R}{x})\ddz\ddx+\qty(\pdv{Q}{x}-\pdv{P}{y})\ddx\ddy.
+        \oint_{\partial S} & P\ddx+Q\ddy+R\ddz                                                                                                    \\
+                           & =\iint_S\qty(\pdv{R}{y}-\pdv{Q}{z})\ddy\ddz+\qty(\pdv{P}{z}-\pdv{R}{x})\ddz\ddx+\qty(\pdv{Q}{x}-\pdv{P}{y})\ddx\ddy.
     \end{align*}
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
@@ -210,10 +210,10 @@ We can generalize the operator \(\dd\) to increase the degree of a differential 
 which is the definition of the total differential. For a 1-form in 3-dimensional space, \(\omega_1=P\ddx+Q\dd{y}+R\dd{z}\), we can define the exterior derivative in a similar way:
 \begin{align*}
     \dd{\omega_1} & =\dd{P}\wedge\ddx+\dd{Q}\wedge\dd{y}+\dd{R}\wedge\dd{z}                                                                                                    \\
-    & =\left(\pdv{P}{x}\ddx+\pdv{P}{y}\dd{y}+\pdv{P}{z}\dd{z}\right)\wedge\ddx                                                                                   \\
-    & \qquad+\left(\pdv{Q}{x}\ddx+\pdv{Q}{y}\dd{y}+\pdv{Q}{z}\dd{z}\right)\wedge\ddy                                                                             \\
-    & \qquad\qquad+\left(\pdv{R}{x}\ddx+\pdv{R}{y}\dd{y}+\pdv{R}{z}\dd{z}\right)\wedge\dd{z}                                                                     \\
-    & =\left(\pdv{R}{y}-\pdv{Q}{z}\right)\dd{y}\wedge\dd{z}+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\wedge\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\wedge\ddy.
+                  & =\left(\pdv{P}{x}\ddx+\pdv{P}{y}\dd{y}+\pdv{P}{z}\dd{z}\right)\wedge\ddx                                                                                   \\
+                  & \qquad+\left(\pdv{Q}{x}\ddx+\pdv{Q}{y}\dd{y}+\pdv{Q}{z}\dd{z}\right)\wedge\ddy                                                                             \\
+                  & \qquad\qquad+\left(\pdv{R}{x}\ddx+\pdv{R}{y}\dd{y}+\pdv{R}{z}\dd{z}\right)\wedge\dd{z}                                                                     \\
+                  & =\left(\pdv{R}{y}-\pdv{Q}{z}\right)\dd{y}\wedge\dd{z}+\left(\pdv{P}{z}-\pdv{R}{x}\right)\dd{z}\wedge\ddx+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\ddx\wedge\ddy.
 \end{align*}
 Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
 \[\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\wedge\ddy\wedge\ddz.\]
@@ -441,8 +441,8 @@ On the contrary, by the rules of the derivative,
 The Laplacian is equal to
 \begin{align}
     \Delta=\pdv[2]{}{x}+\pdv[2]{}{y} & =\paren{\pdv{z}+\pdv{}{\overline{z}}}^2+\paren{\ii\pdv{z}-\ii\pdv{}{\overline{z}}}^2                                               \nonumber \\
-    & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \nonumber \\
-    & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
+                                     & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \nonumber \\
+                                     & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
 \end{align}
 \subsection{Elementary Functions}
 Univariate functions formed by taking compositions, sums, products, and powers of finitely many functions of the following form are known as \textit{elementary functions}:
@@ -453,9 +453,9 @@ Univariate functions formed by taking compositions, sums, products, and powers o
 \end{enumerate}
 Power functions are easily extendable to the complex plane by simply changing the real variable to a complex variable. The other two functions have to be redefined and reinterpreted for the complex plane. It is well known that the exponential function can be expanded as
 \begin{align*}
-    \ee^x & =\frac{x^0}{0!}+\frac{x^1}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}\cdots                          \\
-    & =\frac{x^0}{0!\ii^0}+\ii\frac{x^1}{1!\ii^1}-\frac{x^2}{2!\ii^2}-\ii\frac{x^3}{3!\ii^3}+\cdots \\
-    & =\cos(\frac{x}{\ii})+\ii\sin(\frac{x}{\ii}).
+    \ee^x & =\frac{x^0}{0!}+\frac{x^1}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}\cdots                            \\
+          & =\frac{x^0}{0!\ii^0}+\ii\frac{x^1}{1!\ii^1}-\frac{x^2}{2!\ii^2}-\ii\frac{x^3}{3!\ii^3}+\cdots \\
+          & =\cos(\frac{x}{\ii})+\ii\sin(\frac{x}{\ii}).
 \end{align*}
 This is better written as
 \begin{equation}
@@ -480,26 +480,26 @@ Since all elementary functions can be written in terms of exponential functions 
     \item Since \(\ee^{2\pi\ii}=1\), it is periodic over \(2\pi\ii\).
     \item It is also an entire function with \(\paren{\ee^z}'=\ee^z\).
 
-        Write \(\ee^z=\ee^{x+\ii y}=\ee^x\paren{\cos(y)+\ii\sin(y)}\) where \(x,y\in\mathbb{R}\). Let \(u(x,y)=\Re\paren{\ee^z}=\ee^x\cos(y)\) and \(v(x,y)=\Im\paren{\ee^z}=\ee^x\sin(y)\). The first order derivatives are respectively:
-        \[\pdv{u}{x}=\ee^x\cos(y),\quad\pdv{u}{y}=-\ee^x\sin(y),\]\[\pdv{v}{x}=\ee^x\sin(y),\quad\pdv{v}{y}=\ee^x\cos(y),\]
-        and indeed, the condition described by \autoref{thm:holomorphycondition} is satisfied.
+          Write \(\ee^z=\ee^{x+\ii y}=\ee^x\paren{\cos(y)+\ii\sin(y)}\) where \(x,y\in\mathbb{R}\). Let \(u(x,y)=\Re\paren{\ee^z}=\ee^x\cos(y)\) and \(v(x,y)=\Im\paren{\ee^z}=\ee^x\sin(y)\). The first order derivatives are respectively:
+          \[\pdv{u}{x}=\ee^x\cos(y),\quad\pdv{u}{y}=-\ee^x\sin(y),\]\[\pdv{v}{x}=\ee^x\sin(y),\quad\pdv{v}{y}=\ee^x\cos(y),\]
+          and indeed, the condition described by \autoref{thm:holomorphycondition} is satisfied.
     \item For any two complex numbers \(z_1\) and \(z_2\), \(\ee^{z_1}\ee^{z_2}=\ee^{z_1+z_2}\).
 
-        In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(\ee^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textit{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(z_1\) and \(z_2\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
+          In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(\ee^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textit{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(z_1\) and \(z_2\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
     \item The region \(\ee^z\) is univalent over:
 
-        Let \(z_1=x_1+\ii y_1\), \(z_2=x_2+\ii y_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(\ee^{z_1}=\ee^{z_2}\). Then, \[\ee^{x_1}\ee^{\ii y_1}=\ee^{x_2}\ee^{\ii y_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any horizontal strip \(2\pi k\leq \Im(z)< 2\pi (k+1)\) (or \(2\pi k< \Im(z)\leq 2\pi (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\pi\) is a region over which \(\log\) is univalent.
+          Let \(z_1=x_1+\ii y_1\), \(z_2=x_2+\ii y_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(\ee^{z_1}=\ee^{z_2}\). Then, \[\ee^{x_1}\ee^{\ii y_1}=\ee^{x_2}\ee^{\ii y_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\pi k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\pi k\), we can select \(U\) to be any horizontal strip \(2\pi k\leq \Im(z)< 2\pi (k+1)\) (or \(2\pi k< \Im(z)\leq 2\pi (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\pi\) is a region over which \(\log\) is univalent.
 \end{enumerate}
 Next we examine the complex logarithm.
 \begin{enumerate}
     \item From of the periodicity of \(z=\ee^w\), \(\log\) is a multi-valued function (infinite-valued).
     \item Let \(z=r\ee^{\ii\theta}\) and \(w=u+\ii v\), where \(r,\theta,u,v\in\mathbb{R}\). Then,
-        \[r\ee^{\ii\theta}=\ee^{u+\ii v},\]
-        and \(\ee^u=r\), meaning that \(u=\ln(r)\), \(v=\theta+2\pi k\), where \(k\in\mathbb{Z}\). Then,
-        \[w=\ln(r)+\ii(\theta+2\pi k),\]
-        and using the modulus-argument notation,
-        \[\log(z)=\ln\abs{z}+\ii\arg(z),\]
-        where \(\arg(z)\) is the multi-valued argument function. The \textit{principal branch} of the argument is denoted \(\Arg:\mathbb{C}\to(-\pi,\pi]\). The principal branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\Im\paren{\Log}\in(-\pi,\pi]\).
+          \[r\ee^{\ii\theta}=\ee^{u+\ii v},\]
+          and \(\ee^u=r\), meaning that \(u=\ln(r)\), \(v=\theta+2\pi k\), where \(k\in\mathbb{Z}\). Then,
+          \[w=\ln(r)+\ii(\theta+2\pi k),\]
+          and using the modulus-argument notation,
+          \[\log(z)=\ln\abs{z}+\ii\arg(z),\]
+          where \(\arg(z)\) is the multi-valued argument function. The \textit{principal branch} of the argument is denoted \(\Arg:\mathbb{C}\to(-\pi,\pi]\). The principal branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\Im\paren{\Log}\in(-\pi,\pi]\).
 \end{enumerate}
 The functions \(\sin\) and \(\cos\), through their exponential form, still satisfy the properties such as their derivatives, periodicity being \(2\pi\), parity, sum and difference, and the fundamental identities \(\sin^2(z)+\cos^2(z)=1\), \(\sin(z)=\cos(\frac{\pi}{2}-z)\). However, due to the extension, some properties do not hold. For instance, \(\sin(z)\) and \(\cos(z)\) are unbounded, as along the imaginary axis, they resemble their hyperbolic counterparts, which are unbounded along the real line.
 
@@ -532,8 +532,8 @@ Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp(\ii u\arg(z))\). Doing casework 
     \item If \(\alpha=u\in\mathbb{Z}\), then \(u\) can be absorbed into \(k\), and \(z^\alpha\) is single valued.
     \item If \(\alpha=u\in\mathbb{Q}\) with the reduced fraction representation \(\frac{p}{q}\), where \(p,q\in\mathbb{Z}\), \(q\neq 0\).
 
-        Then, \[\abs{z}^{\frac{p}{q}}\exp\paren{\ii\frac{p}{q}\paren{\Arg(z)+2\pi k}}=\abs{z}^{\frac{p}{q}}\exp(\ii\frac{p}{q}\Arg(z))\exp(2\ii\frac{p}{q}\pi k).\]
-        When \(k=1,2,\ldots,q-1\), \(2\frac{p}{q}\pi k\) is not congruent modulo \(2\pi\), and thus, \(z^\alpha\) has \(q\) values.
+          Then, \[\abs{z}^{\frac{p}{q}}\exp\paren{\ii\frac{p}{q}\paren{\Arg(z)+2\pi k}}=\abs{z}^{\frac{p}{q}}\exp(\ii\frac{p}{q}\Arg(z))\exp(2\ii\frac{p}{q}\pi k).\]
+          When \(k=1,2,\ldots,q-1\), \(2\frac{p}{q}\pi k\) is not congruent modulo \(2\pi\), and thus, \(z^\alpha\) has \(q\) values.
     \item If \(\alpha=u\in\mathbb{R}\setminus\mathbb{Q}\), then \(z^\alpha\) is infinite valued.
 \end{enumerate}
 Lastly, there exist series representations of functions using power functions (Taylor series) and trigonometric functions (Fourier series). There does not exist another representation using exponential functions as trigonometric functions can be written in terms of them.
@@ -603,8 +603,8 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_nz^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=0.\]
     By analyzing the difference,
     \begin{align}
-        \frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}&=\qty[\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)]\nonumber\\
-        &\quad+S'_n(z)-f_1(z)+\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}.\label{eq:abelradius_differentiationintermediate}
+        \frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z} & =\qty[\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)]\nonumber                                                \\
+                                                   & \quad+S'_n(z)-f_1(z)+\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}.\label{eq:abelradius_differentiationintermediate}
     \end{align}
     Since \(S'_n(z)\to f_1(z)\) as \(n\to\infty\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{S'_n(z)-f_1(z)}<\frac{\varepsilon}{3}\). Since \[\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}=\sum_{k=n}^\infty a_k\frac{z^k-z_0^k}{z-z_0}=\sum_{k=n}^\infty a_k\qty(z^{k-1}+z^{k-2}z+\cdots+z_0^{k-1})\]
     for \(z\neq z_0\), \(|z|<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty \abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) is absolutely convergent, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
@@ -623,7 +623,7 @@ The Uniform Limit Theorem in real analysis is generalized:
     \(\forall n\in\mathbb{N}\), \(\forall z_0\in U\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in D\paren{z_0,\delta}\subseteq U\), \(\abs{f_n(z)-f_n\paren{z_0}}<\frac{\varepsilon}{3}\). Additionally, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\) (\(n\) is independent of \(z\)), \(\abs{f_n(z)-f(z)}<\frac{\varepsilon}{3}\). It follows that \(\abs{f_n\paren{z_0}-f\paren{z_0}}<\frac{\varepsilon}{3}\). By the triangle inequality,
     \begin{align*}
         \abs{f(z)-f\paren{z_0}} & \leq\abs{f(z)-f_n(z)}+\abs{f_n(z)-f_n\paren{z_0}}+\abs{f_n\paren{z_0}-f\paren{z_0}}                                   \\
-        & <\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon,\quad\forall z\in D\paren{z_0,\delta}.
+                                & <\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon,\quad\forall z\in D\paren{z_0,\delta}.
     \end{align*}
     Then the continuity of \(f\) is satisfied.
 \end{proof}
@@ -638,9 +638,9 @@ Lastly, the sufficient criteria to pass a limit through an integral:
     Then \(\forall n>N\),
     \begin{align*}
         \abs{\int_\gamma f_n(z)\ddz-\int_\gamma f(z)\ddz}
-        & =\abs{\int_\gamma\paren{f_n(z)-f(z)}\ddz}                               \\
-        & \leq\int_\gamma\abs{f_n(z)-f(z)}\abs{\ddz}                              \\
-        & <\int_\gamma\frac{\varepsilon}{\mathrm{length}(\gamma)}\abs{\ddz}=\varepsilon.
+         & =\abs{\int_\gamma\paren{f_n(z)-f(z)}\ddz}                                      \\
+         & \leq\int_\gamma\abs{f_n(z)-f(z)}\abs{\ddz}                                     \\
+         & <\int_\gamma\frac{\varepsilon}{\mathrm{length}(\gamma)}\abs{\ddz}=\varepsilon.
     \end{align*}
     Therefore, \[\lim_{n\to\infty}\int_\gamma f_n(z)\ddz=\int_\gamma f(z)\ddz,\] as desired.
 \end{proof}
@@ -676,7 +676,7 @@ It is important to know the differential 2-forms even for a single variable comp
 The antisymmetric properties of differential forms still hold in complex space. By taking the wedge product of the two basis complex differential forms, we get
 \begin{align*}
     \dd{\overline{z}}\wedge\ddz & =\paren{\ddx-\ii\ddy}\wedge\paren{\ddx+\ii\ddy} \\
-    & =2\ii\ddx\wedge\ddy.
+                                & =2\ii\ddx\wedge\ddy.
 \end{align*}
 Analogous to the real case, a 0-form is defined as a scalar-valued function in the form \(f\paren{z,\overline{z}}\), a 1-form in the form of \(\omega_0\ddz+\omega_1\dd{\overline{z}}\), and a 2-form as \(\omega_0\ddz\wedge\dd{\overline{z}}\). The exterior differential operator for this one-dimensional case is defined as \(\partial+\overline{\partial}\), where \(\partial=\ddz\wedge\pdv{}{z}\) and \(\overline{\partial}=\dd{\overline{z}}\wedge\pdv{}{\overline{z}}\). Occasionally, one will informally use \(\partial\) and \(\overline{\partial}\) as an abbreviation for \(\pdv{z}\) and \(\pdv{\overline{z}}\) respectively.
 \begin{example}
@@ -687,7 +687,7 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     By the properties above,
     \begin{align*}
         \int_{f(U)}\dd{u}\wedge\dd{v} & =\frac{\ii}{2}\int_{f(U)}\dd{w}\wedge\dd{\overline{w}}=\frac{\ii}{2}\int_{U}\dd{f(z)}\wedge\dd{\overline{f(z)}} \\
-        & =\frac{\ii}{2}\int_{U}{f'(z)\ddz}\wedge{\overline{f'(z)}\dd{\overline{z}}}=\int_U\abs{f'(z)}^2\ddx\wedge\ddy,
+                                      & =\frac{\ii}{2}\int_{U}{f'(z)\ddz}\wedge{\overline{f'(z)}\dd{\overline{z}}}=\int_U\abs{f'(z)}^2\ddx\wedge\ddy,
     \end{align*}
     as desired.
 \end{proof}
@@ -705,17 +705,17 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     Then,
     \begin{align}
         \omega & =\paren{\xi_1+\ii\eta_1}\ddz+\paren{\xi_2+\ii\eta_2}\dd{\overline{z}}\label{eq:complexgreen_omegaexpansionintermediate}                                                   \\
-        & =\paren{\xi_1+\ii\eta_1}\paren{\ddx+\ii\ddy}+\paren{\xi_2+\ii\eta_2}\paren{\ddx-\ii\ddy}\nonumber                                                                         \\
-        & =\xi_1\ddx+\ii\eta_1\ddx+\ii\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+\ii\eta_2\ddx-\ii\xi_2\ddy+\eta_2\ddy\nonumber                                                                 \\
-        & =\qty[\paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy]+\ii\qty[\paren{\eta_1+\eta_2}\ddx+\paren{\xi_1-\xi_2}\ddy]\label{eq:complexgreen_realandcomplexdxdyintermediate}
+               & =\paren{\xi_1+\ii\eta_1}\paren{\ddx+\ii\ddy}+\paren{\xi_2+\ii\eta_2}\paren{\ddx-\ii\ddy}\nonumber                                                                         \\
+               & =\xi_1\ddx+\ii\eta_1\ddx+\ii\xi_1\ddy-\eta_1\ddy+\xi_2\ddx+\ii\eta_2\ddx-\ii\xi_2\ddy+\eta_2\ddy\nonumber                                                                 \\
+               & =\qty[\paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy]+\ii\qty[\paren{\eta_1+\eta_2}\ddx+\paren{\xi_1-\xi_2}\ddy]\label{eq:complexgreen_realandcomplexdxdyintermediate}
     \end{align}
     Each of \(\xi_1,\xi_2,\eta_1,\eta_2\) are real-valued functions that can be represented with a domain of \(\mathbb{R}^2\). We then will apply the \(\dd=\partial+\overline{\partial}\) definition of the exterior derivative and relate it to equation~\eqref{eq:complexgreen}. Starting with equation~\eqref{eq:complexgreen_omegaexpansionintermediate},
     \begin{align}
         \dd{\omega} & =\paren{\partial+\overline{\partial}}\paren{\xi_1+\ii\eta_1}\ddz+\paren{\partial+\overline{\partial}}\paren{\xi_2+\ii\eta_2}\dd{\overline{z}}\nonumber                                                       \\
-        & =\paren{\pdv{\xi_1}{\overline{z}}+\ii\pdv{\eta_1}{\overline{z}}}\dd{\overline{z}}\wedge\ddz+\paren{\pdv{\xi_2}{z}+\ii\pdv{\eta_2}{z}}\ddz\wedge\dd{\overline{z}}\nonumber                                    \\
-        & =2\paren{\ii\pdv{\xi_1}{\overline{z}}-\pdv{\eta_1}{\overline{z}}-\ii\pdv{\xi_2}{z}+\pdv{\eta_2}{z}}\ddx\wedge\ddy\nonumber                                                                                   \\
-        & =\paren{\ii\pdv{\xi_1}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\ii\pdv{\eta_1}{y}-\ii\pdv{\xi_2}{x}-\pdv{\xi_2}{y}+\pdv{\eta_2}{x}-\ii\pdv{\eta_2}{y}}\ddx\wedge\ddy\nonumber                                      \\
-        & =\paren{\pdv{\eta_2}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\pdv{\xi_2}{y}}\dd{A}+\ii\paren{\pdv{\xi_1}{x}-\pdv{\eta_1}{y}-\pdv{\xi_2}{x}-\pdv{\eta_2}{y}}\dd{A}.\label{eq:complexgreen_exteriorderivativeresult}
+                    & =\paren{\pdv{\xi_1}{\overline{z}}+\ii\pdv{\eta_1}{\overline{z}}}\dd{\overline{z}}\wedge\ddz+\paren{\pdv{\xi_2}{z}+\ii\pdv{\eta_2}{z}}\ddz\wedge\dd{\overline{z}}\nonumber                                    \\
+                    & =2\paren{\ii\pdv{\xi_1}{\overline{z}}-\pdv{\eta_1}{\overline{z}}-\ii\pdv{\xi_2}{z}+\pdv{\eta_2}{z}}\ddx\wedge\ddy\nonumber                                                                                   \\
+                    & =\paren{\ii\pdv{\xi_1}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\ii\pdv{\eta_1}{y}-\ii\pdv{\xi_2}{x}-\pdv{\xi_2}{y}+\pdv{\eta_2}{x}-\ii\pdv{\eta_2}{y}}\ddx\wedge\ddy\nonumber                                      \\
+                    & =\paren{\pdv{\eta_2}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\pdv{\xi_2}{y}}\dd{A}+\ii\paren{\pdv{\xi_1}{x}-\pdv{\eta_1}{y}-\pdv{\xi_2}{x}-\pdv{\eta_2}{y}}\dd{A}.\label{eq:complexgreen_exteriorderivativeresult}
     \end{align}
     From equation~\eqref{eq:complexgreen_realandcomplexdxdyintermediate}, we can apply \autoref{thm:realgreen}. For the real component of \(\omega\), we obtain
     \[\int_{\partial U} \paren{\xi_1+\xi_2}\ddx+\paren{\eta_2-\eta_1}\ddy=\iint_U\paren{\pdv{\eta_2}{x}-\pdv{\xi_1}{y}-\pdv{\eta_1}{x}-\pdv{\xi_2}{y}}\ddx\ddy,\]
@@ -738,8 +738,8 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
     \end{equation}
     By properties of \(\dd\), the expression is equal to
     \begin{align*}
-        \int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta & =\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta\\
-        &\quad+\pdv{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.
+        \int_{U\setminus D(z,\varepsilon)}\left(\partial+\overline{\partial}\right)\left(\frac{f(\zeta)}{\zeta-z}\right)\wedge\ddzeta & =\int_{U\setminus D(z,\varepsilon)}\pdv{}{\zeta}\left(\frac{f(\zeta)}{\zeta-z}\right)\ddzeta\wedge\ddzeta \\
+                                                                                                                                      & \quad+\pdv{\overline{\zeta}}\left(\frac{f(\zeta)}{\zeta-z}\right)\dd{\overline{\zeta}}\wedge\ddzeta.
     \end{align*}
     The first term in the integrand vanishes as it contains \(\ddzeta\wedge\ddzeta\). The second term can be simplified using the fact that \(\pdv{\overline{\zeta}}(\frac{1}{\zeta-z})=0\), leading to
     \[\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\]
@@ -762,8 +762,8 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
     \[M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{r\ee^{\ii\theta}}\dd{\paren{z+r\ee^{-\ii\theta}}}\wedge\dd{\paren{z+r\ee^{\ii\theta}}}},\] and by expansion of the wedge product,
     \begin{align}
         M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{2\ii}{\ee^{\ii\theta}}\dd{r}\wedge\dd{\theta}} & =2M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{\ee^{\ii\theta}}\dd{r}\wedge\dd{\theta}}\label{eq:pompeiu_weaksingularityvanishes} \\
-        & =2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\pi}\int_0^\varepsilon \ee^{-\ii\theta}\dd{r}\dd{\theta}}\nonumber                                        \\
-        & =0.\nonumber
+                                                                                                                 & =2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\pi}\int_0^\varepsilon \ee^{-\ii\theta}\dd{r}\dd{\theta}}\nonumber                                        \\
+                                                                                                                 & =0.\nonumber
     \end{align}
     Then from rearranging equation~\eqref{eq:pompeiu_epsilonlimitintermediate}, we obtain:
     \[f(z)=\frac{1}{2\pi\ii}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
@@ -886,8 +886,8 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     \end{figure}Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then,
     \begin{align*}
         \int_{ABCDE}f(z)\ddz & =\qty(\int_{\overrightarrow{AB}}+\int_{\overrightarrow{BC}}+\int_{\overrightarrow{CD}}+\int_{\overrightarrow{DE}}+\int_{\overrightarrow{EA}})f(z)\ddz \\
-        & \quad+\qty(\int_{\overrightarrow{BE}}+\int_{\overrightarrow{EB}}+\int_{\overrightarrow{CE}}+\int_{\overrightarrow{EC}})f(z)\ddz                       \\
-        & =\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
+                             & \quad+\qty(\int_{\overrightarrow{BE}}+\int_{\overrightarrow{EB}}+\int_{\overrightarrow{CE}}+\int_{\overrightarrow{EC}})f(z)\ddz                       \\
+                             & =\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
     \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle in \(U\) with boundary \(\Delta\).
     \begin{figure}
         \centering
@@ -951,7 +951,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     By the definition of holomorphy, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in D\paren{z_0,\delta}\), \[\abs{\frac{f\paren{z}-f\paren{z_0}}{z-z_0}-f'\paren{z_0}}<\varepsilon,\]\[\abs{f\paren{z}-f\paren{z_0}-f'\paren{z_0}\paren{z-z_0}}<\varepsilon\abs{z-z_0}.\] and \(\exists N\in\mathbb{N}\) such that \(\forall n\in \mathbb{N}_{>N}\), \(\Delta^n\subset D\paren{z_0,\delta}\). By \autoref{thm:cauchyintegraltheorem}, since the functions \(1\) and \(z\) are both entire, \[\int_{\Delta^n}\ddz=0,\quad\int_{\Delta^n}z\ddz=0.\] Then
     \begin{align*}
         \int_{\Delta^n}f(z)\ddz & =\int_{\Delta^n}f(z)\ddz-f\paren{z_0}\int_{\Delta^n}\ddz-f'\paren{z_0}\left(\int_{\Delta^n}z\ddz-z_0\int_{\Delta^n}\ddz\right) \\
-        & =\int_{\Delta^n}\brackets{f(z)-f\paren{z_0}-f'\paren{z_0}\paren{z-z_0}}\ddz.
+                                & =\int_{\Delta^n}\brackets{f(z)-f\paren{z_0}-f'\paren{z_0}\paren{z-z_0}}\ddz.
     \end{align*}
     Because the distance between any two points in the interior of a triangle is always less than its perimeter, using the triangle inequality for complex integrals, \[\int_{\Delta^n}\abs{f(z)}\abs{\ddz}\leq\varepsilon\int_{\Delta^n}\abs{z-z_0}\abs{\ddz}=\frac{\varepsilon L}{2^n}\int_{\Delta^n}\abs{\ddz}=\frac{\varepsilon L^2}{4^n}.\]
     Comparing the above equation with equation~\eqref{eq:cauchyintegraltheoremoversimplyconnectedset_trianglelowerbound}, \[\frac{M}{4^n}<\frac{\varepsilon L}{4^n},\quad M<\varepsilon L.\] Since \(\Delta\) is rectifiable, \(L\) is finite, and letting \(\varepsilon\to0\), we find that \(M\to0\). Then, for every triangle in \(U\), the integral vanishes, and equations \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement} and \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition} follow.
@@ -965,9 +965,9 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \centering
         \begin{tikzpicture}[>=stealth,
                 arrow style/.style={
-                    postaction={decorate},
-                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
-            }]
+                        postaction={decorate},
+                        decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+                    }]
             \pgfmathsetmacro{\lengtheta}{18pt}
             \pgfmathsetmacro{\lengthepsilon}{20pt}
             \coordinate (M) at (1, 1.5);
@@ -1033,7 +1033,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     By \autoref{thm:heinecantor}, \(f(z)\) is uniformly continuous over \(\overline{U}\), and therefore \(\forall\varepsilon'>0\), we can choose \(\eta>0\) so that \(\forall z\in\overrightarrow{M_1'N_1'}\), \(\abs{f\paren{z}-f\paren{z-\eta}}<\varepsilon'\) is satisfied. Letting \(\eta\to0\) (with \(\varepsilon'\to0\)) and fixing \(\varepsilon>0\), we get that
     \begin{align*}
         \abs{\int_{\overrightarrow{M_1'N_1'}}f(z)\ddz-\int_{\overrightarrow{M_1N_1}}f(z)\ddz} & \leq\int_{\overrightarrow{M_1'N_1'}}\abs{f(z)-f\paren{z-\eta}}\abs{\ddz} \\
-        & <\varepsilon'\int_{\overrightarrow{M_1'N_1'}}\abs{dz}\to0,
+                                                                                              & <\varepsilon'\int_{\overrightarrow{M_1'N_1'}}\abs{dz}\to0,
     \end{align*}
     and consequently,
     \begin{equation}
@@ -1077,7 +1077,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Since \(f\in C^0(\partial D(z,\varepsilon))\), as \(\varepsilon\to0\),
     \begin{align*}
         \abs{\int_0^{2\pi}\paren{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}} & \leq\int_0^{2\pi}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t} \\
-        & \leq2\pi\max\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\to0.
+                                                                                 & \leq2\pi\max\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\to0.
     \end{align*}
     By rearrangement, \[f(z)=\frac{1}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\]
 \end{proof}
@@ -1110,7 +1110,7 @@ We have also already seen the utility of parameterization via a polar transforma
         \begin{cases}
             0       & k< n \\
             2\pi\ii & k=n
-    \end{cases}.\]
+        \end{cases}.\]
     Therefore, \[2^{2n}\ii\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=2\pi\ii\binom{2n}{n}\Longleftrightarrow\int_0^{2\pi}\cos^{2n}\theta\dd{\theta}=\frac{2\pi\qty(2n)!}{2^{2n}\qty(n!)^2}=\frac{2\pi\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}\qty(2k)^2}.\]
     From simple cancellation, we get \[2\pi\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\pi\prod_{k=1}^n\frac{2k-1}{2k},\]
     as expected.
@@ -1119,64 +1119,64 @@ We have also already seen the utility of parameterization via a polar transforma
     Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \autoref{thm:jordancurve}.
     \begin{enumerate}
         \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=
-                \begin{cases}
-                    w      & z\in\mathrm{int}(\gamma) \\
-                    w-f(z) & z\in\mathrm{ext}(\gamma)
-            \end{cases}.\]
+                  \begin{cases}
+                      w      & z\in\mathrm{int}(\gamma) \\
+                      w-f(z) & z\in\mathrm{ext}(\gamma)
+                  \end{cases}.\]
         \item If \(\gamma\) encloses the origin, then \(\forall z\in\mathbb{C}\setminus\gamma\), then
-            \begin{equation}
-                \frac{1}{2\pi\ii}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
-                \begin{cases}
-                    0    & z\in\mathrm{int}(\gamma)                                                       \\
-                    f(z) & z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
-                \end{cases}.
-            \end{equation}
+              \begin{equation}
+                  \frac{1}{2\pi\ii}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
+                  \begin{cases}
+                      0    & z\in\mathrm{int}(\gamma)                                                       \\
+                      f(z) & z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
+                  \end{cases}.
+              \end{equation}
     \end{enumerate}
 \end{example}
 \begin{proof}
     \begin{enumerate}
         \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\pi\ii}\int_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+
-                \begin{cases}
-                    0    & z\in\mathrm{int}(\gamma)            \\
-                    f(z) & z\in D(0,R)\cap\mathrm{ext}(\gamma)
-            \end{cases}.\]
-            By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\lim_{R\to\infty}\int_0^{2\pi}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
-                \begin{cases}
-                    0    & z\in\mathrm{int}(\gamma) \\
-                    f(z) & z\in\mathrm{ext}(\gamma)
-            \end{cases}.\]
-            By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{R\ee^{\ii\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence,
-            \begin{align*}
-                \frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
-                \begin{cases}
-                    0    & z\in\mathrm{int}(\gamma) \\
-                    f(z) & z\in\mathrm{ext}(\gamma)
-                \end{cases}                                                                                                                               \\  & =
-                \begin{cases}
-                    w      & z\in\mathrm{int}(\gamma) \\
-                    w-f(z) & z\in\mathrm{ext}(\gamma)
-                \end{cases},
-            \end{align*} as expected.
+                  \begin{cases}
+                      0    & z\in\mathrm{int}(\gamma)            \\
+                      f(z) & z\in D(0,R)\cap\mathrm{ext}(\gamma)
+                  \end{cases}.\]
+              By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\lim_{R\to\infty}\int_0^{2\pi}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
+                  \begin{cases}
+                      0    & z\in\mathrm{int}(\gamma) \\
+                      f(z) & z\in\mathrm{ext}(\gamma)
+                  \end{cases}.\]
+              By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{R\ee^{\ii\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence,
+              \begin{align*}
+                  \frac{1}{2\pi\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\pi}\int_0^{2\pi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
+                  \begin{cases}
+                      0    & z\in\mathrm{int}(\gamma) \\
+                      f(z) & z\in\mathrm{ext}(\gamma)
+                  \end{cases}                                                                                                                               \\   & =
+                      \begin{cases}
+                      w      & z\in\mathrm{int}(\gamma) \\
+                      w-f(z) & z\in\mathrm{ext}(\gamma)
+                  \end{cases},
+              \end{align*} as expected.
         \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that
-            \begin{align}
-                I & =\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
-                & =\int_0^{2\pi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
-                \begin{cases}
-                    0            & z\in\mathrm{int}(\gamma)            \\
-                    2\pi\ii f(z) & z\in\mathrm{ext}(\gamma)\cap D(0,R)
-                \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
-            \end{align} when \(\gamma\subset D(0,R)\).
-            We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities,
-            \begin{align*}
-                \qty|\int_0^{2\pi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}|&\leq\int_0^{2\pi}\qty|\frac{z}{R\ee^{\ii\theta}-z}|\dd{\theta}\\
-                &\leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.
-            \end{align*}
+              \begin{align}
+                  I & =\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
+                    & =\int_0^{2\pi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
+                  \begin{cases}
+                      0            & z\in\mathrm{int}(\gamma)            \\
+                      2\pi\ii f(z) & z\in\mathrm{ext}(\gamma)\cap D(0,R)
+                  \end{cases},\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
+              \end{align} when \(\gamma\subset D(0,R)\).
+              We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities,
+              \begin{align*}
+                  \qty|\int_0^{2\pi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}| & \leq\int_0^{2\pi}\qty|\frac{z}{R\ee^{\ii\theta}-z}|\dd{\theta}           \\
+                                                                                                                                           & \leq\int_0^{2\pi}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\pi|z|}{R-|z|}\to0.
+              \end{align*}
     \end{enumerate}
     By plugging the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\pi\ii}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
         \begin{cases}
             0    & z\in\mathrm{int}(\gamma) \\
             f(z) & z\in\mathrm{ext}(\gamma)
-    \end{cases}.\]
+        \end{cases}.\]
 \end{proof}
 \subsection{Analyticity and Holomorphy}\label{sec:analyticityandholomorphy}
 The Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}) can also be generalized into a result that equates complex integration and differentiation:
@@ -1200,7 +1200,7 @@ The Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}) can also be gen
     Since
     \begin{align}
         \frac{f(z)-f\paren{z_0}}{z-z_0}-\frac{1}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)\ddzeta}{\paren{\zeta-z_0}^2} & =\frac{1}{2\pi\ii}\oint_{\partial U}\frac{f\paren{\zeta}}{\zeta-z_0}\paren{\frac{1}{\zeta-z}-\frac{1}{\zeta-z_0}}\ddzeta\nonumber                                      \\
-        & =\frac{z-z_0}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta.\label{eq:cauchydifferentiationformula_differenceoffirstorderdifferences}
+                                                                                                                       & =\frac{z-z_0}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta.\label{eq:cauchydifferentiationformula_differenceoffirstorderdifferences}
     \end{align}
     Let \(d\) be the distance from \(z_0\) to \(\partial U\), and it follows that \(0<r<d\). Then, since \(\abs{z-z_0}<r\) and \(\abs{\zeta-z_0}\geq d\), \(\abs{\zeta-z}\geq d-r\). Then the absolute value of the integrand of equation~\eqref{eq:cauchydifferentiationformula_differenceoffirstorderdifferences} is bounded above by \(\frac{M}{d^2(d-r)}\), where \(M\) is the maximum of \(f(\zeta)\), which exists by \autoref{thm:continuousfunctionboundedoncompact}. Then, \[\abs{\frac{z-z_0}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)\paren{\zeta-z_0}^2}\ddzeta}\leq\frac{\abs{z-z_0}}{2\pi}\frac{M}{d^2(d-r)}\oint_{\partial U}\abs{\ddzeta}.\] As \(z\to z_0\), the difference vanishes, and therefore, \[f'\paren{z_0}=\frac{1}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^2}\ddzeta.\]
     Now inductively assume that equation~\eqref{eq:cauchydifferentiationformula_statement} is true for a given \(n=k\in\mathbb{N}\), or \[f^{(k)}(z)=\frac{k!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{k+1}}\ddzeta.\]
@@ -1211,9 +1211,9 @@ The Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}) can also be gen
     Then,
     \begin{align*}
         f^{(k)}(z) & =\frac{k!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{(\zeta-z)^{k+1}}\ddzeta                                                                           \\
-        & =\frac{k!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+1}}\paren{\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j}^{k+1}\ddzeta \\
-        & =f^{(k)}\paren{z_0}+\frac{(k+1)!\paren{z-z_0}}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta                               \\
-        & \quad+\order{\abs{z-z_0}^2},
+                   & =\frac{k!}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+1}}\paren{\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j}^{k+1}\ddzeta \\
+                   & =f^{(k)}\paren{z_0}+\frac{(k+1)!\paren{z-z_0}}{2\pi\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta                               \\
+                   & \quad+\order{\abs{z-z_0}^2},
     \end{align*}
     where the remainder terms \(\order{\abs{z-z_0}^2}\) resemble
     \[\paren{z-z_0}^2\frac{k!}{2\pi\ii}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+\mathcal{O}_{z\to z_0}\paren{\abs{z-z_0}^3}.\]
@@ -1270,9 +1270,9 @@ The differentiation formula above can be thought of as a generalization of \auto
     Since \(z\mapsto\frac{f(z)}{z-a}\) is holomorphic on the disk centered at \(b\) and \(z\mapsto\frac{f(z)}{z-b}\) is holomorphic on the disk centered at \(a\), by the Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}), we have \[\int_{\partial D(0,R)}\frac{f(z)}{(z-a)(z-b)}\ddz=2\pi\ii\qty(\frac{f(b)}{b-a}+\frac{f(a)}{a-b}).\]
     On the contrary, we also have
     \begin{align*}
-        \abs{\qty(\int_{\partial D(a,\varepsilon)}+\int_{\partial D(b,\varepsilon)})\frac{f(z)}{(z-a)(z-b)}\ddz} &\leq M\int_{\partial D(0,R)}\frac{\abs{\ddz}}{\abs{z-a}\abs{z-b}}\\
-        &=\frac{2\pi MR}{(R-a)(R-b)}\\
-        &\to 0\qas{R\to\infty}.
+        \abs{\qty(\int_{\partial D(a,\varepsilon)}+\int_{\partial D(b,\varepsilon)})\frac{f(z)}{(z-a)(z-b)}\ddz} & \leq M\int_{\partial D(0,R)}\frac{\abs{\ddz}}{\abs{z-a}\abs{z-b}} \\
+                                                                                                                 & =\frac{2\pi MR}{(R-a)(R-b)}                                       \\
+                                                                                                                 & \to 0\qas{R\to\infty}.
     \end{align*}
     We conclude that \[\frac{2\pi\ii}{b-a}\qty(f(b)-f(a))=0\] for all distinct complex \(a\) and \(b\). Hence, \(f\) is a constant function.
 \end{proof}
@@ -1327,7 +1327,7 @@ The concept of analytic continuation and its consequent problems and properties 
         \begin{cases}
             \paren{z-z_0}^2f(z) & z\in D^*\paren{z_0,r} \\
             0                   & z=z_0
-    \end{cases}.\]
+        \end{cases}.\]
     \(\varphi(z)\) is bounded and continuously differentiable on \(D\paren{z_0,r}\) and satisfies the Cauchy--Riemann Equations since
     \[\lim_{z\to z_0}\frac{\varphi(z)-\varphi\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2f(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}f(z)=0,\] meaning that \(\dv{\varphi}{z}\paren{z_0}=0\). For \(z\in D^*\paren{z_0,r}\), \[\varphi'(z)=2\paren{z-z_0}f(z)+\paren{z-z_0}^2f'(z).\] As \(z\to z_0\), \(\varphi(z)\to0\), meaning that \(\varphi\) is holomorphic over \(D\paren{z_0,r}\). By \autoref{thm:cauchydifferentiationformula}, \[\varphi(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
     which is convergent over \(D\paren{z_0,r}\). Then we can define \[\widetilde{f}(z)=\frac{\varphi(z)}{\paren{z-z_0}^2}=\sum_{j=0}^\infty a_{j+2}\paren{z-z_0}^j\] over the same disk of convergence. Over the punctured disk, \(\widetilde{f}(z)=f(z)\), and therefore \(\widetilde{f}\) is an analytic continuation of \(f\).
@@ -1397,48 +1397,48 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
         \centering
         \begin{tikzpicture}
             \draw[line width=0.35] plot[smooth cycle] coordinates {
-                (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
-            };
+                    (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
+                };
             \draw[line width=0.5] plot[smooth cycle] coordinates {
-                (-0.5,1) (2,-0.3) (4,0.6) (5.3,2.3) (4.3,5.3) (1.7,5.5) (0.6,4.2) (-0.3,2)
-            };
+                    (-0.5,1) (2,-0.3) (4,0.6) (5.3,2.3) (4.3,5.3) (1.7,5.5) (0.6,4.2) (-0.3,2)
+                };
             \draw[line width=0.65] plot[smooth cycle] coordinates {
-                (0,1) (2,0) (4,1) (5,3.1) (4,4.7) (2,5) (1,4) (0,2)
-            };
+                    (0,1) (2,0) (4,1) (5,3.1) (4,4.7) (2,5) (1,4) (0,2)
+                };
             \draw[thick] plot[smooth cycle] coordinates {
-                (0.2,1.5) (2,0.5) (3.5,1.4) (4.2,2.7) (4.4,4) (2,4.5) (1.5,4) (1,3)
-            };
+                    (0.2,1.5) (2,0.5) (3.5,1.4) (4.2,2.7) (4.4,4) (2,4.5) (1.5,4) (1,3)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4.4,4.3) (4.5,5.4) (2.7,5.7) (2.5,4.6) (3.5,4.7)
-            };
+                    (4.4,4.3) (4.5,5.4) (2.7,5.7) (2.5,4.6) (3.5,4.7)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
-            };
+                    (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
-            };
+                    (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (-0.5,2) (-0.2,3) (0.6,4.6) (1.5,4.3) (0.7,3) (0.2,2) (0,1.2)
-            };
+                    (-0.5,2) (-0.2,3) (0.6,4.6) (1.5,4.3) (0.7,3) (0.2,2) (0,1.2)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (0,0.5) (2.2,-0.6) (2,0.1) (1,0.5) (0,1.3) (-0.3,2) (-0.5,2) (-0.7,1.2)
-            };
+                    (0,0.5) (2.2,-0.6) (2,0.1) (1,0.5) (0,1.3) (-0.3,2) (-0.5,2) (-0.7,1.2)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (2,0.2) (3.5,0.8) (4,1.7) (5.2,1.7) (3.5,0.1) (1.8,-0.4)
-            };
+                    (2,0.2) (3.5,0.8) (4,1.7) (5.2,1.7) (3.5,0.1) (1.8,-0.4)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4,1.2) (4.3,2.2) (5.5,3) (5.6,2)
-            };
+                    (4,1.2) (4.3,2.2) (5.5,3) (5.6,2)
+                };
             \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
-            };
+                    (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
+                };
 
             \node[anchor=north] at (2.5,2.8) {\(K_{n-2}\)};
             \node[anchor=north] at (2.7,5) {\(V_{n-1}\)};
             \node[anchor=north] at (2.7,5.6) {\(V_n\)};
             \node[anchor=north] at (2.7,6.2) {\(V_{n+1}\)};
             \draw[decorate,decoration={calligraphic
-            brace, amplitude=7pt},thick] (3.4,6.18) -- (3.2,4.4) node[midway, yshift=-3pt,right=4pt] {\(W_n\)};
+                        brace, amplitude=7pt},thick] (3.4,6.18) -- (3.2,4.4) node[midway, yshift=-3pt,right=4pt] {\(W_n\)};
         \end{tikzpicture}
         \caption{The geometry of the finite subcover of \(V_n\subset W_n\) for some \(n\in\mathbb{N}\).}
         \label{fig:locallyfiniteopencoverexistence}
@@ -1475,7 +1475,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
         \begin{cases}
             \exp\paren{\frac{1}{\abs{z}^2-1}} & \abs{z}<1   \\
             0                                 & \abs{z}\ge1
-    \end{cases},\] which has the support \(\overline{D(0,1)}\). Define the function \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta\qty(\frac{z}{\varepsilon})\) with the support \(\overline{D(0,\varepsilon)}\), which satisfies that \(\forall\varepsilon>0\), \[\int_{\mathbb{C}}\theta_\varepsilon(z)\ddx\wedge\ddy=1.\]
+        \end{cases},\] which has the support \(\overline{D(0,1)}\). Define the function \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta\qty(\frac{z}{\varepsilon})\) with the support \(\overline{D(0,\varepsilon)}\), which satisfies that \(\forall\varepsilon>0\), \[\int_{\mathbb{C}}\theta_\varepsilon(z)\ddx\wedge\ddy=1.\]
     Define a set of functions \(\cbraces{\beta_j(z)}_{j\in\mathbb{N}}\) with \(\beta_j(z)=\theta_{r_{z_j}}\paren{z-z_j}\), which is a bump function with \(\supp\qty(\beta_j)=\overline{D\paren{z_j, r_{z_j}}}\subset\Omega_{k_{z_j}}\).
 
     By the local finiteness of \(\qty{D\qty(z_j,r_{z_j})}\), there exists an open neighborhood \(V_z\) of each point \(z\in\Omega\) such that the set \(\cbraces{j}{V_z\cap D\qty(z_j,r_{z_j})\neq\emptyset}\) is finite. Since every open neighborhood of each point in \(\overline{D\qty(z_j,r_{z_j})}\) intersects \(D\qty(z_j,r_{z_j})\), it follows that every open set disjoint from \(D\qty(z_j,r_{z_j})\) is also disjoint from its closure. Since \(\overline{D\qty(z_j,r_{z_j})}\supset D\qty(z_j,r_{z_j})\), any open set intersecting \(D\qty(z_j,r_{z_j})\) will intersect \(\overline{D\qty(z_j,r_{z_j})}\). Therefore, \(\cbraces{j}{V_z\cap\overline{D\qty(z_j,r_{z_j})}\neq\emptyset}\) is finite. Equivalently, \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\) is locally finite on \(\Omega\).
@@ -1584,12 +1584,12 @@ This profound result proves that the number of zeros of a holomorphic function e
     Then \(\abs{f_n(z)}>\frac{\lambda}{2}\) on \(\gamma\). Hence, \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded; \[\abs{\frac{1}{f(z)}}<\frac{1}{\lambda},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\lambda},\quad\forall z\in\gamma,\forall n>N.\]
     Then,
     \begin{align*}
-        \abs{\frac{f'}{f}-\frac{f'_n}{f_n}}                                               & =\abs{\frac{f'f_n-f'_nf}{f_nf}}                                                                                                           \\
-        & <2\frac{\abs{f'f_n-f'f}+\abs{f'f-f'_nf}}{\lambda^2}                                                                                       \\
-        & <\frac{2M}{\lambda^2}\cdot\paren{\abs{f_n-f}+\abs{f'-f'_n}}.                                                                              \\
-        \sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}}                  & \leq\frac{2M}{\lambda^2}\paren{\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\sup_{z\in\gamma}\abs{f'(z)-f'_n(z)}}                                   \\
+        \abs{\frac{f'}{f}-\frac{f'_n}{f_n}}                                               & =\abs{\frac{f'f_n-f'_nf}{f_nf}}                                                                         \\
+                                                                                          & <2\frac{\abs{f'f_n-f'f}+\abs{f'f-f'_nf}}{\lambda^2}                                                     \\
+                                                                                          & <\frac{2M}{\lambda^2}\cdot\paren{\abs{f_n-f}+\abs{f'-f'_n}}.                                            \\
+        \sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}}                  & \leq\frac{2M}{\lambda^2}\paren{\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\sup_{z\in\gamma}\abs{f'(z)-f'_n(z)}} \\
         \lim_{n\to\infty}\sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}} & \leq\frac{2M}{\lambda^2}\paren{\lim_{n\to\infty}\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\abs{f'(z)-f'_n(z)}} \\
-        & =0.
+                                                                                          & =0.
     \end{align*}
     Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). By \autoref{thm:limitintegralswitch}, we can pass the limit through the integral in equation~\eqref{eq:hurwitzsimplecase_argumentprinciple}. Then,
     \[\lim_{n\to\infty}\oint_\gamma \frac{f'_n(z)}{f_n(z)}\ddz=\oint_\gamma \frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\autoref{thm:argumentprincipleholomorphic}), \(f(z)\) has no zeros in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
@@ -1605,8 +1605,8 @@ This profound result proves that the number of zeros of a holomorphic function e
 
     Let \(k_f\) and \(k_g\) denote the number of zeros of \(f\) and \(g\) enclosed by \(\gamma\), respectively. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}),
     \begin{align*}
-        k_g-k_f&=\int_{\gamma}\frac{g'(z)}{g(z)}\ddz-\int_\gamma\frac{f'(z)}{f(z)}\ddz\\
-        &=\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\dfrac{g(z)}{f(z)})'}{\dfrac{g(z)}{f(z)}}\ddz.
+        k_g-k_f & =\int_{\gamma}\frac{g'(z)}{g(z)}\ddz-\int_\gamma\frac{f'(z)}{f(z)}\ddz                                                    \\
+                & =\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\dfrac{g(z)}{f(z)})'}{\dfrac{g(z)}{f(z)}}\ddz.
     \end{align*}
     Let \(w=h(z)=\frac{g(z)}{f(z)}\) with \(\Gamma=h(\gamma)\). Then, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}.\]
     From equation~\eqref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
@@ -1673,8 +1673,8 @@ Before the theorem, we first introduce the mean-value property of holomorphic fu
     By the Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\pi\ii}\int_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}.\]
     Observe that
     \begin{align*}
-        f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}&=\frac{1}{2\pi\varepsilon}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\abs{\ii\varepsilon \ee^{\ii t}\dd{t}}\\
-        &=\frac{1}{2\pi}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t},
+        f(z)=\frac{1}{2\pi\varepsilon}\int_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}} & =\frac{1}{2\pi\varepsilon}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\abs{\ii\varepsilon \ee^{\ii t}\dd{t}} \\
+                                                                                               & =\frac{1}{2\pi}\int_{0}^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t},
     \end{align*}
     and the conclusion follows.
 \end{proof}
@@ -1691,12 +1691,12 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
     Since \(S\subseteq V\) and \(V\) are open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \autoref{lemma:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
     \begin{align*}
         |f(z)| & =\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}}\leq \frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon \ee^{\ii t}}}\dd{t} \\
-        & \leq\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}=\abs{f(z)}.
+               & \leq\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
     It follows that all inequalities above are equalities, or that
     \begin{align*}
         |f(z)| & =\abs{\frac{1}{2\pi}\int_0^{2\pi}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}}=\frac{1}{2\pi}\int_0^{2\pi}\abs{f\paren{z+\varepsilon \ee^{\ii t}}}\dd{t} \\
-        & =\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}=\abs{f(z)}.
+               & =\frac{1}{2\pi}\int_0^{2\pi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
     From the equality of the last two integrals, \(\int_{0}^{2\pi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon \ee^{\ii t}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\autoref{thm:identity}).
 \end{proof}
@@ -1720,7 +1720,7 @@ The following important result can be directly obtained from the Maximum Modulus
         \begin{cases}
             \frac{f(z)}{z} & z\neq0 \\
             f'(0)          & z=0
-    \end{cases}.\]
+        \end{cases}.\]
     Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \autoref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in \partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in \mathbb{D}\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\).
 
     For the sake of the equality condition, assume \(|f(z)|=|z|\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \autoref{thm:maximummodulus}, \(g(z)=\exp(\ii\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(\ii\tau)\) on \(\mathbb{D}\).
@@ -1956,7 +1956,7 @@ This series may diverge. Observe that continuity of \(u\) on the compact set \(\
 Substituting the coefficients gives
 \begin{align*}
     \sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}} & =\sum_{n=-\infty}^\infty \qty(\frac{1}{2\pi}\int_0^{2\pi}u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}) \ee^{\ii n\theta}\rho^{\abs{n}} \\
-    & =\frac{1}{2\pi} \sum_{n=-\infty}^\infty \int_0^{2\pi}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)}\dd{\tau}.
+                                                                & =\frac{1}{2\pi} \sum_{n=-\infty}^\infty \int_0^{2\pi}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)}\dd{\tau}.
 \end{align*}
 By the Weierstrass \(M\)-Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:limitintegralswitch},
 \begin{equation}
@@ -1965,10 +1965,10 @@ By the Weierstrass \(M\)-Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:
 The summation simplifies as follows:
 \begin{align*}
     \sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)} & =\sum_{n=0}^\infty \rho^n \ee^{\ii n(\theta-\tau)}+\sum_{n=1}^\infty \rho^n \ee^{-in(\theta-\tau)} \\
-    & =1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]                                                    \\
-    & =1+2\Re\sum_{n=1}^\infty\rho^n \ee^{\ii n(\theta-\tau)}                                            \\
-    & =1+2\Re\qty[\frac{\rho \ee^{\ii(\theta-\tau)}}{1-\rho \ee^{\ii(\theta-\tau)}}]                     \\
-    & =\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
+                                                                    & =1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]                                                    \\
+                                                                    & =1+2\Re\sum_{n=1}^\infty\rho^n \ee^{\ii n(\theta-\tau)}                                            \\
+                                                                    & =1+2\Re\qty[\frac{\rho \ee^{\ii(\theta-\tau)}}{1-\rho \ee^{\ii(\theta-\tau)}}]                     \\
+                                                                    & =\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
 \end{align*}
 Substituting into \eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch} yields
 \[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=\frac{1}{2\pi}\int_0^{2\pi}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho \ee^{\ii\theta}).\]
@@ -2040,8 +2040,8 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     \begin{figure}
         \centering
         \begin{tikzpicture}\draw[line width=0.35] plot[smooth cycle] coordinates {
-                (-2.4,-0.24) (-1.84,-1.68) (-0.96,-1.68) (0.16,-1.92) (0.96,-2.0) (1.84,-1.2) (1.92,0.96) (-0.56,2.16)
-            };
+                    (-2.4,-0.24) (-1.84,-1.68) (-0.96,-1.68) (0.16,-1.92) (0.96,-2.0) (1.84,-1.2) (1.92,0.96) (-0.56,2.16)
+                };
             \draw[line width=0.5] (2.8,0) arc[start angle=0, end angle=360, radius=2.8];
             \draw[line width=0.5, dashed] (2.64,0) arc[start angle=0, end angle=360, radius=2.64];
             \draw[line width=0.5] (1.6,0) arc[start angle=0, end angle=360, radius=1.6];
@@ -2081,7 +2081,7 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
         \begin{cases}
             0       & k\neq-1 \\
             2\pi\ii & k=-1    \\
-    \end{cases}.\]
+        \end{cases}.\]
     Multiplying equation~\eqref{eq:laurentexpansionofholomorphicfunction_uniquenessstatement} by \((z-a)^{-m-1}\) and from integrating over \(\gamma\), we get that \[\oint_\gamma\frac{f(z)\ddz}{(z-a)^{m+1}}=\oint_{\gamma}\sum_{n=-\infty}^\infty c'_n(z-a)^{n-m-1}\ddz,\] implying that \[2\pi \ii c_m=\sum_{n=-\infty}^\infty c'_n\oint_{\gamma}(z-a)^{n-m-1}\ddz=2\pi\ii c'_m,\]
     which is a contradiction, implying uniqueness.
 \end{proof}
@@ -2090,31 +2090,31 @@ An \textit{isolated singularity} of a complex function is a point \(a\in\mathbb{
 \begin{enumerate}
     \item\label{itm:isolatedsingularities_removable} If \(\lim_{z\to a}f(z)\) exists and is finite, then \(z=a\) is a removable singularity and can be analytically continued to \(D(a,r)\) by \autoref{thm:removablesingularitiesriemann}. Consequently, \(f(z)\) has a convergent Taylor expansion and the principal part of its Laurent expansion vanishes, and \(f(z)=\varphi(z)\).
     \item\label{itm:isolatedsingularities_pole} If \(\lim_{z\to a}f(z)=\infty\), then \(z=a\) is a \textit{pole} of \(f\) (from the stereographic projection and the Riemann sphere, the \(\infty\) is a single point in \(\extcomplex\), and approaching \(\infty\) does not distinguish between different directions, unlike the use of \(+\infty\) and \(-\infty\)).
-        \begin{theorem}\label{thm:isolatedsingularities_pole_laurentexpansion}
-            The condition \(\lim_{z\to a}f(z)=\infty\) is equivalent to there being a finite number of nonzero \(c_{-n}\)'s, where \(n\in\mathbb{N}\).
-        \end{theorem}
-        In other words the principal part of \(f\) is equal to \[\psi(z)=\frac{c_{-1}}{z-a}+\cdots+\frac{c_{-m}}{(z-a)^m}\quad c_{-m}\neq0\] for some \(m\in\mathbb{N}\). Therefore, \(f(z)=\varphi(z)+\psi(z)=\sum_{n=-m}^\infty c_n(z-a)^n=\frac{g(z)}{(z-a)^m}\) on the punctured disk \(D^*(a,r)\), where \(g(z)=\sum_{n=0}^\infty c_{n-m}(z-a)^n\) is holomorphic on \(D(a,r)\) and does not attain a zero at \(z=a\). Then \(f(z)\) has a pole at \(z=a\) with order \(m\). If \(m=1\), the pole is also called a \textit{simple pole}.
-        \begin{proof}
-            Obviously, under the assumption of a finite, nonempty number of non-negative terms in the principal part of the Laurent expansion coefficients, \(\lim_{z\to a}f(z)\to\infty\). Now we will prove the converse. Let \(g(z)=\frac{1}{f(z)}\). Then \(\lim_{z\to a}g(z)=0\). There exists a \(\delta>0\) such that \(f\) is nonzero on \(D^*(a,\delta)\). Then \(g(z)\) is holomorphic on \(D^*(a,\delta)\) and has a removable singularity at \(z=a\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to \(D^*(a,\delta)\). Let the multiplicity of the zero at \(z=a\) be \(m\). Then \(g(z)=\phi(z)(z-a)^m\), where \(\phi(z)\) is holomorphic and nonzero at \(z=a\). Then there exists a \(\delta'>0\) such that \(\phi\) is nonzero on \(D(a,\delta')\). It follows that \(\frac{1}{\phi}\) is holomorphic and nonzero on \(D(a,\delta')\). We can then write its Taylor expansion as \[\frac{1}{\phi(z)}=c_{-m}+c_{1-m}(z-a)+\cdots,\]
-            where \(c_{-m}\neq0\). It follows that \[f(z)=\frac{1}{g(z)}=\frac{(z-a)^{-m}}{\phi(z)}={c_{-m}}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_0+\cdots.\]
-            By the uniqueness of the Laurent series (by \autoref{thm:laurentexpansionofholomorphicfunction}), the conclusion follows.
-        \end{proof}
+          \begin{theorem}\label{thm:isolatedsingularities_pole_laurentexpansion}
+              The condition \(\lim_{z\to a}f(z)=\infty\) is equivalent to there being a finite number of nonzero \(c_{-n}\)'s, where \(n\in\mathbb{N}\).
+          \end{theorem}
+          In other words the principal part of \(f\) is equal to \[\psi(z)=\frac{c_{-1}}{z-a}+\cdots+\frac{c_{-m}}{(z-a)^m}\quad c_{-m}\neq0\] for some \(m\in\mathbb{N}\). Therefore, \(f(z)=\varphi(z)+\psi(z)=\sum_{n=-m}^\infty c_n(z-a)^n=\frac{g(z)}{(z-a)^m}\) on the punctured disk \(D^*(a,r)\), where \(g(z)=\sum_{n=0}^\infty c_{n-m}(z-a)^n\) is holomorphic on \(D(a,r)\) and does not attain a zero at \(z=a\). Then \(f(z)\) has a pole at \(z=a\) with order \(m\). If \(m=1\), the pole is also called a \textit{simple pole}.
+          \begin{proof}
+              Obviously, under the assumption of a finite, nonempty number of non-negative terms in the principal part of the Laurent expansion coefficients, \(\lim_{z\to a}f(z)\to\infty\). Now we will prove the converse. Let \(g(z)=\frac{1}{f(z)}\). Then \(\lim_{z\to a}g(z)=0\). There exists a \(\delta>0\) such that \(f\) is nonzero on \(D^*(a,\delta)\). Then \(g(z)\) is holomorphic on \(D^*(a,\delta)\) and has a removable singularity at \(z=a\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to \(D^*(a,\delta)\). Let the multiplicity of the zero at \(z=a\) be \(m\). Then \(g(z)=\phi(z)(z-a)^m\), where \(\phi(z)\) is holomorphic and nonzero at \(z=a\). Then there exists a \(\delta'>0\) such that \(\phi\) is nonzero on \(D(a,\delta')\). It follows that \(\frac{1}{\phi}\) is holomorphic and nonzero on \(D(a,\delta')\). We can then write its Taylor expansion as \[\frac{1}{\phi(z)}=c_{-m}+c_{1-m}(z-a)+\cdots,\]
+              where \(c_{-m}\neq0\). It follows that \[f(z)=\frac{1}{g(z)}=\frac{(z-a)^{-m}}{\phi(z)}={c_{-m}}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_0+\cdots.\]
+              By the uniqueness of the Laurent series (by \autoref{thm:laurentexpansionofholomorphicfunction}), the conclusion follows.
+          \end{proof}
     \item\label{itm:isolatedsingularities_essential} If \(\lim_{z\to a}f(z)\) is nonexistent, then \(a\) is known as an \textit{essential singularity}.
-        \begin{example}\label{ex:isolatedsingularities_essential_exp1z}
-            The function \(\ee^{\frac{1}{z}}\) has an essential singularity at \(z=0\).
-        \end{example}
-        \begin{proof}
-            Observe that \(\lim_{\substack{z\to 0\\z\in\mathbb{R}_{>0}}}=\infty\). Similarly, \(\lim_{\substack{z\to0\\z\in\mathbb{R}_{<0}}}=0\), and \(\lim_{\substack{z\to0\\z\in \ii\mathbb{R}_{>0}}}\) is divergent. Therefore, the limit does not exist.
-        \end{proof}
-        The implication on its Laurent expansion at \(a\) is:
-        \begin{theorem}
-            The necessary and sufficient for \(\lim_{z\to a} f(z)\) to not exist is that infinitely many of \(c_{-n}\) (where \(n\in\mathbb{N}\)) are nonzero.
-        \end{theorem}
-        This follows by elimination from the established trichotomy; if the limit as \(z\to a\) does not exist, then the singularity is neither removable nor a pole (results from \ref{itm:isolatedsingularities_removable} and \ref{itm:isolatedsingularities_pole}). Similar logic can be applied to the coefficients of the Laurent expansion.
+          \begin{example}\label{ex:isolatedsingularities_essential_exp1z}
+              The function \(\ee^{\frac{1}{z}}\) has an essential singularity at \(z=0\).
+          \end{example}
+          \begin{proof}
+              Observe that \(\lim_{\substack{z\to 0\\z\in\mathbb{R}_{>0}}}=\infty\). Similarly, \(\lim_{\substack{z\to0\\z\in\mathbb{R}_{<0}}}=0\), and \(\lim_{\substack{z\to0\\z\in \ii\mathbb{R}_{>0}}}\) is divergent. Therefore, the limit does not exist.
+          \end{proof}
+          The implication on its Laurent expansion at \(a\) is:
+          \begin{theorem}
+              The necessary and sufficient for \(\lim_{z\to a} f(z)\) to not exist is that infinitely many of \(c_{-n}\) (where \(n\in\mathbb{N}\)) are nonzero.
+          \end{theorem}
+          This follows by elimination from the established trichotomy; if the limit as \(z\to a\) does not exist, then the singularity is neither removable nor a pole (results from \ref{itm:isolatedsingularities_removable} and \ref{itm:isolatedsingularities_pole}). Similar logic can be applied to the coefficients of the Laurent expansion.
 
-        Indeed, in \autoref{ex:isolatedsingularities_essential_exp1z}, the Laurent expansion is equal to:
-        \[\ee^{\frac{1}{z}}=\sum_{n=0}^\infty\frac{z^{-n}}{n!},\]
-        which has infinitely many nonzero coefficients of negative powers.
+          Indeed, in \autoref{ex:isolatedsingularities_essential_exp1z}, the Laurent expansion is equal to:
+          \[\ee^{\frac{1}{z}}=\sum_{n=0}^\infty\frac{z^{-n}}{n!},\]
+          which has infinitely many nonzero coefficients of negative powers.
 \end{enumerate}
 A function with an essential singularity exhibits striking behavior. We will first introduce the following famous result.
 \begin{theorem}[Casorati--Weierstrass Theorem]\label{thm:casoratiweierstrass}
@@ -2136,7 +2136,7 @@ The classification of the singularity at \(\infty\) is then reduced to the class
     \item If \(z=\infty\) is a removable singularity of \(f(z)\), then \(f(z)\) has the form of \[f(z)=c_0+\frac{c_{-1}}{z}+\frac{c_{-2}}{z^2}+\frac{c_{-3}}{z^3}+\cdots.\]
     \item If \(z=\infty\) is a pole of \(f(z)\) with degree \(m\in\mathbb{N}\), then \(f(z)\) can be written as \[f(z)=c_{m}z^m+c_{m-1}z^{m-1}+\cdots+c_0+\frac{c_{-1}}{z}+\cdots,\] where \(c_{m}\neq0\).
     \item If \(z=\infty\) is an essential singularity of \(f(z)\), then \(f(z)\) can be expanded as \[f(z)=\sum_{n=-\infty}^\infty c_{n}z^n,\]
-        where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{n}\neq0\) (infinitely many coefficients of \(\psi\) or \(\widetilde{\psi}\) are nonzero).
+          where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{n}\neq0\) (infinitely many coefficients of \(\psi\) or \(\widetilde{\psi}\) are nonzero).
 \end{enumerate}
 \begin{remark}
     Under stereographic projection from the point \(\mqty(0\\0\\1)\) of the unit sphere \(S_2\), a neighborhood of that point maps to a subset of the extended complex plane of the form \(\extcomplex\setminus K\), where \(K\) is a compact and connected subset of \(\mathbb{C}\). Such sets are referred to as \textit{neighborhoods of \(\infty\)} in the Riemann sphere.
@@ -2148,20 +2148,20 @@ The classification of the singularity at \(\infty\) is then reduced to the class
 We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
 \begin{enumerate}
     \item If the infinity point is a removable singularity, then \(\lim_{z\to\infty} f(z)\) exists and is finite.
-        \begin{lemma}\label{lemma:removablesingularityatinftyentireconstant}
-            If \(f(z)\) is entire and has a removable singularity at \(z=\infty\), then \(f\) is constant.
-        \end{lemma}
-        \begin{proof}
-            Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall |z|>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\), and is bounded. For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \autoref{thm:continuousfunctionboundedoncompact}, is also bounded.
+          \begin{lemma}\label{lemma:removablesingularityatinftyentireconstant}
+              If \(f(z)\) is entire and has a removable singularity at \(z=\infty\), then \(f\) is constant.
+          \end{lemma}
+          \begin{proof}
+              Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall |z|>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\), and is bounded. For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \autoref{thm:continuousfunctionboundedoncompact}, is also bounded.
 
-            Then by Liouville's Theorem (\autoref{thm:liouville}), \(f\) is constant.
-        \end{proof}
+              Then by Liouville's Theorem (\autoref{thm:liouville}), \(f\) is constant.
+          \end{proof}
     \item If \(f(z)\) has a pole at \(z=\infty\) of order \(m\in\mathbb{N}\), then \(f\) is a polynomial of degree \(m\).
-        \begin{proof}
-            By the classification of a pole at \(\infty\), \(f\) can be written as \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0+\frac{c_{-1}}{z}+\cdots.\]
-            Since \(f(z)\) is entire, it is holomorphic at \(z=0\) and has a convergent Taylor expansion. By the uniqueness of Laurent expansions (\autoref{thm:laurentexpansionofholomorphicfunction}), the two expansions are equivalent and therefore all terms with negative exponents vanish, and \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0,\]
-            and since \(c_m\neq0\), the statement is confirmed.
-        \end{proof}
+          \begin{proof}
+              By the classification of a pole at \(\infty\), \(f\) can be written as \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0+\frac{c_{-1}}{z}+\cdots.\]
+              Since \(f(z)\) is entire, it is holomorphic at \(z=0\) and has a convergent Taylor expansion. By the uniqueness of Laurent expansions (\autoref{thm:laurentexpansionofholomorphicfunction}), the two expansions are equivalent and therefore all terms with negative exponents vanish, and \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0,\]
+              and since \(c_m\neq0\), the statement is confirmed.
+          \end{proof}
     \item If \(f(z)\) has an essential singularity at \(z=\infty\), \(f(z)\) is known as a \textit{transcendental entire function}.
 \end{enumerate}
 \begin{example}
@@ -2183,7 +2183,7 @@ Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\) and
         \frac{a_n}{b_m} & n=m \\
         0               & n<m \\
         \infty          & n>m
-\end{cases}.\]
+    \end{cases}.\]
 We will then introduce the converse:
 \begin{theorem}\label{thm:rationalmeromorphicfunctions}
     If \(f(z)\) is meromorphic on \(\mathbb{C}\) and has a pole or removable singularity at \(z=\infty\), then \(f\) is a rational function.
@@ -2270,7 +2270,7 @@ The group of holomorphic automorphisms on \(\mathbb{D}\), or \(\Aut(\mathbb{D})\
     From simple substitution, we have
     \begin{align*}
         \frac{a\dfrac{ez+f}{gz+h}+b}{c\dfrac{ez+f}{gz+h}+d} & =\frac{aez+af+bgz+bh}{cez+cf+dgz+dh}                \\
-        & =\frac{\qty(ae+bg)z+(af+bh)}{\qty(ce+dg)z+(cf+dh)},
+                                                            & =\frac{\qty(ae+bg)z+(af+bh)}{\qty(ce+dg)z+(cf+dh)},
     \end{align*}
     which corresponds to the product \(\mqty(a&b\\c&d)\mqty(e&f\\g&h)\).
 \end{proof}
@@ -2282,8 +2282,8 @@ We will start by introducing the concept of \textit{infinite products}. Let \(\p
 
 For \(x\in\mathbb{R}_{\geq0}\), since \(\ee^x\geq x\) and \(\ee^0=1\), we can integrate over \([0,x]\) to get that \(\ee^x\geq x+1\). Therefore,
 \begin{align*}
-    \exp(\sum_{k=1}^n\abs{u_k})&\geq\prod_{k=1}^n \qty(1+\abs{u_k})=1+\sum_{k=1}^n\abs{u_k}\\
-    &\quad+\sum_{\substack{j,k\in\qty{1,\ldots,n}\\j<k}}\abs{u_j u_k}+\cdots+\prod_{k=1}^n\abs{u_k}>\sum_{k=1}^n\abs{u_k}.
+    \exp(\sum_{k=1}^n\abs{u_k}) & \geq\prod_{k=1}^n \qty(1+\abs{u_k})=1+\sum_{k=1}^n\abs{u_k} \\
+                                & \quad+\sum_{\substack{j,k\in\qty{1,\ldots,n}                \\j<k}}\abs{u_j u_k}+\cdots+\prod_{k=1}^n\abs{u_k}>\sum_{k=1}^n\abs{u_k}.
 \end{align*}
 Since the convergence of \(\sum_{k=1}^\infty\qty|u_k|\) is the same as that of \(\exp(\sum_{k=1}^\infty\abs{u_k})\), it follows that the convergence of \(\sum_{k=1}^\infty\abs{u_k}\) is equivalent to that of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\). If \(\sum_{k=1}^\infty\abs{u_k}\) is convergent, then \(\prod_{k=1}^\infty\qty(1+u_k)\) is \textit{absolutely convergent}. As with the order of summing an absolutely convergent series is unimportant, we may also rearrange terms in an absolutely convergent infinite product.
 
@@ -2295,10 +2295,10 @@ Similar to series, absolute convergence is a stronger condition than convergence
     Let \(\qty{u_k}_{k\in\mathbb{N}}\) be a complex sequence such that \(\sum_{k=1}^\infty\qty|u_k|\) is convergent. Then \(\prod_{k=1}^\infty\qty(1+u_k)\) is absolutely convergent. Let \(Q_n(z)\) denote the partial products of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\) and let \(P_n(z)\) denote the partial products of \(\prod_{k=1}^n\qty(1+u_k)\). By the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), we have that \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(|Q_m(z)-Q_n(z)|<\varepsilon\). Let us now analyze the absolute difference between the \(P_n\) and \(P_m\):
     \begin{align*}
         \abs{P_n-P_m} & =\abs{\prod_{k=1}^n\qty(1+u_k)-\prod_{k=1}^m\qty(1+u_k)}                                 \\
-        & =\abs{\prod_{k=1}^{m}\qty(1+u_k)\prod_{k=m+1}^{n}\qty(1+u_k)-\prod_{k=1}^{m}\qty(1+u_k)} \\
-        & =\prod_{k=1}^{m}\qty|1+u_k|\cdot\qty|\prod_{k=m+1}^{n}\qty(1+u_k)-1|                     \\
-        & \leq\prod_{k=1}^{m}\qty(1+\qty|u_k|)\cdot\qty|\prod_{k=m+1}^{n}\qty(1+\abs{u_k})-1|      \\
-        & =\abs{Q_n-Q_m}<\varepsilon,
+                      & =\abs{\prod_{k=1}^{m}\qty(1+u_k)\prod_{k=m+1}^{n}\qty(1+u_k)-\prod_{k=1}^{m}\qty(1+u_k)} \\
+                      & =\prod_{k=1}^{m}\qty|1+u_k|\cdot\qty|\prod_{k=m+1}^{n}\qty(1+u_k)-1|                     \\
+                      & \leq\prod_{k=1}^{m}\qty(1+\qty|u_k|)\cdot\qty|\prod_{k=m+1}^{n}\qty(1+\abs{u_k})-1|      \\
+                      & =\abs{Q_n-Q_m}<\varepsilon,
     \end{align*}
     which therefore satisfies \autoref{thm:cauchycriterionsequenceconvergence}.
 \end{proof} We will now provide the following assertions on the \textit{locally uniform convergence} of infinite products:
@@ -2317,9 +2317,9 @@ We also have:
     Let \(K\subset U\) be an arbitrary compact set. By the uniform convergence of \(\sum_{k=1}^\infty \abs{f_k(z)}\) on \(K\), it follows that the uniform limit is continuous by the Uniform Limit Theorem (\autoref{thm:uniformlimit}). By continuity on a compact set, it follows that the limit is bounded by some constant \(M'\). Additionally, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sum_{k=1}^n \abs{f_k(z)}<M'+\varepsilon\). It follows that the partial sums are uniformly bounded in \(K\) by \(M=\max\qty[\max_{k=1}^N\qty(\max_{z\in K}f_k(z)), M'+\varepsilon]\). Similarly, by earlier discussion of infinite products, we have \[F_n(z)=\prod_{k=1}^n\qty(1+\abs{f_k(z)})\leq\exp\qty(\sum_{k=1}^n\abs{f_k(z)})\leq \ee^{M},\]
     or in other words, the partial products are uniformly bounded on \(K\). Let \(0<\varepsilon<1\) be arbitrary. By definition, there exists \(N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{\sum_{k=m+1}^n f_k(z)}<\varepsilon\) for all \(z\in K\). The difference between the non-absolute partial products satisfies
     \begin{align*}
-        \abs{\prod_{k=1}^n\qty(1+{f_k(z)})-\prod_{k=1}^m\qty(1+{f_k(z)})}&\leq \abs{\prod_{k=1}^m\qty(1+{f_k(z)})}\abs{\prod_{k=m+1}^n\qty(1+{f_k(z)})-1}\\
-        &\leq\abs{F_m(z)}\abs{\exp\qty(\sum_{k=m+1}^n\abs{f_k(z)})-1}\\
-        &\leq \ee^M\qty(\ee^\varepsilon -1),
+        \abs{\prod_{k=1}^n\qty(1+{f_k(z)})-\prod_{k=1}^m\qty(1+{f_k(z)})} & \leq \abs{\prod_{k=1}^m\qty(1+{f_k(z)})}\abs{\prod_{k=m+1}^n\qty(1+{f_k(z)})-1} \\
+                                                                          & \leq\abs{F_m(z)}\abs{\exp\qty(\sum_{k=m+1}^n\abs{f_k(z)})-1}                    \\
+                                                                          & \leq \ee^M\qty(\ee^\varepsilon -1),
     \end{align*}
     where the second inequality can be easily verified by expanding the product \(\prod_{k=m+1}^n\qty(1+{f_k(z)})-1\) and the triangle inequality.
 
@@ -2329,57 +2329,57 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
 \begin{enumerate}
     \item If \(f\) has no zeros in \(\mathbb{C}\), then the function defined by \(z\mapsto\frac{f'(z)}{f(z)}\) is entire, it is the derivative of an entire function \(\varphi(z)\). Therefore, the function defined by \(z\mapsto f(z)\ee^{-\varphi(z)}\) has the vanishing derivative \(\dv{z}(f(z)\ee^{-\varphi(z)})=f'(z)\ee^{-\varphi(z)}-\varphi'(z)f(z)\ee^{-\varphi(z)}=0\). It follows that \(f(z)\ee^{-\varphi(z)}\) is constant, and therefore \(f(z)=c\exp(\varphi(z))\) for some constant \(c\in\mathbb{C}\). Since \(\varphi(z)\) is entire, it follows that \(f(z)\) is also entire. Absorb the constant \(c\) into \(\varphi(z)\), and \(f(z)=\exp(\varphi(z))\).\label{itm:entirefunctionconstructednonvanishing}
     \item If \(f\) is entire and has finitely many zeros in \(\mathbb{C}\), namely \(a_0=0,a_1,a_2,\ldots,a_n\) with respective multiplicities \(m_0,m_1,\ldots m_n\) (if \(0\) is not a zero, treat \(m_0=0\)), then at each zero \(a_k\), it has the local Taylor expansion of
-        \[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every zero, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By~\ref{itm:entirefunctionconstructednonvanishing}, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write
-        \begin{equation}
-            f(z)=p(z)\exp(\varphi(z)),\label{eq:weierstrassfactorization_finitezeros}
-        \end{equation} where \(p(z)\) is a polynomial with zeros at \(a_k\) with respective multiplicities of \(m_k\). The entire functions \(p(z)\) and \(f(z)\) both have the same zeros with matching multiplicities.
+          \[f(z)=\sum_{j=m_k}^\infty c_j{\qty(z-a_k)}^{j},\] where \(c_{m_k}\neq 0\). Therefore, we can divide \(f(z)\) by \({\qty(z-a_k)}^j\) to obtain a new entire function with no additional zeros and no zero at \(a_k\). Repeating this for every zero, we can define \(\psi(z)=\frac{f(z)}{p(z)}\), which is entire and has no zeros, where \[p(z)=z^{m_0}{\qty(1-\frac{z}{a_1})}^{m_1}\cdots{\qty(1-\frac{z}{a_n})}^{m_n}.\] We write \(p(z)\) in the above form rather than that of \(z^{m_0}\prod_{k=1}^n{\qty(z-a_k)}^{m_k}\) as we aim to generalize the construction to infinite products to study convergence. By~\ref{itm:entirefunctionconstructednonvanishing}, \(\psi(z)=\exp(\varphi(z))\) for some entire function \(\varphi(z)\). Therefore, we can write
+          \begin{equation}
+              f(z)=p(z)\exp(\varphi(z)),\label{eq:weierstrassfactorization_finitezeros}
+          \end{equation} where \(p(z)\) is a polynomial with zeros at \(a_k\) with respective multiplicities of \(m_k\). The entire functions \(p(z)\) and \(f(z)\) both have the same zeros with matching multiplicities.
     \item If \(f(z)\) is entire and has infinitely many zeros such that \(f\) is not identically zero. It follows that \(f\) has countably many zeros (since the zeros are isolated). Let the zeros be indexed by \(\mathbb{N}\), namely \(a_1,a_2,\ldots\). Without loss of generality, assume that \(\forall n\in\mathbb{N}\), \(0<\abs{a_n}\leq\abs{a_{n+1}}\) (repeated elements representing multiplicities), and \(\lim_{n\to\infty}a_n=\infty\). The case for a zero at \(0\) will be treated differently.
 
-        There exists a positive integer sequence \(p_1,p_2,\ldots\) such that for every positive and finite \(R\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. For example, let \(p_n=n\), and for sufficiently large \(n\), \(\frac{R}{\abs{a_n}}<1\) and the series is convergent. Consider the infinite product
-        \begin{equation}
-            \prod_{n=1}^\infty{\qty(1-\frac{z}{a_n})}\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{p_n}{\qty(\frac{z}{a_n})}^{p_n}].\label{eq:infiniteproductweierstrassfactorizationintermediate}
-        \end{equation}
-        Let
-        \begin{gather}
-            P_p(z)=z+\frac{1}{2}z^2+\cdots+\frac{1}{p}z^p\nonumber\\
-            Q_p(z)=\log(1-z)+P_p(z)\nonumber\\
-            E_p(z)=\exp\qty[Q_p(z)]=(1-z)\exp\qty[P_p(z)].\label{eq:weierstrasselementaryfactor}
-        \end{gather}
-        Therefore, we can rewrite equation~\eqref{eq:infiniteproductweierstrassfactorizationintermediate} as
-        \begin{equation*}
-            \prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n}).
-        \end{equation*}
-        The expression in equation~\eqref{eq:weierstrasselementaryfactor} is known as the \(p\)th \textit{Weierstrass elementary factor}.
+          There exists a positive integer sequence \(p_1,p_2,\ldots\) such that for every positive and finite \(R\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. For example, let \(p_n=n\), and for sufficiently large \(n\), \(\frac{R}{\abs{a_n}}<1\) and the series is convergent. Consider the infinite product
+          \begin{equation}
+              \prod_{n=1}^\infty{\qty(1-\frac{z}{a_n})}\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{p_n}{\qty(\frac{z}{a_n})}^{p_n}].\label{eq:infiniteproductweierstrassfactorizationintermediate}
+          \end{equation}
+          Let
+          \begin{gather}
+              P_p(z)=z+\frac{1}{2}z^2+\cdots+\frac{1}{p}z^p\nonumber\\
+              Q_p(z)=\log(1-z)+P_p(z)\nonumber\\
+              E_p(z)=\exp\qty[Q_p(z)]=(1-z)\exp\qty[P_p(z)].\label{eq:weierstrasselementaryfactor}
+          \end{gather}
+          Therefore, we can rewrite equation~\eqref{eq:infiniteproductweierstrassfactorizationintermediate} as
+          \begin{equation*}
+              \prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n}).
+          \end{equation*}
+          The expression in equation~\eqref{eq:weierstrasselementaryfactor} is known as the \(p\)th \textit{Weierstrass elementary factor}.
 
-        By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|\le\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then,
-        \begin{align}
-            \abs{Q_{p_n}\qty(\frac{z}{a_n})} & =\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber                                       \\
-            & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\dfrac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
-        \end{align}
-        By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\) and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion}, \autoref{thm:weierstrassuniformlimit}, and \autoref{thm:hurwitzsimplecase}.
+          By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|\le\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then,
+          \begin{align}
+              \abs{Q_{p_n}\qty(\frac{z}{a_n})} & =\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber                                       \\
+                                               & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\dfrac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
+          \end{align}
+          By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\) and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion}, \autoref{thm:weierstrassuniformlimit}, and \autoref{thm:hurwitzsimplecase}.
 
-        The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{\ee-1}\abs{\zeta}\). By equation~\eqref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
+          The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{\ee-1}\abs{\zeta}\). By equation~\eqref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
 
-        Therefore, we have
-        \begin{align*}
-            \abs{E_{p_n}\qty(\frac{z}{a_n})-1}&=\abs{\exp(Q_{p_n}\qty(\frac{z}{a_n}))-1}\\
-            &\leq (\ee-1)\abs{Q_{p_n}\qty(\frac{z}{a_n})}\leq2(\ee-1)\abs{\frac{R}{a_n}}^{p_n+1},
-        \end{align*}
-        which has a convergent series by definition. Therefore, \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) is absolutely convergent on \(\overline{D(0,R)}\).
+          Therefore, we have
+          \begin{align*}
+              \abs{E_{p_n}\qty(\frac{z}{a_n})-1} & =\abs{\exp(Q_{p_n}\qty(\frac{z}{a_n}))-1}                                            \\
+                                                 & \leq (\ee-1)\abs{Q_{p_n}\qty(\frac{z}{a_n})}\leq2(\ee-1)\abs{\frac{R}{a_n}}^{p_n+1},
+          \end{align*}
+          which has a convergent series by definition. Therefore, \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) is absolutely convergent on \(\overline{D(0,R)}\).
 
-        Letting \(R\to\infty\), for any such sequence \(\qty{a_n}_{n\in\mathbb{N}}\), we can define the entire function
-        \begin{equation}
-            f(z)=\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:entirefunctionconstructedfrominfinitelymanyzeros}
-        \end{equation} to have zeros at each element of the sequence, and for any compact disk \(\overline{D(0,R)}\), the product above is uniformly convergent. We can then formulate:
-        \begin{theorem}[Weierstrass Factorization Theorem]\label{thm:weierstrassfactorization}
-            Suppose \(f(z)\) is an entire function. Let \(\qty{a_n}_{n\in\mathbb{N}}\) be the sequence of all nonzero zeros of \(f\) satisfying \(a_n\to\infty\) as \(n\to\infty\) and \(0<\qty|a_n|\leq\qty|a_{n+1}|\) (equality of \(a_n\) and \(a_{n+1}\) treated as multiplicities) for all \(n\). Let \(m\) be the multiplicity of \(f(z)\) at \(z=0\) (let \(m=0\) if there is no zero at \(0\)). Then there exists a sequence \(\qty{p_n}_{n\in\mathbb{N}}\) such that \(\forall R>0\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. Then, we can write
-            \begin{equation}
-                f(z)=z^m\ee^{\varphi(z)}\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:weierstrassfactorization_statement}
-            \end{equation} on \(D(0,R)\), where \(E_p(z)\) is the \(p\)th Weierstrass elementary factor defined in equation~\eqref{eq:weierstrasselementaryfactor} and \(\varphi(z)\) is an entire function. The infinite product converges uniformly on \(\overline{D(0,R)}\) and converges absolutely on \(\mathbb{C}\). If we let \(p_n=n\), we can write \[f(z)=z^m\ee^{\varphi(z)}\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{n}\qty(\frac{z}{a_n})^n].\]
-        \end{theorem}
-        \begin{proof}
-            By the argument of equation~\eqref{eq:entirefunctionconstructedfrominfinitelymanyzeros}, construct \(\psi(z)\) to be entire and have zeros at \(\qty{a_n}_{n\in\mathbb{N}}\). Thus, \(z^m\psi(z)\) and \(f(z)\) have the same zeros and corresponding multiplicities. Then the function \(z^m\frac{\psi(z)}{f(z)}\) has removable singularities on all of \(\qty{a_n}_{n\in\mathbb{N}}\cup\qty{0}\) and has an analytic continuation (\autoref{thm:removablesingularitiesriemann}) to an entire and non-vanishing function. Therefore, it can be written as \(z^m\frac{\psi(z)}{f(z)}=\ee^{\phi(z)}\), where \(\phi\). Let \(\varphi=-\phi\), and from rearrangement, we obtain equation~\eqref{eq:weierstrassfactorization_statement}
-        \end{proof}
+          Letting \(R\to\infty\), for any such sequence \(\qty{a_n}_{n\in\mathbb{N}}\), we can define the entire function
+          \begin{equation}
+              f(z)=\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:entirefunctionconstructedfrominfinitelymanyzeros}
+          \end{equation} to have zeros at each element of the sequence, and for any compact disk \(\overline{D(0,R)}\), the product above is uniformly convergent. We can then formulate:
+          \begin{theorem}[Weierstrass Factorization Theorem]\label{thm:weierstrassfactorization}
+              Suppose \(f(z)\) is an entire function. Let \(\qty{a_n}_{n\in\mathbb{N}}\) be the sequence of all nonzero zeros of \(f\) satisfying \(a_n\to\infty\) as \(n\to\infty\) and \(0<\qty|a_n|\leq\qty|a_{n+1}|\) (equality of \(a_n\) and \(a_{n+1}\) treated as multiplicities) for all \(n\). Let \(m\) be the multiplicity of \(f(z)\) at \(z=0\) (let \(m=0\) if there is no zero at \(0\)). Then there exists a sequence \(\qty{p_n}_{n\in\mathbb{N}}\) such that \(\forall R>0\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. Then, we can write
+              \begin{equation}
+                  f(z)=z^m\ee^{\varphi(z)}\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:weierstrassfactorization_statement}
+              \end{equation} on \(D(0,R)\), where \(E_p(z)\) is the \(p\)th Weierstrass elementary factor defined in equation~\eqref{eq:weierstrasselementaryfactor} and \(\varphi(z)\) is an entire function. The infinite product converges uniformly on \(\overline{D(0,R)}\) and converges absolutely on \(\mathbb{C}\). If we let \(p_n=n\), we can write \[f(z)=z^m\ee^{\varphi(z)}\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{n}\qty(\frac{z}{a_n})^n].\]
+          \end{theorem}
+          \begin{proof}
+              By the argument of equation~\eqref{eq:entirefunctionconstructedfrominfinitelymanyzeros}, construct \(\psi(z)\) to be entire and have zeros at \(\qty{a_n}_{n\in\mathbb{N}}\). Thus, \(z^m\psi(z)\) and \(f(z)\) have the same zeros and corresponding multiplicities. Then the function \(z^m\frac{\psi(z)}{f(z)}\) has removable singularities on all of \(\qty{a_n}_{n\in\mathbb{N}}\cup\qty{0}\) and has an analytic continuation (\autoref{thm:removablesingularitiesriemann}) to an entire and non-vanishing function. Therefore, it can be written as \(z^m\frac{\psi(z)}{f(z)}=\ee^{\phi(z)}\), where \(\phi\). Let \(\varphi=-\phi\), and from rearrangement, we obtain equation~\eqref{eq:weierstrassfactorization_statement}
+          \end{proof}
 \end{enumerate}
 By the construction above, we have:
 \begin{corollary}
@@ -2403,46 +2403,46 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
     \item If \(z=\infty\) is a removable singularity or a pole, by the proof of \autoref{thm:rationalmeromorphicfunctions}, we can construct \(f(z)\) to have poles at each of \(\qty{a_k}_{k=1}^n\) such that the principal parts of \(f\) at each of \(\qty{a_k}_{k=1}^n\) are \(\qty{\psi_k(z)}_{k=1}^n\). It can be explicitly written as \[f(z)=p(z)+\sum_{k=1}^n\psi_k(z)\] (we can absorb the constant \(c\) into the polynomial \(\psi_\infty\) as used in the proof).
     \item In the case that \(f(z)\) is a transcendental meromorphic function with an isolated essential singularity at \(z=\infty\), notice that the function defined by \(\varphi(z)=f(z)-\sum_{k=1}^n\psi_k(z)\) has removable singularities at each of \(\qty{a_k}_{k=1}^n\). Indeed, since the singularities are isolated, for a fixed \(k\), \(\exists\varepsilon_k>0\) such that for any \(j\neq k\), \(a_j\notin D\qty(a_k,\varepsilon_k)\). It follows that \(\psi_j\) is holomorphic on \(D\qty(a_k,\varepsilon_k)\). Notice that \(f(z)-\psi_k\) is the holomorphic part of the Laurent expansion at \(a_k\) and is also holomorphic on the disk. Suppose \(f\) has \(\psi_k\) as the principal part of its Laurent expansion at \(a_k\). Then \(\varphi(z)\) is holomorphic on \(D\qty(a_k,\varepsilon_k)\). Since \(k\) was arbitrarily chosen, \(\varphi\) is entire and transcendental.
 
-        Therefore, \(f\) can be constructed by \[f(z)=\varphi(z)+\sum_{k=1}^\infty\psi_k(z),\]
-        for a transcendental entire function \(\varphi(z)\).
+          Therefore, \(f\) can be constructed by \[f(z)=\varphi(z)+\sum_{k=1}^\infty\psi_k(z),\]
+          for a transcendental entire function \(\varphi(z)\).
     \item The existence of a transcendental meromorphic function \(f\) whose poles have an accumulation point at \(z=\infty\) is the concern of the following theorem:
-        \begin{theorem}[Mittag--Leffler Theorem]\label{thm:mittagleffler}
-            Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{C}\) be a sequence of distinct complex numbers such that \(\forall n\in\mathbb{N}\), \(\abs{a_n}\leq\abs{a_{n+1}}\) and \(\lim_{n\to\infty}a_n=\infty\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a function sequence, each in the form of equation~\eqref{eq:meromorphicfunctionconstructionprincipalparts}. Then,
-            \begin{enumerate}[label=(\alph*)]
-                \item A meromorphic function \(f(z)\) on \(\mathbb{C}\) can be constructed such that \(\forall n\in\mathbb{N}\), \(f\) has a pole at \(a_n\) with a principal part of \(\psi_n\) at \(a_n\).\label{itm:mittagleffler_existence}
-                \item The function \(f(z)\) satisfying the criteria above can be explicitly represented as
-                    \begin{equation}
-                        f(z)=\varphi(z)+\sum_{n=1}^\infty\qty[\psi_n(z)-p_n(z)]\label{eq:mittagleffler_construction_statement}
-                    \end{equation} for some sequence of polynomials \(\qty{p_n(z)}\) and an arbitrary entire function \(\varphi(z)\).\label{itm:mittagleffler_construction}
-            \end{enumerate}
-        \end{theorem}
-        \begin{proof}
-            The classical proof for this theorem allows for a more explicit construction, as in equation~\eqref{eq:mittagleffler_construction_statement}. As for the existence, we can prove \ref{itm:mittagleffler_existence} by using the \(\overline{\partial}\) problem.
-            \begin{enumerate}[label=(\alph*)]
-                \item Fix \(n\in\mathbb{N}\), let \(U_n\) be an open neighborhood of \(a_n\) such that \(\forall i,j\in\mathbb{N}\) where \(i\neq j\), \(\overline{U_i}\cap \overline{U_j}=\emptyset\). Let \(V_n\) be a neighborhood of \(a_n\) that is relatively compact in \(U_n\). By \autoref{thm:bumpfunctionexistence}, for each \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[
-                        \begin{cases}
-                            \varphi_n(z)\equiv 1 & z\in\overline{V_n}          \\
-                            \varphi_n(z)\equiv 0 & z\in\mathbb{C}\setminus U_n
-                    \end{cases}.\]
-                    Let \(u(z)=\sum_{k=1}^\infty\varphi_k(z)\psi_k(z)\), which is an element of \(C^\infty\qty(\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}})\). For a fixed \(n\in\mathbb{N}\), it is true that \(u\equiv\psi_n\) on \(\overline{V_n}\setminus\qty{a_n}\). Hence, although \(u\) is not meromorphic, it does have the required principal part near each \(a_k\). Let \[\phi(z)=
-                        \begin{cases}
-                            \pdv{u}{\overline{z}} & z\in\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}} \\
-                            0                     & z\in\qty{a_k}_{k\in\mathbb{N}}
-                    \end{cases}.\]
-                    Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the discussion proceeding \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a \(C^\infty\) function \(v(z)\) such that \(\pdv{v}{\overline{z}}=\phi(z)\) on \(\mathbb{C}\). Since \(\phi\) is \(C^\infty\), it follows that \(v\) is also \(C^\infty\). Define \(f(z)=u(z)-v(z)\). Then
-                    \[\pdv{f}{\overline{z}} = \pdv{u}{\overline{z}}-\pdv{v}{\overline{z}} = \phi(z)-\phi(z) = 0,\]
-                    which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part \(\psi_n\) at each \(a_n\) and \(v\) is \(C^\infty\) (and hence removable at each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with principal parts \(\psi_n\) at each \(a_n\), as desired.
-                \item Let \(\qty{\varepsilon_n}_{n\in\mathbb{N}}\) be a positive sequence such that \(\sum_{n=1}^\infty\varepsilon_n\) is convergent. Without loss of generality, let \(a_1=0\) (if \(a_1\) is not a pole, set \(\psi_1=0\)). Choose \(p_1(z)=0\) (this can actually be any arbitrary polynomial). Fix \(n\geq 2\), \(\psi_n\) is a polynomial in terms of \(\frac{1}{z-a_n}\) and has its only pole at \(z=a_n\). Therefore, \(\psi_n(z)\) is holomorphic on \(D\qty(0,\abs{a_n})\) and can be written as \[\psi_n(z)=\sum_{k=0}^\infty \frac{\psi_n^{(k)}(0)}{k!}z^k.\]
+          \begin{theorem}[Mittag--Leffler Theorem]\label{thm:mittagleffler}
+              Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{C}\) be a sequence of distinct complex numbers such that \(\forall n\in\mathbb{N}\), \(\abs{a_n}\leq\abs{a_{n+1}}\) and \(\lim_{n\to\infty}a_n=\infty\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a function sequence, each in the form of equation~\eqref{eq:meromorphicfunctionconstructionprincipalparts}. Then,
+              \begin{enumerate}[label=(\alph*)]
+                  \item A meromorphic function \(f(z)\) on \(\mathbb{C}\) can be constructed such that \(\forall n\in\mathbb{N}\), \(f\) has a pole at \(a_n\) with a principal part of \(\psi_n\) at \(a_n\).\label{itm:mittagleffler_existence}
+                  \item The function \(f(z)\) satisfying the criteria above can be explicitly represented as
+                        \begin{equation}
+                            f(z)=\varphi(z)+\sum_{n=1}^\infty\qty[\psi_n(z)-p_n(z)]\label{eq:mittagleffler_construction_statement}
+                        \end{equation} for some sequence of polynomials \(\qty{p_n(z)}\) and an arbitrary entire function \(\varphi(z)\).\label{itm:mittagleffler_construction}
+              \end{enumerate}
+          \end{theorem}
+          \begin{proof}
+              The classical proof for this theorem allows for a more explicit construction, as in equation~\eqref{eq:mittagleffler_construction_statement}. As for the existence, we can prove \ref{itm:mittagleffler_existence} by using the \(\overline{\partial}\) problem.
+              \begin{enumerate}[label=(\alph*)]
+                  \item Fix \(n\in\mathbb{N}\), let \(U_n\) be an open neighborhood of \(a_n\) such that \(\forall i,j\in\mathbb{N}\) where \(i\neq j\), \(\overline{U_i}\cap \overline{U_j}=\emptyset\). Let \(V_n\) be a neighborhood of \(a_n\) that is relatively compact in \(U_n\). By \autoref{thm:bumpfunctionexistence}, for each \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[
+                            \begin{cases}
+                                \varphi_n(z)\equiv 1 & z\in\overline{V_n}          \\
+                                \varphi_n(z)\equiv 0 & z\in\mathbb{C}\setminus U_n
+                            \end{cases}.\]
+                        Let \(u(z)=\sum_{k=1}^\infty\varphi_k(z)\psi_k(z)\), which is an element of \(C^\infty\qty(\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}})\). For a fixed \(n\in\mathbb{N}\), it is true that \(u\equiv\psi_n\) on \(\overline{V_n}\setminus\qty{a_n}\). Hence, although \(u\) is not meromorphic, it does have the required principal part near each \(a_k\). Let \[\phi(z)=
+                            \begin{cases}
+                                \pdv{u}{\overline{z}} & z\in\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}} \\
+                                0                     & z\in\qty{a_k}_{k\in\mathbb{N}}
+                            \end{cases}.\]
+                        Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the discussion proceeding \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a \(C^\infty\) function \(v(z)\) such that \(\pdv{v}{\overline{z}}=\phi(z)\) on \(\mathbb{C}\). Since \(\phi\) is \(C^\infty\), it follows that \(v\) is also \(C^\infty\). Define \(f(z)=u(z)-v(z)\). Then
+                        \[\pdv{f}{\overline{z}} = \pdv{u}{\overline{z}}-\pdv{v}{\overline{z}} = \phi(z)-\phi(z) = 0,\]
+                        which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part \(\psi_n\) at each \(a_n\) and \(v\) is \(C^\infty\) (and hence removable at each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with principal parts \(\psi_n\) at each \(a_n\), as desired.
+                  \item Let \(\qty{\varepsilon_n}_{n\in\mathbb{N}}\) be a positive sequence such that \(\sum_{n=1}^\infty\varepsilon_n\) is convergent. Without loss of generality, let \(a_1=0\) (if \(a_1\) is not a pole, set \(\psi_1=0\)). Choose \(p_1(z)=0\) (this can actually be any arbitrary polynomial). Fix \(n\geq 2\), \(\psi_n\) is a polynomial in terms of \(\frac{1}{z-a_n}\) and has its only pole at \(z=a_n\). Therefore, \(\psi_n(z)\) is holomorphic on \(D\qty(0,\abs{a_n})\) and can be written as \[\psi_n(z)=\sum_{k=0}^\infty \frac{\psi_n^{(k)}(0)}{k!}z^k.\]
 
-                    By \autoref{thm:abelradius}, This series is uniformly convergent on \({D\qty(0,\abs{\frac{a_n}{2}})}\). Hence, \(\exists \lambda_n\in\mathbb{N}\) such that \[\abs{\psi_n(z)-\sum_{k=0}^{\lambda_n} \frac{\psi_n^{(k)}(0)}{k!}z^k}< \varepsilon_n.\] Let \(p_n(z)=\sum_{k=0}^{\lambda_n}\frac{\psi_n^{(k)}(0)}{k!}z^k\). Fix \(R>0\) and let \(N\in\mathbb{N}\) depend on \(R\) such that \(\abs{a_n}>2R\) for all \(n>N\) and \(\abs{a_n}\le 2R\) for all \(n\le N\). Therefore, \(\forall n>N\), \(R<\abs{\frac{a_n}{2}}\). Then \(\forall z\in D(0,R)\), we have \[\abs{\psi_n(z)-p_n(z)}<\varepsilon_n.\]
+                        By \autoref{thm:abelradius}, This series is uniformly convergent on \({D\qty(0,\abs{\frac{a_n}{2}})}\). Hence, \(\exists \lambda_n\in\mathbb{N}\) such that \[\abs{\psi_n(z)-\sum_{k=0}^{\lambda_n} \frac{\psi_n^{(k)}(0)}{k!}z^k}< \varepsilon_n.\] Let \(p_n(z)=\sum_{k=0}^{\lambda_n}\frac{\psi_n^{(k)}(0)}{k!}z^k\). Fix \(R>0\) and let \(N\in\mathbb{N}\) depend on \(R\) such that \(\abs{a_n}>2R\) for all \(n>N\) and \(\abs{a_n}\le 2R\) for all \(n\le N\). Therefore, \(\forall n>N\), \(R<\abs{\frac{a_n}{2}}\). Then \(\forall z\in D(0,R)\), we have \[\abs{\psi_n(z)-p_n(z)}<\varepsilon_n.\]
 
-                    By the convergence of \(\sum_{n=N+1}^\infty\varepsilon_n\), by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series
-                    \begin{equation}
-                        \Phi_N(z)=\sum_{n=N+1}^\infty\brackets{\psi_n(z)-p_n(z)}\label{eq:mittagleffler_construction_uniformlyconvergentseries}
-                    \end{equation} converges uniformly on \(D(0,R)\). Since \(z<R<\abs{\frac{a_n}{2}}<\abs{a_n}\) when \(n>N\), the pole of \(\psi_n(z)\), \(z=a_n\), is not in \(D(0,R)\) (when \(n>N\)). By \autoref{thm:weierstrassuniformlimit}, equation~\eqref{eq:mittagleffler_construction_uniformlyconvergentseries} is holomorphic on \(D(0,R)\). Let \[\Psi(z)=\sum_{n=1}^N\qty[\psi_n(z)-p_n(z)]+\Phi_N(z).\]
-                    The poles of \(\Psi(z)\) in \(D(0,R)\) are all of \(a_n\) with corresponding principal parts \(\psi_n(z)\), where \(n\in\mathbb{N}\) and satisfies \(a_n\in D(0,R)\). Since \(R\) was arbitrarily chosen, \(\Psi\) has poles at each \(a_n\) with the corresponding principal part \(\psi_n(z)\) on \(\mathbb{C}\). Let \(\varphi(z)=f(z)-\Psi(z)\) be analytically continued onto each of \(\qty{a_n}_{n\in\mathbb{N}}\). Then \(\varphi(z)\) is an entire function (since the Laurent expansions of \(\varphi\) at each of \(\qty{a_n}_{n\in\mathbb{N}}\) vanish). By rearrangement, we obtain our desired result.
-            \end{enumerate}
-        \end{proof}
+                        By the convergence of \(\sum_{n=N+1}^\infty\varepsilon_n\), by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series
+                        \begin{equation}
+                            \Phi_N(z)=\sum_{n=N+1}^\infty\brackets{\psi_n(z)-p_n(z)}\label{eq:mittagleffler_construction_uniformlyconvergentseries}
+                        \end{equation} converges uniformly on \(D(0,R)\). Since \(z<R<\abs{\frac{a_n}{2}}<\abs{a_n}\) when \(n>N\), the pole of \(\psi_n(z)\), \(z=a_n\), is not in \(D(0,R)\) (when \(n>N\)). By \autoref{thm:weierstrassuniformlimit}, equation~\eqref{eq:mittagleffler_construction_uniformlyconvergentseries} is holomorphic on \(D(0,R)\). Let \[\Psi(z)=\sum_{n=1}^N\qty[\psi_n(z)-p_n(z)]+\Phi_N(z).\]
+                        The poles of \(\Psi(z)\) in \(D(0,R)\) are all of \(a_n\) with corresponding principal parts \(\psi_n(z)\), where \(n\in\mathbb{N}\) and satisfies \(a_n\in D(0,R)\). Since \(R\) was arbitrarily chosen, \(\Psi\) has poles at each \(a_n\) with the corresponding principal part \(\psi_n(z)\) on \(\mathbb{C}\). Let \(\varphi(z)=f(z)-\Psi(z)\) be analytically continued onto each of \(\qty{a_n}_{n\in\mathbb{N}}\). Then \(\varphi(z)\) is an entire function (since the Laurent expansions of \(\varphi\) at each of \(\qty{a_n}_{n\in\mathbb{N}}\) vanish). By rearrangement, we obtain our desired result.
+              \end{enumerate}
+          \end{proof}
 \end{enumerate}
 The Mittag--Leffler Theorem (\autoref{thm:mittagleffler}) can also be generalized as follows:
 \begin{theorem}\label{thm:mittaglefflerboundary}
@@ -2479,10 +2479,10 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 
     Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\Psi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\Psi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that
     \begin{align*}
-        f^{(n)}\qty(z_k) & =\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}          \\
-        & =\lim_{z\to z_k}\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)\\
-        &\quad-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r) \\
-        & =n!w_{k,n},
+        f^{(n)}\qty(z_k) & =\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k} \\
+                         & =\lim_{z\to z_k}\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)                                                              \\
+                         & \quad-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)                                                                      \\
+                         & =n!w_{k,n},
     \end{align*}
     as desired.
 \end{proof}
@@ -2495,28 +2495,28 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \begin{proof}
     It is evident that \(\csc^2(\pi z)\) has double poles at each of \(z=n\in\mathbb{Z}\). Therefore, \((z-n)^2\csc^2(\pi z)\) is holomorphic (or has an analytic continuation that is holomorphic) on \(D(n,1)\). Therefore, by repeatedly applying L'Hôpital's Rule, we can write its Taylor expansion that converges on \(D(n,1)\):
     \begin{align*}
-        (z-n)^2\csc^2(\pi z)&=\lim_{\zeta\to n}\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)}+\lim_{\zeta\to n}\dv{\zeta}(\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)})(z-n)+\order{(z-n)^2}\\
-        &=\lim_{\zeta\to n}\frac{2\qty(\zeta-n)}{\pi\sin(2\pi\zeta)}+\order{(z-n)^2}\\
-        &=\lim_{\zeta\to n}\frac{2}{2\pi^2\cos(2\pi\zeta)}+\order{(z-n)^2}\\
-        &=\frac{1}{\pi^2}+\order{(z-n)^2},
+        (z-n)^2\csc^2(\pi z) & =\lim_{\zeta\to n}\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)}+\lim_{\zeta\to n}\dv{\zeta}(\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)})(z-n)+\order{(z-n)^2} \\
+                             & =\lim_{\zeta\to n}\frac{2\qty(\zeta-n)}{\pi\sin(2\pi\zeta)}+\order{(z-n)^2}                                                                             \\
+                             & =\lim_{\zeta\to n}\frac{2}{2\pi^2\cos(2\pi\zeta)}+\order{(z-n)^2}                                                                                       \\
+                             & =\frac{1}{\pi^2}+\order{(z-n)^2},
     \end{align*}
     where the linear term vanishes since \(\frac{\qty(\zeta-n)^2}{\sin[2](\pi\zeta)}\) is even around \(\zeta=n\). Hence, the principal part of \(\csc^2(\pi z)\) at \(z=n\) is \(\psi_n(z)=\frac{1}{\pi^2(z-n)^2}\). Let \(z=x+\ii y\). Since
     \begin{align*}
-        \abs{\sum_{n=-\infty}^\infty\psi_n(z)}&\leq\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{\qty|z-n|^2}\leq\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{\qty[x-n]^2}\\
-        &=\frac{1}{\pi^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}]\\
-        &\leq\frac{1}{\pi^2}\qty[2\sum_{n=1}^\infty\frac{1}{n^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}]
+        \abs{\sum_{n=-\infty}^\infty\psi_n(z)} & \leq\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{\qty|z-n|^2}\leq\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{\qty[x-n]^2}                                  \\
+                                               & =\frac{1}{\pi^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}] \\
+                                               & \leq\frac{1}{\pi^2}\qty[2\sum_{n=1}^\infty\frac{1}{n^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}]
     \end{align*} (where \(\qty{x}\) is the fractional part of the real component of \(z\)), it converges uniformly on compact subsets of \(\mathbb{C}\setminus\mathbb{Z}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). It follows that this sum is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\) by \autoref{thm:weierstrassuniformlimit}. The difference \[f(z)=\csc[2](\pi z)-\frac{1}{\pi^2}\sum_{n=-\infty}^\infty\frac{1}{(z-n)^2}\] is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\). Since the principal parts of \(f\) at each \(z=n\) are zero, it follows that \(f\) is entire. Therefore, it is bounded on every compact subset of the complex plane. Since \(f\) is bounded on the compact rectangle \(K=\cbraces{z\in\mathbb{C}}{0\leq\Re(z)\leq 1,-1\leq\Im(z)\leq 1}\), for some \(M>0\), we have \(\abs{f}\leq M\) on \(K\). For \(0\leq x=\Re(z)\leq 1\) satisfying \(\abs{y}=\abs{\Im(z)}>1\), by the reverse triangle inequality, we have
     \begin{align}
-        \abs{f(z)}&\leq\abs{\csc[2](\pi z)}+\frac{1}{\pi^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\abs{z}^2}+\frac{1}{\abs{1-z}^2}]\nonumber\\
-        &\leq \frac{1}{\abs{\sin^2\qty[\pi(x+\ii y)]}}+\frac{1}{\pi^2}\qty[\frac{\pi^2}{3}+\frac{2}{y^2}]\nonumber\\
-        &=\frac{1}{\abs{\sin(\pi x)\cosh(\pi y)+\ii\sinh(\pi y)\cos(\pi x)}^2}+\frac{1}{3}+\frac{2}{\pi^2 y^2}\nonumber\\
-        &\leq \frac{1}{\sin[2](\pi x)\cosh[2](\pi y)+\sinh[2](\pi y)\qty[1-\sin[2](\pi x)]}+\frac{1}{3}+\frac{2}{\pi^2}\nonumber\\
-        &\leq \frac{1}{\sin[2](\pi x)+\sinh[2](\pi y)}+\frac{1}{3}+\frac{2}{\pi^2}\leq\csch[2](\pi)+\frac{1}{3}+\frac{2}{\pi^2}.\label{eq:csc^2poleexpansionuniformbound}
+        \abs{f(z)} & \leq\abs{\csc[2](\pi z)}+\frac{1}{\pi^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\abs{z}^2}+\frac{1}{\abs{1-z}^2}]\nonumber \\
+                   & \leq \frac{1}{\abs{\sin^2\qty[\pi(x+\ii y)]}}+\frac{1}{\pi^2}\qty[\frac{\pi^2}{3}+\frac{2}{y^2}]\nonumber                                                                                  \\
+                   & =\frac{1}{\abs{\sin(\pi x)\cosh(\pi y)+\ii\sinh(\pi y)\cos(\pi x)}^2}+\frac{1}{3}+\frac{2}{\pi^2 y^2}\nonumber                                                                             \\
+                   & \leq \frac{1}{\sin[2](\pi x)\cosh[2](\pi y)+\sinh[2](\pi y)\qty[1-\sin[2](\pi x)]}+\frac{1}{3}+\frac{2}{\pi^2}\nonumber                                                                    \\
+                   & \leq \frac{1}{\sin[2](\pi x)+\sinh[2](\pi y)}+\frac{1}{3}+\frac{2}{\pi^2}\leq\csch[2](\pi)+\frac{1}{3}+\frac{2}{\pi^2}.\label{eq:csc^2poleexpansionuniformbound}
     \end{align}
     Since \(\abs{f}<\max\qty[M,\csch[2](\pi)+\frac{1}{3}+\frac{2}{\pi^2}]\) on \(\mathbb{C}\), by Liouville's Theorem (\autoref{thm:liouville}), \(f\) is constant. At \(z=\frac{1}{2}\), we have
     \begin{align*}
-        f\qty(\frac{1}{2})&=\csc[2](\frac{\pi}{2})-\frac{8}{\pi^2}\sum_{n=1}^\infty\frac{1}{\qty[2n-1]^2}=1-\frac{8}{\pi^2}\qty(\sum_{n=1}^\infty\frac{1}{n^2}-\sum_{n=1}^\infty\frac{1}{(2n)^2})\\
-        &=1-\frac{8}{\pi^2}\qty(\frac{\pi^2}{6}-\frac{\pi^2}{24})=0,
+        f\qty(\frac{1}{2}) & =\csc[2](\frac{\pi}{2})-\frac{8}{\pi^2}\sum_{n=1}^\infty\frac{1}{\qty[2n-1]^2}=1-\frac{8}{\pi^2}\qty(\sum_{n=1}^\infty\frac{1}{n^2}-\sum_{n=1}^\infty\frac{1}{(2n)^2}) \\
+                           & =1-\frac{8}{\pi^2}\qty(\frac{\pi^2}{6}-\frac{\pi^2}{24})=0,
     \end{align*}
     which completes the proof.
 \end{proof}
@@ -2527,9 +2527,9 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \begin{proof}
     The zeros of \(\sin(\pi z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
         \begin{cases}
-            -\frac{n}{2}&n\in 2\mathbb{N}\\
-            \frac{n+1}{2}&n\in \mathbb{N}\setminus 2\mathbb{N}.
-    \end{cases}\]
+            -\frac{n}{2}  & n\in 2\mathbb{N}                      \\
+            \frac{n+1}{2} & n\in \mathbb{N}\setminus 2\mathbb{N}.
+        \end{cases}\]
     For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\pi^2}{3}\) converges. Therefore, \[\sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
     \begin{equation*}
         \sin(\pi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty[1-\frac{z^2}{n^2}].
@@ -2548,11 +2548,11 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \begin{proof}
     If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,R)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
     \begin{align*}
-        \abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}&=\abs{\frac{\overline{a_k}}{\abs{a_k}}\frac{a_k-z}{1-\overline{a_k}z}-1}=\abs{\frac{\abs{a_k}^2-\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}-1}\\
-        &=\abs{\frac{\abs{a_k}^2-\overline{a_k}z-\abs{a_k}+\abs{a_k}\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}}\\
-        &=\abs{\frac{\overline{a_k}z\qty(\abs{a_k}-1)+\abs{a_k}\qty(\abs{a_k}-1)}{\abs{a_k}\qty(1-\overline{a_k}z)}}\\
-        &=\abs{\frac{\qty(\overline{a_k}z+\abs{a_k})\qty(1-\abs{a_k})}{\abs{a_k}\qty(1-\overline{a_k}z)}}\\
-        &\leq\qty(1-\abs{a_k})\frac{\abs{\overline{a_k}}(1+R)}{\abs{a_k}\qty(1-\abs{a_k}R)}<\qty(1-\abs{a_k})\frac{1+R}{1-R}.
+        \abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1} & =\abs{\frac{\overline{a_k}}{\abs{a_k}}\frac{a_k-z}{1-\overline{a_k}z}-1}=\abs{\frac{\abs{a_k}^2-\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}-1} \\
+                                                                     & =\abs{\frac{\abs{a_k}^2-\overline{a_k}z-\abs{a_k}+\abs{a_k}\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                        \\
+                                                                     & =\abs{\frac{\overline{a_k}z\qty(\abs{a_k}-1)+\abs{a_k}\qty(\abs{a_k}-1)}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                           \\
+                                                                     & =\abs{\frac{\qty(\overline{a_k}z+\abs{a_k})\qty(1-\abs{a_k})}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                                      \\
+                                                                     & \leq\qty(1-\abs{a_k})\frac{\abs{\overline{a_k}}(1+R)}{\abs{a_k}\qty(1-\abs{a_k}R)}<\qty(1-\abs{a_k})\frac{1+R}{1-R}.
     \end{align*}
     Since \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}<\frac{1+R}{1-R}\sum_{k=1}^\infty\qty(1-\abs{a_k})\] is convergent (Blaschke condition), by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series \(\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\) converges uniformly on \(\overline{D(0,R)}\). By \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion2}, the infinite product in equation~\eqref{eq:blaschkeproduct_statement} converges uniformly on compact subsets of \(\mathbb{D}\). The properties of its zeros follow from the lemma.
 
@@ -2564,8 +2564,8 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \begin{example}[Poisson--Jensen Formula]\label{ex:poissonjensenformula}
     Let \(R>0\) be a positive and finite constant. Suppose \(f\) is a meromorphic function on the open disk \(D(0,R)\) such that \(f\) is not identically zero. Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Assume \(f\) is continuous (except for at each \(b_k\)) up to \(\overline{D(0,R)}\). Then it follows that
     \begin{align}
-        \log\abs{f(z)}&=\frac{1}{2\pi}\int_0^{2\pi}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber\\
-        &\quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
+        \log\abs{f(z)} & =\frac{1}{2\pi}\int_0^{2\pi}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                              \\
+                       & \quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
     \end{align}
     where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\), and \(P(\zeta,z)\) is the Poisson kernel as in equation~\eqref{eq:poissonkernelgeneralform}.
 \end{example}
@@ -2592,8 +2592,8 @@ By the definition of a Taylor series, we find that
 Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\pi\ii}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
 Let \(\zeta=\frac{1}{z}\). Then we get that
 \begin{align*}
-    \residue_{z=\infty}f(z)&=-\frac{1}{2\pi\ii}\ointctrclockwise_{\partial D(0,\rho)}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})\\
-    &=\frac{1}{2\pi\ii}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.
+    \residue_{z=\infty}f(z) & =-\frac{1}{2\pi\ii}\ointctrclockwise_{\partial D(0,\rho)}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})                                                                         \\
+                            & =\frac{1}{2\pi\ii}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.
 \end{align*}
 In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow \frac{f\qty(\frac{1}{\zeta})}{\zeta^2}=\sum_{n=-\infty}^\infty c_n\zeta^{-n-2},\] the residue at \(z=\infty\) is equal to \(-c_{-1}\). We will later explain the reasoning behind this definition.
 \begin{theorem}[Residue Theorem]\label{thm:residuethm}
@@ -2627,9 +2627,9 @@ Residues are extremely important as they allow for simple evaluation of definite
         \centering
         \begin{tikzpicture}[>=stealth,
                 arrow style/.style={
-                    postaction={decorate},
-                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
-            }]
+                        postaction={decorate},
+                        decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+                    }]
 
             \draw[-{Stealth}, ultra thin] (0, 0) -- (5, 0);
             \draw[-{Stealth}, ultra thin] (0, 0) -- (-5, 0);
@@ -2651,17 +2651,17 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{figure}Consider \(\gamma\) to be a closed semicircle with radius \(R\geq 2\) as in \autoref{fig:semicircularcontour}. Notice that the function \(z\mapsto\frac{1}{\qty(z^2+1)^{n+1}}\) has singularities at only \(z=\ii\) and \(z=-\ii\), both of which are poles of order \(n+1\). By equation~\eqref{eq:residueatpole}, the residue at \(z=\ii\) is
     \begin{align*}
         \residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}} & =\left.\frac{1}{n!}\dv[n]{z}\qty((z+\ii)^{-n-1})\right|_{z=\ii}=\frac{1}{n!}\frac{(-1)^n\prod_{k=1}^n (n+k)}{(2\ii)^{2n+1}} \\
-        & =\frac{(-1)^n(2n)!}{(n!)^2(2\ii)^{2n+1}}=\frac{(2n!)}{2^{2n+1}\ii(n!)^2}.
+                                                    & =\frac{(-1)^n(2n)!}{(n!)^2(2\ii)^{2n+1}}=\frac{(2n!)}{2^{2n+1}\ii(n!)^2}.
     \end{align*}
     The singularity at \(z=-\ii\) is not relevant, as it is not enclosed by the contour. By the Residue Theorem (\autoref{thm:residuethm}), we have
     \begin{align*}
         \int_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz & =\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^\pi\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta} \\
-        & =2\pi\ii\residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
+                                                      & =2\pi\ii\residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
     \end{align*}
     We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii \ee^{\ii\theta}}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2\ee^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\pi]\), and we can commute the limit with the integral. Therefore, we have
     \begin{align*}
-        \int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx&=\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz\\
-        &\quad-\int_0^{\pi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
+        \int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx & =\lim_{R\to\infty}\int_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz                                                                             \\
+                                                              & \quad-\int_0^{\pi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\pi}{2^{2n}(n!)^2}.
     \end{align*}
 \end{proof}
 \begin{example}[Dirichlet Integral]
@@ -2674,9 +2674,9 @@ Residues are extremely important as they allow for simple evaluation of definite
         \centering
         \begin{tikzpicture}[>=stealth,
                 arrow style/.style={
-                    postaction={decorate},
-                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
-            }]
+                        postaction={decorate},
+                        decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+                    }]
 
             \draw[-{Stealth}, ultra thin] (0, 0) -- (5, 0);
             \draw[-{Stealth}, ultra thin] (0, 0) -- (-5, 0);
@@ -2703,9 +2703,9 @@ Residues are extremely important as they allow for simple evaluation of definite
     We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^\pi\frac{\exp(\ii R\ee^{\ii\theta})}{R\ee^{\ii\theta}}Ri\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\pi}\ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}.\]
     Notice that \(\frac{2}{\pi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\):
     \begin{align*}
-        \abs{\ii\int_0^\pi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                                                    \\
-        & <2\int_0^{\frac{\pi}{2}}\ee^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}\ee^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}}\\
-        &=\frac{\pi}{R}\qty(1-\ee^{-R})\to 0.
+        \abs{\ii\int_0^\pi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\pi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\pi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                \\
+                                                                               & <2\int_0^{\frac{\pi}{2}}\ee^{-R\frac{2}{\pi}\theta}\dd{\theta}=\eval{-\frac{\pi}{R}\ee^{-R\frac{2}{\pi}\theta}}_0^{\frac{\pi}{2}} \\
+                                                                               & =\frac{\pi}{R}\qty(1-\ee^{-R})\to 0.
     \end{align*}
     Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=\ii\int_{\pi}^0\exp(\varepsilon\qty(\ii\cos\theta-\sin\theta))\dd{\theta}=\ii\int_\pi^0\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}.\]
     Obviously, \[\abs{\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}}\leq 1,\]
@@ -2713,9 +2713,9 @@ Residues are extremely important as they allow for simple evaluation of definite
     \[\lim_{\varepsilon\to 0}\int_{C_\varepsilon}f(z)\ddz=\ii\int_{\pi}^0\lim_{\varepsilon\to 0^+}\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}=\ii\int_{\pi}^0\dd{\theta}=-\ii\pi.\]
     Evaluating the integral over the line segments, we have
     \begin{align*}
-        \int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz & =\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{\ee^{\ii z}}{z}\ddz\\
-        &=\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{\ee^{-\ii z}}{z}\dd{z} \\
-        & \to2\ii\int_{-\infty}^0\frac{\sin{z}}{z}\ddz=2\ii\int_0^{\infty}\frac{\sin{z}}{z}\ddz.
+        \int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz & =\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{\ee^{\ii z}}{z}\ddz      \\
+                                                                        & =\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{\ee^{-\ii z}}{z}\dd{z} \\
+                                                                        & \to2\ii\int_{-\infty}^0\frac{\sin{z}}{z}\ddz=2\ii\int_0^{\infty}\frac{\sin{z}}{z}\ddz.
     \end{align*}
     Hence, \[-\ii\pi+2\ii\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\pi}{2}.\]
 \end{proof}
@@ -2727,9 +2727,9 @@ Residues are extremely important as they allow for simple evaluation of definite
         \centering
         \begin{tikzpicture}[>=stealth,
                 arrow style/.style={
-                    postaction={decorate},
-                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
-            }]
+                        postaction={decorate},
+                        decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+                    }]
 
             \draw[-{Stealth}, ultra thin] (0, 0) -- (4.5, 0);
             \draw[-{Stealth}, ultra thin] (0, 0) -- (-0.4, 0);
@@ -2759,8 +2759,8 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{equation} The third integral can be written as \[\int_{C_R}f(z)\ddz=R\ii\int_0^{\frac{\pi}{4}}\exp[\ii{\qty(R\ee^{\ii\theta})}^2]\ee^{\ii\theta}\dd{\theta}.\]
     Using the fact that \(\frac{4}{\pi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as
     \begin{align*}
-        \abs{\int_{C_R}f(z)\ddz}&\leq R{\int_0^{\frac{\pi}{4}}\ee^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}\ee^{-\frac{4}{\pi}R^2\theta}\dd{\theta}\\
-        &=-\frac{\pi}{4R}\eval{\ee^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-\ee^{-R^2}).
+        \abs{\int_{C_R}f(z)\ddz} & \leq R{\int_0^{\frac{\pi}{4}}\ee^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\pi}{4}}\ee^{-\frac{4}{\pi}R^2\theta}\dd{\theta} \\
+                                 & =-\frac{\pi}{4R}\eval{\ee^{-\frac{4}{\pi}R^2\theta}}_0^{\frac{\pi}{4}}=\frac{\pi}{4R}\qty(1-\ee^{-R^2}).
     \end{align*}
     As \(R\to\infty\), this integral tends to 0. Let \(z=r\ee^{\ii\frac{\pi}{4}}\) on \(\Gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\Gamma_2}f(z)\ddz=\int_\infty^0\exp[\ii\qty(r\ee^{\ii\frac{\pi}{4}})^2]\ee^{\ii\frac{\pi}{4}}\dd{r}=\ee^{\ii\frac{\pi}{4}}\int_\infty^0\exp(-r^2)\dd{r}.\]
     From equation~\eqref{eq:fresnelwedgecontourintegral}, we have that \[\int_0^\infty \ee^{\ii r^2}\dd{r}=\ee^{\ii\frac{\pi}{4}}\int_0^\infty \ee^{-r^2}\dd{r}.\] Since \(\int_0^\infty \ee^{-r^2}\dd{r}=\frac{\sqrt{\pi}}{2}\), we have \[\int_0^\infty \ee^{\ii r^2}\dd{r}=\qty(\frac{\sqrt{2}}{2}+\ii\frac{\sqrt{2}}{2})\frac{\sqrt{\pi}}{2}.\]
@@ -2795,14 +2795,14 @@ Residues are extremely important as they allow for simple evaluation of definite
     By equation~\eqref{eq:residueatpole}, it follows that
     \begin{align*}
         \residue\qty[f,\exp(\ii\frac{\pi}{\beta})] & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\flatfrac{\qty[z-\exp(\ii\frac{\pi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]} \\
-        & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}                                     \\
-        & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}                             \\
-        & =-\frac{1}{\beta}\exp(\ii\frac{\pi}{\beta}(\alpha+1)).
+                                                   & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}                                     \\
+                                                   & =\lim_{z\to\exp(\ii\frac{\pi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}                             \\
+                                                   & =-\frac{1}{\beta}\exp(\ii\frac{\pi}{\beta}(\alpha+1)).
     \end{align*}
     We can write the integral on \(\Gamma_2\) in terms of \(I\):
     \begin{align*}
-        \int_{\Gamma_2}f(z)\ddz&=\int_R^0 f\qty[r\exp(\ii\frac{2\pi}{\beta})]\exp(\ii\frac{2\pi}{\beta})\dd{r}\\
-        &=-\exp[\ii\frac{2\pi}{\beta}(1+\alpha)]\int_0^R\frac{r^\alpha}{1+r^\beta}\dd{r}.
+        \int_{\Gamma_2}f(z)\ddz & =\int_R^0 f\qty[r\exp(\ii\frac{2\pi}{\beta})]\exp(\ii\frac{2\pi}{\beta})\dd{r}   \\
+                                & =-\exp[\ii\frac{2\pi}{\beta}(1+\alpha)]\int_0^R\frac{r^\alpha}{1+r^\beta}\dd{r}.
     \end{align*}
     We also have \[\int_{C_R}f(z)\ddz=R\ii\int_{0}^{\frac{2\pi}{\beta}}f\qty(R\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}.\] We can show that the integrand can be dominated as follows:
     \[\abs{\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\pi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}.\]
@@ -2820,9 +2820,9 @@ Residues are extremely important as they allow for simple evaluation of definite
         \centering
         \begin{tikzpicture}[>=stealth,
                 arrow style/.style={
-                    postaction={decorate},
-                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
-            }]
+                        postaction={decorate},
+                        decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+                    }]
 
             \draw[-{Stealth}, ultra thin] (0, 0) -- (5, 0);
             \draw[-{Stealth}, ultra thin] (0, 0) -- (-5, 0);
@@ -2853,28 +2853,28 @@ Residues are extremely important as they allow for simple evaluation of definite
     By equation~\eqref{eq:residueatpole}, we have
     \begin{align*}
         \Res(f,\frac{\ii}{2}) & =\lim_{z\to\frac{\ii}{2}}\qty(z-\frac{\ii}{2})\frac{\exp(-2\pi \ii z\xi)}{\cosh(\pi z)}      \\
-        & =\lim_{z\to\frac{\ii}{2}}\dv{z}(\frac{\cosh(\pi z)}{\exp(-2\pi \ii z\xi)})^{-1}              \\
-        & =\lim_{z\to\frac{\ii}{2}}\frac{\exp(-2\pi \ii z\xi)}{\pi\sinh(\pi z)+2\pi\ii\xi\cosh(\pi z)} \\
-        & =\frac{\exp(\pi\xi)}{\pi \ii}.
+                              & =\lim_{z\to\frac{\ii}{2}}\dv{z}(\frac{\cosh(\pi z)}{\exp(-2\pi \ii z\xi)})^{-1}              \\
+                              & =\lim_{z\to\frac{\ii}{2}}\frac{\exp(-2\pi \ii z\xi)}{\pi\sinh(\pi z)+2\pi\ii\xi\cosh(\pi z)} \\
+                              & =\frac{\exp(\pi\xi)}{\pi \ii}.
     \end{align*}
     The sum of the horizontal line integrals is equal to
     \begin{align*}
-        \int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+\ii)\ddz&=\int_{-R}^R f(z)\ddz-\int_R^{-R}\ee^{2\pi\xi}f(z)\ddz\\
-        &=\qty(1+\ee^{2\pi\xi})\int_{-R}^R f(z)\ddz.
+        \int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+\ii)\ddz & =\int_{-R}^R f(z)\ddz-\int_R^{-R}\ee^{2\pi\xi}f(z)\ddz \\
+                                                     & =\qty(1+\ee^{2\pi\xi})\int_{-R}^R f(z)\ddz.
     \end{align*} As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+\ee^{2\pi\xi})I(\xi)\).
     The remaining two integrals can be written as
     \begin{align*}
-        \int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz\\
+        \int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz \\
         \int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz.
     \end{align*}
     They can be bounded with
     \begin{align*}
-        \abs{\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz}&\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}\ee^{\pi \ii z}+\ee^{-\pi R}\ee^{-\pi \ii z}}}\ddz\\
-        &\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz
+        \abs{\int_0^1 \frac{\exp(-2\pi\ii(R+\ii z)\xi)}{\cosh(\pi(R+\ii z))}\ddz} & \leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}\ee^{\pi \ii z}+\ee^{-\pi R}\ee^{-\pi \ii z}}}\ddz \\
+                                                                                  & \leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz
     \end{align*} and
     \begin{align*}
-        \abs{\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz}&\leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{-\pi R}\ee^{\pi \ii z}+\ee^{\pi R}\ee^{-\pi \ii z}}}\ddz\\
-        &\leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz
+        \abs{\int_1^0 \frac{\exp(2\pi\ii(R-\ii z)\xi)}{\cosh(\pi(-R+\ii z))}\ddz} & \leq 2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{-\pi R}\ee^{\pi \ii z}+\ee^{\pi R}\ee^{-\pi \ii z}}}\ddz \\
+                                                                                  & \leq2\int_0^1\frac{\exp(2\pi z\xi)}{\abs{\ee^{\pi R}-\ee^{-\pi R}}}\ddz
     \end{align*}
     Since the integrands are continuous and uniformly convergent to \(0\) with respect to \(z\), we have \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz+\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz\to 0\] as \(R\to\infty\). By rearrangement of equation~\eqref{eq:fouriertransformofsechpix_rectangularcontourintegral}, \[I(\xi)\qty(1+\ee^{2\pi\xi})=2\exp(\pi\xi),\]
     or that \[I(\xi)=\frac{2}{\ee^{-\pi\xi}+\ee^{\pi\xi}}=\sech(\pi\xi),\] which proves the result.
@@ -2902,9 +2902,9 @@ The following result is useful for evaluating integrals on indentations along a 
     So,
     \begin{align*}
         \int_{\gamma_\varepsilon}f(z)\ddz
-        & = \varepsilon \ii\int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon\ee^{\ii\theta}}+\varphi\qty(a+\varepsilon\ee^{\ii\theta}))\ee^{\ii\theta}\dd{\theta} \\
-        & = \ii c_{-1}\int_\alpha^\beta\dd{\theta}+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon \ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}          \\
-        & = \ii c_{-1}\vartheta+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}.
+         & = \varepsilon \ii\int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon\ee^{\ii\theta}}+\varphi\qty(a+\varepsilon\ee^{\ii\theta}))\ee^{\ii\theta}\dd{\theta} \\
+         & = \ii c_{-1}\int_\alpha^\beta\dd{\theta}+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon \ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}          \\
+         & = \ii c_{-1}\vartheta+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}.
     \end{align*}
     Let \(\varepsilon<\frac{\lambda}{2}\). Since \(\varphi\) is continuous on the disk \(\overline{D\qty(a,\frac{\lambda}{2})}\), it is bounded. Therefore, letting \(\varepsilon\to0\), we have
     \[\lim_{\varepsilon\to 0} \varepsilon \ii \int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\lim_{\varepsilon\to 0}\varepsilon \ii\int_\alpha^\beta\varphi(a)\ee^{\ii\theta}\dd{\theta}=0.\]
@@ -2922,7 +2922,7 @@ By the Identity Theorem (\autoref{thm:identity}), such continuations are unique;
     \begin{cases}
         f_1(z) & z\in U_1               \\
         f_2(z) & z\in U_2 \setminus U_1
-\end{cases}\] is holomorphic on \(U_1\cup U_2\).
+    \end{cases}\] is holomorphic on \(U_1\cup U_2\).
 
 The most straightforward method of the derivation of analytic continuations uses power series. Let \(f(z)=\sum_{n=0}^{\infty}c_n\qty(z-z_0)^n\) have radius of convergence \(R>0\) (by \autoref{thm:abelradius}). For \(z_1\in D\qty(z_0,R)\), we can expand \(f\) at \(z_1\):
 \[f(z)=\sum_{k=0}^\infty\frac{f^{(k)}\qty(z_1)}{k!}\qty(z-z_1)^k.\]
@@ -2944,7 +2944,7 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
         \begin{cases}
             f(z)    & z\in D\qty(z_0,R) \\
             \Phi(z) & z\in V
-    \end{cases}\]
+        \end{cases}\]
     is holomorphic on \(D\qty(z_0,R)\cup V\supset D(z_0, R+\rho)\), contradicting the maximality of \(R\).
 \end{proof}
 \begin{definition}\label{def:analyticchain}
@@ -3035,7 +3035,7 @@ We will now study holomorphic functions from a more geometric perspective.
         \begin{cases}
             0 & w_0\in\overline{\mathrm{ext}(\Gamma)} \\
             1 & w_0\in \mathrm{int}(\Gamma)
-    \end{cases}.\]
+        \end{cases}.\]
     Hence, for any arbitrary \(z_0\in U\), \(w_0=f\qty(z_0)\) must lie in \(\mathrm{int}(\Gamma)\). Indeed, if \(f\qty(z_0)\) lies in \(\mathrm{ext}(\Gamma)\) or \(\Gamma\), then \(k\) would be nonzero in those areas. It follows that \(f(U)=\mathrm{int}(\Gamma)\).
 \end{proof}
 We will now give examples of biholomorphisms.
@@ -3087,8 +3087,8 @@ Let us now introduce some important properties of linear fractional transformati
 \begin{definition}[Cross-Ratio]\label{def:crossratio}
     Let \(z_1,z_2,z_3,z_4\in\extcomplex\) be points such that at least three of them are distinct. The \textit{cross-ratio} of these points is defined as \[\qty(z_1,z_2;z_3,z_4)=\frac{\qty(z_1-z_3)\qty(z_2-z_4)}{\qty(z_1-z_4)\qty(z_2-z_3)}.\] If at least one of the four points is \(\infty\), then the cross-ratio is defined by the limit:
     \begin{align*}
-        \qty(\infty,z_2;z_3,z_4)&=\frac{z_2-z_4}{z_2-z_3},&\qty(z_1,\infty;z_3,z_4)&=\frac{z_1-z_3}{z_1-z_4}\\
-        \qty(z_1,z_2;\infty,z_4)&=\frac{z_2-z_4}{z_1-z_4},&\qty(z_1,z_2;z_3,\infty)&=\frac{z_1-z_3}{z_2-z_3}
+        \qty(\infty,z_2;z_3,z_4) & =\frac{z_2-z_4}{z_2-z_3}, & \qty(z_1,\infty;z_3,z_4) & =\frac{z_1-z_3}{z_1-z_4} \\
+        \qty(z_1,z_2;\infty,z_4) & =\frac{z_2-z_4}{z_1-z_4}, & \qty(z_1,z_2;z_3,\infty) & =\frac{z_1-z_3}{z_2-z_3}
     \end{align*}
 \end{definition}
 One important property of the cross-ratio is that it is invariant under linear fractional transformations. In other words, if \(f\) is a linear fractional transformation, then \[\qty(f(z_1),f(z_2);f(z_3),f(z_4))=\qty(z_1,z_2;z_3,z_4).\] The proof is trivial and can be verified by substituting the definition of the linear fractional transformation into the definition of the cross-ratio.
@@ -3153,8 +3153,8 @@ The following theorem is important in many areas of mathematical analysis and ha
     Hence, \(\exists k=k(\varepsilon)\leq l\) such that any point \(z\in K\) lies in \(D\qty(\zeta_k,\delta)\). By equation~\eqref{eq:arzelaascoli_uniformequicontinuitydirectconsequence}, we have that \[\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}<\frac{\varepsilon}{3},\qquad \abs{f_{n'_i}(z)-f_{n'_i}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
     Letting \(\widetilde{N}=\widetilde{N}(\varepsilon)=\max\qty[N(\varepsilon,1),\ldots,N(\varepsilon, l(\varepsilon))]\), we have that \(\forall i,j>\widetilde{N}\), \(\forall z\in K\),
     \begin{align*}
-        \abs{f_{n'_j}(z)-f_{n'_i}(z)}&\leq\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}+\abs{f_{n'_j}\qty(\zeta_k)-f_{n'_i}\qty(\zeta_{k})}+\abs{f_{n'_j}\qty(\zeta_{k})-f_{n'_i}(z)}\\
-        &=\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon.
+        \abs{f_{n'_j}(z)-f_{n'_i}(z)} & \leq\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}+\abs{f_{n'_j}\qty(\zeta_k)-f_{n'_i}\qty(\zeta_{k})}+\abs{f_{n'_j}\qty(\zeta_{k})-f_{n'_i}(z)} \\
+                                      & =\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon.
     \end{align*}
     Hence, the sequence is uniformly convergent on \(K\) by the Cauchy Criterion (\autoref{thm:cauchycriterionuniformconvergence}).
 
@@ -3208,16 +3208,16 @@ The Riemann--\(\zeta\) function is one of the most important functions in analyt
 By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
 \begin{align*}
     \abs{\Gamma(x)} & =\int_0^1 \ee^{-t}t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt \\
-    & \leq\int_0^1 t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt      \\
-    & =\frac{1}{x}+\int_1^\infty \ee^{-t}t^{x-1}\ddt.
+                    & \leq\int_0^1 t^{x-1}\ddt+\int_1^\infty \ee^{-t}t^{x-1}\ddt      \\
+                    & =\frac{1}{x}+\int_1^\infty \ee^{-t}t^{x-1}\ddt.
 \end{align*}
 Since \(\int_1^\infty\frac{\ddt}{t^2}\) is convergent and \(\lim_{t\to\infty}\frac{\ee^{-t}t^{z-1}}{t^{-2}}=0\), then by comparison, the second integral is convergent.
 
 Therefore, \(\Gamma(x)\) is convergent on \(\mathbb{R}_{>0}\). It follows that \(\Gamma(z)\) is absolutely convergent on the right half-plane \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). Furthermore, \(\Gamma(z)\) is well-defined and holomorphic on \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). From integration by parts, we get
 \begin{align*}
     \Gamma(z+1) & =\int_0^\infty \ee^{-t}t^z\ddt                                   \\
-    & =-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt. \\
-    & =z\Gamma(z).
+                & =-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt. \\
+                & =z\Gamma(z).
 \end{align*}
 Additionally, \[\Gamma(1)=\int_0^\infty \ee^{-t}\ddt=-\eval{\ee^{-t}}_0^\infty=1.\]
 Hence, we have \(\Gamma(z+1)=z!\), and the \(\Gamma\) function generalizes the factorial. We also have \[\Gamma(z+n)=\Gamma(z)\prod_{k=0}^{n-1}(z+k),\quad\Re(z)>0, n\in\mathbb{N}.\]
@@ -3240,24 +3240,24 @@ We will now study two representations for the Gamma function.
     By integration by parts, we have
     \begin{align}
         f_n(z) & =n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z \ddt]                                     \nonumber \\
-        & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)} \nonumber \\
-        & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \nonumber \\
-        & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.\label{eq:gammafunctiongaussformulaprelimit}
+               & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)} \nonumber \\
+               & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \nonumber \\
+               & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.\label{eq:gammafunctiongaussformulaprelimit}
     \end{align}
     Let us now analyze the difference
     \begin{equation}
         \lim_{n\to\infty}\qty[\int_0^n \ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\label{eq:gammafunction_gaussformulaintermediate1}
     \end{equation}
     Since \[\dv{t}(\ee^t{\qty(1-\frac{t}{n})}^n)=\ee^t
-    \qty(1-\frac{t}{n})^n-\ee^t\qty(1-\frac{t}{n})^{n-1}=-\ee^t\frac{t}{n}{\qty(1-\frac{t}{n})}^{n-1},\]
+        \qty(1-\frac{t}{n})^n-\ee^t\qty(1-\frac{t}{n})^{n-1}=-\ee^t\frac{t}{n}{\qty(1-\frac{t}{n})}^{n-1},\]
     we have
     \begin{equation}
         1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunction_gaussformulaintermediate2}
     \end{equation}
     Additionally, since
     \begin{align*}
-        \dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})&=\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2}\\
-        &=\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)
+        \dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1}) & =\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2} \\
+                                               & =\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)
     \end{align*} has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\]
     which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \[\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\] as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq \ee\). From equation~\eqref{eq:gammafunction_gaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
     it follows that \(1-\ee^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqref{eq:gammafunction_gaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{\ee}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From equation~\eqref{eq:gammafunctiongaussformulaprelimit}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), or equation~\eqref{eq:gammafunctiongaussformula}
@@ -3273,14 +3273,14 @@ The \textit{Weierstrass formula} is a direct consequence of the Gauss formula.
     Since the Gauss formula agrees with equation~\eqref{eq:gammafunction} on the right half-plane, the analytic continuation of \(\Gamma(z)\) is unique on the entire complex plane except for the poles at \(\mathbb{Z}_{\leq0}\) by the Identity Theorem (\autoref{thm:identity}). Since
     \begin{align*}
         \frac{n^z n!}{\prod_{k=0}^n\qty(z+k)} & =\frac{\exp\qty[z\ln(n)]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}                                                                                                 \\
-        & =\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]} \\
-        & =\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
+                                              & =\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n \qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]} \\
+                                              & =\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
     \end{align*}
     Therefore,
     \begin{align*}
-        \frac{1}{\Gamma(z)} & =\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}\\
-        &=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)] \\
-        & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma).
+        \frac{1}{\Gamma(z)} & =\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}                                                                                           \\
+                            & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)] \\
+                            & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma).
     \end{align*}
     The constant \(\gamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\pi^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
 \end{proof}
@@ -3294,7 +3294,7 @@ We have two famous identities on the \(\Gamma\) function:
 \begin{proof}
     By the Weierstrass Formula (\autoref{thm:gammafunction_weierstrassformula}), we have
     \begin{align*}
-        \frac{1}{\Gamma(z)}&=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma),\\\frac{1}{\Gamma(-z)}&=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\exp\qty(-z\gamma).
+        \frac{1}{\Gamma(z)} & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma), \\\frac{1}{\Gamma(-z)}&=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\exp\qty(-z\gamma).
     \end{align*}
     Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \autoref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\pi z)}{\pi},\] which confirms equation~\eqref{eq:gammafunction_eulerreflection}.
 \end{proof}
@@ -3316,11 +3316,11 @@ We have two famous identities on the \(\Gamma\) function:
     where the left-hand side is defined since \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{2})\).
     By expansion of the value, we have
     \begin{align*}
-        \Gamma(z)\Gamma\qty(z+\frac{1}{2})&=\lim_{n\to\infty}\frac{\qty(2n)^{2z}(2n)!}{\prod_{k=0}^{2n}(2z+k)}\cdot\frac{n^{\frac{1}{2}}n!^2 2^{2n+2-2z}}{\qty(2z+2n+1)(2n)!}\\
-        &=\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!^2 2^{2-2z}}{(2z+2n+1)\prod_{k=0}^{n-1}\qty(k+\frac{1}{2})\prod_{k=1}^n k}\\
-        &=2^{2-2z}\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!}{\prod_{k=0}^n\qty(k+\frac{1}{2})}\cdot\frac{n}{2z+2n+1}\\
-        &=2^{1-2z}\Gamma(2z)\Gamma\qty(\frac{1}{2})\\
-        &=2^{1-2z}\Gamma(2z)\sqrt{\pi},
+        \Gamma(z)\Gamma\qty(z+\frac{1}{2}) & =\lim_{n\to\infty}\frac{\qty(2n)^{2z}(2n)!}{\prod_{k=0}^{2n}(2z+k)}\cdot\frac{n^{\frac{1}{2}}n!^2 2^{2n+2-2z}}{\qty(2z+2n+1)(2n)!} \\
+                                           & =\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!^2 2^{2-2z}}{(2z+2n+1)\prod_{k=0}^{n-1}\qty(k+\frac{1}{2})\prod_{k=1}^n k}      \\
+                                           & =2^{2-2z}\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!}{\prod_{k=0}^n\qty(k+\frac{1}{2})}\cdot\frac{n}{2z+2n+1}               \\
+                                           & =2^{1-2z}\Gamma(2z)\Gamma\qty(\frac{1}{2})                                                                                         \\
+                                           & =2^{1-2z}\Gamma(2z)\sqrt{\pi},
     \end{align*}
     where the last step is derived from \autoref{ex:gammafunction_onehalf}.
 \end{proof}
@@ -3339,9 +3339,9 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
 \begin{proof}
     Consider the product \(\Gamma\qty(z_1)\Gamma\qty(z_2)\). By letting \(s=ut\) and \(v=t(u+1)\), we have
     \begin{align}
-        \Gamma\qty(z_1)\Gamma\qty(z_2)&=\int_0^\infty\ee^{-s}s^{z_2-1}\qty[\int_0^\infty \ee^{-t} t^{z_1-1}\ddt]\dd{s}\nonumber\\
-        &=\int_0^\infty u^{z_2-1}\qty[\int_0^\infty \ee^{-v}\qty(\frac{v}{u+1})^{z_1+z_2-1}\dd(\frac{v}{u+1})]\dd{u}.\nonumber\\
-        &=\int_0^\infty \frac{u^{z_2-1}}{\qty(u+1)^{z_1+z_2}}\qty[\int_0^\infty \ee^{-v}v^{z_1+z_2-1}\dd{v}]\dd{u}.\label{eq:betagammafunctionrelationship_intermediate}
+        \Gamma\qty(z_1)\Gamma\qty(z_2) & =\int_0^\infty\ee^{-s}s^{z_2-1}\qty[\int_0^\infty \ee^{-t} t^{z_1-1}\ddt]\dd{s}\nonumber                                                                        \\
+                                       & =\int_0^\infty u^{z_2-1}\qty[\int_0^\infty \ee^{-v}\qty(\frac{v}{u+1})^{z_1+z_2-1}\dd(\frac{v}{u+1})]\dd{u}.\nonumber                                           \\
+                                       & =\int_0^\infty \frac{u^{z_2-1}}{\qty(u+1)^{z_1+z_2}}\qty[\int_0^\infty \ee^{-v}v^{z_1+z_2-1}\dd{v}]\dd{u}.\label{eq:betagammafunctionrelationship_intermediate}
     \end{align}
     Let \(r=\frac{u}{u+1}\), \(u=\frac{r}{1-r}\), and \(\dd{u}=\frac{1}{(1-r)^2}\). Then we have \[\Gamma\qty(z_1)\Gamma\qty(z_2)=\Gamma\qty(z_1+z_2)\int_0^1 r^{z_2-1}(1-r)^{z_1-1}\dd{r}=\Gamma\qty(z_1+z_2)\mathrm{B}\qty(z_1,z_2),\]
     as desired.
@@ -3352,9 +3352,9 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
 \begin{proof}
     By rewriting the integral, and letting \(u=\tan(x)\), we have
     \begin{align*}
-        I=\int_0^{\frac{\pi}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx & =\int_0^\infty \frac{u^{\frac{1}{3}}\sec[2](x)\ddx}{(u+1)^2}\\
-        &=\int_0^\infty \frac{u^{\frac{1}{3}}\dd{u}}{(u+1)^2}\\
-        &=\mathrm{B}\qty(\frac{4}{3},\frac{2}{3}),
+        I=\int_0^{\frac{\pi}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx & =\int_0^\infty \frac{u^{\frac{1}{3}}\sec[2](x)\ddx}{(u+1)^2} \\
+                                                                                  & =\int_0^\infty \frac{u^{\frac{1}{3}}\dd{u}}{(u+1)^2}         \\
+                                                                                  & =\mathrm{B}\qty(\frac{4}{3},\frac{2}{3}),
     \end{align*}
     where this last step recognizes the form of equation~\eqref{eq:betagammafunctionrelationship_intermediate}. By \autoref{thm:betagammafunctionrelationship}, we have \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] By the Reflection Formula (\autoref{thm:gammafunction_eulerreflection}), we have \[I=\frac{\pi}{3\sin(\frac{\pi}{3})}=\frac{2\pi\sqrt{3}}{9}.\]
 \end{proof}
