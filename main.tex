@@ -2915,6 +2915,7 @@ The following result is useful for evaluating integrals on indentations along a 
     \[\lim_{\varepsilon \to 0}\int_{\gamma_\varepsilon}f(z)\ddz=\ii\vartheta\residue_{z=a}f(z),\] as desired.
 \end{proof}
 \section{Analytic Continuation}\label{sec:analyticcontinuation}
+\subsection{Analytic Function Elements}
 \begin{definition}\label{def:analyticelement}
     An \textit{analytic function element} is a pair \((f,U)\), where \(U\subseteq\mathbb{C}\) is an open set and \(f\) is a holomorphic function on \(U\).
 \end{definition}
@@ -2960,7 +2961,7 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     The series \(f(z)=\sum_{n=0}^{\infty}z^{n!}\) has \(\mathbb{D}\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
 \end{example}
 \begin{proof}
-    By the Cauchy-Hadamard Theorem (\autoref{thm:cauchyhadamard}), \(\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}=1\) since \(c_n=1\) if \(n=k!\) and \(0\) otherwise. Thus, \(R=1\).
+    By Cauchy--Hadamard (\autoref{thm:cauchyhadamard}), \(\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}=1\) since \(c_n=1\) if \(n=k!\) and \(0\) otherwise. Thus, \(R=1\).
 
     Fix \(\zeta\in\partial\mathbb{D}\). Suppose \(f\) extends analytically to a disk \(D(\zeta,\delta)\). Since \(\exp(2\pi\ii\mathbb{Q})\) is dense in \(\partial\mathbb{D}\), there exists \(\zeta'=\exp(2\pi\ii\frac{p}{q})\in D(\zeta,\delta)\cap\partial\mathbb{D}\) for coprime integers \(p,q\). The extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
     \[\lim_{r\to1^{-}}f(r\zeta')=g(\zeta').\]
@@ -2975,7 +2976,6 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     Trivially, at \(z=1\), the series diverges. Therefore, \(\mathbb{D}\) is its convergence disk. Observe that \(f(z)=\sum_{n=0}^\infty \qty(z^2)^{2^{n-1}}=\sum_{n=0}^\infty \qty(z^2)^{2^n}+z=f\qty(z^2)+z\). Hence, we have \[f(z)=f\qty(z^2)+z=f\qty(z^4)+z^2+z=f\qty(z^8)+z^4+z^2+z\cdots,\]
     which diverges at each \(z^2,z^4,z^8,\ldots=1\). The solutions form a dense set in \(\partial\mathbb{D}\). By the same reasoning as \autoref{ex:factoriallacunaryseries}, \(f\) cannot be analytically continued to the outside of \(\mathbb{D}\).
 \end{proof}
-The general theory of analytic continuation and its generalizations is formulated by \textit{sheaf theory}.
 \begin{example}\label{ex:complexlogarithmanalyticcontinuation}
     Let \(\Log(z)\) denote the principal branch of \(\log(z)\), with \(-\pi<\Arg(z)\leq\pi\). The analytic function elements \[\qty(\Log,D(1,1))\qand\qty(\Log+2\pi\ii,D(1,1))\] are analytic continuations of each other.
 \end{example}
@@ -2992,6 +2992,7 @@ This is a common issue when it comes to the problem of analytic continuation. Th
 \begin{definition}\label{def:analyticcontinuationalongcurve}
     Let \(\gamma:[0,1]\to\mathbb{C}\) be TO BE CONTINUED
 \end{definition}
+\subsection{The Monodromy Theorem}
 \section{Rational Approximation Theory}
 \section{The Theory of Riemann}\label{sec:riemann}
 \subsection{Biholomorphy}
@@ -3182,7 +3183,7 @@ The notion of distance in the definitions of equicontinuity in the Arzelà--Asco
 
 Lastly, we will prove the following theorem in preparation of the Riemann Mapping Theorem (\autoref{thm:riemannmapping}).
 \begin{theorem}[Montel's Theorem]\label{thm:montel}
-    Let \(U\subseteq\mathbb{C}\) be open.
+    Let \(U\subseteq\mathbb{C}\) be open. 
 \end{theorem}
 \subsection{The Riemann Mapping Theorem}
 The
