@@ -1633,15 +1633,15 @@ By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}
     By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f(z)-\xi)}<\abs{f(z)-w_0}\), it follows that \(f-\xi\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
 We also have the following generalization of \autoref{thm:hurwitzsimplecase}:
-\begin{theorem}\label{thm:hurwitz}
-    Let \(U\subseteq\mathbb{C}\) be open and connected, and suppose \(\qty{f_n(z)}_{n\in\mathbb{N}}\) is a function sequence that uniformly converges to a non-constant function \(f(z)\) on all compact sets of \(U\).
+\begin{theorem}[Hurwitz]\label{thm:hurwitz}
+    Let \(U\subseteq\mathbb{C}\) be an open and connected set, and suppose \(\qty{f_n(z)}_{n\in\mathbb{N}}\) is a holomorphic function sequence that uniformly converges to a non-constant function \(f(z)\) on all compact sets of \(U\).
 
-    If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists\N\in\mathbb{N}\) such that \(\forall\n>N\), \(f_n-w_0\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
+    If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(f_n-w_0\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
 \end{theorem}
 \begin{proof}
-    The zero at \(z_0\) is isolated by \autoref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). Hence, \(\forall \xi\in D\qty(w_0,\delta)\), we have \(\abs{\xi-w_0}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
+    The zero at \(z_0\) is isolated by \autoref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). By uniform convergence, \(\exists N\in \mathbb{N}\) such that \(\forall n>N\), we have \(\abs{f_n\qty(z_0)-w_0}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
 
-    By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f(z)-\xi)}<\abs{f(z)-w_0}\), it follows that \(f-\xi\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
+    By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f(z)-f_n\qty(z_0))}<\abs{f(z)-w_0}\), it follows that \(f-f_n\qty(z_0)\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
