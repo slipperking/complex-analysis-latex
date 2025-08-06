@@ -1623,28 +1623,7 @@ This profound result proves that the number of zeros of a holomorphic function e
 \end{proof}
 By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), any polynomial in the form \(p(z)=\sum_{k=0}^n a_kz^k\) (\(n\in\mathbb{N}\), \(a_n\neq 0\), \(a_k\in\mathbb{C}\) where \(k=1,\ldots n\)) has at least one complex zero. Consider the function \(q(z)=a_nz^n\), with a zero at \(z=0\) with multiplicity \(n\). By Rouché's Theorem (\autoref{thm:rouche}), since \(\exists R\in\mathbb{R}\) such that \(\abs{q(z)-p(z)}=\abs{\sum_{k=0}^{n-1}a_kz^k}<\abs{a_nz^n}\) over \(\abs{z}=R\), \(p\) and \(q\) have the same number of zeros, counting multiplicity.
 
-\autoref{thm:hurwitzsimplecase} is a specific case of the following theorem:
-\begin{theorem}[Hurwitz's Theorem]\label{thm:hurwitz}
-    Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\) such that \(f\not\equiv0\) over \(U\).
-
-    Then, for any compact set \(K\subset U\) where \(f(z)\) has no zeros on \(\partial K\), and any open neighborhood \(V\) of the set \(\cbraces{z\in K}{f(z)=0}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\),
-    \begin{enumerate}
-        \item The zeros of \(f_n\) in \(K\) lie in \(V\), that is, \(\cbraces{z\in K}{f_n(z)=0}\subset V\).
-        \item The function \(f_n\) does not vanish on \(\partial K\) or \(\partial V\).
-        \item The number of zeros (counting multiplicity) of \(f_n\) in \(K\) is the same as that of \(f\) in \(K\).
-    \end{enumerate}
-\end{theorem}
-\begin{proof}
-    By the same logic as with the proof of \autoref{thm:hurwitzsimplecase}, \(f(z)\) is holomorphic over \(U\). Since \(f\not\equiv 0\) on \(U\), its zeros in \(K\), \(\cbraces{z_j}\), are isolated.
-
-    Since \(f\) does not vanish on \(\partial K\), \(\abs{f}\) attains its positive infimum on \(\partial K\). Since \(f_n\rightrightarrows f\) over \(\partial K\) (as it is a compact subset of \(U\)), \(\exists N_1\in\mathbb{N}\) such that \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in \partial K,\forall n>N_1.\] By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f_n\) have the same number of zeros (counting multiplicities) in \(K\) and do not vanish on \(\partial K\).
-
-    The function \(f\) has no zeros in \(K\setminus V\) (as \(V\) contains all zeros of \(f\) in \(K\)). Since \(K\setminus V\) is compact, \(|f|\) attains a positive minimum, and \(f_n\rightrightarrows f\) on this set. Similarly, \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \[\abs{f(z)-f_n(z)}<\abs{f(z)},\quad\forall z\in K\setminus V.\]
-    \(K\setminus V\) can be covered by a collection of simply connected sets (with a union equal to \(K\setminus V\)). Thus, by \autoref{thm:rouche}, \(f\) and \(f_n\) never vanish on \(K\setminus V\), and therefore all zeros of \(f_n\) lie in \(V\).
-
-    For the purpose of the statement, we can choose \(N=\max\paren{N_1,N_2}\).
-\end{proof}
-The following theorem is also a direct consequence of Rouché's Theorem (\autoref{thm:rouche}). While \autoref{thm:hurwitz} concerns the stability of zeros under perturbations of \(f_n(z)\) as \(n\) increases, the stability is also preserved under small additive perturbations of the form \(f(z)+\varepsilon\) for vanishing \(\varepsilon\). Observe their similarities in formulation.
+Lastly, we have:
 \begin{theorem}\label{thm:holomorphiczerosstabilityundershifts}
     Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f(z)\) be holomorphic and non-constant on \(U\).
 
@@ -1668,12 +1647,6 @@ The following theorem is also a direct consequence of Rouché's Theorem (\autore
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
-
-Suppose a holomorphic function attained a local maximum of its modulus at a zero. Then, by adding a sufficiently small constant (such as a downward shift), the zero could disappear from the region, violating the stability of zeros under small additive perturbations established by \autoref{thm:holomorphiczerosstabilityundershifts}.
-
-For comparison, consider the real function \(-x^2\). Shifting it downward by any positive amount removes the zero of multiplicity 2 at \(x=0\) in \(\mathbb{R}\), while shifting it upward causes that zero to split into two simple zeros. The latter behavior agrees with \autoref{thm:holomorphiczerosstabilityundershifts}, and provides a heuristic way to visualize the stability of zeros in two dimensions. However, the fact that the zero is not preserved under a positive shift highlights a key difference between real differentiable functions and holomorphic functions.
-
-This preludes to the following fact: a non-constant holomorphic function cannot attain a local (nonzero) minimum or maximum of its modulus inside its domain (with respect to an open neighborhood of the point).
 
 Before the theorem, we first introduce the mean-value property of holomorphic functions.
 \begin{lemma}\label{lemma:holomorphicmeanvalueproperty}
