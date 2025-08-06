@@ -18,7 +18,10 @@
 \usepackage{enumitem}
 \usepackage{tgpagella}
 \usepackage{pgfplots}
-\usepackage{accents}
+\usepackage{stackengine}
+\usepackage{scalerel}
+\stackMath
+
 \usepackage[inkscapelatex=false]{svg}
 \pgfplotsset{width=10cm,compat=1.9}
 
@@ -80,7 +83,9 @@
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\chpref}[1]{\hyperref[#1]{\S\ref*{#1}}}
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
-\newcommand{\doubletilde}[1]{\widetilde{\vphantom{#1}} \mkern-10mu \widetilde{#1}
+\newcommand{\doubletilde}[1]{
+    \rlap{\raisebox{1.2ex}{$\widetilde{\phantom{#1}}$}}%
+  \widetilde{#1}%
 }
 
 \DeclareMathOperator*{\residue}{Res}
