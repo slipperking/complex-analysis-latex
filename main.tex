@@ -84,8 +84,8 @@
 \newcommand{\chpref}[1]{\hyperref[#1]{\S\ref*{#1}}}
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
 \newcommand{\doubletilde}[1]{
-    \rlap{\raisebox{1.2ex}{$\widetilde{\phantom{#1}}$}}%
-  \widetilde{#1}%
+    \rlap{\raisebox{0.5ex}{$\widetilde{\phantom{#1}}$}}%
+  \widetilde{#1}
 }
 
 \DeclareMathOperator*{\residue}{Res}
@@ -3226,7 +3226,7 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
     To prove this assertion, observe that since \(z_0\in D(0,R)\), it follows that \(\forall z\in U\subseteq D(0,R)\), \(\abs{z-z_0}<2R\), and consequently, \(\abs{\frac{z-z_0}{2R}}<1\). Therefore, \[\alpha(z)=\frac{z-z_0}{2R}\] maps \(U\) to \(\mathbb{D}\), and it is linear and univalent. This shows that \(\alpha\in\mathcal{F}\). It is easy to prove that \(\mathcal{F}\) is infinite; any function in the form of \(z\mapsto\frac{z-z_0}{\zeta}\) for \(\zeta\geq2R\) also lies in \(\mathcal{F}\).
 
     Since \(\mathcal{F}\) is uniformly bounded on \(U\) (by 1), by Montel's Theorem (\autoref{thm:montel}), \(\mathcal{F}\) is a normal family. Let \(r>0\) satisfy \(\overline{D\qty(z_0,r)}\subset U\). By Cauchy's Estimate (\autoref{thm:cauchysestimate}), \(\forall \alpha\in\mathcal{F}\), \(\abs{\alpha'}\leq\frac{1}{r}\) on \(\overline{D\qty(z_0,r)}\). Hence, we have \[M=\sup_{\alpha\in\mathcal{F}}\abs{\alpha'\qty(z_0)}\leq\frac{1}{r}.\]
-    Because \(M\) is an accumulation point of \(\qty{\abs{\alpha'\qty(z_0)}}_{\alpha\in\mathcal{F}}\), there exists a sequence \(\qty{\alpha_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that \(\qty{\alpha'_n\qty(z_0)}_{n\in\mathbb{N}}\) converges to \(M\). By the normality of \(\mathcal{F}\), there exists a subsequence \(\qty{\alpha_{n_k}(z)}_{k\in\mathbb{N}}\subseteq\qty{\alpha_n(z)}_{n\in\mathbb{N}}\) such that \(\qty{\alpha_{n_k}(z)}_{k\in\mathbb{N}}\) is locally uniformly convergent in \(U\) to a function \(\doubletilde{\alpha}(z)\) (holomorphy of which is provided by \autoref{thm:weierstrassuniformlimit}). By definition, \(\abs{\doubletilde{\alpha}'\qty(z_0)}=M\), and define \(\widetilde{\alpha}(z)=\doubletilde{\alpha}(z)\frac{\abs{\doubletilde{\alpha}\qty(z_0)}}{\doubletilde{\alpha}\qty(z_0)}\). In other words, \(\widetilde{\alpha}\) is a rotation of \(\doubletilde{\alpha}\) such that \(\widetilde{\alpha}'\qty(z_0)=M\). 
+    Because \(M\) is an accumulation point of \(\qty{\abs{\alpha'\qty(z_0)}}_{\alpha\in\mathcal{F}}\), there exists a sequence \(\qty{\alpha_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that \(\qty{\alpha'_n\qty(z_0)}_{n\in\mathbb{N}}\) converges to \(M\). By the normality of \(\mathcal{F}\), there exists a subsequence \(\qty{\alpha_{n_k}(z)}_{k\in\mathbb{N}}\subseteq\qty{\alpha_n(z)}_{n\in\mathbb{N}}\) such that \(\qty{\alpha_{n_k}(z)}_{k\in\mathbb{N}}\) is locally uniformly convergent in \(U\) to a function \(\doubletilde{\alpha}(z)\) (holomorphy of which is provided by \autoref{thm:weierstrassuniformlimit}). By definition, \(\abs{\doubletilde{\alpha}'\qty(z_0)}=M\), and define \(\widetilde{\alpha}(z)=\doubletilde{\alpha}(z)\frac{\abs{\doubletilde{\alpha}'\qty(z_0)}}{\doubletilde{\alpha}'\qty(z_0)}\). In other words, \(\widetilde{\alpha}\) is a rotation of \(\doubletilde{\alpha}\) such that \(\widetilde{\alpha}'\qty(z_0)=M\). 
 \end{proof}
 \begin{remark}
     It is natural that we require that \(U\neq\mathbb{C}\); if there exists a univalent function \(f:\mathbb{C}\to\mathbb{D}\), then by Liouville's Theorem (\autoref{thm:liouville}), \(f\) would be a constant function.
