@@ -1627,23 +1627,9 @@ Lastly, we have:
 \begin{theorem}\label{thm:holomorphiczerosstabilityundershifts}
     Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f(z)\) be holomorphic and non-constant on \(U\).
 
-    Then, for any compact set \(K\subset U\) where \(f(z)\) has no zeros on \(\partial K\), and any open neighborhood \(V\) of the set \(\cbraces{z\in K}{f(z)=0}\), \(\exists \delta>0\) such that \(\forall\varepsilon\in D\paren{0,\delta}\),
-    \begin{enumerate}
-        \item The zeros of \(f+\varepsilon\) in \(K\) lie in \(V\), that is, \(\cbraces{z\in K}{f(z)+\varepsilon=0}\subset V\).
-        \item The function \(f+\varepsilon\) does not vanish on \(\partial K\) or \(\partial V\).
-        \item The number of zeros (counting multiplicity) of \(f+\varepsilon\) in \(K\) is the same as that of \(f(z)\) in \(K\).
-    \end{enumerate}
+    If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists\delta>0\) such that \(\forall\xi\in D\qty(w_0,\delta)\), \(f-\xi\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
 \end{theorem}
 \begin{proof}
-    The proof is exactly the same as in \autoref{thm:hurwitz}. Obviously, \(|f|\) attains its positive infimum on \(\partial K\) by its continuity, or that \(\delta_1=\min_{z\in\partial K}\abs{f(z)}\) is positive. Then \(\forall\abs{\varepsilon}<\delta_1\), \(\forall z\in \partial K\),
-    \[\abs{f(z)-\paren{f(z)+\varepsilon}}<\delta_1\leq\abs{f(z)}.\]
-    By Rouché's Theorem (\autoref{thm:rouche}), \(f\) and \(f+\varepsilon\) have the same number of zeros, counting multiplicity, over \(K\), and do not vanish on \(\partial K\).
-
-    Similarly, \(\delta_2=\min_{z\in K\setminus V}\abs{f(z)}>0\), and \(\forall|\varepsilon|<\delta_2\), \(\forall z\in K\setminus V\),
-    \[\abs{f(z)-\paren{f(z)+\varepsilon}}<\delta_2\leq\abs{f(z)}.\]
-    \(K\setminus V\) can be covered by a collection of simply connected sets (whose union is equal to \(K\setminus V\)). Thus, by \autoref{thm:rouche}, \(f\) and \(f+\varepsilon\) never vanish on \(K\setminus V\), and therefore all zeros of \(f+\varepsilon\) lie in \(V\).
-
-    For the purpose of the statement, we can choose \(\delta=\min\paren{\delta_1,\delta_2}\).
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
