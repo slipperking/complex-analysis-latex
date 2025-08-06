@@ -1622,7 +1622,7 @@ This profound result proves that the number of zeros of a holomorphic function e
     From equation~\eqref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
 \end{proof}
 By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), any polynomial in the form \(p(z)=\sum_{k=0}^n a_kz^k\) (\(n\in\mathbb{N}\), \(a_n\neq 0\), \(a_k\in\mathbb{C}\) where \(k=1,\ldots n\)) has at least one complex zero. Consider the function \(q(z)=a_nz^n\), with a zero at \(z=0\) with multiplicity \(n\). By Rouché's Theorem (\autoref{thm:rouche}), since \(\exists R\in\mathbb{R}\) such that \(\abs{q(z)-p(z)}=\abs{\sum_{k=0}^{n-1}a_kz^k}<\abs{a_nz^n}\) over \(\abs{z}=R\), \(p\) and \(q\) have the same number of zeros, counting multiplicity.
-\begin{theorem}\label{thm:holomorphiczerosstabilityundershifts}
+\begin{theorem}\label{thm:hurwitzshifts}
     Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f(z)\) be holomorphic and non-constant on \(U\).
 
     If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists\delta>0\) such that \(\forall\xi\in D\qty(w_0,\delta)\), \(f-\xi\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
@@ -1632,16 +1632,16 @@ By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}
 
     By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f(z)-\xi)}<\abs{f(z)-w_0}\), it follows that \(f-\xi\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
-We also have the following generalization of \autoref{thm:hurwitzsimplecase}:
+We also have the following generalization of \autoref{thm:hurwitzsimplecase}, which is a heuristic restatement of \autoref{thm:hurwitzshifts}:
 \begin{theorem}[Hurwitz]\label{thm:hurwitz}
     Let \(U\subseteq\mathbb{C}\) be an open and connected set, and suppose \(\qty{f_n(z)}_{n\in\mathbb{N}}\) is a holomorphic function sequence that uniformly converges to a non-constant function \(f(z)\) on all compact sets of \(U\).
 
     If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(f_n-w_0\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
 \end{theorem}
 \begin{proof}
-    The zero at \(z_0\) is isolated by \autoref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). By uniform convergence, \(\exists N\in \mathbb{N}\) such that \(\forall n>N\), we have \(\abs{f_n\qty(z_0)-w_0}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
+    The zero at \(z_0\) is isolated by \autoref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). By uniform convergence, \(\exists N\in \mathbb{N}\) such that \(\forall n>N\), we have \(\abs{f(z)-f_n\qty(z)}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
 
-    By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f(z)-f_n\qty(z_0))}<\abs{f(z)-w_0}\), it follows that \(f-f_n\qty(z_0)\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
+    By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f_n(z)-w_0)}<\abs{f(z)-w_0}\), it follows that \(f_n-w_0\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
@@ -2989,7 +2989,7 @@ We have the following immediate assertion:
 
     Let \(w_0\) be an arbitrary point in \(f(U)\). Then \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). Since \(f\) is non-constant, the function \(f-w_0\) has an isolated zero at \(z_0\). Thus for sufficiently small \(\rho>0\), the only zero of \(f-w_0\) in \(\overline{D\qty(z_0,\rho)}\) is at \(z_0\).
 
-    By \autoref{thm:holomorphiczerosstabilityundershifts}, then there exists \(\delta>0\) such that \(\forall\varepsilon\in D(0,\delta)\), \(f(z)-w_0-\varepsilon\) has exactly one zero in \(\overline{D\qty(z_0,\rho)}\). In other words, \(\forall w_0\in f(U)\), \(\exists\delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), \(\exists! z\in\overline{D\qty(z_0,\rho)}\) such that \(f(z)=w\). Thus, \(f\qty(D\qty(w_0,\delta))\subseteq f(U)\). Thus, \(f(U)\) is an open set since each contained point has a fully contained open neighborhood.
+    By \autoref{thm:hurwitzshifts}, then there exists \(\delta>0\) such that \(\forall\varepsilon\in D(0,\delta)\), \(f(z)-w_0-\varepsilon\) has exactly one zero in \(\overline{D\qty(z_0,\rho)}\). In other words, \(\forall w_0\in f(U)\), \(\exists\delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), \(\exists! z\in\overline{D\qty(z_0,\rho)}\) such that \(f(z)=w\). Thus, \(f\qty(D\qty(w_0,\delta))\subseteq f(U)\). Thus, \(f(U)\) is an open set since each contained point has a fully contained open neighborhood.
 
     Let \(w_1,w_2\in f(U)\) be arbitrary and distinct. Then there exist \(z_1, z_2\in U\) such that \(f\qty(z_1)=w_1\) and \(f\qty(z_2)=w_2\). By the connectedness of \(U\), there exists a path \(\gamma\subset U\) that connects \(z_1\) and \(z_2\). Then \(f(\gamma)\subset f(U)\) is a curve that joins \(w_1\) and \(w_2\). Thus, \(f(U)\) is connected.
 \end{proof}
@@ -3000,14 +3000,14 @@ Holomorphic injectivity, or univalence, satisfies the proceeding assertion:
 \begin{proof}
     Suppose, for the sake of contradiction, that \(f\) is univalent on \(U\) such that \(\exists z_0\in U\) such that \(f'\qty(z_0)=0\). Let \(w_0=f\qty(z_0)\). The previous statement is equivalent to: \(f(z)-w_0\) has a zero at \(z_0\) with multiplicity \(m\geq 2\).
 
-    Since this zero is isolated, let \(\rho>0\) be chosen such that \(z_0\) is the only zero of \(f-w_0\) contained in \(\overline{D\qty(z_0,\rho)}\subset U\). By \autoref{thm:holomorphiczerosstabilityundershifts}, \(\exists \delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), the equation \(f(z)=w\) has \(m\) solutions in \(\overline{D\qty(z_0,\rho)}\). This contradicts the univalence of \(f\).
+    Since this zero is isolated, let \(\rho>0\) be chosen such that \(z_0\) is the only zero of \(f-w_0\) contained in \(\overline{D\qty(z_0,\rho)}\subset U\). By \autoref{thm:hurwitzshifts}, \(\exists \delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), the equation \(f(z)=w\) has \(m\) solutions in \(\overline{D\qty(z_0,\rho)}\). This contradicts the univalence of \(f\).
 \end{proof}
 Conversely, we have the following statement on local univalence and invertibility.
 \begin{lemma}
     Let \(U\subseteq\mathbb{C}\) be a region and suppose \(f:U\to\mathbb{C}\) is holomorphic. If \(f'\qty(z_0)\neq0\) for some \(z_0\in U\), then there exists an open neighborhood of \(z_0\) on which \(f\) is univalent.
 \end{lemma}
 \begin{proof}
-    Let \(w_0=f\qty(z_0)\). Since \(\lim_{z\to z_0}f(z)-w_0=0\) and \(\lim_{z\to z_0}\frac{f(z)-w_0}{z-z_0}\neq0\), it follows that \(z_0\) is a simple zero of \(f(z)-w_0\). Let \(V\) be an open neighborhood (relatively compact in \(U\)) of \(z_0\) whose closure does not contain other zeros of \(f-w_0\). By \autoref{thm:holomorphiczerosstabilityundershifts}, \(\exists\delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), \(f(z)=w\) has only one solution for \(z\) satisfying \(z\in V\). Therefore, we can choose a relatively compact open subset \(W\) of \(V\) such that \(f\qty(W)\subseteq D\qty(w_0,\delta)\), on which \(f\) is univalent.
+    Let \(w_0=f\qty(z_0)\). Since \(\lim_{z\to z_0}f(z)-w_0=0\) and \(\lim_{z\to z_0}\frac{f(z)-w_0}{z-z_0}\neq0\), it follows that \(z_0\) is a simple zero of \(f(z)-w_0\). Let \(V\) be an open neighborhood (relatively compact in \(U\)) of \(z_0\) whose closure does not contain other zeros of \(f-w_0\). By \autoref{thm:hurwitzshifts}, \(\exists\delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), \(f(z)=w\) has only one solution for \(z\) satisfying \(z\in V\). Therefore, we can choose a relatively compact open subset \(W\) of \(V\) such that \(f\qty(W)\subseteq D\qty(w_0,\delta)\), on which \(f\) is univalent.
 \end{proof}
 Moreover, if \(w=f(z)\) is univalent and surjective, mapping \(U\) to \(G\), then its inverse \(z=f^{-1}(w)\) is univalent on \(G\). Such bijective holomorphic functions are known as \textit{biholomorphisms} or \textit{biholomorphic} functions.
 
@@ -3018,7 +3018,7 @@ We will now study holomorphic functions from a more geometric perspective.
 \begin{proof}
     Let \(w_0\in\mathbb{C}\). First \(w_0\) does not lie on \(\Gamma\) itself. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}), the number of zeros of \(f-w_0\) enclosed by \(\gamma\) is equal to \[k=\frac{1}{2\pi \ii}\oint_\gamma \frac{f'(z)}{f(z)-w_0}\ddz=\frac{1}{2\pi \ii}\oint_\Gamma\frac{\dd{w}}{w-w_0}=\frac{1}{2\pi}\Delta_\Gamma\arg(w-w_0).\] If \(w_0\in\mathrm{ext}(\Gamma)\), the integral vanishes by the Cauchy--Goursat Theorem (\autoref{thm:cauchygoursattheorem}). On the contrary, if \(w_0\in\mathrm{int}(\Gamma)\), then \(\Gamma\) winds around \(w_0\) exactly once, and hence, in other words, \(\forall w_0\in\mathrm{int}(\Gamma)\), \(f(z)=w_0\) has a unique solution in \(U\). This verifies the univalence of \(f\) in \(U\).
 
-    If \(w_0\) lies on \(\Gamma\), \(f-w_0\) has no zeros in \(U\). Indeed, for the sake of contradiction, assume that \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). By the Open Mapping Theorem (\autoref{thm:openmapping}) and \autoref{thm:holomorphiczerosstabilityundershifts}, \(\exists\delta>0\) such that \(D\qty(w_0,\delta)\subseteq f(U)\) and \(\forall w'\in D\qty(w_0,\delta)\), \(f-w'\) has zeros in \(U\). Since \(w_0\) lies on \(\Gamma\), a subset of \(D\qty(w_0,\delta)\) lies in the exterior of \(\Gamma\). It was previously established that \(f-w'\) has no zeros if \(w'\in D\qty(w_0,\delta)\cap\mathrm{ext}(\Gamma)\). Thus, we have a contradiction. We then have \[k=
+    If \(w_0\) lies on \(\Gamma\), \(f-w_0\) has no zeros in \(U\). Indeed, for the sake of contradiction, assume that \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). By the Open Mapping Theorem (\autoref{thm:openmapping}) and \autoref{thm:hurwitzshifts}, \(\exists\delta>0\) such that \(D\qty(w_0,\delta)\subseteq f(U)\) and \(\forall w'\in D\qty(w_0,\delta)\), \(f-w'\) has zeros in \(U\). Since \(w_0\) lies on \(\Gamma\), a subset of \(D\qty(w_0,\delta)\) lies in the exterior of \(\Gamma\). It was previously established that \(f-w'\) has no zeros if \(w'\in D\qty(w_0,\delta)\cap\mathrm{ext}(\Gamma)\). Thus, we have a contradiction. We then have \[k=
         \begin{cases}
             0 & w_0\in\overline{\mathrm{ext}(\Gamma)} \\
             1 & w_0\in \mathrm{int}(\Gamma)
