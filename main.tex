@@ -188,7 +188,7 @@ A curve is a one-dimensional manifold embedded within a higher dimensional space
 \begin{theorem}[Jordan Curve Theorem]\label{thm:jordancurve}
     Let \(\gamma\) be a Jordan curve in \(\mathbb{R}^2\). Then the set \(\mathbb{R}^2\setminus\gamma\) consists of exactly two connected subsets. One of them is the interior, denoted by \(\mathrm{int}(\gamma)\), and is a bounded set, while the other is the exterior, denoted by \(\mathrm{ext}(\gamma)\), which is unbounded. Both of the two sets share the common boundary \(\gamma\).
 \end{theorem}
-The theorem above seems trivial, but has a complicated rigorous proof in topology. The theorem can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textit{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is doubly connected, and a region bound by \(n\) non-intersecting Jordan curves is traditionally known as \(n\)-connected (the modern topological definition differs). Lastly, any closed curve can degenerate to a single point or slit.
+The theorem above seems trivial, but its rigorous proof in topology is extremely complex. The theorem itself can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textit{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is doubly connected, and a region bound by \(n\) non-intersecting Jordan curves is traditionally known as \(n\)-connected (the modern topological definition differs). Lastly, any closed curve can degenerate to a single point or slit.
 
 Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). An important result in multivariable calculus allows the calculation of the derivatives of a definite integral with respect to its parameter.
 \begin{theorem}[Leibniz Integral Rule]\label{thm:leibnizintegralrule}
@@ -260,7 +260,7 @@ We also have the definition of the limit of a sequence:
 \begin{proof}
     Assume \(\qty{a_n}\) is convergent. Then \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_\infty}<\frac{\varepsilon}{2}\) and \(\abs{a_m-a_\infty}<\frac{\varepsilon}{2}\) for some \(a_\infty\in\mathbb{R}\). It follows that \[\abs{a_n-a_m}\leq\abs{a_n-a_\infty}+\abs{a_m-a_\infty}=\varepsilon.\]
 
-    Conversely, \(\qty{a_n}\) is bounded (fixing \(N\), \(\forall n>N\), \(\abs{a_n-a_{N+1}}<\varepsilon\)). By the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), \(\qty{a_n}\) has a convergent subsequence \(\qty{a_{n_k}}_{k\in\mathbb{N}}\) converging to \(a_\infty\). Therefore, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) and \(\exists M\in\mathbb{N}\) such that \(\forall k>M\), \(n_k>N\), and \(\forall n>N\), \(\abs{a_n-a_{n_k}}<\frac{\varepsilon}{2}\) and \(\abs{a_{n_k}-a_\infty}<\frac{\varepsilon}{2}\). Then \[\abs{a_n-a_\infty}\leq\abs{a_n-a_{n_k}}+\abs{a_{n_k}-a_\infty}<\varepsilon.\] Hence, \(\qty{a_n}\) converges to \(a_\infty\).
+    Conversely, \(\qty{a_n}\) is bounded (fixing \(N\), \(\forall n>N\), \(\abs{a_n-a_{N+1}}<\varepsilon\)). By the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), \(\qty{a_n}_{n\in\mathbb{N}}\) has a subsequence \(\qty{a_{n_k}}_{k\in\mathbb{N}}\) that converges to \(a_\infty\). Therefore, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) and \(\exists M\in\mathbb{N}\) such that \(\forall k>M\), \(n_k>N\), and \(\forall n>N\), \(\abs{a_n-a_{n_k}}<\frac{\varepsilon}{2}\) and \(\abs{a_{n_k}-a_\infty}<\frac{\varepsilon}{2}\). Then \[\abs{a_n-a_\infty}\leq\abs{a_n-a_{n_k}}+\abs{a_{n_k}-a_\infty}<\varepsilon.\] Hence, \(\qty{a_n}\) converges to \(a_\infty\).
 \end{proof}
 \begin{definition}[Limit Superior]\label{def:limsup}
     For a number sequence \(\qty{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
@@ -297,7 +297,7 @@ We also have the definition of the limit of a sequence:
 \begin{proof}
     Suppose for the sake of contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(K\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in K\) such that \(|f(x_n)|>n\). The sequence \(\cbraces{x_n}\) lies in \(K\), which is compact, so by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), \(\cbraces{x_n}\) has an accumulation point in \(K\). In other words, there exists a convergent subsequence \(\cbraces{x_{n_k}}\) with \(\lim_{k\to\infty} x_{n_k}\in K\).
 
-    Since \(f\) is continuous, \(\lim_{k\to\infty}f\qty(x_{n_k})=f\qty(\lim_{k\to\infty}x_{n_k})\), which is defined because \(\lim_{k\to\infty} x_{n_k}\in K\). However, this contradicts \(\qty|f\paren{x_{n_k}}|>n_k\to\infty\), hence \(f\) must be bounded on \(K\).
+    Since \(f\) is continuous, \(\lim_{k\to\infty}f\qty(x_{n_k})=f\qty(\lim_{k\to\infty}x_{n_k})\), which is well-defined because \(\lim_{k\to\infty} x_{n_k}\in K\). However, this contradicts \(\qty|f\paren{x_{n_k}}|>n_k\to\infty\), hence \(f\) must be bounded on \(K\).
 \end{proof}
 \begin{theorem}[Extreme Value Theorem]\label{thm:extremevalue}
     A continuous function \(f(x)\) defined on a compact set \(K\) attains its infimum and supremum in \(K\).
@@ -312,7 +312,7 @@ We also have the definition of the limit of a sequence:
     The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{example}
 \begin{proof}
-    If \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) such that \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\), then \(f(x)\) is not uniformly continuous over \((0,1)\).
+    If \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) satisfying \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\), then \(f(x)\) is not uniformly continuous over \((0,1)\).
 
     Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{proof}
