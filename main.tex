@@ -312,7 +312,7 @@ We also have the definition of the limit of a sequence:
     The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{example}
 \begin{proof}
-    If \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) satisfying \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\), then \(f(x)\) is not uniformly continuous over \((0,1)\).
+    If \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) satisfying both \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\), then \(f\) is not uniformly continuous over \((0,1)\).
 
     Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{proof}
@@ -459,7 +459,7 @@ The Laplacian is equal to
     & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
 \end{align}
 \subsection{Elementary Functions}
-Univariate functions formed by taking compositions, sums, products, and powers of finitely many functions of the following form are known as \textit{elementary functions}:
+Univariate functions formed by compositions, sums, products, and powers of finitely many functions of the following form are known as \textit{elementary functions}:
 \begin{enumerate}
     \item Power functions including polynomials, rational functions, and their inverses.
     \item Trigonometric functions, hyperbolic functions, and their inverses
@@ -607,7 +607,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
 \begin{proof}[Proof of \autoref{thm:abelradius}]
     We will prove that the value in equation~\eqref{eq:cauchyhadamard} satisfies the criteria in \autoref{thm:abelradius}.
 
-    Assume \(\abs{z}<R\). Then \(\forall\rho\in(|z|,R)\), \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation~\eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\), and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
+    Assume \(\abs{z}<R\). Then, \(\forall\rho\in(|z|,R)\), and consequently, \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation~\eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\) and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
 
     Let \(\rho'\in(\rho, R)\). Similarly, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N'\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho'}\), and \(\abs{a_n}<\frac{1}{\rho'^n}\). Then \(\qty|a_nz^n|<\qty|a_n\rho^n|<\frac{\rho^n}{\rho'^n}<1\). By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the \(\sum_{n=0}^\infty\abs{a_nz^n}\) is uniformly bounded (for \(n>N'\)) by the convergent series \(\sum_{n=0}^\infty a_n\rho^n\), and thus uniformly converges on \(|z|<\rho\). This proves \ref{itm:abelradius_absoluteanduniformconvergence}.
 
@@ -634,7 +634,7 @@ The Uniform Limit Theorem in real analysis is generalized:
     Let \(\cbraces{f_n(z)}\) be continuous on \(U\subseteq\mathbb{C}\) and uniformly convergent to \(f(z)\). Then \(f(z)\) is continuous on \(U\).
 \end{theorem}
 \begin{proof}
-    \(\forall n\in\mathbb{N}\), \(\forall z_0\in U\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in D\paren{z_0,\delta}\subseteq U\), \(\abs{f_n(z)-f_n\paren{z_0}}<\frac{\varepsilon}{3}\). Additionally, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\) (\(n\) is independent of \(z\)), \(\abs{f_n(z)-f(z)}<\frac{\varepsilon}{3}\). It follows that \(\abs{f_n\paren{z_0}-f\paren{z_0}}<\frac{\varepsilon}{3}\). By the triangle inequality,
+    By continuity, \(\forall n\in\mathbb{N}\), \(\forall z_0\in U\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in D\paren{z_0,\delta}\subseteq U\), \(\abs{f_n(z)-f_n\paren{z_0}}<\frac{\varepsilon}{3}\). Additionally, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\) (\(n\) is independent of \(z\)), \(\abs{f_n(z)-f(z)}<\frac{\varepsilon}{3}\). It follows that \(\abs{f_n\paren{z_0}-f\paren{z_0}}<\frac{\varepsilon}{3}\). By the triangle inequality,
     \begin{align*}
         \abs{f(z)-f\paren{z_0}} & \leq\abs{f(z)-f_n(z)}+\abs{f_n(z)-f_n\paren{z_0}}+\abs{f_n\paren{z_0}-f\paren{z_0}}                                   \\
         & <\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon,\quad\forall z\in D\paren{z_0,\delta}.
@@ -1673,7 +1673,7 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
 
     Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=0,\] and \(z_\infty\in S\). Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with it being closed within \(V\)).
 
-    Since \(S\subseteq V\) and \(V\) are open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \autoref{lemma:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
+    Since \(S\subseteq V\) and \(V\) are both open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \autoref{lemma:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
     \begin{align*}
         |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}}\leq \frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon \ee^{\ii t}}}\dd{t} \\
         & \leq\frac{1}{2\piup}\int_0^{2\piup}\abs{f(z)}\dd{t}=\abs{f(z)}.
@@ -1734,7 +1734,7 @@ Firstly, the function is holomorphic on \(\mathbb{D}\) as \(|z|\le1\), \(\abs{\o
 
 First, we will observe the image of \(\partial \mathbb{D}\). Let \(\abs{z}=1\). Then,
 \[\abs{\varphi_a(z)}=\abs{\frac{1}{z}}\abs{\frac{z-a}{\frac{1}{z}-\overline{a}}}=\abs{\frac{z-a}{\overline{z}-\overline{a}}}=1.\]
-Therefore, the image of \(\partial \mathbb{D}\) lies on \(\partial \mathbb{D}\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\autoref{thm:maximummodulus}), for \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(\mathbb{D}\) to \(\mathbb{D}\). We next aim to show that \(f:\mathbb{D}\to \mathbb{D}\) is bijective.
+Therefore, the image of \(\partial \mathbb{D}\) lies on \(\partial \mathbb{D}\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\autoref{thm:maximummodulus}), for any \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(\mathbb{D}\) to \(\mathbb{D}\). We next aim to show that \(f:\mathbb{D}\to \mathbb{D}\) is bijective.
 
 Let us first confirm injectivity. \(\forall z_1,z_2\in \mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that
 \begin{gather*}
