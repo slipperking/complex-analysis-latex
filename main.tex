@@ -1374,11 +1374,11 @@ For example, in a topological space, a function \(f:X\to Y\) between two topolog
     which is not an open set in the standard topology on \(\mathbb{R}\).
 \end{example}
 \begin{definition}[Basis of a Topology]
-    For a topological space \((X,\tau)\), a \textit{basis} \(\mathcal{B}\subseteq\tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of a subcollection of \(\mathcal{B}\).
+    For a topological space \((X,\tau)\), a \textit{basis} \(\mathfrak{B}\subseteq\tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of a subcollection of \(\mathfrak{B}\).
 \end{definition}
-It is easy to see that \(\mathcal{B}\) forms an open cover of \(X\). For any two sets in a topology, their intersection is also in the topology, which means there is a set in the basis of the topology that is a subset of the intersection.
+It is easy to see that \(\mathfrak{B}\) forms an open cover of \(X\). For any two sets in a topology, their intersection is also in the topology, which means there is a set in the basis of the topology that is a subset of the intersection.
 
-In other words, \(\forall B_1,B_2\in\mathcal{B}\), \(\forall x\in B_1\cap B_2\), \(\exists B_3\in\mathcal{B}\) such that \(x\in B_3\) and \(B_3\subseteq B_1\cap B_2\).
+In other words, \(\forall B_1,B_2\in\mathfrak{B}\), \(\forall x\in B_1\cap B_2\), \(\exists B_3\in\mathfrak{B}\) such that \(x\in B_3\) and \(B_3\subseteq B_1\cap B_2\).
 
 In a topological space \(X\), a subset can either be open, closed (the complement of some open set), both (clopen), or neither.
 
@@ -1462,7 +1462,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 
     \(\forall n\in\mathbb{N}\) and \(\forall z\in V_n\), since \(W_n\) is an open set containing \(z\) and \(\mathfrak{B}\) is a basis, there exists \(U_{z,n}\in\mathfrak{B}\) such that \(z\in U_{z,n}\subseteq W_n\) (in short, \(U_{z,n}\) is an open neighborhood of \(z\) that is contained in \(W_n\)). The collection \(\cbraces{U_{z,n}}{z\in V_n}\) is an open cover of the compact set \(V_n\), so by the Heine-Borel Theorem (\autoref{thm:heineborel}) it admits a finite subcover of \(V_n\), as pictured in the dotted lines of \autoref{fig:locallyfiniteopencoverexistence}. That is, there exist finitely many points \(z_{n,1},\ldots,z_{n,k_n}\) such that \(V_n\subset\bigcup_{i=1}^{k_n}U_{z_{n,i},n}\subseteq W_n\).
 
-    Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{n,i},n}\) for \(n\in\mathbb{N}\) and \(i=1,\ldots,k_n\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving \ref{itm:locallyfiniteopencoverexistence_cover}.
+    Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{n,i},n}\) for \(n\in\mathbb{N}\) and \(i=1,\ldots,k_n\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving~\ref{itm:locallyfiniteopencoverexistence_cover}.
 
     For \ref{itm:locallyfiniteopencoverexistence_localfiniteness}, let \(K\subset\Omega\) be compact. Then \(\exists N\in\mathbb{N}\) such that \(K\subset \interior{K_N}\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textit{locally finite}.
 \end{proof}
@@ -3445,5 +3445,5 @@ We will now show the beautiful relationship between the \(\zeta\) and \(\Gamma\)
 
 Start from the integral form of the \(\Gamma\) function, and perform a change of variables: \[\Gamma(s)=\int_0^\infty \ee^{-x}x^{s-1}\ddx=n^s\int_0^\infty \ee^{-xn}x^{s-1}\ddx.\quad \Re(s)>1\]
 By rearrangement and subsequent summation by \(n\), we have \[\Gamma(s)\zeta(s)=\sum_{n=1}^\infty\int_0^\infty \ee^{-xn}x^{s-1}\ddx.\]
-It is easy to show that the sequence of partial sums \[f_n(x)=\sum_{k=1}^n e^{-xk}x^{s-1}\] is uniformly convergent on compact subsets of \(\mathbb{R}_{>0}\).
+It is easy to show that the sequence of partial sums \[f_n(x)=\sum_{k=1}^n \ee^{-xk}x^{s-1}\] is uniformly convergent on compact subsets of \(\mathbb{R}_{>0}\). 
 \end{document}
