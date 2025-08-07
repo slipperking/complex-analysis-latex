@@ -848,7 +848,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     Then, \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}\leq\abs{\int_{\Gamma}f(z)\ddz-S}+\abs{\int_{P}f(z)\ddz-S}\leq 2\varepsilon\cdot\mathrm{length}(\Gamma),\] which proves the result.
 \end{proof}
 \begin{lemma}\label{lemma:cauchyintegraltheoremoversimplyconnectedset}
-    Given a holomorphic function \(f(z)\) on a simply connected region \(U\subseteq\mathbb{C}\), for any piecewise smooth closed curve \(\Gamma\subset U\),
+    Given a holomorphic function \(f(z)\) on a simply connected region \(U\subseteq\mathbb{C}\), for any piecewise \(C^1\) closed curve \(\Gamma\subset U\),
     \begin{equation}
         \int_\Gamma f(\zeta)\ddzeta=0.\label{eq:cauchyintegraltheoremoversimplyconnectedset_statement}
     \end{equation}
@@ -3182,7 +3182,7 @@ Obviously, the equivalence is established in a similar manner to local finitenes
 
     Let \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) be arbitrary. Let \(U\) be exhausted by the compact sets \(\qty{K_n}_{n\in\mathbb{N}}\). By the argument above, we may extract a subsequence \(\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\subseteq \qty{f_n}_{n\in\mathbb{N}}\) that uniformly converges on \(K_1\). By the same argument, there exists a subsequence \(\qty{f_{n_{2,j}}}_{j\in\mathbb{N}}\subseteq\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\) that uniformly converges on \(K_2\). Let \(n'_j=n_{j,j}\).
 
-    We will now invoke the same diagonalization argument as in the proof of the Arzelà--Ascoli Theorem (\autoref{thm:arzelaascoli}). Let \(K\subset U\) be an arbitrary compact set. It follows that for some \(k\in\mathbb{N}\), \(K_k\supseteq K\). Since \(\qty{f_{n'_j}}_{j\geq k}\subseteq\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is the subsequence of a sequence that converges on \(K\), the assertion follows. 
+    We will now invoke the same diagonalization argument as in the proof of the Arzelà--Ascoli Theorem (\autoref{thm:arzelaascoli}). Let \(K\subset U\) be an arbitrary compact set. It follows that for some \(k\in\mathbb{N}\), \(K_k\supseteq K\). Since \(\qty{f_{n'_j}}_{j\geq k}\subseteq\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is the subsequence of a sequence that converges on \(K\), the assertion follows.
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The Riemann Mapping Theorem is one of the most profound results in complex analysis. Let \(U\) and \(V\) be two open regions in the complex plane. If there exists a biholomorphism \(f:U\to V\), then the two regions are said to be \textit{conformally equivalent}.
@@ -3230,7 +3230,8 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
 
     Fix \(\xi\in\psi(U')\) to be arbitrary. By the Open Mapping Theorem (\autoref{thm:openmapping}), there exists an open neighborhood \(D(\xi,\varepsilon)\subseteq \psi(U')\). It follows that \(D\qty(-\xi,\varepsilon)\cap\psi\qty(U')=\emptyset\). Therefore, \(\forall z\in U'\), \(\abs{\psi(z)+\xi}\geq\varepsilon\), and consequently, \(\abs{\frac{1}{\psi(z)+\xi}}\leq\frac{1}{\varepsilon}\). Hence, the function \(\varphi(z)=\frac{1}{z+\xi}\) maps \(U'\) to a bounded region that lies within the compact disk \(\overline{D\qty(0,\frac{1}{\varepsilon})}\). Denote \(\varphi\circ\psi(U')\) by \(\widetilde{U}\).
 
-    It is easy to show that \(\widetilde{U}\) is simply connected. Consider \(\widetilde{U}=\varphi\circ\psi\circ\rho(U)\). If we can show that the line integral over any closed curve in \(\widetilde{U}\) of any holomorphic function on \(\widetilde{U}\) vanishes, then the assertion follows. For any holomorphic function \(g:\widetilde{U}\to\mathbb{C}\), and any closed piecewise \(C^1\) curve \(\Gamma\subset \widetilde{U}\), \[\oint_\Gamma g(z)\ddz=\oint_{\rho^{-1}\circ\psi^{-1}\circ\varphi^{-1}(\Gamma)}g\circ\varphi\circ\psi\circ\rho(z)\ddz=0\] since \(\rho^{-1}\circ\psi^{-1}\circ\varphi^{-1}(\Gamma)\) is a closed piecewise \(C^1\) in \(U\) and \(g\circ\varphi\circ\psi\circ\rho22222111\) is holomorphic in \(U\). Thus, \(\widetilde{U}\) is simply connected.
+    It is easy to see that \(\widetilde{U}\) is simply connected. Let \(\widetilde{U}=\varphi\circ\psi\circ\rho(U)\). To prove this, it suffices to show that the line integral of any holomorphic function over any closed curve in \(\widetilde{U}\) vanishes. Let \(g : \widetilde{U} \to \mathbb{C}\) be holomorphic, and let \(\Gamma \subset \widetilde{U}\) be a closed piecewise \(C^1\) curve. Then  \[\oint_\Gamma g(z)\ddz=\oint_{\rho^{-1}\circ\psi^{-1}\circ\varphi^{-1}(\Gamma)}g\circ\varphi\circ\psi\circ\rho(z)\ddz=0,\]
+    by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, since \(U\) is simply connected by assumption, \(\rho^{-1} \circ \psi^{-1} \circ \varphi^{-1}(\Gamma)\) is a closed piecewise \(C^1\) curve in \(U\), and \(g \circ \varphi \circ \psi \circ \rho\) is holomorphic on \(U\). Therefore, \(\widetilde{U}\) is simply connected.
 
     Hence, we may use our previous result and establish a biholomorphism \(\widetilde{f}:\widetilde{U}\to\mathbb{D}\), unique up to a transformation in \(\Aut(\mathbb{D})\). Let \(f=\widetilde{f}\circ\varphi\circ\psi\circ\rho\), which is a biholomorphism from \(U\) to \(\mathbb{D}\). Similarly, it is unique up to a transformation in \(\Aut(\mathbb{D})\), and the same assertion follows.
 \end{proof}
