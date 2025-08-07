@@ -4,7 +4,7 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns}
 \usepackage{pifont}
-\usepackage[lightmath]{kpfonts}
+\usepackage{kpfonts}
 \usepackage[labelfont=bf, textfont=it]{caption}
 \usepackage{physics}
 \usepackage{mathtools}
@@ -165,7 +165,7 @@ Since traditional complex analysis is the theory of calculus on complex function
 It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a point \(x\in(a,b)\) if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by \(f'(x)\) or \(\frac{\dd{f}}{\ddx}\). The value \(\dd{f}=f'(x)\ddx\) is the differential of \(f(x)\). Partition \([a,b]\) into \(a=x_0<x_1<x_2<\cdots<x_n=b\) such that the length of the intervals \([x_i,x_{i-1}]\) tends to 0 as \(n\to\infty\). If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\), then the function can be roughly said to be integrable over \([a,b]\). The full details of Riemann integrability relate to the upper and lower Riemann sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
 \begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
     Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
-    \[\Phi(x)=\int_a^xf(t)\dd{t}.\]
+    \[\Phi(x)=\int_a^x f(t)\dd{t}.\]
     Then \(\Phi(x)\) is differentiable over \([a,b]\), \(\Phi'(x)=f(x)\), and \(\dd{\Phi(x)}=f(x)\dd{x}\).
 \end{theorem}
 \begin{theorem}[Fundamental Theorem of Calculus, Integral Form]
@@ -1930,13 +1930,13 @@ Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho \ee^{\ii\theta}\) in equ
 \end{gather}
 Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(\ii\theta)\) is periodic with period \(2\piup\), it admits a Fourier series representation
 \begin{equation}
-    u\qty(\ee^{\ii\theta})\sim\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta},\qquad a_n=\frac{1}{2\piup}\int_0^{2\piup} u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
+    u\qty(\ee^{\ii\theta})\sim\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta},\qquad a_n=\frac{1}{2\piup}\int_0^{2\piup} u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
 \end{equation}
 This series may diverge. Observe that continuity of \(u\) on the compact set \(\partial\mathbb{D}\) implies uniform boundedness: \(\exists M>0\) such that \(\abs{u\qty(\ee^{\ii\theta})} \leq M\) for all \(\theta\) (\autoref{thm:continuousfunctionboundedoncompact}). Consequently, \(\abs{a_n} \leq M\). Introducing factors \(\rho^{\abs{n}}\) with \(\abs{\rho}<1\) yields a convergent series:
 \[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}, \quad\abs{\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M \frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
 Substituting the coefficients gives
 \begin{align*}
-    \sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}} & =\sum_{n=-\infty}^\infty \qty(\frac{1}{2\piup}\int_0^{2\piup}u\qty(\ee^{\ii\tau})\ee^{-in\tau}\dd{\tau}) \ee^{\ii n\theta}\rho^{\abs{n}} \\
+    \sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}} & =\sum_{n=-\infty}^\infty \qty(\frac{1}{2\piup}\int_0^{2\piup}u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau}) \ee^{\ii n\theta}\rho^{\abs{n}} \\
     & =\frac{1}{2\piup} \sum_{n=-\infty}^\infty \int_0^{2\piup}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)}\dd{\tau}.
 \end{align*}
 By the Weierstrass \(M\)-Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:limitintegralswitch},
@@ -1945,7 +1945,7 @@ By the Weierstrass \(M\)-Test (\autoref{thm:weierstrassmtest}) and \autoref{thm:
 \end{equation}
 The summation simplifies as follows:
 \begin{align*}
-    \sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)} & =\sum_{n=0}^\infty \rho^n \ee^{\ii n(\theta-\tau)}+\sum_{n=1}^\infty \rho^n \ee^{-in(\theta-\tau)} \\
+    \sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)} & =\sum_{n=0}^\infty \rho^n \ee^{\ii n(\theta-\tau)}+\sum_{n=1}^\infty \rho^n \ee^{-\ii n(\theta-\tau)} \\
     & =1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]                                                    \\
     & =1+2\Re\sum_{n=1}^\infty\rho^n \ee^{\ii n(\theta-\tau)}                                            \\
     & =1+2\Re\qty[\frac{\rho \ee^{\ii(\theta-\tau)}}{1-\rho \ee^{\ii(\theta-\tau)}}]                     \\
