@@ -1770,7 +1770,7 @@ As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk},
 \end{lemma}
 \begin{proof}
     Let \[\varphi_{-z_1}(z)=\frac{z+z_1}{1+\overline{z_1}z}\in\Aut(\mathbb{D}),\quad\varphi_{w_1}(z)=\frac{z-w_1}{1-\overline{w_1}z}\in\Aut(\mathbb{D}).\]
-    It follows that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}(0)=\varphi_{w_1}\qty(w_1)=0\). By the Schwarz Lemma (\autoref{lemma:schwarz}), \[\abs{\varphi_{w_1}\circ f\circ\varphi_{-z_1}(z)}\leq\abs{z}\] for \(z\in \mathbb{D}\). Let \(z_2=\varphi_{-z_1}(z)\). Then, \(\abs{\varphi_{w_1}\circ f\qty(z_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\Leftrightarrow\abs{\varphi_{w_1}\qty(w_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\), confirming equation~\eqref{eq:schwarzpick_statement1}. By the second statement of the Schwarz Lemma (\autoref{lemma:schwarz}), \(\abs{\qty(\varphi_{w_1}\circ f\circ\varphi_{-z_1})'(0)}\leq1\).
+    It follows that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}(0)=\varphi_{w_1}\qty(w_1)=0\). Then by the Schwarz Lemma (\autoref{lemma:schwarz}), for \(z\in\mathbb{D}\), \[\abs{\varphi_{w_1}\circ f\circ\varphi_{-z_1}(z)}\leq\abs{z}.\] Let \(z_2=\varphi_{-z_1}(z)\). Then, \(\abs{\varphi_{w_1}\circ f\qty(z_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\Leftrightarrow\abs{\varphi_{w_1}\qty(w_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\), confirming equation~\eqref{eq:schwarzpick_statement1}. By the second statement of the Schwarz Lemma (\autoref{lemma:schwarz}), \(\abs{\qty(\varphi_{w_1}\circ f\circ\varphi_{-z_1})'(0)}\leq1\).
 
     By the chain rule, \(\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}\leq1\). Let us now calculate the derivatives of \(\varphi_{w_1}\) and \(\varphi_{-z_1}\). By the quotient rule, \[\varphi'_{w_1}(z)=\frac{1-\overline{w_1}w_1}{\paren{1-\overline{w_1}z}^2},\quad\varphi'_{w_1}\qty(w_1)=\frac{1}{1-\overline{w_1}w_1},\]
     and
@@ -1831,14 +1831,14 @@ where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \[\frac{
 Letting \(z=0\), the integral vanishes, and we obtain \(c=v(0)=\Im(f(0))\).
 
 Define the \textit{Schwarz kernel} to be \[S(\zeta,z)=\frac{\zeta+z}{2\piup\ii(\zeta-z)\zeta}.\]
-Then for \(f\) holomorphic on \(D(0,R)\) and continuous \(\overline{D(0,R)}\), we obtain the \textit{Schwarz Integral Formula}:
+Then for a holomorphic function \(f\) on \(D(0,R)\) that is continuous on \(\overline{D(0,R)}\), we obtain the \textit{Schwarz Integral Formula}:
 \begin{equation}
     f(z)=\int_{\partial D(0,R)}\Re\qty(f(\zeta))S(\zeta,z)\ddzeta+\ii\Im\qty(f(0)).\label{eq:schwarzintegralformula}
 \end{equation}
 The significance of this alternative formula implies that a holomorphic function can be recovered from the real part on the boundary of a disk and the imaginary part at a single point.
 
 From equation~\eqref{eq:schwarzintegralformulaimaginarypart}, we can rewrite \[\Im\qty(\frac{\zeta+z}{\zeta-z})=\Im\qty(1+\frac{2z}{\zeta-z})=\Im\qty(\frac{2z\paren{\overline{\zeta}-\overline{z}}}{\abs{\zeta-z}^2})=\frac{2\Im\qty(z\overline{\zeta})}{\abs{\zeta-z}^2}.\label{eq:harmonicconjugate}\]
-Let \(Q(\zeta,z)=\frac{\Im\qty(z\overline{\zeta})}{\piup\abs{\zeta-z}^2}\), known as the \textit{conjugate Poisson kernel}. Then equation~\eqref{eq:schwarzintegralformulaimaginarypart} yields yet another integral representation of harmonic functions:
+Let \(Q(\zeta,z)=\frac{\Im\qty(z\overline{\zeta})}{\piup\abs{\zeta-z}^2}\), which is known as the \textit{conjugate Poisson kernel}. Then equation~\eqref{eq:schwarzintegralformulaimaginarypart} yields yet another integral representation of harmonic functions:
 \[v(z)=v(0)+\int_0^{2\piup}u(\zeta)Q(\zeta,z)\dd{\tau},\]
 where \(\zeta=R\ee^{\ii\tau}\). Two harmonic functions are said to be \textit{conjugate} if they are the real and imaginary parts of a holomorphic function. As seen above, on open disks, any harmonic function will admit a unique conjugate, (up to an additive constant \(v(0)\)). For a harmonic function \(u\), we can construct its harmonic conjugate from equation~\eqref{eq:harmonicconjugate}.
 
@@ -1922,7 +1922,7 @@ A fundamental problem in the theory of partial differential equations is to find
 
     Obviously, this is satisfied if \(|\xi-z|^2<\frac{R^2}{2}\paren{1-\cos(\frac{\delta}{2})}<2\rho^2\qty(1-\cos(\frac{\delta}{2}))\). This can be rearranged into \(|\xi-z|<\frac{R\sqrt{2}}{2}\sqrt{1-\cos(\frac{\delta}{2})}=R\sin\qty(\frac{\delta}{4})\) Therefore, we can choose \[\eta=\min\qty[\frac{\varepsilon}{8M}R\paren{1-\cos(\frac{\delta}{2})},R\sin\qty(\frac{\delta}{4}),\frac{R}{2}]>0,\] under which equations \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint1}, \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint2} and \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint3} are satisfied.
 
-    Hence, \(\forall\varepsilon>0\), \(\exists\eta>0\) such that \(\forall z\) such that \(0<\abs{\xi-z}<\eta\), we have \(\abs{\varphi(\xi)-u(z)}<2\varepsilon\). Then equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary} follows.
+    Hence, \(\forall\varepsilon>0\), \(\exists\eta>0\) such that \(\forall z\) with \(0<\abs{\xi-z}<\eta\), we have \(\abs{\varphi(\xi)-u(z)}<2\varepsilon\). Then equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary} follows.
 
     We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (equation~\eqref{eq:poissonintegralformula2}), \(\forall z\in D(0,R)\), \(u(z)-v(z)=\int_0^{2\piup}P(\zeta,z)\qty[u(\zeta)-v(\zeta)]\dd{\tau}=0\). Since \(u-v\) vanishes, we have a contradiction.
 \end{proof}
