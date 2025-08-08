@@ -1924,7 +1924,7 @@ A fundamental problem in the theory of partial differential equations is to find
 
     Hence, \(\forall\varepsilon>0\), \(\exists\eta>0\) such that \(\forall z\) with \(0<\abs{\xi-z}<\eta\), we have \(\abs{\varphi(\xi)-u(z)}<2\varepsilon\). Then equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary} follows.
 
-    We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (equation~\eqref{eq:poissonintegralformula2}), \(\forall z\in D(0,R)\), \(u(z)-v(z)=\int_0^{2\piup}P(\zeta,z)\qty[u(\zeta)-v(\zeta)]\dd{\tau}=0\). Since \(u-v\) vanishes, we have a contradiction.
+    We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (equation~\eqref{eq:poissonintegralformula2}), \(u(z)-v(z)=\int_0^{2\piup}P(\zeta,z)\qty[u(\zeta)-v(\zeta)]\dd{\tau}=0\) for all \(z\in D(0,R)\). Since \(u-v\) vanishes, we have a contradiction.
 \end{proof}
 \subsubsection{In Harmonic Analysis}
 Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho \ee^{\ii\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
@@ -1968,7 +1968,7 @@ We now establish that real-valued continuous functions satisfying the mean-value
     Then \(f\) is harmonic on \(U\).
 \end{theorem}
 \begin{proof}
-    Fix \(z_0\in U\) and choose \(\lambda>0\) such that \(\overline{D\qty(z_0,\lambda)}\subset U\). Because \(f\in C^0\qty(\partial D\qty(z_0,\lambda))\), \autoref{thm:dirichletproblemwithlaplaceequationsolution} guarantees the existence of a unique harmonic function \(u\) on \(D\qty(z_0,\lambda)\) satisfying
+    Fix \(z_0\in U\) arbitarily and choose \(\lambda>0\) such that \(\overline{D\qty(z_0,\lambda)}\subset U\). Because \(f\in C^0\qty(\partial D\qty(z_0,\lambda))\), \autoref{thm:dirichletproblemwithlaplaceequationsolution} guarantees the existence of a unique harmonic function \(u\) on \(D\qty(z_0,\lambda)\) satisfying
     \[u(z)=\int_0^{2\piup}f(\zeta)P\qty(\zeta,z) \dd{\tau},\]
     with \(u=f\) on \(\partial D\qty(z_0,\lambda)\). Define \(\psi=f-u\) on \(\overline{D\qty(z_0,\lambda)}\). Then \(\psi\) is continuous, satisfies the mean-value property, and vanishes on \(\partial D\qty(z_0,\lambda)\). By the proof of \autoref{thm:maximummodulus}, which relies solely on the mean-value property, \(\psi\equiv 0\) on \(\overline{D\qty(z_0,\lambda)}\). Thus \(f\equiv u\) on \(\overline{D\qty(z_0,\lambda)}\), implying \(f\) is harmonic at \(z_0\). The arbitrariness of \(z_0\) establishes harmonicity on \(U\).
 \end{proof}
@@ -2176,7 +2176,7 @@ We will then introduce the converse:
 \begin{proof}
     Since the singularity at \(\infty\) is isolated, there exists a (punctured) neighborhood of \(\infty\), \(\cbraces{z\in\mathbb{C}}{R<|z|<\infty}\), on which \(f\) is holomorphic. Let \(\psi_\infty(z)\) equal the principal part of \(f(z)\). If \(z=\infty\) is a removable singularity of \(f\), then \(\psi_\infty\) is identically zero, and if \(z=\infty\) is a pole of \(f\), then \(\psi_\infty\) is a polynomial.
 
-    We will first prove that \(f\) has finitely many poles in \(\overline{D(0,R)}\). If \(f\) has infinitely many poles in the closed disk, by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), the set \[\cbraces{z\in\overline{D(0,R)}}{\lim_{\zeta\to z} f(\zeta)=\infty}\] has a self-contained accumulation point \(z_0\), which is consequently non-isolated. This contradicts the definition of meromorphy, and we have a contradiction.
+    It is clear that \(f\) has finitely many poles in \(\overline{D(0,R)}\). Indeed, if \(f\) has infinitely many poles in the closed disk, by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), the set \[\cbraces{z\in\overline{D(0,R)}}{\lim_{\zeta\to z} f(\zeta)=\infty}\] contains an accumulation point in \(\overline{D(0,R)}\), which is not an isolated singularity. This is a contradiction of the definition of meromorphy, and we have a contradiction.
 
     Let \(z_1,\ldots,z_n\) be the isolated poles of \(f\) in \(\overline{D(0,R)}\). \(\forall k\in\qty{1,2,\ldots,n}\), \(f\) has the Laurent expansion at \(z_k\) with a principal part of \[\psi_k(z)=\frac{c_{k,-1}}{z-z_k}+\frac{c_{k,-2}}{\qty(z-z_k)^2}+\cdots+\frac{c_{k,-m_{k}}}{\qty(z-z_k)^{m_k}}.\] Define the auxiliary function \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\] which is meromorphic on \(\mathbb{C}\) with singularities at each of \(\qty{z_k}_{k=1}^n\cup\qty{\infty}\). Fix \(j\in\cbraces{1,\ldots n}\). Since \(z_j\) is an isolated singularity, \(\exists\varepsilon_j>0\) such that \(\forall k\neq j\), \(z_k\notin D^*\qty(z_j,\varepsilon_j)\). Then, \(\sum_{\substack{k=1\\k\neq j}}^n \psi_k(z)\) is holomorphic on \(D^*(z_j,\varepsilon_j)\). \(\psi_\infty(z)\) is a polynomial and therefore entire. Lastly, \(f(z)-\psi_j(z)=\varphi_j(z)\) is the holomorphic part of the expansion of \(f(z)\) at \(z_j\), and is holomorphic at \(z_j\). Therefore, \(z=z_j\) is a removable singularity of \(\Phi(z)\). By \autoref{thm:removablesingularitiesriemann}, define \(\Phi(z)\) to be the analytic continuation on all of \(\mathbb{C}\).
 
