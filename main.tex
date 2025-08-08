@@ -2510,12 +2510,71 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     \end{align*}
     which completes the proof.
 \end{proof}
-\begin{example}[Blaschke Product]\label{ex:blaschkeproduct}
+\subsubsection{The Order and Genus of Entire Functions}
+\begin{lemma}\label{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}
+    Let \(f:\overline{D(0,R)}\to\mathbb{C}^*\) (where \(R>0\)) be a nowhere-vanishing holomorphic function. It follows that \[\log\qty|f(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
+\end{lemma}
+\begin{proof}
+    Without loss of generality, assume \(R=1\). Since \(f\) is non-vanishing and \(\overline{\mathbb{D}}\) is simply connected, we may define the \textit{holomorphic logarithm} as \[\log(f(z))=\int_\gamma \frac{f'(z)}{f(z)}\ddz+\log\qty(f(z_0))\] for any fixed \(z_0\in \overline{\mathbb{D}}\) and all \(z\in\overline{\mathbb{D}}\), where \(\gamma\subset\overline{\mathbb{D}}\) is any piecewise smooth curve from \(z_0\) to \(z\).
+
+    Hence, \(\log\abs{f(z)}=\Re\qty[\log\qty(f(z))]\) and is therefore harmonic. The assertion then follows from the mean-value property.
+\end{proof}
+\begin{theorem}[Jensen's Formula]\label{thm:jensensformula}
+    Let \(f:D(0,R)\to\mathbb{C}\) be holomorphic such that \(f(0)\neq 0\). Suppose that \(f\) is continuous on \(\overline{D(0,R)}\). If \(a_1,\ldots,a_n\) are the zeros of \(f\) in \(\overline{D(0,R)}\), counted with multiplicities, then \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
+\end{theorem}
+\begin{proof}
+    First assume that no zeros lie on \(\partial D(0,R)\). It follows that \(\forall 1\leq k\leq n\), \[\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_k)}{R^2-\overline{a_k}z}\] is holomorphic on \(\overline{D(0,R)}\), and has a simple zero at \(z=a_j\).
+    Additionally, the transformation maps \(\partial D(0,R)\) to \(\partial\mathbb{D}\). The function \[g(z)=\frac{f(z)}{\prod_{k=1}^n\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})}\] is then holomorphic and non-vanishing in \(\overline{D(0,R)}\). Hence, by \autoref{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}, \[\log\qty|g(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{g\qty(R\ee^{\ii\theta})}\dd{\theta},\]
+    implying that
+    \begin{align}
+        \log\abs{f(0)}-\sum_{k=1}^n\log\abs{\varphi_{\frac{a_k}{R}}(0)}&=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}\nonumber\\
+        &\quad-\frac{1}{2\piup}\sum_{k=1}^n\int_0^{2\piup}\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:jensensformula_intermediate}
+    \end{align}
+    Since for fixed \(k\), \[\log\abs{\varphi_{\frac{a_k}{R}}(0)}=\log\abs{\frac{a_k}{R}}\qand\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}=\log(1)=0,\]
+    equation~\eqref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
+    Now assume that \(f\) has zeros on \(\partial D(0,R)\).
+\end{proof}
+\begin{theorem}[Poisson--Jensen Formula]\label{thm:poissonjensenformula}
+    Suppose \(f\) is a meromorphic function on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\) and is non-vanishing on \(\partial D(0,R)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
+    \begin{align}
+        \log\abs{f(z)} & =\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                              \\
+        & \quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
+    \end{align}
+    where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in equation~\eqref{eq:poissonkernelgeneralform}.
+\end{theorem}
+\begin{proof}
+    Let \(\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}\) and let \(\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}\) for all \(1\leq j\leq m\) and \(1\leq k\leq n\). Consider the function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})},\]
+    which is holomorphic and nonzero on \(\overline{D(0,R)}\). Fix \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\) and let \(\Phi(\xi)=g\circ\qty(R\varphi_{-\frac{z}{R}})\qty(\xi)\), where \(R\varphi_{-\frac{z}{R}}\qty(\xi)=\frac{R^2\xi+Rz}{R+\overline{z}\xi}\) is holomorphic on \(\overline{\mathbb{D}}\) with \(\Phi(0)=z\). Since \(g\) is non-vanishing in \(\overline{D(0,R)}\), \(\Phi\) is non-vanishing in \(\overline{\mathbb{D}}\). By \autoref{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty} on \(\Phi\),
+    \begin{equation}
+        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{\Phi\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:poissonjensenformula_intermediate1}
+    \end{equation}
+    Observe that
+    \begin{equation}
+        \log\abs{\Phi\qty(\ee^{\ii\theta})}=\log\abs{f\qty(R\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}}=\log\abs{f\qty(R\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}.\label{eq:poissonjensenformula_intermediate2}
+    \end{equation}
+    By letting \(\ee^{\ii\psi}=\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta})\), it follows that \(\ee^{\ii\theta}=\varphi_{\frac{z}{R}}\qty(\ee^{\ii\psi})\), and we obtain that
+    \begin{equation}
+        \dd{\theta}=\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\psi}-z}^2}\dd{\psi}=P(\zeta,z)\dd{\psi},\qquad\zeta=R\ee^{\ii\psi}\label{eq:poissonjensenformula_intermediate3}
+    \end{equation} after much simplification (the full computation of which can be found in equation~\eqref{eq:poissonintegralformula2_differentialcomputation} under different variables).
+
+    Hence, by substituting equations~\eqref{eq:poissonjensenformula_intermediate2} and~\eqref{eq:poissonjensenformula_intermediate3} into equation~\eqref{eq:poissonjensenformula_intermediate1}, we have
+    \begin{align*}
+        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\psi})}P(\zeta,z)\dd{\psi},
+    \end{align*}
+    and the conclusion follows from simple rearrangement.
+\end{proof}
+Jensen's Formula (\autoref{thm:jensensformula}) relates the growth of an entire function on large circles and the density of its zeros. The Poisson--Jensen Formula is a fundamental result in Nevanlinna Value Distribution Theory.
+
+From Jensen's Formula (\autoref{thm:jensensformula}), we have:v
+\begin{lemma}
+    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\). It follows that \[\log\abs{f(0)}\geq\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
+\end{lemma}
+\begin{theorem}[Blaschke Product]\label{thm:blaschkeproduct}
     Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by
     \begin{equation}
         B(z)=\prod_{k=1}^\infty \qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_k}(z)],\label{eq:blaschkeproduct_statement}
     \end{equation} where \(\varphi_a(z)\) is a Möbius transformation in the form of equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}, is uniformly convergent on compact subsets of \(\mathbb{D}\) to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\qty{a_k}\).
-\end{example}
+\end{theorem}
 \begin{proof}
     If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,R)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
     \begin{align*}
@@ -2532,59 +2591,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \begin{remark}
     A more general Blaschke product has an additional factor of \(z^m\) to account for a zero at the origin, similar to the case of the Weierstrass product.
 \end{remark}
-\begin{lemma}\label{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}
-    Let \(f:\overline{D(0,R)}\to\mathbb{C}^*\) (where \(R>0\)) be a nowhere-vanishing holomorphic function. It follows that \[\log\qty|f(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
-\end{lemma}
-\begin{proof}
-    Without loss of generality, assume \(R=1\). Since \(f\) is non-vanishing and \(\overline{\mathbb{D}}\) is simply connected, we may define the \textit{holomorphic logarithm} as \[\log(f(z))=\int_\gamma \frac{f'(z)}{f(z)}\ddz+\log\qty(f(z_0))\] for any fixed \(z_0\in \overline{\mathbb{D}}\) and all \(z\in\overline{\mathbb{D}}\), where \(\gamma\subset\overline{\mathbb{D}}\) is any piecewise smooth curve from \(z_0\) to \(z\).
 
-    Hence, \(\log\abs{f(z)}=\Re\qty[\log\qty(f(z))]\) and is therefore harmonic. The assertion then follows from the mean-value property.
-\end{proof}
-\begin{example}[Jensen's Formula]\label{ex:jensensformula}
-    Let \(f:D(0,R)\to\mathbb{C}\) be holomorphic such that \(f(0)\neq 0\). Suppose that \(f\) is continuous on \(\overline{D(0,R)}\). If \(a_1,\ldots,a_n\) are the zeros of \(f\) in \(\overline{D(0,R)}\), counted with multiplicities, then \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
-\end{example}
-\begin{proof}
-    First assume that no zeros lie on \(\partial D(0,R)\). It follows that \(\forall 1\leq k\leq n\), \[\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_k)}{R^2-\overline{a_k}z}\] is holomorphic on \(\overline{D(0,R)}\), and has a simple zero at \(z=a_j\).
-    Additionally, the transformation maps \(\partial D(0,R)\) to \(\partial\mathbb{D}\). The function \[g(z)=\frac{f(z)}{\prod_{k=1}^n\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})}\] is then holomorphic and non-vanishing in \(\overline{D(0,R)}\). Hence, by \autoref{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}, \[\log\qty|g(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{g\qty(R\ee^{\ii\theta})}\dd{\theta},\]
-    implying that
-    \begin{align}
-        \log\abs{f(0)}-\sum_{k=1}^n\log\abs{\varphi_{\frac{a_k}{R}}(0)}&=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}\nonumber\\
-        &\quad-\frac{1}{2\piup}\sum_{k=1}^n\int_0^{2\piup}\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:jensensformula_intermediate}
-    \end{align}
-    Since for fixed \(k\), \[\log\abs{\varphi_{\frac{a_k}{R}}(0)}=\log\abs{\frac{a_k}{R}}\qand\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}=\log(1)=0,\]
-    equation~\eqref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
-    Now assume that \(f\) has zeros on \(\partial D(0,R)\).
-\end{proof}
-\begin{example}[Poisson--Jensen Formula]\label{ex:poissonjensenformula}
-    Suppose \(f\) is a meromorphic function on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\) and is non-vanishing on \(\partial D(0,R)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
-    \begin{align}
-        \log\abs{f(z)} & =\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                              \\
-        & \quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
-    \end{align}
-    where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in equation~\eqref{eq:poissonkernelgeneralform}.
-\end{example}
-\begin{proof}
-    Let \(\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}\) and let \(\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}\) for all \(1\leq j\leq m\) and \(1\leq k\leq n\). Consider the function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})},\]
-    which is holomorphic and nonzero on \(\overline{D(0,R)}\). Fix \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\) and let \(\Phi(\xi)=g\circ\qty(R\varphi_{-\frac{z}{R}})\qty(\xi)\), where \(R\varphi_{-\frac{z}{R}}\qty(\xi)=\frac{R^2\xi+Rz}{R+\overline{z}\xi}\) is holomorphic on \(\overline{\mathbb{D}}\) with \(\Phi(0)=z\). Since \(g\) is non-vanishing in \(\overline{D(0,R)}\), \(\Phi\) is non-vanishing in \(\overline{\mathbb{D}}\). By \autoref{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty} on \(\Phi\),
-    \begin{equation}
-        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{\Phi\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:poissonjensenformula_intermediate1}
-    \end{equation}
-    Observe that
-    \begin{equation}
-        \log\abs{\Phi\qty(\ee^{\ii\theta})}=\log\abs{f\qty(R\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}}=\log\abs{f\qty(R\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}.\label{eq:poissonjensenformula_intermediate2}
-    \end{equation}
-    By letting \(\ee^{\ii\psi}=\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta})\), it follows that \(\ee^{\ii\theta}=\varphi_{\frac{z}{R}}\qty(\ee^{\ii\psi})\), and we obtain that
-    \begin{equation}
-        \dd{\theta}=\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\psi}-z}^2}\dd{\psi}=P(\zeta,z)\dd{\psi},\qquad\zeta=R\ee^{\ii\psi}\label{eq:poissonjensenformula_intermediate3}
-    \end{equation} after much simplification (the full steps of which can be found in equation~\eqref{eq:poissonintegralformula2_differentialcomputation} under different variables).
-
-    Hence, by substituting equations~\eqref{eq:poissonjensenformula_intermediate2} and~\eqref{eq:poissonjensenformula_intermediate3} into equation~\eqref{eq:poissonjensenformula_intermediate1}, we have
-    \begin{align*}
-        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\psi})}P(\zeta,z)\dd{\psi},
-    \end{align*}
-    and the conclusion follows from simple rearrangement.
-\end{proof}
-\subsubsection{The Order and Genus of Entire Functions}
 
 \begin{example}\label{ex:sinproductformula}
     Prove that \[\sin(\piup z)=\piup z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
