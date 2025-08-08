@@ -1620,7 +1620,7 @@ This profound result proves that the number of zeros of a holomorphic function e
     Let \(k_f\) and \(k_g\) denote the number of zeros of \(f\) and \(g\) enclosed by \(\gamma\), respectively. By the Argument Principle (\autoref{thm:argumentprincipleholomorphic}),
     \begin{align*}
         k_g-k_f & =\int_{\gamma}\frac{g'(z)}{g(z)}\ddz-\int_\gamma\frac{f'(z)}{f(z)}\ddz                                                    \\
-        & =\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\dfrac{g(z)}{f(z)})'}{\dfrac{g(z)}{f(z)}}\ddz.
+        & =\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\frac{g(z)}{f(z)})'}{\frac{g(z)}{f(z)}}\ddz.
     \end{align*}
     Let \(w=h(z)=\frac{g(z)}{f(z)}\) with \(\Gamma=h(\gamma)\). Then, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}.\]
     From equation~\eqref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \autoref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
@@ -2044,10 +2044,10 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     \end{figure}By the openness of \(V\), there exist two circles \(\gamma_1\subset V\) with radius \(r'\) and \(\gamma_2\subset V\) with radius \(R'\) centered at \(a\) such that \(\gamma\) encloses \(\gamma_1\) and \(\gamma_2\) encloses \(\gamma\) both without intersection. Let \(W=\cbraces{z\in V}{r'<|z-a|<R'}\) and \(z\in W\) be arbitrary. By the Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\piup\ii}\qty(\oint_{\gamma_2}\frac{f(\zeta)\ddzeta}{\zeta-z}-\oint_{\gamma_1}\frac{f(\zeta)\ddzeta}{\zeta-z}).\]
     \(\forall\zeta\in\gamma_1\) (or \(|\zeta-a|=r'\)), \(\abs{\zeta-a}<\abs{z-a}\) and therefore, \(\frac{\abs{\zeta-a}}{\abs{z-a}}<1\). It follows that
     \begin{equation}
-        \frac{1}{\zeta-z}=-\frac{1}{(z-a)\qty(1-\dfrac{\zeta-a}{z-a})}=-\sum_{n=0}^\infty\frac{\qty(\zeta-a)^n}{\qty(z-a)^{n+1}}\label{eq:laurentexpansionofholomorphicfunction_kernelexpansioninside}
+        \frac{1}{\zeta-z}=-\frac{1}{(z-a)\qty(1-\frac{\zeta-a}{z-a})}=-\sum_{n=0}^\infty\frac{\qty(\zeta-a)^n}{\qty(z-a)^{n+1}}\label{eq:laurentexpansionofholomorphicfunction_kernelexpansioninside}
     \end{equation} is uniformly convergent with respect to \(\zeta\). Similarly, \(\forall\zeta\in\gamma_2\), \(\abs{\zeta-a}>\abs{z-a}\Leftrightarrow\frac{\abs{z-a}}{\abs{\zeta-a}}<1\), and it follows that
     \begin{equation}
-        \frac{1}{\zeta-z}=\frac{1}{(\zeta-a)\qty(1-\dfrac{z-a}{\zeta-a})}=\sum_{n=0}^\infty\frac{\qty(z-a)^n}{\qty(\zeta-a)^{n+1}}\label{eq:laurentexpansionofholomorphicfunction_kernelexpansionoutside}
+        \frac{1}{\zeta-z}=\frac{1}{(\zeta-a)\qty(1-\frac{z-a}{\zeta-a})}=\sum_{n=0}^\infty\frac{\qty(z-a)^n}{\qty(\zeta-a)^{n+1}}\label{eq:laurentexpansionofholomorphicfunction_kernelexpansionoutside}
     \end{equation} is uniformly convergent with respect to \(\zeta\). By the boundedness of \(f\) on \(\gamma_1\) and \(\gamma_2\) from holomorphy on a compact set, and from the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), we get that
     \begin{equation}
         f(z)=\frac{1}{2\piup\ii}\qty(\sum_{n=0}^\infty\oint_{\gamma_2}\frac{(z-a)^n}{(\zeta-a)^{n+1}}f(\zeta)\ddzeta+\sum_{n=1}^\infty\oint_{\gamma_1}\frac{(\zeta-a)^{n-1}}{(z-a)^{n}}f(\zeta)\ddzeta).\label{eq:laurentexpansionofholomorphicfunction_finalstep}
@@ -2241,7 +2241,7 @@ Let us now examine \(\Aut\qty(\extcomplex)\). Let \(f(z)\in \Aut\qty(\extcomplex
 Let \(f(z)\in\Aut\qty(\extcomplex)\) such that \(f(\infty)\neq\infty\). Then, \(g(z)=\frac{1}{f(z)-f(\infty)}\in\Aut\qty(\extcomplex)\) and \(g(\infty)=\infty\). By the property above, \(g(z)=cz+d\) for some complex \(d\) and nonzero \(c\). Hence, \(f(z)=\frac{f(\infty)(cz+d)+1}{cz+d}\). Let \(a=cf(\infty)\), \(b=df(\infty)+1\), \(f(z)=\frac{az+b}{cz+d}\). Then in this specific construction, \(ad-bc=-c\neq0\). Let the matrix \(\mqty(a&b\\c&d)\) correspond to this transformation, where for any nonzero scalar \(k\), \(k\mqty(a&b\\c&d)\) corresponds to \(\mqty(a&b\\c&d)\). Therefore, we can arbitrarily pick \(ad-bc\) to be \(1\).
 
 Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm\vb{I}},\right.\]
-where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} (one-to-one and homomorphic, or that the operation is preserved) to the \textit{group of Möbius transformations}, consisting of all linear fractional transformations.
+where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} (one-to-one and homomorphic, or that the operation is preserved, see \autoref{lemma:mobiustransformationcompositionmatrixmultiplication}) to the \textit{group of Möbius transformations}, consisting of all linear fractional transformations.
 
 Therefore, any meromorphic automorphism on \(\extcomplex\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
 \begin{theorem}[The Meromorphic Automorphism Group on \(\extcomplex\)]\label{thm:meromorphicautomorphismgrouponextendedcomplexplane}
@@ -2254,7 +2254,7 @@ The group of holomorphic automorphisms on \(\mathbb{D}\), or \(\Aut(\mathbb{D})\
 \begin{proof}
     From simple substitution, we have
     \begin{align*}
-        \frac{a\dfrac{ez+f}{gz+h}+b}{c\dfrac{ez+f}{gz+h}+d} & =\frac{aez+af+bgz+bh}{cez+cf+dgz+dh}                \\
+        \frac{a\frac{ez+f}{gz+h}+b}{c\frac{ez+f}{gz+h}+d} & =\frac{aez+af+bgz+bh}{cez+cf+dgz+dh}                \\
         & =\frac{\qty(ae+bg)z+(af+bh)}{\qty(ce+dg)z+(cf+dh)},
     \end{align*}
     which corresponds to the product \(\mqty(a&b\\c&d)\mqty(e&f\\g&h)\).
@@ -2342,7 +2342,7 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
         By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|\le\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then,
         \begin{align}
             \abs{Q_{p_n}\qty(\frac{z}{a_n})} & =\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber                                       \\
-            & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\dfrac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
+            & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\frac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
         \end{align}
         By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\) and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion}, \autoref{thm:weierstrassuniformlimit}, and \autoref{thm:hurwitzsimplecase}.
 
@@ -2561,7 +2561,8 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in equation~\eqref{eq:poissonkernelgeneralform}.
 \end{example}
 \begin{proof}
-    Consider the function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}\]
+    Let \(\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}\) and let \(\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}\) for all \(1\leq j\leq m\) and \(1\leq k\leq n\). Consider the function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})},\]
+    which is holomorphic and nonzero on \(\overline{\mathbb{D}}\). Let \(\Phi(\zeta)=f\circ\varphi_{z}(\zeta)\).
 \end{proof}
 \subsubsection{The Order and Genus of Entire Functions}
 
@@ -2992,7 +2993,7 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     Show that the analytic functions defined by the series \(f(z)=\sum_{n=0}^\infty\alpha^n z^n\) and \(\widetilde{f}(z)=\sum_{n=0}^\infty\frac{(\alpha-1)^n z^n}{{\qty(1-z)}^{n+1}}\) are analytic continuations of each other.
 \end{example}
 \begin{proof}
-    The analytic function element \(\qty(f,D\qty(0,\abs{\frac{1}{\alpha}}))\) can be directly continued to the analytic function element \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{\frac{1}{\alpha}})\). The function element \(\qty(\widetilde{f},D\qty(0,\frac{1-z}{\alpha-1}))\) can be analytically continued to \[\qty(z\mapsto\frac{1}{(1-z)\qty(1-\dfrac{z\alpha-z}{1-z})},\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}})=\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}}),\] which is a direction analytic continuation of \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{\frac{1}{\alpha}})\). Therefore, \(f\) and \(\widetilde{f}\) are analytic continuations of each other.
+    The analytic function element \(\qty(f,D\qty(0,\abs{\frac{1}{\alpha}}))\) can be directly continued to the analytic function element \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{\frac{1}{\alpha}})\). The function element \(\qty(\widetilde{f},D\qty(0,\frac{1-z}{\alpha-1}))\) can be analytically continued to \[\qty(z\mapsto\frac{1}{(1-z)\qty(1-\frac{z\alpha-z}{1-z})},\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}})=\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}}),\] which is a direction analytic continuation of \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{\frac{1}{\alpha}})\). Therefore, \(f\) and \(\widetilde{f}\) are analytic continuations of each other.
 \end{proof}
 In \autoref{ex:complexlogarithmanalyticcontinuation}, we showed that two analytic function elements can on the same domain can be analytic continuations even if they do not agree on all of the domain. In this case, the two elements are branches of the function. In other words, depending on the chain of function elements chosen, we may obtain two different analytic function elements that have the same domain.
 
