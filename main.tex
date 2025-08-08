@@ -2530,6 +2530,9 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \begin{remark}
     A more general Blaschke product has an additional factor of \(z^m\) to account for a zero at the origin, similar to the case of the Weierstrass product.
 \end{remark}
+\begin{example}[Jensen's Formula]\label{ex:jensensformula}
+    Let \(f:\overline{D(0,R)}\to\mathbb{C}\) be holomorphic, and suppose that \(f(0)\neq 0\). If \(a_1,\ldots,a_n\) are the zeros of \(f\) in \(\overline{D(0,R)}\), counted with multiplicity, then \[\log\abs{f(0)}+\sum_{k=1}^n\log\abs{\frac{R}{a_k}}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}\]
+\end{example}
 \begin{example}[Poisson--Jensen Formula]\label{ex:poissonjensenformula}
     Let \(R>0\) be a positive and finite constant. Suppose \(f\) is a meromorphic function on the open disk \(D(0,R)\) such that \(f\) is not identically zero. Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Assume \(f\) is continuous (except for at each \(b_k\)) up to \(\overline{D(0,R)}\). Then it follows that
     \begin{align}
@@ -2542,6 +2545,26 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     Since \(\log\abs{f(z)}=\Re\log\qty[f(z)]\) is \(C^\infty\) on \(D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\), \(\log\abs{f}\) is the real part of a holomorphic function and consequently harmonic on this set.
 \end{proof}
 \subsubsection{The Order and Genus of Entire Functions}
+
+\begin{example}\label{ex:sinproductformula}
+    Prove that \[\sin(\piup z)=\piup z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
+    is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
+\end{example}
+\begin{proof}
+    The zeros of \(\sin(\piup z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
+        \begin{cases}
+            -\frac{n}{2}  & n\in 2\mathbb{N}                      \\
+            \frac{n+1}{2} & n\in \mathbb{N}\setminus 2\mathbb{N}.
+    \end{cases}\]
+    For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\piup^2}{3}\) converges. Therefore, \[\sin(\piup z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
+    \begin{equation*}
+        \sin(\piup z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty[1-\frac{z^2}{n^2}].
+    \end{equation*}
+    Notice that
+    \begin{equation}
+        \ee^{\varphi(z)}=\frac{\sin(\piup z )}{z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})}.\label{eq:sinproductformula_intermediate}
+    \end{equation} As \(z\to 0\), we have \[\lim_{z\to 0}\ee^{\varphi(0)}=\lim_{z\to 0}\frac{\piup\cos(\piup z)}{\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})+z\qty[\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})]'}=\frac{\piup}{1+0}=\piup,\] since \(\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\) is even and therefore has a vanishing derivative at \(z=0\).
+\end{proof}
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
