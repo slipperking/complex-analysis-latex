@@ -2534,15 +2534,19 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     Let \(f:\overline{\mathbb{D}}\to\mathbb{C}^*\) be a nowhere-vanishing holomorphic function. It follows that \[\log\qty|f(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(\ee^{\ii\theta})}\dd{\theta}.\]
 \end{lemma}
 \begin{proof}
-    Since \(f\) is non-vanishing and \(\overline{\mathbb{D}}\) is simply connected, we may define the holomorphic logarithm as \[\log(f(z))=\int_\gamma \frac{f'(z)}{f(z)}\ddz+\log\qty(f(z_0))\] for any \(z_0, z\in \overline{\mathbb{D}}\), where \(\gamma\) is any piecewise smooth curve from \(z_0\) to \(z\). 
+    Since \(f\) is non-vanishing and \(\overline{\mathbb{D}}\) is simply connected, we may define the \textit{holomorphic logarithm} as \[\log(f(z))=\int_\gamma \frac{f'(z)}{f(z)}\ddz+\log\qty(f(z_0))\] for any \(z_0, z\in \overline{\mathbb{D}}\), where \(\gamma\subset\overline{\mathbb{D}}\) is any piecewise smooth curve from \(z_0\) to \(z\).
 
-
+    Hence, \(\log\abs{f(z)}=\Re\qty[\log\qty(f(z))]\) and is therefore harmonic. The assertion then follows from the mean-value property.
 \end{proof}
 \begin{example}[Jensen's Formula]\label{ex:jensensformula}
     Let \(f:D(0,R)\to\mathbb{C}\) be holomorphic such that \(f(0)\neq 0\). Suppose that \(f\) is continuous on \(\overline{D(0,R)}\). If \(a_1,\ldots,a_n\) are the zeros of \(f\) in \(\overline{D(0,R)}\), counted with multiplicities, then \[\log\abs{f(0)}+\sum_{k=1}^n\log\abs{\frac{R}{a_k}}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
 \end{example}
 \begin{proof}
-    First assume that no zeros lie on \(\partial D(0,R)\). It follows that \(\forall 1\leq k\leq n\), \[\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_k)}{R^2-\overline{a_k}z}\] is holomorphic on \(\overline{D(0,R)}\), and has a simple zero at \(z=a_j\). Additionally, the transformation maps \(\partial D(0,R)\) to \(\partial\mathbb{D}\). The function \[g(z)=\frac{f(z)}{\prod_{k=1}^n\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})}\] is then holomorphic and non-vanishing in \(\overline{D(0,R)}\).
+    First assume that no zeros lie on \(\partial D(0,R)\). It follows that \(\forall 1\leq k\leq n\), \[\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_k)}{R^2-\overline{a_k}z}\] is holomorphic on \(\overline{D(0,R)}\), and has a simple zero at \(z=a_j\). Additionally, the transformation maps \(\partial D(0,R)\) to \(\partial\mathbb{D}\). The function \[g(z)=\frac{f(z)}{\prod_{k=1}^n\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})}\] is then holomorphic and non-vanishing in \(\overline{D(0,R)}\). Hence, by \autoref{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}, \[\log\qty|g(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{g\qty(\ee^{\ii\theta})}\dd{\theta},\]
+    implying that \begin{align*}
+        
+    \end{align*}
+    Since for fixed \(k\), \[\log\abs{\varphi_{\frac{a_k}{R}}(0)}\qand\log\abs{}\]
 \end{proof}
 \begin{example}[Poisson--Jensen Formula]\label{ex:poissonjensenformula}
     Let \(R>0\) be a positive and finite constant. Suppose \(f\) is a meromorphic function on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\) and is non-vanishing on \(\partial D(0,R)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
