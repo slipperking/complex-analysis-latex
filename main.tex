@@ -2193,7 +2193,7 @@ The generalization of \autoref{thm:argumentprincipleholomorphic} is as follows:
     Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k-k'=\frac{1}{2\piup}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
 \end{theorem}
 \begin{proof}
-    Let \(z_1,\ldots,z_m\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with multiplicities \(k_1,\ldots,k_m\), and \(p_1,\ldots,p_n\) the distinct poles with orders \(k'_1,\ldots,k'_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) and \(D\qty(p_j,\varepsilon'_j)\) centered at each zero and pole, contained in \(\mathrm{int}(\gamma)\) and avoiding \(\gamma\). The function \(\frac{f'(z)}{f(z)}\) is holomorphic on \[\mathrm{int}\paren{\gamma}\setminus\paren{\bigcup_{j=1}^m D\qty(z_j,\varepsilon_j)\cup\bigcup_{k=1}^n D\qty(p_j,\varepsilon'_j)}\]
+    Let \(z_1,\ldots,z_m\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with multiplicities \(k_1,\ldots,k_m\), and \(p_1,\ldots,p_n\) the distinct poles with orders \(k'_1,\ldots,k'_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) and \(D\qty(p_j,\varepsilon'_j)\) centered at each zero and pole, contained in \(\mathrm{int}(\gamma)\) and avoiding \(\gamma\). The function \(\frac{f'(z)}{f(z)}\) is holomorphic on \[\mathrm{int}\paren{\gamma}\setminus\paren{\bigcup_{j=1}^m D\qty(z_j,\varepsilon_j)\cup\bigcup_{j=1}^n D\qty(p_j,\varepsilon'_j)}\]
     The oriented boundary is \(\gamma^+\cup\bigcup_{j=1}^m\partial D\paren{z_j,\varepsilon_j}^-\cup\bigcup_{j=1}^n\partial D\paren{p_j,\varepsilon'_j}^-\). By the Cauchy--Goursat Theorem (\autoref{thm:cauchygoursattheorem}),
     \[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^m\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz+\sum_{j=1}^n\oint_{\partial D\paren{p_j,\varepsilon'_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
     Near each zero \(z_j\), write \(f(z)=\paren{z-z_j}^{k_j}h_j(z)\) with \(h_j\) holomorphic and non-vanishing. Then
@@ -2507,25 +2507,6 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
         & =1-\frac{8}{\piup^2}\qty(\frac{\piup^2}{6}-\frac{\piup^2}{24})=0,
     \end{align*}
     which completes the proof.
-\end{proof}
-\begin{example}\label{ex:sinproductformula}
-    Prove that \[\sin(\piup z)=\piup z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
-    is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
-\end{example}
-\begin{proof}
-    The zeros of \(\sin(\piup z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
-        \begin{cases}
-            -\frac{n}{2}  & n\in 2\mathbb{N}                      \\
-            \frac{n+1}{2} & n\in \mathbb{N}\setminus 2\mathbb{N}.
-    \end{cases}\]
-    For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\piup^2}{3}\) converges. Therefore, \[\sin(\piup z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
-    \begin{equation*}
-        \sin(\piup z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty[1-\frac{z^2}{n^2}].
-    \end{equation*}
-    Notice that
-    \begin{equation}
-        \ee^{\varphi(z)}=\frac{\sin(\piup z )}{z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})}.\label{eq:sinproductformula_intermediate}
-    \end{equation} As \(z\to 0\), we have \[\lim_{z\to 0}\ee^{\varphi(0)}=\lim_{z\to 0}\frac{\piup\cos(\piup z)}{\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})+z\qty[\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})]'}=\frac{\piup}{1+0}=\piup,\] since \(\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\) is even and therefore has a vanishing derivative at \(z=0\).
 \end{proof}
 \begin{example}[Blaschke Product]\label{ex:blaschkeproduct}
     Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by
@@ -3243,6 +3224,8 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
     It is natural that we require \(U\neq\mathbb{C}\); if there exists a univalent function \(f:\mathbb{C}\to\mathbb{D}\), then by Liouville's Theorem (\autoref{thm:liouville}), \(f\) would be a constant function.
 
     As we will see in \chpref{sec:multivariatecomplexanalysis}, this theorem and many other properties of one-variable holomorphic functions do not extend to functions of several complex variables.
+
+
 \end{remark}
 \subsection{Riemann Surfaces}
 \begin{theorem}[Uniformization Theorem]\label{thm:uniformization}
