@@ -2176,7 +2176,7 @@ We will then introduce the converse:
 \begin{proof}
     Since the singularity at \(\infty\) is isolated, there exists a (punctured) neighborhood of \(\infty\), \(\cbraces{z\in\mathbb{C}}{R<|z|<\infty}\), on which \(f\) is holomorphic. Let \(\psi_\infty(z)\) equal the principal part of \(f(z)\). If \(z=\infty\) is a removable singularity of \(f\), then \(\psi_\infty\) is identically zero, and if \(z=\infty\) is a pole of \(f\), then \(\psi_\infty\) is a polynomial.
 
-    It is clear that \(f\) has finitely many poles in \(\overline{D(0,R)}\). Indeed, if \(f\) has infinitely many poles in the closed disk, by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), the set \[\cbraces{z\in\overline{D(0,R)}}{\lim_{\zeta\to z} f(\zeta)=\infty}\] contains an accumulation point in \(\overline{D(0,R)}\), which is not an isolated singularity. This is a contradiction of the definition of meromorphy, and we have a contradiction.
+    It is clear that \(f\) has finitely many poles in \(\overline{D(0,R)}\). Indeed, if \(f\) has infinitely many poles in the closed disk, by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), the set \[\cbraces{z\in\overline{D(0,R)}}{\lim_{\zeta\to z} f(\zeta)=\infty}\] contains an accumulation point in \(\overline{D(0,R)}\), which is not an isolated singularity, contradicting the definition of meromorphy.
 
     Let \(z_1,\ldots,z_n\) be the isolated poles of \(f\) in \(\overline{D(0,R)}\). \(\forall k\in\qty{1,2,\ldots,n}\), \(f\) has the Laurent expansion at \(z_k\) with a principal part of \[\psi_k(z)=\frac{c_{k,-1}}{z-z_k}+\frac{c_{k,-2}}{\qty(z-z_k)^2}+\cdots+\frac{c_{k,-m_{k}}}{\qty(z-z_k)^{m_k}}.\] Define the auxiliary function \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\] which is meromorphic on \(\mathbb{C}\) with singularities at each of \(\qty{z_k}_{k=1}^n\cup\qty{\infty}\). Fix \(j\in\cbraces{1,\ldots n}\). Since \(z_j\) is an isolated singularity, \(\exists\varepsilon_j>0\) such that \(\forall k\neq j\), \(z_k\notin D^*\qty(z_j,\varepsilon_j)\). Then, \(\sum_{\substack{k=1\\k\neq j}}^n \psi_k(z)\) is holomorphic on \(D^*(z_j,\varepsilon_j)\). \(\psi_\infty(z)\) is a polynomial and therefore entire. Lastly, \(f(z)-\psi_j(z)=\varphi_j(z)\) is the holomorphic part of the expansion of \(f(z)\) at \(z_j\), and is holomorphic at \(z_j\). Therefore, \(z=z_j\) is a removable singularity of \(\Phi(z)\). By \autoref{thm:removablesingularitiesriemann}, define \(\Phi(z)\) to be the analytic continuation on all of \(\mathbb{C}\).
 
@@ -2295,7 +2295,7 @@ Similar to series, absolute convergence is a stronger condition than convergence
     By \autoref{thm:weierstrassuniformlimit}, the uniform limit \(\sum_{k=1}^\infty f_k(z)\) is holomorphic on \(U\). By continuity and \autoref{thm:continuousfunctionboundedoncompact}, this limit is bounded on \(K\). It follows that each partial sum is uniformly bounded on \(K\). Since the exponential function is Lipschitz continuous on compact subsets of \(\mathbb{C}\), there exists a finite constant \(M>0\) such that \[\abs{\exp[\sum_{k=1}^n f_k(z)]-\exp[\sum_{k=1}^m f_k(z)]}\leq M\abs{\sum_{k=m+1}^n f_k(z)}<M\varepsilon.\]
 \end{proof}
 \begin{remark}
-    The criterion of uniform convergence on compact subsets is also known as \textit{compact convergence}. In the case of \(\mathbb{C}\) (or in any topological space such that every point has a compact neighborhood), compact convergence is equivalent to \textit{locally uniform convergence}.
+    Uniform convergence on compact subsets is also known as \textit{compact convergence}. In the case of \(\mathbb{C}\) (or in any topological space such that every point has a compact neighborhood), compact convergence is equivalent to \textit{locally uniform convergence}.
 \end{remark}
 We also have:
 \begin{lemma}\label{lemma:infiniteproductlocallyuniformconvergencecriterion2}
@@ -2555,7 +2555,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
         \log\abs{f(z)} & =\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                              \\
         & \quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
     \end{align}
-    where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\), and \(P(\zeta,z)\) is the Poisson kernel as in equation~\eqref{eq:poissonkernelgeneralform}.
+    where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\), and \(P(\zeta,z)\) is the Poisson kernel in equation~\eqref{eq:poissonkernelgeneralform}.
 \end{example}
 \begin{proof}
     Since \(\log\abs{f(z)}=\Re\log\qty[f(z)]\) is \(C^\infty\) on \(D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\), \(\log\abs{f}\) is the real part of a holomorphic function and consequently harmonic on this set.
