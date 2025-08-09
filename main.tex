@@ -2540,7 +2540,7 @@ Since the summation on the right is negative, we have the following consequence:
 \begin{theorem}[Poisson--Jensen Formula]\label{thm:poissonjensenformula}
     Suppose \(f\) is a meromorphic function on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\) and is non-vanishing on \(\partial D(0,R)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
     \begin{align}
-        \log\abs{f(z)} & =\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                              \\
+        \log\abs{f(z)} & =\int_0^{2\piup}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                              \\
         & \quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
     \end{align}
     where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in equation~\eqref{eq:poissonkernelgeneralform}.
@@ -2557,12 +2557,12 @@ Since the summation on the right is negative, we have the following consequence:
     \end{equation}
     By letting \(\ee^{\ii\psi}=\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta})\), it follows that \(\ee^{\ii\theta}=\varphi_{\frac{z}{R}}\qty(\ee^{\ii\psi})\), and we obtain that
     \begin{equation}
-        \dd{\theta}=\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\psi}-z}^2}\dd{\psi}=P(\zeta,z)\dd{\psi},\qquad\zeta=R\ee^{\ii\psi}\label{eq:poissonjensenformula_intermediate3}
+        \dd{\theta}=\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\psi}-z}^2}\dd{\psi}=2\piup P(\zeta,z)\dd{\psi},\qquad\zeta=R\ee^{\ii\psi}\label{eq:poissonjensenformula_intermediate3}
     \end{equation} after much simplification (the full computation of which can be found in equation~\eqref{eq:poissonintegralformula2_differentialcomputation} under different variables).
 
     Hence, by substituting equations~\eqref{eq:poissonjensenformula_intermediate2} and~\eqref{eq:poissonjensenformula_intermediate3} into equation~\eqref{eq:poissonjensenformula_intermediate1}, we have
     \begin{align*}
-        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\psi})}P(\zeta,z)\dd{\psi},
+        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\psi})}P(\zeta,z)\dd{\psi},
     \end{align*}
     and the conclusion follows from simple rearrangement.
 \end{proof}
@@ -2574,7 +2574,8 @@ Jensen's Formula (\autoref{thm:jensensformula}) relates the growth of an entire 
     Let \(f:\mathbb{D}\to\mathbb{C}\) be a non-constant bounded holomorphic function whose zeros are \(a_1,a_2,\ldots\), counted according to their multiplicities, ordered such that \(\abs{a_n}\leq \abs{a_{n+1}}\) for all \(n\in\mathbb{N}\). Then, \[\sum_{n=1}^\infty\qty(1-\abs{a_n})\] is convergent.
 \end{lemma}
 \begin{proof}
-    First assume \(f(0)\neq 0\) and choose \(M\) such that \(f\leq M\) on \(\mathbb{D}\). The magnitudes \(\qty{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\qty{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside of \(D(0,R)\). By Jensen's Formula (\autoref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
+    First assume \(f(0)\neq 0\) and choose \(M\) such that \(f\leq M\) on \(\mathbb{D}\). The magnitudes \(\qty{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\qty{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside of \(D(0,R)\). By Jensen's Formula (\autoref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}\leq \log(M)+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
+    Let \(R\to 1^{-}\). It follows that \[\log\abs{f(0)}\leq\log\abs{M}+\sum_{k=1}^\infty\log\abs{a_k}.\]
 \end{proof}
 \begin{theorem}[Blaschke Product]\label{thm:blaschkeproduct}
     Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by
