@@ -2576,6 +2576,8 @@ Jensen's Formula (\autoref{thm:jensensformula}) relates the growth of an entire 
 \begin{proof}
     First assume \(f(0)\neq 0\) and choose \(M\) such that \(f\leq M\) on \(\mathbb{D}\). The magnitudes \(\qty{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\qty{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside of \(D(0,R)\). By Jensen's Formula (\autoref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}\leq \log(M)+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
     Let \(R\to 1^{-}\). It follows that \[\log\abs{f(0)}\leq\log\abs{M}+\sum_{k=1}^\infty\log\abs{a_k}.\]
+    For any \(0<a<1\), we have \(-\log(a)=1-a+\sum_{n=2}^\infty\qty(1-a)^n a^n>1-a\). Hence, \[0\leq\sum_{k=1}^\infty\qty(1-\abs{a_k})<-\sum_{k=1}^\infty\log\abs{a_k}\leq\log\abs{M}-\log\abs{f(0)}.\]
+    If \(f\) has a zero of multiplicity \(m\) at \(0\), then the argument applies to \(z\mapsto \frac{f(z)}{z^m}\).
 \end{proof}
 \begin{theorem}[Blaschke Product]\label{thm:blaschkeproduct}
     Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by
