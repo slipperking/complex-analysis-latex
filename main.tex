@@ -2520,7 +2520,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     Hence, \(\log\abs{f(z)}=\Re\qty[\log\qty(f(z))]\) and is therefore harmonic. The assertion then follows from the mean-value property.
 \end{proof}
 \begin{theorem}[Jensen's Formula]\label{thm:jensensformula}
-    Let \(f:D(0,R)\to\mathbb{C}\) be holomorphic such that \(f(0)\neq 0\). Suppose that \(f\) is continuous on \(\overline{D(0,R)}\). If \(a_1,\ldots,a_n\) are the zeros of \(f\) in \(\overline{D(0,R)}\), counted with multiplicities, then \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
+    Let \(f:D(0,R)\to\mathbb{C}\) be holomorphic such that \(f(0)\neq 0\) and is non-vanishing on \(\partial D(0,R)\). Suppose that \(f\) is continuous on \(\overline{D(0,R)}\). If \(a_1,\ldots,a_n\) are the zeros of \(f\) in \(\overline{D(0,R)}\), counted with multiplicities, then \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
 \end{theorem}
 \begin{proof}
     First assume that no zeros lie on \(\partial D(0,R)\). It follows that \(\forall 1\leq k\leq n\), \[\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_k)}{R^2-\overline{a_k}z}\] is holomorphic on \(\overline{D(0,R)}\), and has a simple zero at \(z=a_j\).
@@ -2532,7 +2532,6 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     \end{align}
     Since for fixed \(k\), \[\log\abs{\varphi_{\frac{a_k}{R}}(0)}=\log\abs{\frac{a_k}{R}}\qand\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}=\log(1)=0,\]
     equation~\eqref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
-    Now assume that \(f\) has zeros on \(\partial D(0,R)\).
 \end{proof}
 Since the summation on the right is positive, we have the following consequence:
 \begin{corollary}[Jensen's Inequality]\label{crl:jensensinequality}
