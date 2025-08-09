@@ -2534,6 +2534,10 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     equation~\eqref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
     Now assume that \(f\) has zeros on \(\partial D(0,R)\).
 \end{proof}
+Since the summation on the right is positive, we have the following consequence:
+\begin{corollary}[Jensen's Inequality]\label{crl:jensensinequality}
+    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\). It follows that \[\log\abs{f(0)}\geq\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
+\end{corollary}
 \begin{theorem}[Poisson--Jensen Formula]\label{thm:poissonjensenformula}
     Suppose \(f\) is a meromorphic function on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\) and is non-vanishing on \(\partial D(0,R)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
     \begin{align}
@@ -2564,11 +2568,12 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     and the conclusion follows from simple rearrangement.
 \end{proof}
 Jensen's Formula (\autoref{thm:jensensformula}) relates the growth of an entire function on large circles and the density of its zeros. The Poisson--Jensen Formula is a fundamental result in Nevanlinna Value Distribution Theory.
-
-From Jensen's Formula (\autoref{thm:jensensformula}), we have:
-\begin{lemma}
-    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\). It follows that \[\log\abs{f(0)}\geq\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
+\begin{lemma}\label{lemma:boundedholomorphicfunctionblaschkecondition}
+    Let \(f:\mathbb{D}\to\mathbb{C}\) be a non-constant bounded holomorphic function whose zeros are \(a_1,a_2,\ldots\), counted according to their multiplicities. Then, \[\sum_{n=1}^\infty\qty(1-\abs{a_n})\] is convergent.
 \end{lemma}
+\begin{proof}
+    First assume \(f(0)\neq 0\).
+\end{proof}
 \begin{theorem}[Blaschke Product]\label{thm:blaschkeproduct}
     Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by
     \begin{equation}
