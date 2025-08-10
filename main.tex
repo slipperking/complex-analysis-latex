@@ -2569,7 +2569,6 @@ Since the summation on the right is negative, we have the following consequence:
 \begin{remark}
     Jensen's Formula (\autoref{thm:jensensformula}) can also be generalized for meromorphic functions; by letting \(z=0\) in equation~\eqref{eq:poissonjensenformula_statement}, we have: \[\log\abs{f(0)}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^m\log\abs{\frac{a_j}{R}}-\sum_{k=1}^n\log\abs{\frac{b_k}{R}}.\]
 \end{remark}
-From the results above, a recurring theme in complex analysis is hinted at; the rate of growth of functions provides insight towards the distribution of its zeros.
 \begin{lemma}\label{lemma:boundedholomorphicfunctionblaschkecondition}
     Let \(f:\mathbb{D}\to\mathbb{C}\) be a non-constant bounded holomorphic function whose zeros are \(a_1,a_2,\ldots\), counted according to their multiplicities, ordered such that \(\abs{a_n}\leq \abs{a_{n+1}}\) for all \(n\in\mathbb{N}\). Then, \[\sum_{n=1}^\infty\qty(1-\abs{a_n})\] is convergent.
 \end{lemma}
@@ -2602,8 +2601,12 @@ From the results above, a recurring theme in complex analysis is hinted at; the 
 \begin{remark}
     A more general Blaschke product has an additional factor of \(z^m\) to account for a zero at the origin, similar to the case of the Weierstrass product.
 \end{remark}
+From the results above, a recurring theme in complex analysis is hinted at; the rate of growth of functions provides insight towards the distribution of its zeros.
 
-
+The subjects to be discussed here are relevant and preliminary to Nevanlinna theory, or the study of holomorphic value distribution.
+\begin{definition}[Order of Entire Functions]
+    An entire function \(f\) is said to be of \textit{finite order} if there exists \(R,\alpha\in\mathbb{R}\) such that \[\abs{f(z)}\leq\exp\qty(\abs{z}^\alpha),\qquad\forall\abs{z}>R,\] or in loose terms, \(f\) is of finite order if it grows at most exponentially for large \(z\). The order of \(f\), or \(\lambda\qty(f)\) is defined to be the infimum of all \(\alpha\) satisfying the previous condition. 
+\end{definition}
 \begin{example}\label{ex:sinproductformula}
     Prove that \[\sin(\piup z)=\piup z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
     is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
