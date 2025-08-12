@@ -100,18 +100,17 @@
 \begin{document}
 \maketitle
 \tableofcontents
-Made with \LaTeX.\newline
+Made with \LaTeX.
+
 {
     \newcommand{\rep}[1]{{#1}^{#1}_{#1}}
     \newcommand{\rrep}[2]{%
         \ifnum#1>0\expandafter\rrep\expandafter{\number\numexpr#1-1\relax}{\rep{#2}}\else #2\fi
     }
-
-    \usepackage{eso-pic}
     \AddToShipoutPictureBG*{%
-        \ifnum\value{page}=1
         \begin{tikzpicture}[remember picture,overlay]
-            \node[opacity=0.1, scale=5] at (current page.center) {$\rrep{7}{\textstyle\int}$};
+            \node[opacity=0.1, scale=5, inner sep=0, anchor=center]
+            at (current page.center) {\vcenter{\hbox{$\rrep{7}{\textstyle\int}$}}};
         \end{tikzpicture}%
         \fi
     }
