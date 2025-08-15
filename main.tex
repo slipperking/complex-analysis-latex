@@ -3345,11 +3345,15 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
 \subsection{The Schwarz--Christoffel Transformation}
 The Riemann Mapping Theorem is elegant in its own simplicity and definitions. However, it is only a theorem that guarantees existence of biholomorphisms. No information whatsoever can be straightforwardly extracted regarding the explicit construction of such biholomorphisms. However, in the explicit case that \(U\) is the open interior of a polygon, the result is provided by the Schwarz--Christoffel Transformation.
 
-Let \(a_1<a_2<\cdots<a_n\) be \(n\in\mathbb{N}\) distinct real numbers. Suppose \(\alpha_1,\alpha_2,\ldots,\alpha_n\) are \(n\) positive real numbers satisfying \(\sum_{k=1}^n\alpha_k<n-1\). Let \[\beta(\zeta)=\qty(\zeta-a_1)^{\alpha_1-1}\cdots\qty(\zeta-a_n)^{\alpha_n-1}=\prod_{k=1}^n\qty(\zeta-a_k)^{\alpha_k-1},\] where the branch of each factor is selected to be \[\qty(\zeta-a_k)^{\alpha_k-1}=\exp\qty[\qty(\alpha_k-1)\qty(\log\qty(\zeta-a_k))],\] where the branch of \(\log\) is selected such that \(-\frac{\piup}{2}<\Im\qty(\log\qty(\mathbb{C}^*))\leq\frac{3\piup}{2}\). For \(\zeta<a_k\), the argument of this factor is \(\piup\qty(\alpha_k-1)\). For \(\zeta<a_1\), \[\arg(\beta(\zeta))=\piup\qty(-n+\sum_{k=1}^n\alpha_k),\] achieved by selecting branches of each factor by the method described earlier.
+Let \(a_1<a_2<\cdots<a_n\) be \(n\in\mathbb{N}\) distinct real numbers. Suppose \(\alpha_1,\alpha_2,\ldots,\alpha_n\) are \(n\) positive real numbers satisfying \(\sum_{k=1}^n\alpha_k<n-1\). Let \[\beta(\zeta)=\qty(\zeta-a_1)^{\alpha_1-1}\cdots\qty(\zeta-a_n)^{\alpha_n-1}=\prod_{k=1}^n\qty(\zeta-a_k)^{\alpha_k-1},\] where the branch of each factor is selected to be \[\qty(\zeta-a_k)^{\alpha_k-1}=\exp\qty[\qty(\alpha_k-1)\qty(\log\qty(\zeta-a_k))],\] where the branch of \(\log(z)\) is selected such that \(-\frac{\piup}{2}<\Im\qty(\log(z))\leq\frac{3\piup}{2}\), holomorphic on \(\mathbb{C}\setminus\ii\mathbb{R}_{\leq 0}\) (the lower imaginary axis is known as a \textit{branch cut}). For \(\zeta<a_k\), the argument of this factor is \(\piup\qty(\alpha_k-1)\). For \(\zeta<a_1\), \[\arg(\beta(\zeta))=\piup\qty(-n+\sum_{k=1}^n\alpha_k),\] achieved by selecting branches of each factor by the method described earlier.
 
 For fixed \(k\), if \(\zeta\in \qty(a_{k-1},a_k)\), the branches of all \(\qty(\zeta-a_j)^{\alpha_j-1}\) where \(1\leq j\leq k-1\) have vanishing arguments; hence, \[\arg\beta(\zeta)=\piup\qty(-n+k-1+\sum_{j=k}^n\alpha_j).\]
 If \(\zeta>a_n\), we have \[\arg\beta(\zeta)=0.\]
-Therefore, we can define \(n+2\) complex numbers via \[w_0=c\int_0^{-\infty}\beta(\zeta)\ddzeta,\quad w_k=c\int_0^{a_k}\beta(\zeta)\ddzeta,\quad w_{n+1}=c\int_0^{\infty}\beta(\zeta)\ddzeta\] where \(c\in\mathbb{R}_{>0}\) is fixed. Let \[f(z)=c\int_0^z\beta(\zeta)\ddzeta.\]
+Therefore, we can define \(n+2\) complex numbers via \[w_0=c\int_0^{-\infty}\beta(\zeta)\ddzeta,\quad w_k=c\int_0^{a_k}\beta(\zeta)\ddzeta,\quad w_{n+1}=c\int_0^{\infty}\beta(\zeta)\ddzeta\] where \(c\in\mathbb{R}_{>0}\) is fixed. Let 
+\begin{equation}
+    f(z)=c\int_0^z\beta(\zeta)\ddzeta.\label{eq:schwarzchristoffeltransformation_statement}
+\end{equation}
+Since \(\beta\) is holomorphic on \(\mathbb{H}^+\) (as all its branch cuts are in the lower half-plane), the integral in equation~\eqref{eq:}
 \subsection{Riemann Surfaces}
 \begin{theorem}[Uniformization Theorem]\label{thm:uniformization}
 
