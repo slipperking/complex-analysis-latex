@@ -196,7 +196,7 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \begin{theorem}[Mean Value Theorem, Integral Form]
     If \(f(x)\) is continuous over \([a,b]\), then \(\exists \xi\in[a,b]\) such that \[\int_a^bf(x)\ddx=f(\xi)(b-a).\]
 \end{theorem}
-A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\mqty(P(t)\\Q(t)\\R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textit{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textit{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textit{piecewise smooth}. If it is of finite length, then the curve is said to be \textit{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textit{simple} if it is simple (non self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textit{Jordan curve}.
+A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\qty(P(t),Q(t),R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textit{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textit{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textit{piecewise smooth}. If it is of finite length, then the curve is said to be \textit{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textit{simple} if it is simple (non self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textit{Jordan curve}.
 \begin{theorem}[Jordan Curve Theorem]\label{thm:jordancurve}
     Let \(\gamma\) be a Jordan curve in \(\mathbb{R}^2\). Then the set \(\mathbb{R}^2\setminus\gamma\) consists of exactly two connected subsets. One of them is the interior, denoted by \(\mathrm{int}(\gamma)\), and is a bounded set, while the other is the exterior, denoted by \(\mathrm{ext}(\gamma)\), which is unbounded. Both of the two sets share the common boundary \(\gamma\).
 \end{theorem}
@@ -242,7 +242,7 @@ which is the definition of the total differential. For a 1-form in 3-dimensional
 \end{align*}
 Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
 \[\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\wedge\ddy\wedge\ddz.\]
-The two results above resemble the curl and divergence of \(\mqty(P\\Q\\R)\). A differential form \(\omega\) is \textit{closed} if \(\dd{\omega}=0\), and is exact if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
+The two results above resemble the curl and divergence of \(\qty(P,Q,R)\). A differential form \(\omega\) is \textit{closed} if \(\dd{\omega}=0\), and is \textit{exact} if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
 \begin{lemma}[Poincaré Lemma]\label{lemma:poincare}
     For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
 \end{lemma}
@@ -251,7 +251,7 @@ It is true that for any set \(U\subseteq \mathbb{R}^n\), regardless of contracti
 With the same analogy, the above result means that if \(\omega\) is a 0-form, then \(\curl(\grad\omega)=0\), and if \(\omega\) is a 1-form, \(\div(\curl{v})=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\) (there are no correlations for higher degree forms since in 3-dimensional space, the highest degree possible for any differential form is 3).
 
 Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes', and Gauss' Theorems can be generalized into:
-\begin{theorem}[Stokes--Cartan Theorem]\label{thm:stokescartan}
+\begin{theorem}[Stokes--Cartan]\label{thm:stokescartan}
     For an oriented smooth \(n\)-dimensional compact manifold \(M\) with boundary \(\partial M\), for a smooth differential \((n-1)\)-form \(\omega\) over \(\overline{M}\), \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
 \end{theorem}
 Real analysis is the subject dedicated to rigorously defining concepts such as limits, continuity, integrability, convergence, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), which states:
@@ -389,7 +389,7 @@ and consequently,
 By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textit{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\).
 
 We will now give a geometric visualization of this projection. Let \(z=x+\ii y\). Then we obtain that \(x=\frac{x_1}{1-x_3}\) and \(y=\frac{x_2}{1-x_3}\). Therefore, \[x:y:1=x_1:x_2:1-x_3.\]
-It follows that the points \(\mqty(0\\0\\0)\), \(\mqty(x\\y\\1)\), and \(\mqty(x_1\\x_2\\1-x_3)\) are collinear in \(\mathbb{R}^3\). Under the linear map \(\mathbf{v}\mapsto\mqty(\dmat[0]{1,1,-1})\mathbf{v}+\mqty(0\\0\\1)\), we get that \(\mqty(0\\0\\1)\), \(\mqty(x\\y\\0)\), and \(\mqty(x_1\\x_2\\x_3)\) are collinear. In other words, this correspondence is a central projection with center \(\mqty(0\\0\\1)\), projecting the points from \(S^2\setminus \mqty(0\\0\\1)\) onto \(\mathbb{C}\). Let this center correspond to \(\infty\). In this representation, \(\infty\in\extcomplex\) is no longer considered to be special.
+It follows that the points \(0\), \(\qty(x,y,1)\), and \(\qty(x_1,x_2,1-x_3)\) are collinear in \(\mathbb{R}^3\). Under the linear map \(\va{v}\mapsto\va{v}\mqty(\dmat[0]{1,1,-1})+\qty(0,0,1)\), we get that \(\qty(0,0,1)\), \(\qty(x,y,0)\), and \(\qty(x_1,x_2,x_3)\) are collinear. In other words, this correspondence is a central projection with center \(\qty(0,0,1)\), projecting the points from \(S^2\setminus \qty(0,0,1)\) onto \(\mathbb{C}\). Let this center correspond to \(\infty\). In this representation, \(\infty\in\extcomplex\) is no longer considered to be special.
 
 For the purpose of notation, we will define \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\).
 \subsection{Complex Differentiation}\label{sec:complexdifferentiation}
@@ -3365,11 +3365,11 @@ Since \(\beta\) is holomorphic on \(\mathbb{H}^+\),
 \subsection{A Note on Curvature}
 We will give a brief introduction to the curvature of a surface for convenience. 
 
-Suppose \(U\subseteq\mathbb{R}^2\) is a region, and let \(\mqty(u\\v)\in U\). Consider a surface parameterized via \[\va{r}(u,v)=\mqty(x(u,v)\\y(u,v)\\z(u,v))\in\mathbb{R}^3,\] where \(x,y,z\in C^2\qty(U)\). If \(\va{r}'_u\times\va{r}'_v\) never vanishes for \(\mqty(u\\v)\in U\), then \(\va{r}(U)\) defines a smooth surface \(\Sigma\). For a fixed \(\mqty(u\\v)\in U\), the vectors \(\va{r}'_u\) and \(\va{r}'_v\) form the basis of the tangent space (a plane) of \(\Sigma\) at \(P=\va{r}\mqty(u\\v)\), denoted by \(T_P\Sigma=\mathrm{span}\qty(\va{r}'_u(P),\va{r}'_v(P))\).
+Suppose \(U\subseteq\mathbb{R}^2\) is a region, and let \(\qty(u,v)\in U\). Consider a surface parameterized via \[\va{r}(u,v)=\qty(x(u,v),y(u,v),z(u,v))\in\mathbb{R}^3,\] where \(x,y,z\in C^2\qty(U)\). If \(\va{r}'_u\times\va{r}'_v\) never vanishes for \(\qty(u,v)\in U\), then \(\va{r}(U)\) defines a smooth surface \(\Sigma\). For a fixed \(\qty(u,v)\in U\), the vectors \(\va{r}'_u\) and \(\va{r}'_v\) form the basis of the tangent space (a plane) of \(\Sigma\) at \(P=\va{r}\qty(u,v)\), denoted by \(T_P\Sigma=\mathrm{span}\qty(\va{r}'_u(P),\va{r}'_v(P))\).
 
 The square of the length of the vector infinitesimal \(\dd{\va{r}}=\va{r}'_u\dd{u}+\va{r}'_v\dd{v}\), or \[\dd{s}^2=E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2,\] is known as the \textit{first fundamental form} of \(\Sigma\), where \(E=\va{r}'_u\cdot\va{r}'_u\), \(F=\va{r}'_u\cdot\va{r}'_v\), and \(G=\va{r}'_v\cdot\va{r}'_v\).
 
-Let \(Q=\va{r}\mqty(u+\Delta u\\v+\Delta v)\) be near \(P\). It follows that \(\overrightarrow{PQ}=\va{r}\mqty(u+\Delta u\\v+\Delta v)-\va{r}\mqty(u\\v)\).
+Let \(Q=\va{r}\qty(u+\Delta u,v+\Delta v)\) be near \(P\). It follows that \(\overrightarrow{PQ}=\va{r}\qty(u+\Delta u,v+\Delta v)-\va{r}\qty(u,v)\).
 \begin{theorem}[Great Picard Theorem]\label{thm:greatpicard}
 
 \end{theorem}
