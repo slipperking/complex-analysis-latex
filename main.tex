@@ -3031,9 +3031,6 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     \end{cases}\]
     is holomorphic on \(D\qty(z_0,R)\cup V\supset D(z_0, R+\rho)\), contradicting the maximality of \(R\).
 \end{proof}
-\begin{definition}\label{def:analyticchain}
-    A \textit{chain of analytic continuations} from an analytic function element \(\qty(f_0,U_0)\) is a sequence \(\cbraces{\qty(f_k,U_k)}_{k=0}^n\) where \(\qty(f_k,U_k)\) is a direct analytic continuation of \(\qty(f_{k-1},U_{k-1})\) for \(1\leq k\leq n\). Then \(\qty(f_n,U_n)\) is an \textit{analytic continuation} of \(\qty(f_0,U_0)\).
-\end{definition}
 \begin{definition}[Maximal Analytic Continuation]\label{def:maximalanalyticcontinuation}
     A \textit{maximal analytic continuation} \(\qty(\widetilde{f},\widetilde{U})\) is an analytic element that has no analytic continuation to a larger domain. The set \(\widetilde{U}\) is known as the \textit{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial\widetilde{U}\) is known as a \textit{natural boundary}. Here, \(\widetilde{f}\) is known as a \textit{complete analytic function}, which can be multi-valued.
 \end{definition}
@@ -3070,7 +3067,11 @@ In \autoref{ex:complexlogarithmanalyticcontinuation}, we showed that two analyti
 This is a common issue when it comes to the problem of analytic continuation. This question of non-ambiguity can be explained by planar topology; specifically the concept of homotopy. We will now introduce the concept of analytic continuation along a given curve.
 \subsection{Analytic Continuation Along a Curve}
 \begin{definition}\label{def:analyticcontinuationalongcurve}
-    Let \(\gamma:[0,1]\to\mathbb{C}\) be a curve. Let \(U_0\) be a disk centered at \(\gamma(0)\) and suppose \(f: U_0\to\mathbb{C}\) is holomorphic. An \textit{analytic continuation along} \(\gamma\) is an uncountable collection of analytic function elements \(\cbraces{\qty(f_t, U_t)}{0\leq t\leq 1}\) where each \(U_t\) is a disk centered at \(\gamma(t)\) such that
+    Let \(\gamma:[0,1]\to\mathbb{C}\) be a curve. Let \(U_0\) be a disk centered at \(\gamma(0)\) and suppose \(f: U_0\to\mathbb{C}\) is holomorphic. An \textit{analytic continuation along} \(\gamma\) is an uncountable collection of analytic function elements \(\cbraces{\qty(f_t, U_t)}{0\leq t\leq 1}\) where
+    \begin{enumerate}
+        \item Each \(U_t\) (\(0\leq t\leq 1\)) is a disk centered at \(\gamma(t)\).
+        \item For each \(t_0\in [0,1]\), \(\exists\delta>0\) such that \(\forall t\in[0,1]\) satisfying \(\abs{t-t_0}<\delta\), \(U_t\cap U_{t_0}\neq\emptyset\) and \(f_t\equiv f_{t_0}\) on this intersection.
+    \end{enumerate}
 \end{definition}
 \subsection{The Monodromy Theorem}
 \section{Rational Approximation Theory}
