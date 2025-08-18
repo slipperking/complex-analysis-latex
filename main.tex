@@ -605,12 +605,12 @@ Let \(D(a,r)=B^1(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textit
     \begin{enumerate}
         \item \(f\) absolutely converges on \(D(0,R)\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\overline{D(0,\rho)}\).\label{itm:abelradius_absoluteanduniformconvergence}
         \item \(f(z)\) diverges when \(\abs{z}>R\).\label{itm:abelradius_divergence}
-        \item \(f\) is holomorphic over \(D(0,R)\) and \(f'(z)\) can be obtained by termwise differentiation, or \(f'(z)=\sum_{n=1}^\infty na_nz^{n-1}\), and also has the radius of convergence \(R\).\label{itm:abelradius_differentiation}
+        \item \(f\) is holomorphic over \(D(0,R)\) and \(f'(z)\) can be obtained by termwise differentiation, or \(f'(z)=\sum_{n=1}^\infty na_n z^{n-1}\), and also has the radius of convergence \(R\).\label{itm:abelradius_differentiation}
     \end{enumerate}
 \end{theorem}
 The disk \(\abs{z}<R\) is known as the \textit{disk of convergence}, a direct generalization of the \textit{interval of convergence} for real series. There are many ways to determine the radius of convergence:
 \begin{theorem}[Cauchy--Hadamard]\label{thm:cauchyhadamard}
-    The radius of convergence of the power series in the form of \(\sum_{n=0}^\infty a_nz^n\) can be determined by
+    The radius of convergence of the power series in the form of \(\sum_{n=0}^\infty a_n z^n\) can be determined by
     \begin{equation}
         R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{a_n}}}. \label{eq:cauchyhadamard}
     \end{equation}
@@ -619,14 +619,14 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
 \begin{proof}[Proof of \autoref{thm:abelradius}]
     We will prove that the value in equation~\eqref{eq:cauchyhadamard} satisfies the criteria in \autoref{thm:abelradius}.
 
-    Assume \(\abs{z}<R\). Then, \(\forall\rho\in(|z|,R)\), and consequently, \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation~\eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\) and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_nz^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
+    Assume \(\abs{z}<R\). Then, \(\forall\rho\in(|z|,R)\), and consequently, \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation~\eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\) and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_n z^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
 
-    Let \(\rho'\in(\rho, R)\). Similarly, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N'\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho'}\), and \(\abs{a_n}<\frac{1}{\rho'^n}\). Then \(\qty|a_nz^n|<\qty|a_n\rho^n|<\frac{\rho^n}{\rho'^n}<1\). By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the \(\sum_{n=0}^\infty\abs{a_nz^n}\) is uniformly bounded (for \(n>N'\)) by the convergent series \(\sum_{n=0}^\infty a_n\rho^n\), and thus uniformly converges on \(|z|<\rho\). This proves~\ref{itm:abelradius_absoluteanduniformconvergence}.
+    Let \(\rho'\in(\rho, R)\). Similarly, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N'\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho'}\), and \(\abs{a_n}<\frac{1}{\rho'^n}\). Then \(\qty|a_n z^n|<\qty|a_n\rho^n|<\frac{\rho^n}{\rho'^n}<1\). By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the \(\sum_{n=0}^\infty\abs{a_n z^n}\) is uniformly bounded (for \(n>N'\)) by the convergent series \(\sum_{n=0}^\infty a_n\rho^n\), and thus uniformly converges on \(|z|<\rho\). This proves~\ref{itm:abelradius_absoluteanduniformconvergence}.
 
-    Assume that \(\abs{z}>R\). \(\forall\rho\in\qty(R,|z|)\), \(\frac{1}{\rho}<\frac{1}{R}\). By \autoref{def:limsup}, \(\forall N\in\mathbb{N}\), \(\exists n_N>N\) such that \(\sqrt[n_N]{\abs{a_{n_N}}}>\frac{1}{\rho}\). It follows that \(\abs{a_{n_N}z^{n_N}}>\frac{\abs{z^{n_N}}}{\rho^{n_N}}>1\). Since \(\forall N\in\mathbb{N}\), \(\abs{\sum_{k=0}^{n_N}a_kz^k-\sum_{k=0}^{n_N-1}a_kz^k}>1\), by the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), \(\sum_{n=0}^\infty a_nz^n\) is divergent. Thus, \ref{itm:abelradius_divergence} is satisfied.
+    Assume that \(\abs{z}>R\).\ \(\forall\rho\in\qty(R,|z|)\), \(\frac{1}{\rho}<\frac{1}{R}\). By \autoref{def:limsup}, \(\forall N\in\mathbb{N}\), \(\exists n_N>N\) such that \(\sqrt[n_N]{\abs{a_{n_N}}}>\frac{1}{\rho}\). It follows that \(\abs{a_{n_N}z^{n_N}}>\frac{\abs{z^{n_N}}}{\rho^{n_N}}>1\). Since \(\forall N\in\mathbb{N}\), \(\abs{\sum_{k=0}^{n_N}a_k z^k-\sum_{k=0}^{n_N-1}a_k z^k}>1\), by the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), \(\sum_{n=0}^\infty a_n z^n\) is divergent. Thus,~\ref{itm:abelradius_divergence} is satisfied.
 
-    To prove \ref{itm:abelradius_differentiation}, first observe that \(\sum_{n=1}^\infty na_nz^n\) and \(\sum_{n=1}^\infty a_nz^n\) have the same convergence radius since \(\varlimsup_{n\to\infty}\sqrt[n]{n}=1\). For \(z\in D(0, R)\), let \(f(z)=S_n(z)+R_n(z)\), where \[S_n(z)=\sum_{k=0}^{n-1}a_kz^k,\quad R_n(z)=\sum_{k=n}^\infty a_kz^k.\]
-    Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_nz^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=0.\]
+    To prove~\ref{itm:abelradius_differentiation}, first observe that \(\sum_{n=1}^\infty na_n z^n\) and \(\sum_{n=1}^\infty a_n z^n\) have the same convergence radius since \(\varlimsup_{n\to\infty}\sqrt[n]{n}=1\). For \(z\in D(0, R)\), let \(f(z)=S_n(z)+R_n(z)\), where \[S_n(z)=\sum_{k=0}^{n-1}a_k z^k,\quad R_n(z)=\sum_{k=n}^\infty a_k z^k.\]
+    Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_n z^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=0.\]
     By analyzing the difference,
     \begin{align}
         \frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z} & =\qty[\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)]\nonumber                                                \\
@@ -697,7 +697,7 @@ shows that infinitesimal lengths are locally scaled by a factor of \(\abs{f'(z_0
 
 Therefore, at points where \(\abs{f'(z)}\neq 0\), the function \(f\) is conformal; it preserves both angles and local shapes up to scaling.
 \section{Complex Integration}
-It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+\ii y\) and \(\overline{z}=x-\ii y\). We can then write their corresponding differentials:
+It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+\ii y\) and \(\overline{z}=x-\ii y\). We can then define their corresponding differentials:
 \[\ddz=\ddx+\ii\ddy,\quad\dd{\overline{z}}=\ddx-\ii\ddy.\]
 The antisymmetric properties of differential forms still hold in complex space. By taking the wedge product of the two basis complex differential forms, we get
 \begin{align*}
@@ -823,7 +823,7 @@ From the above result, we can directly obtain the following theorem:
 \begin{proof}
     We aim to prove the theorem in three parts: the continuity of \(u(z)\), the continuous differentiability of \(u(z)\), and the fact that it satisfies the differential equation \(\pdv{u(z)}{\overline{z}}=\psi(z)\).
 
-    Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(\overline{D\paren{z,\varepsilon}}\). \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\piup\ii}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\piup\ii}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\] Therefore, equation~\eqref{eq:onedimensionalpartialconjugatesolution} is continuous. Let \(\xi=\zeta-z\) and observe that \[u(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\xi+z)}{\xi}\dd{\xi}\wedge\dd{\overline{\xi}}\] Then,
+    Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(\overline{D\paren{z,\varepsilon}}\).\ \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\piup\ii}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\piup\ii}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\] Therefore, equation~\eqref{eq:onedimensionalpartialconjugatesolution} is continuous. Let \(\xi=\zeta-z\) and observe that \[u(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\xi+z)}{\xi}\dd{\xi}\wedge\dd{\overline{\xi}}\] Then,
     \begin{equation}
         \frac{u(z+h)-u\paren{z}}{h}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\xi+z+h)-\psi\paren{\xi+z}}{h\xi}\dd{\xi}\wedge\dd{\overline{\xi}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
@@ -838,13 +838,13 @@ From the above result, we can directly obtain the following theorem:
     \begin{equation}
         \pdv{u}{y}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\beta}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\beta}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}
     \end{equation}
-    Since \(\psi\in C^1\paren{\mathbb{C}}\) and has Lipschitz constant \(M\), equations \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative} and \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative} are both continuous (by the same argument for the continuity of \(u(z)\)). Thus, \(u\in C^1(\mathbb{C})\). It follows from the two equations that \[\pdv{u}{\overline{z}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{K}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\]
+    Since \(\psi\in C^1\paren{\mathbb{C}}\) and has Lipschitz constant \(M\), equations~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative} and~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative} are both continuous (by the same argument for the continuity of \(u(z)\)). Thus, \(u\in C^1(\mathbb{C})\). It follows from the two equations that \[\pdv{u}{\overline{z}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{K}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\]
     On the bounded domain \(\supp\paren{\psi}\), and by the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}), the integral above is equal to \[\pdv{u}{\overline{z}}=\psi(z)-\frac{1}{2\piup\ii}\oint_{\partial K}\frac{\psi(\zeta)}{\zeta-z}\ddzeta.\]
     Since \(\psi\) is continuous and compactly supported, it vanishes on \(\partial K\): \[\pdv{u}{\overline{z}}=\psi(z),\] as expected.
 \end{proof}
 \begin{remark}
     In the first part, we established that a function \(\psi(z)\in C^0(\mathbb{C})\) with compact support satisfies \[u(z)=-\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\in C^0(\mathbb{C}).\]
-    If \(\psi(z)\in C^1(\mathbb{C})\), then the first order derivatives of \(u(z)\) can be written in the same form (equations \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative} and \eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}) since \(\pdv{\psi}{\alpha},\pdv{\psi}{\beta}\in C^0(\mathbb{C})\) and are also compactly supported. Then they too are continuous functions, and \(u(z)\in C^1(\mathbb{C})\).
+    If \(\psi(z)\in C^1(\mathbb{C})\), then the first order derivatives of \(u(z)\) can be written in the same form (equations~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative} and~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}) since \(\pdv{\psi}{\alpha},\pdv{\psi}{\beta}\in C^0(\mathbb{C})\) and are also compactly supported. Then they too are continuous functions, and \(u(z)\in C^1(\mathbb{C})\).
 
     Then using the same argument, In general, for \(\psi(z)\in C^k(\mathbb{C})\), the same process can be used recursively to find that \(u(z)\in C^k(\mathbb{C})\) as well.
 
@@ -907,14 +907,13 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             \node[anchor=south] at (E) {\(E\)};
 
         \end{tikzpicture}
-        \caption{A closed polygonal, chain internally triangulated.}
-        \label{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}
+        \caption{A closed polygonal, chain internally triangulated.}\label{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}
     \end{figure}Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then,
     \begin{align*}
         \int_{ABCDE}f(z)\ddz & =\qty(\int_{\overrightarrow{AB}}+\int_{\overrightarrow{BC}}+\int_{\overrightarrow{CD}}+\int_{\overrightarrow{DE}}+\int_{\overrightarrow{EA}})f(z)\ddz \\
         & \quad+\qty(\int_{\overrightarrow{BE}}+\int_{\overrightarrow{EB}}+\int_{\overrightarrow{CE}}+\int_{\overrightarrow{EC}})f(z)\ddz                       \\
         & =\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
-    \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle in \(U\) with boundary \(\Delta\).
+    \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then equation~\eqref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle in \(U\) with boundary \(\Delta\).
     \begin{figure}
         \centering
         \begin{tikzpicture}
@@ -963,10 +962,9 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
             node[shift={(-3.75pt, 3.75pt)}] at (\x1, \y4) {\(\Delta_4\)};
 
         \end{tikzpicture}
-        \caption{Quadrisection of the triangle bounded by \(\Delta\).}
-        \label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
+        \caption{Quadrisection of the triangle bounded by \(\Delta\).}\label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
     \end{figure} Then define \(M\) to be \[M=\abs{\int_{\Delta}f(z)\ddz}.\]
-    We can quadrisect the triangle bounded by \(\Delta\) into four triangles with boundaries \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\) as in \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}. Then one of \(\Delta_1\), \(\Delta_2\), \(\Delta_3,\), and \(\Delta_4\) (denote this to be \(\Delta^1\)) satisfy
+    We can quadrisect the triangle bounded by \(\Delta\) into four triangles with boundaries \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\) as in \autoref{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}. Then one of \(\Delta_1\), \(\Delta_2\), \(\Delta_3\), or \(\Delta_4\) (denote this to be \(\Delta^1\)) satisfy
     \[\abs{\int_{\Delta^1}f(z)\ddz}\geq\frac{M}{4},\]
     and recursively, choose
     \begin{equation}
@@ -980,7 +978,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         & =\int_{\Delta^n}\brackets{f(z)-f\paren{z_0}-f'\paren{z_0}\paren{z-z_0}}\ddz.
     \end{align*}
     Because the distance between any two points in the interior of a triangle is always less than its perimeter, using the triangle inequality for complex integrals, \[\int_{\Delta^n}\abs{f(z)}\abs{\ddz}\leq\varepsilon\int_{\Delta^n}\abs{z-z_0}\abs{\ddz}=\frac{\varepsilon L}{2^n}\int_{\Delta^n}\abs{\ddz}=\frac{\varepsilon L^2}{4^n}.\]
-    Comparing the above equation with equation~\eqref{eq:cauchyintegraltheoremoversimplyconnectedset_trianglelowerbound}, \[\frac{M}{4^n}<\frac{\varepsilon L}{4^n},\quad M<\varepsilon L.\] Since \(\Delta\) is rectifiable, \(L\) is finite, and letting \(\varepsilon\to0\), we find that \(M\to0\). Then, for every triangle in \(U\), the integral vanishes, and equations \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement} and \eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition} follow.
+    Comparing the above equation with equation~\eqref{eq:cauchyintegraltheoremoversimplyconnectedset_trianglelowerbound}, \[\frac{M}{4^n}<\frac{\varepsilon L}{4^n},\quad M<\varepsilon L.\] Since \(\Delta\) is rectifiable, \(L\) is finite, and letting \(\varepsilon\to0\), we find that \(M\to0\). Then, for every triangle in \(U\), the integral vanishes, and equations~\eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement} and~\eqref{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition} follow.
 \end{proof}
 \begin{theorem}[Cauchy--Goursat]\label{thm:cauchygoursattheorem}
     Let \(U\subset\mathbb{C}\) be an open region bounded with boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
@@ -1072,7 +1070,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
     \begin{equation}
         \int_{\overrightarrow{P_1'M_1'}}f(z)\ddz\to \int_{\overrightarrow{P_1M_1}}f(z)\ddz,\quad\int_{\overrightarrow{N_1'Q_1'}}f(z)\ddz\to \int_{\overrightarrow{N_1Q_1}}f(z)\ddz.\label{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}
     \end{equation}
-    Then letting \(\varepsilon\to0\), for the same reason as equation~\eqref{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}, equations \eqref{eq:cauchygoursattheorem_innerinnerhorizontaltoouterinnerhorizontal1} and \eqref{eq:cauchygoursattheorem_innerinnerhorizontaltoouterinnerhorizontal2} yield \[\int_{\overrightarrow{M_1N_1}}f(z)\ddz\to \int_{\overrightarrow{MN}}f(z)\ddz,\quad\int_{\overrightarrow{Q_1P_1}}f(z)\ddz\to \int_{\overrightarrow{QP}}f(z)\ddz.\]
+    Then letting \(\varepsilon\to0\), for the same reason as equation~\eqref{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}, equations~\eqref{eq:cauchygoursattheorem_innerinnerhorizontaltoouterinnerhorizontal1} and~\eqref{eq:cauchygoursattheorem_innerinnerhorizontaltoouterinnerhorizontal2} yield \[\int_{\overrightarrow{M_1N_1}}f(z)\ddz\to \int_{\overrightarrow{MN}}f(z)\ddz,\quad\int_{\overrightarrow{Q_1P_1}}f(z)\ddz\to \int_{\overrightarrow{QP}}f(z)\ddz.\]
     We are left to show the subsequent limits of the results from equation~\eqref{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}. For the left integral, let \(y_{\varphi}=\max\paren{\varphi(a),\varphi\paren{a+\varepsilon}}\) and \(y_{\psi}=\max\paren{\psi(a),\psi\paren{a+\varepsilon}}\).
 
     Then, \[\int_{\overrightarrow{PM}}f(z)\ddz=\ii\int_{\psi(a)}^{\varphi(a)}f\paren{a+\ii y}\ddy=\ii\paren{\int_{\psi(a)}^{y_\varphi}+\int_{y_\varphi}^{y_\psi}+\int_{y_\psi}^{\varphi(a)}}f(a+\ii y)\ddy.\]
@@ -1137,7 +1135,7 @@ We have also already seen the utility of parameterization via a polar transforma
             0       & k< n \\
             2\piup\ii & k=n
     \end{cases}.\]
-    Therefore, \[2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=2\piup\ii\binom{2n}{n}\Longleftrightarrow\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=\frac{2\piup\qty(2n)!}{2^{2n}\qty(n!)^2}=\frac{2\piup\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}\qty(2k)^2}.\]
+    Therefore, \[2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=2\piup\ii\binom{2n}{n}\Longleftrightarrow\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=\frac{2\piup\qty(2n)!}{2^{2n}\qty(n!)^2}=\frac{2\piup\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}{\qty(2k)}^2}.\]
     From simple cancellation, we get \[2\piup\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\piup\prod_{k=1}^n\frac{2k-1}{2k},\]
     as expected.
 \end{proof}
@@ -1250,7 +1248,7 @@ The Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}) can also be gen
     \begin{gather*}
         \frac{1}{2\piup\ii}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)}{\paren{\zeta-z_0}^{j+1}}\ddzeta=\frac{1}{2\piup\ii}\sum_{j=0}^{\infty}\oint_{\partial U}\paren{z-z_0}^j\frac{f(\zeta)}{\paren{\zeta-z_0}^{j+1}}\ddzeta\\=\sum_{j=0}^\infty a_j\paren{z-z_0}^j,
     \end{gather*}
-    which verifies equations \eqref{eq:cauchydifferentiationformula_taylorseries} and \eqref{eq:cauchydifferentiationformula_taylorseriescoefficients}.
+    which verifies equations~\eqref{eq:cauchydifferentiationformula_taylorseries} and~\eqref{eq:cauchydifferentiationformula_taylorseriescoefficients}.
 \end{proof}
 \begin{remark}
     By induction, we have shown that assuming the existence of the first order derivative of a holomorphic function \(f\), the \(n\)th order derivative of \(f\) exists \(\forall n\in\mathbb{N}\) and is holomorphic over the same region as \(f^{(n-1)}\). Furthermore, if \(f\) is holomorphic, then \(\forall z\in U\), there exists an open disk enclosing \(z\) such that \(f\) has a convergent Taylor series expansion. This property is known as \textit{analyticity}, and \autoref{thm:cauchydifferentiationformula} tells us that all holomorphic functions are analytic. Analytic functions can be expanded into power series, which are termwise differentiable, and therefore complex differentiable. Thus, analyticity and holomorphy are logically equivalent, which is a fundamental difference between real and complex functions.
@@ -1259,12 +1257,12 @@ The differentiation formula above can be thought of as a generalization of \auto
 \begin{example}\label{ex:legendrepolynomialintegralformula}
     A \textit{Legendre polynomial} is a polynomial whose explicit equation is given by
     \begin{equation}
-        P_n(z)=\frac{1}{2^nn!}\dv[n]{z}(\qty(z^2-1)^n).\label{eq:legendrepolynomialintegralformula_rodriguesformula}
+        P_n(z)=\frac{1}{2^n n!}\dv[n]{z}(\qty(z^2-1)^n).\label{eq:legendrepolynomialintegralformula_rodriguesformula}
     \end{equation}
-    Prove the integral form \[P_n(z)=\frac{1}{2\piup\ii}\oint_\gamma\frac{\qty(\zeta^2-1)^n}{2^n(\zeta-z)^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
+    Prove the integral form \[P_n(z)=\frac{1}{2\piup\ii}\oint_\gamma\frac{\qty(\zeta^2-1)^n}{2^n{(\zeta-z)}^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
 \end{example}
 \begin{proof}
-    By applying the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\piup \ii}\int_{\gamma}\frac{\qty(\zeta^2-1)^n}{(\zeta-z)^{n+1}}\ddzeta,\] as desired.
+    By applying the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\piup \ii}\int_{\gamma}\frac{\qty(\zeta^2-1)^n}{{(\zeta-z)}^{n+1}}\ddzeta,\] as desired.
 \end{proof}
 \begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
     For a function \(f:U\to\mathbb{C}\) holomorphic over \(U\subseteq\mathbb{C}\) and \(\forall z_0\in U\) and \(\forall R>0\) such that \(\overline{D\paren{z_0,R}}\subseteq{U}\), \(\forall n\in\mathbb{N}\), \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!M}{R^n},\]
@@ -1611,8 +1609,8 @@ This profound result proves that the number of zeros of a holomorphic function e
     Then \(\abs{f_n(z)}>\frac{\lambda}{2}\) on \(\gamma\). Hence, \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded; \[\abs{\frac{1}{f(z)}}<\frac{1}{\lambda},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\lambda},\quad\forall z\in\gamma,\forall n>N.\]
     Then,
     \begin{align*}
-        \abs{\frac{f'}{f}-\frac{f'_n}{f_n}}                                               & =\abs{\frac{f'f_n-f'_nf}{f_nf}}                                                                         \\
-        & <2\frac{\abs{f'f_n-f'f}+\abs{f'f-f'_nf}}{\lambda^2}                                                     \\
+        \abs{\frac{f'}{f}-\frac{f'_n}{f_n}}                                               & =\abs{\frac{f'f_n-f'_n f}{f_n f}}                                                                         \\
+        & <2\frac{\abs{f'f_n-f'f}+\abs{f'f-f'_n f}}{\lambda^2}                                                     \\
         & <\frac{2M}{\lambda^2}\cdot\paren{\abs{f_n-f}+\abs{f'-f'_n}}.                                            \\
         \sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}}                  & \leq\frac{2M}{\lambda^2}\paren{\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\sup_{z\in\gamma}\abs{f'(z)-f'_n(z)}} \\
         \lim_{n\to\infty}\sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}} & \leq\frac{2M}{\lambda^2}\paren{\lim_{n\to\infty}\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\abs{f'(z)-f'_n(z)}} \\
@@ -3149,12 +3147,12 @@ We will now give examples of biholomorphisms.
     \begin{equation}
         z=\frac{w\overline{a}-a\ee^{\ii\theta}}{w-\ee^{\ii\theta}}.\label{eq:biholomorphismunitdisktoupperhalfplane_inverse}
     \end{equation}
-    Assume \(w\in\mathbb{D}\). We then have 
+    Assume \(w\in\mathbb{D}\). We then have
     \begin{align*}
         \Im(z)=\Im\frac{\qty(w\overline{a}-a\ee^{\ii\theta})\qty(\overline{w}-\ee^{-\ii\theta})}{\abs{w-\ee^{\ii\theta}}^2}&=\frac{\abs{w}^2\Im\qty(\overline{a})-\Im\qty(a\ee^{\ii\theta}\overline{w})-\Im\qty(w\overline{a}\ee^{-\ii\theta})+\Im(a)}{\abs{w-\ee^{\ii\theta}}^2}\\
         &=\frac{\qty(1-\abs{w}^2)\Im\qty(a)}{\abs{w-\ee^{\ii\theta}}^2}>0.
     \end{align*}
-    Hence, \(z\) maps \(\mathbb{D}\) to \(\mathbb{H}^+\) univalently and surjectively since it is also an element in \(\Aut\qty(\extcomplex)\). 
+    Hence, \(z\) maps \(\mathbb{D}\) to \(\mathbb{H}^+\) univalently and surjectively since it is also an element in \(\Aut\qty(\extcomplex)\).
 
     Let \(\psi(z)\) be the biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\) in the form of \(\psi(z)=\frac{z-\ii}{z+\ii}\) (for \(\theta=0\) and \(a=\ii\)). Let \(f\) be an arbitrary biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\). It follows that \(\varphi=f\circ\psi^{-1}\) is a holomorphic automorphism of \(\mathbb{D}\). Since \(\varphi\in\Aut(\mathbb{D})\), we have \[f(z)=\varphi\circ\psi(z)=\ee^{\ii\theta}\frac{z\qty(1-a)-\ii\qty(a+1)}{z\qty(1-\overline{a})+\ii\qty(\overline{a}+1)}=\ee^{\ii\theta}\frac{z\frac{1-a}{1-\overline{a}}+\ii\frac{a+1}{\overline{a}-1}}{z-\ii\frac{\overline{a}+1}{\overline{a}-1}}=\ee^{\ii\theta}\frac{1-a}{1-\overline{a}}\frac{z-\ii\frac{a+1}{1-a}}{z-\overline{\ii\frac{a+1}{1-a}}}.\]
     Obviously, \(\ee^{\ii\theta}\frac{1-a}{1-\overline{a}}\) attains every value on the unit disk for varying \(a\) and \(\theta\). Similarly, the values attained by \(\ii\frac{a+1}{1-a}\) cover the upper half-plane for \(a\in\mathbb{D}\) (since it is in the form of equation~\eqref{eq:biholomorphismunitdisktoupperhalfplane_inverse}). Thus, all biholomorphisms from \(\mathbb{H}^+\) to \(\mathbb{D}\) are in the form of equation~\eqref{eq:biholomorphismunitdisktoupperhalfplane}.
@@ -3356,14 +3354,15 @@ Let \(a_1<a_2<\cdots<a_n\) be \(n\in\mathbb{N}\) distinct real numbers. Suppose 
 
 For fixed \(k\), if \(\zeta\in \qty(a_{k-1},a_k)\), the branches of all \(\qty(\zeta-a_j)^{\alpha_j-1}\) where \(1\leq j\leq k-1\) have vanishing arguments; hence, \[\arg\beta(\zeta)=\piup\qty(-n+k-1+\sum_{j=k}^n\alpha_j).\]
 If \(\zeta>a_n\), we have \[\arg\beta(\zeta)=0.\]
-Therefore, we can define \(n+2\) complex numbers via \[w_0=c\int_0^{-\infty}\beta(\zeta)\ddzeta,\quad w_k=c\int_0^{a_k}\beta(\zeta)\ddzeta,\quad w_{n+1}=c\int_0^{\infty}\beta(\zeta)\ddzeta\] where \(c\in\mathbb{R}_{>0}\) is fixed. 
+Therefore, we can define \(n+2\) complex numbers via \[w_0=c\int_0^{-\infty}\beta(\zeta)\ddzeta,\quad w_k=c\int_0^{a_k}\beta(\zeta)\ddzeta,\quad w_{n+1}=c\int_0^{\infty}\beta(\zeta)\ddzeta\] where \(c\in\mathbb{R}_{>0}\) is fixed.
 
-The absolute integrability of \(\beta(\zeta)\) along the real axis concerns only the convergence at each singularity \(\zeta=a_k\) and the behavior as \(\zeta\to\pm\infty\). For a fixed \(k\), \(\beta\qty(\zeta)=h_k(\zeta)\qty(\zeta-a_k)^{\alpha_k-1}\) (where \(h_k\) is holomorphic and nonzero in a compact neighborhood of \(a_k\)). Since \(\alpha_k-1>-1\), it is an integrable singularity. Since \(\beta(\zeta)\sim\zeta^{\sum\alpha_k-n}\) as \(\zeta\to\pm\infty\) and \(\sum_{k=1}^n\alpha_k-n<-1\), \(\beta\) is integrable on \(\mathbb{R}\). 
+The absolute integrability of \(\beta(\zeta)\) along the real axis concerns only the convergence at each singularity \(\zeta=a_k\) and the behavior as \(\zeta\to\pm\infty\). For a fixed \(k\), \(\beta\qty(\zeta)=h_k(\zeta)\qty(\zeta-a_k)^{\alpha_k-1}\) (where \(h_k\) is holomorphic and nonzero in a compact neighborhood of \(a_k\)). Since \(\alpha_k-1>-1\), it is an integrable singularity. Since \(\beta(\zeta)\sim\zeta^{\sum\alpha_k-n}\) as \(\zeta\to\pm\infty\) and \(\sum_{k=1}^n\alpha_k-n<-1\), \(\beta\) is integrable on \(\mathbb{R}\).
 
-Let \begin{equation}
+Let
+\begin{equation}
     f(z)=c\int^z\beta(\zeta)\ddzeta.\label{eq:schwarzchristoffeltransformation_statement}
 \end{equation}
-Since \(\beta\) is holomorphic on \(\mathbb{H}^+\), 
+Since \(\beta\) is holomorphic on \(\mathbb{H}^+\),
 \subsection{The Concept of Riemann Surfaces}
 \begin{theorem}[Uniformization Theorem]\label{thm:uniformization}
 
@@ -3371,7 +3370,7 @@ Since \(\beta\) is holomorphic on \(\mathbb{H}^+\),
 \section{Differential Geometry}\label{sec:differentialgeometry}
 Émile Picard's original proof of his characterization on the value distribution near essential singularities, involving use of the modular \(\lambda\) function is generally considered to be too advanced in many elementary complex analysis courses. His results were later independently rediscovered using simpler methods.
 \subsection{A Note on Curvature}
-We will give a brief introduction to the curvature of a surface for convenience. 
+We will give a brief introduction to the curvature of a surface for convenience.
 
 Suppose \(U\subseteq\mathbb{R}^2\) is a region, and let \(\qty(u,v)\in U\). Consider a surface parameterized via \[\va{r}(u,v)=\qty(x(u,v),y(u,v),z(u,v))\in\mathbb{R}^3,\] where \(x,y,z\in C^2\qty(U)\). If \(\va{r}'_u\times\va{r}'_v\) never vanishes for \(\qty(u,v)\in U\), then \(\va{r}(U)\) defines a smooth surface \(\Sigma\). For a fixed \(\qty(u,v)\in U\), the vectors \(\va{r}'_u\) and \(\va{r}'_v\) form the basis of the tangent space (a plane) of \(\Sigma\) at \(P=\va{r}\qty(u,v)\), denoted by \(T_P\Sigma=\mathrm{span}\qty(\va{r}'_u(P),\va{r}'_v(P))\).
 
@@ -3391,16 +3390,16 @@ The original proof introduced by
 \section{Elliptic Functions}
 \section{Special Classes of Holomorphic Functions}
 \subsection{Boundary Continuity of Biholomorphisms}
-Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned whether or not there is a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\). 
+Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned whether or not there is a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\).
 
 As a matter of fact, it is almost always true that such an extension exists. We will give three main scenarios:
 \begin{enumerate}
     \item If \(\partial\Omega_1\) and \(\partial\Omega_2\) are two Jordan curves, then \(\varphi\) (whose existence is given by the Riemann Mapping Theorem or \autoref{thm:riemannmapping}) extends injectively and continuously to \(\partial\Omega_1\).
-    \item 
+    \item
 \end{enumerate}
 The first result is given by:
 \begin{theorem}[Osgood--Taylor--Carathéodory]\label{thm:osgoodtaylorcaratheodory}
-    
+
 \end{theorem}
 \section{The Prime Number Theorem}
 The Riemann--\(\zeta\) function is one of the most important functions in analytic number theory due to its connection with the distribution of prime numbers. We will also introduce one of the most profound theorems in number theory on the distribution of prime numbers.
