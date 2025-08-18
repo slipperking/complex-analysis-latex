@@ -107,9 +107,7 @@
 \begin{document}
 \maketitle
 \tableofcontents
-Made with \LaTeX.
-
-{
+Made with \LaTeX.\AddToHookNext{shipout/background}{
     \newcommand{\rep}[1]{{#1}^{#1}_{#1}}
     \newcommand{\rrep}[2]{%
         \ifnum#1>0
@@ -118,13 +116,10 @@ Made with \LaTeX.
         #2%
         \fi
     }
-    %\hspace*{-1in}\hspace*{-\oddsidemargin}\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}
-    \AddToHookNext{shipout/background}{
-        \begin{tikzpicture}[remember picture,overlay]
-            \node at (current page.west) {\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}
-            };
-        \end{tikzpicture}
-    }
+    \begin{tikzpicture}[remember picture,overlay]
+        \node at ([yshift=-0.25\paperheight]current page.west) {\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}
+        };
+    \end{tikzpicture}
 }\newpage
 \section{Prerequisites}
 \subsection{Topological Preliminaries}
@@ -1760,7 +1755,7 @@ First, we will observe the image of \(\partial \mathbb{D}\). Let \(\abs{z}=1\). 
 \[\abs{\varphi_a(z)}=\abs{\frac{1}{z}}\abs{\frac{z-a}{\frac{1}{z}-\overline{a}}}=\abs{\frac{z-a}{\overline{z}-\overline{a}}}=1.\]
 Therefore, the image of \(\partial \mathbb{D}\) lies on \(\partial \mathbb{D}\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\autoref{thm:maximummodulus}), for any \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(\mathbb{D}\) to \(\mathbb{D}\). We next aim to show that \(f:\mathbb{D}\to \mathbb{D}\) is bijective.
 
-Let us first confirm injectivity. \(\forall z_1,z_2\in \mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that
+Let us first confirm injectivity.\ \(\forall z_1,z_2\in \mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that
 \begin{gather*}
     \qty(z_1-a)\qty(1-\overline{a}z_2)=\qty(z_2-a)\qty(1-\overline{a}z_1),\\
     z_1-a-\overline{a}z_1z_2+\abs{a}^2z_2=z_2-a-\overline{a}z_1z_2+\abs{a}^2z_1.
@@ -1946,7 +1941,7 @@ A fundamental problem in the theory of partial differential equations is to find
     \end{equation}
     From \autoref{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}, it is evident that \(R-\rho<|\xi-z|<\eta\). In order for equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint1} to be true, we can enforce that \(\abs{\vartheta-\theta}<\frac{\delta}{2}\). In other words \(\abs{\xi-z}^2<R^2+\rho^2-2R\rho\cos(\frac{\delta}{2})\).
 
-    Obviously, this is satisfied if \(|\xi-z|^2<\frac{R^2}{2}\paren{1-\cos(\frac{\delta}{2})}<2\rho^2\qty(1-\cos(\frac{\delta}{2}))\). This can be rearranged into \(|\xi-z|<\frac{R\sqrt{2}}{2}\sqrt{1-\cos(\frac{\delta}{2})}=R\sin\qty(\frac{\delta}{4})\). Therefore, we can choose \[\eta=\min\qty[\frac{\varepsilon}{8M}R\paren{1-\cos(\frac{\delta}{2})},R\sin\qty(\frac{\delta}{4}),\frac{R}{2}]>0,\] under which equations \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint1}, \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint2} and \eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint3} are satisfied.
+    Obviously, this is satisfied if \(|\xi-z|^2<\frac{R^2}{2}\paren{1-\cos(\frac{\delta}{2})}<2\rho^2\qty(1-\cos(\frac{\delta}{2}))\). This can be rearranged into \(|\xi-z|<\frac{R\sqrt{2}}{2}\sqrt{1-\cos(\frac{\delta}{2})}=R\sin\qty(\frac{\delta}{4})\). Therefore, we can choose \[\eta=\min\qty[\frac{\varepsilon}{8M}R\paren{1-\cos(\frac{\delta}{2})},R\sin\qty(\frac{\delta}{4}),\frac{R}{2}]>0,\] under which equations~\eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint1},~\eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint2}, and~\eqref{eq:dirichletproblemwithlaplaceequationsolution_constraint3} are satisfied.
 
     Hence, \(\forall\varepsilon>0\), \(\exists\eta>0\) such that \(\forall z\) with \(0<\abs{\xi-z}<\eta\), we have \(\abs{\varphi(\xi)-u(z)}<2\varepsilon\). Then equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary} follows.
 
@@ -1981,7 +1976,7 @@ The summation simplifies as follows:
     & =1+2\Re\qty[\frac{\rho \ee^{\ii(\theta-\tau)}}{1-\rho \ee^{\ii(\theta-\tau)}}]                     \\
     & =\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
 \end{align*}
-Substituting into \eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch} yields
+Substituting into equation~\eqref{eq:poissonintegralformulafourierseriespostintegralsummationswitch} yields
 \[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho \ee^{\ii\theta}).\]
 Furthermore, by the proof of \autoref{thm:dirichletproblemwithlaplaceequationsolution} (specifically equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}),
 \[\lim_{\rho\to1^-}\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=u\qty(\ee^{\ii\theta}).\]
@@ -2065,8 +2060,7 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
             \node[anchor=north] at (0,-0.08) {\(a\)};
             \node[anchor=north] at (-0.8,-1.76) {\(\gamma\)};
         \end{tikzpicture}
-        \caption{The annulus \(V\), with \(\gamma_1\), \(\gamma_2\), and \(\gamma\).}
-        \label{fig:laurentexpansionofholomorphicfunction}
+        \caption{The annulus \(V\), with \(\gamma_1\), \(\gamma_2\), and \(\gamma\).}\label{fig:laurentexpansionofholomorphicfunction}
     \end{figure}By the openness of \(V\), there exist two circles \(\gamma_1\subset V\) with radius \(r'\) and \(\gamma_2\subset V\) with radius \(R'\) centered at \(a\) such that \(\gamma\) encloses \(\gamma_1\) and \(\gamma_2\) encloses \(\gamma\) both without intersection. Let \(W=\cbraces{z\in V}{r'<|z-a|<R'}\) and \(z\in W\) be arbitrary. By the Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\piup\ii}\qty(\oint_{\gamma_2}\frac{f(\zeta)\ddzeta}{\zeta-z}-\oint_{\gamma_1}\frac{f(\zeta)\ddzeta}{\zeta-z}).\]
     \(\forall\zeta\in\gamma_1\) (or \(|\zeta-a|=r'\)), \(\abs{\zeta-a}<\abs{z-a}\) and therefore, \(\frac{\abs{\zeta-a}}{\abs{z-a}}<1\). It follows that
     \begin{equation}
@@ -2082,7 +2076,7 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     In other words, the integrals in equation~\eqref{eq:laurentexpansionofholomorphicfunction_finalstep} are the same as on \(\gamma\). Hence, we get that \[f(z)=\sum_{n=0}^\infty c_n(z-a)^n+\sum_{n=1}^\infty c_{-n}(z-a)^{-n}=\sum_{n=-\infty}^\infty c_n(z-a)^n.\]
     The constants \(\qty{c_n}_{n\in\mathbb{Z}}\) are also unique in the expansion. For the sake of contradiction, assume there exists another set of constants \(\qty{c'_n}_{n\in\mathbb{Z}}\) such that
     \begin{equation}
-        f(z)=\sum_{n=-\infty}^\infty c'_n(z-a)^n,\label{eq:laurentexpansionofholomorphicfunction_uniquenessstatement}
+        f(z)=\sum_{n=-\infty}^\infty c'_n{(z-a)}^n,\label{eq:laurentexpansionofholomorphicfunction_uniquenessstatement}
     \end{equation}
     where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \[\int_{\gamma}(z-a)^k\ddz=
         \begin{cases}
