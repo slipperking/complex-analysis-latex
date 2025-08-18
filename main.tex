@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{tikz}
+\usepackage{atbegshi}
 \usepackage{csquotes}
 \usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns}
 \usepackage{pifont}
@@ -118,7 +119,11 @@ Made with \LaTeX.
         #2%
         \fi
     }
-    \hspace*{-1in}\hspace*{-\oddsidemargin}\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}
+    \AtBeginShipoutUpperLeft{%
+    \tikz[overlay,remember picture] 
+        \node[anchor=north west,scale=3,gray] at (current page.north west) {\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}};%
+    }
+    %\hspace*{-1in}\hspace*{-\oddsidemargin}\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}
 }\newpage
 \section{Prerequisites}
 \subsection{Topological Preliminaries}
