@@ -3073,7 +3073,7 @@ This is a common issue when it comes to the problem of analytic continuation. Th
     \begin{enumerate}
         \item We define \(U_0=U\) and \(f_0=f\).
         \item Each \(U_t\) (\(0\leq t\leq 1\)) is a disk centered at \(\gamma(t)\).
-        \item For each \(t_0\in [0,1]\), \(\exists\delta>0\) such that \(\forall t\in[0,1]\) satisfying \(\abs{t-t_0}<\delta\), \(U_t\cap U_{t_0}\neq\emptyset\) and \(f_t\equiv f_{t_0}\) on this intersection.\label{itm:analyticcontinuationalongcurve_pointwiseequivalence}
+        \item For each \(t_0\in [0,1]\), \(\exists\delta>0\) such that \(\forall t\in[0,1]\) satisfying \(\abs{t-t_0}<\delta\), \(\gamma(t)\in U_{t_0}\) and \(f_t\equiv f_{t_0}\) on \(U_t\cap U_{t_0}\neq\emptyset\).\label{itm:analyticcontinuationalongcurve_pointwiseequivalence}
     \end{enumerate}
 \end{definition}
 For a fixed curve, such analytic continuations are unique in the following sense:
@@ -3085,8 +3085,8 @@ For a fixed curve, such analytic continuations are unique in the following sense
 
     Obviously, \(S\) is a connected set. Indeed, for any \(t_0\) in \(S\), any \(0\leq t<t_0\) also lies in \(S\) by definition.
 
-    Let \(t_\infty=\sup(S)\), and choose an increasing sequence \(\qty{t_n}_{n\in\mathbb{N}}\) that converges to \(t_\infty\). By~\ref{itm:analyticcontinuationalongcurve_pointwiseequivalence} of \autoref{def:analyticcontinuationalongcurve}, \(\exists\delta>0\) such that \(\forall n\in\mathbb{N}\) satisfying \(\abs{t_\infty-t_n}<\delta\), \[f_{t_n}\equiv f_{t_\infty}.\qq{on}\] Similarly, \(\exists\widetilde{\delta}>0\) such that \(\forall n\in\mathbb{N}\) satisfying \(\abs{t_\infty-t_n}<\widetilde{\delta}\), \[\widetilde{f}_{t_n}\equiv\widetilde{f}_{t_\infty}.\]
-    If we choose a lower bound for \(n\) such that \(\abs{t_\infty-t_n}<\min\qty(\delta,\widetilde{\delta})\), 
+    Let \(t_\infty=\sup(S)\), and choose an increasing sequence \(\qty{t_n}_{n\in\mathbb{N}}\) that converges to \(t_\infty\). By~\ref{itm:analyticcontinuationalongcurve_pointwiseequivalence} of \autoref{def:analyticcontinuationalongcurve}, \(\exists\delta>0\) such that \(\forall n\in\mathbb{N}\) satisfying \(\abs{t_\infty-t_n}<\delta\), \[f_{t_n}\equiv f_{t_\infty}\qq{on} U_{t_n}\cap U_{t_\infty}.\] Similarly, \(\exists\widetilde{\delta}>0\) such that \(\forall n\in\mathbb{N}\) satisfying \(\abs{t_\infty-t_n}<\widetilde{\delta}\), \[\widetilde{f}_{t_n}\equiv\widetilde{f}_{t_\infty}\qq{on}\widetilde{U}_{t_n}\cap\widetilde{U}_{t_\infty}.\]
+    Choose \(n\) arbitrarily to satisfy \(\abs{t_\infty-t_n}<\min\qty(\delta,\widetilde{\delta})\). By definition, \[\gamma\qty(t_n)\in U_{t_\infty}\qand \gamma\qty(t_n)\in\widetilde{U}_{t_\infty}\]
 \end{proof}
 \subsection{The Monodromy Theorem}
 \section{Rational Approximation Theory}
