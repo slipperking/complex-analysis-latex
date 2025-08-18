@@ -2,7 +2,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{tikz}
-\usepackage{atbegshi}
 \usepackage{csquotes}
 \usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns}
 \usepackage{pifont}
@@ -98,8 +97,8 @@
 
 \DeclareMathOperator*{\residue}{Res}
 \makeatletter
-\renewcommand{\@pnumwidth}{1.65em} 
-\renewcommand{\@tocrmarg}{2.2em} 
+\renewcommand{\@pnumwidth}{1.65em}
+\renewcommand{\@tocrmarg}{2.2em}
 \makeatother
 
 \title{Complex Analysis}
@@ -110,8 +109,8 @@
 \tableofcontents
 Made with \LaTeX.
 
-{\newcommand{\rep}[1]{{#1}^{#1}_{#1}}
-
+{
+    \newcommand{\rep}[1]{{#1}^{#1}_{#1}}
     \newcommand{\rrep}[2]{%
         \ifnum#1>0
         \expandafter\rrep\expandafter{\number\numexpr#1-1\relax}{\rep{#2}}%
@@ -119,11 +118,13 @@ Made with \LaTeX.
         #2%
         \fi
     }
-    \AtBeginShipoutUpperLeft{%
-    \tikz[overlay,remember picture] 
-        \node[anchor=north west,scale=3,gray] at (current page.north west) {\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}};%
-    }
     %\hspace*{-1in}\hspace*{-\oddsidemargin}\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}
+    \AddToHookNext{shipout/background}{
+        \begin{tikzpicture}[remember picture,overlay]
+            \node at (current page.west) {\makebox[0pt][l]{\(\smash{\textcolor{lightgray}{\rrep{7}{\textstyle\int}}}\)}
+            };
+        \end{tikzpicture}
+    }
 }\newpage
 \section{Prerequisites}
 \subsection{Topological Preliminaries}
