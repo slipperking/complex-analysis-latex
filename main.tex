@@ -1286,7 +1286,8 @@ The differentiation formula above can be thought of as a generalization of \auto
     \[\varphi''(R)=Mn!\ee^R\qty(\frac{1}{R^n}-\frac{2n}{R^{n+1}}+\frac{n(n+1)}{R^{n+2}})\Longrightarrow\varphi''(n)=M(n-1)!\frac{\ee^n}{n^n},\]
     which is positive and convex.
 \end{proof}
-\begin{theorem}[Liouville's Theorem]\label{thm:liouville}
+The following major theorem, albeit originally proven by Cauchy in 1844, shows a fundamental difference between holomorphic functions on proper subsets of \(\mathbb{C}\) and entire functions.
+\begin{theorem}[Liouville]\label{thm:liouville}
     Any bounded entire function is constant.
 \end{theorem}
 \begin{proof}
@@ -1568,7 +1569,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 \begin{proof}
     Let \(z_1,\ldots,z_n\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with the respective multiplicities \(k_1,\ldots,k_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) centered at each \(z_j\) with radii \(\varepsilon_j>0\), each contained in the interior of \(\gamma\) and avoiding \(\gamma\). The function \[\frac{f'(z)}{f(z)}\]
     is holomorphic on the domain \[\mathrm{int}\paren{\gamma}\setminus\bigcup_{j=1}^n \overline{D\qty(z_j,\varepsilon_j)},\]
-    where \(\mathrm{int}(\gamma)\) denotes the interior relative to \(\gamma\). The oriented boundary of this domain is \(\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-\). By the Cauchy--Goursat Theorem (\autoref{thm:cauchygoursattheorem}),
+    where \(\mathrm{int}(\gamma)\) denotes the interior relative to \(\gamma\). The oriented boundary of this domain is \(\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-\). By Cauchy--Goursat (\autoref{thm:cauchygoursattheorem}),
     \[\int_{\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-}\frac{f'(z)}{f(z)}\ddz=0,\]
     which rearranges to
     \[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
@@ -1620,7 +1621,7 @@ This profound result proves that the number of zeros of a holomorphic function e
     Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). By \autoref{thm:limitintegralswitch}, we can pass the limit through the integral in equation~\eqref{eq:hurwitzsimplecase_argumentprinciple}. Then,
     \[\lim_{n\to\infty}\oint_\gamma \frac{f'_n(z)}{f_n(z)}\ddz=\oint_\gamma \frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\autoref{thm:argumentprincipleholomorphic}), \(f(z)\) has no zeros in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
 \end{proof}
-\begin{theorem}[Rouché's Theorem]\label{thm:rouche}
+\begin{theorem}[Rouché]\label{thm:rouche}
     Let \(U\subseteq\mathbb{C}\) be open and \(f,g\) be two holomorphic functions over \(U\). Let \(\gamma\subset U\) be a simple, closed, rectifiable curve, and \(\forall z\in\gamma\)
     \begin{equation}
         \abs{f(z)-g(z)}<\abs{f(z)}\label{eq:rouche}.
@@ -2116,7 +2117,7 @@ An \textit{isolated singularity} of a complex function is a point \(a\in\mathbb{
         which has infinitely many nonzero coefficients of negative powers.
 \end{enumerate}
 A function with an essential singularity exhibits striking behavior. We will first introduce the following famous result.
-\begin{theorem}[Casorati--Weierstrass Theorem]\label{thm:casoratiweierstrass}
+\begin{theorem}[Casorati--Weierstrass]\label{thm:casoratiweierstrass}
     Let \(a\in\mathbb{C}\) and \(U\subseteq\mathbb{C}\) be open. Suppose \(f:U\setminus\qty{a}\to\mathbb{C}\) is holomorphic with an essential singularity at \(a\). Then the set of values that \(f\) attains on any open punctured neighborhood of \(a\) is dense. In other words, \(\forall\varepsilon,\delta>0\), \(\forall w\in\mathbb{C}\), \(\exists z\in D^*(a,\delta)\) such that \(|f(z)-w|<\varepsilon\).
 \end{theorem}
 \begin{proof}
@@ -2408,7 +2409,7 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
         Therefore, \(f\) can be constructed by \[f(z)=\varphi(z)+\sum_{k=1}^\infty\psi_k(z),\]
         for a transcendental entire function \(\varphi(z)\).
     \item The existence of a transcendental meromorphic function \(f\) whose poles have an accumulation point at \(z=\infty\) is the concern of the following theorem:
-        \begin{theorem}[Mittag--Leffler Theorem]\label{thm:mittagleffler}
+        \begin{theorem}[Mittag--Leffler]\label{thm:mittagleffler}
             Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{C}\) be a sequence of distinct complex numbers such that \(\forall n\in\mathbb{N}\), \(\abs{a_n}\leq\abs{a_{n+1}}\) and \(\lim_{n\to\infty}a_n=\infty\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a function sequence, each in the form of equation~\eqref{eq:meromorphicfunctionconstructionprincipalparts}. Then,
             \begin{enumerate}[label=(\alph*)]
                 \item A meromorphic function \(f(z)\) on \(\mathbb{C}\) can be constructed such that \(\forall n\in\mathbb{N}\), \(f\) has a pole at \(a_n\) with a principal part of \(\psi_n\) at \(a_n\).\label{itm:mittagleffler_existence}
