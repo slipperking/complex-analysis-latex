@@ -3485,9 +3485,9 @@ The \textit{Weierstrass formula} is a direct consequence of the Gauss formula.
     \begin{align*}
         \frac{1}{\Gamma(z)} & =\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}                                                                                           \\
         & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)] \\
-        & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma).
+        & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gammaup).
     \end{align*}
-    The constant \(\gamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\piup^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
+    The constant \(\gammaup=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\piup^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
 \end{proof}
 We have two famous identities on the \(\Gamma\) function:
 \begin{theorem}[Euler's Reflection Formula]\label{thm:gammafunction_eulerreflection}
@@ -3499,7 +3499,7 @@ We have two famous identities on the \(\Gamma\) function:
 \begin{proof}
     By the Weierstrass Formula (\autoref{thm:gammafunction_weierstrassformula}), we have
     \begin{align*}
-        \frac{1}{\Gamma(z)} & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma), \\\frac{1}{\Gamma(-z)}&=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\exp\qty(-z\gamma).
+        \frac{1}{\Gamma(z)} & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gammaup), \\\frac{1}{\Gamma(-z)}&=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\exp\qty(-z\gammaup).
     \end{align*}
     Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \autoref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\piup z)}{\piup},\] which confirms equation~\eqref{eq:gammafunction_eulerreflection}.
 \end{proof}
