@@ -3391,7 +3391,10 @@ We will give a brief introduction to the curvature of a surface for convenience.
 
 Suppose \(U\subseteq\mathbb{R}^2\) is a region, and let \(\qty(u,v)\in U\). Consider a surface parameterized via \[\va{r}(u,v)=\qty(x(u,v),y(u,v),z(u,v))\in\mathbb{R}^3,\] where \(x,y,z\in C^2\qty(U)\). If \(\va{r}'_u\times\va{r}'_v\) never vanishes for \(\qty(u,v)\in U\), then \(\va{r}(U)\) defines a smooth surface \(\Sigma\). For a fixed \(\qty(u,v)\in U\), the vectors \(\va{r}'_u\) and \(\va{r}'_v\) form the basis of the tangent space (a plane) of \(\Sigma\) at \(P=\va{r}\qty(u,v)\), denoted by \(T_P\Sigma=\mathrm{span}\qty(\va{r}'_u(P),\va{r}'_v(P))\).
 
-The square of the length of the vector infinitesimal \(\dd{\va{r}}=\va{r}'_u\dd{u}+\va{r}'_v\dd{v}\), or \[\mathrm{I}(u,v)=\dd{s}^2=E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2,\] is known as the \textit{first fundamental form} of \(\Sigma\), where \(E=\va{r}'_u\cdot\va{r}'_u\), \(F=\va{r}'_u\cdot\va{r}'_v\), and \(G=\va{r}'_v\cdot\va{r}'_v\).
+The square of the length of the vector infinitesimal \(\dd{\va{r}}=\va{r}'_u\dd{u}+\va{r}'_v\dd{v}\), or 
+\begin{equation}
+    \mathrm{I}(u,v)=\dd{s}^2=E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2,\label{eq:firstfundamentalform}
+\end{equation} is known as the \textit{first fundamental form} of \(\Sigma\), where \(E=\va{r}'_u\cdot\va{r}'_u\), \(F=\va{r}'_u\cdot\va{r}'_v\), and \(G=\va{r}'_v\cdot\va{r}'_v\).
 
 Let \(Q=\va{r}\qty(u+\Delta u,v+\Delta v)\) be near \(P\). It follows that \(\overrightarrow{PQ}=\va{r}\qty(u+\Delta u,v+\Delta v)-\va{r}\qty(u,v)\). The distance between \(Q\) and \(T_P\Sigma\) is \(\overrightarrow{PQ}\cdot\vu{n}\),
 where \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\qty||\va{r}'_{u}\times\va{r}'_v||}\). By application of the multivariate Taylor's Theorem, we have 
@@ -3399,15 +3402,18 @@ where \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\qty||\va{r}'_{u}\times\va{r}'_
     \overrightarrow{PQ}&=\va{r}'_u\Delta u+\va{r}'_v\Delta v+\frac{1}{2}\qty(\va{r}''_{uu}\Delta u^2+2\va{r}''_{uv}\Delta u\Delta v+\va{r}''_{vv}\Delta v^2)+\order{\Delta u^3+\Delta v^3},
 \end{align*}
 and therefore, \[\overrightarrow{PQ}\cdot\vu{n}=\frac{1}{2}\qty(\va{r}''_{uu}\cdot\vu{n}\Delta u^2+2\va{r}''_{uv}\cdot\vu{n}\Delta u\Delta v+\va{r}''_{vv}\cdot\vu{n}\Delta v^2)+\order{3}\cdot\vu{n}.\]
-The first two linear terms vanish by properties of the triple scalar product. The \textit{second fundamental form} of \(\Sigma\) is defined as \[\mathrm{I\!I}(u,v)=L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2,\] where \(L=\va{r}''_{uu}\cdot\vu{n}\), \(M=\va{r}''_{uv}\cdot\vu{n}\), and \(N=\va{r}''_{vv}\cdot\vu{n}\). Since \(\va{r}'_u\cdot\vu{n}=0\) and \(\va{r}'_v\cdot\vu{n}=0\), by differentiation, we have \begin{align*}
+The first two linear terms vanish by properties of the triple scalar product. The \textit{second fundamental form} of \(\Sigma\) is defined as 
+\begin{equation}
+    \mathrm{I\!I}(u,v)=L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2,\label{eq:secondfundamentalform}
+\end{equation} where \(L=\va{r}''_{uu}\cdot\vu{n}\), \(M=\va{r}''_{uv}\cdot\vu{n}\), and \(N=\va{r}''_{vv}\cdot\vu{n}\). Since \(\va{r}'_u\cdot\vu{n}=0\) and \(\va{r}'_v\cdot\vu{n}=0\), by differentiation, we have \begin{align*}
     \va{r}''_{uu}\cdot\vu{n}+\va{r}'_u\cdot\vu{n}'_u&=0,&\va{r}''_{uv}\cdot\vu{n}+\va{r}'_u\cdot\vu{n}'_v&=0,\\
     \va{r}''_{uv}\cdot\vu{n}+\va{r}'_v\cdot\vu{n}'_u&=0,&\va{r}''_{vv}\cdot\vu{n}+\va{r}'_v\cdot\vu{n}'_v&=0.
 \end{align*}
 It follows that \(L=-\va{r}'_u\cdot\vu{n}'_u\), \(M=-\va{r}'_u\cdot\vu{n}'_v=-\va{r}'_v\cdot\vu{n}'_u\), and \(N=-\va{r}'_v\cdot\vu{n}'_v\). Because \(\dd{\vu{n}}=\vu{n}'_u\dd{u}+\vu{n}'_v\dd{v}\), \[\mathrm{I\!I}=-\dd{\va{r}}\cdot\dd{\vu{n}}.\]
 \begin{figure}
-    \centerline{\includesvg[width=0.8\linewidth]{secondfundamentalform.svg}}
+    \centerline{\includesvg[width=0.7\linewidth]{secondfundamentalform.svg}}
     \caption{\(Q\) has a greater heuristic distance to \(T_P\Sigma\) for a more curved surface.}\label{fig:secondfundamentalform}
-\end{figure}The second fundamental form, in a rough sense, measures the curvature of the surface \(\Sigma\) at \(P\) (refer to \autoref{fig:secondfundamentalform}).
+\end{figure}The second fundamental form, in a rough sense, measures the curvature of the surface \(\Sigma\) at \(P\) (refer to \autoref{fig:secondfundamentalform}). The values for \(\mathrm{I}\) and \(\mathrm{I\!I}\) in equations~\eqref{eq:firstfundamentalform} and~\eqref{eq:secondfundamentalform} are known as the \textit{first} and \textit{second fundamental forms} of \(\Sigma\) at \(\qty(u,v)\). Both forms are geometric invariants; they are independent of the parameterization \(\va{r}\) of \(\Sigma\).
 \begin{theorem}[Great Picard Theorem]\label{thm:greatpicard}
 
 \end{theorem}
