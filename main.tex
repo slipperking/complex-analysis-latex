@@ -3439,7 +3439,11 @@ We have previously considered analytic continuations over two regions with an in
 \end{proof}
 A consequent result was discovered by Schwarz, known as the \textit{Reflection Principle} or the \textit{Symmetry Principle}, is a unique result derived from the above theorem for when the shared boundary curve lies in the real axis.
 \begin{theorem}[Schwarz Reflection Principle]\label{thm:riemannschwarzreflection}
-    Let \(U\subseteq\mathbb{C}\) be a connected region on one side of the real axis such that there exists a non-degenerate curve \(\gamma\subseteq\partial U\) such that \(\gamma\in\mathbb{R}\). Let \(f:U\to\mathbb{C}\) be holomorphic.
+    Let \(U\subseteq\mathbb{C}\) be a connected region on one side of the real axis such that there exists a non-degenerate curve \(\gamma\subseteq\partial U\) such that \(\gamma\in\mathbb{R}\). Let \(f:U\to\mathbb{C}\) be holomorphic with continuity up to \(U\cup\gamma\) such that \(f\) is real-valued on \(\gamma\). Let \(\widetilde{U}=\cbraces{\overline{z}}{z\in U}\) be the reflection of \(U\) across the real axis. Then there exists a unique holomorphic function \[\widetilde{f}(z)=\begin{cases}
+        f(z)&\qif z\in U\\
+        \overline{f(\overline{z})}&\qif z\in\widetilde{U}\\
+        f(z)\equiv\overline{f(\overline{z})}&\qif z\in\gamma
+    \end{cases}\] on \(U\cup\widetilde{U}\cup\gamma\).
 \end{theorem}
 \subsection{The Concept of Riemann Surfaces}
 
