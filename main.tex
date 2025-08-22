@@ -2906,7 +2906,7 @@ Residues are extremely important as they allow for simple evaluation of definite
         \Gamma_1=\cbraces{x\in\mathbb{R}}{\varepsilon\leq x\leq R},\qquad\Gamma_2=\cbraces{r\exp(\ii\frac{2\piup}{\beta})}{\varepsilon\leq r\leq R},\\
         C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\piup}{\beta}},\qquad C_\varepsilon=\cbraces{\varepsilon\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\piup}{\beta}}
     \end{gather*}
-    where \(R>1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{\varepsilon\to 0}\lim_{R\to\infty}\qty(\int_{\Gamma_1}+\int_{\Gamma_2}+\int_{C_R}+\int_{C_\varepsilon})f(z)\ddz=2\piup\ii\Res[f,\exp(\ii\frac{\piup}{\beta})].\]
+    where \(R>1\) and \(\varepsilon<1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{\varepsilon\to 0}\lim_{R\to\infty}\qty(\int_{\Gamma_1}+\int_{\Gamma_2}+\int_{C_R}+\int_{C_\varepsilon})f(z)\ddz=2\piup\ii\Res[f,\exp(\ii\frac{\piup}{\beta})].\]
     By equation~\eqref{eq:residueatpole}, it follows that
     \begin{align*}
         \residue\qty[f,\exp(\ii\frac{\piup}{\beta})] & =\lim_{z\to\exp(\ii\frac{\piup}{\beta})}\flatfrac{\qty[z-\exp(\ii\frac{\piup}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]} \\
@@ -2922,7 +2922,7 @@ Residues are extremely important as they allow for simple evaluation of definite
     We also have \[\int_{C_R}f(z)\ddz=R\ii\int_{0}^{\frac{2\piup}{\beta}}f\qty(R\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\frac{2\piup}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}.\] It can also be shown that the integrand can be dominated as follows:
     \[\abs{\int_0^{\frac{2\piup}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\piup}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}.\]
     The dominating integrand \(R\mapsto\frac{R^{\alpha+1}}{R^\beta-1}\) approaches \(0\) as \(R\to\infty\) since \(0<\alpha+1<\beta\). Therefore, \(\forall\varepsilon>0\), \(\exists N>2\) such that \(\forall R>N\), \(\frac{R^{\alpha+1}}{R^\beta-1}<\varepsilon\). Let \(\varepsilon\) be arbitrary. Then letting \(R>N\), the integrand is uniformly bounded, and therefore, \[\lim_{R\to\infty}\int_0^{\frac{2\piup}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=\int_0^{\frac{2\piup}{\beta}}\lim_{R\to\infty}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=0.\]
-    Similarly, \(\int_\).
+    Similarly, \[\abs{\int_{C_\varepsilon}f(z)\ddz}\leq\varepsilon\int_0^{\frac{2\piup}{\beta}}\abs{f\qty(\varepsilon\ee^{\ii\theta})}\dd{\theta}=\int_0^{\frac{2\piup}{\beta}}\frac{\varepsilon^{\alpha+1}}{1-\varepsilon^\beta}\dd{\theta}\]
     By letting \(R\to\infty\), we have \[\qty[1-\exp(\ii\frac{2\piup}{\beta}(1+\alpha))]I=-\frac{2\piup\ii}{\beta}\exp(\ii\frac{\piup}{\beta}(\alpha+1)).\]
     It follows that \[I=\frac{2\piup\ii}{\beta}\brackets{\exp(\ii\frac{\piup}{\beta}(\alpha+1))-\exp(-\ii\frac{\piup}{\beta}(\alpha+1))}^{-1}=\frac{\piup}{\beta}\csc(\frac{\piup}{\beta}(\alpha+1)).\]
 \end{proof}
