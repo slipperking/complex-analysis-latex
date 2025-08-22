@@ -2884,17 +2884,17 @@ Residues are extremely important as they allow for simple evaluation of definite
             \draw[-{Stealth}, ultra thin] (0, 0) -- (-0.4, 0);
             \draw[-{Stealth}, thin] (0, 0) -- (0, 4);
             \draw[-{Stealth}, thin] (0, 0) -- (0, -0.5);
+            \draw[thin, dashed] (0, 0) -- (0.8485, 0.8485);
             \draw[-{Stealth}, thick] (3.5,0) arc[start angle=0, end angle=45, radius=3.5];
-            \draw[thin] (0.5,0) arc[start angle=0, end angle=45, radius=0.5];
-            \draw[thin] (0.8485,0.8485) arc[start angle=45, end angle=0, radius=1.2];
-            \draw[-{Stealth}, thick] (0, 0) -- (3.5, 0);
-            \draw[-{Stealth}, thick] (2.47487, 2.47487) -- (0, 0);
+            \draw[-{Stealth}, thick] (0.8485, 0.8485) arc[start angle=45, end angle=0, radius=1.2];
+            \draw[-{Stealth}, thick] (1.2, 0) -- (3.5, 0);
+            \draw[-{Stealth}, thick] (2.47487, 2.47487) -- (0.8485,0.8485);
             \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
             \node[anchor=east, yshift=-2pt] at (0, 4) {\(\Im(z)\)};
-            \node[anchor=north] at (1.75,0) {\(\Gamma_1\)};
-            \node[anchor=west] at (0.4,0.25) {\(\tfrac{\piup}{4}\)};
-            \node[anchor=south east] at (1.4,1.4) {\(\Gamma_2\)};
+            \node[anchor=north] at (2.35,0) {\(\Gamma_1\)};
+            \node[anchor=south east] at (1.8, 1.8) {\(\Gamma_2\)};
             \node[anchor=north] at (3.6,1.5) {\(C_R\)};
+            \node[anchor=north] at (0.9,0.65) {\(C_\varepsilon\)};
             \node[anchor=north] at (3.5,0) {\(R\)};
             \node[anchor=south] at (2.5,2.5) {\(R\)};
         \end{tikzpicture}
@@ -2903,8 +2903,8 @@ Residues are extremely important as they allow for simple evaluation of definite
 
     The contour is the union of the following curves:\
     \begin{gather*}
-        \Gamma_1=\cbraces{x\in\mathbb{R}}{0\leq x\leq R},\qquad\Gamma_2=\cbraces{r\exp(\ii\frac{2\piup}{\beta})}{0\leq r\leq R},\\
-        C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\piup}{\beta}},
+        \Gamma_1=\cbraces{x\in\mathbb{R}}{\varepsilon\leq x\leq R},\qquad\Gamma_2=\cbraces{r\exp(\ii\frac{2\piup}{\beta})}{\varepsilon\leq r\leq R},\\
+        C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\piup}{\beta}},\qquad C_\varepsilon=\cbraces{\varepsilon\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\piup}{\beta}}
     \end{gather*}
     where \(R>1\). By the Residue Theorem (\autoref{thm:residuethm}), we get that \[\lim_{R\to\infty}\int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=2\piup\ii\Res[f,\exp(\ii\frac{\piup}{\beta})].\]
     By equation~\eqref{eq:residueatpole}, it follows that
