@@ -497,7 +497,7 @@ This is better written as
     \sin(z)  & =\frac{\ee^{\ii z}-\ee^{-\ii z}}{2\ii}, & \cos(z)  & =\frac{\ee^{\ii z}+\ee^{-\ii z}}{2}, & \tan(z)  & =\frac{\ee^{\ii z}-\ee^{-\ii z}}{\ii \paren{\ee^{\ii z}+\ee^{-\ii z}}} \\
     \sinh(z) & =\frac{\ee^z-\ee^{-z}}{2},              & \cosh(z) & =\frac{\ee^z+\ee^{-z}}{2},           & \tanh(z) & =\frac{\ee^z-\ee^{-z}}{\ee^z+\ee^{-z}}x.
 \end{align*}
-Then the following relationships are derived:
+Hence, the following relationships are derived:
 \[\sin(z)=-\ii\sinh(\ii z),\quad\cos(z)=\cosh(\ii z),\quad\tan(z)=-\ii\tanh(\ii z).\]
 The complex logarithm, denoted \(w=\log(z)\), is the solution to \(z=\ee^w\). We can then define the inverse trigonometric and hyperbolic functions.
 
@@ -1316,7 +1316,7 @@ The following major theorem, albeit originally proven by Cauchy in 1844, shows a
     As \(f(z)\) is continuous over \(U\), \(F(z)\) is continuous over \(U\) as well. \(F(z)\) is holomorphic over \(U\) (complex differentiable with \(F'(z)=f(z)\)), and by \autoref{thm:cauchydifferentiationformula}, the derivative of \(F(z)\), \(f(z)\) is also holomorphic over \(U\).
 \end{proof}
 \begin{theorem}\label{thm:nthderivativeboundedl1norm}
-    Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\) (\(V\) is a neighborhood of \(K\) that is relatively compact in \(U\)). Let \(f(z)\) be holomorphic in \(U\). Then there exists a sequence \(\cbraces{c_n}\subset\mathbb{R}\) dependent only on \(K\) and \(V\) (independent from \(f\) and \(z\)) such that \(\forall n\in\mathbb{N}\),
+    Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\) (\(V\) is a neighborhood of \(K\) that is relatively compact in \(U\)). Let \(f(z)\) be holomorphic in \(U\). Then there exists a sequence \(\cbraces{c_n}\subset\mathbb{R}\) dependent only on \(K\) and \(V\) (independent of \(f\) and \(z\)) such that \(\forall n\in\mathbb{N}\),
     \begin{equation}
         \sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\left\|f\right\|_{L^1(V)},\label{eq:nthderivativeboundedl1norm_statement}
     \end{equation}
@@ -1586,7 +1586,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{k_j}{z-z_j}\ddz=2\piup \ii k_j.\]
     Combining results,
     \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\piup \ii k_j=2\piup \ii k.\]
-    Finally, parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
+    Finally, parameterize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
     \[k=\frac{1}{2\piup\ii}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\piup\ii}\Delta_\Gamma\log(w)=\frac{1}{2\piup}\Delta_\Gamma\arg(w),\] which proves the result.
 \end{proof}
 This profound result proves that the number of zeros of a holomorphic function enclosed by a closed curve is also the number of times the image of the curve winds around the origin.
@@ -2362,7 +2362,7 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
             \abs{Q_{p_n}\qty(\frac{z}{a_n})} & =\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber                                       \\
             & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\frac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
         \end{align}
-        By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\) and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion}, \autoref{thm:weierstrassuniformlimit}, and \autoref{thm:hurwitzsimplecase}.
+        By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\), and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \autoref{lemma:infiniteproductlocallyuniformconvergencecriterion}, \autoref{thm:weierstrassuniformlimit}, and \autoref{thm:hurwitzsimplecase}.
 
         The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{\ee-1}\abs{\zeta}\). By equation~\eqref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
 
@@ -2602,7 +2602,7 @@ Since the summation on the right is negative, we have the following consequence:
     Let \(f:\mathbb{D}\to\mathbb{C}\) be a non-constant bounded holomorphic function whose zeros are \(a_1,a_2,\ldots\), counted according to their multiplicities, ordered such that \(\abs{a_n}\leq \abs{a_{n+1}}\) for all \(n\in\mathbb{N}\). Then, \[\sum_{n=1}^\infty\qty(1-\abs{a_n})\] is convergent.
 \end{lemma}
 \begin{proof}
-    First assume \(f(0)\neq 0\) and choose \(M\) such that \(f\leq M\) on \(\mathbb{D}\). The magnitudes \(\qty{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\qty{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside of \(D(0,R)\). By Jensen's Formula (\autoref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}\leq \log(M)+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
+    First assume \(f(0)\neq 0\) and choose \(M\) such that \(f\leq M\) on \(\mathbb{D}\). The magnitudes \(\qty{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\qty{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside \(D(0,R)\). By Jensen's Formula (\autoref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}\leq \log(M)+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
     Let \(R\to 1^{-}\). It follows that \[\log\abs{f(0)}\leq\log\abs{M}+\sum_{k=1}^\infty\log\abs{a_k}.\]
     For any \(0<a<1\), we have \(-\log(a)=1-a+\sum_{n=2}^\infty\qty(1-a)^n a^n>1-a\). Hence, \[0\leq\sum_{k=1}^\infty\qty(1-\abs{a_k})<-\sum_{k=1}^\infty\log\abs{a_k}\leq\log\abs{M}-\log\abs{f(0)}.\]
     If \(f\) has a zero of multiplicity \(m\) at \(0\), then the argument applies to \(z\mapsto \frac{f(z)}{z^m}\).
@@ -3066,7 +3066,7 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
 \begin{proof}
     The analytic function element \(\qty(f,D\qty(0,\abs{\frac{1}{\alpha}}))\) can be directly continued to the analytic function element \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{\frac{1}{\alpha}})\). The function element \(\qty(\widetilde{f},D\qty(0,\frac{1-z}{\alpha-1}))\) can be analytically continued to \[\qty(z\mapsto\frac{1}{(1-z)\qty(1-\frac{z\alpha-z}{1-z})},\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}})=\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}}),\] which is a direction analytic continuation of \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{\frac{1}{\alpha}})\). Therefore, \(f\) and \(\widetilde{f}\) are analytic continuations of each other.
 \end{proof}
-In \autoref{ex:complexlogarithmanalyticcontinuation}, we showed that two analytic function elements can on the same domain can be analytic continuations even if they do not agree on all of the domain. In this case, the two elements are on different branches of the function. Hence, depending on the chain of function elements chosen, we may obtain two different analytic function elements that have the same domain.
+In \autoref{ex:complexlogarithmanalyticcontinuation}, we showed that two analytic function elements can on the same domain can be analytic continuations even if they do not agree on the entire domain. In this case, the two elements are on different branches of the function. Hence, depending on the chain of function elements chosen, we may obtain two different analytic function elements that have the same domain.
 
 This is a common issue when it comes to the problem of analytic continuation. This question of non-ambiguity can be explained by planar topology; specifically the concept of homotopy. We will now introduce the concept of analytic continuation along a given curve.
 \subsection{Analytic Continuation Along a Curve}
@@ -3439,7 +3439,7 @@ We have previously considered analytic continuations over two regions with an in
 \end{proof}
 A consequent result was discovered by Schwarz, known as the \textit{reflection principle}, is a unique result derived from the above theorem for when the shared boundary curve lies in the real axis under certain conditions.
 \begin{theorem}[Schwarz Reflection Principle]\label{thm:riemannschwarzreflection}
-    Let \(U\subseteq\mathbb{C}\) be a connected region on one side of the real axis such that there exists a non-degenerate curve \(\gamma\subseteq\partial U\) such that \(\gamma\in\mathbb{R}\). Let \(f:U\to\mathbb{C}\) be holomorphic with continuity up to \(U\cup\gamma\) such that \(f\) is real-valued on \(\gamma\). Let \(\widetilde{U}=\cbraces{\overline{z}}{z\in U}\) be the reflection of \(U\) across the real axis. Then there exists a unique holomorphic function \[\widetilde{f}(z)=\begin{cases}
+    Let \(U\subseteq\mathbb{C}\) be a connected region on one side of the real axis such that there exists a non-degenerate curve \(\gamma\subseteq\partial U\) such that \(\gamma\in\mathbb{R}\). Let \(f:U\to\mathbb{C}\) be holomorphic with continuity up to \(U\cup\gamma\) such that \(f\) is real-valued on \(\gamma\), and let \(\widetilde{U}=\cbraces{\overline{z}}{z\in U}\) be the reflection of \(U\) across the real axis. Then there exists a unique holomorphic function \[\widetilde{f}(z)=\begin{cases}
         f(z)&\qif z\in U\\
         \overline{f(\overline{z})}&\qif z\in\widetilde{U}\\
         f(z)\equiv\overline{f(\overline{z})}&\qif z\in\gamma
@@ -3449,7 +3449,7 @@ A consequent result was discovered by Schwarz, known as the \textit{reflection p
     If \(z\in\mathbb{R}\), then \(\overline{z}=z\), and since \(f\) is real on \(\gamma\), it follows that \(f(z)=\overline{f\qty(\overline{z})}\) for \(z\in\gamma\). Thus, we are left to prove that \(z\mapsto\overline{f\qty(\overline{z})}\) is holomorphic on \(\widetilde{U}\). Let \(z_0\in\widetilde{U}\). It follows that \[\lim_{\substack{z\to z_0\\ z\in\widetilde{U}}}\frac{\overline{f\qty(\overline{z})}-\overline{f\qty(\overline{z_0})}}{z-z_0}=\lim_{\substack{z\to z_0\\ z\in\widetilde{U}}}\overline{\qty[\frac{f\qty(\overline{z})-f\qty(\overline{z_0})}{\overline{z}-\overline{z_0}}]}=\overline{f'\qty(\overline{z_0})}.\]
     Since this limit exists, it follows that \(\overline{f\qty(\overline{z})}\) is holomorphic on \(\widetilde{U}\). Assume that \(z_0\in\gamma\). Since \[\lim_{z\to z_0}\overline{f\qty(\overline{z})}=\overline{f\qty(\lim_{z\to z_0}\overline{z})}=\overline{f\qty(z_0)}=f\qty(z_0),\] it follows that \(\overline{f\qty(\overline{z})}\) is continuous on \(\widetilde{U}\cup\gamma\). Therefore, by the Painlevé Theorem, \(\widetilde{f}\) is holomorphic on \(U\cup\widetilde{U}\cup\gamma\).
 \end{proof}
-This conjugate-symmetry can be generalized by rotating \(\gamma\):
+This conjugate-symmetry can be generalized by transforming \(\gamma\):
 \begin{theorem}[Symmetry Principle]
     
 \end{theorem}
