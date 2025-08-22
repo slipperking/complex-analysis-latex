@@ -2828,6 +2828,7 @@ Residues are extremely important as they allow for simple evaluation of definite
             \draw[-{Stealth}, thick] (2.47487, 2.47487) -- (0, 0);
             \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
             \node[anchor=east, yshift=-2pt] at (0, 4) {\(\Im(z)\)};
+            \node[anchor=north] at (0.2,0.2) {\(\frac{\piup}{4}\)};
             \node[anchor=north] at (1.75,0) {\(\Gamma_1\)};
             \node[anchor=south east] at (1.4,1.4) {\(\Gamma_2\)};
             \node[anchor=north] at (3.6,1.5) {\(C_R\)};
@@ -2871,7 +2872,32 @@ Residues are extremely important as they allow for simple evaluation of definite
 \begin{proof}
     Let \(f(z)=\frac{z^\alpha}{1+z^\beta}\) and let \(-\piup<\Arg(z)\leq \piup\) in the principal branches of \(z^\alpha=\ee^{\alpha\Log(z)}\) and \(z^\beta=\ee^{\beta\Log(z)}\). Then except for at the zeros of \(1+z^\beta\), \(f\) is holomorphic.
 
-    The solutions to \(z^\beta=-1\) are \(z=\exp(\ii\frac{\piup}{\beta}+2\ii k\frac{\piup}{\beta})\). Choose a wedge contour with an angle of \(\frac{2\piup}{\beta}\) (as in \autoref{fig:wedgecontour}). The only singularity it encloses is \(\exp(\ii\frac{\piup}{\beta})\). Since it is a simple zero of \(\frac{1}{f}\), this singularity is a simple pole.
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}[>=stealth,
+                arrow style/.style={
+                    postaction={decorate},
+                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+            }]
+
+            \draw[-{Stealth}, ultra thin] (0, 0) -- (4.5, 0);
+            \draw[-{Stealth}, ultra thin] (0, 0) -- (-0.4, 0);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, 4);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, -0.5);
+            \draw[-{Stealth}, thick] (3.5,0) arc[start angle=0, end angle=45, radius=3.5];
+            \draw[thin] (0.5,0) arc[start angle=0, end angle=45, radius=0.5];
+            \draw[-{Stealth}, thick] (0, 0) -- (3.5, 0);
+            \draw[-{Stealth}, thick] (2.47487, 2.47487) -- (0, 0);
+            \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
+            \node[anchor=east, yshift=-2pt] at (0, 4) {\(\Im(z)\)};
+            \node[anchor=north] at (1.75,0) {\(\Gamma_1\)};
+            \node[anchor=south east] at (1.4,1.4) {\(\Gamma_2\)};
+            \node[anchor=north] at (3.6,1.5) {\(C_R\)};
+            \node[anchor=north] at (3.5,0) {\(R\)};
+            \node[anchor=south] at (2.5,2.5) {\(R\)};
+        \end{tikzpicture}
+        \caption{An indented wedge contour with orientation marked.}\label{fig:indentedwedgecontour}
+    \end{figure}The solutions to \(z^\beta=-1\) are \(z=\exp(\ii\frac{\piup}{\beta}+2\ii k\frac{\piup}{\beta})\). Choose an indented wedge contour with an angle of \(\frac{2\piup}{\beta}\) (as in \autoref{fig:wedgecontour}). The only singularity it encloses is \(\exp(\ii\frac{\piup}{\beta})\). Since it is a simple zero of \(\frac{1}{f}\), this singularity is a simple pole.
 
     The contour is the union of the following curves:\
     \begin{gather*}
