@@ -3330,9 +3330,9 @@ The notion of distance in the definitions of equicontinuity in the Arzelà--Asco
 
 Lastly, we will prove Montel's Theorem in preparation of the Riemann Mapping Theorem (\autoref{thm:riemannmapping}).
 \begin{definition}
-    Let \(\mathcal{F}\) be a family of functions defined on an open set \(U\subseteq\mathbb{C}\). The family \(\mathcal{F}\) is said to be \textit{locally uniformly bounded} if, for every point \(z\in U\), there exists an neighborhood \(V\subseteq U\) of \(z\) such that \(\mathcal{F}\) is uniformly bounded on \(V\). This condition is equivalent to the condition that \(\mathcal{F}\) is uniformly bounded on all compact subsets \(K\) of \(U\).
+    Let \(\mathcal{F}\) be a family of functions defined on an open set \(U\subseteq\mathbb{C}\). The family \(\mathcal{F}\) is said to be \textit{locally uniformly bounded} if, for every point \(z\in U\), there exists a neighborhood \(V\subseteq U\) of \(z\) such that \(\mathcal{F}\) is uniformly bounded on \(V\). This condition is equivalent to the condition that \(\mathcal{F}\) is uniformly bounded on all compact subsets \(K\) of \(U\).
 \end{definition}
-Obviously, the equivalence is established in a similar manner to local finiteness and locally uniform convergence.
+Obviously, the equivalence is established similarly to local finiteness and locally uniform convergence.
 \begin{theorem}[Montel's Theorem]\label{thm:montel}
     Let \(U\subseteq\mathbb{C}\) be open, and suppose that \(\mathcal{F}\) is a family of holomorphic functions on \(U\). Then, \(\mathcal{F}\) is locally uniformly bounded on \(U\) if and only if \(\mathcal{F}\) is a normal family.
 \end{theorem}
@@ -3352,12 +3352,12 @@ Obviously, the equivalence is established in a similar manner to local finitenes
 \subsection{The Riemann Mapping Theorem}
 The Riemann Mapping Theorem is one of the most profound results in complex analysis. Let \(U\) and \(V\) be two open regions in the complex plane. If there exists a biholomorphism \(f:U\to V\), then the two regions are said to be \textit{conformally equivalent}.
 \begin{theorem}[Riemann Mapping Theorem]\label{thm:riemannmapping}
-    Let \(U\subset\mathbb{C}\) (a proper subset, in other words, \(U\neq\mathbb{C}\)) be a simply connected (nonempty) open region. Let \(z_0\in U\) be arbitrary. Then there exists an unique biholomorphism \(f:U\to\mathbb{D}\) such that \(f\qty(z_0)=0\) and \(f'\qty(z_0)\in\mathbb{R}_{>0}\).
+    Let \(U\subset\mathbb{C}\) (a proper subset, in other words, \(U\neq\mathbb{C}\)) be a simply connected (nonempty) open region. Let \(z_0\in U\) be arbitrary. Then there exists a unique biholomorphism \(f:U\to\mathbb{D}\) such that \(f\qty(z_0)=0\) and \(f'\qty(z_0)\in\mathbb{R}_{>0}\).
 \end{theorem}
 \begin{proof}
     First consider the case for when \(U\) is a bounded region. In other words, \(\exists R>0\) such that \(U\subseteq D(0,R)\).
 
-    Define \(\mathcal{F}\) to be the family of all univalent functions \(\alpha:U\to\mathbb{D}\) (not necessarily surjective) such that \(\alpha\qty(z_0)=0\). This family is well defined and nonempty.
+    Define \(\mathcal{F}\) to be the family of all univalent functions \(\alpha:U\to\mathbb{D}\) (not necessarily surjective) such that \(\alpha\qty(z_0)=0\). This family is well-defined and nonempty.
 
     To prove this assertion, observe that since \(z_0\in D(0,R)\), it follows that \(\forall z\in U\subseteq D(0,R)\), \(\abs{z-z_0}<2R\), and consequently, \(\abs{\frac{z-z_0}{2R}}<1\). Therefore, \[\alpha(z)=\frac{z-z_0}{2R}\] maps \(U\) to \(\mathbb{D}\), and it is linear and univalent. This shows that \(\alpha\in\mathcal{F}\). It is easy to prove that \(\mathcal{F}\) is infinite; any function in the form of \(z\mapsto\frac{z-z_0}{\zeta}\) for \(\zeta\geq2R\) also lies in \(\mathcal{F}\).
 
@@ -3387,7 +3387,7 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
 
     Hence, \(f:U\to\mathbb{D}\) is biholomorphic. To prove the uniqueness of \(f\), suppose \(g:U\to\mathbb{D}\) is an arbitrary biholomorphism such that \(g\qty(z_0)=0\) and \(g'\qty(z_0)>0\). Then, \(\varphi=f\circ g^{-1}\in\Aut\qty(\mathbb{D})\), and by \autoref{thm:holomorphicautomorphismgrouponunitdisk}, \(\varphi(z)=\varphi_a(z\exp(\ii\theta))\) for some \(a\in\mathbb{D}\) and \(0\leq\theta<2\piup\). Since \(\varphi(0)=0\), it follows that \(a=0\). Since \(\varphi'(0)=f'\qty(z_0)\qty(g^{-1})'(0)=\frac{f'\qty(z_0)}{g'(z_0)}>0\), and \(\varphi'(0)=\varphi'_0(0)\exp(\ii\theta)=\exp(\ii\theta)>0\), it follows that \(\theta=0\). Hence, we have \(\varphi(z)=z\) and \(f\equiv g\).
 
-    Next, assume that \(U\) is unbounded. It is easy to show that the boundary \(\partial U\) contains at least two points. Indeed, if \(\partial U=\emptyset\), \(U\) would be closed because \(\partial U\subseteq U\) and open by assumption. By \autoref{thm:connectedtopologicalspaceclopensets}, \(U\) would either be equal to \(\emptyset\) or \(\mathbb{C}\), both of which are impossibilities. Additionally, if \(\partial U\) is comprised of exactly one point \(a\in\mathbb{C}\), then in subspace defined by \(X=\mathbb{C}\setminus\qty{a}\), \(U\) is clopen (by the same reason as before, open by assumption and closed because \(X\setminus U=\mathbb{C}\setminus\overline{U}\) is open). It follows that \(U=X=\mathbb{C}\setminus\qty{a}\), which is not simply connected.
+    Next, assume that \(U\) is unbounded. It is easy to show that the boundary \(\partial U\) contains at least two points. Indeed, if \(\partial U=\emptyset\), \(U\) would be closed because \(\partial U\subseteq U\) and open by assumption. By \autoref{thm:connectedtopologicalspaceclopensets}, \(U\) would either be equal to \(\emptyset\) or \(\mathbb{C}\), both of which are impossibilities. Additionally, if \(\partial U\) comprises exactly one point \(a\in\mathbb{C}\), then in subspace defined by \(X=\mathbb{C}\setminus\qty{a}\), \(U\) is clopen (by the same reason as before, open by assumption and closed because \(X\setminus U=\mathbb{C}\setminus\overline{U}\) is open). It follows that \(U=X=\mathbb{C}\setminus\qty{a}\), which is not simply connected.
 
     Suppose \(\xi_1\) and \(\xi_2\) are two distinct points in \(\partial U\). Let us apply the linear transformation \(\rho(z)=\frac{z-\xi_1}{\xi_2-\xi_1}\) to \(U\), and denote the resulting region by \(U'=\rho(U)\). It follows that \(0,1\in\partial U'\). Consider a branch \(\psi(z)\) of the holomorphic square root \(z\mapsto\sqrt{z-1}\) (existent by simple connectivity and the fact that \(1\notin U'\)). Let \(z_1\) and \(z_2\) be two distinct points in \(U'\), arbitrarily chosen. If \(\psi\qty(z_1)=\psi\qty(z_2)\), it follows that \(z_1=z_2\), which is a contradiction. Hence, \(\psi\) is univalent in \(U'\).
 
@@ -3410,7 +3410,7 @@ The Riemann Mapping Theorem is elegant in its own simplicity and definitions. Ho
 
 Let \(a_1<a_2<\cdots<a_n\) be \(n\in\mathbb{N}\) distinct real numbers. Suppose \(\alpha_1,\alpha_2,\ldots,\alpha_n\) are \(n\) positive real numbers satisfying \(\sum_{k=1}^n\alpha_k<n-1\). Let \[\beta(\zeta)=\qty(\zeta-a_1)^{\alpha_1-1}\cdots\qty(\zeta-a_n)^{\alpha_n-1}=\prod_{k=1}^n\qty(\zeta-a_k)^{\alpha_k-1},\] where the branch of each factor is selected to be \[\qty(\zeta-a_k)^{\alpha_k-1}=\exp\qty[\qty(\alpha_k-1)\qty(\log\qty(\zeta-a_k))],\] where the branch of \(\log(z)\) is selected such that \(-\frac{\piup}{2}<\Im\qty(\log(z))\leq\frac{3\piup}{2}\), holomorphic on \(\mathbb{C}\setminus\ii\mathbb{R}_{\leq 0}\) (the lower imaginary axis is known as a \textit{branch cut}). For \(\zeta<a_k\), the argument of this factor is \(\piup\qty(\alpha_k-1)\). For \(\zeta<a_1\), \[\arg(\beta(\zeta))=\piup\qty(-n+\sum_{k=1}^n\alpha_k),\] achieved by selecting branches of each factor by the method described earlier.
 
-For fixed \(k\), if \(\zeta\in \qty(a_{k-1},a_k)\), the branches of all \(\qty(\zeta-a_j)^{\alpha_j-1}\) where \(1\leq j\leq k-1\) have vanishing arguments; hence, \[\arg\beta(\zeta)=\piup\qty(-n+k-1+\sum_{j=k}^n\alpha_j).\]
+Let \(k\) be fixed. If \(\zeta\in\qty(a_{k-1},a_k)\), the branches of all \(\qty(\zeta-a_j)^{\alpha_j-1}\) where \(1\leq j\leq k-1\) have vanishing arguments; hence, \[\arg\beta(\zeta)=\piup\qty(-n+k-1+\sum_{j=k}^n\alpha_j).\]
 If \(\zeta>a_n\), we have \[\arg\beta(\zeta)=0.\]
 Therefore, we can define \(n+2\) complex numbers via \[w_0=c\int_0^{-\infty}\beta(\zeta)\ddzeta,\quad w_k=c\int_0^{a_k}\beta(\zeta)\ddzeta,\quad w_{n+1}=c\int_0^{\infty}\beta(\zeta)\ddzeta\] where \(c\in\mathbb{R}_{>0}\) is fixed.
 
@@ -3507,7 +3507,7 @@ As in the single-variable case, there exist natural extensions of the definition
 
 Many other results, however, have to be separately derived.
 
-Throughout mathematical history, many efforts were made to study the nature of complex functions in a multivariate setting. In the 20th century, Poincaré proved that the unit ball \(B^2=\cbraces{\qty(z_1,z_2)\in\mathbb{C}^2}{\abs{z_1}^2+\abs{z_2}^2<1}\) and the bidisk \(\mathbb{D}^2=\mathbb{D}\times\mathbb{D}\) are not biholomorphically equivalent by comparison of their automorphism groups, under certain assumptions of the automorphisms on their respective boundaries; the proof was later formalized by Cartan, but is nonetheless largely attributed to Poincaré. As one of the first of many deviations, the miracle of the Riemann Mapping Theorem (\autoref{thm:riemannmapping}) fails in higher dimensions. Hartogs later also showed that poles and essential singularities cannot exist as isolated singularities of multivariate holomorphic functions. Perhaps these are the results of a unsatisfactory generalization.
+Throughout mathematical history, many efforts were made to study the nature of complex functions in a multivariate setting. In the 20th century, Poincaré proved that the unit ball \(B^2=\cbraces{\qty(z_1,z_2)\in\mathbb{C}^2}{\abs{z_1}^2+\abs{z_2}^2<1}\) and the bidisk \(\mathbb{D}^2=\mathbb{D}\times\mathbb{D}\) are not biholomorphically equivalent by comparison of their automorphism groups, under certain assumptions of the automorphisms on their respective boundaries; the proof was later formalized by Cartan, but is nonetheless largely attributed to Poincaré. As one of the first of many deviations, the miracle of the Riemann Mapping Theorem (\autoref{thm:riemannmapping}) fails in higher dimensions. Hartogs later also showed that poles and essential singularities cannot exist as isolated singularities of multivariate holomorphic functions. Perhaps these are the results of an unsatisfactory generalization.
 
 Whereas the efforts of mathematicians of over two centuries gives rise to the development of function theory of one complex variable, the theory of multivariate complex functions is still largely rudimentary. Many seemingly fundamental problems still largely remain as conjecture.
 
@@ -3515,7 +3515,7 @@ Whereas the efforts of mathematicians of over two centuries gives rise to the de
 \section{Elliptic Functions}
 \section{Special Classes of Holomorphic Functions}
 \subsection{Boundary Continuity of Biholomorphisms}
-Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned whether or not there is a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\).
+Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned whether there is a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\).
 
 As a matter of fact, it is almost always true that such an extension exists. We will give three main scenarios:
 \begin{enumerate}
@@ -3551,9 +3551,9 @@ Therefore, \(\Gamma(x)\) is convergent on \(\mathbb{R}_{>0}\). It follows that \
 \end{align*}
 Additionally, \[\Gamma(1)=\int_0^\infty \ee^{-t}\ddt=-\eval{\ee^{-t}}_0^\infty=1.\]
 Hence, we have \(\Gamma(z+1)=z!\), and the \(\Gamma\) function generalizes the factorial. We also have \[\Gamma(z+n)=\Gamma(z)\prod_{k=0}^{n-1}(z+k),\quad\Re(z)>0, n\in\mathbb{N}.\]
-Therefore we can derive its analytic continuation:
+Therefore, we can derive its analytic continuation:
 \[\Gamma(z)=\frac{\Gamma(z+n)}{\prod_{k=0}^{n-1}(z+k)},\quad\Re(z)>-n.\]
-Since the numerator is holomorphic on \(\Re(z)>-n\) and \(n\) was arbitrary, the analytic continuation of \(\Gamma\) has simple poles at each of \(\mathbb{Z}_{\leq0}\). Hence \(\Gamma(z)\) is meromorphic on \(\mathbb{C}\).
+Since the numerator is holomorphic on \(\Re(z)>-n\) and \(n\) was arbitrary, the analytic continuation of \(\Gamma\) has simple poles at each of \(\mathbb{Z}_{\leq0}\). Hence, \(\Gamma(z)\) is meromorphic on \(\mathbb{C}\).
 
 By equation~\eqref{eq:residueatpole}, the residue at each pole is equal to
 \[\residue_{z=-n}\Gamma(z)=\lim_{z\to -n}\frac{\Gamma(z+n+1)}{\prod_{k=0}^{n-1}(z+k)}=\frac{1}{\prod_{k=1}^n(-k)}=\frac{{(-1)}^n}{n!}.\]
@@ -3686,7 +3686,7 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
         & =\int_0^\infty \frac{u^{\frac{1}{3}}\dd{u}}{(u+1)^2}         \\
         & =\mathrm{B}\qty(\frac{4}{3},\frac{2}{3}),
     \end{align*}
-    where the last step recognizes the form of equation~\eqref{eq:betagammafunctionrelationship_intermediate}. By \autoref{thm:betagammafunctionrelationship}, we have \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] By the Reflection Formula (\autoref{thm:gammafunction_eulerreflection}), we have \[I=\frac{\piup}{3\sin(\frac{\piup}{3})}=\frac{2\piup\sqrt{3}}{9}.\]
+    where the last step recognizes the form of equation~\eqref{eq:betagammafunctionrelationship_intermediate}. By \autoref{thm:betagammafunctionrelationship}, we have \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] Lastly, the Reflection Formula (\autoref{thm:gammafunction_eulerreflection}) gives that \[I=\frac{\piup}{3\sin(\frac{\piup}{3})}=\frac{2\piup\sqrt{3}}{9}.\]
 \end{proof}
 \subsection{The Riemann--\texorpdfstring{\(\zeta\)}{zeta} Function}
 The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is currently known as the \textit{Euler Product Formula}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\piup(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
