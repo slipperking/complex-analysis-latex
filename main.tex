@@ -1132,11 +1132,11 @@ We have also already seen the utility of parameterization via a polar transforma
     Prove that \(\forall n\in\mathbb{N}\), \[\int_{0}^{2\piup}\cos^{2n}\theta\dd{\theta}=2\piup\prod_{k=1}^n\frac{2k-1}{2k}.\]
 \end{example}
 \begin{proof}
-    Consider the integral \[\int_{\partial\mathbb{D}}\qty(z+\frac{1}{z})^{2n}\frac{\ddz}{z}.\]
-    Letting \(z=\ee^{\ii\theta}\), we get \(\int_{\partial\mathbb{D}}\qty(\ee^{\ii\theta}+\ee^{-\ii\theta})^{2n}\ee^{-\ii\theta}\ddz=2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}\). Alternatively, we can expand the integrand and get \[\int_{\partial\mathbb{D}}\sum_{k=0}^{2n}\binom{2n}{k}z^{2k-2n}\frac{\ddz}{z}=\sum_{k=0}^{2n}\int_{\partial\mathbb{D}}\binom{2n}{k}z^{2k-2n-1}\ddz.\]
-    When \(2k-2n-1\ge0\), the integrand is holomorphic. The integral is then equal to \[\binom{2n}{0}\int_{\partial\mathbb{D}}z^{-2n-1}\ddz+\binom{2n}{1}\int_{\partial\mathbb{D}}z^{-2n+1}\ddz+\cdots+\binom{2n}{n}\int_{\partial\mathbb{D}}\frac{\ddz}{z}=2\piup\ii\binom{2n}{n},\]
-    since all of the higher order terms vanish:
-    \[\int_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\int_0^{2\piup} \ee^{\ii\theta\qty(2k-2n-1)}\ii\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{2\piup}\ee^{2\ii\theta(k-n)}\dd{\theta}=
+    Consider the integral \[\oint_{\partial\mathbb{D}}\qty(z+\frac{1}{z})^{2n}\frac{\ddz}{z}.\]
+    Letting \(z=\ee^{\ii\theta}\), we get \(\oint_{\partial\mathbb{D}}\qty(\ee^{\ii\theta}+\ee^{-\ii\theta})^{2n}\ee^{-\ii\theta}\ddz=2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}\). Alternatively, we can expand the integrand and get \[\oint_{\partial\mathbb{D}}\sum_{k=0}^{2n}\binom{2n}{k}z^{2k-2n}\frac{\ddz}{z}=\sum_{k=0}^{2n}\oint_{\partial\mathbb{D}}\binom{2n}{k}z^{2k-2n-1}\ddz.\]
+    When \(2k-2n-1\ge0\), the integrand is holomorphic. The integral is then equal to \[\binom{2n}{0}\oint_{\partial\mathbb{D}}z^{-2n-1}\ddz+\binom{2n}{1}\oint_{\partial\mathbb{D}}z^{-2n+1}\ddz+\cdots+\binom{2n}{n}\oint_{\partial\mathbb{D}}\frac{\ddz}{z}=2\piup\ii\binom{2n}{n},\]
+    since all the higher order terms vanish:
+    \[\oint_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\int_0^{2\piup} \ee^{\ii\theta\qty(2k-2n-1)}\ii\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{2\piup}\ee^{2\ii\theta(k-n)}\dd{\theta}=
         \begin{cases}
             0       & k< n \\
             2\piup\ii & k=n
@@ -1148,14 +1148,14 @@ We have also already seen the utility of parameterization via a polar transforma
 \begin{example}[Cauchy--Goursat Formula on the Exterior]\label{ex:cauchygoursatformulaexterior}
     Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \autoref{thm:jordancurve}.
     \begin{enumerate}
-        \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\piup\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=
+        \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=
                 \begin{cases}
                     w      & z\in\mathrm{int}(\gamma) \\
                     w-f(z) & z\in\mathrm{ext}(\gamma)
             \end{cases}.\]
         \item If \(\gamma\) encloses the origin, then \(\forall z\in\mathbb{C}\setminus\gamma\), then
             \begin{equation}
-                \frac{1}{2\piup\ii}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
+                \frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
                 \begin{cases}
                     0    & z\in\mathrm{int}(\gamma)                                                       \\
                     f(z) & z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
@@ -1165,19 +1165,19 @@ We have also already seen the utility of parameterization via a polar transforma
 \end{example}
 \begin{proof}
     \begin{enumerate}
-        \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\piup\ii}\int_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+
+        \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+
                 \begin{cases}
                     0    & z\in\mathrm{int}(\gamma)            \\
                     f(z) & z\in D(0,R)\cap\mathrm{ext}(\gamma)
             \end{cases}.\]
-            By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\piup\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\lim_{R\to\infty}\int_0^{2\piup}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
+            By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\lim_{R\to\infty}\int_0^{2\piup}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{cases}
                     0    & z\in\mathrm{int}(\gamma) \\
                     f(z) & z\in\mathrm{ext}(\gamma)
             \end{cases}.\]
             By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{R\ee^{\ii\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence,
             \begin{align*}
-                \frac{1}{2\piup\ii}\int_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\piup}\int_0^{2\piup}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
+                \frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\piup}\int_0^{2\piup}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{cases}
                     0    & z\in\mathrm{int}(\gamma) \\
                     f(z) & z\in\mathrm{ext}(\gamma)
@@ -1189,7 +1189,7 @@ We have also already seen the utility of parameterization via a polar transforma
             \end{align*} as expected.
         \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that
             \begin{align}
-                I & =\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\int_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
+                I & =\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\oint_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
                 & =\int_0^{2\piup}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
                 \begin{cases}
                     0            & z\in\mathrm{int}(\gamma)            \\
@@ -1202,7 +1202,7 @@ We have also already seen the utility of parameterization via a polar transforma
                 & \leq\int_0^{2\piup}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\piup|z|}{R-|z|}\to0.
             \end{align*}
     \end{enumerate}
-    By plugging the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\piup\ii}\int_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
+    By plugging the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
         \begin{cases}
             0    & z\in\mathrm{int}(\gamma) \\
             f(z) & z\in\mathrm{ext}(\gamma)
