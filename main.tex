@@ -378,7 +378,7 @@ We will now give statements relating to operations on Riemann integrals:
     Since \(f(x,u)\) is continuous on a compact set with respect to both \(x\) and \(u\), by \autoref{thm:heinecantor}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\]
 \end{proof}
 \section{Complex Prerequisites}
-\subsection{The Complex Plane}
+\subsection{The Extended Complex Plane and its Spherical Representation}
 All complex numbers form a field that extends the real number field. A complex number \(\alpha+\ii\beta\) can be visualized on a rectangular plane as the point \((\alpha,\beta)\), with two axes: the real axis and the imaginary axis. It is well known that any complex number also has the polar form \(r\ee^{\ii\theta}=r\paren{\cos\theta+\ii\sin\theta}\).
 
 The infinity point, \(\infty\), extends \(\mathbb{C}\) with \(\extcomplex=\mathbb{C}\cup\{\infty\}\). The following arithmetic operations are defined: \(\forall a\in\mathbb{C}\), \(a+\infty=\infty+a=\infty\), and \(\forall b\in\mathbb{C}\setminus\{0\}\), \(b\cdot\infty=\infty\cdot b=\infty\) and \(\frac{a}{\infty}=0\).
@@ -3517,10 +3517,12 @@ We will now give some examples of Riemann surfaces (we will distinguish between 
     The extended complex plane can be covered by two charts: \(\qty(\mathbb{C},\varphi_1)\) and \(\qty(\extcomplex\setminus\qty{0},\varphi_2)\), where \(\varphi_1(z)=z\) and \(\varphi_2(z)=\frac{1}{z}\). The transition map is given by \(\varphi_2\circ\varphi_1^{-1}(z)=\frac{1}{z}\), which is biholomorphic on \(\mathbb{C}\cap\extcomplex^*=\mathbb{C}^*\). Hence, \(\extcomplex\) is a Riemann surface.
 \end{proof}
 \begin{example}
-    The Riemann sphere \(S^2=\cbraces{(x_1,x_2,x_3)\in\mathbb{R}^3}{x_1^2+x_2^2+x_3^2=1}\) is a Riemann surface.
+    The Riemann sphere \(S^2=\cbraces{\qty(x_1,x_2,x_3)\in\mathbb{R}^3}{x_1^2+x_2^2+x_3^2=1}\) is a Riemann surface.
 \end{example}
 \begin{proof}
-    Consider the open sets \(U_N=S^2\setminus (0,0,1)\) and \(U_S=S^2\setminus (0,0,-1)\) that cover \(S^2\).
+    Consider the open sets \(U_N=S^2\setminus (0,0,1)\) and \(U_S=S^2\setminus (0,0,-1)\) that cover \(S^2\). Define their stereographic projection homeomorphisms \(\varphi_N:U_N\to\mathbb{C}\) and \(\varphi_S:U_S\to\mathbb{C}\) with centers \((0,0,1)\) and \((0,0,-1)\), respectively, forming an atlas \(\qty{\qty(U_N, \varphi_N),\qty(U_S,\varphi_S)}\). More explicitly, we can assume \[\varphi_N(x_1,x_2,x_3)=\frac{x_1+\ii x_2}{1-x_3}.\]
+
+
 \end{proof}
 \section{Differential Geometry}\label{sec:differentialgeometry}
 Émile Picard's original proof of his characterization on the value distribution near essential singularities, involving use of the modular \(\lambda\) function is generally considered to be too advanced in many elementary complex analysis courses. His results were later independently rediscovered using simpler methods.
