@@ -1116,16 +1116,16 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
 \end{remark}
 This profound theorem is extremely important and helpful in complex integration and essential in the evaluation of integrals, as demonstrated below.
 \begin{example}\label{ex:cauchygoursatformulazeroofunity}
-    Evaluate the integral \(\int_{\partial D(0,2)}\frac{\ddz}{z^n-1}\), where \(n\in\mathbb{N}_{\geq 2}\).
+    Evaluate the integral \(\oint_{\partial D(0,2)}\frac{\ddz}{z^n-1}\), where \(n\in\mathbb{N}_{\geq 2}\).
 \end{example}
 \begin{proof}
     Since \(z^n-1=\prod_{k=0}^{n-1}\qty(z-\omega^k_n)\), where \(\omega^k_n=\ee^{\ii\piup\frac{k}{n}}\), the integrand has singularities at every \(n\)th zero of unity. Then the integral is equal to:
     \begin{equation}
-        \int_{\partial D(0,2)}\frac{\ddz}{\prod_{j=0}^{n-1}\qty(z-\omega_j)}=\int_{\partial D(0,2)}\sum_{j=0}^{n-1}\frac{c_j}{z-\omega_j}\ddz,\label{eq:cauchygoursatformulazerosofunity}
+        \oint_{\partial D(0,2)}\frac{\ddz}{\prod_{j=0}^{n-1}\qty(z-\omega_j)}=\oint_{\partial D(0,2)}\sum_{j=0}^{n-1}\frac{c_j}{z-\omega_j}\ddz,\label{eq:cauchygoursatformulazerosofunity}
     \end{equation}
-    where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}), equation~\eqref{eq:cauchygoursatformulazerosofunity} becomes: \[\sum_{k=0}^{n-1}\int_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\piup\ii\sum_{k=0}^{n-1}c_k.\]
+    where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}), equation~\eqref{eq:cauchygoursatformulazerosofunity} becomes: \[\sum_{k=0}^{n-1}\oint_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\piup\ii\sum_{k=0}^{n-1}c_k.\]
     Observe that \(\sum_{k=0}^{n-1} c_k=\lim_{z\to\infty}\sum_{k=0}^{n-1}\frac{zc_k}{z-\omega_k}=\lim_{z\to\infty}\frac{z}{z^n-1}=0\) since \(n\geq2\).
-    Therefore, \[\int_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\]
+    Therefore, \[\oint_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\]
 \end{proof}
 We have also already seen the utility of parameterization via a polar transformation. Many useful identities in classical calculus can also be derived from concepts in its generalization:
 \begin{example}
