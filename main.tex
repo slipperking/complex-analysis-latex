@@ -1311,7 +1311,7 @@ The following major theorem, albeit originally proven by Cauchy in 1844, shows a
     \begin{equation}
         \sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\left\|f\right\|_{L^1(V)},\label{eq:nthderivativeboundedl1norm_statement}
     \end{equation}
-    where \(\qty||f||_{L^p(V)}\) denotes \[\paren{\int_V\abs{f(z)}^p\ddx\wedge\ddy}^{\flatfrac{1}{p}}.\]
+    where \(\norm{f}_{L^p(V)}\) denotes \[\paren{\int_V\abs{f(z)}^p\ddx\wedge\ddy}^{\flatfrac{1}{p}}.\]
 \end{theorem}
 \begin{proof}
     Let \(\varphi\in C^\infty\paren{\mathbb{C}}\)  satisfy \(\supp(\varphi)\subset V\) and be identically equal to 1 over some open neighborhood \(W\) of \(K\) relatively compact in \(V\). Since \(f\in C^\infty\paren{U}\), by the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}) on \(f(z)\varphi(z)\in C^\infty\paren{\overline{U}}\), \[f(z)\varphi(z)=\frac{1}{2\piup\ii}\paren{\int_{\partial U}\frac{f(\zeta)\varphi(\zeta)}{\zeta-z}\ddzeta-\int_{U}\pdv{f(\zeta)\varphi(\zeta)}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\]
@@ -3545,7 +3545,7 @@ The square of the length of the vector infinitesimal \(\dd{\va{r}}=\va{r}'_u\dd{
 \end{equation} is known as the \textit{first fundamental form} of \(\Sigma\), where \(E=\va{r}'_u\cdot\va{r}'_u\), \(F=\va{r}'_u\cdot\va{r}'_v\), and \(G=\va{r}'_v\cdot\va{r}'_v\).
 
 Let \(Q=\va{r}\qty(u+\Delta u,v+\Delta v)\) be near \(P\). It follows that \(\overrightarrow{PQ}=\va{r}\qty(u+\Delta u,v+\Delta v)-\va{r}\qty(u,v)\). The distance between \(Q\) and \(T_P\Sigma\) is \(\overrightarrow{PQ}\cdot\vu{n}\),
-where \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\qty||\va{r}'_{u}\times\va{r}'_v||}\). By application of the multivariate Taylor's Theorem, we have
+where \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\). By application of the multivariate Taylor's Theorem, we have
 \begin{align*}
     \overrightarrow{PQ}&=\va{r}'_u\Delta u+\va{r}'_v\Delta v+\frac{1}{2}\qty(\va{r}''_{uu}\Delta u^2+2\va{r}''_{uv}\Delta u\Delta v+\va{r}''_{vv}\Delta v^2)+\order{\Delta u^3+\Delta v^3},
 \end{align*}
@@ -3566,7 +3566,8 @@ It follows that \(L=-\va{r}'_u\cdot\vu{n}'_u\), \(M=-\va{r}'_u\cdot\vu{n}'_v=-\v
 
 Let \(\gamma\subset\Sigma\) be a curve parameterized by arc length, \(\va{r}(s)=\va{r}\qty(u(s),v(s))\). Then the unit tangent vector at \(P=\va{r}(s)\) is \[\va{T}(s)=\dv{\va{r}}{s}=\va{r}'_u\dv{u}{s}+\va{r}'_v\dv{v}{s}.\]
 Consequently, \[\va{T}'(s)=\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2+\va{r}'_u\dv[2]{u}{s}+\va{r}'_v\dv[2]{v}{s},\]
-where the last two terms are in \(T_P\Sigma\). Because \(\qty||\va{T}(s)||=1\) for all \(s\), we have \[\dv{s}(\qty||\va{T}'(s)||^2)=\dv{s}(\va{T}'(s)\cdot\va{T}'(s))=0\]
+where the last two terms are in \(T_P\Sigma\). Because \(\norm{\va{T}'(s)}=1\) for all \(s\) by the arc-length parameterization, we have \[0=\dv{s}(\norm{\va{T}'(s)}^2)=\dv{s}(\va{T}'(s)\cdot\va{T}'(s))=2\va{T}'(s)\cdot\va{T}''(s).\]
+Hence, \(\va{T}'(s)\) and \(\va{T}''(s)\) are orthogonal.
 \begin{theorem}[Great Picard Theorem]\label{thm:greatpicard}
 
 \end{theorem}
