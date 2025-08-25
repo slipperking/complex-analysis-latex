@@ -3019,6 +3019,13 @@ The following result is useful for evaluating integrals on indentations along a 
     Therefore,
     \[\lim_{\varepsilon \to 0}\int_{\gamma_\varepsilon}f(z)\ddz=\ii\vartheta\residue_{z=a}f(z),\] as desired.
 \end{proof}
+In the case that a branch point singularity is present on the contour, we may attempt to rewrite the function in a way such that the branch point is irrelevant. Otherwise, there are two types of ``keyhole contours'' that can be used to avoid the branch cut.
+\begin{example}
+    Evaluate \(I=\int_0^\infty\frac{\log(x^2+1)}{x^2+1}\ddx\).
+\end{example}
+\begin{proof}
+    Notice that the integrand itself has branch points at \(z=\pm\ii\) coinciding with the poles from the denominator. We can rewrite the integral as \[I=\int_0^{\infty}\frac{\log(x-i)}{x^2+1}\ddx+\int_0^{\infty}\frac{\log(x+i)}{x^2+1}\ddx.\]
+\end{proof}
 \section{Analytic Continuation}\label{sec:analyticcontinuation}
 \subsection{Analytic Function Elements}
 \begin{definition}\label{def:analyticelement}
