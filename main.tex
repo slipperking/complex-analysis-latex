@@ -1323,7 +1323,7 @@ The following major theorem, albeit originally proven by Cauchy in 1844, shows a
     Notice that over \(W\), \(\varphi=1\), \(\varphi'=0\), and is disjoint from \(K_1\) (or that \(W\cap K_1=\emptyset\)). Then, the distance between \(W\) and \(K\) is positive and the two are disjoint. Therefore, \(\exists M>0\) such that
     \[\frac{1}{\abs{\zeta-z}}\leq M,\] and thus, \[\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{1}{\abs{\zeta-z}^{n+1}}\] can be bounded by a sequence \(\cbraces{c'_n}\), independent of \(f\) and dependent only on \(n\) and the sets \(K\) and \(V\). Then, \[\abs{f^{(n)}(z)}\leq\frac{n!}{2\piup}\int_{K_1}c'_n\abs{f(\zeta)}{\abs{\ddzeta\wedge\dd{\overline{\zeta}}}}=\frac{n!}{\piup}\int_{K_1}c'_n\abs{f(\zeta)}{\abs{\ddx\wedge\ddy}}.\] Because \(K_1\) is compact, it has a finite area \(\mathrm{area}\qty(K_1)\), and we can define a new sequence \(c_n=\frac{n!}{\piup}c'_n\mathrm{area}\qty(K_1)\) to find that \[\abs{f^{(n)}(z)}\leq c_n\int_{K_1}\abs{f(\zeta)}{\abs{\ddx\wedge\ddy}}\leq c_n\int_{V}\abs{f(\zeta)}{\abs{\ddx\wedge\ddy}}.\]
 
-    The problem now stands to prove that \(\varphi(z)\) exists in the first place, which is discussed later in \autoref{thm:bumpfunctionexistence}.
+    The problem now stands to prove that \(\varphi(z)\) exists in the first place, which requires a topological argument to be later discussed in \autoref{thm:bumpfunctionexistence}.
 \end{proof}
 \begin{corollary}\label{crl:nthderivativeboundedsupremum}
     Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\). For any holomorphic function \(f(z)\) in \(U\), there exist constants (independent of \(z\) and \(f\)) \(\cbraces{c_n}\) such that \[\sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\sup_{z\in V}\abs{f(z)}.\]
@@ -1502,7 +1502,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 
     By the local finiteness of \(\qty{D\qty(z_j,r_{z_j})}\), there exists an open neighborhood \(V_z\) of each point \(z\in\Omega\) such that the set \(\cbraces{j}{V_z\cap D\qty(z_j,r_{z_j})\neq\emptyset}\) is finite. Since every open neighborhood of each point in \(\overline{D\qty(z_j,r_{z_j})}\) intersects \(D\qty(z_j,r_{z_j})\), it follows that every open set disjoint from \(D\qty(z_j,r_{z_j})\) is also disjoint from its closure. Since \(\overline{D\qty(z_j,r_{z_j})}\supset D\qty(z_j,r_{z_j})\), any open set intersecting \(D\qty(z_j,r_{z_j})\) will intersect \(\overline{D\qty(z_j,r_{z_j})}\). Therefore, \(\cbraces{j}{V_z\cap\overline{D\qty(z_j,r_{z_j})}\neq\emptyset}\) is finite. Equivalently, \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\) is locally finite on \(\Omega\).
 
-    Consequently, \(\forall z_0\in\Omega\), there exists an open neighborhood \(V\ni z_0\) that intersects a finite number of sets in \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\). Then \(\forall z\in V\), the sum \[S(z)=\sum_{j=1}^\infty\beta_j(z)\] is a sum of finitely many terms and is therefore \(C^\infty\) at \(z_0\). Since the collection of supports exhausts \(\Omega\), \(S(z)\) is positive. Therefore, the sequence defined by \[\alpha_j(z)={\frac{\beta_j(z)}{S(z)}}\] is also \(C^\infty\) and is compactly supported in \(\Omega\). Furthermore, it satisfies \[\sum_{j=1}^\infty\alpha_j(z)=1.\]
+    Consequently, \(\forall z_0\in\Omega\), there exists an open neighborhood \(V\ni z_0\) that intersects a finite number of sets in \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\). Then \(\forall z\in V\), the sum \[S(z)=\sum_{j=1}^\infty\beta_j(z)\] is a sum of finitely many terms and is therefore \(C^\infty\) at \(z_0\). Since the collection of supports exhausts \(\Omega\), \(S(z)\) is positive. Therefore, the sequence defined by \[\alpha_j(z)={\frac{\beta_j(z)}{S(z)}}\] is also \(C^\infty\) and is compactly supported in \(\Omega\). Furthermore, we have \[\sum_{j=1}^\infty\alpha_j(z)=1,\] as desired.
 \end{proof}
 \begin{theorem}[Existence of Bump Functions]\label{thm:bumpfunctionexistence}
     Let \(\Omega\subset\mathbb{C}\) be open, \(K\subset\Omega\) be compact, and \(V\subseteq\Omega\) be an open neighborhood of \(K\). Then there exists a bump function \(\varphi\in C^\infty\paren{\mathbb{C}}\) with compact support contained in \(V\) such that \(\forall z\in\mathbb{C}\), \(0\leq\varphi(z)\leq 1\), and there exists an open neighborhood of \(K\) over which \(\varphi\equiv1\).
@@ -1556,7 +1556,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 \begin{proof}
     Let \(h=f-g\) be holomorphic over \(U\). Since \(S\) has an accumulation point in \(U\), and \(h\equiv 0\) over \(S\), then by \autoref{thm:identityaccumulationofzeros}, \(h\equiv 0\) over \(U\).
 \end{proof}
-\begin{theorem}[Argument Principle for Holomorphic Functions]\label{thm:argumentprincipleholomorphic}
+\begin{theorem}[Holomorphic Argument Principle]\label{thm:argumentprincipleholomorphic}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a simple, closed, positively oriented curve that is null-homotopic in \(U\). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\), and this number, counting multiplicities, is given by
     \[k=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
     Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k=\frac{1}{2\piup}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
@@ -3529,7 +3529,7 @@ Consider \(\log(z)=\log\abs{z}=i\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is
 
 The geometric solution is to construct a new topological space \(X\), where the branches or sheets of the logarithm are \textit{glued} together. More explicitly, we take infinite copies of \(\mathbb{C}^*\), each copy indexed by an integer \(k\in\mathbb{Z}\), and glue them along the consecutive branch cuts such that after traversing a counterclockwise loop around the origin, one moves from the \(k\)-th sheet to the \((k+1)\)-th sheet (also called a branch).
 
-Note that the concatenation along a different branch cut (for example, along \(\ii\mathbb{R}_{\leq0}\)) yields an identical Riemann surface, although it is important to specify the branch cut before the construction. 
+Note that the concatenation along a different branch cut (for example, along \(\ii\mathbb{R}_{\leq0}\)) yields an identical Riemann surface, although it is important to specify the branch cut before the construction.
 
 A point that connects multiple branches or sheets is known as a \textit{branch point}. In the case of the above construction, the origin is a branch point. In general, a branch point does not need to connect \textit{all} sheets; if it connects \(n\) sheets, it is known as a branch point of order \(n-1\).
 \section{Differential Geometry}\label{sec:differentialgeometry}
