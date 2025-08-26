@@ -1645,7 +1645,7 @@ By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}
     By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f(z)-\xi)}<\abs{f(z)-w_0}\), it follows that \(f-\xi\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
 We also have the following generalization of \autoref{thm:hurwitzsimplecase}, which is a heuristic restatement of \autoref{thm:hurwitzshifts}:
-\begin{theorem}[Hurwitz]\label{thm:hurwitz}
+\begin{theorem}[\textsc{Hurwitz}]\label{thm:hurwitz}
     Let \(U\subseteq\mathbb{C}\) be an open and connected set, and suppose \(\qty{f_n(z)}_{n\in\mathbb{N}}\) is a holomorphic function sequence that uniformly converges to a non-constant function \(f(z)\) on all compact sets of \(U\).
 
     If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(f_n-w_0\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
@@ -1653,7 +1653,7 @@ We also have the following generalization of \autoref{thm:hurwitzsimplecase}, wh
 \begin{proof}
     The zero at \(z_0\) is isolated by \autoref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). By uniform convergence, \(\exists N\in \mathbb{N}\) such that \(\forall n>N\), we have \(\abs{f(z)-f_n\qty(z)}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
 
-    By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f_n(z)-w_0)}<\abs{f(z)-w_0}\), it follows that \(f_n-w_0\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
+    By Rouché's Theorem (\autoref{thm:rouche}), since \(\abs{\qty(f(z)-w_0)-\qty(f_n(z)-w_0)}<\abs{f(z)-w_0}\), it follows that \(f_n-w_0\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
@@ -1756,7 +1756,7 @@ Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac
     z-\overline{a}zw=w-a\Longleftrightarrow w=\frac{z+a}{1+\overline{a}z}.\label{eq:inversemobiustransformation}
 \end{equation}
 It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in \mathbb{D}\)) are known as \textscsl{Möbius transformations}, and the group of all such transformations is known as the \textscsl{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textscsl{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
-\begin{theorem}[The Holomorphic Automorphism Group on the Unit Disk]\label{thm:holomorphicautomorphismgrouponunitdisk}
+\begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{D}\)]\label{thm:holomorphicautomorphismgrouponunitdisk}
     \(\forall f\in \Aut(\mathbb{D})\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
 \end{theorem}
 \begin{proof}
@@ -2125,7 +2125,7 @@ A similar theorem exists for entire functions:
 \begin{proof}
     For the sake of contradiction, assume there exists \(w\in\mathbb{C}\) and \(\varepsilon>0\) such that \(D(w,\varepsilon)\notin f\qty(\mathbb{C})\). Define \(g(z)=\frac{1}{f(z)-w}\). It follows that \(\abs{g}\leq\frac{1}{\varepsilon}\) on \(\mathbb{C}\). By Liouville's Theorem (\autoref{thm:liouville}), \(g\) is a constant function, and hence, \(f\) is also constant, which is a contradiction of the statement.
 \end{proof}
-In \chpref{sec:differentialgeometry}, we will prove a profound generalization of the two results (\autoref{thm:greatpicard} and \autoref{thm:littlepicard}), which was first proved by Émile Picard in 1879: for \textscsl{the image of any open punctured neighborhood of an isolated essential singularity of a holomorphic function will attain every value in \(\mathbb{C}\), except for at most one possible exception, infinitely often}, and \textscsl{an entire function attains every value in \(\mathbb{C}\), except for at most one possible exception}.
+In \chpref{sec:differentialgeometry}, we will prove a profound generalization of the two results (\autoref{thm:greatpicard} and \autoref{thm:littlepicard}), which was first proved by Émile Picard in 1879: \textit{the image of any open punctured neighborhood of an isolated essential singularity of a holomorphic function will attain every value in \(\mathbb{C}\), except for at most one possible exception, infinitely often}; and \textit{an entire function attains every value in \(\mathbb{C}\), except for at most one possible exception}.
 \subsubsection{At the \texorpdfstring{\(\infty\)}{Infinity} Point}
 Given the one-point compactification of \(\mathbb{C}\), \(\extcomplex\), we can now define and analyze the behavior of functions near the point at infinity. Similar to the classification of isolated singularities in \(\mathbb{C}\), we can classify \(\infty\) as a removable singularity, a pole, or an essential singularity of a holomorphic function.
 
