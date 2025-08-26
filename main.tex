@@ -114,19 +114,19 @@ Made with \LaTeX.\AddToHookNext{shipout/background}{
 \subsection{Topological Preliminaries}
 We will provide a rough, informal notion of important topological concepts tailored specifically towards complex analysis.
 \begin{definition}[Accumulation Point]\label{def:accumulationpoint}
-    A point \(z\in\mathbb{C}^n\) is an \textit{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)
+    A point \(z\in\mathbb{C}^n\) is an \textscsl{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)
 \end{definition}
 \begin{definition}[Closure]\label{def:closure}
-    For a set \(X\in\mathbb{C}^n\), define the \textit{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and its accumulation points.
+    For a set \(X\in\mathbb{C}^n\), define the \textscsl{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and its accumulation points.
 \end{definition}
 \begin{definition}[Interior]\label{def:interior}
-    For a set \(X\in\mathbb{C}^n\), the \textit{interior} of \(X\), denoted \(\interior{X}\), is the union of all open sets contained in \(X\), or the set of points \(z\in\mathbb{C}^n\) such that there exists an open neighborhood of \(z\) that is fully contained in \(X\).
+    For a set \(X\in\mathbb{C}^n\), the \textscsl{interior} of \(X\), denoted \(\interior{X}\), is the union of all open sets contained in \(X\), or the set of points \(z\in\mathbb{C}^n\) such that there exists an open neighborhood of \(z\) that is fully contained in \(X\).
 \end{definition}
 \begin{definition}[Compact Set]\label{def:compactsets}
     A set \(X\in\mathbb{C}^n\) is compact if and only if \(X\) is closed and bounded.
 \end{definition}
 \begin{definition}[Cover of a Set]
-    A cover \(\mathcal{C}\) of a set \(X\) is a collection of sets \(\cbraces{U_n}\) such that \[\bigcup_{n\in\mathbb{N}}U_n\supseteq X.\] A cover is \textit{open} if every set in the collection is open.
+    A cover \(\mathcal{C}\) of a set \(X\) is a collection of sets \(\cbraces{U_n}\) such that \[\bigcup_{n\in\mathbb{N}}U_n\supseteq X.\] A cover is \textscsl{open} if every set in the collection is open.
 \end{definition}
 \begin{theorem}[Bolzano--Weierstrass Theorem]\label{thm:bolzanoweierstrass}
     Every infinite subset \(A\) of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
@@ -142,7 +142,7 @@ We will provide a rough, informal notion of important topological concepts tailo
     \[\bigcap_{k=0}^{\infty} Q_k\]
     consists of exactly one point. Call this point \(z_\infty\in\mathbb{C}^n\).
 
-    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\) where \(B^n(a,r)\subset\mathbb{C}^n\) is the \(n\)-dimensional \textit{ball} with radius \(r\) centered at \(a=\paren{a_1,a_2,\ldots,a_n}\in\mathbb{C}^n\), or \[B^n(a,r)=\cbraces{\qty(z_1,z_2,\ldots,z_n)\in\mathbb{C}^n}{\sum_{j=1}^n\abs{z_j-a_j}^2<r^2}.\]
+    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\) where \(B^n(a,r)\subset\mathbb{C}^n\) is the \(n\)-dimensional \textscsl{ball} with radius \(r\) centered at \(a=\paren{a_1,a_2,\ldots,a_n}\in\mathbb{C}^n\), or \[B^n(a,r)=\cbraces{\qty(z_1,z_2,\ldots,z_n)\in\mathbb{C}^n}{\sum_{j=1}^n\abs{z_j-a_j}^2<r^2}.\]
     Then, \(B^n(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
 
     We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B^n(z_\infty, \delta)\), and hence \(Q_k\cap X=\emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
@@ -167,10 +167,10 @@ We will provide a rough, informal notion of important topological concepts tailo
     Since the side length of each cube tends to 0, \(\bigcap_{i=0}^\infty Q_i\) consists of a single point \(z_{\infty}\in\mathbb{C}^n\). By the Bolzano-Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), because \(\forall i\in\mathbb{N}\), \(Q_i\cap X\neq\emptyset\), select a point \(z_{i}\in Q_i\cap X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\) as \(X\) is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in U\). Since \(U\) is open, \(\exists\varepsilon>0\) such that \(B^n(z_\infty,\varepsilon)\subset U\).\ \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq B^n(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every \(k\), \(Q_k\cap X\) has no finite subcovering. However, \(U\) covers \(Q_k\cap X\), which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
 \end{proof}
 \begin{definition}[Support of a Function]\label{def:support}
-    For a set \(X\) and a function \(f:X\to\mathbb{C}\), the \textit{support}, denoted by \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), is the closure of the set for which \(f\) is nonzero.
+    For a set \(X\) and a function \(f:X\to\mathbb{C}\), the \textscsl{support}, denoted by \(\supp(f)=\overline{\{z\in X\mid f(z)\neq 0\}}\), is the closure of the set for which \(f\) is nonzero.
 \end{definition}
 \begin{remark}
-    We are primarily concerned when the support of a function is compact, or if the support is bounded. Functions that are compactly supported and \(C^\infty\) are also called \textit{bump functions}.
+    We are primarily concerned when the support of a function is compact, or if the support is bounded. Functions that are compactly supported and \(C^\infty\) are also called \textscsl{bump functions}.
 \end{remark}
 \subsection{Calculus}
 Since traditional complex analysis is the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for complex functions.
@@ -193,11 +193,11 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \begin{theorem}[Mean Value Theorem, Integral Form]
     If \(f(x)\) is continuous over \([a,b]\), then \(\exists \xi\in[a,b]\) such that \[\int_a^b f(x)\ddx=f(\xi)(b-a).\]
 \end{theorem}
-A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\qty(P(t),Q(t),R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textit{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textit{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textit{piecewise smooth}. If it is of finite length, then the curve is said to be \textit{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textit{simple} if it is simple (non self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textit{Jordan curve}.
+A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\qty(P(t),Q(t),R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textscsl{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textscsl{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textscsl{piecewise smooth}. If it is of finite length, then the curve is said to be \textscsl{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textscsl{simple} if it is simple (non-self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textscsl{Jordan curve}.
 \begin{theorem}[Jordan Curve Theorem]\label{thm:jordancurve}
     Let \(\gamma\) be a Jordan curve in \(\mathbb{R}^2\). Then the set \(\mathbb{R}^2\setminus\gamma\) consists of exactly two connected subsets. One of them is the interior, denoted by \(\mathrm{int}(\gamma)\), and is a bounded set, while the other is the exterior, denoted by \(\mathrm{ext}(\gamma)\), which is unbounded. Both of the two sets share the common boundary \(\gamma\).
 \end{theorem}
-The theorem above seems trivial, but its rigorous proof in topology is extremely complex. The theorem itself can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textit{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is doubly connected, and a region bound by \(n\) non-intersecting Jordan curves is traditionally known as \(n\)-connected (the modern topological definition differs). Lastly, any closed curve can degenerate to a single point or slit.
+The theorem above seems trivial, but its rigorous proof in topology is extremely complex. The theorem itself can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textscsl{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is doubly connected, and a region bound by \(n\) non-intersecting Jordan curves is traditionally known as \(n\)-connected (the modern topological definition differs). Lastly, any closed curve can degenerate to a single point or slit.
 
 Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). An important result in multivariable calculus allows the calculation of the derivatives of a definite integral with respect to its parameter.
 \begin{theorem}[Leibniz Integral Rule]\label{thm:leibnizintegralrule}
@@ -239,7 +239,7 @@ which is the definition of the total differential. For a 1-form in 3-dimensional
 \end{align*}
 Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
 \[\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\wedge\ddy\wedge\ddz.\]
-The two results above resemble the curl and divergence of \(\qty(P,Q,R)\). A differential form \(\omega\) is \textit{closed} if \(\dd{\omega}=0\), and is \textit{exact} if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
+The two results above resemble the curl and divergence of \(\qty(P,Q,R)\). A differential form \(\omega\) is \textscsl{closed} if \(\dd{\omega}=0\), and is \textscsl{exact} if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
 \begin{lemma}[Poincaré Lemma]\label{lemma:poincare}
     For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
 \end{lemma}
@@ -255,13 +255,13 @@ Real analysis is the subject dedicated to rigorously defining concepts such as l
 \begin{definition}[Epsilon--Delta]\label{def:epsilondelta}
     Let \(f:U\to\mathbb{R}\) be a function defined over an open set \(U\subseteq\mathbb{R}\) such that \(a\) is an accumulation point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if for every \(\varepsilon > 0\), there exists \(\delta > 0\) such that for all \(x\in U\) with \(0<|x-a|<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
-    Similarly, we define the \textit{right-handed limit} \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(|f(x)-L|<\varepsilon\).
+    Similarly, we define the \textscsl{right-handed limit} \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
-    Likewise, the \textit{left-hand limit} \(\lim_{x\to a^-}f(x)=L\) exists if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(-\delta<x-a<0\), we have \(|f(x)-L|<\varepsilon\).
+    Likewise, the \textscsl{left-hand limit} \(\lim_{x\to a^-}f(x)=L\) exists if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(-\delta<x-a<0\), we have \(|f(x)-L|<\varepsilon\).
 \end{definition}
 We also have the definition of the limit of a sequence:
 \begin{definition}[Epsilon--N]\label{def:epsilonn}
-    Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. If \(\exists a_\infty\in\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\qty{a_n}\) \textit{converges} to \(a_\infty\).
+    Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. If \(\exists a_\infty\in\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\qty{a_n}\) \textscsl{converges} to \(a_\infty\).
 \end{definition}
 \begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionsequenceconvergence}
     Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. Then \(\qty{a_n}\) is convergent if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_m}<\varepsilon\).
@@ -277,7 +277,7 @@ We also have the definition of the limit of a sequence:
         \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n<a+\varepsilon\),
         \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n>a-\varepsilon\),
     \end{enumerate}
-    then the \textit{superior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varlimsup_{n\to\infty}a_n=\limsup_{n\to\infty}a_n=a\).
+    then the \textscsl{superior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varlimsup_{n\to\infty}a_n=\limsup_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{definition}[Limit Inferior]\label{def:liminf}
     For a number sequence \(\qty{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
@@ -285,7 +285,7 @@ We also have the definition of the limit of a sequence:
         \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n>a-\varepsilon\),
         \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n<a+\varepsilon\),
     \end{enumerate}
-    then the \textit{inferior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
+    then the \textscsl{inferior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{lemma}
     A number sequence \(\qty{a_n}\) is convergent if and only if \(\varlimsup_{n\to\infty} a_n=\varliminf_{n\to\infty}a_n\).
@@ -374,7 +374,7 @@ All complex numbers form a field that extends the real number field. A complex n
 
 The infinity point, \(\infty\), extends \(\mathbb{C}\) with \(\extcomplex=\mathbb{C}\cup\{\infty\}\). The following arithmetic operations are defined: \(\forall a\in\mathbb{C}\), \(a+\infty=\infty+a=\infty\), and \(\forall b\in\mathbb{C}\setminus\{0\}\), \(b\cdot\infty=\infty\cdot b=\infty\) and \(\frac{a}{\infty}=0\).
 
-Let \(S^2=\left\{\paren{x_1,x_2,x_3}\in\mathbb{R}\,\middle|\,x_1^2+x_2^2+x_3^2=1\right\}\). There exists a \textit{stereographic projection} of \(S^2\) onto \(\extcomplex\). For every point other than \((0,0,1)\), there is a corresponding complex number
+Let \(S^2=\left\{\paren{x_1,x_2,x_3}\in\mathbb{R}\,\middle|\,x_1^2+x_2^2+x_3^2=1\right\}\). There exists a \textscsl{stereographic projection} of \(S^2\) onto \(\extcomplex\). For every point other than \((0,0,1)\), there is a corresponding complex number
 \begin{equation}\label{eq:extcomplexformula1}
     z=\frac{x_1+\ii x_2}{1-x_3}.
 \end{equation}
@@ -383,14 +383,14 @@ This correspondence between \(\mathbb{C}\) and \(S^2\setminus\left\{(0,0,1)\righ
 which results in \[x_3=\frac{\abs{z}^2-1}{\abs{z}^2+1},\]
 and consequently,
 \[x_1=\Re\paren{z}\paren{1-x_3}=\frac{z+\overline{z}}{\abs{z}^2+1},\quad x_2=\Im\paren{z}\paren{1-x_3}=\frac{z-\overline{z}}{\ii\abs{z}^2+\ii}.\]
-By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textit{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\).
+By letting \(\infty\) correspond to \(\paren{0,0,1}\), the bijection is complete. The sphere \(S^2\) is also called the \textscsl{Riemann sphere}. The region given by the disk \(\abs{z}<1\) is given by \(x_3<0\), and the region \(\abs{z}>1\) is given by \(x_3>0\).
 
 We will now give a geometric visualization of this projection. Let \(z=x+\ii y\). Then we obtain that \(x=\frac{x_1}{1-x_3}\) and \(y=\frac{x_2}{1-x_3}\). Therefore, \[x:y:1=x_1:x_2:1-x_3.\]
 It follows that the points \(0\), \(\qty(x,y,1)\), and \(\qty(x_1,x_2,1-x_3)\) are collinear in \(\mathbb{R}^3\). Under the linear map \(\va{v}\mapsto\va{v}\mqty(\dmat[0]{1,1,-1})+\qty(0,0,1)\), we get that \(\qty(0,0,1)\), \(\qty(x,y,0)\), and \(\qty(x_1,x_2,x_3)\) are collinear. In other words, this correspondence is a central projection with center \(\qty(0,0,1)\), projecting the points from \(S^2\setminus \qty(0,0,1)\) onto \(\mathbb{C}\). Let this center correspond to \(\infty\). In this representation, \(\infty\in\extcomplex\) is no longer considered to be special.
 
 For the purpose of notation, we will define \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\).
 \subsection{Complex Differentiation}\label{sec:complexdifferentiation}
-For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is \textit{complex differentiable} at \(z\in U\) if the following limit exists, regardless of the direction \(\Delta z\) approaches 0 at:
+For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is \textscsl{complex differentiable} at \(z\in U\) if the following limit exists, regardless of the direction \(\Delta z\) approaches 0 at:
 \[\lim_{\Delta z\to0}\frac{f(z+\Delta z)-f(z)}{\Delta z}.\]
 We can consider \(f(z)\) to be a bivariate function \(f(x,y)\) for \(z=x+\ii y\). Two main cases we are concerned with are when \(\Delta z\) approaches 0 from the real and imaginary axes:
 \[\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\Delta z)-f(z)}{h}=\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\ii\Delta z)-f(z)}{\ii \Delta z}.\] Expressing \(f(z)\) as \(f(x,y)=u(x,y)+\ii v(x,y)\),
@@ -404,13 +404,13 @@ By multiplying the second equation by \(\ii\) and adding it to the first, we obt
 \begin{equation}
     \pdv{f}{x}=-\ii\pdv{f}{y}\label{eq:cauchyriemanneqs2}
 \end{equation}
-The equations~\eqref{eq:cauchyriemanneqs1} and~\eqref{eq:cauchyriemanneqs2} are known as the \textit{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\Re(z)\Im(z)\right|}\). Let \(z=x+\ii y\), \(x=\alpha t\), and \(y=\beta t\). Then
+The equations~\eqref{eq:cauchyriemanneqs1} and~\eqref{eq:cauchyriemanneqs2} are known as the \textscsl{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\Re(z)\Im(z)\right|}\). Let \(z=x+\ii y\), \(x=\alpha t\), and \(y=\beta t\). Then
 \[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+\ii\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+\ii\beta}.\]
 The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However, the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
 
-If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textit{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over a closed set if it is holomorphic over an open set containing the closed set. A function is \textit{entire} if it is holomorphic over \(\mathbb{C}\).
+If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textscsl{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over a closed set if it is holomorphic over an open set containing the closed set. A function is \textscsl{entire} if it is holomorphic over \(\mathbb{C}\).
 
-For the purpose of the following contents, a \textit{region} or \textit{domain} will denote a nonempty, open, connected subset of the complex plane.
+For the purpose of the following contents, a \textscsl{region} or \textscsl{domain} will denote a nonempty, open, connected subset of the complex plane.
 \begin{theorem}\label{thm:holomorphycondition}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. Then \(f\) is holomorphic on \(U\) if and only if \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
 \end{theorem}
@@ -430,7 +430,7 @@ For the purpose of the following contents, a \textit{region} or \textit{domain} 
 We will prove later in \chpref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+\ii v(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
-This type of equation is called the \textit{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textit{Laplacian}) \[\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a \textit{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
+This type of equation is called the \textscsl{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textscsl{Laplacian}) \[\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a \textscsl{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
 \begin{lemma}\label{lemma:realvaluedholomorphicfunctionconstant}
     Let \(U\subseteq\mathbb{C}\) be open and connected and \(f:U\to\mathbb{R}\) be holomorphic. It follows that \(f\) is constant over \(U\).
 \end{lemma}
@@ -468,7 +468,7 @@ The Laplacian is equal to
     & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
 \end{align}
 \subsection{Elementary Functions}
-Univariate functions formed by compositions, sums, products, and powers of finitely many functions of the following form are known as \textit{elementary functions}:
+Univariate functions formed by compositions, sums, products, and powers of finitely many functions of the following form are known as \textscsl{elementary functions}:
 \begin{enumerate}
     \item Power functions including polynomials, rational functions, and their inverses.
     \item Trigonometric functions, hyperbolic functions, and their inverses
@@ -483,7 +483,7 @@ Power functions are easily extendable to the complex plane by simply changing th
 This is better written as
 \begin{equation}
     \ee^{\ii x}=\cos(x)+\ii\sin(x),\label{eq:eulersformula}
-\end{equation} which is the famous \textit{Euler Formula}. Then for any complex number \(z=x+\ii y\), \(\ee^z=\ee^{x+\ii y}=\ee^x\paren{\cos(y)+\ii\sin(y)}\). Then trigonometric functions and exponential functions can be written in terms of each other:
+\end{equation} which is the famous \textscsl{Euler Formula}. Then for any complex number \(z=x+\ii y\), \(\ee^z=\ee^{x+\ii y}=\ee^x\paren{\cos(y)+\ii\sin(y)}\). Then trigonometric functions and exponential functions can be written in terms of each other:
 \begin{align*}
     \sin(z)  & =\frac{\ee^{\ii z}-\ee^{-\ii z}}{2\ii}, & \cos(z)  & =\frac{\ee^{\ii z}+\ee^{-\ii z}}{2}, & \tan(z)  & =\frac{\ee^{\ii z}-\ee^{-\ii z}}{\ii \paren{\ee^{\ii z}+\ee^{-\ii z}}} \\
     \sinh(z) & =\frac{\ee^z-\ee^{-z}}{2},              & \cosh(z) & =\frac{\ee^z+\ee^{-z}}{2},           & \tanh(z) & =\frac{\ee^z-\ee^{-z}}{\ee^z+\ee^{-z}}x.
@@ -508,7 +508,7 @@ Since all elementary functions can be written in terms of exponential functions 
         and indeed, the condition described by \autoref{thm:holomorphycondition} is satisfied.
     \item For any two complex numbers \(z_1\) and \(z_2\), \(\ee^{z_1}\ee^{z_2}=\ee^{z_1+z_2}\).
 
-        In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(\ee^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textit{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(z_1\) and \(z_2\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
+        In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(\ee^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textscsl{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(z_1\) and \(z_2\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
     \item The region \(\ee^z\) is univalent over:
 
         Let \(z_1=x_1+\ii y_1\), \(z_2=x_2+\ii y_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(\ee^{z_1}=\ee^{z_2}\). Then, \[\ee^{x_1}\ee^{\ii y_1}=\ee^{x_2}\ee^{\ii y_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\piup k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\piup k\), we can select \(U\) to be any horizontal strip \(2\piup k\leq \Im(z)< 2\piup (k+1)\) (or \(2\piup k< \Im(z)\leq 2\piup (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\piup\) is a region over which \(\log\) is univalent.
@@ -522,7 +522,7 @@ Next we examine the complex logarithm.
         \[w=\log(r)+\ii(\theta+2\piup k),\]
         and using the modulus-argument notation,
         \[\log(z)=\log\abs{z}+\ii\arg(z),\]
-        where \(\arg(z)\) is the multi-valued argument function. The \textit{principal branch} of the argument is denoted \(\Arg:\mathbb{C}\setminus\qty{0}\to(-\piup,\piup]\). The principal branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\Im\paren{\Log}\in(-\piup,\piup]\).
+        where \(\arg(z)\) is the multi-valued argument function. The \textscsl{principal branch} of the argument is denoted \(\Arg:\mathbb{C}\setminus\qty{0}\to(-\piup,\piup]\). The principal branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\Im\paren{\Log}\in(-\piup,\piup]\).
 \end{enumerate}
 The functions \(\sin\) and \(\cos\), through their exponential form, still satisfy the properties such as their derivatives, periodicity being \(2\piup\), parity, sum and difference, and the fundamental identities \(\sin^2(z)+\cos^2(z)=1\), \(\sin(z)=\cos(\frac{\piup}{2}-z)\). However, due to the extension, some properties do not hold. For instance, \(\sin(z)\) and \(\cos(z)\) are unbounded, as along the imaginary axis, they resemble their hyperbolic counterparts, which are unbounded along the real line.
 
@@ -563,7 +563,7 @@ Lastly, there exist series representations of functions using power functions (T
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex analysis:
 \begin{definition}[Uniform Convergence]
-    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textit{uniformly converges} to a function \(f(z)\) on \(U\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f_n(z)-f(z)}<\varepsilon\).
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textscsl{uniformly converges} to a function \(f(z)\) on \(U\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f_n(z)-f(z)}<\varepsilon\).
 \end{definition}
 \begin{remark}
     The definition above is equivalent to the following definition.
@@ -594,18 +594,18 @@ Function series are defined to be a sequence formed by the partial sums of funct
 \end{proof}
 The concept of uniform convergence is generalized to improper integrals with parameters, and the same theorems from series have a corresponding counterpart.
 
-In both complex and real analysis, the concept of \textit{power series}, a unique type of function series, is of trivial importance. Similar to real power series, complex series have the form \[\sum_{n=0}^\infty a_n z^n,\] where \(\cbraces{a_n}\) are constants.
+In both complex and real analysis, the concept of \textscsl{power series}, a unique type of function series, is of trivial importance. Similar to real power series, complex series have the form \[\sum_{n=0}^\infty a_n z^n,\] where \(\cbraces{a_n}\) are constants.
 
-Let \(D(a,r)=B^1(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textit{open disk} centered at \(a\) with radius \(r\). For simplicity, from now on we will have \(\mathbb{D}\) denote the unit open disk, or \(D(0,1)\). We will now observe the convergence of power series.
+Let \(D(a,r)=B^1(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textscsl{open disk} centered at \(a\) with radius \(r\). For simplicity, from now on we will have \(\mathbb{D}\) denote the unit open disk, or \(D(0,1)\). We will now observe the convergence of power series.
 \begin{theorem}[Abel's Theorem]\label{thm:abelradius}
-    For a power series \(f(z)=\sum_{n=0}^\infty a_nz^n\), there exists a constant \(R\in\mathbb{R}_{\geq0}\cup\cbraces{\infty}\), known as the \textit{radius of convergence} such that:
+    For a power series \(f(z)=\sum_{n=0}^\infty a_nz^n\), there exists a constant \(R\in\mathbb{R}_{\geq0}\cup\cbraces{\infty}\), known as the \textscsl{radius of convergence} such that:
     \begin{enumerate}
         \item \(f\) absolutely converges on \(D(0,R)\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\overline{D(0,\rho)}\).\label{itm:abelradius_absoluteanduniformconvergence}
         \item \(f(z)\) diverges when \(\abs{z}>R\).\label{itm:abelradius_divergence}
         \item \(f\) is holomorphic over \(D(0,R)\) and \(f'(z)\) can be obtained by termwise differentiation, or \(f'(z)=\sum_{n=1}^\infty na_n z^{n-1}\), and also has the radius of convergence \(R\).\label{itm:abelradius_differentiation}
     \end{enumerate}
 \end{theorem}
-The disk \(\abs{z}<R\) is known as the \textit{disk of convergence}, a direct generalization of the \textit{interval of convergence} for real series. There are many ways to determine the radius of convergence:
+The disk \(\abs{z}<R\) is known as the \textscsl{disk of convergence}, a direct generalization of the \textscsl{interval of convergence} for real series. There are many ways to determine the radius of convergence:
 \begin{theorem}[Cauchy--Hadamard]\label{thm:cauchyhadamard}
     The radius of convergence of the power series in the form of \(\sum_{n=0}^\infty a_n z^n\) can be determined by
     \begin{equation}
@@ -686,7 +686,7 @@ Now consider two smooth curves \(\gamma_1,\gamma_2\in C^1([0,1])\) such that \(\
 \[\arg(\sigma_1'(0))-\arg(\gamma_1'(0))=\arg(f'(z_0))=\arg(\sigma_2'(0))-\arg(\gamma_2'(0)),\]
 and by rearrangement,
 \[\arg(\sigma_1'(0))-\arg(\sigma_2'(0))=\arg(\gamma_1'(0))-\arg(\gamma_2'(0)).\]
-This equality demonstrates that the angle between two smooth curves at \(z_0\) is preserved under \(f\), provided \(f'(z_0)\neq 0\). In other words, holomorphic functions with non-vanishing derivatives preserve angles and orientation locally--a property known as \textit{conformality}.
+This equality demonstrates that the angle between two smooth curves at \(z_0\) is preserved under \(f\), provided \(f'(z_0)\neq 0\). In other words, holomorphic functions with non-vanishing derivatives preserve angles and orientation locally--a property known as \textscsl{conformality}.
 
 Furthermore, for any smooth curve \(\gamma\in C^1([0,1])\) passing through \(z_0\), the limit
 \[\lim_{\substack{z\to z_0\\z\in\gamma}}\frac{\abs{f(z)-f(z_0)}}{\abs{z-z_0}}=\abs{f'(z_0)}\]
@@ -1248,11 +1248,11 @@ The Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}) can also be gen
     which verifies equations~\eqref{eq:cauchydifferentiationformula_taylorseries} and~\eqref{eq:cauchydifferentiationformula_taylorseriescoefficients}.
 \end{proof}
 \begin{remark}
-    By induction, we have shown that assuming the existence of the first order derivative of a holomorphic function \(f\), the \(n\)th order derivative of \(f\) exists \(\forall n\in\mathbb{N}\) and is holomorphic over the same region as \(f^{(n-1)}\). Furthermore, if \(f\) is holomorphic, then \(\forall z\in U\), there exists an open disk enclosing \(z\) such that \(f\) has a convergent Taylor series expansion. This property is known as \textit{analyticity}, and \autoref{thm:cauchydifferentiationformula} tells us that all holomorphic functions are analytic. Analytic functions can be expanded into power series, which are termwise differentiable, and therefore complex differentiable. Thus, analyticity and holomorphy are logically equivalent, which is a fundamental difference between real and complex functions.
+    By induction, we have shown that assuming the existence of the first order derivative of a holomorphic function \(f\), the \(n\)th order derivative of \(f\) exists \(\forall n\in\mathbb{N}\) and is holomorphic over the same region as \(f^{(n-1)}\). Furthermore, if \(f\) is holomorphic, then \(\forall z\in U\), there exists an open disk enclosing \(z\) such that \(f\) has a convergent Taylor series expansion. This property is known as \textscsl{analyticity}, and \autoref{thm:cauchydifferentiationformula} tells us that all holomorphic functions are analytic. Analytic functions can be expanded into power series, which are termwise differentiable, and therefore complex differentiable. Thus, analyticity and holomorphy are logically equivalent, which is a fundamental difference between real and complex functions.
 \end{remark}
 The differentiation formula above can be thought of as a generalization of \autoref{thm:cauchygoursatformula}, and provides similar utility in the evaluation of integrals:
 \begin{example}\label{ex:legendrepolynomialintegralformula}
-    A \textit{Legendre polynomial} is a polynomial whose explicit equation is given by
+    A \textscsl{Legendre polynomial} is a polynomial whose explicit equation is given by
     \begin{equation}
         P_n(z)=\frac{1}{2^n n!}\dv[n]{z}({\qty(z^2-1)}^n).\label{eq:legendrepolynomialintegralformula_rodriguesformula}
     \end{equation}
@@ -1331,10 +1331,10 @@ The following major theorem, albeit originally proven by Cauchy in 1844, shows a
 \begin{proof}
     Starting from equation~\eqref{eq:nthderivativeboundedl1norm_statement}, observe that \[c_n\left\|f\right\|_{L^1(V)}\leq c_n\mathrm{area}(V)\sup_{z\in V}\abs{f(z)},\] and we can define a new set of constants equal to \(c_n\mathrm{area}(V)\), which are still independent of \(z\).
 \end{proof}
-For the next theorem we will briefly introduce the concept of \textit{analytic continuation}.
+For the next theorem we will briefly introduce the concept of \textscsl{analytic continuation}.
 \begin{definition}[Analytic Continuation]\label{def:analyticcontinuation}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be holomorphic. Let \(V\subseteq\mathbb{C}\) be open with \(U\subseteq V\). A function
-    \(F:U\cap V\to\mathbb{C}\) is an \textit{analytic continuation} of \(f\) to \(V\) if:
+    \(F:U\cap V\to\mathbb{C}\) is an \textscsl{analytic continuation} of \(f\) to \(V\) if:
     \begin{enumerate}
         \item \(F\) is holomorphic on \(V\), and
         \item \(F\equiv f\) on \(U\).
@@ -1356,15 +1356,15 @@ The concept of analytic continuation and its consequent problems and properties 
 \end{proof}
 \subsubsection{Partitions of Unity and the Existence of Bump Functions}
 \begin{definition}[Topological Space]
-    A \textit{topological space} is a pair \((X, \tau)\), where \(X\) is a set and \(\tau\) is a collection of subsets of \(X\) satisfying the following properties:
+    A \textscsl{topological space} is a pair \((X, \tau)\), where \(X\) is a set and \(\tau\) is a collection of subsets of \(X\) satisfying the following properties:
     \begin{enumerate}
         \item \(\emptyset\in\tau\) and \(X\in\tau\),
         \item The union of any collection of sets in \(\tau\) is also in \(\tau\),
         \item The intersection of any finite number of sets in \(\tau\) is also in \(\tau\).
     \end{enumerate}
-    The collection \(\tau\) is called a \textit{topology} on \(X\), and its elements are referred to as \textit{open sets} under the topology \(\tau\).
+    The collection \(\tau\) is called a \textscsl{topology} on \(X\), and its elements are referred to as \textscsl{open sets} under the topology \(\tau\).
 \end{definition}
-If a topological space \(X\) can be written as the union between two nonempty disjoint open sets, then it is \textit{disconnected}. Otherwise, it is \textit{connected}.
+If a topological space \(X\) can be written as the union between two nonempty disjoint open sets, then it is \textscsl{disconnected}. Otherwise, it is \textscsl{connected}.
 
 A topology allows the definition and general conceptualization of continuity, convergence, and connectivity in a general setting, without necessarily relying on a notion of distance (a metric).
 
@@ -1382,7 +1382,7 @@ For example, in a topological space, a function \(f:X\to Y\) between two topolog
     which is not an open set in the standard topology on \(\mathbb{R}\).
 \end{example}
 \begin{definition}[Basis of a Topology]
-    For a topological space \((X,\tau)\), a \textit{basis} \(\mathfrak{B}\subseteq\tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of a subcollection of \(\mathfrak{B}\).
+    For a topological space \((X,\tau)\), a \textscsl{basis} \(\mathfrak{B}\subseteq\tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of a subcollection of \(\mathfrak{B}\).
 \end{definition}
 It is easy to see that \(\mathfrak{B}\) forms an open cover of \(X\). For any two sets in a topology, their intersection is also in the topology, which means there is a set in the basis of the topology that is a subset of the intersection.
 
@@ -1392,7 +1392,7 @@ In a topological space \(X\), a subset can either be open, closed (the complemen
 
 Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A technique used in many proofs in complex analysis follow from the following fact:
 \begin{theorem}\label{thm:connectedtopologicalspaceclopensets}
-    A topological space \(X\) is \textit{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).
+    A topological space \(X\) is \textscsl{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).
 \end{theorem}
 \begin{proof}
     Suppose that \(X\) is connected. Suppose that \(A\subseteq X\) is clopen. Notice that \(A\) and \(X\setminus A\) are both open in \(X\) by clopenness and are disjoint from each other. Since \(X=A\cup\qty(X\setminus A)\), it follows that either \(A=\emptyset\) or \(X\setminus A=\emptyset\Leftrightarrow A=X\).
@@ -1405,7 +1405,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     The topological space of \(X=\paren{\bigcup_{n\in 2\mathbb{Z}}(n,n+1),\tau}\), where \(\tau\) is the unique topology formed by the basis \(\cbraces{(n,n+1)}{n\in 2\mathbb{Z}}\), which is disconnected. Consider \((0,1)\subset X\). Obviously, \((0,1)\in\tau\) so it is open. However, \(\bigcup_{n\in 2\mathbb{Z}}(n,n+1)\setminus (0,1)=\bigcup_{\substack{n\in 2\mathbb{Z}\\n\neq 0}}(n,n+1)\in\tau\), and therefore, \((0,1)\) is also closed under \(\tau\). In fact, every set in \(\tau\) is clopen.
 \end{example}
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
-    For a topological space \(X\), an \textit{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\), such that \(\forall n\in\mathbb{N}\), \(K_n\subset \interior{K_{n+1}}\), and \[X=\bigcup_{n\in\mathbb{N}}K_n\]
+    For a topological space \(X\), an \textscsl{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\), such that \(\forall n\in\mathbb{N}\), \(K_n\subset \interior{K_{n+1}}\), and \[X=\bigcup_{n\in\mathbb{N}}K_n\]
 \end{definition}
 \begin{lemma}\label{lemma:locallyfiniteopencoverexistence}
     Let \(\Omega\subseteq\mathbb{C}\) be an open set and \(\mathfrak{B}\) be an (open) basis of (the standard topology under) \(\Omega\). Then there exists a collection of sets \(\left\{U_n\right\}_{n\in\mathbb{N}}\) in \(\mathfrak{B}\) such that
@@ -1472,7 +1472,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 
     Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{n,i},n}\) for \(n\in\mathbb{N}\) and \(i=1,\ldots,k_n\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving~\ref{itm:locallyfiniteopencoverexistence_cover}.
 
-    For \ref{itm:locallyfiniteopencoverexistence_localfiniteness}, let \(K\subset\Omega\) be compact. Then \(\exists N\in\mathbb{N}\) such that \(K\subset \interior{K_N}\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textit{locally finite}.
+    For \ref{itm:locallyfiniteopencoverexistence_localfiniteness}, let \(K\subset\Omega\) be compact. Then \(\exists N\in\mathbb{N}\) such that \(K\subset \interior{K_N}\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textscsl{locally finite}.
 \end{proof}
 \begin{remark}
     The property of local finiteness of an open collection \(S\) in \(\Omega\) is commonly stated as:
@@ -1516,7 +1516,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     When \(z\in\Omega_1\setminus\Omega_2=V(K,\varepsilon)\), the first summation vanishes, meaning that \(\varphi(z)\equiv1\) on the neighborhood \(V(K,\varepsilon)\) of \(K\). When \(z\in\Omega_2\setminus\Omega_1=\Omega\setminus V(K,2\varepsilon)\), \(\varphi(z)\) vanishes.
 \end{proof}
 \subsection{Zeros of a Holomorphic Function}
-For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textit{zero} of \(f\) if and only if \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
+For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textscsl{zero} of \(f\) if and only if \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
 
 We will introduce a fundamental application of Liouville's Theorem (\autoref{thm:liouville}) below.
 \begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
@@ -1720,19 +1720,19 @@ The following important result can be directly obtained from the Maximum Modulus
 
     Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in \mathbb{D}\), it follows from \autoref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(\ii\tau)\).
 \end{proof}
-To discuss the main topic of this section, we will first introduce the concept of a \textit{group}.
+To discuss the main topic of this section, we will first introduce the concept of a \textscsl{group}.
 \begin{definition}[Group]\label{def:group}
-    A group is a nonempty set \(G\) and a binary operation (we will denote this as \(*\)) satisfying the four \textit{group axioms}:
+    A group is a nonempty set \(G\) and a binary operation (we will denote this as \(*\)) satisfying the four \textscsl{group axioms}:
     \begin{itemize}
         \item Closure: \(\forall a,b\in G\), \(a*b\in G\).
         \item Associativity: \(\forall a,b,c\in G\), \((a*b)*c=a*(b*c)\).
         \item Identity Element: \(\exists e\in G\) such that \(\forall a\in G\), \(a*e=e*a=a\). Note that \(e\) is unique; if \(e,f\in G\) were both identity elements, then \(e*f=f*e=e=f\), and are equal.
         \item Inverse Element: \(\forall a\in G\), \(\exists a^{-1}\in G\) such that \(a*a^{-1}=e=a^{-1}*a\), where \(e\) is the identity element. Note that \(a^{-1}\) is unique. Assume \(b,c\) were both inverses of \(a\). Then, \(b=b*e=b*(a*c)=(b*a)*c=c\), and are equal.
     \end{itemize}
-    A \textit{subgroup} \(H\) of \(G\) is a subset of \(G\) that is also a group under the same operation as \(G\). This relationship is denoted by \(H\leq G\) or \(H<G\) for \textit{proper subgroups}.
+    A \textscsl{subgroup} \(H\) of \(G\) is a subset of \(G\) that is also a group under the same operation as \(G\). This relationship is denoted by \(H\leq G\) or \(H<G\) for \textscsl{proper subgroups}.
 \end{definition}
 
-If \(U\subseteq\mathbb{C}\) is connected and \(f:U\to U\) is holomorphic on \(U\) and bijective, \(f\) is a \textit{holomorphic automorphism} of \(U\). The \textit{group of holomorphic automorphisms} on \(U\) is denoted by \(\Aut(U)\), which is the set of all holomorphic automorphisms such as \(f\), with the operation of composition (\(f\circ g\)).
+If \(U\subseteq\mathbb{C}\) is connected and \(f:U\to U\) is holomorphic on \(U\) and bijective, \(f\) is a \textscsl{holomorphic automorphism} of \(U\). The \textscsl{group of holomorphic automorphisms} on \(U\) is denoted by \(\Aut(U)\), which is the set of all holomorphic automorphisms such as \(f\), with the operation of composition (\(f\circ g\)).
 
 First we will show that \(\forall a\in \mathbb{D}\),
 \begin{equation}
@@ -1755,7 +1755,7 @@ Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac
 \begin{equation}
     z-\overline{a}zw=w-a\Longleftrightarrow w=\frac{z+a}{1+\overline{a}z}.\label{eq:inversemobiustransformation}
 \end{equation}
-It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in \mathbb{D}\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
+It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that equation~\eqref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in \mathbb{D}\)) are known as \textscsl{Möbius transformations}, and the group of all such transformations is known as the \textscsl{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textscsl{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
 \begin{theorem}[The Holomorphic Automorphism Group on the Unit Disk]\label{thm:holomorphicautomorphismgrouponunitdisk}
     \(\forall f\in \Aut(\mathbb{D})\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
 \end{theorem}
@@ -1790,11 +1790,11 @@ As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk},
     By the Schwarz Lemma (\autoref{lemma:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\]
 \end{proof}
 \begin{remark}
-    In \chpref{sec:differentialgeometry}, we will introduce the \textit{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-|z|^2)^2}.\]
+    In \chpref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-|z|^2)^2}.\]
     From equation~\eqref{eq:schwarzpick_nonincreasingmetric}, we get that the hyperbolic metric does not increase under a holomorphic mapping of \(\mathbb{D}\) to itself. This metric is invariant (the equality condition) under all functions in \(\Aut(\mathbb{D})\). This gives a geometric explanation for \autoref{lemma:schwarz}.
 \end{remark}
 \subsection{Alternative Integral Formulae}
-As in the Cauchy Integral Formula (\autoref{thm:cauchygoursatformula}), we can write holomorphic functions in terms of an integral representation. We define the \textit{Cauchy kernel} to be equal to
+As in the Cauchy Integral Formula (\autoref{thm:cauchygoursatformula}), we can write holomorphic functions in terms of an integral representation. We define the \textscsl{Cauchy kernel} to be equal to
 \[H(\zeta,z)=\frac{1}{2\piup\ii\paren{\zeta-z}}.\]
 Then equation~\eqref{eq:cauchygoursatformula} can be written as:
 \[f(z)=\oint_{\partial U}f(\zeta)H(\zeta,z)\ddzeta.\] There also exist other integral formulae for functions, varying in the kernel of the expression.
@@ -1811,11 +1811,11 @@ Let \(u(\zeta)=\Phi\circ\varphi_z(\zeta)\), which is also harmonic on \(\mathbb{
     \dd{\psi}=\frac{1-\overline{z}z}{(1-\overline{z}\ee^{\ii\tau})^2}\frac{1-\overline{z}\ee^{\ii\tau}}{\ee^{\ii\tau}-z}\ee^{\ii\tau}\dd{\tau}=\frac{1-\abs{z}^2}{\abs{1-\overline{z}\ee^{\ii\tau}}^2}\dd{\tau}.
 \end{gather*}
 Then from equation~\eqref{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}, since \(\Phi(0)=u\circ\varphi_{-z}(0)=u(z)\), \[\Phi(0)=\frac{1}{2\piup}\int_0^{2\piup}u\qty(\ee^{\ii\tau})\frac{1-\abs{z}^2}{\abs{1-\overline{z}\ee^{\ii\tau}}^2}\dd{\tau}=u(z).\]
-Let \(P(\zeta,z)=\frac{1-\abs{z}^2}{2\piup\qty|1-\overline{z}\zeta|^2}=\frac{1-\abs{z}^2}{2\piup\abs{\zeta-z}^2}\), known as the \textit{Poisson kernel}. Then,
+Let \(P(\zeta,z)=\frac{1-\abs{z}^2}{2\piup\qty|1-\overline{z}\zeta|^2}=\frac{1-\abs{z}^2}{2\piup\abs{\zeta-z}^2}\), known as the \textscsl{Poisson kernel}. Then,
 \begin{equation}
     u(z)=\int_0^{2\piup}u\qty(\zeta)P(\zeta,z)\dd{\tau},\label{eq:poissonintegralformula}
 \end{equation}
-where \(\zeta=\ee^{\ii\tau}\). Equation~\eqref{eq:poissonintegralformula} is also known as the \textit{Poisson Integral Formula}.
+where \(\zeta=\ee^{\ii\tau}\). Equation~\eqref{eq:poissonintegralformula} is also known as the \textscsl{Poisson Integral Formula}.
 \(\forall z\in D(0,R)\), \(\forall R>0\), we can apply the transformation \(\widetilde{\varphi}_z\qty(\zeta)=R\varphi_{\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\) to extend the automorphism to \(D(0,R)\). Let \(\Phi\) instead be harmonic on \(D(0,R)\) and continuous on \(\overline{D(0,R)}\). Then, \[\Phi(0)=\frac{1}{2\piup}\int_0^{2\piup}\Phi\qty(R\ee^{\ii\psi})\dd{\psi}.\]
 It follows that \(u=\Phi\circ\widetilde{\varphi}_z\) is also harmonic on \(D(0,R)\) with \(\Phi(0)=u\circ\widetilde{\varphi}_{-z}(0)=u(z)\), and from the bijectivity of  \(R\ee^{\ii\psi}=\widetilde{\varphi}_z\qty(R\ee^{\ii\tau})\),
 \begin{equation}
@@ -1840,21 +1840,21 @@ where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \[\frac{
 \end{equation}
 Letting \(z=0\), the integral vanishes, and we obtain \(c=v(0)=\Im(f(0))\).
 
-Define the \textit{Schwarz kernel} to be \[S(\zeta,z)=\frac{\zeta+z}{2\piup\ii(\zeta-z)\zeta}.\]
-Then for a holomorphic function \(f\) on \(D(0,R)\) that is continuous on \(\overline{D(0,R)}\), we obtain the \textit{Schwarz Integral Formula}:
+Define the \textscsl{Schwarz kernel} to be \[S(\zeta,z)=\frac{\zeta+z}{2\piup\ii(\zeta-z)\zeta}.\]
+Then for a holomorphic function \(f\) on \(D(0,R)\) that is continuous on \(\overline{D(0,R)}\), we obtain the \textscsl{Schwarz Integral Formula}:
 \begin{equation}
     f(z)=\oint_{\partial D(0,R)}\Re\qty(f(\zeta))S(\zeta,z)\ddzeta+\ii\Im\qty(f(0)).\label{eq:schwarzintegralformula}
 \end{equation}
 The significance of this alternative formula implies that a holomorphic function can be recovered from the real part on the boundary of a disk and the imaginary part at a single point.
 
 From equation~\eqref{eq:schwarzintegralformulaimaginarypart}, we can rewrite \[\Im\qty(\frac{\zeta+z}{\zeta-z})=\Im\qty(1+\frac{2z}{\zeta-z})=\Im\qty(\frac{2z\paren{\overline{\zeta}-\overline{z}}}{\abs{\zeta-z}^2})=\frac{2\Im\qty(z\overline{\zeta})}{\abs{\zeta-z}^2}.\label{eq:harmonicconjugate}\]
-Let \(Q(\zeta,z)=\frac{\Im\qty(z\overline{\zeta})}{\piup\abs{\zeta-z}^2}\), which is known as the \textit{conjugate Poisson kernel}. Then equation~\eqref{eq:schwarzintegralformulaimaginarypart} yields yet another integral representation of harmonic functions:
+Let \(Q(\zeta,z)=\frac{\Im\qty(z\overline{\zeta})}{\piup\abs{\zeta-z}^2}\), which is known as the \textscsl{conjugate Poisson kernel}. Then equation~\eqref{eq:schwarzintegralformulaimaginarypart} yields yet another integral representation of harmonic functions:
 \[v(z)=v(0)+\int_0^{2\piup}u(\zeta)Q(\zeta,z)\dd{\tau},\]
-where \(\zeta=R\ee^{\ii\tau}\). Two harmonic functions are said to be \textit{conjugate} if they are the real and imaginary parts of a holomorphic function. As seen above, on open disks, any harmonic function will admit a unique conjugate, (up to an additive constant \(v(0)\)). For a harmonic function \(u\), we can construct its harmonic conjugate from equation~\eqref{eq:harmonicconjugate}.
+where \(\zeta=R\ee^{\ii\tau}\). Two harmonic functions are said to be \textscsl{conjugate} if they are the real and imaginary parts of a holomorphic function. As seen above, on open disks, any harmonic function will admit a unique conjugate, (up to an additive constant \(v(0)\)). For a harmonic function \(u\), we can construct its harmonic conjugate from equation~\eqref{eq:harmonicconjugate}.
 
 The Poisson kernel is important in many branches of mathematics. We will introduce two of the important uses below.
 \subsubsection{Laplace's Equation under Dirichlet Boundary Conditions on a Disk}
-A fundamental problem in the theory of partial differential equations is to find a function \(u\) that is continuous on the closed disk \(\overline{D(0,R)}\), harmonic on the open disk \(D(0,R)\), and identically equal to a given boundary function on \(\partial D(0,R)\). This is known as the \textit{Dirichlet problem} for the Laplace equation on a disk.
+A fundamental problem in the theory of partial differential equations is to find a function \(u\) that is continuous on the closed disk \(\overline{D(0,R)}\), harmonic on the open disk \(D(0,R)\), and identically equal to a given boundary function on \(\partial D(0,R)\). This is known as the \textscsl{Dirichlet problem} for the Laplace equation on a disk.
 \begin{theorem}\label{thm:dirichletproblemwithlaplaceequationsolution}
     For a continuous function \(\varphi\in C^0(\partial D(0,R))\), the unique real-valued solution \(u\in C^0\qty(\overline{D(0,R)})\) that solves \[\laplacian u(z)=0\quad\forall z\in D(0,R),\qquad u(z)=\varphi(z) \quad\forall z\in\partial D(0,R)\] is given by the Poisson integral formula:
     \begin{equation}
@@ -1969,7 +1969,7 @@ Substituting into equation~\eqref{eq:poissonintegralformulafourierseriespostinte
 \[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho \ee^{\ii\theta}).\]
 Furthermore, by the proof of \autoref{thm:dirichletproblemwithlaplaceequationsolution} (specifically equation~\eqref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}),
 \[\lim_{\rho\to1^-}\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=u\qty(\ee^{\ii\theta}).\]
-Thus, for any continuous function \(u\) on \(\partial\mathbb{D}\), its Fourier series is \textit{Abel summable} to \(u\).
+Thus, for any continuous function \(u\) on \(\partial\mathbb{D}\), its Fourier series is \textscsl{Abel summable} to \(u\).
 
 We now establish that real-valued continuous functions satisfying the mean-value property are harmonic.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
@@ -1983,9 +1983,9 @@ We now establish that real-valued continuous functions satisfying the mean-value
     with \(u=f\) on \(\partial D\qty(z_0,\lambda)\). Define \(\psi=f-u\) on \(\overline{D\qty(z_0,\lambda)}\). Then \(\psi\) is continuous, satisfies the mean-value property, and vanishes on \(\partial D\qty(z_0,\lambda)\). By the proof of \autoref{thm:maximummodulus}, which relies solely on the mean-value property, \(\psi\equiv 0\) on \(\overline{D\qty(z_0,\lambda)}\). Thus \(f\equiv u\) on \(\overline{D\qty(z_0,\lambda)}\), implying \(f\) is harmonic at \(z_0\). The arbitrariness of \(z_0\) establishes harmonicity on \(U\).
 \end{proof}
 \section{The Theory of Weierstrass}
-While Weierstrass' contributions in complex analysis are mainly characterized by his discoveries on uniform convergence, he also characterized entire and \textit{meromorphic functions} and a unique representation of entire functions, as well as his contributions toward the study of \textit{essential singularities}.
+While Weierstrass' contributions in complex analysis are mainly characterized by his discoveries on uniform convergence, he also characterized entire and \textscsl{meromorphic functions} and a unique representation of entire functions, as well as his contributions toward the study of \textscsl{essential singularities}.
 
-To help understand the behavior of non-removable singularities, we will introduce the concept of \textit{Laurent series}.
+To help understand the behavior of non-removable singularities, we will introduce the concept of \textscsl{Laurent series}.
 \subsection{Laurent Series}
 The Laurent series generalizes the Taylor series to holomorphic functions with isolated singularities. While Taylor series are valid within a disk centered at a point of holomorphy, Laurent series apply to annular regions surrounding a singularity, making them essential for studying functions near non-removable singularities (refer to \autoref{thm:removablesingularitiesriemann}).
 
@@ -2024,9 +2024,9 @@ is a Laurent series at the point \(a\). The series can be separated into a power
     \psi(z)=\sum_{n=1}^{\infty}c_{-n}(z-a)^{-n}.\label{eq:laurentseriesnegativeexponents}
 \end{equation} Equation~\eqref{eq:laurentseries} is said to be convergent at \(z=z_0\) if the two power series are both convergent. Let the convergence radius of equation~\eqref{eq:laurentseriesnonnegativeexponents} be \(R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}}\) by the Cauchy--Hadamard Theorem (\autoref{thm:cauchyhadamard}). It follows that the \(\varphi\) is holomorphic on \(D(a,R)\). Let \(\zeta=(z-a)^{-1}\). Then equation~\eqref{eq:laurentseriesnegativeexponents} becomes \(\sum_{n=1}^\infty c_{-n}\zeta^n\). This series converges when \(\abs{\zeta}<\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}}=\lambda\). Let \(r=\frac{1}{\lambda}\). Then \(\psi(z)\) converges when \(\abs{z-a}>\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_{-n}}}\), or when \(z\in\mathbb{C}\setminus\overline{D(a,r)}\).
 
-If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D(a,r)}\) and divergent on \(\mathbb{C}\setminus\overline{D(a,R)}\cup D(a,r)\). If \(r=R\), the series diverges possibly everywhere but on \(\partial D(a,r)\). Similar to power series with positive exponents, the convergence on the boundary varies. For example, \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n^2}\), where \(R=r=1\), converges (absolutely) on \(\partial\mathbb{D}\), whereas \(\sum_{n=-\infty}^\infty z^n\) diverges on all of \(\partial\mathbb{D}\), while \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n}\) converges (conditionally) on all of \(\partial\mathbb{D}\setminus\qty{1}\) and diverges at \(z=1\). If \(r>R\), then the series is divergent on all of \(\mathbb{C}\). The region \(D(a,R)\setminus\overline{D(a,r)}\) is known as the \textit{annulus of convergence}. \(f(z)\) in equation~\eqref{eq:laurentseries} is holomorphic over this annulus. \(\varphi(z)\) is known as the \textit{holomorphic part} of \(f(z)\), and \(\psi(z)\) is known as the \textit{principal part} of the Laurent series. The properties of the convergence disk in Abel's Theorem (\autoref{thm:abelradius}) can be generalized to Laurent series. In other words, \(f\) is absolutely convergent on the annulus and is uniformly convergent on every compact subset of it.
+If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D(a,r)}\) and divergent on \(\mathbb{C}\setminus\overline{D(a,R)}\cup D(a,r)\). If \(r=R\), the series diverges possibly everywhere but on \(\partial D(a,r)\). Similar to power series with positive exponents, the convergence on the boundary varies. For example, \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n^2}\), where \(R=r=1\), converges (absolutely) on \(\partial\mathbb{D}\), whereas \(\sum_{n=-\infty}^\infty z^n\) diverges on all of \(\partial\mathbb{D}\), while \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n}\) converges (conditionally) on all of \(\partial\mathbb{D}\setminus\qty{1}\) and diverges at \(z=1\). If \(r>R\), then the series is divergent on all of \(\mathbb{C}\). The region \(D(a,R)\setminus\overline{D(a,r)}\) is known as the \textscsl{annulus of convergence}. \(f(z)\) in equation~\eqref{eq:laurentseries} is holomorphic over this annulus. \(\varphi(z)\) is known as the \textscsl{holomorphic part} of \(f(z)\), and \(\psi(z)\) is known as the \textscsl{principal part} of the Laurent series. The properties of the convergence disk in Abel's Theorem (\autoref{thm:abelradius}) can be generalized to Laurent series. In other words, \(f\) is absolutely convergent on the annulus and is uniformly convergent on every compact subset of it.
 \begin{theorem}\label{thm:laurentexpansionofholomorphicfunction}
-    Let \(V=\cbraces{z\in\mathbb{C}}{r<\abs{z-a}<R}\) for some \(0\leq r<R\leq\infty\). Let \(f\) be holomorphic on \(V\). Then \(f\) has the unique \textit{Laurent expansion}
+    Let \(V=\cbraces{z\in\mathbb{C}}{r<\abs{z-a}<R}\) for some \(0\leq r<R\leq\infty\). Let \(f\) be holomorphic on \(V\). Then \(f\) has the unique \textscsl{Laurent expansion}
     \begin{equation}
         f(z)=\sum_{n=-\infty}^\infty c_n(z-a)^n\label{eq:laurentexpansionofholomorphicfunction_statement}
     \end{equation} when \(z\in V\), where \(c_n=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f(\zeta)\ddzeta}{(\zeta-a)^{n+1}}\), where \(\gamma\subset V\) is a simple closed curve enclosing \(a\).
@@ -2080,20 +2080,20 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     which is a contradiction, implying uniqueness.
 \end{proof}
 \subsection{Isolated Singularities}
-An \textit{isolated singularity} of a complex function is a point \(a\in\mathbb{C}\) where a function \(f\) is holomorphic on some open punctured neighborhood of \(a\) (namely, for some \(r>0\), the punctured disk \(D^*(a,r)\)), but not necessarily defined or holomorphic at \(a\) itself. The nature of this isolated singularity is characterized by the principal part \(\psi(z)\) (let \(\varphi(z)\) be the holomorphic part) of the Laurent series of \(f\) at the point \(a\). Specifically, we can analyze the behavior of \(f(z)\) as \(z\to a\).
+An \textscsl{isolated singularity} of a complex function is a point \(a\in\mathbb{C}\) where a function \(f\) is holomorphic on some open punctured neighborhood of \(a\) (namely, for some \(r>0\), the punctured disk \(D^*(a,r)\)), but not necessarily defined or holomorphic at \(a\) itself. The nature of this isolated singularity is characterized by the principal part \(\psi(z)\) (let \(\varphi(z)\) be the holomorphic part) of the Laurent series of \(f\) at the point \(a\). Specifically, we can analyze the behavior of \(f(z)\) as \(z\to a\).
 \begin{enumerate}
     \item\label{itm:isolatedsingularities_removable} If \(\lim_{z\to a}f(z)\) exists and is finite, then \(z=a\) is a removable singularity and can be analytically continued to \(D(a,r)\) by \autoref{thm:removablesingularitiesriemann}. Consequently, \(f(z)\) has a convergent Taylor expansion and the principal part of its Laurent expansion vanishes, and \(f(z)=\varphi(z)\).
-    \item\label{itm:isolatedsingularities_pole} If \(\lim_{z\to a}f(z)=\infty\), then \(z=a\) is a \textit{pole} of \(f\) (from the stereographic projection and the Riemann sphere, the \(\infty\) is a single point in \(\extcomplex\), and approaching \(\infty\) does not distinguish between different directions, unlike the use of \(+\infty\) and \(-\infty\)).
+    \item\label{itm:isolatedsingularities_pole} If \(\lim_{z\to a}f(z)=\infty\), then \(z=a\) is a \textscsl{pole} of \(f\) (from the stereographic projection and the Riemann sphere, the \(\infty\) is a single point in \(\extcomplex\), and approaching \(\infty\) does not distinguish between different directions, unlike the use of \(+\infty\) and \(-\infty\)).
         \begin{theorem}\label{thm:isolatedsingularities_pole_laurentexpansion}
             The condition \(\lim_{z\to a}f(z)=\infty\) is equivalent to there being a finite number of nonzero \(c_{-n}\)'s, where \(n\in\mathbb{N}\).
         \end{theorem}
-        In other words the principal part of \(f\) is equal to \[\psi(z)=\frac{c_{-1}}{z-a}+\cdots+\frac{c_{-m}}{(z-a)^m}\quad c_{-m}\neq0\] for some \(m\in\mathbb{N}\). Therefore, \(f(z)=\varphi(z)+\psi(z)=\sum_{n=-m}^\infty c_n(z-a)^n=\frac{g(z)}{(z-a)^m}\) on the punctured disk \(D^*(a,r)\), where \(g(z)=\sum_{n=0}^\infty c_{n-m}(z-a)^n\) is holomorphic on \(D(a,r)\) and does not attain a zero at \(z=a\). Then \(f(z)\) has a pole at \(z=a\) with order \(m\). If \(m=1\), the pole is also called a \textit{simple pole}.
+        In other words the principal part of \(f\) is equal to \[\psi(z)=\frac{c_{-1}}{z-a}+\cdots+\frac{c_{-m}}{(z-a)^m}\quad c_{-m}\neq0\] for some \(m\in\mathbb{N}\). Therefore, \(f(z)=\varphi(z)+\psi(z)=\sum_{n=-m}^\infty c_n(z-a)^n=\frac{g(z)}{(z-a)^m}\) on the punctured disk \(D^*(a,r)\), where \(g(z)=\sum_{n=0}^\infty c_{n-m}(z-a)^n\) is holomorphic on \(D(a,r)\) and does not attain a zero at \(z=a\). Then \(f(z)\) has a pole at \(z=a\) with order \(m\). If \(m=1\), the pole is also called a \textscsl{simple pole}.
         \begin{proof}
             Obviously, under the assumption of a finite, nonempty number of non-negative terms in the principal part of the Laurent expansion coefficients, \(\lim_{z\to a}f(z)\to\infty\). Now we will prove the converse. Let \(g(z)=\frac{1}{f(z)}\). Then \(\lim_{z\to a}g(z)=0\). There exists a \(\delta>0\) such that \(f\) is nonzero on \(D^*(a,\delta)\). Then \(g(z)\) is holomorphic on \(D^*(a,\delta)\) and has a removable singularity at \(z=a\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to \(D^*(a,\delta)\). Let the multiplicity of the zero at \(z=a\) be \(m\). Then \(g(z)=\phi(z)(z-a)^m\), where \(\phi(z)\) is holomorphic and nonzero at \(z=a\). Then there exists a \(\delta'>0\) such that \(\phi\) is nonzero on \(D(a,\delta')\). It follows that \(\frac{1}{\phi}\) is holomorphic and nonzero on \(D(a,\delta')\). We can then write its Taylor expansion as \[\frac{1}{\phi(z)}=c_{-m}+c_{1-m}(z-a)+\cdots,\]
             where \(c_{-m}\neq0\). It follows that \[f(z)=\frac{1}{g(z)}=\frac{(z-a)^{-m}}{\phi(z)}={c_{-m}}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_0+\cdots.\]
             By the uniqueness of the Laurent series (by \autoref{thm:laurentexpansionofholomorphicfunction}), the conclusion follows.
         \end{proof}
-    \item\label{itm:isolatedsingularities_essential} If \(\lim_{z\to a}f(z)\) is nonexistent, then \(a\) is known as an \textit{essential singularity}.
+    \item\label{itm:isolatedsingularities_essential} If \(\lim_{z\to a}f(z)\) is nonexistent, then \(a\) is known as an \textscsl{essential singularity}.
         \begin{example}\label{ex:isolatedsingularities_essential_exp1z}
             The function \(\ee^{\frac{1}{z}}\) has an essential singularity at \(z=0\).
         \end{example}
@@ -2111,7 +2111,7 @@ An \textit{isolated singularity} of a complex function is a point \(a\in\mathbb{
         which has infinitely many nonzero coefficients of negative powers.
 \end{enumerate}
 A function with an essential singularity exhibits striking behavior. We will first introduce the following famous result.
-\begin{theorem}[Casorati--Weierstrass]\label{thm:casoratiweierstrass}
+\begin{theorem}[\textsc{Casorati--Weierstrass}]\label{thm:casoratiweierstrass}
     Let \(a\in\mathbb{C}\) and \(U\subseteq\mathbb{C}\) be open. Suppose \(f:U\setminus\qty{a}\to\mathbb{C}\) is holomorphic with an essential singularity at \(a\). Then the set of values that \(f\) attains on any open punctured neighborhood of \(a\) is dense. In other words, \(\forall\varepsilon,\delta>0\), \(\forall w\in\mathbb{C}\), \(\exists z\in D^*(a,\delta)\) such that \(|f(z)-w|<\varepsilon\).
 \end{theorem}
 \begin{proof}
@@ -2125,11 +2125,11 @@ A similar theorem exists for entire functions:
 \begin{proof}
     For the sake of contradiction, assume there exists \(w\in\mathbb{C}\) and \(\varepsilon>0\) such that \(D(w,\varepsilon)\notin f\qty(\mathbb{C})\). Define \(g(z)=\frac{1}{f(z)-w}\). It follows that \(\abs{g}\leq\frac{1}{\varepsilon}\) on \(\mathbb{C}\). By Liouville's Theorem (\autoref{thm:liouville}), \(g\) is a constant function, and hence, \(f\) is also constant, which is a contradiction of the statement.
 \end{proof}
-In \chpref{sec:differentialgeometry}, we will prove a profound generalization of the two results (\autoref{thm:greatpicard} and \autoref{thm:littlepicard}), which was first proved by Émile Picard in 1879: for \textit{the image of any open punctured neighborhood of an isolated essential singularity of a holomorphic function will attain every value in \(\mathbb{C}\), except for at most one possible exception, infinitely often}, and \textit{an entire function attains every value in \(\mathbb{C}\), except for at most one possible exception}.
+In \chpref{sec:differentialgeometry}, we will prove a profound generalization of the two results (\autoref{thm:greatpicard} and \autoref{thm:littlepicard}), which was first proved by Émile Picard in 1879: for \textscsl{the image of any open punctured neighborhood of an isolated essential singularity of a holomorphic function will attain every value in \(\mathbb{C}\), except for at most one possible exception, infinitely often}, and \textscsl{an entire function attains every value in \(\mathbb{C}\), except for at most one possible exception}.
 \subsubsection{At the \texorpdfstring{\(\infty\)}{Infinity} Point}
 Given the one-point compactification of \(\mathbb{C}\), \(\extcomplex\), we can now define and analyze the behavior of functions near the point at infinity. Similar to the classification of isolated singularities in \(\mathbb{C}\), we can classify \(\infty\) as a removable singularity, a pole, or an essential singularity of a holomorphic function.
 
-Let \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic for some \(R>0\). Then \(z=\infty\) is an \textit{isolated singularity} of \(f\). To analyze the nature of the singularity, let \(\zeta=\frac{1}{z}\). We define a new function \(g(\zeta)=f\qty(\frac{1}{\zeta})=f(z)\), which is holomorphic on \(D^*\qty(0,\frac{1}{R})\). Then at \(\zeta=0\), \(g(\zeta)\) has the Laurent expansion of \[g(\zeta)=\sum_{n=-\infty}^\infty c_{-n}\zeta^n=\sum_{n=0}^\infty c_{-n}\zeta^n+\sum_{n=1}^\infty c_{n}\zeta^{-n}=\varphi(\zeta)+\psi(\zeta),\]
+Let \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic for some \(R>0\). Then \(z=\infty\) is an \textscsl{isolated singularity} of \(f\). To analyze the nature of the singularity, let \(\zeta=\frac{1}{z}\). We define a new function \(g(\zeta)=f\qty(\frac{1}{\zeta})=f(z)\), which is holomorphic on \(D^*\qty(0,\frac{1}{R})\). Then at \(\zeta=0\), \(g(\zeta)\) has the Laurent expansion of \[g(\zeta)=\sum_{n=-\infty}^\infty c_{-n}\zeta^n=\sum_{n=0}^\infty c_{-n}\zeta^n+\sum_{n=1}^\infty c_{n}\zeta^{-n}=\varphi(\zeta)+\psi(\zeta),\]
 where \(\varphi\) and \(\psi\) are the holomorphic and principal parts of \(g\), respectively. Let \(\widetilde{\varphi}(z)=\varphi\qty(\frac{1}{z})\), \(\widetilde{\psi}(z)=\psi\qty(\frac{1}{z})\). At \(z=0\), \(f\) then has the Laurent expansion of \[f(z)=\sum_{n=-\infty}^\infty c_nz^n=\sum_{n=0}^\infty c_{-n}z^{-n}+\sum_{n=1}^\infty c_nz^n=\widetilde{\varphi}(z)+\widetilde{\psi}(z).\]
 
 The classification of the singularity at \(\infty\) is then reduced to the classification of the singularity of \(g\) at \(0\):
@@ -2140,7 +2140,7 @@ The classification of the singularity at \(\infty\) is then reduced to the class
         where \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(c_{n}\neq0\) (infinitely many coefficients of \(\psi\) or \(\widetilde{\psi}\) are nonzero).
 \end{enumerate}
 \begin{remark}
-    Under stereographic projection from the point \(\mqty(0\\0\\1)\) of the unit sphere \(S_2\), a neighborhood of that point maps to a subset of the extended complex plane of the form \(\extcomplex\setminus K\), where \(K\) is a compact and connected subset of \(\mathbb{C}\). Such sets are referred to as \textit{neighborhoods of \(\infty\)} in the Riemann sphere.
+    Under stereographic projection from the point \(\mqty(0\\0\\1)\) of the unit sphere \(S_2\), a neighborhood of that point maps to a subset of the extended complex plane of the form \(\extcomplex\setminus K\), where \(K\) is a compact and connected subset of \(\mathbb{C}\). Such sets are referred to as \textscsl{neighborhoods of \(\infty\)} in the Riemann sphere.
 \end{remark}
 \begin{example}
     The function \(z\mapsto\frac{1}{z}\) has a removable singularity at \(z=\infty\), the function \(z\mapsto z^2\) has a pole at \(z=\infty\), and \(z\mapsto \ee^z\) has an essential singularity at \(z=\infty\).
@@ -2163,13 +2163,13 @@ We have previously defined the concept of an entire function in \chpref{sec:comp
             Since \(f(z)\) is entire, it is holomorphic at \(z=0\) and has a convergent Taylor expansion. By the uniqueness of Laurent expansions (\autoref{thm:laurentexpansionofholomorphicfunction}), the two expansions are equivalent and therefore all terms with negative exponents vanish, and \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0,\]
             and since \(c_m\neq0\), the statement is confirmed.
         \end{proof}
-    \item If \(f(z)\) has an essential singularity at \(z=\infty\), \(f(z)\) is known as a \textit{transcendental entire function}.
+    \item If \(f(z)\) has an essential singularity at \(z=\infty\), \(f(z)\) is known as a \textscsl{transcendental entire function}.
 \end{enumerate}
 \begin{example}
     The entire functions \(\sin(z)\), \(\cos(z)\), \(\sinh(z)\), \(\cosh(z)\), and \(\exp(z)\) are transcendental.
 \end{example}
 \begin{definition}[Meromorphic Function]\label{def:meromorphicfunction}
-    Let \(U\subseteq\mathbb{C}\) be open, and let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a set of isolated points. Suppose \(f:U\setminus\cbraces{a_n}_{n\in\mathbb{N}}\to\mathbb{C}\) is holomorphic and has a pole at each of \(z\in\qty{a_n}\). Then \(f\) is \textit{meromorphic} in \(U\).
+    Let \(U\subseteq\mathbb{C}\) be open, and let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a set of isolated points. Suppose \(f:U\setminus\cbraces{a_n}_{n\in\mathbb{N}}\to\mathbb{C}\) is holomorphic and has a pole at each of \(z\in\qty{a_n}\). Then \(f\) is \textscsl{meromorphic} in \(U\).
 \end{definition}
 Similar to holomorphy, meromorphy on a compact set can be defined as meromorphy on a neighborhood of the set. In general, we imply for the set to be open unless stated otherwise. If the set is not implicitly specified, we assume meromorphy on \(\mathbb{C}\).
 
@@ -2200,7 +2200,7 @@ We will then introduce the converse:
 
     Thus, we have \[f(z)=c+\psi_\infty(z)+\sum_{k=1}^n\psi_k(z).\] Since each series contains finitely many terms, \(f(z)\) is rational.
 \end{proof}
-If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textit{transcendental meromorphic function}.
+If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textscsl{transcendental meromorphic function}.
 \subsection{Further Properties of Meromorphic and Entire Functions}
 The generalization of \autoref{thm:argumentprincipleholomorphic} is as follows:
 \begin{theorem}[Argument Principle]\label{thm:argumentprinciplemeromorphic}
@@ -2239,10 +2239,10 @@ It is generally common to consider a meromorphic function as a function in the f
 
 To make more profound conclusions on the structure of \(\Aut\qty(\extcomplex)\), we will introduce certain concepts from group theory.
 \begin{definition}[Coset]\label{def:coset}
-    Let \(G\) be a group, and let \(H\leq G\) be a subgroup (operation denoted by juxtaposition). Then the \textit{left coset} of \(H\) in \(G\) with respect to \(g\in G\) is defined as \[gH=\cbraces{gh}{h\in H}.\] The \textit{right coset} is defined as \[Hg=\cbraces{hg}{h\in H}.\] The subgroup \(H\) is \textit{normal} if and only if the left and right cosets are equal. The notation \(H\trianglelefteq G\) is used to represent a normal subgroup. Cosets, like groups and sets, are unordered.
+    Let \(G\) be a group, and let \(H\leq G\) be a subgroup (operation denoted by juxtaposition). Then the \textscsl{left coset} of \(H\) in \(G\) with respect to \(g\in G\) is defined as \[gH=\cbraces{gh}{h\in H}.\] The \textscsl{right coset} is defined as \[Hg=\cbraces{hg}{h\in H}.\] The subgroup \(H\) is \textscsl{normal} if and only if the left and right cosets are equal. The notation \(H\trianglelefteq G\) is used to represent a normal subgroup. Cosets, like groups and sets, are unordered.
 \end{definition}
 \begin{definition}[Quotient Group]\label{def:quotientgroup}
-    Let \(G\) be a group, and let \(H\trianglelefteq G\) be a normal subgroup. Then the \textit{quotient group} of \(G\) by \(H\) is defined as \[G/H=\cbraces{gH}{g\in G}.\] The operation on the quotient group is defined as \((g_1H)(g_2H)=g_1g_2H\), where \(g_1,g_2\in G\) and \(g_1H,g_2H\in G/H\).
+    Let \(G\) be a group, and let \(H\trianglelefteq G\) be a normal subgroup. Then the \textscsl{quotient group} of \(G\) by \(H\) is defined as \[G/H=\cbraces{gH}{g\in G}.\] The operation on the quotient group is defined as \((g_1H)(g_2H)=g_1g_2H\), where \(g_1,g_2\in G\) and \(g_1H,g_2H\in G/H\).
 \end{definition}
 The normality of \(H\) implies the existence of the quotient group. To see why, let \(g_1,g_1'\in G\) form the same left coset (\(g_1H=g_1'H\)), and let \(g_2,g_2'\in G\) satisfy \(g_2H=g_2'H\). We must ensure that
 \begin{equation*}
@@ -2257,7 +2257,7 @@ Let us now examine \(\Aut\qty(\extcomplex)\). Let \(f(z)\in \Aut\qty(\extcomplex
 Let \(f(z)\in\Aut\qty(\extcomplex)\) such that \(f(\infty)\neq\infty\). Then, \(g(z)=\frac{1}{f(z)-f(\infty)}\in\Aut\qty(\extcomplex)\) and \(g(\infty)=\infty\). By the property above, \(g(z)=cz+d\) for some complex \(d\) and nonzero \(c\). Hence, \(f(z)=\frac{f(\infty)(cz+d)+1}{cz+d}\). Let \(a=cf(\infty)\), \(b=df(\infty)+1\), \(f(z)=\frac{az+b}{cz+d}\). Then in this specific construction, \(ad-bc=-c\neq0\). Let the matrix \(\mqty(a&b\\c&d)\) correspond to this transformation, where for any nonzero scalar \(k\), \(k\mqty(a&b\\c&d)\) corresponds to \(\mqty(a&b\\c&d)\). Therefore, we can arbitrarily pick \(ad-bc\) to be \(1\).
 
 Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm\vb{I}},\right.\]
-where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textit{projective special linear group} of order 2, and is \textit{isomorphic} (one-to-one and homomorphic, or that the operation is preserved, see \autoref{lemma:mobiustransformationcompositionmatrixmultiplication}) to the \textit{group of Möbius transformations}, consisting of all linear fractional transformations.
+where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textscsl{projective special linear group} of order 2, and is \textscsl{isomorphic} (one-to-one and homomorphic, or that the operation is preserved, see \autoref{lemma:mobiustransformationcompositionmatrixmultiplication}) to the \textscsl{group of Möbius transformations}, consisting of all linear fractional transformations.
 
 Therefore, any meromorphic automorphism on \(\extcomplex\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
 \begin{theorem}[The Meromorphic Automorphism Group on \(\extcomplex\)]\label{thm:meromorphicautomorphismgrouponextendedcomplexplane}
@@ -2279,14 +2279,14 @@ We have now introduced three of the most important regions in complex analysis: 
 \subsubsection{The Construction of Entire and Meromorphic Functions}
 It is common knowledge in algebra that any polynomial can be factored into linear factors. When can this factorization be extended to transcendental entire functions?
 
-We will start by introducing the concept of \textit{infinite products}. Let \(\prod_{k=1}^n\qty(1+u_k)\) be an infinite product. If the limit \(\lim_{n\to\infty}\prod_{k=1}^n\qty(1+u_k)\) exists and is finite, then the infinite product is said to be \textit{convergent}.
+We will start by introducing the concept of \textscsl{infinite products}. Let \(\prod_{k=1}^n\qty(1+u_k)\) be an infinite product. If the limit \(\lim_{n\to\infty}\prod_{k=1}^n\qty(1+u_k)\) exists and is finite, then the infinite product is said to be \textscsl{convergent}.
 
 For \(x\in\mathbb{R}_{\geq0}\), since \(\ee^x\geq x\) and \(\ee^0=1\), we can integrate over \([0,x]\) to get that \(\ee^x\geq x+1\). Therefore,
 \begin{align*}
     \exp(\sum_{k=1}^n\abs{u_k}) & \geq\prod_{k=1}^n \qty(1+\abs{u_k})=1+\sum_{k=1}^n\abs{u_k} \\
     & \quad+\sum_{\substack{j,k\in\qty{1,\ldots,n}                \\j<k}}\abs{u_j u_k}+\cdots+\prod_{k=1}^n\abs{u_k}>\sum_{k=1}^n\abs{u_k}.
 \end{align*}
-Since the convergence of \(\sum_{k=1}^\infty\qty|u_k|\) is the same as that of \(\exp(\sum_{k=1}^\infty\abs{u_k})\), it follows that the convergence of \(\sum_{k=1}^\infty\abs{u_k}\) is equivalent to that of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\). If \(\sum_{k=1}^\infty\abs{u_k}\) is convergent, then \(\prod_{k=1}^\infty\qty(1+u_k)\) is \textit{absolutely convergent}. As with the order of summing an absolutely convergent series is unimportant, we may also rearrange terms in an absolutely convergent infinite product.
+Since the convergence of \(\sum_{k=1}^\infty\qty|u_k|\) is the same as that of \(\exp(\sum_{k=1}^\infty\abs{u_k})\), it follows that the convergence of \(\sum_{k=1}^\infty\abs{u_k}\) is equivalent to that of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\). If \(\sum_{k=1}^\infty\abs{u_k}\) is convergent, then \(\prod_{k=1}^\infty\qty(1+u_k)\) is \textscsl{absolutely convergent}. As with the order of summing an absolutely convergent series is unimportant, we may also rearrange terms in an absolutely convergent infinite product.
 
 Similar to series, absolute convergence is a stronger condition than convergence:
 \begin{lemma}
@@ -2302,7 +2302,7 @@ Similar to series, absolute convergence is a stronger condition than convergence
         & =\abs{Q_n-Q_m}<\varepsilon,
     \end{align*}
     which therefore satisfies \autoref{thm:cauchycriterionsequenceconvergence}.
-\end{proof} We will now provide the following assertions on the \textit{locally uniform convergence} of infinite products:
+\end{proof} We will now provide the following assertions on the \textscsl{locally uniform convergence} of infinite products:
 \begin{lemma}\label{lemma:infiniteproductlocallyuniformconvergencecriterion}
     Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty f_k(z)\) is uniformly convergent on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \exp\qty[f_k(z)]\) is uniformly convergent on compact subsets of \(U\).
 \end{lemma}
@@ -2311,7 +2311,7 @@ Similar to series, absolute convergence is a stronger condition than convergence
     By \autoref{thm:weierstrassuniformlimit}, the uniform limit \(\sum_{k=1}^\infty f_k(z)\) is holomorphic on \(U\). By continuity and \autoref{thm:continuousfunctionboundedoncompact}, this limit is bounded on \(K\). It follows that each partial sum is uniformly bounded on \(K\). Since the exponential function is Lipschitz continuous on compact subsets of \(\mathbb{C}\), there exists a finite constant \(M>0\) such that \[\abs{\exp[\sum_{k=1}^n f_k(z)]-\exp[\sum_{k=1}^m f_k(z)]}\leq M\abs{\sum_{k=m+1}^n f_k(z)}<M\varepsilon.\]
 \end{proof}
 \begin{remark}
-    Uniform convergence on compact subsets is also known as \textit{compact convergence}. In the case of \(\mathbb{C}\) (or in any topological space such that every point has a compact neighborhood), compact convergence is equivalent to \textit{locally uniform convergence}.
+    Uniform convergence on compact subsets is also known as \textscsl{compact convergence}. In the case of \(\mathbb{C}\) (or in any topological space such that every point has a compact neighborhood), compact convergence is equivalent to \textscsl{locally uniform convergence}.
 \end{remark}
 We also have:
 \begin{lemma}\label{lemma:infiniteproductlocallyuniformconvergencecriterion2}
@@ -2353,7 +2353,7 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
         \begin{equation*}
             \prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n}).
         \end{equation*}
-        The expression in equation~\eqref{eq:weierstrasselementaryfactor} is known as the \(p\)th \textit{Weierstrass elementary factor}.
+        The expression in equation~\eqref{eq:weierstrasselementaryfactor} is known as the \(p\)th \textscsl{Weierstrass elementary factor}.
 
         By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|\le\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then,
         \begin{align}
@@ -2410,7 +2410,7 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
         Therefore, \(f\) can be constructed by \[f(z)=\varphi(z)+\sum_{k=1}^\infty\psi_k(z),\]
         for a transcendental entire function \(\varphi(z)\).
     \item The existence of a transcendental meromorphic function \(f\) whose poles have an accumulation point at \(z=\infty\) is the concern of the following theorem:
-        \begin{theorem}[Mittag--Leffler]\label{thm:mittagleffler}
+        \begin{theorem}[\textsc{Mittag--Leffler}]\label{thm:mittagleffler}
             Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{C}\) be a sequence of distinct complex numbers such that \(\forall n\in\mathbb{N}\), \(\abs{a_n}\leq\abs{a_{n+1}}\) and \(\lim_{n\to\infty}a_n=\infty\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a function sequence, each in the form of equation~\eqref{eq:meromorphicfunctionconstructionprincipalparts}. Then,
             \begin{enumerate}[label=(\alph*)]
                 \item A meromorphic function \(f(z)\) on \(\mathbb{C}\) can be constructed such that \(\forall n\in\mathbb{N}\), \(f\) has a pole at \(a_n\) with a principal part of \(\psi_n\) at \(a_n\).\label{itm:mittagleffler_existence}
@@ -2456,7 +2456,7 @@ Indeed, since \(\partial U\cap U=\emptyset\), each \(a_n\) is not an accumulatio
 
 Finally, we will examine the construction of entire functions interpolating prescribed values and derivatives at given points.
 
-Let \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of distinct complex numbers and let \(\qty{w_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of complex numbers. We can then construct a polynomial \(f(z)\) such that \(\forall j\in\qty{1,\ldots,n}\), \(f(z_j)=w_j\). One such explicit formula is given by the \textit{Lagrange interpolation formula}:
+Let \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of distinct complex numbers and let \(\qty{w_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of complex numbers. We can then construct a polynomial \(f(z)\) such that \(\forall j\in\qty{1,\ldots,n}\), \(f(z_j)=w_j\). One such explicit formula is given by the \textscsl{Lagrange interpolation formula}:
 \[f(z)=\sum_{j=1}^n\qty[w_j\prod_{\substack{k=1\\k\neq j}}^n\frac{z-z_k}{z_j-z_k}].\]
 Then, following the assumption that \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) is a sequence of distinct complex numbers, let \(\qty{w_{j,k}}_{\substack{j\in\qty{1,\ldots,n}\\ k\in \qty{0,\ldots,n_j}}}\) be a sequence where \(\qty{n_j}_{j=1}^n\subset\mathbb{N}\). Then we can find a polynomial \(f(z)\) such that \(\forall j\in\qty{1,\ldots,n}\), \(\forall k\in\qty{0,\ldots,n_j}\), \(f^{(k)}\qty(z_j)=k!w_{j,k}\) (for clarity's sake, \(j\) selects the pair and \(k\) selects the order of the derivative, whose upper bound varies for each \(j\)). Oftentimes, the factorial coefficient is absorbed into \(\qty{w_{j,k}}\).
 
@@ -2529,7 +2529,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     Let \(f:\overline{D(0,R)}\to\mathbb{C}^*\) (where \(R>0\)) be a nowhere-vanishing holomorphic function. It follows that \[\log\qty|f(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
 \end{lemma}
 \begin{proof}
-    Without loss of generality, assume \(R=1\). Since \(f\) is non-vanishing and \(\overline{\mathbb{D}}\) is simply connected, we may define the \textit{holomorphic logarithm} as \[\log(f(z))=\int_\gamma \frac{f'(z)}{f(z)}\ddz+\log\qty(f(z_0))\] for any fixed \(z_0\in \overline{\mathbb{D}}\) and all \(z\in\overline{\mathbb{D}}\), where \(\gamma\subset\overline{\mathbb{D}}\) is any piecewise smooth curve from \(z_0\) to \(z\).
+    Without loss of generality, assume \(R=1\). Since \(f\) is non-vanishing and \(\overline{\mathbb{D}}\) is simply connected, we may define the \textscsl{holomorphic logarithm} as \[\log(f(z))=\int_\gamma \frac{f'(z)}{f(z)}\ddz+\log\qty(f(z_0))\] for any fixed \(z_0\in \overline{\mathbb{D}}\) and all \(z\in\overline{\mathbb{D}}\), where \(\gamma\subset\overline{\mathbb{D}}\) is any piecewise smooth curve from \(z_0\) to \(z\).
 
     Hence, \(\log\abs{f(z)}=\Re\qty[\log\qty(f(z))]\) and is therefore harmonic. The assertion then follows from the mean-value property.
 \end{proof}
@@ -2606,7 +2606,7 @@ Since the summation on the right is negative, we have the following consequence:
     If \(f\) has a zero of multiplicity \(m\) at \(0\), then the argument applies to \(z\mapsto \frac{f(z)}{z^m}\).
 \end{proof}
 \begin{theorem}[Blaschke Product]\label{thm:blaschkeproduct}
-    Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by
+    Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textscsl{Blaschke condition}). Then the \textscsl{Blaschke product}, defined by
     \begin{equation}
         B(z)=\prod_{k=1}^\infty \qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_k}(z)],\label{eq:blaschkeproduct_statement}
     \end{equation} where \(\varphi_a(z
@@ -2632,7 +2632,7 @@ From the results above, a recurring theme in complex analysis is hinted at; the 
 
 The subjects to be discussed here are relevant and preliminary to Nevanlinna theory, or the study of holomorphic value distribution.
 \begin{definition}[Growth Order of Entire Functions]
-    An entire function \(f\) is said to be of \textit{finite order} if there exists \(\alpha, R_\alpha\in\mathbb{R}\) such that \[\abs{f(z)}\leq\exp\qty(\abs{z}^\alpha),\qquad\forall\abs{z}>R_\alpha,\] or in loose terms, \(f\) is of finite order if it grows at most exponentially for large \(z\). The \textit{order} of \(f\), or \(\lambda\qty(f)\) is defined to be the infimum of all \(\alpha\) satisfying the previous condition.
+    An entire function \(f\) is said to be of \textscsl{finite order} if there exists \(\alpha, R_\alpha\in\mathbb{R}\) such that \[\abs{f(z)}\leq\exp\qty(\abs{z}^\alpha),\qquad\forall\abs{z}>R_\alpha,\] or in loose terms, \(f\) is of finite order if it grows at most exponentially for large \(z\). The \textscsl{order} of \(f\), or \(\lambda\qty(f)\) is defined to be the infimum of all \(\alpha\) satisfying the previous condition.
 \end{definition}
 \begin{example}
     The function \(\sin\) is of order 1, while \(\exp\circ\exp\) is not of finite order.
@@ -2660,7 +2660,7 @@ The goal of the classification is to find the implications of \(\lambda\) on the
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
 \begin{definition}[Residue]\label{def:residue}
-    For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textit{residue} of \(f\) at \(a\), denoted by \(\residue_{z=a}f(z)\) or \(\Res(f,a)\), is equal to
+    For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textscsl{residue} of \(f\) at \(a\), denoted by \(\residue_{z=a}f(z)\) or \(\Res(f,a)\), is equal to
     \begin{equation}
         \residue_{z=a}f(z)=\frac{1}{2\piup\ii}\int_{\partial D(a,\rho)}f(z)\ddz,\label{eq:residue}
     \end{equation}
@@ -2674,7 +2674,7 @@ By the definition of a Taylor series, we find that
     c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\lim_{z\to a}\dv[m-1]{z}\qty[(z-a)^m f(z)].\label{eq:residueatpole}
 \end{equation}
 
-Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\piup\ii}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
+Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textscsl{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\piup\ii}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
 Let \(\zeta=\frac{1}{z}\). Then we get that
 \begin{align*}
     \residue_{z=\infty}f(z) & =-\frac{1}{2\piup\ii}\ointctrclockwise_{\partial D(0,\rho)}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})                                                                         \\
@@ -3036,11 +3036,11 @@ In the case that a branch point singularity is present on the contour, we may at
 \section{Analytic Continuation}\label{sec:analyticcontinuation}
 \subsection{Analytic Function Elements}
 \begin{definition}\label{def:analyticelement}
-    An \textit{analytic function element} is a pair \((f,U)\), where \(U\subseteq\mathbb{C}\) is an open disk and \(f\) is a holomorphic function on \(U\).
+    An \textscsl{analytic function element} is a pair \((f,U)\), where \(U\subseteq\mathbb{C}\) is an open disk and \(f\) is a holomorphic function on \(U\).
 \end{definition}
-Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textit{analytic continuation}, previously introduced in \autoref{def:analyticcontinuation}.
+Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textscsl{analytic continuation}, previously introduced in \autoref{def:analyticcontinuation}.
 
-By the Identity Theorem (\autoref{thm:identity}), such continuations are unique; if \(\qty(f_1,U_1)\) and \(\qty(f_2,U_2)\) are analytic elements with \(U_1\cap U_2 \neq \emptyset\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are \textit{direct analytic continuations} of each other. The combined function:
+By the Identity Theorem (\autoref{thm:identity}), such continuations are unique; if \(\qty(f_1,U_1)\) and \(\qty(f_2,U_2)\) are analytic elements with \(U_1\cap U_2 \neq \emptyset\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are \textscsl{direct analytic continuations} of each other. The combined function:
 \[\widetilde{f}(z)=
     \begin{cases}
         f_1(z) & z\in U_1               \\
@@ -3051,7 +3051,7 @@ The most straightforward method of the derivation of analytic continuations uses
 \[f(z)=\sum_{k=0}^\infty\frac{f^{(k)}\qty(z_1)}{k!}\qty(z-z_1)^k.\]
 Let \(\rho\) be the radius of convergence of this series. Then:
 \[\rho\geq R-\abs{z_1-z_0}.\]
-If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \cup D(z_1,\rho)\). In the case that \(\rho=R-\abs{z_1-z_0}\), the disks \(D\qty(z_0,R)\) and \(D\qty(z_1,\rho)\) are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a \textit{singularity}, and \(f\) cannot be continued beyond \(\zeta_0\).
+If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \cup D(z_1,\rho)\). In the case that \(\rho=R-\abs{z_1-z_0}\), the disks \(D\qty(z_0,R)\) and \(D\qty(z_1,\rho)\) are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a \textscsl{singularity}, and \(f\) cannot be continued beyond \(\zeta_0\).
 \begin{theorem}\label{thm:boundarysingularity}
     Let \(f(z)=\sum_{n=0}^{\infty}c_n{\qty(z-z_0)}^n\) have radius of convergence \(R>0\). Then \(\partial D\qty(z_0,R)\) contains at least one singularity of \(f\).
 \end{theorem}
@@ -3071,7 +3071,7 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     is holomorphic on \(D\qty(z_0,R)\cup V\supset D(z_0, R+\rho)\), contradicting the maximality of \(R\).
 \end{proof}
 \begin{definition}[Maximal Analytic Continuation]\label{def:maximalanalyticcontinuation}
-    A \textit{maximal analytic continuation} \(\qty(\widetilde{f},\widetilde{U})\) is an analytic element that has no analytic continuation to a larger domain. The set \(\widetilde{U}\) is known as the \textit{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial\widetilde{U}\) is known as a \textit{natural boundary}. Here, \(\widetilde{f}\) is known as a \textit{complete analytic function}, which can be multi-valued.
+    A \textscsl{maximal analytic continuation} \(\qty(\widetilde{f},\widetilde{U})\) is an analytic element that has no analytic continuation to a larger domain. The set \(\widetilde{U}\) is known as the \textscsl{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial\widetilde{U}\) is known as a \textscsl{natural boundary}. Here, \(\widetilde{f}\) is known as a \textscsl{complete analytic function}, which can be multi-valued.
 \end{definition}
 \begin{example}\label{ex:factoriallacunaryseries}
     The series \(f(z)=\sum_{n=0}^{\infty}z^{n!}\) has \(\mathbb{D}\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
@@ -3106,7 +3106,7 @@ In \autoref{ex:complexlogarithmanalyticcontinuation}, we showed that two analyti
 This is a common issue when it comes to the problem of analytic continuation. This question of non-ambiguity can be explained by planar topology; specifically the concept of homotopy. We will now introduce the concept of analytic continuation along a given curve.
 \subsection{Analytic Continuation Along a Curve}
 \begin{definition}\label{def:analyticcontinuationalongcurve}
-    Let \(\gamma:[0,1]\to\mathbb{C}\) be a (non-constant) curve. Let \(U\) be a disk centered at \(\gamma(0)\) and suppose \(f: U\to\mathbb{C}\) is holomorphic. An \textit{analytic continuation of} \(\qty(f,U)\) \textit{along} \(\gamma\) is a collection of analytic function elements \(\qty{\qty(f_t, U_t)}_{0\leq t\leq 1}\) where
+    Let \(\gamma:[0,1]\to\mathbb{C}\) be a (non-constant) curve. Let \(U\) be a disk centered at \(\gamma(0)\) and suppose \(f: U\to\mathbb{C}\) is holomorphic. An \textscsl{analytic continuation of} \(\qty(f,U)\) \textscsl{along} \(\gamma\) is a collection of analytic function elements \(\qty{\qty(f_t, U_t)}_{0\leq t\leq 1}\) where
     \begin{enumerate}
         \item We define \(U_0=U\) and \(f_0=f\).
         \item Each \(U_t\) (\(0\leq t\leq 1\)) is a disk centered at \(\gamma(t)\).
@@ -3135,20 +3135,20 @@ For a fixed curve, such analytic continuations are unique in the following sense
 \end{proof}
 Provided by the trivial fact, under the assumption that an analytic continuation along a fixed curve exists, it is unique in the defined sense.
 
-To avoid being pedantic, we will refer to two analytic continuations on a fixed curve as \textit{equivalent} if \(f_t\equiv\widetilde{f}_{t}\) on \(U_t\cap\widetilde{U}_t\) for all \(0\leq t\leq 1\).
+To avoid being pedantic, we will refer to two analytic continuations on a fixed curve as \textscsl{equivalent} if \(f_t\equiv\widetilde{f}_{t}\) on \(U_t\cap\widetilde{U}_t\) for all \(0\leq t\leq 1\).
 \subsection{The Monodromy Theorem}
 Before we address our main issue, we will first formalize the concept of homotopy. Informally, it is a continuous deformation or ``smooth interpolation'' between two curves (that lies entirely within a provided set).
 \begin{definition}[Homotopy]\label{def:homotopy}
-    Let \(U\subseteq\mathbb{C}\) be an open set. Two curves \(\gamma_1,\gamma_2:[0,1]\to U\) are said to be \textit{homotopic} if there exists a continuous function \(H:[0,1]\times[0,1]\to U\) such that:
+    Let \(U\subseteq\mathbb{C}\) be an open set. Two curves \(\gamma_1,\gamma_2:[0,1]\to U\) are said to be \textscsl{homotopic} if there exists a continuous function \(H:[0,1]\times[0,1]\to U\) such that:
     \begin{enumerate}
         \item \(H(0,t)=\gamma_1(t)\) for all \(t\in[0,1]\),
         \item \(H(1,t)=\gamma_2(t)\) for all \(t\in[0,1]\).
     \end{enumerate}
-    The function \(H\) is known as a \textit{homotopy} between \(\gamma_1\) and \(\gamma_2\).
+    The function \(H\) is known as a \textscsl{homotopy} between \(\gamma_1\) and \(\gamma_2\).
 \end{definition}
-We are primarily concerned with homotopies with \textit{fixed endpoints} (under the pretense that \(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), or that the homotopy \(H\) satisfies \(H(s,0)=\gamma_1(0)=\gamma_2(0)\) and \(H(s,1)=\gamma_1(1)=\gamma_2(1)\) for any \(s\in[0,1]\).
+We are primarily concerned with homotopies with \textscsl{fixed endpoints} (under the pretense that \(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), or that the homotopy \(H\) satisfies \(H(s,0)=\gamma_1(0)=\gamma_2(0)\) and \(H(s,1)=\gamma_1(1)=\gamma_2(1)\) for any \(s\in[0,1]\).
 \begin{definition}
-    Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(U\subseteq\Omega\) be an open disk centered at \(P\in\Omega\). Suppose \(\qty(f,U)\) is an analytic function element. If there is an analytic continuation of \(\qty(f,U)\) along any curve \(\gamma\) from \(P\), then \((f,U)\) has \textit{unrestricted continuation} in \(\Omega\).
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(U\subseteq\Omega\) be an open disk centered at \(P\in\Omega\). Suppose \(\qty(f,U)\) is an analytic function element. If there is an analytic continuation of \(\qty(f,U)\) along any curve \(\gamma\) from \(P\), then \((f,U)\) has \textscsl{unrestricted continuation} in \(\Omega\).
 \end{definition}
 As for our question in interest:
 \begin{quote}
@@ -3205,7 +3205,7 @@ Conversely, we have the following statement on local univalence and invertibilit
 \begin{proof}
     Let \(w_0=f\qty(z_0)\). Since \(\lim_{z\to z_0}f(z)-w_0=0\) and \(\lim_{z\to z_0}\frac{f(z)-w_0}{z-z_0}\neq0\), it follows that \(z_0\) is a simple zero of \(f(z)-w_0\). Let \(V\) be an open neighborhood (relatively compact in \(U\)) of \(z_0\) whose closure does not contain other zeros of \(f-w_0\). By \autoref{thm:hurwitzshifts}, \(\exists\delta>0\) such that \(\forall w\in D\qty(w_0,\delta)\), \(f(z)=w\) has only one solution for \(z\) satisfying \(z\in V\). Therefore, we can choose a relatively compact open subset \(W\) of \(V\) such that \(f\qty(W)\subseteq D\qty(w_0,\delta)\), on which \(f\) is univalent.
 \end{proof}
-Moreover, if \(w=f(z)\) is univalent and surjective, mapping \(U\) to \(G\), then its inverse \(z=f^{-1}(w)\) is univalent on \(G\). Such bijective holomorphic functions are known as \textit{biholomorphisms} or \textit{biholomorphic} functions.
+Moreover, if \(w=f(z)\) is univalent and surjective, mapping \(U\) to \(G\), then its inverse \(z=f^{-1}(w)\) is univalent on \(G\). Such bijective holomorphic functions are known as \textscsl{biholomorphisms} or \textscsl{biholomorphic} functions.
 
 We will now study holomorphic functions from a more geometric perspective.
 \begin{theorem}\label{thm:boundaryofconformalmap}
@@ -3272,7 +3272,7 @@ Let us now introduce some important properties of linear fractional transformati
     As in \autoref{ex:biholomorphismsupperhalfplanetounitdisk}, we can consider extended straight lines in the form of \(L\cup\qty{\infty}\) as generalized circles in the Riemann sphere. In other words, the extended line can be geometrically visualized by a circle with infinite radius. In fact, when a circle on the Riemann sphere is projected stereographically onto the complex plane, the result is always either a circle or a straight line.
 \end{remark}
 \begin{definition}[Cross-Ratio]\label{def:crossratio}
-    Let \(z_1,z_2,z_3,z_4\in\extcomplex\) be points such that at least three of them are distinct. The \textit{cross-ratio} of these points is defined as \[\qty(z_1,z_2;z_3,z_4)=\frac{\qty(z_1-z_3)\qty(z_2-z_4)}{\qty(z_1-z_4)\qty(z_2-z_3)}.\] If at least one of the four points is \(\infty\), then the cross-ratio is defined by the limit:
+    Let \(z_1,z_2,z_3,z_4\in\extcomplex\) be points such that at least three of them are distinct. The \textscsl{cross-ratio} of these points is defined as \[\qty(z_1,z_2;z_3,z_4)=\frac{\qty(z_1-z_3)\qty(z_2-z_4)}{\qty(z_1-z_4)\qty(z_2-z_3)}.\] If at least one of the four points is \(\infty\), then the cross-ratio is defined by the limit:
     \begin{align*}
         \qty(\infty,z_2;z_3,z_4) & =\frac{z_2-z_4}{z_2-z_3}, & \qty(z_1,\infty;z_3,z_4) & =\frac{z_1-z_3}{z_1-z_4} \\
         \qty(z_1,z_2;\infty,z_4) & =\frac{z_2-z_4}{z_1-z_4}, & \qty(z_1,z_2;z_3,\infty) & =\frac{z_1-z_3}{z_2-z_3}
@@ -3283,15 +3283,15 @@ One important property of the cross-ratio is that it is invariant under linear f
 Furthermore, if a function \(f\qty(z_1,z_2,z_3,z_4)\) is invariant under the group of linear fractional transformations, then it is a function of the cross-ratio. In other words, the cross-ratio is the only invariant under the group of linear fractional transformations \(\Aut\qty(\extcomplex)\). Indeed, suppose that \[f\qty(\varphi\qty(z_1),\varphi\qty(z_2),\varphi\qty(z_3),\varphi\qty(z_4))=f\qty(z_1,z_2,z_3,z_4).\] We aim to show that \(f\) is a function of a cross-ratio. Let \[\varphi(z)=\frac{\qty(z-z_3)\qty(z_2-z_4)}{\qty(z-z_4)\qty(z_2-z_3)}\] be a linear fractional transformation.
 Then we have \[f\qty(\varphi\qty(z_1),\varphi\qty(z_2),\varphi\qty(z_3),\varphi\qty(z_4))=f\qty(\qty(z_1,z_2;z_3,z_4),1,0,\infty),\] which is a function of the cross-ratio.
 \subsection{Normal Families}
-A collection of functions is better known as a \textit{family} of functions. One important distinguishing property of families of functions, as opposed to sequences, is that families may be uncountable and may not be indexed by the natural numbers. We will now introduce the following classification of families of functions:
+A collection of functions is better known as a \textscsl{family} of functions. One important distinguishing property of families of functions, as opposed to sequences, is that families may be uncountable and may not be indexed by the natural numbers. We will now introduce the following classification of families of functions:
 \begin{definition}[Normal Family]\label{def:normalsubfamily}
-    A family of holomorphic functions \(\mathcal{F}\) defined on a region \(U\subseteq\mathbb{C}\) is said to be \textit{normal} if every sequence of functions in \(\mathcal{F}\) has a locally uniformly (compactly) convergent subsequence on \(U\).
+    A family of holomorphic functions \(\mathcal{F}\) defined on a region \(U\subseteq\mathbb{C}\) is said to be \textscsl{normal} if every sequence of functions in \(\mathcal{F}\) has a locally uniformly (compactly) convergent subsequence on \(U\).
 \end{definition}
 The following notion was introduced and formalized by the Italian mathematicians Cesare Arzelà and Giulio Ascoli to formulate a clear distinction in how uniformity is applied.
 \begin{definition}[Equicontinuity]\label{def:equicontinuity}
-    A family of functions \(\mathcal{F}\) defined on a region \(U\subseteq\mathbb{C}\) is said to be \textit{equicontinuous} at a point \(z_0\in U\) if for every \(\varepsilon>0\), there exists a \(\delta>0\) (that may depend on \(z_0\)) such that for all \(f\in\mathcal{F}\) and all \(z\in U\) with \(\abs{z-z_0}<\delta\), we have \(\abs{f(z)-f(z_0)}<\varepsilon\).
+    A family of functions \(\mathcal{F}\) defined on a region \(U\subseteq\mathbb{C}\) is said to be \textscsl{equicontinuous} at a point \(z_0\in U\) if for every \(\varepsilon>0\), there exists a \(\delta>0\) (that may depend on \(z_0\)) such that for all \(f\in\mathcal{F}\) and all \(z\in U\) with \(\abs{z-z_0}<\delta\), we have \(\abs{f(z)-f(z_0)}<\varepsilon\).
 \end{definition}
-In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta\) may be chosen independently of \(z_0\). In the case of (pointwise) equicontinuity, it is chosen independently of \(f\in\mathcal{F}\). A family of functions is said to be be \textit{uniformly equicontinuous} on \(U\) if \(\delta\) can be chosen independently of both \(z_0\) and \(f\in\mathcal{F}\) (in other words, it attains a positive infimum in \(U\)). Similar to \autoref{thm:heinecantor}
+In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta\) may be chosen independently of \(z_0\). In the case of (pointwise) equicontinuity, it is chosen independently of \(f\in\mathcal{F}\). A family of functions is said to be be \textscsl{uniformly equicontinuous} on \(U\) if \(\delta\) can be chosen independently of both \(z_0\) and \(f\in\mathcal{F}\) (in other words, it attains a positive infimum in \(U\)). Similar to \autoref{thm:heinecantor}
 \begin{theorem}\label{thm:heinecantorfamily}
     A family of functions \(\mathcal{F}\) that is pointwise equicontinuous on every point \(z\in K\subset\mathbb{C}\) for a compact set \(K\) is uniformly equicontinuous on \(K\).
 \end{theorem}
@@ -3365,7 +3365,7 @@ The notion of distance in the definitions of equicontinuity in the Arzelà--Asco
 
 Lastly, we will prove Montel's Theorem in preparation of the Riemann Mapping Theorem (\autoref{thm:riemannmapping}).
 \begin{definition}
-    Let \(\mathcal{F}\) be a family of functions defined on an open set \(U\subseteq\mathbb{C}\). The family \(\mathcal{F}\) is said to be \textit{locally uniformly bounded} if, for every point \(z\in U\), there exists a neighborhood \(V\subseteq U\) of \(z\) such that \(\mathcal{F}\) is uniformly bounded on \(V\). This condition is equivalent to the condition that \(\mathcal{F}\) is uniformly bounded on all compact subsets \(K\) of \(U\).
+    Let \(\mathcal{F}\) be a family of functions defined on an open set \(U\subseteq\mathbb{C}\). The family \(\mathcal{F}\) is said to be \textscsl{locally uniformly bounded} if, for every point \(z\in U\), there exists a neighborhood \(V\subseteq U\) of \(z\) such that \(\mathcal{F}\) is uniformly bounded on \(V\). This condition is equivalent to the condition that \(\mathcal{F}\) is uniformly bounded on all compact subsets \(K\) of \(U\).
 \end{definition}
 Obviously, the equivalence is established similarly to local finiteness and locally uniform convergence.
 \begin{theorem}[Montel's Theorem]\label{thm:montel}
@@ -3385,7 +3385,7 @@ Obviously, the equivalence is established similarly to local finiteness and loca
     We will now invoke the same diagonalization argument as in the proof of the Arzelà--Ascoli Theorem (\autoref{thm:arzelaascoli}). Let \(K\subset U\) be an arbitrary compact set. It follows that for some \(k\in\mathbb{N}\), \(K_k\supseteq K\). Since \(\qty{f_{n'_j}}_{j\geq k}\subseteq\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is the subsequence of a sequence that converges on \(K\), the assertion follows.
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
-The Riemann Mapping Theorem is one of the most profound results in complex analysis. Let \(U\) and \(V\) be two open regions in the complex plane. If there exists a biholomorphism \(f:U\to V\), then the two regions are said to be \textit{conformally equivalent}.
+The Riemann Mapping Theorem is one of the most profound results in complex analysis. Let \(U\) and \(V\) be two open regions in the complex plane. If there exists a biholomorphism \(f:U\to V\), then the two regions are said to be \textscsl{conformally equivalent}.
 \begin{theorem}[Riemann Mapping Theorem]\label{thm:riemannmapping}
     Let \(U\subset\mathbb{C}\) (a proper subset, in other words, \(U\neq\mathbb{C}\)) be a simply connected (nonempty) open region. Let \(z_0\in U\) be arbitrary. Then there exists a unique biholomorphism \(f:U\to\mathbb{D}\) such that \(f\qty(z_0)=0\) and \(f'\qty(z_0)\in\mathbb{R}_{>0}\).
 \end{theorem}
@@ -3408,7 +3408,7 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
 
     Additionally, since \(\forall k\in\mathbb{N}\), \(\abs{\widetilde{\alpha}_{n_k}}<1\) in \(U\), it follows that \(f(U)\subseteq\overline{\mathbb{D}}\). By the Open Mapping Theorem (\autoref{thm:openmapping}), the condition becomes \(f(U)\subseteq\mathbb{D}\). Since \(\widetilde{\alpha}_{n_k}\qty(z_0)=0\) for all \(k\in\mathbb{N}\) and \(\widetilde{\alpha}_{n_k}\qty(z_0)\to 0=f\qty(z_0)\), it follows that \(f\in\mathcal{F}\).
 
-    Suppose \(\Phi:U\to\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) is holomorphic. Define the \textit{holomorphic logarithm} of \(\Phi(z)\) to be a branch of \[\log\qty(\Phi(z))=\int_{\gamma}\frac{\Phi'(\zeta)}{\Phi(\zeta)}\ddzeta+\log\qty(\Phi\qty(z_0))\] for any \(z_0\in U\), where \(\gamma\subset U\) is any piecewise \(C^1\) curve from \(z_0\) to \(z\), and path independence is provided by the simple connectivity of \(U\). The result is the heuristic concatenation of several different branches of the complex logarithm, unique up to an additive factor of \(2\piup\ii k\). Similarly, we can define the \textit{holomorphic powers} of \(\Phi(z)\) to be branches of \(\Phi^\alpha (z)=\ee^{\alpha\log\qty(\Phi(z))}\), where \(\log\qty(\Phi(z))\) is the holomorphic logarithm.
+    Suppose \(\Phi:U\to\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) is holomorphic. Define the \textscsl{holomorphic logarithm} of \(\Phi(z)\) to be a branch of \[\log\qty(\Phi(z))=\int_{\gamma}\frac{\Phi'(\zeta)}{\Phi(\zeta)}\ddzeta+\log\qty(\Phi\qty(z_0))\] for any \(z_0\in U\), where \(\gamma\subset U\) is any piecewise \(C^1\) curve from \(z_0\) to \(z\), and path independence is provided by the simple connectivity of \(U\). The result is the heuristic concatenation of several different branches of the complex logarithm, unique up to an additive factor of \(2\piup\ii k\). Similarly, we can define the \textscsl{holomorphic powers} of \(\Phi(z)\) to be branches of \(\Phi^\alpha (z)=\ee^{\alpha\log\qty(\Phi(z))}\), where \(\log\qty(\Phi(z))\) is the holomorphic logarithm.
 
     Lastly, we aim to prove that \(f\) maps \(U\) to \(\mathbb{D}\) surjectively. For the sake of contradiction, assume that \(\exists\xi\in\mathbb{D}^*\) such that \(\xi\notin f(U)\). Consider the unit disk automorphism \(\varphi_\xi(z)=\frac{z-\xi}{1-z\overline{\xi}}\). Since \(\varphi_\xi(z)\) vanishes when \(z=\xi\), and since \(f(z)=\xi\) has no solutions in \(U\), there exists a holomorphic square root \[\mu(z)=\sqrt{\varphi_\xi\circ f(z)}\in\mathbb{D}\] for \(z\in U\). Let \(\tau=\mu\qty(z_0)=\sqrt{-\xi}\), and let \[\eta(z)=\varphi_\tau\circ\mu(z),\]
     where \(\varphi_\tau=\frac{z-\tau}{1-z\overline{\tau}}\). Since \(\eta\qty(z_0)=\varphi_\tau\qty(\tau)=0\), it follows that \(\eta\in\mathcal{F}\). Let \(\widetilde{\eta}=\frac{\abs{\eta'\qty(z_0)}}{\eta'\qty(z_0)}\eta\), which is also in \(\mathcal{F}\). However, since \(\widetilde{\eta}'=\frac{\abs{\eta'\qty(z_0)}}{\eta'\qty(z_0)}\eta'\), we have
@@ -3443,7 +3443,7 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
 \subsection{The Schwarz--Christoffel Transformation}\label{sec:schwarzchristoffeltransformation}
 The Riemann Mapping Theorem is elegant in its own simplicity and definitions. However, it is only a theorem that guarantees existence of biholomorphisms. No information whatsoever can be straightforwardly extracted regarding the explicit construction of such biholomorphisms. However, in the explicit case that \(U\) is the open interior of a polygon, the result is provided by the Schwarz--Christoffel Transformation.
 
-Let \(a_1<a_2<\cdots<a_n\) be \(n\in\mathbb{N}\) distinct real numbers. Suppose \(\alpha_1,\alpha_2,\ldots,\alpha_n\) are \(n\) positive real numbers satisfying \(\sum_{k=1}^n\alpha_k<n-1\). Let \[\beta(\zeta)=\qty(\zeta-a_1)^{\alpha_1-1}\cdots\qty(\zeta-a_n)^{\alpha_n-1}=\prod_{k=1}^n\qty(\zeta-a_k)^{\alpha_k-1},\] where the branch of each factor is selected to be \[\qty(\zeta-a_k)^{\alpha_k-1}=\exp\qty[\qty(\alpha_k-1)\qty(\log\qty(\zeta-a_k))],\] where the branch of \(\log(z)\) is selected such that \(-\frac{\piup}{2}<\Im\qty(\log(z))\leq\frac{3\piup}{2}\), holomorphic on \(\mathbb{C}\setminus\ii\mathbb{R}_{\leq 0}\) (the lower imaginary axis is known as a \textit{branch cut}). For \(\zeta<a_k\), the argument of this factor is \(\piup\qty(\alpha_k-1)\). For \(\zeta<a_1\), \[\arg(\beta(\zeta))=\piup\qty(-n+\sum_{k=1}^n\alpha_k),\] achieved by selecting branches of each factor by the method described earlier.
+Let \(a_1<a_2<\cdots<a_n\) be \(n\in\mathbb{N}\) distinct real numbers. Suppose \(\alpha_1,\alpha_2,\ldots,\alpha_n\) are \(n\) positive real numbers satisfying \(\sum_{k=1}^n\alpha_k<n-1\). Let \[\beta(\zeta)=\qty(\zeta-a_1)^{\alpha_1-1}\cdots\qty(\zeta-a_n)^{\alpha_n-1}=\prod_{k=1}^n\qty(\zeta-a_k)^{\alpha_k-1},\] where the branch of each factor is selected to be \[\qty(\zeta-a_k)^{\alpha_k-1}=\exp\qty[\qty(\alpha_k-1)\qty(\log\qty(\zeta-a_k))],\] where the branch of \(\log(z)\) is selected such that \(-\frac{\piup}{2}<\Im\qty(\log(z))\leq\frac{3\piup}{2}\), holomorphic on \(\mathbb{C}\setminus\ii\mathbb{R}_{\leq 0}\) (the lower imaginary axis is known as a \textscsl{branch cut}). For \(\zeta<a_k\), the argument of this factor is \(\piup\qty(\alpha_k-1)\). For \(\zeta<a_1\), \[\arg(\beta(\zeta))=\piup\qty(-n+\sum_{k=1}^n\alpha_k),\] achieved by selecting branches of each factor by the method described earlier.
 
 Let \(k\) be fixed. If \(\zeta\in\qty(a_{k-1},a_k)\), the branches of all \(\qty(\zeta-a_j)^{\alpha_j-1}\) where \(1\leq j\leq k-1\) have vanishing arguments; hence, \[\arg\beta(\zeta)=\piup\qty(-n+k-1+\sum_{j=k}^n\alpha_j).\]
 If \(\zeta>a_n\), we have \[\arg\beta(\zeta)=0.\]
@@ -3473,7 +3473,7 @@ We have previously considered analytic continuations over two regions with an in
     Similarly, if \(\Gamma\) is fully contained in \(U_2\cup\gamma\), then \[\oint_{\Gamma}f(z)\ddz=\oint_{\Gamma}f_2(z)\ddz=0.\]
     If \(\Gamma\) intersects \(\gamma\), then we can decompose \(\Gamma=\Gamma_1\cup\Gamma_2\), where \(\Gamma_1\) is the part of \(\Gamma\) that lies in \(U_1\cup\gamma\) and \(\Gamma_2\) is the part of \(\Gamma\) that lies in \(U_2\cup\gamma\). The set \(\widetilde{\Gamma}=\gamma\cap\mathrm{int}\qty(\Gamma)\) closes \(\Gamma_1\) and \(\Gamma_2\) in the sense that \(\widetilde{\Gamma}_1=\Gamma_1\cup\widetilde{\Gamma}\) and \(\widetilde{\Gamma}_2=\Gamma_2\cup\widetilde{\Gamma}\) are both simple closed curves, (where \(\widetilde{\Gamma}\) in each of the two curves have opposite orientations). By Cauchy--Goursat (\autoref{thm:cauchygoursattheorem}), we have \[\ointctrclockwise_\Gamma f(z)\ddz=\qty(\int_{\Gamma_1}+\int_{\Gamma_2}+\int_{\widetilde{\Gamma}}-\int_{\widetilde{\Gamma}})f(z)\ddz=\qty(\ointctrclockwise_{\widetilde{\Gamma}_1}+\ointctrclockwise_{\widetilde{\Gamma}_2})f(z)\ddz=0.\] Hence, by Morera's Theorem (\autoref{thm:morera}), \(f\) is holomorphic on \(\bigcup_{z\in\gamma}D\qty(z,R_z)\), and the assertion follows.
 \end{proof}
-A consequent result was discovered by Schwarz, known as the \textit{reflection principle}, is a unique result derived from the above theorem for when the shared boundary curve lies in the real axis under certain conditions.
+A consequent result was discovered by Schwarz, known as the \textscsl{reflection principle}, is a unique result derived from the above theorem for when the shared boundary curve lies in the real axis under certain conditions.
 \begin{theorem}[Schwarz Reflection Principle]\label{thm:riemannschwarzreflection}
     Let \(U\subseteq\mathbb{C}\) be a connected region on one side of the real axis such that there exists a non-degenerate curve \(\gamma\subseteq\partial U\) such that \(\gamma\in\mathbb{R}\). Let \(f:U\to\mathbb{C}\) be holomorphic with continuity up to \(U\cup\gamma\) such that \(f\) is real-valued on \(\gamma\), and let \(\widetilde{U}=\cbraces{\overline{z}}{z\in U}\) be the reflection of \(U\) across the real axis. Then there exists a unique holomorphic function \[\widetilde{f}(z)=
         \begin{cases}
@@ -3494,9 +3494,9 @@ This conjugate-symmetry can be generalized by transforming \(\gamma\):
     There exist \(a,c\in\mathbb{C}^*\) and \(b,d\in\mathbb{C}\) such that \(\phi(z)=az+b\) maps \(L\) to \(\mathbb{R}\) and \(\psi(z)=cz+d\) maps \(\Gamma\) to \(\mathbb{R}\). Let \(U'=\phi(U)\), which lies entirely on one side of the real axis, and let \(\gamma'=\phi(\gamma)\), a curve on the real axis. The function \(\varphi=\psi\circ f\circ \phi^{-1}\) is holomorphic on \(U'\) and continuous on \(U'\cup\gamma'\). By the Schwarz Reflection Principle (\autoref{thm:riemannschwarzreflection}), there exists a unique holomorphic function \(\widetilde{\varphi}:U'\cup\widetilde{U}'\cup\gamma'\to\mathbb{C}\) such that \(\widetilde{\varphi}\equiv \varphi\) on \(U'\), where \(\widetilde{U'}\) is the reflection of \(U'\) across the real axis. Then \(\widetilde{f}=\psi^{-1}\circ\widetilde{\varphi}\circ\phi\) is a holomorphic function on \(U\cup\widetilde{U}\cup\gamma\) such that \(\widetilde{f}\equiv f\) on \(U\). Since linear transformations preserves symmetry, for any pair \(z_1,z_2\in U\cup\widetilde{U}\cup\gamma\) symmetric with respect to \(L\), we have \(\phi\qty(z_1)=\overline{\phi\qty(z_2)}\), and thus \(\widetilde{\varphi}\circ\phi\qty(z_1)\) and \(\widetilde{\varphi}\circ\phi\qty(z_2)\) are symmetric with respect to \(\mathbb{R}\). Hence, \(f\qty(z_1)\) and \(f\qty(z_2)\) are symmetric with respect to \(\psi^{-1}\qty(\mathbb{R})=\Gamma\).
 \end{proof}
 \subsection{The Concept of Riemann Surfaces}
-Let \(X=(X,\tau)\) be a \textit{connected} topological space, and let \(x\in X\) be a fixed point. If \(\exists U\in\tau\) such that \(x\in U\), then \(U\) is a \textit{neighborhood} of \(x\). If any two points \(x,y\in X\) have disjoint neighborhoods, then \(X\) is a \textit{Hausdorff space}.
+Let \(X=(X,\tau)\) be a \textscsl{connected} topological space, and let \(x\in X\) be a fixed point. If \(\exists U\in\tau\) such that \(x\in U\), then \(U\) is a \textscsl{neighborhood} of \(x\). If any two points \(x,y\in X\) have disjoint neighborhoods, then \(X\) is a \textscsl{Hausdorff space}.
 
-For two topological spaces \(X\) and \(Y\), a function \(f:X\to Y\) is a \textit{homeomorphism} (also known as a \textit{bicontinuous function}) if it is a bijection such that both \(f\) and \(f^{-1}\) are continuous. If such a function exists, then \(X\) and \(Y\) are \textit{homeomorphic}.
+For two topological spaces \(X\) and \(Y\), a function \(f:X\to Y\) is a \textscsl{homeomorphism} (also known as a \textscsl{bicontinuous function}) if it is a bijection such that both \(f\) and \(f^{-1}\) are continuous. If such a function exists, then \(X\) and \(Y\) are \textscsl{homeomorphic}.
 
 The continuity of the inverse is essential. Consider the two topological spaces \(S^1=\cbraces{(x_1,x_2)\in\mathbb{R}^2}{x_1^2+x_2^2=1}\) and \([0,2\piup)=\cbraces{t\in\mathbb{R}}{0\leq t<2\piup}\) under the standard topology.
 
@@ -3504,7 +3504,7 @@ The function \(f:[0,2\pi)\to S^1\) with \(f(t)=\qty(\cos(t),\sin(t))\) is indeed
 
 A surface is a Hausdorff space that is locally homeomorphic to \(\mathbb{R}^2\). In other words, for any point \(p\) on the surface, there exists a neighborhood \(U\) of \(p\) such that \(U\) is homeomorphic to an open subset of \(\mathbb{R}^2\).
 
-Let \(\qty{U_\alpha}_{\alpha\in I}\) be an collection of open subsets of a surface \(X\) that covers \(X\). For each \(\alpha\), let \(\varphi_\alpha:U_\alpha\to\mathbb{C}\) be a homeomorphism between \(U_\alpha\) and an open subset of \(\mathbb{C}\cong\mathbb{R}^2\). The pair \(\qty(U_\alpha,\varphi_\alpha)\) is a \textit{coordinate chart} of \(X\). The collection \(\qty{\qty(U_\alpha, \varphi_\alpha)}_{\alpha\in I}\) is a \textit{coordinate atlas} of \(X\). Let \(U_\alpha\) and \(U_\beta\) be two arbitrary sets in the covering. If all \textit{transition maps} \(\varphi_\beta\circ\varphi_\alpha^{-1}:\varphi_\alpha\qty(U_\alpha\cap U_\beta)\to\varphi_\beta\qty(U_\alpha\cap U_\beta)\) are biholomorphic on their respective \(f_\alpha\qty(U_\alpha\cap U_\beta)\) (we don't need to explicitly consider \(\varphi_\alpha\circ\varphi_\beta^{-1}\) as it is the inverse of the biholomorphism, which is biholomorphic by definition), then the atlas is said to be \textit{holomorphic} (intuitively, transition maps convert Euclidean coordinates between two charts on an overlapping region). Such an \(X\) is formally known as a \textit{Riemann surface}.
+Let \(\qty{U_\alpha}_{\alpha\in I}\) be an collection of open subsets of a surface \(X\) that covers \(X\). For each \(\alpha\), let \(\varphi_\alpha:U_\alpha\to\mathbb{C}\) be a homeomorphism between \(U_\alpha\) and an open subset of \(\mathbb{C}\cong\mathbb{R}^2\). The pair \(\qty(U_\alpha,\varphi_\alpha)\) is a \textscsl{coordinate chart} of \(X\). The collection \(\qty{\qty(U_\alpha, \varphi_\alpha)}_{\alpha\in I}\) is a \textscsl{coordinate atlas} of \(X\). Let \(U_\alpha\) and \(U_\beta\) be two arbitrary sets in the covering. If all \textscsl{transition maps} \(\varphi_\beta\circ\varphi_\alpha^{-1}:\varphi_\alpha\qty(U_\alpha\cap U_\beta)\to\varphi_\beta\qty(U_\alpha\cap U_\beta)\) are biholomorphic on their respective \(f_\alpha\qty(U_\alpha\cap U_\beta)\) (we don't need to explicitly consider \(\varphi_\alpha\circ\varphi_\beta^{-1}\) as it is the inverse of the biholomorphism, which is biholomorphic by definition), then the atlas is said to be \textscsl{holomorphic} (intuitively, transition maps convert Euclidean coordinates between two charts on an overlapping region). Such an \(X\) is formally known as a \textscsl{Riemann surface}.
 
 In short, a Riemann surface is a locally Euclidean connected Hausdorff space with complex structure.
 
@@ -3524,15 +3524,15 @@ We will now give examples of Riemann surfaces (we will distinguish between \(\ex
     Consider the open sets \(U_N=S^2\setminus (0,0,1)\) and \(U_S=S^2\setminus (0,0,-1)\) that cover \(S^2\). Define their stereographic projection homeomorphisms \(\varphi_N:U_N\to\mathbb{C}\) and \(\varphi_S:U_S\to\mathbb{C}\) with centers \((0,0,1)\) and \((0,0,-1)\), respectively. By taking the conjugate of \(\varphi_S\) (this is necessary to ensure that the transition map is not anti-holomorphic), we form an atlas \(\qty{\qty(U_N, \varphi_N),\qty(U_S,\overline{\varphi_S})}\) with two charts. More explicitly, we can assume \[\varphi_N(x_1,x_2,x_3)=\frac{x_1+\ii x_2}{1-x_3}\qquad\overline{\varphi_S}(x_1,x_2,x_3)=\frac{x_1-\ii x_2}{1+x_3}.\]
     On \(\varphi_N\qty(S^2\setminus\qty((0,0,1)\cup(0,0,-1)))=\extcomplex\setminus\qty(\qty{0}\cup\qty{\infty})=\mathbb{C}^*\), the transition map \[\overline{\varphi_S}\circ\varphi_N^{-1}(z)=\frac{\Re(z)\qty(1-x_3)-\ii\Im(z)\qty(1-x_3)}{1+x_3}=\overline{z}\frac{1-x_3}{1+x^3}=\frac{\overline{z}}{\abs{z}^2}=\frac{1}{z}\] is biholomorphic. Hence, by the holomorphy of the atlas, \(S^2\) is a Riemann surface.
 \end{proof}
-Riemann surfaces are particularly useful when considering multi-valued functions. These functions cannot be defined \textit{globally} as single-valued holomorphic maps, but they can be made into well-defined holomorphic functions if we enlarge the domain, passing on to a Riemann surface.
+Riemann surfaces are particularly useful when considering multi-valued functions. These functions cannot be defined \emph{globally} as single-valued holomorphic maps, but they can be made into well-defined holomorphic functions if we enlarge the domain, passing on to a Riemann surface.
 
 Consider \(\log(z)=\log\abs{z}=i\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is multi-valued. The most common solution to this problem is achieved by restricting the range of \(\arg\), say to \((-\pi,\pi]\), effectively selecting a branch of \(\log\), inducing a discontinuity along the branch cut (here, along \(\mathbb{R}_{\leq0}\)).
 
-The geometric solution is to construct a new topological space \(X\), where the branches or sheets of the logarithm are \textit{glued} together. More explicitly, we take infinite copies of \(\mathbb{C}^*\), each copy indexed by an integer \(k\in\mathbb{Z}\), and glue them along the consecutive branch cuts such that after traversing a counterclockwise loop around the origin, one moves from the \(k\)-th sheet to the \((k+1)\)-th sheet (also called a branch).
+The geometric solution is to construct a new topological space \(X\), where the branches or sheets of the logarithm are \emph{glued} together. More explicitly, we take infinite copies of \(\mathbb{C}^*\), each copy indexed by an integer \(k\in\mathbb{Z}\), and glue them along the consecutive branch cuts such that after traversing a counterclockwise loop around the origin, one moves from the \(k\)-th sheet to the \((k+1)\)-th sheet (also called a branch).
 
 Note that the concatenation along a different branch cut (for example, along \(\ii\mathbb{R}_{\leq0}\)) yields an identical Riemann surface, although it is important to specify the branch cut before the construction.
 
-A point that connects multiple branches or sheets is known as a \textit{branch point}. In the case of the above construction, the origin is a branch point. In general, a branch point does not need to connect \textit{all} sheets; if it connects \(n\) sheets, it is known as a branch point of order \(n-1\).
+A point that connects multiple branches or sheets is known as a \textscsl{branch point}. In the case of the above construction, the origin is a branch point. In general, a branch point does not need to connect \emph{all} sheets; if it connects \(n\) sheets, it is known as a branch point of order \(n-1\).
 \begin{theorem}[Uniformization Theorem]\label{thm:uniformization}
     Any simply connected Riemann surface is biholomorphically equivalent to either \(\mathbb{D}\), \(\mathbb{C}\), or \(\extcomplex\).
 \end{theorem}
@@ -3547,7 +3547,7 @@ Suppose \(U\subseteq\mathbb{R}^2\) is a region, and let \(\qty(u,v)\in U\). Cons
 The square of the length of the vector infinitesimal \(\dd{\va{r}}=\va{r}'_u\dd{u}+\va{r}'_v\dd{v}\), or
 \begin{equation}
     \mathrm{I}(u,v)=\dd{s}^2=E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2,\label{eq:firstfundamentalform}
-\end{equation} is known as the \textit{first fundamental form} of \(\Sigma\), where \(E=\va{r}'_u\cdot\va{r}'_u\), \(F=\va{r}'_u\cdot\va{r}'_v\), and \(G=\va{r}'_v\cdot\va{r}'_v\).
+\end{equation} is known as the \textscsl{first fundamental form} of \(\Sigma\), where \(E=\va{r}'_u\cdot\va{r}'_u\), \(F=\va{r}'_u\cdot\va{r}'_v\), and \(G=\va{r}'_v\cdot\va{r}'_v\).
 
 Let \(Q=\va{r}\qty(u+\Delta u,v+\Delta v)\) be near \(P\). It follows that \(\overrightarrow{PQ}=\va{r}\qty(u+\Delta u,v+\Delta v)-\va{r}\qty(u,v)\). The distance between \(Q\) and \(T_P\Sigma\) is \(\overrightarrow{PQ}\cdot\vu{n}\),
 where \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\). By application of the multivariate Taylor's Theorem, we have
@@ -3555,7 +3555,7 @@ where \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_
     \overrightarrow{PQ}&=\va{r}'_u\Delta u+\va{r}'_v\Delta v+\frac{1}{2}\qty(\va{r}''_{uu}\Delta u^2+2\va{r}''_{uv}\Delta u\Delta v+\va{r}''_{vv}\Delta v^2)+\order{\Delta u^3+\Delta v^3},
 \end{align*}
 and therefore, \[\overrightarrow{PQ}\cdot\vu{n}=\frac{1}{2}\qty(\va{r}''_{uu}\cdot\vu{n}\Delta u^2+2\va{r}''_{uv}\cdot\vu{n}\Delta u\Delta v+\va{r}''_{vv}\cdot\vu{n}\Delta v^2)+\order{3}\cdot\vu{n}.\]
-The first two linear terms vanish by properties of the triple scalar product. The \textit{second fundamental form} of \(\Sigma\) is defined as
+The first two linear terms vanish by properties of the triple scalar product. The \textscsl{second fundamental form} of \(\Sigma\) is defined as
 \begin{equation}
     \mathrm{I\!I}(u,v)=L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2,\label{eq:secondfundamentalform}
 \end{equation} where \(L=\va{r}''_{uu}\cdot\vu{n}\), \(M=\va{r}''_{uv}\cdot\vu{n}\), and \(N=\va{r}''_{vv}\cdot\vu{n}\). Since \(\va{r}'_u\cdot\vu{n}=0\) and \(\va{r}'_v\cdot\vu{n}=0\), by differentiation, we have
@@ -3567,15 +3567,15 @@ It follows that \(L=-\va{r}'_u\cdot\vu{n}'_u\), \(M=-\va{r}'_u\cdot\vu{n}'_v=-\v
 \begin{figure}
     \centerline{\includesvg[width=0.7\linewidth]{secondfundamentalform.svg}}
     \caption{\(Q\) has a greater heuristic distance to \(T_P\Sigma\) for a more curved surface.}\label{fig:secondfundamentalform}
-\end{figure}The second fundamental form, in a rough sense, measures the curvature of the surface \(\Sigma\) at \(P\) (refer to \autoref{fig:secondfundamentalform}). The values for \(\mathrm{I}\) and \(\mathrm{I\!I}\) in equations~\eqref{eq:firstfundamentalform} and~\eqref{eq:secondfundamentalform} are known as the \textit{first} and \textit{second fundamental forms} of \(\Sigma\) at \(\qty(u,v)\). Both forms are geometric invariants; they are independent of the parameterization \(\va{r}\) of \(\Sigma\). The first fundamental form is also referred to as the \textit{intrinsic metric} (we will not delve into the metric tensor here) of \(\Sigma\), and the second fundamental form is an \textit{extrinsic} property of \(\Sigma\) as it is invariant up to the orientation of the surface (consequent direction of the normal vector).
+\end{figure}The second fundamental form, in a rough sense, measures the curvature of the surface \(\Sigma\) at \(P\) (refer to \autoref{fig:secondfundamentalform}). Both the first and second fundamental forms are geometric invariants; they are independent of the parameterization \(\va{r}\) of \(\Sigma\). The first fundamental form is also referred to as the \textscsl{intrinsic metric} (we will not delve into the metric tensor here) of \(\Sigma\), and the second fundamental form is an \textscsl{extrinsic} property of \(\Sigma\) as it is invariant up to the orientation of the surface (consequent direction of the normal vector).
 
 Let \(\gamma\subset\Sigma\) be a curve parameterized by arc length, \(\va{r}(s)=\va{r}\qty(u(s),v(s))\). Then the unit tangent vector at \(P=\va{r}(s)\) is \[\va{T}(s)=\dv{\va{r}}{s}=\va{r}'_u\dv{u}{s}+\va{r}'_v\dv{v}{s}.\]
 Consequently, \[\va{T}'(s)=\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2+\va{r}'_u\dv[2]{u}{s}+\va{r}'_v\dv[2]{v}{s},\]
 where the last two terms are in \(T_P\Sigma\). Because \(\norm{\va{T}(s)}=1\) for all \(s\) by the arc-length parameterization, we have \[0=\dv{s}(\norm{\va{T}(s)}^2)=\dv{s}(\va{T}(s)\cdot\va{T}(s))=2\va{T}(s)\cdot\va{T}'(s).\]
-Hence, \(\va{T}(s)\) and \(\va{T}'(s)\) are orthogonal and \(\va{T}'(s)\) is a normal to the curve \(\gamma\). Let \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\) be the unit normal to \(\Sigma\) at \(P\). The \textit{normal curvature} of \(\gamma\) at \(P\) in \(\Sigma\) is defined as \[\kappa_n=\va{T}'(s)\cdot\vu{n}=\qty[\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2]\cdot\vu{n}.\]
-The quotient \[\kappa_n=\frac{\mathrm{I\!I}}{\mathrm{I}}=\frac{L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2}{E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2},\] varies depending on the curve traversing \(\Sigma\) (and ultimately, depending on the direction induced by \(\dd{u}\) and \(\dd{v}\)). On \(\gamma\), the two representations are equivalent since \(\mathrm{I}=\dd{s}^2\). The maximum and minimum values of \(\kappa_n\) are known as the \textit{principal curvatures} \(\kappa_1\) and \(\kappa_2\) of \(\Sigma\) at \(P\), achieved along the \textit{principle directions} of the (unit) tangent vectors at \(P\).
+Hence, \(\va{T}(s)\) and \(\va{T}'(s)\) are orthogonal and \(\va{T}'(s)\) is a normal to the curve \(\gamma\). Let \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\) be the unit normal to \(\Sigma\) at \(P\). The \textscsl{normal curvature} of \(\gamma\) at \(P\) in \(\Sigma\) is defined as \[\kappa_n=\va{T}'(s)\cdot\vu{n}=\qty[\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2]\cdot\vu{n}.\]
+The quotient \[\kappa_n=\frac{\mathrm{I\!I}}{\mathrm{I}}=\frac{L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2}{E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2},\] varies depending on the curve traversing \(\Sigma\) (and ultimately, depending on the direction induced by \(\dd{u}\) and \(\dd{v}\)). On \(\gamma\), the two representations are equivalent since \(\mathrm{I}=\dd{s}^2\). The maximum and minimum values of \(\kappa_n\) are known as the \textscsl{principal curvatures} \(\kappa_1\) and \(\kappa_2\) of \(\Sigma\) at \(P\), achieved along the \textscsl{principle directions} of the (unit) tangent vectors at \(P\).
 
-The \textit{mean curvature} of \(\Sigma\) at \(P\) is defined to be \(H=\frac{\kappa_1+\kappa_2}{2}\). Let \(r_1,r_2\) be the radii of curvature corresponding to \(\kappa_1\) and \(\kappa_2\). Hence, we have \[H=\frac{\frac{1}{r_1}+\frac{1}{r_2}}{2}=\frac{r_1+r_2}{2r_1r_2}=\kappa_1\kappa_2\frac{r_1+r_2}{2}.\] The product of the two principle curvatures is known as the \textit{Gaussian curvature} of \(\Sigma\) at \(P\), denoted by \(K=\kappa_1\kappa_2\). We will now derive the explicit formulae for \(H\) and \(K\) in terms of \(E,F,G,L,M,N\).
+The \textscsl{mean curvature} of \(\Sigma\) at \(P\) is defined to be \(H=\frac{\kappa_1+\kappa_2}{2}\). Let \(r_1,r_2\) be the radii of curvature corresponding to \(\kappa_1\) and \(\kappa_2\). Hence, we have \[H=\frac{\frac{1}{r_1}+\frac{1}{r_2}}{2}=\frac{r_1+r_2}{2r_1r_2}=\kappa_1\kappa_2\frac{r_1+r_2}{2}.\] The product of the two principle curvatures is known as the \textscsl{Gaussian curvature} of \(\Sigma\) at \(P\), denoted by \(K=\kappa_1\kappa_2\). We will now derive the explicit formulae for \(H\) and \(K\) in terms of \(E,F,G,L,M,N\).
 
 Obviously, the matrix \(\mqty(E&F\\F&G)\) is symmetric and positive definite. Indeed, by Sylvester's Criterion, the assertion follows from the fact that \[\det\mqty(E&F\\F&G)=EG-F^2=\norm{\va{r}'_u}^2\norm{\va{r}'_v}^2-\qty(\va{r}'_u\cdot\va{r}'_v)^2=\norm{\va{r}'_u\times\va{r}'_v}^2>0\] and \(E=\norm{\va{r}_u}^2>0\).
 
@@ -3676,7 +3676,7 @@ We will now study two representations for the Gamma function.
     which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \[\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\] as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq \ee\). From equation~\eqref{eq:gammafunction_gaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
     it follows that \(1-\ee^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By equation~\eqref{eq:gammafunction_gaussformulaintermediate1}, we have \[\abs{\int_0^n \ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{\ee}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From equation~\eqref{eq:gammafunctiongaussformulaprelimit}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), or equation~\eqref{eq:gammafunctiongaussformula}
 \end{proof}
-The \textit{Weierstrass formula} is a direct consequence of the Gauss formula.
+The \textscsl{Weierstrass formula} is a direct consequence of the Gauss formula.
 \begin{theorem}[Weierstrass]\label{thm:gammafunction_weierstrassformula}
     The reciprocal Gamma function has the entire Weierstrass factorization of
     \begin{equation}
@@ -3696,7 +3696,7 @@ The \textit{Weierstrass formula} is a direct consequence of the Gauss formula.
         & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)] \\
         & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gammaup).
     \end{align*}
-    The constant \(\gammaup=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\piup^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
+    The constant \(\gammaup=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textscsl{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\autoref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\piup^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
 \end{proof}
 We have two famous identities on the \(\Gamma\) function:
 \begin{theorem}[Euler's Reflection Formula]\label{thm:gammafunction_eulerreflection}
@@ -3745,7 +3745,7 @@ The identity above is a special case of the following result:
         \Gamma(z)\Gamma\qty(z+\frac{1}{m})\cdots\Gamma\qty(z+\frac{m-1}{m})=\qty(2\piup)^{\frac{m-1}{2}}m^{\frac{1}{2}-mz}\Gamma(mz).\label{eq:gammafunction_gaussmultiplication}
     \end{equation}
 \end{theorem}
-The Gamma function as in equation~\eqref{eq:gammafunction} is commonly referred to as the \textit{Euler Integral of the Second Kind}. The \textit{Euler Integral of the First Kind} is also known as the \textit{Beta function}, and is defined by \[\mathrm{B}\qty(z_1,z_2)=\int_0^1 t^{z_1-1}(1-t)^{z_2-1}\ddt.\] By a change of variables (by letting \(\tau=1-t\)), we derive the symmetry of the Beta function: \[\mathrm{B}\qty(z_1,z_2)=\int_0^1 \tau^{z_2-1}(1-\tau)^{z_1-1}\dd\tau=\mathrm{B}\qty(z_2,z_1).\]
+The Gamma function as in equation~\eqref{eq:gammafunction} is commonly referred to as the \textscsl{Euler Integral of the Second Kind}. The \textscsl{Euler Integral of the First Kind} is also known as the \textscsl{Beta function}, and is defined by \[\mathrm{B}\qty(z_1,z_2)=\int_0^1 t^{z_1-1}(1-t)^{z_2-1}\ddt.\] By a change of variables (by letting \(\tau=1-t\)), we derive the symmetry of the Beta function: \[\mathrm{B}\qty(z_1,z_2)=\int_0^1 \tau^{z_2-1}(1-\tau)^{z_1-1}\dd\tau=\mathrm{B}\qty(z_2,z_1).\]
 The Beta function is commonly treated as an auxiliary function in many cases of integral evaluation due to its connection with the Gamma function:
 \begin{theorem}\label{thm:betagammafunctionrelationship}
     For any \(\Re\qty(z_1),\Re\qty(z_2)>0\), we have \[\mathrm{B}\qty(z_1,z_2)=\frac{\Gamma\qty(z_1)\Gamma\qty(z_2)}{\Gamma\qty(z_1+z_2)}.\]
@@ -3773,7 +3773,7 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
     where the last step recognizes the form of equation~\eqref{eq:betagammafunctionrelationship_intermediate}. By \autoref{thm:betagammafunctionrelationship}, we have \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] Lastly, the Reflection Formula (\autoref{thm:gammafunction_eulerreflection}) gives that \[I=\frac{\piup}{3\sin(\frac{\piup}{3})}=\frac{2\piup\sqrt{3}}{9}.\]
 \end{proof}
 \subsection{The Riemann--\texorpdfstring{\(\zeta\)}{zeta} Function}
-The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is currently known as the \textit{Euler Product Formula}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\piup(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
+The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is currently known as the \textscsl{Euler Product Formula}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\piup(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
 
 Following Riemann's own convention, we will denote our primary variable with \(s=\sigma+\ii t\).
 \begin{definition}\label{def:riemannzetafunction}
