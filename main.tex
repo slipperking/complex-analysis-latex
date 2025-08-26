@@ -390,12 +390,12 @@ It follows that the points \(0\), \(\qty(x,y,1)\), and \(\qty(x_1,x_2,1-x_3)\) a
 
 For the purpose of notation, we will define \(\mathbb{H}^+=\cbraces{z\in\mathbb{C}}{\Im(z)>0}\).
 \subsection{Complex Differentiation}\label{sec:complexdifferentiation}
-For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is complex differentiable at \(z\in U\) if the following limit exists, regardless of the direction \(h\) approaches 0 at:
-\[\lim_{h\to0}\frac{f(z+h)-f(z)}{h}.\]
-We can consider \(f(z)\) to be a bivariate function \(f(x,y)\) for \(z=x+\ii y\). Two main cases we are concerned with are when \(h\) approaches 0 from the real and imaginary axes:
-\[\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+h)-f(z)}{h}=\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+\ii h)-f(z)}{\ii h}.\] Expressing \(f(z)\) as \(f(x,y)=u(x,y)+\ii v(x,y)\),
-\[\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+h)-f(z)}{h}=\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(x+h,y)-f(x,y)}{h}=\pdv{u}{x}+\ii\pdv{v}{x},\]
-\[\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(z+\ii h)-f(z)}{\ii h}=-\ii\lim_{\substack{h\to0\\h\in\mathbb{R}}}\frac{f(x,y+h)-f(x,y)}{h}=\pdv{v}{y}-\ii\pdv{u}{y}.\]
+For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is \textit{complex differentiable} at \(z\in U\) if the following limit exists, regardless of the direction \(\Delta z\) approaches 0 at:
+\[\lim_{\Delta z\to0}\frac{f(z+\Delta z)-f(z)}{\Delta z}.\]
+We can consider \(f(z)\) to be a bivariate function \(f(x,y)\) for \(z=x+\ii y\). Two main cases we are concerned with are when \(\Delta z\) approaches 0 from the real and imaginary axes:
+\[\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\Delta z)-f(z)}{h}=\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\ii\Delta z)-f(z)}{\ii \Delta z}.\] Expressing \(f(z)\) as \(f(x,y)=u(x,y)+\ii v(x,y)\),
+\[\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\Delta z)-f(z)}{\Delta z}=\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(x+\Delta z,y)-f(x,y)}{\Delta z}=\pdv{u}{x}+\ii\pdv{v}{x},\]
+\[\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\ii\Delta z)-f(z)}{\ii \Delta z}=-\ii\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(x,y+\Delta z)-f(x,y)}{\Delta z}=\pdv{v}{y}-\ii\pdv{u}{y}.\]
 By comparing the real and imaginary parts, we obtain necessary conditions for complex differentiability:
 \begin{equation}
     \pdv{u}{x}=\pdv{v}{y}\qand\pdv{v}{x}=-\pdv{u}{y}\label{eq:cauchyriemanneqs1}
