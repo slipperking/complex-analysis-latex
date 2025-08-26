@@ -606,7 +606,7 @@ Let \(D(a,r)=B^1(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textsc
     \end{enumerate}
 \end{theorem}
 The disk \(\abs{z}<R\) is known as the \textscsl{disk of convergence}, a direct generalization of the \textscsl{interval of convergence} for real series. There are many ways to determine the radius of convergence:
-\begin{theorem}[Cauchy--Hadamard]\label{thm:cauchyhadamard}
+\begin{theorem}[\textsc{Cauchy--Hadamard}]\label{thm:cauchyhadamard}
     The radius of convergence of the power series in the form of \(\sum_{n=0}^\infty a_n z^n\) can be determined by
     \begin{equation}
         R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{a_n}}}. \label{eq:cauchyhadamard}
@@ -747,7 +747,7 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
     and the integrands on the right side both match those of equation~\eqref{eq:complexgreen_exteriorderivativeresult}.
 \end{proof}
 The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref{thm:stokescartan}). However, it proves the validity of the treatment of the \(\partial\) and \(\overline{\partial}\) operators, and the generalization to forms with basis \(\ddz\) and \(\dd{\overline{z}}\).
-\begin{theorem}[Cauchy--Pompeiu Theorem]\label{thm:pompeiu}
+\begin{theorem}[\textsc{Cauchy--Pompeiu}]\label{thm:pompeiu}
     Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary \(\partial U\). Let \(f(z)\in C^1(\overline{U})\). Then \(\forall z\in U\setminus\partial U\),
     \begin{equation}
         f(z)=\frac{1}{2\piup\ii}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
@@ -1193,15 +1193,15 @@ We have also already seen the utility of parameterization via a polar transforma
                 & \leq\int_0^{2\piup}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\piup|z|}{R-|z|}\to0.
             \end{align*}
     \end{enumerate}
-    By plugging the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
+    By substituting the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
         \begin{cases}
             0    & z\in\mathrm{int}(\gamma) \\
             f(z) & z\in\mathrm{ext}(\gamma)
-    \end{cases}.\]
+    \end{cases},\] as desired.
 \end{proof}
 \subsection{Analyticity and Holomorphy}\label{sec:analyticityandholomorphy}
 The Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}) can also be generalized into a result that equates complex integration and differentiation:
-\begin{theorem}[Cauchy--Goursat Differentiation Formula]\label{thm:cauchydifferentiationformula}
+\begin{theorem}[\textsc{Cauchy--Goursat}]\label{thm:cauchydifferentiationformula}
     Let \(U\subset\mathbb{C}\) be an open region bounded by a simple closed boundary \(\partial U\), and let \(f:U\to\mathbb{C}\) be holomorphic and continuous over \(\overline{U}\). Then \(\forall z\in U\), \(\forall n\in\mathbb{N}\), \(f^{(n)}(z)\) exists, and
     \begin{equation}
         f^{(n)}(z)=\frac{n!}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z}^{n+1}}\ddzeta.\label{eq:cauchydifferentiationformula_statement}
@@ -1259,14 +1259,14 @@ The differentiation formula above can be thought of as a generalization of \auto
     Prove the integral form \[P_n(z)=\frac{1}{2\piup\ii}\oint_\gamma\frac{{\qty(\zeta^2-1)}^n}{2^n{(\zeta-z)}^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
 \end{example}
 \begin{proof}
-    By applying the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\piup \ii}\oint_{\gamma}\frac{{\qty(\zeta^2-1)}^n}{{(\zeta-z)}^{n+1}}\ddzeta,\] as desired.
+    By applying the Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\piup \ii}\oint_{\gamma}\frac{{\qty(\zeta^2-1)}^n}{{(\zeta-z)}^{n+1}}\ddzeta,\] as desired.
 \end{proof}
 \begin{theorem}[Cauchy's Estimate]\label{thm:cauchysestimate}
     For a function \(f:U\to\mathbb{C}\) holomorphic over \(U\subseteq\mathbb{C}\) and \(\forall z_0\in U\) and \(\forall R>0\) such that \(\overline{D\paren{z_0,R}}\subseteq{U}\), \(\forall n\in\mathbb{N}\), \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!M}{R^n},\]
     where \[M=\max_{z\in\overline{D\paren{z_0,R}}}\abs{f(z)}.\]
 \end{theorem}
 \begin{proof}
-    By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \(\forall n\in\mathbb{N}\), \[f^{(n)}\paren{z_0}=\frac{n!}{2\piup\ii}\oint_{\partial D\paren{z_0,R}}\frac{f(\zeta)}{\paren{\zeta-z_0}^{n+1}}\ddzeta.\]
+    By the Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \(\forall n\in\mathbb{N}\), \[f^{(n)}\paren{z_0}=\frac{n!}{2\piup\ii}\oint_{\partial D\paren{z_0,R}}\frac{f(\zeta)}{\paren{\zeta-z_0}^{n+1}}\ddzeta.\]
     Because \(f(z)\) is continuous over the boundary \(\partial D\paren{z_0,R}\), it is bounded by \(M\). Thus,
     \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!}{2\piup}\int_0^{2\piup}\frac{M}{\paren{\ee^{\ii\theta}R}^{n+1}}\ee^{\ii\theta}R\dd{\theta}=\frac{n!M}{R^n},\] as desired.
 \end{proof}
@@ -1766,7 +1766,7 @@ It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is sur
     Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \autoref{lemma:schwarz}, \(\psi(z)=z\ee^{\ii\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By equation~\eqref{eq:inversemobiustransformation}, it follows that \(f(z)=\varphi_{-f(0)}\circ\rho_\tau(z)\).
 \end{proof}
 As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk}, we have the following result:
-\begin{lemma}[Schwarz--Pick Lemma]\label{lemma:schwarzpick}
+\begin{lemma}[\textsc{Schwarz--Pick}]\label{lemma:schwarzpick}
     Let \(f:\mathbb{D}\to \mathbb{D}\) be holomorphic. \(\forall z_1,z_2\in \mathbb{D}\), let \(w_1=f\qty(z_1)\) and \(w_2=f\qty(z_2)\). Then,
     \begin{equation}
         \abs{\frac{w_1-w_2}{1-w_1\overline{w_2}}}\leq\abs{\frac{z_1-z_2}{1-z_1\overline{z_2}}},\label{eq:schwarzpick_statement1}
