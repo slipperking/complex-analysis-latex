@@ -2673,7 +2673,6 @@ By the definition of a Taylor series, we find that
 \begin{equation}
     c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\lim_{z\to a}\dv[m-1]{z}\qty[(z-a)^m f(z)].\label{eq:residueatpole}
 \end{equation}
-
 Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textscsl{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\piup\ii}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
 Let \(\zeta=\frac{1}{z}\). Then we get that
 \begin{align*}
@@ -2681,7 +2680,7 @@ Let \(\zeta=\frac{1}{z}\). Then we get that
     & =\frac{1}{2\piup\ii}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.
 \end{align*}
 In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow \frac{f\qty(\frac{1}{\zeta})}{\zeta^2}=\sum_{n=-\infty}^\infty c_n\zeta^{-n-2},\] the residue at \(z=\infty\) is equal to \(-c_{-1}\). We will later explain the reasoning behind this definition.
-\begin{theorem}[Residue Theorem]\label{thm:residuethm}
+\begin{theorem}[\textsc{Residue Theorem}]\label{thm:residuethm}
     Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\). Suppose \(\cbraces{z_n}\subset U\) is a finite set and \(f(z)\) is holomorphic on \(U\setminus\cbraces{z_n}\) and continuous on \(\overline{U}\setminus\cbraces{z_n}\). Then, \[\int_{\partial U}f(z)\ddz=2\piup\ii\sum_{k=1}^n\Res(f,z_k)\]
 \end{theorem}
 \begin{proof}
@@ -3386,7 +3385,7 @@ Obviously, the equivalence is established similarly to local finiteness and loca
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
 The Riemann Mapping Theorem is one of the most profound results in complex analysis. Let \(U\) and \(V\) be two open regions in the complex plane. If there exists a biholomorphism \(f:U\to V\), then the two regions are said to be \textscsl{conformally equivalent}.
-\begin{theorem}[Riemann Mapping Theorem]\label{thm:riemannmapping}
+\begin{theorem}[\textsc{Riemann Mapping Theorem}]\label{thm:riemannmapping}
     Let \(U\subset\mathbb{C}\) (a proper subset, in other words, \(U\neq\mathbb{C}\)) be a simply connected (nonempty) open region. Let \(z_0\in U\) be arbitrary. Then there exists a unique biholomorphism \(f:U\to\mathbb{D}\) such that \(f\qty(z_0)=0\) and \(f'\qty(z_0)\in\mathbb{R}_{>0}\).
 \end{theorem}
 \begin{proof}
@@ -3458,7 +3457,7 @@ Let
 Since \(\beta\) is holomorphic on \(\mathbb{H}^+\),
 \subsection{The Reflection Principle}
 We have previously considered analytic continuations over two regions with an intersection. Under certain conditions, analytic continuations can be derived across a curve, given by the following theorem.
-\begin{theorem}[Painlevé]\label{thm:painleve}
+\begin{theorem}[\textsc{Painlevé}]\label{thm:painleve}
     Let \(U_1\) and \(U_2\) be two disjoint simply connected open regions in \(\mathbb{C}\) such that \(\partial U_1\cap\partial U_2\) is a simple curve \(\gamma\) without its endpoints. Let \(f_1:U_1\to\mathbb{C}\) and \(f_2:U_2\to\mathbb{C}\) be two holomorphic functions that are continuous on \(U_1\cup\gamma\) and \(U_2\cup\gamma\), respectively, such that \(f_1\equiv f_2\) on \(\gamma\). Then there exists a unique holomorphic function \[f=
         \begin{cases}
             f_1&\qq*{on}U_1\\
