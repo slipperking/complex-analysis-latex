@@ -125,10 +125,10 @@ We will provide a rough, informal notion of important topological concepts tailo
 \begin{definition}[Compact Set]\label{def:compactsets}
     A set \(X\in\mathbb{C}^n\) is compact if and only if \(X\) is closed and bounded.
 \end{definition}
-\begin{definition}[Cover of a Set]
+\begin{definition}[Set Covering]
     A cover \(\mathcal{C}\) of a set \(X\) is a collection of sets \(\cbraces{U_n}\) such that \[\bigcup_{n\in\mathbb{N}}U_n\supseteq X.\] A cover is \textscsl{open} if every set in the collection is open.
 \end{definition}
-\begin{theorem}[Bolzano--Weierstrass Theorem]\label{thm:bolzanoweierstrass}
+\begin{theorem}[\textsc{Bolzano--Weierstrass}]\label{thm:bolzanoweierstrass}
     Every infinite subset \(A\) of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
 \end{theorem}
 \begin{proof}
@@ -147,7 +147,7 @@ We will provide a rough, informal notion of important topological concepts tailo
 
     We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B^n(z_\infty, \delta)\), and hence \(Q_k\cap X=\emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
-\begin{theorem}[Heine--Borel]\label{thm:heineborel}
+\begin{theorem}[\textsc{Heine--Borel}]\label{thm:heineborel}
     A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has a finite subcover.
 \end{theorem}
 \begin{proof}
@@ -2692,7 +2692,7 @@ This result itself is fairly trivial. Now we will explain the significance of th
     If \(\qty{z_1,\ldots z_n,\infty}\) is discrete and finite, and \(f:\extcomplex\setminus\qty{z_1,\ldots z_n,\infty}\to\mathbb{C}\) is holomorphic, and these points are the isolated singularities of \(f\), then the sum of the residues at each of these isolated singularities is zero, or \[\sum_{k=1}^n\residue_{z=z_k} f(z)+\residue_{z=\infty}f(z)=0.\]
 \end{theorem}
 \begin{proof}
-    Let \(R>\max_{j\in\mathbb{N}_{\leq n}}\qty|z_n|\) be arbitrary. By the Residue Theorem (\autoref{thm:residuethm}), \[-\residue_{z=\infty}f(z)=\frac{1}{2\piup\ii}\int_{\partial D(0,R)}f(z)\ddz=\sum_{k=1}^n\residue_{z=z_k}f(z)\]
+    Let \(R>\max_{j\in\mathbb{N}_{\leq n}}\qty|z_n|\) be arbitrary. By the Residue Theorem (\autoref{thm:residuethm}), \[-\residue_{z=\infty}f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}f(z)\ddz=\sum_{k=1}^n\residue_{z=z_k}f(z)\]
     as desired. This is merely a restatement of \autoref{thm:residuethm}.
 \end{proof}
 There is not a directly trivial reason for the definition of the residue at \(\infty\), except for the fact that it seemingly ``unifies'' the Riemann sphere.
@@ -2700,7 +2700,7 @@ There is not a directly trivial reason for the definition of the residue at \(\i
 \begin{figure}
     \centerline{\includesvg[width=0.9\linewidth]{riemannsphere.svg}}
     \caption{The orientation of a neighborhood that does not enclose \(\infty\) after projection.}\label{fig:stereographicprojectionofneighborhood}
-\end{figure}As a matter of fact, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\autoref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\) at \(\zeta=0\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
+\end{figure}However, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\autoref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\) at \(\zeta=0\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
 
 Residues are extremely important as they allow for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues at poles are generally easy to calculate and have an integral representation. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
 \begin{example}
@@ -2860,7 +2860,7 @@ Residues are extremely important as they allow for simple evaluation of definite
     Evaluate the integrals \(\int_0^{2\piup}\Phi(\cos\theta,\sin\theta)\dd{\theta}\), where \(\Phi(\xi,\eta)\) is a rational function of \(\xi\) and \(\eta\) that is continuous on \(\theta\in[0,2\piup]\).
 \end{example}
 \begin{proof}
-    Let \(z=\ee^{\ii\theta}\). Consequently, we have \(\cos\theta=\frac{z+z^{-1}}{2}\), \(\sin\theta=\frac{z-z^{-1}}{2\ii}\), and \(\ddz=\ii\ee^{\ii\theta}\dd{\theta}\), implying that \(\dd{\theta}=\frac{\ddz}{\ii z}\). Therefore, by the Residue Theorem (\autoref{thm:residuethm}), letting \(f(z)=\frac{1}{\ii z}\Phi\qty(\frac{z+z^{-1}}{2},\frac{z-z^{-1}}{2\ii})\), we have \[\int_0^{2\piup}\Phi(\cos\theta,\sin\theta)\dd{\theta}=\int_{\partial\mathbb{D}}f(z)\ddz=2\piup\ii\sum_{k=1}^n\residue_{z=z_k}f(z),\]
+    Let \(z=\ee^{\ii\theta}\). Consequently, we have \(\cos\theta=\frac{z+z^{-1}}{2}\), \(\sin\theta=\frac{z-z^{-1}}{2\ii}\), and \(\ddz=\ii\ee^{\ii\theta}\dd{\theta}\), implying that \(\dd{\theta}=\frac{\ddz}{\ii z}\). Therefore, by the Residue Theorem (\autoref{thm:residuethm}), letting \(f(z)=\frac{1}{\ii z}\Phi\qty(\frac{z+z^{-1}}{2},\frac{z-z^{-1}}{2\ii})\), we have \[\int_0^{2\piup}\Phi(\cos\theta,\sin\theta)\dd{\theta}=\oint_{\partial\mathbb{D}}f(z)\ddz=2\piup\ii\sum_{k=1}^n\residue_{z=z_k}f(z),\]
     where \(z_k\) where \(k=1,\ldots,n\) are the isolated singularities of \(f\) in \(\mathbb{D}\).
 \end{proof}
 \begin{example}
@@ -3176,7 +3176,7 @@ The problems arising from the complex logarithm are now understood specifically 
 In \chpref{sec:conformalityintroduction}, it was asserted that for a holomorphic function \(f(z)\), the map \(w=f(z)\) is conformal when \(f'(z)\neq 0\).
 
 We have the following immediate assertion:
-\begin{theorem}[Open Mapping Theorem]\label{thm:openmapping}
+\begin{theorem}[\textsc{Open Mapping Theorem}]\label{thm:openmapping}
     Let \(U\subseteq\mathbb{C}\) be a region (open, nonempty, and connected). Let \(f:U\to\mathbb{C}\) be holomorphic and non-constant. Then the image \(f(U)\) is a region.
 \end{theorem}
 \begin{proof}
