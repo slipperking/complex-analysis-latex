@@ -3030,18 +3030,8 @@ In the case that a branch point singularity is present on the contour, we may at
     Evaluate \(I=\int_0^\infty\frac{\log(x^2+1)}{x^2+1}\ddx\).
 \end{example}
 \begin{proof}
-    Notice that the integrand itself has branch points at \(z=\pm\ii\) coinciding with the poles from the denominator. We can rewrite the integral as \[I=\int_0^{\infty}\frac{\log(x-i)}{x^2+1}\ddx+\int_0^{\infty}\frac{\log(x+i)}{x^2+1}\ddx.\]
-    Let \(\gamma_1=\Gamma\cup C_{1,R}\) be a semicircular contour in \(\overline{\mathbb{H}^-}\) and let \(\gamma_2=\Gamma\cup C_{2,R}\) be a semicircular contour in \(\overline{\mathbb{H}^+}\). Concretely, \[\Gamma=\cbraces{-R\leq x\leq R},\quad C_{1,R}=\cbraces{R\ee^{\ii\theta}}{\piup\leq\theta\leq2\piup},\quad C_{2,R}=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\piup}.\]
-    Let \(f_1(z)=\frac{\log(z-i)}{z^2+1}\), whose logarithm satisfies \([\piup,2\piup]\subset\Im\qty[\log(\mathbb{C}^*)],\) and \(f_2(z)=\frac{\log(z+i)}{z^2+1}\), whose branch is selected to satisfy \([0,\piup]\subset\Im\qty[\log(\mathbb{C}^*)]\).
-    
-    Thus, \(f_1\) is analytic in the interior of \(\gamma_1\) except for a simple pole at \(z=-\ii\), and \(f_2\) is analytic in the interior of \(\gamma_2\) except for a simple pole at \(z=\ii\). By the Residue Theorem (\autoref{thm:residuethm}), we have
-    \[\oint_{\gamma_1}f_1(z)\ddz=2\piup\ii\residue_{z=-\ii}f_1(z),\qquad\oint_{\gamma_2}f_2(z)\ddz=2\piup\ii\residue_{z=\ii}f_2(z).\]
-    By equation~\eqref{eq:residueatpole}, we have
-    \begin{align*}
-        \residue_{z=-\ii}f_1(z) & =\lim_{z\to -\ii}\qty(z+\ii)\frac{\log(z-i)}{z^2+1}     &\residue_{z=\ii}f_2(z) & =\lim_{z\to \ii}\qty(z-\ii)\frac{\log(z+i)}{z^2+1}      \\
-        & =\lim_{z\to -\ii}\dv{z}[\log(z-i)]=-\frac{1}{2\ii}&&=\lim_{z\to \ii}\dv{z}[\log(z+i)]=\frac{1}{2\ii}
-    \end{align*}
-    Similarly,
+    Notice that the integrand itself has branch points at \(z=\pm\ii\) coinciding with the poles from the denominator. We can rewrite the integral as \[I=\frac{1}{2}\int_{-\infty}^\infty\frac{\log\qty(x^2+1)}{x^2+1}=\int_{-\infty}^\infty\frac{\log\sqrt{x^2+1}}{x^2+1}=.\]
+    Let \(\gamma=\Gamma\cup C_{R}\), where concretely, \[\Gamma=\cbraces{-R\leq x\leq R},\qquad C_{R}=\cbraces{R\ee^{\ii\theta}}{\piup\leq\theta\leq2\piup}.\]
 \end{proof}
 \section{Analytic Continuation}\label{sec:analyticcontinuation}
 \subsection{Analytic Function Elements}
