@@ -3023,21 +3023,23 @@ The following result is useful for evaluating integrals on indentations along a 
     Let \(\varepsilon<\frac{\lambda}{2}\). Since \(\varphi\) is continuous on the disk \(\overline{D\qty(a,\frac{\lambda}{2})}\), it is bounded. Therefore, letting \(\varepsilon\to0\), we have
     \[\lim_{\varepsilon\to 0} \varepsilon \ii \int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\lim_{\varepsilon\to 0}\varepsilon \ii\int_\alpha^\beta\varphi(a)\ee^{\ii\theta}\dd{\theta}=0.\]
     Therefore,
-    \[\lim_{\varepsilon \to 0}\int_{\gamma_\varepsilon}f(z)\ddz=\ii\vartheta\residue_{z=a}f(z),\] as desired.
+    \[\lim_{\varepsilon \to 0}\int_{\gamma_\varepsilon}f(z)\ddz=\ii\vartheta\residue_{z=a}f(z),\] as desired. Because 
 \end{proof}
 In the case that a branch point singularity is present on the contour, we may attempt to rewrite the function in a way such that the branch point is irrelevant. Otherwise, there are two types of ``keyhole contours'' that can be used to avoid the branch cut.
-\begin{example}
+\begin{example}\label{ex:branchpointpoleconcurrenceintegral}
     Evaluate \(I=\int_0^\infty\frac{\log(x^2+1)}{x^2+1}\ddx\).
 \end{example}
 \begin{proof}
     Notice that the integrand itself has branch points at \(z=\pm\ii\) coinciding with the poles from the denominator. We can rewrite the integral as 
-    \begin{align*}
-        I&=\frac{1}{2}\int_{-\infty}^\infty\frac{\log\qty(x^2+1)}{x^2+1}=\int_{-\infty}^\infty\frac{\log\sqrt{(x+i)(x-i)}}{x^2+1}\\
-        &=\int_{-\infty}^\infty\frac{\log\abs{x\pm i}}{x^2+1}=\Re\int_{-\infty}^\infty\frac{\log\qty(x+i)}{x^2+1}.
-    \end{align*}
+    \begin{align}
+        I&=\frac{1}{2}\int_{-\infty}^\infty\frac{\log\qty(x^2+1)}{x^2+1}=\int_{-\infty}^\infty\frac{\log\sqrt{(x+i)(x-i)}}{x^2+1}\nonumber\\
+        &=\int_{-\infty}^\infty\frac{\log\abs{x\pm i}}{x^2+1}=\Re\int_{-\infty}^\infty\frac{\log\qty(x+i)}{x^2+1}.\label{eq:branchpointpoleconcurrenceintegral_rewrite}
+    \end{align}
     Let \(\gamma=\Gamma\cup C_{R}\), where concretely, \[\Gamma=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R},\qquad C_{R}=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\piup}\] and \(R>2\), and let \(f(z)=\frac{\Log(z+\ii)}{z^2+1}\), where the branch for \(\Log\) is chosen to satisfy \([0,\piup]\subset\Im\log\qty(\mathbb{C}^*)\), such as the principal branch. The only singularity of \(f\) in the upper half plane is a simple pole at \(z=\ii\). By the Residue Theorem (\autoref{thm:residuethm}), we have \[\lim_{R\to\infty}\oint_{\gamma}f(z)\ddz=\lim_{R\to\infty}\qty(\int_\Gamma+\int_{C_R})f(z)\ddz=2\piup\ii\residue_{z=\ii}f(z).\]
     By equation~\eqref{eq:residueatpole}, we have \[\residue_{z=\ii}f(z)=\lim_{z\to\ii}\qty(z-\ii)\frac{\log(z+\ii)}{z^2+1}=\lim_{z\to\ii}\frac{\log(z+\ii)}{z+\ii}=\frac{\log(2\ii)}{2\ii}=\frac{\piup}{4}-\ii\frac{\log(2)}{2}.\]
     Additionally, for \(z\in C_R\), since as \(R\to\infty\), \(\abs{f(z)}=\abs{\frac{\Log(z+i)}{z^2+1}}\leq\frac{\abs{\log\abs{z+i}}+\piup}{R^2-1}\leq\frac{\log\abs{R+1}+\piup}{R^2-1}<\frac{R+1+\piup}{R^2-1}\to 0\) by virtue of \(R>2\), it follows that \(\int_{C_R}f(z)\ddz\to 0\).
+
+    Since \(\lim_{R\to\infty}\int_\Gamma f(z)\ddz=\int_{-\infty}^\infty f(z)\ddz\) and \[\int_{-\infty}^\infty f(z)\ddz=\frac{\piup^2\ii}{2}+\piup\log(2),\] by equation~\eqref{eq:branchpointpoleconcurrenceintegral_rewrite}, we have \(I=\Re\int_{-\infty}^\infty f(z)\ddz=\piup\log(2)\).
 \end{proof}
 \section{Analytic Continuation}\label{sec:analyticcontinuation}
 \subsection{Analytic Function Elements}
