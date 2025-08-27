@@ -3030,8 +3030,13 @@ In the case that a branch point singularity is present on the contour, we may at
     Evaluate \(I=\int_0^\infty\frac{\log(x^2+1)}{x^2+1}\ddx\).
 \end{example}
 \begin{proof}
-    Notice that the integrand itself has branch points at \(z=\pm\ii\) coinciding with the poles from the denominator. We can rewrite the integral as \[I=\frac{1}{2}\int_{-\infty}^\infty\frac{\log\qty(x^2+1)}{x^2+1}=\int_{-\infty}^\infty\frac{\log\sqrt{(x+i)(x-i)}}{x^2+1}=\int_{-\infty}^\infty\frac{\log\abs{x\pm i}}{x^2+1}=\Re\int_{-\infty}^\infty\frac{\log\qty(x+i)}{x^2+1}.\]
-    Let \(\gamma=\Gamma\cup C_{R}\), where concretely, \[\Gamma=\cbraces{-R\leq x\leq R},\qquad C_{R}=\cbraces{R\ee^{\ii\theta}}{\piup\leq\theta\leq2\piup}.\]
+    Notice that the integrand itself has branch points at \(z=\pm\ii\) coinciding with the poles from the denominator. We can rewrite the integral as 
+    \begin{align*}
+        I&=\frac{1}{2}\int_{-\infty}^\infty\frac{\log\qty(x^2+1)}{x^2+1}=\int_{-\infty}^\infty\frac{\log\sqrt{(x+i)(x-i)}}{x^2+1}\\
+        &=\int_{-\infty}^\infty\frac{\log\abs{x\pm i}}{x^2+1}=\Re\int_{-\infty}^\infty\frac{\log\qty(x+i)}{x^2+1}.
+    \end{align*}
+    Let \(\gamma=\Gamma\cup C_{R}\), where concretely, \[\Gamma=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R},\qquad C_{R}=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\piup}.\]
+
 \end{proof}
 \section{Analytic Continuation}\label{sec:analyticcontinuation}
 \subsection{Analytic Function Elements}
@@ -3500,7 +3505,7 @@ For two topological spaces \(X\) and \(Y\), a function \(f:X\to Y\) is a \textsc
 
 The continuity of the inverse is essential. Consider the two topological spaces \(S^1=\cbraces{(x_1,x_2)\in\mathbb{R}^2}{x_1^2+x_2^2=1}\) and \([0,2\piup)=\cbraces{t\in\mathbb{R}}{0\leq t<2\piup}\) under the standard topology.
 
-The function \(f:[0,2\pi)\to S^1\) with \(f(t)=\qty(\cos(t),\sin(t))\) is indeed continuous, but the inverse \(f^{-1}\qty(x_1,x_2)\) is discontinuous at \(\qty(x_1,x_2)=(1,0)\).
+The function \(f:[0,2\piup)\to S^1\) with \(f(t)=\qty(\cos(t),\sin(t))\) is indeed continuous, but the inverse \(f^{-1}\qty(x_1,x_2)\) is discontinuous at \(\qty(x_1,x_2)=(1,0)\).
 
 A surface is a Hausdorff space that is locally homeomorphic to \(\mathbb{R}^2\). In other words, for any point \(p\) on the surface, there exists a neighborhood \(U\) of \(p\) such that \(U\) is homeomorphic to an open subset of \(\mathbb{R}^2\).
 
@@ -3526,7 +3531,7 @@ We will now give examples of Riemann surfaces (we will distinguish between \(\ex
 \end{proof}
 Riemann surfaces are particularly useful when considering multi-valued functions. These functions cannot be defined \emph{globally} as single-valued holomorphic maps, but they can be made into well-defined holomorphic functions if we enlarge the domain, passing on to a Riemann surface.
 
-Consider \(\log(z)=\log\abs{z}=i\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is multi-valued. The most common solution to this problem is achieved by restricting the range of \(\arg\), say to \((-\pi,\pi]\), effectively selecting a branch of \(\log\), inducing a discontinuity along the branch cut (here, along \(\mathbb{R}_{\leq0}\)).
+Consider \(\log(z)=\log\abs{z}=i\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is multi-valued. The most common solution to this problem is achieved by restricting the range of \(\arg\), say to \((-\piup,\piup]\), effectively selecting a branch of \(\log\), inducing a discontinuity along the branch cut (here, along \(\mathbb{R}_{\leq0}\)).
 
 The geometric solution is to construct a new topological space \(X\), where the branches or sheets of the logarithm are \emph{glued} together. More explicitly, we take infinite copies of \(\mathbb{C}^*\), each copy indexed by an integer \(k\in\mathbb{Z}\), and glue them along the consecutive branch cuts such that after traversing a counterclockwise loop around the origin, one moves from the \(k\)-th sheet to the \((k+1)\)-th sheet (also called a branch).
 
