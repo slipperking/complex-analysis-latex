@@ -3594,14 +3594,14 @@ The curvature of the metric \(\rho\) at \(z\in\Omega\) is defined as \[K(z)=-\fr
 The three following metrics are of particular interest in complex differential geometry:
 \begin{enumerate}
     \item 
-    \item The \textscsl{Poincaré metric} on \(\mathbb{D}\) is given by \[\rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\]
+    \item The \textscsl{Poincaré metric} (also referred to as the \textscsl{hyperbolic metric}) on \(\mathbb{D}\) is given by \[\rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\]
     In \autoref{lemma:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\). 
 
     We will now calculate the Poincaré distance between two points \(z_1,z_2\in\mathbb{C}\). First assume the case where \(z_1=0\) and \(z_2=R\in (0,1)\). Consider a piecewise smooth curve \(\gamma\subset\mathbb{D}\) parameterized by \(z(t)\) connecting \(z_1\) and \(z_2\); or in other words \[z(t)=x(t)+\ii y(t),\qquad z(0)=z_1=0,\quad z(1)=z_2=R,\] where \(x\in C^1([0,1])\) and \(y\in C^1([0,1])\) are real-valued functions. Then 
     \begin{align*}
         \int_\gamma \dd{s}&=\int_0^1 \frac{2\sqrt{x'(t)^2+y'(t)^2}}{1-x(t)^2-y(t)^2}\dd{t}\geq\int_0^1 \frac{2\abs{x'(t)}}{1-x(t)^2}\ddt\geq\abs{\int_0^1 \frac{2x'(t)}{1-x(t)^2}\dd{t}}\\
         &=\abs{\int_0^R \frac{2}{1-x^2}\ddx}=\log(\frac{1+R}{1-R}).
-    \end{align*} Assuming that \(\gamma\) is in the form of \(z(t)=Rt, z'(t)=R\) where \(t\in[0,1]\), we have \[\int_\gamma\dd{s}=\int_0^1 \frac{2R\ddt}{1-R^2t^2}\]
+    \end{align*} Assuming that \(\gamma\) is in the form of \(z(t)=Rt, z'(t)=R\) where \(t\in[0,1]\), we have \[\int_\gamma\dd{s}=\int_0^1 \frac{2R\ddt}{1-R^2t^2}=\log(\frac{1+R}{1-R}).\] Hence, the Poincaré distance between \(0\) and \(R\) is given by \[d\qty(0,R)=\log(\frac{1+R}{1-R})\] and the straight line segment connecting the two points is a geodesic. 
     \item 
 \end{enumerate}
 \subsection{The Generalization of Normal Families}
@@ -3624,8 +3624,15 @@ Many other results, however, have to be separately derived.
 Throughout mathematical history, many efforts were made to study the nature of complex functions in a multivariate setting. In the 20th century, Poincaré proved that the unit ball \(B^2=\cbraces{\qty(z_1,z_2)\in\mathbb{C}^2}{\abs{z_1}^2+\abs{z_2}^2<1}\) and the bidisk \(\mathbb{D}^2=\mathbb{D}\times\mathbb{D}\) are not biholomorphically equivalent by comparison of their automorphism groups, under certain assumptions of the automorphisms on their respective boundaries; the proof was later formalized by Cartan, but is nonetheless largely attributed to Poincaré. As one of the first of many deviations, the miracle of the Riemann Mapping Theorem (\autoref{thm:riemannmapping}) fails in higher dimensions. Hartogs later also showed that poles and essential singularities cannot exist as isolated singularities of multivariate holomorphic functions. Perhaps these are the results of an unsatisfactory generalization.
 
 Whereas the efforts of mathematicians of over two centuries gives rise to the development of function theory of one complex variable, the theory of multivariate complex functions is still largely rudimentary. Many seemingly fundamental problems still largely remain as conjecture.
+\begin{definition}
+    A function \(f:\Omega\subseteq\mathbb{C}^n\to\mathbb{C}\) is \textscsl{holomorphic} if it is holomorphic with respect to each variable when the others are held constant.
+\end{definition}
+If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic if and only if \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has continuous partial derivatives. 
 
-
+Subsequently, we have
+\begin{theorem}[Multivariable Cauchy's Integral Formula]
+    Let \(f\)
+\end{theorem}
 \section{Elliptic Functions}
 \section{Special Classes of Holomorphic Functions}
 \subsection{Boundary Continuity of Biholomorphisms}
