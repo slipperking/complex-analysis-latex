@@ -1790,7 +1790,7 @@ As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk},
     By the Schwarz Lemma (\autoref{lemma:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\]
 \end{proof}
 \begin{remark}
-    In \chpref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-|z|^2)^2}.\]
+    In \chpref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
     From equation~\eqref{eq:schwarzpick_nonincreasingmetric}, we get that the hyperbolic metric does not increase under a holomorphic mapping of \(\mathbb{D}\) to itself. This metric is invariant (the equality condition) under all functions in \(\Aut(\mathbb{D})\). This gives a geometric explanation for \autoref{lemma:schwarz}.
 \end{remark}
 \subsection{Alternative Integral Formulae}
@@ -2655,7 +2655,7 @@ The goal of the classification is to find the implications of \(\lambda\) on the
     Notice that
     \begin{equation}
         \ee^{\varphi(z)}=\frac{\sin(\piup z )}{z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})}.\label{eq:sinproductformula_intermediate}
-    \end{equation} As \(z\to 0\), we have \[\lim_{z\to 0}\ee^{\varphi(0)}=\lim_{z\to 0}\frac{\piup\cos(\piup z)}{\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})+z\qty[\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})]'}=\frac{\piup}{1+0}=\piup,\] since \(\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\) is even and therefore has a vanishing derivative at \(z=0\).
+    \end{equation} As \(z\to 0\), we have \[\lim_{z\to 0}\ee^{\varphi(0)}=\lim_{z\to 0}\frac{\piup\cos(\piup z)}{\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})+z\qty[\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})]'}=\frac{\piup}{1+0}=\piup,\] since \(\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\) is even and therefore has a vanishing derivative at \(z=0\). TO BE CONTINUED
 \end{proof}
 \subsection{The Residue Theorem}\label{sec:cauchyresiduetheorem}
 After Riemann and Weierstrass refined the understanding of analytic functions and the formal characterization of Jordan curves, the Cauchy Residue Theorem was consequently formalized. Cauchy had the informal notion of a residue, which we will now formally introduce.
@@ -3586,7 +3586,29 @@ The quotient \[\kappa_n=\frac{\mathrm{I\!I}}{\mathrm{I}}=\frac{L\dd{u}^2+2M\dd{u
 The \textscsl{mean curvature} of \(\Sigma\) at \(P\) is defined to be \(H=\frac{\kappa_1+\kappa_2}{2}\). Let \(r_1,r_2\) be the radii of curvature corresponding to \(\kappa_1\) and \(\kappa_2\). Hence, we have \[H=\frac{\frac{1}{r_1}+\frac{1}{r_2}}{2}=\frac{r_1+r_2}{2r_1r_2}=\kappa_1\kappa_2\frac{r_1+r_2}{2}.\] The product of the two principle curvatures is known as the \textscsl{Gaussian curvature} of \(\Sigma\) at \(P\), denoted by \(K=\kappa_1\kappa_2\). We will now derive the explicit formulae for \(H\) and \(K\) in terms of \(E,F,G,L,M,N\).
 
 Obviously, the matrix \(\mqty(E&F\\F&G)\) is symmetric and positive definite. Indeed, by Sylvester's Criterion, the assertion follows from the fact that \[\det\mqty(E&F\\F&G)=EG-F^2=\norm{\va{r}'_u}^2\norm{\va{r}'_v}^2-\qty(\va{r}'_u\cdot\va{r}'_v)^2=\norm{\va{r}'_u\times\va{r}'_v}^2>0\] and \(E=\norm{\va{r}_u}^2>0\).
+\subsection{Metrics and Curvature}
+Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(\rho\in C^2(\Omega)\) be a nonnegative function. The \textscsl{metric} induced by \(\rho\) is given by \[\dd{s}=\rho(z)\abs{\dd{z}}.\] Then the distance between two points \(z_1,z_2\in\Omega\) is defined as \[d(z_1,z_2)=\inf_{\gamma\subset\Omega}\int_\gamma \rho(z)\abs{\dd{z}},\] where the infimum is taken over all piecewise smooth curves \(\gamma\) in \(\Omega\) joining \(z_1\) and \(z_2\).
 
+The curvature of the metric \(\rho\) at \(z\in\Omega\) is defined as \[K(z)=-\frac{\Delta(\log\rho)(z)}{\rho(z)^2},\] where \(\Delta=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in equation~\eqref{TO BE CONTINUED}.
+
+The three following metrics are of particular interest in complex differential geometry:
+\begin{enumerate}
+    \item 
+    \item The \textscsl{Poincaré metric} on \(\mathbb{D}\) is given by \[\rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\]
+    In \autoref{lemma:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\). 
+
+    We will now calculate the Poincaré distance between two points \(z_1,z_2\in\mathbb{C}\). First assume the case where \(z_1=0\) and \(z_2=R\in (0,1)\). Consider a piecewise smooth curve \(\gamma\subset\mathbb{D}\) parameterized by \(z(t)\) connecting \(z_1\) and \(z_2\); or in other words \[z(t)=x(t)+\ii y(t),\qquad z(0)=z_1=0,\quad z(1)=z_2=R,\] where \(x\in C^1([0,1])\) and \(y\in C^1([0,1])\) are real-valued functions. Then 
+    \begin{align*}
+        \int_\gamma \dd{s}&=\int_0^1 \frac{2\sqrt{x'(t)^2+y'(t)^2}}{1-x(t)^2-y(t)^2}\dd{t}\geq\int_0^1 \frac{2\abs{x'(t)}}{1-x(t)^2}\ddt\geq\abs{\int_0^1 \frac{2x'(t)}{1-x(t)^2}\dd{t}}\\
+        &=\abs{\int_0^R \frac{2}{1-x^2}\ddx}=\log(\frac{1+R}{1-R}).
+    \end{align*} By 
+    \item 
+\end{enumerate}
+\subsection{The Generalization of Normal Families}
+
+\begin{theorem}[\textsc{Generalized Liouville}]
+    Let \(f\)
+\end{theorem}
 \begin{theorem}[\textsc{Great Picard Theorem}]\label{thm:greatpicard}
 
 \end{theorem}
