@@ -467,6 +467,13 @@ The Laplacian is equal to
     & =\pdv[2]{}{z}+\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}}-\pdv[2]{}{z}-\pdv[2]{}{\overline{z}}+2\pdv[2]{}{z}{\overline{z}} \nonumber \\
     & =4\pdv[2]{}{z}{\overline{z}}.\label{eq:laplaciancomplexform}
 \end{align}
+Under this definition, we can derive the chain rule:
+\begin{theorem}[Chain Rule]\label{thm:wirtingerchainrule}
+    Let \(\Omega\subseteq\mathbb{C}\) is a region such that \(g\in C^1(\Omega)\) and \(f\in C^1(g(\Omega))\). It follows that \begin{align*}
+        \pdv{z}(f\circ g)&=\qty(\pdv{f}{z}\circ g(z))\pdv{g}{z}+\qty(\pdv{f}{\overline{z}}\circ g(z))\pdv{\overline{g}}{z}\\
+        \pdv{\overline{z}}(f\circ g)&=\qty(\pdv{f}{z}\circ g(z))\pdv{g}{\overline{z}}+\qty(\pdv{f}{\overline{z}}\circ g(z))\pdv{\overline{g}}{\overline{z}}.
+    \end{align*}
+\end{theorem}
 \subsection{Elementary Functions}
 Univariate functions formed by compositions, sums, products, and powers of finitely many functions of the following form are known as \textscsl{elementary functions}:
 \begin{enumerate}
