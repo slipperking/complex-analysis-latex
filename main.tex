@@ -477,7 +477,7 @@ Under this definition, we can derive the chain rule:
 \end{theorem}
 \begin{proof}
 Write \(z=x+\ii y\). Let
-\[g(z)=u(x,y)+\ii v(x,y),\qquad\zeta=\xi+\ii\eta\] so that \(\zeta=g(z)\) with \(\xi=u(x,y),\eta=v(x,y)\). Let \(f\) be regarded as a \(C^1\) function of the real variables \(\xi,\eta\); equivalently we may view \(f\) as \(f\qty(\zeta,\overline{\zeta})\) where \(\overline{\zeta}=\xi-\ii\eta\). The composition is \(h(z)=f\circ g(z)=f\qty(\xi(x,y),\eta(x,y))\).
+\[g(z)=\xi(x,y)+\ii\eta(x,y),\qquad\zeta=\xi+\ii\eta\] so that \(\zeta=g(z)\) with \(\xi=\xi(x,y),\eta=\eta(x,y)\). Let \(f\) be regarded as a \(C^1\) function of the real variables \(\xi,\eta\); equivalently we may view \(f\) as \(f\qty(\zeta,\overline{\zeta})\) where \(\overline{\zeta}=\xi-\ii\eta\). The composition is \(h(z)=f\circ g(z)=f\qty(\xi(x,y),\eta(x,y))\).
 
 Using the real chain rule (provided by the continuous differentiability), we have
 \[\pdv{h}{x}=\pdv{f}{\xi}\pdv{\xi}{x}+\pdv{f}{\eta}\pdv{\eta}{x},\qquad\pdv{h}{y}=\pdv{f}{\xi}\pdv{\xi}{y}+\pdv{f}{\eta}\pdv{\eta}{y}.\]
@@ -486,13 +486,11 @@ Now recall
 \[\pdv{f}{\zeta}=\frac{1}{2}\qty(\pdv{f}{\xi}-\ii\pdv{f}{\eta}),\qquad\pdv{f}{\overline\zeta}=\frac{1}{2}\qty(\pdv{f}{\xi}+\ii\pdv{f}{\eta}).\]
 Thus,
 \[\pdv{f}{\xi}=\pdv{f}{\zeta}+\pdv{f}{\overline\zeta},\qquad \pdv{f}{\eta}=\ii\qty(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta}).\]
-Substitute:
-\[
-\begin{aligned}
-\pdv{h}{z}&=\frac{1}{2}\qty[(\pdv{f}{\zeta}+\pdv{f}{\overline\zeta})(\xi_x-\ii\xi_y)+i(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta})(\eta_x-i\eta_y)]\\
+Then by substitution,
+\begin{align*}
+\pdv{h}{z}&=\frac{1}{2}\qty[\qty(\pdv{f}{\zeta}+\pdv{f}{\overline\zeta})\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})+\ii\qty(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta})\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})]\\
 &=\pdv{f}{\zeta}\frac{1}{2}\qty((\xi_x-i\xi_y)+i(\eta_x-i\eta_y))+\pdv{f}{\overline\zeta}\frac{1}{2}\qty((\xi_x-i\xi_y)-i(\eta_x-i\eta_y)).
-\end{aligned}
-\]
+\end{align*}
 Since \(\xi=u,\ \eta=v\), the terms in parentheses equal \(\pdv{g}{z}\) and \(\pdv{\overline g}{z}\). Thus
 \[
 \pdv{h}{z}=\Big(\pdv{f}{\zeta}\circ g\Big)\pdv{g}{z}+\Big(\pdv{f}{\overline\zeta}\circ g\Big)\pdv{\overline g}{z}.
