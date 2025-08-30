@@ -3678,9 +3678,8 @@ Subsequently, we have
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)=\frac{\prod_{k=1}^n j_k!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{theorem}
 \begin{proof}
-    By Cauchy--Goursat (\autoref{thm:cauchydifferentiationformula}), we have \[\frac{\partial^{j_1}}{\partial z_1^{j_k}}f(z)=\frac{j_1!}{2\piup\ii}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,z_2,\ldots,z_n)}{\qty(\zeta_1-z_1)^{j_1+1}}\dd{\zeta_1}\] for \(z\in\Omega\).
-
-    Similarly, \[f(\zeta_1,z_2,\ldots,z_n)=\frac{1}{2\piup\ii}\oint_{\partial D(a_2,r_2)}\frac{f\qty(\zeta_1,\zeta_2,\zeta_3,\ldots,\zeta_n)}{\zeta_2-z_2}\dd{\zeta_2},\] and hence \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(a_1,r_1)}\frac{1}{\zeta_1-z_1}\qty[\frac{1}{2\piup\ii}\oint_{\partial D(a_2,r_2)}\frac{f\qty(\zeta_1,\zeta_2,\zeta_3,\ldots,\zeta_n)}{\zeta_2-z_2}\dd{\zeta_2}]\dd{\zeta_1}.\] By simplifying and reiteration up to \(n\), we obtain our assertion.
+    By Cauchy--Goursat (\autoref{thm:cauchydifferentiationformula}), we have \[\frac{\partial^{j_n}}{\partial z_n^{j_n}}f(z)=\frac{j_n!}{2\piup\ii}\oint_{\partial D\qty(a_n,r_n)}\frac{f\qty(z_1,\ldots,z_{n-1},\zeta_n)}{\qty(\zeta_n-z_n)^{j_n+1}}\dd{\zeta_n}\] for \(z\in\Omega\), which is holomorphic. Thus, by the same application on \(\frac{\partial^{j_n}}{\partial z_n^{j_n}}f(z)\), we have
+    \[\frac{\partial^{j_{n-1}}}{\partial z_{n-1}^{j_{n-1}}}\frac{\partial^{j_n}}{\partial z_n^{j_n}}f(z)=\frac{j_{n-1}!}{2\piup\ii}\frac{1}{\qty(\zeta_{n-1}-z_{n-1})^{j_{n-1}+1}}\oint_{\partial D\qty(a_{n-1},r_{n-1})}\frac{j_n!}{2\piup\ii}\oint_{\partial D\qty(a_n,r_n)}\frac{f\qty(z_1,\ldots,z_{n-1},\zeta_n)}{\qty(\zeta_n-z_n)^{j_n+1}}\dd{\zeta_n},\]
 \end{proof}
 \subsection{One Type of Isolated Singularity}
 \section{Elliptic Functions}
