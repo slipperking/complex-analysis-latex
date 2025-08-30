@@ -554,7 +554,7 @@ Next we examine the complex logarithm.
         \[w=\log(r)+\ii(\theta+2\piup k),\]
         and using the modulus-argument notation,
         \[\log(z)=\log\abs{z}+\ii\arg(z),\]
-        where \(\arg(z)\) is the multi-valued argument function. The \textscsl{principal branch} of the argument is denoted \(\Arg:\mathbb{C}\setminus\qty{0}\to(-\piup,\piup]\). The principal branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\Im\paren{\Log}\in(-\piup,\piup]\).
+        where \(\arg(z)\) is the multi-valued argument function. We denote the \textscsl{principal branch} of the argument function by \(\Arg:\mathbb{C}\setminus\qty{0}\to(-\piup,\piup]\). The principal branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\Im\paren{\Log}\in(-\piup,\piup]\).
 \end{enumerate}
 The functions \(\sin\) and \(\cos\), through their exponential form, still satisfy the properties such as their derivatives, periodicity being \(2\piup\), parity, sum and difference, and the fundamental identities \(\sin^2(z)+\cos^2(z)=1\), \(\sin(z)=\cos(\frac{\piup}{2}-z)\). However, due to the extension, some properties do not hold. For instance, \(\sin(z)\) and \(\cos(z)\) are unbounded, as along the imaginary axis, they resemble their hyperbolic counterparts, which are unbounded along the real line.
 
@@ -1291,7 +1291,7 @@ The differentiation formula above can be thought of as a generalization of \auto
     Prove the integral form \[P_n(z)=\frac{1}{2\piup\ii}\oint_\gamma\frac{{\qty(\zeta^2-1)}^n}{2^n{(\zeta-z)}^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
 \end{example}
 \begin{proof}
-    By applying the Differentiation Formula (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\piup \ii}\oint_{\gamma}\frac{{\qty(\zeta^2-1)}^n}{{(\zeta-z)}^{n+1}}\ddzeta,\] as desired.
+    By applying Cauchy--Goursat (\autoref{thm:cauchydifferentiationformula}) on equation~\eqref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\piup \ii}\oint_{\gamma}\frac{{\qty(\zeta^2-1)}^n}{{(\zeta-z)}^{n+1}}\ddzeta,\] as desired.
 \end{proof}
 \begin{theorem}[\textsc{Cauchy's Estimate}]\label{thm:cauchysestimate}
     For a function \(f:U\to\mathbb{C}\) holomorphic over \(U\subseteq\mathbb{C}\) and \(\forall z_0\in U\) and \(\forall R>0\) such that \(\overline{D\paren{z_0,R}}\subseteq{U}\), \(\forall n\in\mathbb{N}\), \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!M}{R^n},\]
@@ -3679,7 +3679,8 @@ Subsequently, we have
 \end{theorem}
 \begin{proof}
     By Cauchy--Goursat (\autoref{thm:cauchydifferentiationformula}), we have \[\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)=\frac{j_1!}{2\piup\ii}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,z_2\ldots,z_n)}{\qty(\zeta_1-z_1)^{j_1+1}}\dd{\zeta_1}\] for \(z\in\Omega\), which is holomorphic. Thus, by the same application on \(\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)\), we have
-    \[\frac{\partial^{j_{2}}}{\partial z_{2}^{j_{2}}}\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)=\frac{j_{2}!j_1!}{\qty(2\piup\ii)^2}\oint_{\partial D\qty(a_{2},r_{2})}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,\zeta_2,z_3,\ldots,z_n)}{\qty(\zeta_1-z_1)^{j_1+1}\qty(\zeta_{2}-z_{2})^{j_{2}+1}}\dd{\zeta_1}\dd{\zeta_2},\]
+    \[\frac{\partial^{j_{2}}}{\partial z_{2}^{j_{2}}}\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)=\frac{j_{2}!j_1!}{\qty(2\piup\ii)^2}\oint_{\partial D\qty(a_{2},r_{2})}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,\zeta_2,z_3,\ldots,z_n)}{\qty(\zeta_1-z_1)^{j_1+1}\qty(\zeta_{2}-z_{2})^{j_{2}+1}}\dd{\zeta_1}\dd{\zeta_2}.\]
+    By reiterating \(n\) times and reversing the order of differentiation and integration, the conclusion follows.
 \end{proof}
 \subsection{One Type of Isolated Singularity}
 \section{Elliptic Functions}
