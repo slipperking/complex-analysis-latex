@@ -476,36 +476,21 @@ Under this definition, we can derive the chain rule:
     \end{align*}
 \end{theorem}
 \begin{proof}
-Write \(z=x+iy\). Let
-\[g(z)=u(x,y)+iv(x,y),\qquad\zeta=\xi+i\eta\] so that \(\zeta=g(z)\) with \(\xi=u(x,y),\eta=v(x,y)\). Let \(f\) be regarded as a \(C^1\) function of the real variables \((\xi,\eta)\); equivalently we may view \(f\) as \(f(\zeta,\overline{\zeta})\) where \(\overline\zeta=\xi-i\eta\). The composition is \(f\circ g(z)=f\qty(\xi(x,y),\eta(x,y))\).
+Write \(z=x+\ii y\). Let
+\[g(z)=u(x,y)+\ii v(x,y),\qquad\zeta=\xi+\ii\eta\] so that \(\zeta=g(z)\) with \(\xi=u(x,y),\eta=v(x,y)\). Let \(f\) be regarded as a \(C^1\) function of the real variables \(\xi,\eta\); equivalently we may view \(f\) as \(f\qty(\zeta,\overline{\zeta})\) where \(\overline{\zeta}=\xi-\ii\eta\). The composition is \(h(z)=f\circ g(z)=f\qty(\xi(x,y),\eta(x,y))\).
 
-By the continuous differentiability, we may apply the classical chain rule.
-
-By definition,
-\[
-\pdv{h}{z}=\frac{1}{2}\qty(\pdv{h}{x}-i\pdv{h}{y}).
-\]
-Using the real chain rule,
-\[
-\pdv{h}{x}=f_\xi\pdv{\xi}{x}+f_\eta\pdv{\eta}{x},\qquad \pdv{h}{y}=f_\xi\pdv{\xi}{y}+f_\eta\pdv{\eta}{y}.
-\]
-Hence
-\[
-\pdv{h}{z}=\tfrac12\Big[f_\xi(\xi_x-i\xi_y)+f_\eta(\eta_x-i\eta_y)\Big].
-\]
+Using the real chain rule (provided by the continuous differentiability), we have
+\[\pdv{h}{x}=\pdv{f}{\xi}\pdv{\xi}{x}+\pdv{f}{\eta}\pdv{\eta}{x},\qquad\pdv{h}{y}=\pdv{f}{\xi}\pdv{\xi}{y}+\pdv{f}{\eta}\pdv{\eta}{y}.\]
+Hence, \[\pdv{h}{z}=\frac{1}{2}\qty[\pdv{f}{\xi}(\pdv{\xi}{x}-\ii\pdv{\xi}{y})+\pdv{f}{\eta}(\pdv{\eta}{x}-\ii\pdv{\eta}{y})].\]
 Now recall
-\[
-\pdv{f}{\zeta}=\tfrac12(f_\xi-if_\eta),\qquad \pdv{f}{\overline\zeta}=\tfrac12(f_\xi+if_\eta).
-\]
-Thus
-\[
-f_\xi=\pdv{f}{\zeta}+\pdv{f}{\overline\zeta},\qquad f_\eta=i\Big(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta}\Big).
-\]
+\[\pdv{f}{\zeta}=\frac{1}{2}(f_\xi-\ii f_\eta),\qquad\pdv{f}{\overline\zeta}=\frac{1}{2}(f_\xi+\ii f_\eta).\]
+Thus,
+\[f_\xi=\pdv{f}{\zeta}+\pdv{f}{\overline\zeta},\qquad f_\eta=\ii\qty(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta}).\]
 Substitute:
 \[
 \begin{aligned}
-\pdv{h}{z}&=\tfrac12\Big[(\pdv{f}{\zeta}+\pdv{f}{\overline\zeta})(\xi_x-i\xi_y)+i(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta})(\eta_x-i\eta_y)\Big]\\
-&=\pdv{f}{\zeta}\tfrac12\big((\xi_x-i\xi_y)+i(\eta_x-i\eta_y)\big)+\pdv{f}{\overline\zeta}\tfrac12\big((\xi_x-i\xi_y)-i(\eta_x-i\eta_y)\big).
+\pdv{h}{z}&=\frac{1}{2}\qty[(\pdv{f}{\zeta}+\pdv{f}{\overline\zeta})(\xi_x-\ii\xi_y)+i(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta})(\eta_x-i\eta_y)]\\
+&=\pdv{f}{\zeta}\frac{1}{2}\qty((\xi_x-i\xi_y)+i(\eta_x-i\eta_y))+\pdv{f}{\overline\zeta}\frac{1}{2}\qty((\xi_x-i\xi_y)-i(\eta_x-i\eta_y)).
 \end{aligned}
 \]
 Since \(\xi=u,\ \eta=v\), the terms in parentheses equal \(\pdv{g}{z}\) and \(\pdv{\overline g}{z}\). Thus
@@ -513,13 +498,9 @@ Since \(\xi=u,\ \eta=v\), the terms in parentheses equal \(\pdv{g}{z}\) and \(\p
 \pdv{h}{z}=\Big(\pdv{f}{\zeta}\circ g\Big)\pdv{g}{z}+\Big(\pdv{f}{\overline\zeta}\circ g\Big)\pdv{\overline g}{z}.
 \]
 Renaming the variables yields
-\[
-\pdv{z}(f\circ g)=(\pdv{f}{z}\circ g)\pdv{g}{z}+(\pdv{f}{\overline z}\circ g)\pdv{\overline g}{z}.
-\]
+\[\pdv{z}(f\circ g)=(\pdv{f}{z}\circ g)\pdv{g}{z}+(\pdv{f}{\overline z}\circ g)\pdv{\overline g}{z}.\]
 A similar calculation, using \(\pdv{}{\overline z}=\tfrac12(\pdv{}{x}+i\pdv{}{y})\), gives
-\[
-\pdv{\overline z}(f\circ g)=(\pdv{f}{z}\circ g)\pdv{g}{\overline z}+(\pdv{f}{\overline z}\circ g)\pdv{\overline g}{\overline z}.
-\]
+\[\pdv{\overline z}(f\circ g)=(\pdv{f}{z}\circ g)\pdv{g}{\overline z}+(\pdv{f}{\overline z}\circ g)\pdv{\overline g}{\overline z}.\]
 These are exactly the claimed identities.
 \end{proof}
 \subsection{Elementary Functions}
