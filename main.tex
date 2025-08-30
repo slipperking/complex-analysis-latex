@@ -3031,7 +3031,7 @@ If the function \(f\) is even and integrated on a domain such as \(\mathbb{R}_{\
 
 If \(f(z)\) is a constant multiple of \(f(z+\ii y)\) for some \(y\in\mathbb{R}\), it is a strong indication to use a rectangular contour. If \(f(z)\) is a constant multiple of \(f\qty(z\ee^{\ii\tau})\) for some \(\tau\in\mathbb{R}\), a wedge-shaped contour is an appropriate choice.
 
-The following result is useful for evaluating integrals on indentations along a contour.
+In the case that there are indentations along the contour, we have
 \begin{theorem}\label{thm:residueoverarc}
     Let \(\lambda>0\) and let \(a\in\mathbb{C}\). Suppose \(f(z)\) is a holomorphic function on \(D^*(a,\lambda)\) with a simple pole at \(z=a\in U\). Let \(0<\varepsilon<\lambda\) and define \(\gamma_\varepsilon\subseteq\partial D(a, \varepsilon)\) be a counterclockwise-oriented, connected arc subtending an angle \(\vartheta\). Then,
     \[\lim_{\varepsilon\to 0}\int_{\gamma_\varepsilon}f(z)\ddz=\ii\vartheta\cdot\residue_{z=a}f(z).\]
@@ -3527,7 +3527,7 @@ A consequent result was discovered by Schwarz, known as the \textscsl{reflection
     Since this limit exists, it follows that \(\overline{f\qty(\overline{z})}\) is holomorphic on \(\widetilde{U}\). Assume that \(z_0\in\gamma\). Since \[\lim_{z\to z_0}\overline{f\qty(\overline{z})}=\overline{f\qty(\lim_{z\to z_0}\overline{z})}=\overline{f\qty(z_0)}=f\qty(z_0),\] it follows that \(\overline{f\qty(\overline{z})}\) is continuous on \(\widetilde{U}\cup\gamma\). Therefore, by the Painlevé Theorem, \(\widetilde{f}\) is holomorphic on \(U\cup\widetilde{U}\cup\gamma\).
 \end{proof}
 This conjugate-symmetry can be generalized by transforming \(\gamma\):
-\begin{theorem}[Symmetry Principle]
+\begin{theorem}[\textsc{Symmetry Principle}]
     Let \(L\subset\mathbb{C}\) be an (infinite) straight line, and let \(U\subset\mathbb{C}\) be an open region lying entirely on one side of \(L\). Suppose \(\gamma\subseteq L\) is a non-degenerate open curve contained in \(\partial U\). If \(f\) is holomorphic on \(U\), continuous on \(U\cup\gamma\), and satisfies \(f(\gamma)\subseteq\Gamma\), where \(\Gamma\subset\mathbb{C}\) is a straight line, then there exists a unique holomorphic function \(\widetilde{f}:U\cup\widetilde{U}\cup\gamma\to\mathbb{C}\) such that \(\widetilde{f}\equiv f\) on \(U\), where \(\widetilde{U}\) is the reflection of \(U\) across \(L\). Moreover, for any pair \(z_1,z_2\in U\cup\widetilde{U}\cup\gamma\) symmetric with respect to \(L\), the values \(\widetilde{f}\qty(z_1)\) and \(\widetilde{f}\qty(z_2)\) are symmetric with respect to \(\Gamma\).
 \end{theorem}
 \begin{proof}
@@ -3674,7 +3674,7 @@ Obviously, we will first formally define the concept of holomorphy in higher dim
 \end{definition}
 If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic if and only if \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has all continuous partial derivatives.
 
-Subsequently, we have
+Subsequently, we have for Cartesian products,
 \begin{theorem}[Generalized Cauchy's Integral Formula]\label{thm:cauchyintegralformulamultivar}
     Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product). 
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)=\frac{\prod_{k=1}^n j_k!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
@@ -3684,6 +3684,16 @@ Subsequently, we have
     \[\frac{\partial^{j_{2}}}{\partial z_{2}^{j_{2}}}\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)=\frac{j_{2}!j_1!}{\qty(2\piup\ii)^2}\oint_{\partial D\qty(a_{2},r_{2})}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,\zeta_2,z_3,\ldots,z_n)}{\qty(\zeta_1-z_1)^{j_1+1}\qty(\zeta_{2}-z_{2})^{j_{2}+1}}\dd{\zeta_1}\dd{\zeta_2}.\]
     By reiterating \(n\) times and reversing the order of differentiation and integration, the conclusion follows.
 \end{proof}
+By the boundedness assumption for \(f\), we have:
+\begin{corollary}[Generalized Cauchy's Estimate]
+    
+\end{corollary}
+\begin{theorem}[\textsc{Identity}]
+    
+\end{theorem}
+\begin{theorem}[\textsc{Maximum Modulus Principle}]
+    
+\end{theorem}
 \subsection{One Type of Isolated Singularity}
 \section{Elliptic Functions}
 \section{Special Classes of Holomorphic Functions}
