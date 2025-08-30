@@ -1514,7 +1514,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     Obviously, this assertion implies \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \autoref{lemma:locallyfiniteopencoverexistence}: let \(K\subset \Omega\) be compact, and for every \(z\in\Omega\), the collection of neighborhoods covers \(K\), and by the Heine--Borel Theorem (\autoref{thm:heineborel}), admits a finite subcover. Therefore, \(K\) intersects finitely many sets in \(S\). Conversely, \(\forall z\in\Omega\), there exists an open neighborhood \(V\ni z\) relatively compact in \(\Omega\). By assumption, \(\overline{V}\) intersects finitely many sets in \(S\), and since \(V\subset\overline{V}\), the conclusion follows.
 \end{remark}
 \begin{theorem}[\textsc{Partition of Unity}]\label{thm:partitionofunity}
-    For a nonempty open set \(\Omega\subseteq\mathbb{C}\), let \(\cbraces{\Omega_k}_{k\in\mathbb{Z}_{\ge0}}\) be an open cover of \(\Omega\). Then there exists a collection of bump functions, \(\alpha_1(z),\alpha_2(z),\ldots\in C^\infty(\mathbb{C})\) with compact support within \(\Omega\) satisfying
+    For a nonempty open set \(\Omega\subseteq\mathbb{C}\), suppose that \(\cbraces{\Omega_k}_{k\in\mathbb{Z}_{\ge0}}\) is an open cover of \(\Omega\). Then, there exists a collection of bump functions \(\alpha_1(z),\alpha_2(z),\ldots\in C^\infty(\mathbb{C})\), each with compact support in \(\Omega\) satisfying
     \begin{enumerate}
         \item \(\forall j\in\mathbb{N}\), \(\exists k\in\mathbb{Z}_{\geq0}\) such that \(\supp\paren{\alpha_j}\subseteq\Omega_k\).\label{itm:partitionofunity_subordinate}
         \item The collection \(\qty{\supp\paren{\alpha_j}}\) is locally finite.\label{itm:partitionofunity_localfiniteness}
@@ -1685,7 +1685,7 @@ We also have the following generalization of \autoref{thm:hurwitzsimplecase}, wh
 \begin{proof}
     The zero at \(z_0\) is isolated by \autoref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). By uniform convergence, \(\exists N\in \mathbb{N}\) such that \(\forall n>N\), we have \(\abs{f(z)-f_n\qty(z)}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
 
-    By Rouché's Theorem (\autoref{thm:rouche}), since \(\abs{\qty(f(z)-w_0)-\qty(f_n(z)-w_0)}<\abs{f(z)-w_0}\), it follows that \(f_n-w_0\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
+    By Rouché's Theorem (\autoref{thm:rouche}), since \[\abs{\qty(f(z)-w_0)-\qty(f_n(z)-w_0)}<\abs{f(z)-w_0},\] it follows that \(f_n-w_0\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
 \subsection{Further Properties of Holomorphic Functions}
 A useful corollary of \autoref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
@@ -3146,7 +3146,7 @@ In \autoref{ex:complexlogarithmanalyticcontinuation}, we showed that two analyti
 This is a common issue when it comes to the problem of analytic continuation. This question of non-ambiguity can be explained by planar topology; specifically the concept of homotopy. We will now introduce the concept of analytic continuation along a given curve.
 \subsection{Analytic Continuation Along a Curve}
 \begin{definition}\label{def:analyticcontinuationalongcurve}
-    Let \(\gamma:[0,1]\to\mathbb{C}\) be a (non-constant) curve. Let \(U\) be a disk centered at \(\gamma(0)\) and suppose \(f: U\to\mathbb{C}\) is holomorphic. An \textscsl{analytic continuation of} \(\qty(f,U)\) \textscsl{along} \(\gamma\) is a collection of analytic function elements \(\qty{\qty(f_t, U_t)}_{0\leq t\leq 1}\) where
+    Let \(\gamma:[0,1]\to\mathbb{C}\) be a (non-constant) curve. Let \(U\) be a disk centered at \(\gamma(0)\) and suppose \(f: U\to\mathbb{C}\) is holomorphic. An \textscsl{analytic continuation of} \(\qty(f,U)\) \textscsl{along} \(\gamma\) is defined to be a collection of analytic functions elements \(\qty{\qty(f_t, U_t)}_{0\leq t\leq 1}\) where
     \begin{enumerate}
         \item We define \(U_0=U\) and \(f_0=f\).
         \item Each \(U_t\) (\(0\leq t\leq 1\)) is a disk centered at \(\gamma(t)\).
@@ -3674,7 +3674,7 @@ If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2}
 
 Subsequently, we have
 \begin{theorem}[Generalized Cauchy's Integral Formula]\label{thm:cauchyintegralformulamultivar}
-    Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\). 
+    Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product). 
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)=\frac{\prod_{k=1}^n j_k!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{theorem}
 \begin{proof}
