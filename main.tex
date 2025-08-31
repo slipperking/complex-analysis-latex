@@ -1313,7 +1313,7 @@ The differentiation formula above can be thought of as a generalization of \auto
     \[\varphi''(R)=Mn!\ee^R\qty(\frac{1}{R^n}-\frac{2n}{R^{n+1}}+\frac{n(n+1)}{R^{n+2}})\Longrightarrow\varphi''(n)=M(n-1)!\frac{\ee^n}{n^n},\]
     which is positive and convex.
 \end{proof}
-The following major theorem, albeit originally proven by Cauchy in 1844, shows a fundamental difference between holomorphic functions on proper subsets of \(\mathbb{C}\) and entire functions.
+The following theorem, albeit originally proven by Cauchy in 1844, shows a fundamental difference between holomorphic functions on proper subsets of \(\mathbb{C}\) and entire functions.
 \begin{theorem}[\textsc{Liouville}]\label{thm:liouville}
     Any bounded entire function is constant.
 \end{theorem}
@@ -3675,7 +3675,7 @@ Obviously, we will first formally define the concept of holomorphy in higher dim
 If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic if and only if \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has all continuous partial derivatives.
 
 Subsequently, we have for Cartesian products,
-\begin{theorem}[Cauchy's Integral Formula on Polydisks]\label{thm:cauchyintegralformulamultivar}
+\begin{theorem}[Cauchy's Integral Formula on Polydisks]\label{thm:cauchyintegralformulapolydisks}
     Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product). 
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)=\frac{\prod_{k=1}^n j_k!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{theorem}
@@ -3685,10 +3685,13 @@ Subsequently, we have for Cartesian products,
     By reiterating \(n\) times and reversing the order of differentiation and integration, the conclusion follows.
 \end{proof}
 By the boundedness assumption for \(f\), we have:
-\begin{corollary}[Generalized Cauchy's Estimate]
+\begin{corollary}[Cauchy's Estimate on Polydisks]
     Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product). 
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{corollary}
+\begin{proof}
+    By Cauchy's Integral Formula (\autoref{thm:cauchyintegralformulapolydisks}), we have \[\frac{\partial^{j_{2}}}{\partial z_{2}^{j_{2}}}\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)=\frac{j_{2}!j_1!}{\qty(2\piup\ii)^2}\oint_{\partial D\qty(a_{2},r_{2})}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,\zeta_2,z_3,\ldots,z_n)}{\qty(\zeta_1-z_1)^{j_1+1}\qty(\zeta_{2}-z_{2})^{j_{2}+1}}\dd{\zeta_1}\dd{\zeta_2}.\]
+\end{proof}
 \begin{theorem}[\textsc{Identity}]
     
 \end{theorem}
