@@ -3687,11 +3687,11 @@ Subsequently, we have for Cartesian products,
 By the boundedness assumption for \(f\), we have:
 \begin{corollary}[Cauchy's Estimate on Polydisks]
     Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product). 
-    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
+    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\prod_{k=1}^n\qty(\frac{j_k!}{\varepsilon_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\) and \(\varepsilon_k\) satisfying \(D\qty(z_k,\varepsilon_k)\subseteq D(a_k,r_k)\).
 \end{corollary}
 \begin{proof}
     By Cauchy's Integral Formula (\autoref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\frac{\prod_{k=1}^n j_k!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
-    For each \(k\), let \(\zeta_k=a_k+r_k\ee^{\ii t_k}\), and it follows that \(\dd{\zeta_k}=\ii r_k\ee^{\ii t_k}\ddt\).
+    For each \(k\), let \(\zeta_k=a_k+r_k\ee^{\ii t_k}\), and it follows that \(\dd{\zeta_k}=\ii r_k\ee^{\ii t_k}\dd{t_k}\).
 \end{proof}
 \begin{theorem}[\textsc{Identity}]
     
