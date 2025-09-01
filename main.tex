@@ -1269,8 +1269,8 @@ The Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}) can also be gen
         & \quad+\order{\abs{z-z_0}^2},
     \end{align*}
     where the remainder terms \(\order{\abs{z-z_0}^2}\) resemble
-    \[\paren{z-z_0}^2\frac{k!}{2\piup\ii}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+\mathcal{O}_{z\to z_0}\paren{\abs{z-z_0}^3}.\]
-    The difference quotient is equal to \[\frac{f^{(k)}(z)-f^{(k)}\paren{z_0}}{z-z_0}=\frac{(k+1)!}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta+\mathcal{O}_{z\to z_0}\abs{z-z_0}.\] As \(z\to z_0\), the remainder terms vanish, and \[f^{(k+1)}\paren{z_0}=\frac{(k+1)!}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta.\]
+    \[\paren{z-z_0}^2\frac{k!}{2\piup\ii}\brackets{k+1+\binom{k+1}{2}}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+3}}\ddzeta+\order{\abs{z-z_0}^3}.\]
+    The difference quotient is equal to \[\frac{f^{(k)}(z)-f^{(k)}\paren{z_0}}{z-z_0}=\frac{(k+1)!}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta+\order{\abs{z-z_0}}.\] As \(z\to z_0\), the remainder terms vanish, and \[f^{(k+1)}\paren{z_0}=\frac{(k+1)!}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\paren{\zeta-z_0}^{k+2}}\ddzeta.\]
     By induction, equation~\eqref{eq:cauchydifferentiationformula_statement} is valid. By substituting equation~\eqref{eq:cauchydifferentiationformula_kernelexpansion} into \eqref{eq:cauchygoursatformula}, we obtain \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z_0}\sum_{j=0}^{\infty}\paren{\frac{z-z_0}{\zeta-z_0}}^j\ddzeta=\frac{1}{2\piup\ii}\oint_{\partial U}\sum_{j=0}^{\infty}\paren{z-z_0}^j\frac{f(\zeta)\ddzeta}{\paren{\zeta-z_0}^{j+1}}.\]
     Because \(f(\zeta)\) is continuous over \(\partial U\), it is bounded by a constant \(M\). Additionally, since \(\abs{z-z_0}<\abs{\zeta-z_0}\), the sum is termwise bounded by the convergent series \[\sum_{j=0}^\infty\frac{Mr^j}{\inf_{\xi\in\partial U}\abs{\xi-z_0}^{j+1}}.\]
     By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the series uniformly converges, and we can justify
@@ -1569,7 +1569,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
 
     The function \(f_1(z)=\frac{f(z)}{z-z_\infty}\) has a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
     \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z_\infty}^n.\]
-    Let \(z=z_n\neq z_\infty\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+\mathcal{O}_{n\to\infty}\paren{z_n-z_\infty}.\]
+    Let \(z=z_n\neq z_\infty\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+\order{z_n-z_\infty}.\]
     Letting \(n\to\infty\), \(z_n\to z_\infty\), and \(a_1=0\). Define \(f_2(z)=\frac{f_1(z)}{z-z_\infty}\). Then, \[f_2(z)=\sum_{n=0}^\infty a_{n+2}\paren{z-z_\infty}^n.\]
     Similarly, \(a_2=0\). Letting \(f_n(z)=\frac{f(z)}{\paren{z-z_\infty}^n}\), the sequence \(\cbraces{a_n}_{n\in\mathbb{Z}_{\geq0}}\) vanishes, and \(f\equiv 0\) on \(D\paren{z_\infty,\varepsilon}\).
 
@@ -3651,7 +3651,8 @@ The three following metrics are of particular interest in complex differential g
         Notice that the fraction within the square root is a product between a complex number and its conjugate. Thus, this distance is equal to \[d\qty(z,\widetilde{z})=2\arctan\abs{\frac{z-\widetilde{z}}{z\overline{\widetilde{z}}+1}}\] in the extended complex plane. Let \(\widetilde{z}=z+\Delta z\). It follows that
         \begin{align*}
             d(z,z+\Delta z)&=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+z\overline{\Delta z}+1}}=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\frac{1}{1+\frac{z\overline{\Delta z}}{\abs{z}^2+1}}}\\
-            &=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\qty(1+\order{\Delta z})}=2\qty(\abs{\frac{\Delta z}{\abs{z}^2+1}\frac{1}{1+\frac{z\overline{\Delta z}}{\abs{z}^2+1}}}+\order{\frac{\Delta z}{\abs{z}^2+1}\frac{1}{1+\frac{z\overline{\Delta z}}{\abs{z}^2+1}}})
+            &=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\qty(1+\order{\Delta z})}=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}\\
+            &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}+\order{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}]
         \end{align*}
 \end{enumerate}
 \subsection{Consequences of Ahlfors--Schwarz}
