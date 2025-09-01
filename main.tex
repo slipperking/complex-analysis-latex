@@ -3641,8 +3641,11 @@ The three following metrics are of particular interest in complex differential g
             &=-\frac{2}{\lambda^2}\qty(\lambda+\overline{z}\lambda'_{\overline{z}})=-\frac{\qty(1-\abs{z}^2)^2}{2}\qty(\lambda+\overline{z}\qty(\frac{2z}{\qty(1-\abs{z}^2)^2}))\\
             &=-\qty(1-\abs{z}^2)-\abs{z}^2=-1,
         \end{align*} where \(\lambda'_z=\pdv{\lambda}{z}\) and \(\lambda'_{\overline{z}}=\pdv{\lambda}{\overline{z}}\).
-    \item The \textscsl{spherical metric} (also referred to as the \textscsl{elliptic metric}) on \(\extcomplex\) is given by \[\rho=\sigma(z)=\frac{2}{1+\abs{z}^2},\qquad \dd{s}^2_\sigma=\frac{4\abs{\ddz}^2}{\qty(1+\abs{z}^2)^2}.\]
-        Under the inverse stereographic projection of \(S^2\to\extcomplex\), for a given \(z\in\extcomplex\), the corresponding point in \(S^2\) is \[\qty(x_1,x_2,x_3)=\qty(\frac{z+\overline{z}}{\abs{z}^2+1},\frac{z-\overline{z}}{\ii\abs{z}^2+\ii}, \frac{\abs{z}^2-1}{\abs{z}^2+1}).\] If we let \(P=\qty(x_1,x_2,x_3)\) and \(Q=\qty(\widetilde{x_1},\widetilde{x_2},\widetilde{x_3})\) be two points in \(S^2\), the distance between the two points is the length of the shortest arc \(\widearc{PQ}\) (a subset of great circle passing the two points). By considering \(P\) and \(Q\) as vectors from \(\qty(0,0,0)\), this distance is equal to 
+    \item The \textscsl{spherical metric} (also referred to as the \textscsl{elliptic metric}) on \(\extcomplex\) is given by
+        \begin{equation}
+            \rho=\sigma(z)=\frac{2}{1+\abs{z}^2},\qquad \dd{s}^2_\sigma=\frac{4\abs{\ddz}^2}{\qty(1+\abs{z}^2)^2}.\label{eq:sphericalmetricdefinition}
+        \end{equation}
+        Under the inverse stereographic projection of \(S^2\to\extcomplex\), for a given \(z\in\extcomplex\), the corresponding point in \(S^2\) is \[\qty(x_1,x_2,x_3)=\qty(\frac{z+\overline{z}}{\abs{z}^2+1},\frac{z-\overline{z}}{\ii\abs{z}^2+\ii}, \frac{\abs{z}^2-1}{\abs{z}^2+1}).\] If we let \(P=\qty(x_1,x_2,x_3)\) and \(Q=\qty(\widetilde{x_1},\widetilde{x_2},\widetilde{x_3})\) be two points in \(S^2\), the distance between the two points is the length of the shortest arc \(\widearc{PQ}\) (a subset of great circle passing the two points). By considering \(P\) and \(Q\) as vectors from \(\qty(0,0,0)\), this distance is equal to
         \begin{align*}
             \arccos(P\cdot Q)&=2\arctan\sqrt{\frac{1-x_1\widetilde{x_1}-x_2\widetilde{x_2}-x_3\widetilde{x_3}}{1+x_1\widetilde{x_1}+x_2\widetilde{x_2}+x_3\widetilde{x_3}}}\\
             &=2\arctan\sqrt{\frac{1-\frac{\qty(z+\overline{z})\qty(\widetilde{z}+\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}+\frac{\qty(z-\overline{z})\qty(\widetilde{z}-\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}-\frac{\qty(\abs{z}^2-1)\qty(\abs{\widetilde{z}}^2-1)}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}}{1+\frac{\qty(z+\overline{z})\qty(\widetilde{z}+\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}-\frac{\qty(z-\overline{z})\qty(\widetilde{z}-\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}+\frac{\qty(\abs{z}^2-1)\qty(\abs{\widetilde{z}}^2-1)}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}}}\\
@@ -3655,7 +3658,7 @@ The three following metrics are of particular interest in complex differential g
             &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}+\order{\Delta z^3\qty[\frac{1}{\abs{z}^2+1}+\order{\Delta z}]^3}]\\
             &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+o\qty(\Delta z^2)}],
         \end{align*}
-        where we have taken the liberty to coalesce orders for simplification.
+        where we have taken the liberty to coalesce orders for simplification. Since \[\lim_{\Delta z\to 0}\frac{d\qty(z,z+\Delta z)}{\Delta z}=\frac{2}{\abs{z}^2+1},\] the metric as defined in equation~\eqref{eq:sphericalmetricdefinition} matches this definition, and we have established its geometric meaning.
 \end{enumerate}
 \subsection{Consequences of Ahlfors--Schwarz}
 \begin{theorem}[\textsc{Ahlfors--Schwarz}]\label{thm:ahlforsschwarz}
@@ -3689,7 +3692,7 @@ If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2}
 
 Subsequently, we have for Cartesian products,
 \begin{theorem}[Cauchy's Integral Formula on Polydisks]\label{thm:cauchyintegralformulapolydisks}
-    Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product). 
+    Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)=\frac{\prod_{k=1}^n j_k!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{theorem}
 \begin{proof}
@@ -3699,12 +3702,12 @@ Subsequently, we have for Cartesian products,
 \end{proof}
 By the boundedness assumption for \(f\), we have:
 \begin{corollary}[Cauchy's Estimate on Polydisks]
-    Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product). 
+    Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{corollary}
 \begin{proof}
     For each \(k\), let \(\varepsilon_k\) satisfy \(D\qty(z_k,\varepsilon_k)\subseteq D(a_k,r_k)\). By Cauchy's Integral Formula (\autoref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\frac{\prod_{k=1}^n j_k!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
-    For each \(k\), let \(\zeta_k=a_k+r_k\ee^{\ii t_k}\), and it follows that \(\dd{\zeta_k}=\ii r_k\ee^{\ii t_k}\dd{t_k}\). Because \(\abs{\zeta_k-z_k}>\varepsilon_k\), we have, after substition, 
+    For each \(k\), let \(\zeta_k=a_k+r_k\ee^{\ii t_k}\), and it follows that \(\dd{\zeta_k}=\ii r_k\ee^{\ii t_k}\dd{t_k}\). Because \(\abs{\zeta_k-z_k}>\varepsilon_k\), we have, after substition,
     \begin{align*}
         \abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}&\leq\frac{\prod_{k=1}^n\qty(r_k j_k!)}{(2\piup)^n}\int_0^{2\piup}\cdots\int_0^{2\piup}\abs{\frac{\abs{f(\zeta_1,\ldots,\zeta_n)}}{\prod_{k=1}^n \varepsilon_k^{j_k+1}}}\dd{t_n}\cdots\dd{t_1}\\
         &\leq \prod_{k=1}^n\qty(\frac{r_k j_k!}{2\piup\varepsilon_k^{j_k+1}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)}\idotsint_{[0,2\piup]^n}\dd{t_n}\cdots\dd{t_1}.\\
@@ -3715,7 +3718,7 @@ By the boundedness assumption for \(f\), we have:
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
 \end{theorem}
 \begin{theorem}[\textsc{Maximum Modulus Principle}]
-    
+
 \end{theorem}
 \subsection{One Type of Isolated Singularity}
 \section{Elliptic Functions}
