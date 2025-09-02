@@ -3728,7 +3728,7 @@ By the boundedness assumption for \(f\), we have:
     For each \(k\), let \(\varepsilon_k\) satisfy \(D\qty(z_k,\varepsilon_k)\subseteq D(a_k,r_k)\). By Cauchy's Integral Formula (\autoref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\frac{\prod_{k=1}^n j_k!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
     For each \(k\), let \(\zeta_k=a_k+r_k\ee^{\ii t_k}\), and it follows that \(\dd{\zeta_k}=\ii r_k\ee^{\ii t_k}\dd{t_k}\). Because \(\abs{\zeta_k-z_k}>\varepsilon_k\), we have, after substition,
     \begin{align*}
-        \abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}&\leq\frac{\prod_{k=1}^n\qty(r_k j_k!)}{(2\piup)^n}\int_0^{2\piup}\cdots\int_0^{2\piup}\abs{\frac{\abs{f(\zeta_1,\ldots,\zeta_n)}}{\prod_{k=1}^n \varepsilon_k^{j_k+1}}}\dd{t_n}\cdots\dd{t_1}\\
+        \abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}&\leq\frac{\prod_{k=1}^n\qty(r_k j_k!)}{(2\piup)^n}\int_0^{2\piup}\cdots\int_0^{2\piup}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n \varepsilon_k^{j_k+1}}}\dd{t_n}\cdots\dd{t_1}\\
         &\leq \prod_{k=1}^n\qty(\frac{r_k j_k!}{2\piup\varepsilon_k^{j_k+1}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)}\idotsint_{[0,2\piup]^n}\dd{t_n}\cdots\dd{t_1}.\\
         &\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)},
     \end{align*} since \(\varepsilon_k\leq r_k\) for all \(k\).
