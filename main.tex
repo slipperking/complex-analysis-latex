@@ -1159,10 +1159,10 @@ We have also already seen the utility of parameterization via a polar transforma
     Letting \(z=\ee^{\ii\theta}\), we get \(\oint_{\partial\mathbb{D}}\qty(\ee^{\ii\theta}+\ee^{-\ii\theta})^{2n}\ee^{-\ii\theta}\ddz=2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}\). Alternatively, we can expand the integrand and get \[\oint_{\partial\mathbb{D}}\sum_{k=0}^{2n}\binom{2n}{k}z^{2k-2n}\frac{\ddz}{z}=\sum_{k=0}^{2n}\oint_{\partial\mathbb{D}}\binom{2n}{k}z^{2k-2n-1}\ddz.\]
     When \(2k-2n-1\ge0\), the integrand is holomorphic. The integral is then equal to \[\binom{2n}{0}\oint_{\partial\mathbb{D}}z^{-2n-1}\ddz+\binom{2n}{1}\oint_{\partial\mathbb{D}}z^{-2n+1}\ddz+\cdots+\binom{2n}{n}\oint_{\partial\mathbb{D}}\frac{\ddz}{z}=2\piup\ii\binom{2n}{n},\]
     since all the higher order terms vanish:
-    \[\oint_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\int_0^{2\piup} \ee^{\ii\theta\qty(2k-2n-1)}\ii\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{2\piup}\ee^{2\ii\theta(k-n)}\dd{\theta}=
+    \[\oint_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\ii\int_0^{2\piup}\ee^{2\ii\theta(k-n)}\dd{\theta}=
         \begin{cases}
-            0       & k< n \\
-            2\piup\ii & k=n
+            0       &\qif* k<n \\
+            2\piup\ii &\qif* k=n
     \end{cases}.\]
     Therefore, \[2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=2\piup\ii\binom{2n}{n}\Longleftrightarrow\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=\frac{2\piup\qty(2n)!}{2^{2n}\qty(n!)^2}=\frac{2\piup\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}{\qty(2k)}^2}.\]
     From simple cancellation, we get \[2\piup\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\piup\prod_{k=1}^n\frac{2k-1}{2k},\]
@@ -1173,15 +1173,15 @@ We have also already seen the utility of parameterization via a polar transforma
     \begin{enumerate}
         \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=
                 \begin{cases}
-                    w      & z\in\mathrm{int}(\gamma) \\
-                    w-f(z) & z\in\mathrm{ext}(\gamma)
+                    w      &\qif* z\in\mathrm{int}(\gamma) \\
+                    w-f(z) &\qif* z\in\mathrm{ext}(\gamma)
             \end{cases}.\]
         \item If \(\gamma\) encloses the origin, then \(\forall z\in\mathbb{C}\setminus\gamma\), then
             \begin{equation}
                 \frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
                 \begin{cases}
-                    0    & z\in\mathrm{int}(\gamma)                                                       \\
-                    f(z) & z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
+                    0    &\qif* z\in\mathrm{int}(\gamma)                                                       \\
+                    f(z) &\qif* z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
                 \end{cases}.
             \end{equation}
     \end{enumerate}
@@ -1190,24 +1190,24 @@ We have also already seen the utility of parameterization via a polar transforma
     \begin{enumerate}
         \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \autoref{thm:cauchygoursatformula} or \autoref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+
                 \begin{cases}
-                    0    & z\in\mathrm{int}(\gamma)            \\
-                    f(z) & z\in D(0,R)\cap\mathrm{ext}(\gamma)
+                    0    &\qif* z\in\mathrm{int}(\gamma)            \\
+                    f(z) &\qif* z\in D(0,R)\cap\mathrm{ext}(\gamma)
             \end{cases}.\]
             By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\lim_{R\to\infty}\int_0^{2\piup}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{cases}
-                    0    & z\in\mathrm{int}(\gamma) \\
-                    f(z) & z\in\mathrm{ext}(\gamma)
+                    0    &\qif* z\in\mathrm{int}(\gamma) \\
+                    f(z) &\qif* z\in\mathrm{ext}(\gamma)
             \end{cases}.\]
             By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{R\ee^{\ii\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded with respect to \(R\) under \(\theta\), and we can commute the limit with the integral. Hence,
             \begin{align*}
                 \frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\piup}\int_0^{2\piup}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{cases}
-                    0    & z\in\mathrm{int}(\gamma) \\
-                    f(z) & z\in\mathrm{ext}(\gamma)
+                    0    &\qif* z\in\mathrm{int}(\gamma) \\
+                    f(z) &\qif* z\in\mathrm{ext}(\gamma)
                 \end{cases}                                                                                                                               \\   & =
                 \begin{cases}
-                    w      & z\in\mathrm{int}(\gamma) \\
-                    w-f(z) & z\in\mathrm{ext}(\gamma)
+                    w      &\qif* z\in\mathrm{int}(\gamma) \\
+                    w-f(z) &\qif* z\in\mathrm{ext}(\gamma)
                 \end{cases},
             \end{align*} as expected.
         \item Under the partial fraction decomposition of equation~\eqref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that
@@ -1215,8 +1215,8 @@ We have also already seen the utility of parameterization via a polar transforma
                 I & =\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\oint_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
                 & =\int_0^{2\piup}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
                 \begin{cases}
-                    0            & z\in\mathrm{int}(\gamma)            \\
-                    2\piup\ii f(z) & z\in\mathrm{ext}(\gamma)\cap D(0,R),
+                    0            &\qif* z\in\mathrm{int}(\gamma)            \\
+                    2\piup\ii f(z) &\qif* z\in\mathrm{ext}(\gamma)\cap D(0,R),
                 \end{cases}\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
             \end{align} when \(\gamma\subset D(0,R)\).
             We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities,
@@ -1227,8 +1227,8 @@ We have also already seen the utility of parameterization via a polar transforma
     \end{enumerate}
     By substituting the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
         \begin{cases}
-            0    & z\in\mathrm{int}(\gamma) \\
-            f(z) & z\in\mathrm{ext}(\gamma)
+            0    &\qif* z\in\mathrm{int}(\gamma) \\
+            f(z) &\qif* z\in\mathrm{ext}(\gamma)
     \end{cases},\] as desired.
 \end{proof}
 \subsection{Analyticity and Holomorphy}\label{sec:analyticityandholomorphy}
@@ -1379,8 +1379,8 @@ The concept of analytic continuation and its consequent problems and properties 
 \begin{proof}
     Define the auxiliary function \[\varphi(z)=
         \begin{cases}
-            \paren{z-z_0}^2f(z) & z\in D^*\paren{z_0,r} \\
-            0                   & z=z_0
+            \paren{z-z_0}^2f(z) &\qif* z\in D^*\paren{z_0,r} \\
+            0                   &\qif* z=z_0
     \end{cases}.\]
     \(\varphi(z)\) is bounded and continuously differentiable on \(D\paren{z_0,r}\) and satisfies the Cauchy--Riemann Equations since
     \[\lim_{z\to z_0}\frac{\varphi(z)-\varphi\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2f(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}f(z)=0,\] meaning that \(\dv{\varphi}{z}\paren{z_0}=0\). For \(z\in D^*\paren{z_0,r}\), \[\varphi'(z)=2\paren{z-z_0}f(z)+\paren{z-z_0}^2f'(z).\] As \(z\to z_0\), \(\varphi(z)\to0\), meaning that \(\varphi\) is holomorphic over \(D\paren{z_0,r}\). By \autoref{thm:cauchydifferentiationformula}, \[\varphi(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
@@ -1405,8 +1405,8 @@ For example, in a topological space, a function \(f:X\to Y\) between two topolog
     To illustrate this, consider the function \(f:\mathbb{R} \to \mathbb{R}\) defined by
     \[f(x)=
         \begin{cases}
-            1 & x\geq0, \\
-            0 & x<0.
+            1 &\qif* x\geq0, \\
+            0 &\qif* x<0.
         \end{cases}
     \]
     We equip both the domain and codomain with the standard topology on \(\mathbb{R}\).
@@ -1527,8 +1527,8 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 
     Then, \(\cbraces{D\paren{z,r}}{z\in\Omega, 0<r<r_z}\) forms an open basis of \(\Omega\). By \autoref{lemma:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\cbraces{D\paren{z_j,r_{z_j}}}\) of \(\Omega\), and since it is a subcollection of the basis, \[D\paren{z_j,r_{z_j}}\subset\overline{D\paren{z_j,r_{z_j}}}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\] The most trivial bump function has the form \[\theta(z)=
         \begin{cases}
-            \exp\paren{\frac{1}{\abs{z}^2-1}} & \abs{z}<1   \\
-            0                                 & \abs{z}\ge1
+            \exp\paren{\frac{1}{\abs{z}^2-1}} &\qif* \abs{z}<1   \\
+            0                                 &\qif* \abs{z}\ge1
     \end{cases},\] which has the support \(\overline{D(0,1)}\). Define the function \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta\qty(\frac{z}{\varepsilon})\) with the support \(\overline{D(0,\varepsilon)}\), which satisfies that \(\forall\varepsilon>0\), \[\int_{\mathbb{C}}\theta_\varepsilon(z)\ddx\wedge\ddy=1.\]
     Define a set of functions \(\cbraces{\beta_j(z)}_{j\in\mathbb{N}}\) with \(\beta_j(z)=\theta_{r_{z_j}}\paren{z-z_j}\), which is a bump function with \(\supp\qty(\beta_j)=\overline{D\paren{z_j, r_{z_j}}}\subset\Omega_{k_{z_j}}\).
 
@@ -1743,8 +1743,8 @@ The following important result can be directly obtained from the Maximum Modulus
 \begin{proof}
     Define the auxiliary function \[g(z)=
         \begin{cases}
-            \frac{f(z)}{z} & z\neq0 \\
-            f'(0)          & z=0
+            \frac{f(z)}{z} &\qif* z\neq0 \\
+            f'(0)          &\qif* z=0
     \end{cases}.\]
     Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \autoref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in \partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in \mathbb{D}\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\).
 
@@ -2101,12 +2101,12 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     \end{equation}
     where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \[\oint_{\gamma}(z-a)^k\ddz=
         \begin{cases}
-            0                      & k\geq0   \\
-            2\piup\ii\dv[-k-1]{z}(1) & k\leq -1
+            0                      &\qif* k\geq0   \\
+            2\piup\ii\dv[-k-1]{z}(1) &\qif* k\leq -1
         \end{cases}=
         \begin{cases}
-            0       & k\neq-1 \\
-            2\piup\ii & k=-1    \\
+            0       &\qif* k\neq-1 \\
+            2\piup\ii &\qif* k=-1    \\
     \end{cases}.\]
     Multiplying equation~\eqref{eq:laurentexpansionofholomorphicfunction_uniquenessstatement} by \((z-a)^{-m-1}\) and from integrating over \(\gamma\), we get that \[\oint_\gamma\frac{f(z)\ddz}{(z-a)^{m+1}}=\oint_{\gamma}\sum_{n=-\infty}^\infty c'_n(z-a)^{n-m-1}\ddz,\] implying that \[2\piup \ii c_m=\sum_{n=-\infty}^\infty c'_n\oint_{\gamma}(z-a)^{n-m-1}\ddz=2\piup\ii c'_m,\]
     which is a contradiction, implying uniqueness.
@@ -2213,9 +2213,9 @@ Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\) and
     q(z)=b_mz^m+b_{m-1}z^{m-1}+\cdots b_0,
 \end{gather*} where \(a_n,b_m\neq 0\). Trivially, the poles of \(f\) are the zeros of \(q\). Since \[f(z)=\frac{z^n}{z^m}\cdot\frac{a_n+\frac{a_{n-1}}{z}+\cdots+\frac{a_0}{z^n}}{b_m+\frac{b_{m-1}}{z}+\cdots\frac{b_0}{z^m}},\] we have \[\lim_{z\to\infty} f(z)=
     \begin{cases}
-        \frac{a_n}{b_m} & n=m \\
-        0               & n<m \\
-        \infty          & n>m
+        \frac{a_n}{b_m} &\qif* n=m \\
+        0               &\qif* n<m \\
+        \infty          &\qif* n>m
 \end{cases}.\]
 We will then introduce the converse:
 \begin{theorem}\label{thm:rationalmeromorphicfunctions}
@@ -2453,17 +2453,17 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
             \end{enumerate}
         \end{theorem}
         \begin{proof}
-            The classical proof for this theorem allows for a more explicit construction, as in equation~\eqref{eq:mittagleffler_construction_statement}. As for the existence, we can prove~\ref{itm:mittagleffler_existence} by using the \(\overline{\partial}\) problem.
+            The classical proof for this theorem allows for a more explicit construction, as in equation~\eqref{eq:mittagleffler_construction_statement}. As for the existence, we can prove~\ref{itm:mittagleffler_existence} by use of the \(\overline{\partial}\) problem.
             \begin{enumerate}[label=(\alph*)]
                 \item Fix \(n\in\mathbb{N}\), let \(U_n\) be an open neighborhood of \(a_n\) such that \(\forall i,j\in\mathbb{N}\) where \(i\neq j\), \(\overline{U_i}\cap \overline{U_j}=\emptyset\). Let \(V_n\) be a neighborhood of \(a_n\) that is relatively compact in \(U_n\). By \autoref{thm:bumpfunctionexistence}, for each \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[
                         \begin{cases}
-                            \varphi_n(z)\equiv 1 & z\in\overline{V_n}          \\
-                            \varphi_n(z)\equiv 0 & z\in\mathbb{C}\setminus U_n
+                            \varphi_n(z)\equiv 1 &\qif* z\in\overline{V_n}          \\
+                            \varphi_n(z)\equiv 0 &\qif* z\in\mathbb{C}\setminus U_n
                     \end{cases}.\]
                     Let \(u(z)=\sum_{k=1}^\infty\varphi_k(z)\psi_k(z)\), which is an element of \(C^\infty\qty(\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}})\). For a fixed \(n\in\mathbb{N}\), it is true that \(u\equiv\psi_n\) on \(\overline{V_n}\setminus\qty{a_n}\). Hence, although \(u\) is not meromorphic, it does have the required principal part near each \(a_k\). Let \[\phi(z)=
                         \begin{cases}
-                            \pdv{u}{\overline{z}} & z\in\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}} \\
-                            0                     & z\in\qty{a_k}_{k\in\mathbb{N}}
+                            \pdv{u}{\overline{z}} &\qif* z\in\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}} \\
+                            0                     &\qif* z\in\qty{a_k}_{k\in\mathbb{N}}
                     \end{cases}.\]
                     Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the discussion proceeding \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a \(C^\infty\) function \(v(z)\) such that \(\pdv{v}{\overline{z}}=\phi(z)\) on \(\mathbb{C}\). Since \(\phi\) is \(C^\infty\), it follows that \(v\) is also \(C^\infty\). Define \(f(z)=u(z)-v(z)\). Then
                     \[\pdv{f}{\overline{z}} = \pdv{u}{\overline{z}}-\pdv{v}{\overline{z}} = \phi(z)-\phi(z) = 0,\]
@@ -2677,8 +2677,8 @@ The goal of the classification is to find the implications of \(\lambda\) on the
 \begin{proof}
     The zeros of \(\sin(\piup z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
         \begin{cases}
-            -\frac{n}{2}  & n\in 2\mathbb{N}                      \\
-            \frac{n+1}{2} & n\in \mathbb{N}\setminus 2\mathbb{N}.
+            -\frac{n}{2}  &\qif* n\in 2\mathbb{N}                      \\
+            \frac{n+1}{2} &\qif* n\in \mathbb{N}\setminus 2\mathbb{N}.
     \end{cases}\]
     For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\piup^2}{3}\) converges. Therefore, \[\sin(\piup z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
     \begin{equation*}
@@ -3083,8 +3083,8 @@ Analytic elements serve as local representations of analytic functions. The proc
 By the Identity Theorem (\autoref{thm:identity}), such continuations are unique; if \(\qty(f_1,U_1)\) and \(\qty(f_2,U_2)\) are analytic elements with \(U_1\cap U_2 \neq \emptyset\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are \textscsl{direct analytic continuations} of each other. The combined function:
 \[\widetilde{f}(z)=
     \begin{cases}
-        f_1(z) & z\in U_1               \\
-        f_2(z) & z\in U_2 \setminus U_1
+        f_1(z) &\qif* z\in U_1               \\
+        f_2(z) &\qif* z\in U_2 \setminus U_1
 \end{cases}\] is holomorphic on \(U_1\cup U_2\).
 
 The most straightforward method of the derivation of analytic continuations uses power series. Let \(f(z)=\sum_{n=0}^{\infty}c_n\qty(z-z_0)^n\) have radius of convergence \(R>0\) (by \autoref{thm:abelradius}). For \(z_1\in D\qty(z_0,R)\), we can expand \(f\) at \(z_1\):
@@ -3105,10 +3105,10 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to \(D\qty(z_0,R) \
     Since \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on \(D\qty(z_0,R)\cap V\), the function:
     \[\widetilde{f}(z)=
         \begin{cases}
-            f(z)    & z\in D\qty(z_0,R) \\
-            \Phi(z) & z\in V
+            f(z)    &\qif* z\in D\qty(z_0,R) \\
+            \Phi(z) &\qif* z\in V
     \end{cases}\]
-    is holomorphic on \(D\qty(z_0,R)\cup V\supset D(z_0, R+\rho)\), contradicting the maximality of \(R\).
+    is holomorphic on \(D\qty(z_0,R)\cup V\supseteq D(z_0, R+\rho)\), contradicting the maximality of \(R\).
 \end{proof}
 \begin{definition}[Maximal Analytic Continuation]\label{def:maximalanalyticcontinuation}
     A \textscsl{maximal analytic continuation} \(\qty(\widetilde{f},\widetilde{U})\) is an analytic element that has no analytic continuation to a larger domain. The set \(\widetilde{U}\) is known as the \textscsl{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial\widetilde{U}\) is known as a \textscsl{natural boundary}. Here, \(\widetilde{f}\) is known as a \textscsl{complete analytic function}, which can be multi-valued.
@@ -3215,21 +3215,92 @@ The problems arising from the complex logarithm are now understood specifically 
 \subsection{Runge's Theorem}
 By definition, a rational function is the quotient of two polynomials; and by \autoref{thm:rationalmeromorphicfunctions}, in equivalent formulation, it is a function meromorphic on all of \(\extcomplex\). The poles and zeros may not accumulate in \(\extcomplex\), and thus there are finitely many as a consequence of Bolzano--Weierstrass (\autoref{thm:bolzanoweierstrass}).
 
-When we refer to approximation, we refer to the approximation of a function as the uniform limit (of a sequence) of functions. Let \(K\subset\mathbb{C}\) be compact and suppose \(f:K\to\mathbb{C}\) is a given function on \(K\). As a consequence of Mergelyan's Theorem (\autoref{thm:mergelyan}), sufficient conditions for \(f\) to be the uniform limit of rational functions whose poles lie in \(\extcomplex\setminus K\) are:
-\begin{enumerate}
-    \item The continuity of \(f\) on \(K\),
-    \item The holomorphy of \(f\) on \(\interior{K}\).
-\end{enumerate}
+When we refer to approximation, we refer to the approximation of a function as the uniform limit (of a sequence) of functions. Let \(K\subset\mathbb{C}\) be compact and suppose \(f:K\to\mathbb{C}\) is a given function on \(K\). As a consequence of Mergelyan's Theorem (\autoref{thm:mergelyan}), sufficient conditions for \(f\) to be the uniform limit of rational functions whose poles lie in (a subset of given points of) \(\extcomplex\setminus K\) are the continuity of \(f\) on \(K\) and the holomorphy of \(f\) on \(\interior{K}\).
+
 In the earliest formulation by Carl Runge in 1885, he provided the sufficiency of the holomorphy of \(f\) on \(K\) (in effect, a neighborhood of \(K\)).
 
 The proof can be well-organized through the use of the results that we will now introduce. In essence, it involves applying Cauchy--Goursat to \(f\) and the subsequent use of Riemann sums to approximate the complex line integral.
+\begin{theorem}\label{thm:rungesimplepolesandremovablesingularityatinfinity}
+    Let \(K\subset\mathbb{C}\) be compact and suppose \(U\supset K\) is a neighborhood of \(K\) that is relatively compact in \(\mathbb{C}\). Let \(f:U\to\mathbb{C}\) be an arbitrary holomorphic function. Then for fixed \(\varepsilon>0\), there exists a rational function \(\psi(z)\) with only simple poles such that \[\lim_{z\to\infty}\psi(z)=0,\qquad \sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
+\end{theorem}
+\begin{proof}
+    By assumption of relative compactness, \(\mathrm{dist}(\partial U,\partial K)\), or the distance (infimum) between \(K\) and \(\mathbb{C}\setminus U\), is positive and finite. More concretely, let \[d=\inf\cbraces{\abs{z_1-z_2}}{z_1\in K,z_2\in\mathbb{C}\setminus U}>0\]
+    The longest distance between two points in any square is the length of the diagonal. Hence, any square \(Q\) that intersects \(\partial K\) with a side length less than \(\frac{\sigma\sqrt{2}}{2}\) will lie completely within \(U\).
 
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \foreach \x in {0,...,7}
+            \foreach \y in {0,...,7} {
+                \ifnum\x=0
+                \ifnum\y=1\else
+                \ifnum\y=2\else
+                \ifnum\y=3\else
+                \ifnum\y=4\else
+                \ifnum\y=5\else
+                \ifnum\y=6\else
+                \ifnum\y=7\else\draw[ultra thin] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\fi\fi\fi\fi\fi \else
+                \ifnum\x=1
+                \ifnum\y=2\else
+                \ifnum\y=4\else
+                \ifnum\y=5\else\draw[ultra thin] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\fi \else
+                \ifnum\x=2
+                \ifnum\y=0\else
+                \ifnum\y=7\else\draw[ultra thin] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi \else
+                \ifnum\x=3
+                \ifnum\y=0\else\draw[ultra thin] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\else
+                \ifnum\x=5
+                \ifnum\y=7\else\draw[ultra thin] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\else
+                \ifnum\x=6
+                \ifnum\y=2\else
+                \ifnum\y=7\else\draw[ultra thin] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\else
+                \ifnum\x=7
+                \ifnum\y=0\else
+                \ifnum\y=1\else
+                \ifnum\y=2\else
+                \ifnum\y=4\else
+                \ifnum\y=7\else\draw[ultra thin] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\fi\fi\fi\else
+                \draw[ultra thin] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\fi\fi\fi\fi\fi
+            }
+            \draw[thick] plot[smooth cycle] coordinates {
+                (3.8,3) (2.2,2.6) (3.7,1.7) (2.3,2.1) (3.3,0.2) (2.1,0.5) (2.4,0.8) (1.2,0.6) (0.3,0.3) (1.6,1.2) (0.8,1.7) (1.5,2.4) (0.6,3.6) (1.7,3.1) (2.1,3.9) (2.3,3.2)
+            };
+            \draw[thick, dotted] plot[smooth cycle] coordinates {
+                (0,-0.2) (0.2,4) (4,3.9) (3.9,0)
+            };
+            \node[anchor=east] at (2.2,2) {\(K\)};
+            \node[anchor=south] at (2,4.4) {\(\partial U\)};
+        \end{tikzpicture}
+        \caption{The elements of \(\mathcal{G}\), relative to \(K\) and its neighborhood, \(U\).}\label{fig:rungesimplepolesandremovablesingularityatinfinity_grid}
+    \end{figure}Choose \(m\in\mathbb{N}\) to satisfy \(2^{1-m}<\sigma\) and consider the grid generated by compact squares in the form of \[\cbraces{x+\ii y}{\frac{j}{2^m}\leq x\leq\frac{j+1}{2^m},\frac{k}{2^m}\leq y\leq \frac{k+1}{2^m}}\] (where \(j\) and \(k\) are integers) and let \(\mathcal{G}\) be the collection of all such squares in this grid that intersect \(K\), and it follows that \(\bigcup_{Q\in\mathcal{G}} Q\subset U\).
+
+    For any fixed \(Q\in\mathcal{G}\), as a consequence of Cauchy--Goursat (\autoref{thm:cauchygoursatformula}), we have \[\oint_{\partial Q}\frac{f(\zeta)\ddzeta}{\zeta-z}=
+        \begin{cases}
+            f(z)&\qif* z\in\mathrm{int}(Q)\\
+            0&\qif* z\notin Q
+    \end{cases}.\]
+\end{proof}
+In its full generality, we will now apply a technique to \textit{push} a pole to a prescribed point, while ensuring that the resulting function remains uniformly approximated outside of a given connected compact set that contains both the original and target pole locations.
+\begin{lemma}[Pole-Pushing Lemma]\label{lemma:polepushing}
+    Let \(K\subset\mathbb{C}\) be compact.
+\end{lemma}
 \begin{theorem}[Runge]\label{thm:runge}
-    
+
 \end{theorem}
 \subsection{Mergelyan's Theorem}
+Although many mathematicians have since tried after the efforts of Weierstrass and Runge to approximation continuous functions holomorphic on the interior restriction, it was only 66 years later when Armenian mathematician provided the first widely accepted proof.
+
+To understand the gist of the proof, we will decompose it from the relatively modern \(\overline{\partial}\) viewpoint.
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
-    
+
 \end{theorem}
 \section{The Theory of Riemann}\label{sec:riemann}
 \subsection{Biholomorphy}
@@ -3275,8 +3346,8 @@ We will now study holomorphic functions from a more geometric perspective.
 
     If \(w_0\) lies on \(\Gamma\), \(f-w_0\) has no zeros in \(U\). Indeed, for the sake of contradiction, assume that \(\exists z_0\in U\) such that \(f\qty(z_0)=w_0\). By the Open Mapping Theorem (\autoref{thm:openmapping}) and \autoref{thm:hurwitzshifts}, \(\exists\delta>0\) such that \(D\qty(w_0,\delta)\subseteq f(U)\) and \(\forall w'\in D\qty(w_0,\delta)\), \(f-w'\) has zeros in \(U\). Since \(w_0\) lies on \(\Gamma\), a subset of \(D\qty(w_0,\delta)\) lies in the exterior of \(\Gamma\). It was previously established that \(f-w'\) has no zeros if \(w'\in D\qty(w_0,\delta)\cap\mathrm{ext}(\Gamma)\). Thus, we have a contradiction. We then have \[k=
         \begin{cases}
-            0 & w_0\in\overline{\mathrm{ext}(\Gamma)} \\
-            1 & w_0\in \mathrm{int}(\Gamma)
+            0 &\qif* w_0\in\overline{\mathrm{ext}(\Gamma)} \\
+            1 &\qif* w_0\in \mathrm{int}(\Gamma)
     \end{cases}.\]
     Hence, for any arbitrary \(z_0\in U\), \(w_0=f\qty(z_0)\) must lie in \(\mathrm{int}(\Gamma)\). Indeed, if \(f\qty(z_0)\) lies in \(\mathrm{ext}(\Gamma)\) or \(\Gamma\), then \(k\) would be nonzero in those areas. It follows that \(f(U)=\mathrm{int}(\Gamma)\).
 \end{proof}
@@ -3536,9 +3607,9 @@ A consequent result was discovered by Schwarz, known as the \textscsl{reflection
 \begin{theorem}[Schwarz Reflection Principle]\label{thm:riemannschwarzreflection}
     Let \(U\subseteq\mathbb{C}\) be a connected region on one side of the real axis such that there exists a non-degenerate curve \(\gamma\subseteq\partial U\) such that \(\gamma\in\mathbb{R}\). Let \(f:U\to\mathbb{C}\) be holomorphic with continuity up to \(U\cup\gamma\) such that \(f\) is real-valued on \(\gamma\), and let \(\widetilde{U}=\cbraces{\overline{z}}{z\in U}\) be the reflection of \(U\) across the real axis. Then there exists a unique holomorphic function \[\widetilde{f}(z)=
         \begin{cases}
-            f(z)&\qif z\in U\\
-            \overline{f(\overline{z})}&\qif z\in\widetilde{U}\\
-            f(z)\equiv\overline{f(\overline{z})}&\qif z\in\gamma
+            f(z)&\qif* z\in U\\
+            \overline{f(\overline{z})}&\qif* z\in\widetilde{U}\\
+            f(z)\equiv\overline{f(\overline{z})}&\qif* z\in\gamma
     \end{cases}\] on \(U\cup\widetilde{U}\cup\gamma\).
 \end{theorem}
 \begin{proof}
@@ -3677,7 +3748,7 @@ The three following metrics are of particular interest in complex differential g
             &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}+\order{\Delta z^3\qty[\frac{1}{\abs{z}^2+1}+\order{\Delta z}]^3}]\\
             &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+o\qty(\Delta z^2)}],
         \end{align*}
-        where we have taken the liberty to coalesce orders for simplification. Since \[\lim_{\Delta z\to 0}\frac{d\qty(z,z+\Delta z)}{\Delta z}=\frac{2}{\abs{z}^2+1},\] the metric as defined in equation~\eqref{eq:sphericalmetricdefinition} matches this definition, and we have established its geometric meaning.
+        where we have taken the liberty to coalesce orders for simplification. Since \[\lim_{\Delta z\to 0}\abs{\frac{d\qty(z,z+\Delta z)}{\Delta z}}=\frac{2}{\abs{z}^2+1},\] the metric as defined in equation~\eqref{eq:sphericalmetricdefinition} matches this definition, and we have established its geometric meaning.
 \end{enumerate}
 \subsection{Consequences of Ahlfors--Schwarz}
 \begin{theorem}[\textsc{Ahlfors--Schwarz}]\label{thm:ahlforsschwarz}
