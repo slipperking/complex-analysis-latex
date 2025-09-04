@@ -215,10 +215,10 @@ Four main classical theorems exist, relating a function and its line integral in
 \end{theorem}
 \begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
     Suppose that \(S\subset\mathbb{R}^3\) is a positively oriented surface with a positively oriented, piecewise smooth boundary curve \(\partial S\). Suppose that \(P(x,y,z), Q(x,y,z), R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
-    \begin{align*}
-        \oint_{\partial S} & P\ddx+Q\ddy+R\ddz                                                                                                    \\
-        & =\iint_S\qty(\pdv{R}{y}-\pdv{Q}{z})\ddy\ddz+\qty(\pdv{P}{z}-\pdv{R}{x})\ddz\ddx+\qty(\pdv{Q}{x}-\pdv{P}{y})\ddx\ddy.
-    \end{align*}
+    \begin{multline*}
+        \oint_{\partial S}P\ddx+Q\ddy+R\ddz                                                                                                    \\
+        =\iint_S\qty(\pdv{R}{y}-\pdv{Q}{z})\ddy\ddz+\qty(\pdv{P}{z}-\pdv{R}{x})\ddz\ddx+\qty(\pdv{Q}{x}-\pdv{P}{y})\ddx\ddy.
+    \end{multline*}
 \end{theorem}
 \begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
     Suppose that \(V\subset\mathbb{R}^3\) is a positively oriented region with a positively oriented, piecewise smooth boundary surface \(\partial V\). Suppose that \(P(x,y,z), Q(x,y,z), R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
@@ -3290,6 +3290,8 @@ The proof can be well-organized through the use of the results that we will now 
     \end{equation} in the case that \(z\in \widetilde{K}\). The boundary \(\partial \widetilde{K}\) may be written as the union of \(n\) lines parameterized by \(0\leq t\leq 1\); more concretely, we have \(\partial \widetilde{K}=\bigcup_{j\in\mathbb{N}_{\leq n}} \gamma_j([0,1])\). Hence we have in equivalent formulation, \[f(z)=\frac{1}{2\piup\ii}\sum_{j=1}^n\int_{\gamma_j([0,1])}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup\ii}\sum_{j=1}^n\int_0^1 \frac{f\qty(\gamma_j(t))}{\gamma_j(t)-z}\gamma'_j(t)\ddt.\] The distance between \(K\) and \(\partial\widetilde{K}\) is strictly positive. Suppose instead that the distance were zero. Then some point of \(K\) would lie on the boundary of a square \(Q\in\mathcal{G}\) that intersects \(\partial\widetilde{K}\). If this point lies on an edge of \(Q\) (but not at a vertex), then the square adjacent along that edge must also intersect \(K\), and hence belong to \(\mathcal{G}\), contradicting the assumption that the point lies on \(\partial\widetilde{K}\). If the point lies at a vertex of \(Q\), then all three adjacent squares also intersect \(K\), so they too belong to \(\mathcal{G}\), leading to the same contradiction. Thus the distance must indeed be positive.
 
     Thus each integrand as defined in equation~\eqref{eq:rungesimplepolesandremovablesingularityatinfinity_cauchygoursat} is jointly continuous for \(t\in[0,1]\) and \(z\in K\). By compactness of the product, it is in fact uniformly continuous (\autoref{thm:continuousfunctionboundedoncompact}).
+
+
 \end{proof}
 In its full generality, we will now apply a technique to \textit{push} a pole to a prescribed point, while ensuring that the resulting function remains uniformly approximated outside of a given connected compact set that contains both the original and target pole locations.
 \begin{lemma}[Pole-Pushing Lemma]\label{lemma:polepushing}
