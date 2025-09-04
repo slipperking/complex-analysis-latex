@@ -3298,12 +3298,12 @@ The proof can be well-organized through the use of the results that we will now 
         \abs{f(z)-\frac{1}{2\piup\ii}\sum_{j=1}^n \sum_{k=0}^{m-1}\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}\Delta t_k}\\
         =\frac{1}{2\piup}\abs{\sum_{j=1}^n\sum_{k=0}^{m-1}\int_{t_k}^{t_{k+1}}\qty[\frac{f\qty(\gamma_j\qty(t))\gamma'_j\qty(t)}{\gamma_j\qty(t)-z}-\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}]\ddt}\\
         \leq\frac{1}{2\piup}\sum_{j=1}^n\sum_{k=0}^{m-1}\int_{t_k}^{t_{k+1}}\abs{\frac{f\qty(\gamma_j\qty(t))\gamma'_j\qty(t)}{\gamma_j\qty(t)-z}-\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}}\ddt\\
-        \leq \frac{\varepsilon}{2n\piup}\sum_{j=1}^n\sum_{k=0}^{m-1}\qty(t_{k+1}-t_k)=\frac{\varepsilon}{2\piup}<\varepsilon
+        \leq \frac{\varepsilon}{2n\piup}\sum_{j=1}^n\sum_{k=0}^{m-1}\Delta t_k=\frac{\varepsilon}{2\piup}<\varepsilon
     \end{multline*} uniformly in \(z\in K\). The summation \[\psi(z)=\frac{1}{2\piup\ii}\sum_{j=1}^n \sum_{k=0}^{m-1}\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}\Delta t_k\] defines a rational function with simple poles at each \(\gamma_j\qty(t_k)\) which lie on \(\partial\widetilde{K}\), disjoint from \(K\).
 \end{proof}
 In its full generality, we will now apply a technique to \textit{push} a pole to a prescribed point, while ensuring that the resulting function remains uniformly approximated outside of a given connected compact set that contains both the original and target pole locations.
 \begin{lemma}[Pole-Pushing Lemma]\label{lemma:polepushing}
-    Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\extcomplex\setminus K\). For any point \(b\) in the same connected component \(U\) of \(\extcomplex\setminus K\) as \(a\), \(\forall\varepsilon>0\), \(\exists\) a rational function \(\psi\) with a pole at \(b\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon\]
+    Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\extcomplex\setminus K\). For any point \(b\) in the same connected component \(U\) of \(\extcomplex\setminus K\) as \(a\), \(\forall\varepsilon>0\), \(\exists\psi\) rational with a pole at \(b\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon\]
 \end{lemma}
 \begin{proof}
     Let \(U=\extcomplex\setminus K\) and let \(G\subseteq U\) be the set of points 
