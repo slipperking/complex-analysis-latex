@@ -3302,7 +3302,10 @@ The proof can be well-organized through the use of the results that we will now 
     \end{multline*} uniformly in \(z\in K\). The summation \[\psi(z)=\frac{1}{2\piup\ii}\sum_{j=1}^n \sum_{k=0}^{m-1}\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}\Delta t_k\] defines a rational function with simple poles at each \(\gamma_j\qty(t_k)\in\partial\widetilde{K}\), which is disjoint from \(K\).
 \end{proof}
 In its full generality, we will now apply a technique to \textit{push} a pole to a prescribed point, while ensuring that the resulting function remains uniformly approximated outside of a given connected compact set that contains both the original and target pole locations.
-\begin{lemma}[Pole-Pushing Lemma]\label{lemma:polepushing}
+\begin{lemma}[Pole-pushing Lemma]\label{lemma:simplepolepushing}
+    Let \(\alpha,\beta\in\mathbb{C}\) and let \(f(z)\) be a rational function that has either a pole at \(z=\alpha\) as its only singularities. Then \(\forall r>\abs{\alpha-\beta}\), \(\forall\varepsilon>0\), there exists a rational function \(\psi(z)\) whose only singularity is either a pole or a removable singularity at \(z=\beta\) such that \[\sup_{z\in\extcomplex\setminus D(\beta,r)}\abs{f(z)-\psi(z)}<\varepsilon.\]
+\end{lemma}
+\begin{lemma}[Generalized Pole-Pushing Lemma]\label{lemma:generalpolepushing}
     Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\extcomplex\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\xi\in U\), there exists a rational function \(\psi\) with a pole at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
