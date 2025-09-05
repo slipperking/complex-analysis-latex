@@ -253,7 +253,7 @@ Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes
 \end{theorem}
 Real analysis is the subject dedicated to rigorously defining concepts such as limits, continuity, integrability, convergence, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), which states:
 \begin{definition}[Epsilon--Delta]\label{def:epsilondelta}
-    Let \(f:U\to\mathbb{R}\) be a function defined over an open set \(U\subseteq\mathbb{R}\) such that \(a\) is an accumulation point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if for every \(\varepsilon > 0\), there exists \(\delta > 0\) such that for all \(x\in U\) with \(0<|x-a|<\delta\), we have \(|f(x)-L|<\varepsilon\).
+    Let \(f:U\to\mathbb{R}\) be a function defined over an open set \(U\subseteq\mathbb{R}\) such that \(a\) is an accumulation point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if \(\forall\varepsilon>0\), \(\exists\delta>0\) such that for all \(x\in U\) with \(0<|x-a|<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
     Similarly, we define the \textscsl{right-handed limit} \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(|f(x)-L|<\varepsilon\).
 
@@ -335,7 +335,7 @@ We also have the definition of the limit of a sequence:
 
     By continuity, \(f(x_{n_k})\to f\paren{x_{n_\infty}}\) and \(f(y_{n_k})\to f\paren{x_{n_\infty}}\), so \(\qty|f(x_{n_k})-f(y_{n_k})|\to 0\), contradicting \(\qty|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon\). Therefore, \(f\) is uniformly continuous on \(K\).
 \end{proof}
-A more general version of this proof can be achieved by using the Heine--Borel Theorem (\autoref{thm:heineborel}) in analogously to the proof of \autoref{thm:heinecantorfamily}.
+A more general version of this proof can be achieved by using the Heine--Borel Theorem (\autoref{thm:heineborel}) analogously to the proof of \autoref{thm:heinecantorfamily}.
 \begin{definition}
     A function \(f\) is Lipschitz continuous over \(U\) if \(\exists M\in\mathbb{R}_{\geq0}\) such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq M|x-y|\). The smallest possible \(M\) satisfying the above condition is known as the Lipschitz constant.
 \end{definition}
@@ -3306,7 +3306,7 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\extcomplex\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\xi\in U\), there exists a rational function \(\psi\) with a pole at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
-    Let \[G=\cbraces{\xi\in U}{\exists\psi\text{ with a pole at }\xi\wedge\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon}.\] Since \(a\in U\) satisfies the condition under \(\psi(z)=\frac{1}{z-a}\), we have \(a\in G\) and the nonemptiness of \(G\).
+    Let \[G=\cbraces{\xi\in U}{\exists\psi\text{ rational with a pole at }\xi\wedge\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon}.\] Since \(a\in U\) satisfies the condition under \(\psi(z)=\frac{1}{z-a}\), we have \(a\in G\) and the nonemptiness of \(G\).
 
     
 \end{proof}
