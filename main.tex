@@ -3224,7 +3224,7 @@ In the earliest formulation by Carl Runge in 1885, he provided the sufficiency o
 
 The proof can be well-organized through the use of the results that we will now introduce. In essence, it involves applying Cauchy--Goursat to \(f\) and the subsequent use of Riemann sums to approximate the complex line integral.
 \begin{theorem}\label{thm:rungesimplepolesandremovablesingularityatinfinity}
-    Let \(K\subset\mathbb{C}\) be compact and suppose \(U\supset K\) is a neighborhood of \(K\) that is relatively compact in \(\mathbb{C}\). Let \(f:U\to\mathbb{C}\) be an arbitrary holomorphic function. Then for fixed \(\varepsilon>0\), there exists a rational function \(\psi(z)\) with only simple poles such that \[\lim_{z\to\infty}\psi(z)=0,\qquad \sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
+    Let \(K\subset\mathbb{C}\) be compact and suppose \(U\supset K\) is a neighborhood of \(K\) that is relatively compact in \(\mathbb{C}\). Let \(f:U\to\mathbb{C}\) be an arbitrary holomorphic function. Then for fixed \(\varepsilon>0\), there exists a rational function \(\psi(z)\) with only simple poles (all of which lie in \(\mathbb{C}\setminus K\)) such that \[\lim_{z\to\infty}\psi(z)=0,\qquad \sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
 \end{theorem}
 \begin{proof}
     By assumption of relative compactness, \(\mathrm{dist}(\partial U,\partial K)\), or the distance (infimum) between \(K\) and \(\mathbb{C}\setminus U\), is positive and finite. More concretely, let \[d=\inf\cbraces{\abs{z_1-z_2}}{z_1\in K,z_2\in\mathbb{C}\setminus U}>0\]
@@ -3354,8 +3354,11 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     Since \(U\) is connected and \(S\) is both relatively open and closed in \(U\), it follows from \autoref{thm:connectedtopologicalspaceclopensets} that \(S=U\), completing the proof.
 \end{proof}
 \begin{theorem}[Runge]\label{thm:runge}
-    Let \(K\subset\mathbb{C}\) be compact and suppose \(f\) is holomorphic on a neighborhood of \(K\). Let \(E\) be a subset of \(\extcomplex\setminus K\) containing one point from each of its connected components. Then \(\forall\varepsilon>0\), there is a rational function \(\psi\) whose poles lie in \(P\) such that \[\sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
+    Let \(K\subset\mathbb{C}\) be compact and suppose \(f\) is holomorphic on a neighborhood of \(K\). Let \(E\) be a subset of \(\extcomplex\setminus K\) containing one point from each of its connected components. Then \(\forall\varepsilon>0\), there is a rational function \(\psi\) whose poles lie in \(E\) such that \[\sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
 \end{theorem}
+\begin{proof}
+    By \autoref{thm:rungesimplepolesandremovablesingularityatinfinity}, there is a function \(\phi\) with poles in \(\mathbb{C}\setminus K\)
+\end{proof}
 \subsection{Mergelyan's Theorem}
 Although many mathematicians have since tried after the efforts of Weierstrass and Runge to approximation continuous functions holomorphic on the interior restriction, it was only 67 years later when Armenian mathematician provided the first widely accepted proof. The proof of Runge's Theorem (specifically in \autoref{thm:rungesimplepolesandremovablesingularityatinfinity}) relied heavily on the assumption of holomorphy on a neighborhood, a rational function was created by placing poles in prescribed points of a contour that lay outside of \(K\) but within its domain of holomorphy. Obviously, these assumptions are null under the context of this new formulation.
 
