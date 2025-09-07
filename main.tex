@@ -3336,7 +3336,7 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
 \end{lemma}
 \begin{proof}
     Define the set
-    \[S=\cbraces{\xi\in U}{\forall\varepsilon>0,\exists\psi\text{ rational with a pole only at }\xi\wedge\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon}.\]
+    \[S=\cbraces{\xi\in U\setminus\qty{\infty}}{\forall\varepsilon>0,\exists\psi\text{ rational with a pole only at }\xi\wedge\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon}.\]
     Since \(a\in U\) satisfies the condition with \(\psi(z)=\frac{1}{z-a}\), it follows that \(a\in S\), ensuring that \(S\) is nonempty.
 
     Consider \(\xi\in S\), where \(\xi\) lies in the complement of \(K\). The distance from \(\xi\) to \(K\), denoted \(\mathrm{dist}(\xi,K)\), is positive, and the open disk \(D(\xi,\mathrm{dist}(\xi,K))\) is disjoint from \(K\). Let \(\xi'\) be an arbitrary point in this disk. By the definition of \(S\), for every \(\varepsilon>0\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that
@@ -3349,7 +3349,7 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}\leq\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}+\sup_{z\in K}\abs{\psi(z)-\phi(z)}<\varepsilon,\]
     and by definition, \(\xi'\in S\). Hence, \(S\) is relatively open in \(U\).
 
-    To proceed, we will make the initial assumption that \(\infty\notin U\). Consider \(\xi\in U\setminus S\). Suppose there exists \(\xi'\in D(\xi,\mathrm{dist}(\xi,K))\cap S\). By the preceding argument, this would imply \(\xi\in S\), contradicting the assumption that \(\xi\in U\setminus S\). Therefore, no such \(\xi'\) exists, and \(S\) is relatively closed in \(U\).
+    Now, consider \(\xi\in U\setminus S\). Suppose there exists \(\xi'\in D(\xi,\mathrm{dist}(\xi,K))\cap S\). By the preceding argument, this would imply \(\xi\in S\), contradicting the assumption that \(\xi\in U\setminus S\). Therefore, no such \(\xi'\) exists, and \(S\) is relatively closed in \(U\).
 
     Since \(U\) is connected and \(S\) is both relatively open and closed in \(U\), it follows from \autoref{thm:connectedtopologicalspaceclopensets} that \(S=U\), completing the proof.
 \end{proof}
