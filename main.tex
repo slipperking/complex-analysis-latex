@@ -3332,11 +3332,14 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\extcomplex\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\xi\in U\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
+For simplicity, we will make the preliminary assumption that \(\infty\notin U\).
+
     Let \[S=\cbraces{\xi\in U}{\forall\varepsilon>0,\exists\psi\text{ rational with a pole only at }\xi\wedge\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon}.\] Since \(a\in U\) satisfies the condition under \(\psi(z)=\frac{1}{z-a}\), we have \(a\in S\) and the consequent nonemptiness of \(S\).
 
     Suppose \(\xi\in S\), which lies in the complement of \(K\). Hence, the distance from \(\xi\) to \(K\) is positive, and the disk \(D\qty(\xi,\mathrm{dist}\qty(\qty{\xi}, K))\) is disjoint from \(K\). Let \(\xi'\) be an arbitrary point in this disk. By assumption, \(\forall\varepsilon\), there exists a rational function \(\psi\) with a pole at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\frac{\varepsilon}{2}.\] By the previous result (\autoref{lemma:simplepolepushing}), there exists a rational function \(\phi\) with a pole only at \(\xi'\) such that \[\sup_{z\in\extcomplex\setminus D(\xi,\mathrm{dist}\qty(\qty{\xi},K))}\abs{\phi(z)-\psi(z)}<\frac\varepsilon2\Longrightarrow\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\frac\varepsilon2.\]
     Hence, we have \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}<\varepsilon\] and \(\xi'\in S\) by definition. Hence, \(S\) is relatively open in \(U\).
 
+    Similarly, fix \(\xi\in U\setminus S\). Assume that \(\exists \xi'\in D(\xi,\mathrm{dist}\qty(\qty{\xi},K))\cap S\neq\emptyset\). Then by the previous argument, we owuld have \(\xi\in S\), which is a contradiction. Hence, \(S\) is closed.
 \end{proof}
 \begin{theorem}[Runge]\label{thm:runge}
 
