@@ -3332,14 +3332,23 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\extcomplex\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\xi\in U\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
-For simplicity, we will make the preliminary assumption that \(\infty\notin U\).
+    To proceed, we assume that \(\infty\notin U\). Define the set
+    \[S=\cbraces{\xi\in U}{\forall\varepsilon>0,\exists\psi\text{ rational with a pole only at }\xi\wedge\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon}.\]
+    Since \(a\in U\) satisfies the condition with \(\psi(z)=\frac{1}{z-a}\), it follows that \(a\in S\), ensuring that \(S\) is nonempty.
 
-    Let \[S=\cbraces{\xi\in U}{\forall\varepsilon>0,\exists\psi\text{ rational with a pole only at }\xi\wedge\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon}.\] Since \(a\in U\) satisfies the condition under \(\psi(z)=\frac{1}{z-a}\), we have \(a\in S\) and the consequent nonemptiness of \(S\).
+    Consider \(\xi\in S\), where \(\xi\) lies in the complement of \(K\). The distance from \(\xi\) to \(K\), denoted \(\mathrm{dist}(\xi,K)\), is positive, and the open disk \(D(\xi,\mathrm{dist}(\xi,K))\) is disjoint from \(K\). Let \(\xi'\) be an arbitrary point in this disk. By the definition of \(S\), for every \(\varepsilon>0\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that
+    \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\frac{\varepsilon}{2}.\]
+    By \autoref{lemma:simplepolepushing}, there exists a rational function \(\phi\) with a pole only at \(\xi'\) such that
+    \[\sup_{z\in\extcomplex\setminus D(\xi,\mathrm{dist}(\xi,K))}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2},\]
+    which implies
+    \[\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2}.\]
+    Thus,
+    \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}<\varepsilon,\]
+    and by definition, \(\xi'\in S\). Hence, \(S\) is relatively open in \(U\).
 
-    Suppose \(\xi\in S\), which lies in the complement of \(K\). Hence, the distance from \(\xi\) to \(K\) is positive, and the disk \(D\qty(\xi,\mathrm{dist}\qty(\qty{\xi}, K))\) is disjoint from \(K\). Let \(\xi'\) be an arbitrary point in this disk. By assumption, \(\forall\varepsilon\), there exists a rational function \(\psi\) with a pole at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\frac{\varepsilon}{2}.\] By the previous result (\autoref{lemma:simplepolepushing}), there exists a rational function \(\phi\) with a pole only at \(\xi'\) such that \[\sup_{z\in\extcomplex\setminus D(\xi,\mathrm{dist}\qty(\qty{\xi},K))}\abs{\phi(z)-\psi(z)}<\frac\varepsilon2\Longrightarrow\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\frac\varepsilon2.\]
-    Hence, we have \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}<\varepsilon\] and \(\xi'\in S\) by definition. Hence, \(S\) is relatively open in \(U\).
+    Now, consider \(\xi\in U\setminus S\). Suppose there exists \(\xi'\in D(\xi,\mathrm{dist}(\xi,K))\cap S\). By the preceding argument, this would imply \(\xi\in S\), contradicting the assumption that \(\xi\in U\setminus S\). Therefore, no such \(\xi'\) exists, and \(S\) is relatively closed in \(U\).
 
-    Similarly, fix \(\xi\in U\setminus S\). Assume that \(\exists \xi'\in D(\xi,\mathrm{dist}\qty(\qty{\xi},K))\cap S\neq\emptyset\). Then by the previous argument, we owuld have \(\xi\in S\), which is a contradiction. Hence, \(S\) is closed.
+    Since \(U\) is connected and \(S\) is both relatively open and closed in \(U\), it follows from \autoref{thm:connectedtopologicalspaceclopensets} that \(S=U\), completing the proof.
 \end{proof}
 \begin{theorem}[Runge]\label{thm:runge}
 
@@ -3347,11 +3356,11 @@ For simplicity, we will make the preliminary assumption that \(\infty\notin U\).
 \subsection{Mergelyan's Theorem}
 Although many mathematicians have since tried after the efforts of Weierstrass and Runge to approximation continuous functions holomorphic on the interior restriction, it was only 67 years later when Armenian mathematician provided the first widely accepted proof. The proof of Runge's Theorem (specifically in \autoref{thm:rungesimplepolesandremovablesingularityatinfinity}) relied heavily on the assumption of holomorphy on a neighborhood, a rational function was created by placing poles in prescribed points of a contour that lay outside of \(K\) but within its domain of holomorphy. Obviously, these assumptions are null under the context of this new formulation.
 
-The proof proposed by Mergelyan is almost trivial when compared with the results of many other mathematicians at the time. It even uses the concepts previously proposed by Runge. This begs the question: why was there such a prolonged time gap between the two similar formulations? Many mathematicians felt that the conclusion was too ethereal; during this elapsed time period there were many efforts of mathematicians that resulted in many technical partial results. Mergelyan's Theorem came as a surprise as it encapsulated many of those results with simplicity. 
+The proof proposed by Mergelyan is almost trivial when compared with the results of many other mathematicians at the time. It even uses the concepts previously proposed by Runge. This begs the question: why was there such a prolonged time gap between the two similar formulations? Many mathematicians felt that the conclusion was too ethereal; during this elapsed time period there were many efforts of mathematicians that resulted in many technical partial results. Mergelyan's Theorem came as a surprise as it encapsulated many of those results with simplicity.
 
 To understand the gist of the proof, we will decompose the results from the relatively modern \(\overline{\partial}\) viewpoint.
 \begin{lemma}
-    
+
 \end{lemma}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
 
