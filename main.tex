@@ -585,10 +585,13 @@ Let \(r_k=\exp\paren{u\log\abs{z}-v\arg(z)}\) and \(\theta_k=v\log\abs{z}+u\arg(
 Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp(\ii u\arg(z))\). Doing casework on \(\alpha\),
 \begin{enumerate}
     \item If \(\alpha=u\in\mathbb{Z}\), then \(u\) can be absorbed into \(k\), and \(z^\alpha\) is single valued.
-    \item If \(\alpha=u\in\mathbb{Q}\) with the reduced fraction representation \(\frac{p}{q}\), where \(p,q\in\mathbb{Z}\), \(q\neq 0\).
-
-        Then, \[\abs{z}^{\frac{p}{q}}\exp\paren{\ii\frac{p}{q}\paren{\Arg(z)+2\piup k}}=\abs{z}^{\frac{p}{q}}\exp(\ii\frac{p}{q}\Arg(z))\exp(2\ii\frac{p}{q}\piup k).\]
-        When \(k=1,2,\ldots,q-1\), \(2\frac{p}{q}\piup k\) is not congruent modulo \(2\piup\), and thus, \(z^\alpha\) has \(q\) values.
+    \item If \(\alpha=u\in\mathbb{Q}\) with reduced fractional form \(\frac{p}{q}\), where \(p,q\in\mathbb{Z}\), \(q>0\), and \(\gcd(p,q)=1\), then the multivalued function \(z^\alpha\) is given by
+        \[z^\alpha=\abs{z}^{\frac{p}{q}}\exp\qty(\ii\frac{p}{q}(\Arg(z)+2\piup k))=\abs{z}^{\frac{p}{q}}\exp(\ii\frac{p}{q}\Arg(z))\exp(2\ii\frac{p}{q}\piup k),\]
+        for \(k\in\mathbb{Z}\). These values are periodic with period \(q\), since
+        \[\exp(2\ii\frac{p}{q}\piup(k+q))=\exp(2\ii\frac{p}{q}\piup k)\exp(2\ii\piup p)=\exp(2\ii\frac{p}{q}\piup k),\]
+        as \(\exp(2\piup\ii p)=1\) for integer \(p\). To prove there are exactly \(q\) distinct values, consider \(k=0,1,\dots,q-1\). The exponential factors are \(\exp(2\ii\frac{p}{q}\piup k)\). These are distinct if, for \(0\leq k<m\leq q-1\),
+        \[\exp(2\ii\frac{p}{q}\piup k)\neq\exp(2\ii\frac{p}{q}\piup m),\]
+        which holds unless \(\frac{p}{q}(m-k)\in\mathbb{Z}\). Let \(d=m-k\), where \(1\leq d<q\). Then \(\frac{pd}{q}\in\mathbb{Z}\) implies \(q\) divides \(p d\). Since \(\gcd(p,q)=1\), \(q\) must divide \(d\), but \(|d|<q\) and \(d\neq 0\), a contradiction. Thus, \(z^\alpha\) has exactly \(q\) distinct values.
     \item If \(\alpha=u\in\mathbb{R}\setminus\mathbb{Q}\), then \(z^\alpha\) is infinite valued.
 \end{enumerate}
 Lastly, there exist series representations of functions using power functions (Taylor series) and trigonometric functions (Fourier series). There does not exist another representation using exponential functions as trigonometric functions can be written in terms of them.
@@ -648,11 +651,11 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
 \begin{proof}[Proof of \autoref{thm:abelradius}]
     We will prove that the value in equation~\eqref{eq:cauchyhadamard} satisfies the criteria in \autoref{thm:abelradius}.
 
-    Assume \(\abs{z}<R\). Then, \(\forall\rho\in(|z|,R)\), and consequently, \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation~\eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\) and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_n z^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
+    Assume \(\abs{z}<R\). Then, \(\forall\rho\in(\abs{z},R)\), and consequently, \(\frac{1}{\rho}>\frac{1}{R}\). By \autoref{def:limsup} and equation~\eqref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\) and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_n z^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
 
-    Let \(\rho'\in(\rho, R)\). Similarly, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N'\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho'}\), and \(\abs{a_n}<\frac{1}{\rho'^n}\). Then \(\qty|a_n z^n|<\qty|a_n\rho^n|<\frac{\rho^n}{\rho'^n}<1\). By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the \(\sum_{n=0}^\infty\abs{a_n z^n}\) is uniformly bounded (for \(n>N'\)) by the convergent series \(\sum_{n=0}^\infty a_n\rho^n\), and thus uniformly converges on \(|z|<\rho\). This proves~\ref{itm:abelradius_absoluteanduniformconvergence}.
+    Let \(\rho'\in(\rho, R)\). Similarly, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N'\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho'}\), and \(\abs{a_n}<\frac{1}{\rho'^n}\). Then \(\qty|a_n z^n|<\qty|a_n\rho^n|<\frac{\rho^n}{\rho'^n}<1\). By the Weierstrass \(M\)--Test (\autoref{thm:weierstrassmtest}), the \(\sum_{n=0}^\infty\abs{a_n z^n}\) is uniformly bounded (for \(n>N'\)) by the convergent series \(\sum_{n=0}^\infty a_n\rho^n\), and thus uniformly converges on \(\abs{z}<\rho\). This proves~\ref{itm:abelradius_absoluteanduniformconvergence}.
 
-    Assume that \(\abs{z}>R\).\ \(\forall\rho\in\qty(R,|z|)\), \(\frac{1}{\rho}<\frac{1}{R}\). By \autoref{def:limsup}, \(\forall N\in\mathbb{N}\), \(\exists n_N>N\) such that \(\sqrt[n_N]{\abs{a_{n_N}}}>\frac{1}{\rho}\). It follows that \(\abs{a_{n_N}z^{n_N}}>\frac{\abs{z^{n_N}}}{\rho^{n_N}}>1\). Since \(\forall N\in\mathbb{N}\), \(\abs{\sum_{k=0}^{n_N}a_k z^k-\sum_{k=0}^{n_N-1}a_k z^k}>1\), by the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), \(\sum_{n=0}^\infty a_n z^n\) is divergent. Thus,~\ref{itm:abelradius_divergence} is satisfied.
+    Assume that \(\abs{z}>R\).\ \(\forall\rho\in\qty(R,\abs{z})\), \(\frac{1}{\rho}<\frac{1}{R}\). By \autoref{def:limsup}, \(\forall N\in\mathbb{N}\), \(\exists n_N>N\) such that \(\sqrt[n_N]{\abs{a_{n_N}}}>\frac{1}{\rho}\). It follows that \(\abs{a_{n_N}z^{n_N}}>\frac{\abs{z^{n_N}}}{\rho^{n_N}}>1\). Since \(\forall N\in\mathbb{N}\), \(\abs{\sum_{k=0}^{n_N}a_k z^k-\sum_{k=0}^{n_N-1}a_k z^k}>1\), by the Cauchy Criterion (\autoref{thm:cauchycriterionsequenceconvergence}), \(\sum_{n=0}^\infty a_n z^n\) is divergent. Thus,~\ref{itm:abelradius_divergence} is satisfied.
 
     To prove~\ref{itm:abelradius_differentiation}, first observe that \(\sum_{n=1}^\infty na_n z^n\) and \(\sum_{n=1}^\infty a_n z^n\) have the same convergence radius since \(\varlimsup_{n\to\infty}\sqrt[n]{n}=1\). For \(z\in D(0, R)\), let \(f(z)=S_n(z)+R_n(z)\), where \[S_n(z)=\sum_{k=0}^{n-1}a_k z^k,\quad R_n(z)=\sum_{k=n}^\infty a_k z^k.\]
     Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_n z^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=0.\]
@@ -662,7 +665,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
         & \quad+S'_n(z)-f_1(z)+\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}.\label{eq:abelradius_differentiationintermediate}
     \end{align}
     Since \(S'_n(z)\to f_1(z)\) as \(n\to\infty\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{S'_n(z)-f_1(z)}<\frac{\varepsilon}{3}\). Since \[\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}=\sum_{k=n}^\infty a_k\frac{z^k-z_0^k}{z-z_0}=\sum_{k=n}^\infty a_k\qty(z^{k-1}+z^{k-2}z+\cdots+z_0^{k-1})\]
-    for \(z\neq z_0\), \(|z|<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty \abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) is absolutely convergent, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
+    for \(z\neq z_0\), \(\abs{z}<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty \abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) is absolutely convergent, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
 
     Finally, for a fixed \(n>\max\qty(N,N')\), \(\exists\delta>0\) such that \(\forall z\in D\qty(z_0, \delta)\setminus\qty{z_0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
     From equation~\eqref{eq:abelradius_differentiationintermediate}, we get:
@@ -1222,7 +1225,7 @@ We have also already seen the utility of parameterization via a polar transforma
             We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities,
             \begin{align*}
                 \qty|\int_0^{2\piup}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}| & \leq\int_0^{2\piup}\qty|\frac{z}{R\ee^{\ii\theta}-z}|\dd{\theta}           \\
-                & \leq\int_0^{2\piup}\frac{|z|}{R-|z|}\dd{\theta}=\frac{2\piup|z|}{R-|z|}\to0.
+                & \leq\int_0^{2\piup}\frac{\abs{z}}{R-\abs{z}}\dd{\theta}=\frac{2\piup\abs{z}}{R-\abs{z}}\to0.
             \end{align*}
     \end{enumerate}
     By substituting the result into equation~\eqref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
@@ -1304,7 +1307,7 @@ The differentiation formula above can be thought of as a generalization of \auto
 \end{proof}
 \autoref{thm:nthderivativeboundedl1norm} will profoundly generalize this statement significantly. The relationship between the derivatives of a holomorphic function and the function itself is an important property of holomorphic functions.
 \begin{example}
-    Let \(f\) be entire and \(\forall z\in\mathbb{C}\), \(|f(z)|\leq M\ee^{|z|}\). Prove that \(\forall n\in\mathbb{N}\), \(|f(0)|\leq M\) and \[\abs{f^{(n)}(0)}\leq Mn!\qty(\frac{\ee}{n})^n.\]
+    Let \(f\) be entire and \(\forall z\in\mathbb{C}\), \(|f(z)|\leq M\ee^{\abs{z}}\). Prove that \(\forall n\in\mathbb{N}\), \(|f(0)|\leq M\) and \[\abs{f^{(n)}(0)}\leq Mn!\qty(\frac{\ee}{n})^n.\]
 \end{example}
 \begin{proof}
     \(|f(0)|\leq M\) is obviously true by letting \(z=0\). Then \(\forall R>0\), by Cauchy's Estimate (\autoref{thm:cauchysestimate}), \[\abs{f^{(n)}(0)}\leq Mn!\frac{\ee^{R}}{R^n}.\]
@@ -1748,7 +1751,7 @@ The following important result can be directly obtained from the Maximum Modulus
     \end{cases}.\]
     Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \autoref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in \partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in \mathbb{D}\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\).
 
-    For the sake of the equality condition, assume \(|f(z)|=|z|\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \autoref{thm:maximummodulus}, \(g(z)=\exp(\ii\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(\ii\tau)\) on \(\mathbb{D}\).
+    For the sake of the equality condition, assume \(|f(z)|=\abs{z}\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \autoref{thm:maximummodulus}, \(g(z)=\exp(\ii\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(\ii\tau)\) on \(\mathbb{D}\).
 
     Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in \mathbb{D}\), it follows from \autoref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(\ii\tau)\).
 \end{proof}
@@ -1770,7 +1773,7 @@ First we will show that \(\forall a\in \mathbb{D}\),
 \begin{equation}
     \varphi_a(z)=\frac{z-a}{1-\overline{a}z}\in\Aut( \mathbb{D}).\label{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}
 \end{equation}
-Firstly, the function is holomorphic on \(\mathbb{D}\) as \(|z|\le1\), \(\abs{\overline{a}}<1\), the denominator never vanishes. Additionally, \(\varphi_a(a)=0\).
+Firstly, the function is holomorphic on \(\mathbb{D}\) as \(\abs{z}\le1\), \(\abs{\overline{a}}<1\), the denominator never vanishes. Additionally, \(\varphi_a(a)=0\).
 
 First, we will observe the image of \(\partial \mathbb{D}\). Let \(\abs{z}=1\). Then,
 \[\abs{\varphi_a(z)}=\abs{\frac{1}{z}}\abs{\frac{z-a}{\frac{1}{z}-\overline{a}}}=\abs{\frac{z-a}{\overline{z}-\overline{a}}}=1.\]
@@ -1804,7 +1807,7 @@ As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk},
         \abs{\frac{w_1-w_2}{1-w_1\overline{w_2}}}\leq\abs{\frac{z_1-z_2}{1-z_1\overline{z_2}}},\label{eq:schwarzpick_statement1}
     \end{equation} and
     \begin{equation}
-        \frac{\abs{\dd{w}}}{1-\qty|w|^2}\leq\frac{\abs{\ddz}}{1-\qty|z|^2}.\label{eq:schwarzpick_statement2}
+        \frac{\abs{\dd{w}}}{1-\qty|w|^2}\leq\frac{\abs{\ddz}}{1-\qty\abs{z}^2}.\label{eq:schwarzpick_statement2}
     \end{equation}
     The equalities hold if and only if \(f\in\Aut(\mathbb{D})\).
 \end{lemma}
@@ -1861,7 +1864,7 @@ The expression \(P(\zeta,z)=\frac{\abs{\zeta}^2-\abs{z}^2}{2\piup\abs{\zeta-z}^2
 \end{equation}
 The Poisson kernel can also be rewritten as
 \begin{equation}
-    P(\zeta,z)=\frac{|\zeta|^2-|z|^2}{2\piup\paren{\zeta-z}\paren{\overline{\zeta}-\overline{z}}}=\frac{1}{4\piup}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}=\frac{1}{2\piup}\Re\qty(\frac{\zeta+z}{\zeta-z}).\label{eq:poissonkernelgeneralform}
+    P(\zeta,z)=\frac{|\zeta|^2-\abs{z}^2}{2\piup\paren{\zeta-z}\paren{\overline{\zeta}-\overline{z}}}=\frac{1}{4\piup}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}=\frac{1}{2\piup}\Re\qty(\frac{\zeta+z}{\zeta-z}).\label{eq:poissonkernelgeneralform}
 \end{equation}
 Thus, equation~\eqref{eq:poissonintegralformula2} is equivalent to:
 \[u(z)=\frac{1}{2\piup}\int_0^{2\piup}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
@@ -1971,7 +1974,7 @@ A fundamental problem in the theory of partial differential equations is to find
 \subsubsection{In Harmonic Analysis}
 Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho \ee^{\ii\theta}\) in equation~\eqref{eq:poissonintegralformula2}:
 \begin{gather}
-    u(z)=\frac{1}{2\piup}\int_0^{2\piup} u(\zeta)\frac{1-|z|^2}{\abs{\zeta-z}^2}\dd{\tau} = \frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho \ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\rho \ee^{-\ii\theta})} \nonumber \\
+    u(z)=\frac{1}{2\piup}\int_0^{2\piup} u(\zeta)\frac{1-\abs{z}^2}{\abs{\zeta-z}^2}\dd{\tau} = \frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho \ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\rho \ee^{-\ii\theta})} \nonumber \\
     =\frac{1}{2\piup}\int_0^{2\piup} \frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
 \end{gather}
 Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(\ii\theta)\) is periodic with period \(2\piup\), it admits a Fourier series representation
@@ -2185,7 +2188,7 @@ We have previously defined the concept of an entire function in \chpref{sec:comp
             If \(f(z)\) is entire and has a removable singularity at \(z=\infty\), then \(f\) is constant.
         \end{lemma}
         \begin{proof}
-            Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall |z|>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\), and is bounded. For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \autoref{thm:continuousfunctionboundedoncompact}, is also bounded.
+            Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall \abs{z}>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\), and is bounded. For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \autoref{thm:continuousfunctionboundedoncompact}, is also bounded.
 
             Then by Liouville's Theorem (\autoref{thm:liouville}), \(f\) is constant.
         \end{proof}
@@ -2222,7 +2225,7 @@ We will then introduce the converse:
     If \(f(z)\) is meromorphic on \(\mathbb{C}\) and has a pole or removable singularity at \(z=\infty\), then \(f\) is a rational function.
 \end{theorem}
 \begin{proof}
-    Since the singularity at \(\infty\) is isolated, there exists a (punctured) neighborhood of \(\infty\), \(\cbraces{z\in\mathbb{C}}{R<|z|<\infty}\), on which \(f\) is holomorphic. Let \(\psi_\infty(z)\) equal the principal part of \(f(z)\). If \(z=\infty\) is a removable singularity of \(f\), then \(\psi_\infty\) is identically zero, and if \(z=\infty\) is a pole of \(f\), then \(\psi_\infty\) is a polynomial.
+    Since the singularity at \(\infty\) is isolated, there exists a (punctured) neighborhood of \(\infty\), \(\cbraces{z\in\mathbb{C}}{R<\abs{z}<\infty}\), on which \(f\) is holomorphic. Let \(\psi_\infty(z)\) equal the principal part of \(f(z)\). If \(z=\infty\) is a removable singularity of \(f\), then \(\psi_\infty\) is identically zero, and if \(z=\infty\) is a pole of \(f\), then \(\psi_\infty\) is a polynomial.
 
     It is clear that \(f\) has finitely many poles in \(\overline{D(0,R)}\). Indeed, if \(f\) has infinitely many poles in the closed disk, by the Bolzano--Weierstrass Theorem (\autoref{thm:bolzanoweierstrass}), the set \[\cbraces{z\in\overline{D(0,R)}}{\lim_{\zeta\to z} f(\zeta)=\infty}\] contains an accumulation point in \(\overline{D(0,R)}\), which is not an isolated singularity, contradicting the definition of meromorphy.
 
@@ -2264,7 +2267,7 @@ In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C
 
     Since \(f^{-1}\in\Aut(\mathbb{C})\), it is true that \(\qty(f^{-1})'\) is entire. Since \(\qty(f^{-1})'=\frac{1}{f'\qty(f^{-1})}\), it follows that \(f'\) has no zeros in \(\mathbb{C}\). By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), if \(m>1\), then \(f'\) has a complex zero, which is a contradiction. Hence, \(f\) must be linear, and all functions in \(\Aut(\mathbb{C})\) are in the form of \(az+b\), where \(a\in\mathbb{C}^*\), \(b\in\mathbb{C}\) are constants. In other words, any holomorphic automorphism on \(\mathbb{C}\) is a composition of a rotation, a dilation, and a translation.
 
-    We will now prove the primary assumption; the singularity at \(z=\infty\) cannot be an essential singularity of \(f(z)\). Let \(w\in\mathbb{C}\) be arbitrary. Then by the Casorati--Weierstrass Theorem (\autoref{thm:casoratiweierstrass}), \(\forall\varepsilon>0\), \(\forall R>0\), \(\exists |z|>R\) such that \(|f(z)-w|<\varepsilon\). Equivalently, \(\forall R>0\), \(\exists\zeta\in D(w,\varepsilon)\) such that \(\abs{f^{-1}(\zeta)}>R\). Since \(f^{-1}\) is continuous on \(\overline{D(w,\varepsilon)}\) by holomorphy, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded, which is a contradiction.
+    We will now prove the primary assumption; the singularity at \(z=\infty\) cannot be an essential singularity of \(f(z)\). Let \(w\in\mathbb{C}\) be arbitrary. Then by the Casorati--Weierstrass Theorem (\autoref{thm:casoratiweierstrass}), \(\forall\varepsilon>0\), \(\forall R>0\), \(\exists \abs{z}>R\) such that \(|f(z)-w|<\varepsilon\). Equivalently, \(\forall R>0\), \(\exists\zeta\in D(w,\varepsilon)\) such that \(\abs{f^{-1}(\zeta)}>R\). Since \(f^{-1}\) is continuous on \(\overline{D(w,\varepsilon)}\) by holomorphy, by \autoref{thm:continuousfunctionboundedoncompact}, it is bounded, which is a contradiction.
 \end{proof}
 \subsubsection{The Group of Meromorphic Automorphisms on \texorpdfstring{\(\extcomplex\)}{the Extended Complex Plane}}
 It is generally common to consider a meromorphic function as a function in the form of \(f:U\to\extcomplex\). Let \(\Aut\qty(\extcomplex)\) denote the group of meromorphic automorphisms on \(\extcomplex\).
