@@ -3347,11 +3347,14 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     \[\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2}.\]
     Thus,
     \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}\leq\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}+\sup_{z\in K}\abs{\psi(z)-\phi(z)}<\varepsilon,\]
-    and by definition, \(\xi'\in S\). Hence, \(S\) is relatively open in \(U\).
+    and by definition, \(\xi'\in S\Rightarrow D\qty(\xi,\mathrm{dist}\qty(\xi,K))\subseteq S\). Hence, \(S\) is relatively open in \(U\setminus\qty{\infty}\).
 
-    Now, consider \(\xi\in U\setminus S\). Suppose there exists \(\xi'\in D(\xi,\mathrm{dist}(\xi,K))\cap S\). By the preceding argument, this would imply \(\xi\in S\), contradicting the assumption that \(\xi\in U\setminus S\). Therefore, no such \(\xi'\) exists, and \(S\) is relatively closed in \(U\).
+    Now, consider \(\xi\in U\s
+    \begin{}
+        
+    \end{}etminus \qty(S\cup\qty{\infty})\). Suppose there exists \(\xi'\in D(\xi,\mathrm{dist}(\xi,K))\cap S\). By repeated application of the preceding argument, this would imply \(\xi\in S\), contradicting the assumption that \(\xi\in U\setminus \qty(S\cup\qty{\infty})\). Therefore, no such \(\xi'\) exists, and \(S\) is relatively closed in \(U\setminus\qty{\infty}\).
 
-    Since \(U\) is connected and \(S\) is both relatively open and closed in \(U\), it follows from \autoref{thm:connectedtopologicalspaceclopensets} that \(S=U\), completing the proof.
+    Since \(U\setminus\qty{\infty}\) is connected and \(S\) is both relatively open and closed in \(U\setminus\qty{\infty}\), it follows from \autoref{thm:connectedtopologicalspaceclopensets} that \(S=U\setminus\qty{\infty}\), completing the proof.
 \end{proof}
 \begin{theorem}[Runge]\label{thm:runge}
     Let \(K\subset\mathbb{C}\) be compact and suppose \(f\) is holomorphic on a neighborhood of \(K\). Let \(E\) be a subset of \(\extcomplex\setminus K\) containing one point from each of its connected components. Then \(\forall\varepsilon>0\), there is a rational function \(\psi\) whose poles lie in \(E\) such that \[\sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
