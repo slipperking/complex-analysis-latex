@@ -3336,9 +3336,10 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
 \end{lemma}
 \begin{proof}
     Define the set
-    \[S=\cbraces{\xi\in U\setminus\qty{\infty}}{\forall\varepsilon>0,\exists\psi\text{ rational such that }\begin{aligned}
-        &\psi(\mathbb{C}\setminus\qty{\xi})\subseteq\mathbb{C},\psi(\xi)=\infty,\\
-        &\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon
+    \[S=\cbraces{\xi\in U\setminus\qty{\infty}}{\forall\varepsilon>0,\exists\psi\text{ rational such that }
+            \begin{aligned}
+                &\psi(\mathbb{C}\setminus\qty{\xi})\subseteq\mathbb{C},\psi(\xi)=\infty,\\
+                &\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon
     \end{aligned}}.\]
     Since \(a\in U\) satisfies the condition with \(\psi(z)=\frac{1}{z-a}\), it follows that \(a\in S\), ensuring that \(S\) is nonempty.
 
@@ -3364,7 +3365,7 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     Let \(K\subset\mathbb{C}\) be compact and suppose \(f\) is holomorphic on a neighborhood of \(K\). Let \(E\) be a subset of \(\extcomplex\setminus K\) containing one point from each of its connected components. Then \(\forall\varepsilon>0\), there is a rational function \(\psi\) whose poles lie in \(E\) such that \[\sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
 \end{theorem}
 \begin{proof}
-    By \autoref{thm:rungesimplepolesandremovablesingularityatinfinity}, there is a rational function \(\phi\) with simple poles in \(\mathbb{C}\setminus K\) satisfying \(\phi(\infty)=0\) such that 
+    By \autoref{thm:rungesimplepolesandremovablesingularityatinfinity}, there is a rational function \(\phi\) with simple poles in \(\mathbb{C}\setminus K\) satisfying \(\phi(\infty)=0\) such that
     \begin{equation}
         \sup_{z\in K}\abs{f(z)-\phi(z)}<\frac\varepsilon2.\label{eq:runge_intermediate1}
     \end{equation}
@@ -3379,9 +3380,14 @@ The proof proposed by Mergelyan is almost trivial when compared with the results
 As we have previously seen, there is a prevalent notion in complex analysis that regards \(\infty\) intrinsically as essentially any other point of \(\extcomplex\). An appertaining question relates to the complex derivative at \(\infty\). Trivially, one might define \[f'(\infty)\overset{?}{=}\lim_{z\to\infty} f'(z)\] in an attempt at unification. However, a quick examination of the identity map \(z\mapsto z\), points to an already apparent inconsistency: since \(\lim_{z\to\infty}z=\infty\) is a pole, then the function should not be differentiable there, whereas the other hand, \(\lim_{z\to\infty}z'=1\).
 \begin{definition}
     Let \(R>0\), \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic such that \(f\) has a removable singularity at \(\infty\). Then we define the derivatives of \(f\) at \(\infty\) to be \[f^{(n)}(\infty)=\eval{\dv[n]{z}f\qty(\frac1z)}_{z=0}.\]
-    In the case that \(n=1\), we have \[f'(\infty)=-\lim_{z\to\infty}z^2 f'\qty(z)\]
+    In the case that \(n=1\), we have \[f'(\infty)=-\lim_{z\to\infty}z^2 f'\qty(z).\]
 \end{definition}
+\begin{remark}
+    This definition may feel unsatisfactory, but the following examples are due justification for this definition.
 
+    Let \(z=\infty\) be a removable singularity of \(f\). Then for complex constants \(\qty{c_n}_{n\in\mathbb{Z}_{\geq0}}\):
+    \[f(z)=c_0+\frac{c_1}{z}+\frac{c_2}{z^2}+\frac{c_3}{z^3}+\cdots.\]
+\end{remark}
 \begin{lemma}
     For any compact \(K\subset\mathbb{C}\),
 \end{lemma}
