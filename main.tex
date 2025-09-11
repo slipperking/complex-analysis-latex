@@ -3824,11 +3824,16 @@ Obviously, the matrix \(\mqty(E&F\\F&G)\) is symmetric and positive definite. In
 \subsection{Metrics and Curvature}
 Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(\rho\in C^2(\Omega)\) be a nonnegative function. The \textscsl{metric} induced by \(\rho\) is given by \[\dd{s}=\rho(z)\abs{\dd{z}}.\] Then the distance between two points \(z_1,z_2\in\Omega\) is defined as \[d(z_1,z_2)=\inf_{\gamma\subset\Omega}\int_\gamma \rho(z)\abs{\dd{z}},\] where the infimum is taken over all piecewise smooth curves \(\gamma\) in \(\Omega\) joining \(z_1\) and \(z_2\).
 
-The \textscsl{curvature} of the metric \(\rho\) at \(z\in\Omega\) is defined as \[K(z)=-\frac{\Delta(\log\rho)(z)}{\rho(z)^2},\] where \(\Delta=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in equation~\eqref{TO BE CONTINUED}.
+The \textscsl{curvature} of the metric \(\rho\) at \(z\in\Omega\) is defined as 
+\begin{equation}
+    K_\rho(z)=-\frac{\Delta(\log\rho)(z)}{\rho(z)^2},\label{eq:curvatureofmetric}
+\end{equation} where \(\Delta=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in equation~\eqref{TO BE CONTINUED}.
 
 The three following metrics are of particular interest in complex differential geometry:
 \begin{enumerate}
-    \item
+    \item Perhaps the most trivial metric is the \textscsl{Euclidean metric} (also known as the \textscsl{parabolic metric}) on \(\mathbb{C}\), and is given by \[\rho=1,\qquad\dd{s}^2=\abs{\ddz}^2.\] The \textscsl{Euclidean distance} between two points \(z_1,z_2\in\mathbb{C}\) is \[\inf_{\gamma}\int_\gamma\abs{\ddz}=\abs{z_2-z_1}\] is the length of the straight line segment connecting \(z_1\) and \(z_2\). 
+    
+    From equation~\eqref{eq:curvatureofmetric}, we find that Euclidean metric has curvature \(K=0\).
     \item The \textscsl{Poincaré metric} (also referred to as the \textscsl{hyperbolic metric}) on \(\mathbb{D}\) is given by \[\rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\]
         In \autoref{lemma:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\).
 
