@@ -3397,7 +3397,7 @@ As we have previously seen, there is a prevalent notion in complex analysis that
     For any connected compact set \(K\subset\mathbb{C}\), such that \(\extcomplex\setminus K\) is connected, let \(\phi\) be an arbitrary biholomorphism mapping \(\extcomplex\setminus K\) to \(\mathbb{D}\) such that \(\phi(\infty)=\lim_{z\to\infty}\phi(z)=0\). It follows that \[\abs{\phi'(\infty)}\geq\frac14\mathrm{diam}(K),\] where \(\mathrm{diam}(K)=\sup_{z,\zeta\in K}\abs{\zeta-z}\).
 \end{lemma}
 \begin{proof}
-
+    Denote the derivative of \(\phi\) at the infinity point to be \(\alpha\).
 \end{proof}
 \begin{lemma}\label{lemma:diracdeltaapproximation}
     Suppose \[\lambda(z)=
@@ -3442,12 +3442,13 @@ As we have previously seen, there is a prevalent notion in complex analysis that
     \end{align*}    
     Trivially, \(\lambda_r\) is continuous on \(D\qty(0,r)\) and \(\mathbb{C}\setminus\overline{D(0,r)}\). Thus, we only need to prove the joint continuity of \(\lambda\) (the continuity of \(\lambda_r\) implies that of \(\lambda\)) on an open neighborhood of \(\partial D(0,r)\).
     
-    Let \(\lambda(x,y)=\qty(1-x^2-y^2)^2\). By simple calculation, we have \[\pdv{\lambda}{x}=-4\qty(1-x^2-y^2)x,\qquad\pdv{\lambda}{y}=-4\qty(1-x^2-y^2)y.\]
+    Let \(\lambda(x,y)=\qty(1-x^2-y^2)^2\). By simple calculation, we have \[\pdv{\lambda}{x}=-4\qty(1-x^2-y^2)x,\qquad\pdv{\lambda}{y}=-4\qty(1-x^2-y^2)y.\] At \(x^2+y^2=1\), both partial derivatives vanish, and hence, they match the vanishing derivative on the complement of \(\supp(\lambda)\), verifying property~\ref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}.
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
 
 \end{theorem}
 \subsection{Analytic Capacity}
+
 \section{The Theory of Riemann}\label{sec:riemann}
 \subsection{Biholomorphy}
 In \chpref{sec:conformalityintroduction}, it was asserted that for a holomorphic function \(f(z)\), the map \(w=f(z)\) is conformal when \(f'(z)\neq 0\).
