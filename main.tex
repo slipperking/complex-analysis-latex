@@ -3435,7 +3435,11 @@ As we have previously seen, there is a prevalent notion in complex analysis that
     Since \(\abs{\pdv{\lambda_r}{\overline{\zeta}}}=\abs{\frac{1}{2}\qty(\pdv{\lambda_r}{\xi}+\ii\pdv{\lambda_r}{\eta})}=\frac{1}{2}\abs{\grad\lambda_r(\zeta)}<\frac{2}{r^3}\), we have \[\iint_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}=\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}<\piup r^2\frac{2}{r^3}=\frac{2\piup}{r}\] since \(\supp\qty(\lambda_r)=\overline{D(0,r)}\) which verifies the inequality in property ~\ref{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}. 
     
     The integral in~\ref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} is equal to
-    \[\iint_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\dd{\eta}=\frac{1}{2}\int_{-r}^r\int_{-\sqrt{r^2-\eta^2}}^{\sqrt{r^2-\eta^2}}\pdv{\lambda_r}{\xi}\dd{\xi}\dd{\eta}+\frac{\ii}{2}\int_{-r}^r\int_{-\sqrt{r^2-\xi^2}}^{\sqrt{r^2-\xi^2}}+\pdv{\lambda_r}{\eta}\dd{\eta}\dd{\xi}\]
+    \begin{align*}
+        \iint_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\dd{\eta}&=\frac{1}{2}\int_{-r}^r\int_{-r}^{r}\pdv{\lambda_r}{\xi}\dd{\xi}\dd{\eta}+\frac{\ii}{2}\int_{-r}^r\int_{-r}^{r}\pdv{\lambda_r}{\eta}\dd{\eta}\dd{\xi}\\
+        &=\frac{1}{2}\int_{-r}^r\qty[\lambda_r\qty(r+\ii\eta)-\lambda\qty(-r+\ii\eta)]\dd{\eta}\\
+        &\quad+\frac{\ii}{2}\int_{-r}^r\qty[\lambda_r(\xi+\ii r)-\lambda_r(\xi-\ii r)]\dd{\xi}
+    \end{align*}
     
     Trivially, \(\lambda_r\) is continuous on \(D\qty(0,r)\) and \(\mathbb{C}\setminus\overline{D(0,r)}\). Thus, we only need to prove the joint continuity of \(\lambda\) on an open neighborhood of \(\partial D(0,r)\).
     
