@@ -3412,10 +3412,10 @@ As we have previously seen, there is a prevalent notion in complex analysis that
         \item \(\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}=0\).\label{itm:diracdeltaapproximation_antiholomorphicderivativeintegral}
         \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\wedge\dd{\eta}\leq\frac{2\piup}{r}\).\label{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}
         \item \(\abs{\grad{\lambda_r(z)}}\leq\frac4{r^3}\) for all \(z\), where \(\grad=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.\label{itm:diracdeltaapproximation_gradientstatement}
-        \item\label{itm:diracdeltaapproximation_integralformula} For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula 
-        \begin{equation}
-            f(z)=\frac{1}{2\ii}\int_{D(0,r)}f(z-\zeta)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\ddzeta.\label{eq:diracdeltaapproximation_integralformula}
-        \end{equation}
+        \item\label{itm:diracdeltaapproximation_integralformula} For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula
+            \begin{equation}
+                f(z)=\frac{1}{2\ii}\int_{D(0,r)}f(z-\zeta)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\ddzeta.\label{eq:diracdeltaapproximation_integralformula}
+            \end{equation}
     \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -3424,11 +3424,13 @@ As we have previously seen, there is a prevalent notion in complex analysis that
         \iint_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_{0}^{2\piup}\int_0^r \lambda_r\qty(\rho\ee^{\ii\theta})\rho\dd{\rho}\dd{\theta}=\int_{0}^{2\piup}\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}\dd{\theta}\\
         &=\frac{6}{r^2}\int_0^r\qty(\rho+\frac{\rho^5}{r^4}-2\frac{\rho^3}{r^2})\dd{\rho}=\frac{6}{r^2}\qty(\frac{r^2}{2}+\frac{r^6}{6r^4}-\frac{r^4}{2r^2})=1,
     \end{align*}
-    which confirms property~\ref{itm:diracdeltaapproximation_integralto1}. Let \(z\in\mathbb{C}\) be arbitrary. The integral in equation~\eqref{eq:diracdeltaapproximation_integralformula} is equal to \begin{align*}
+    which confirms property~\ref{itm:diracdeltaapproximation_integralto1}. Let \(z\in\mathbb{C}\) be arbitrary. The integral in equation~\eqref{eq:diracdeltaapproximation_integralformula} is equal to
+    \begin{align*}
         \iint_{D(0,R)}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\int_0^{2\piup}f\qty(z-\rho\ee^{\ii\theta})\dd{\theta}\dd{\rho}\\
         &=2\piup f(z)\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}=f(z)
-    \end{align*} by the mean-value property (\autoref{lemma:holomorphicmeanvalueproperty}), proving~\ref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\abs{\grad{\lambda}}=
-        2\qty(1-\abs{z}^2)\abs{\grad(\abs{z}^2)}=2\qty(1-\abs{z}^2)2\abs{z}\abs{\grad\sqrt{x^2+y^2}}=4\qty(1-\abs{z}^2)\abs{z}.\]
+    \end{align*} by the mean-value property (\autoref{lemma:holomorphicmeanvalueproperty}), proving~\ref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\abs{\grad{\lambda(z)}}=
+    2\qty(1-\abs{z}^2)\abs{\grad(\abs{z}^2)}=2\qty(1-\abs{z}^2)2\abs{z}\abs{\grad\sqrt{x^2+y^2}}=4\qty(1-\abs{z}^2)\abs{z}.\]
+    Hence, \(\abs{\grad\lambda_r(z)}=\frac{3}{\piup r^2}\abs{\grad\qty[\lambda\qty(\frac{z}{r})]}=\frac{3}{\piup r^2}\abs{\grad\lambda\qty(\frac{z}{r})}\frac{1}{r}=\frac{12}{\piup r^2}\qty(1-\abs{z}^2)\abs{z}\)
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
 
