@@ -3397,12 +3397,13 @@ As we have previously seen, there is a prevalent notion in complex analysis that
     For any connected compact set \(K\subset\mathbb{C}\), such that \(\extcomplex\setminus K\) is connected, let \(\phi\) be an arbitrary biholomorphism mapping \(\extcomplex\setminus K\) to \(\mathbb{D}\) such that \(\phi(\infty)=\lim_{z\to\infty}\phi(z)=0\). It follows that \[\abs{\phi'(\infty)}\geq\frac14\mathrm{diam}(K),\] where \(\mathrm{diam}(K)=\sup_{z,\zeta\in K}\abs{\zeta-z}\).
 \end{lemma}
 \begin{proof}
-    
+
 \end{proof}
 \begin{lemma}\label{lemma:diracdeltaapproximation}
-    Suppose \[\lambda(z)=\begin{cases}
-        \qty(1-\abs{z}^2)^2&\qif*\abs{z}<1\\
-        0&\qif*\abs{z}\ge1.
+    Suppose \[\lambda(z)=
+        \begin{cases}
+            \qty(1-\abs{z}^2)^2&\qif*\abs{z}<1\\
+            0&\qif*\abs{z}\ge1.
     \end{cases}\]
     Then \(\forall r>0\), the function \(\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\) satisfies:
     \begin{enumerate}
@@ -3415,7 +3416,12 @@ As we have previously seen, there is a prevalent notion in complex analysis that
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-
+    \begin{enumerate}
+        \item[(1) $\Rightarrow$ (2)] Proof that (1) implies (2).
+        \item[(2) $\Rightarrow$ (3)] Proof that (2) implies (3).
+        \item[(3) $\Rightarrow$ (4)] Proof that (3) implies (4).
+    \end{enumerate}
+    Let \(\zeta=\rho\ee^{\ii\theta}\).
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
 
@@ -3830,16 +3836,16 @@ Obviously, the matrix \(\mqty(E&F\\F&G)\) is symmetric and positive definite. In
 \subsection{Metrics and Curvature}
 Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(\rho\in C^2(\Omega)\) be a nonnegative function. The \textscsl{metric} induced by \(\rho\) is given by \[\dd{s}=\rho(z)\abs{\dd{z}}.\] Then the distance between two points \(z_1,z_2\in\Omega\) is defined as \[d(z_1,z_2)=\inf_{\gamma\subset\Omega}\int_\gamma \rho(z)\abs{\dd{z}},\] where the infimum is taken over all piecewise smooth curves \(\gamma\) in \(\Omega\) joining \(z_1\) and \(z_2\).
 
-The \textscsl{curvature} of the metric \(\rho\) at \(z\in\Omega\) is defined as 
+The \textscsl{curvature} of the metric \(\rho\) at \(z\in\Omega\) is defined as
 \begin{equation}
     K_\rho(z)=-\frac{\Delta(\log\rho)(z)}{\rho(z)^2},\label{eq:curvatureofmetric}
 \end{equation} where \(\Delta=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in equation~\eqref{TO BE CONTINUED}.
 
 The three following metrics are of particular interest in complex differential geometry:
 \begin{enumerate}
-    \item Perhaps the most trivial metric is the \textscsl{Euclidean metric} (also known as the \textscsl{parabolic metric}) on \(\mathbb{C}\), and is given by \[\rho=1,\qquad\dd{s}^2=\abs{\ddz}^2.\] The \textscsl{Euclidean distance} between two points \(z_1,z_2\in\mathbb{C}\) is \[\inf_{\gamma}\int_\gamma\abs{\ddz}=\abs{z_2-z_1}\] is the length of the straight line segment connecting \(z_1\) and \(z_2\). 
-    
-    From equation~\eqref{eq:curvatureofmetric}, we find that Euclidean metric has curvature \(K=0\).
+    \item Perhaps the most trivial metric is the \textscsl{Euclidean metric} (also known as the \textscsl{parabolic metric}) on \(\mathbb{C}\), and is given by \[\rho=1,\qquad\dd{s}^2=\abs{\ddz}^2.\] The \textscsl{Euclidean distance} between two points \(z_1,z_2\in\mathbb{C}\) is \[\inf_{\gamma}\int_\gamma\abs{\ddz}=\abs{z_2-z_1}\] is the length of the straight line segment connecting \(z_1\) and \(z_2\).
+
+        From equation~\eqref{eq:curvatureofmetric}, we find that Euclidean metric has curvature \(K=0\).
     \item The \textscsl{Poincaré metric} (also referred to as the \textscsl{hyperbolic metric}) on \(\mathbb{D}\) is given by \[\rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\]
         In \autoref{lemma:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\).
 
@@ -3883,7 +3889,7 @@ The three following metrics are of particular interest in complex differential g
 \end{theorem}
 \subsection{A Generalization of Normal Families}
 \begin{theorem}[]
-    
+
 \end{theorem}
 \begin{theorem}[\textsc{Great Picard Theorem}]\label{thm:greatpicard}
 
