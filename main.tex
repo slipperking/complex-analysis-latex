@@ -3402,7 +3402,7 @@ As we have previously seen, there is a prevalent notion in complex analysis that
 \begin{lemma}\label{lemma:diracdeltaapproximation}
     Suppose \[\lambda(z)=\begin{cases}
         \qty(1-\abs{z}^2)^2\qif\abs{z}<1\\
-        0\qif\abs{z}\ge0.
+        0\qif\abs{z}\ge1.
     \end{cases}\]
     Then \(\forall r>0\), the function \(\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\) satisfies:
     \begin{enumerate}
@@ -3410,7 +3410,8 @@ As we have previously seen, there is a prevalent notion in complex analysis that
         \item \(\lambda_r\in C^1(\mathbb{C})\) and is compactly supported.
         \item \(\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\dd{\eta}=0\).
         \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}\leq\frac{2\piup}{r}\).
-        \item \(\abs{\grad{\lambda_r}}\leq\frac4{r^3}\), where \(\nabla=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.
+        \item \(\abs{\grad{\lambda_r}}\leq\frac4{r^3}\), where \(\grad=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.
+        \item For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula \[\frac{1}{2\ii}\int_{D(0,r)}f(z-\zeta)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\ddzeta=f(z)\]
     \end{enumerate}
 \end{lemma}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
