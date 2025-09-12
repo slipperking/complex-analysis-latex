@@ -3407,21 +3407,20 @@ As we have previously seen, there is a prevalent notion in complex analysis that
     \end{cases}\]
     Then \(\forall r>0\), the function \(\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\) satisfies:
     \begin{enumerate}
-        \item \(\int_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}=1\), where \(\zeta=\xi+\ii\eta\).
-        \item \(\lambda_r\in C^1(\mathbb{C})\) and is compactly supported.
-        \item \(\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}=0\).
-        \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\wedge\dd{\eta}\leq\frac{2\piup}{r}\).
-        \item \(\abs{\grad{\lambda_r}}\leq\frac4{r^3}\), where \(\grad=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.
-        \item For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula \[f(z)=\frac{1}{2\ii}\int_{D(0,r)}f(z-\zeta)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\ddzeta\]
+        \item \(\int_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}=1\), where \(\zeta=\xi+\ii\eta\).\label{itm:diracdeltaapproximation_integralto1}
+        \item \(\lambda_r\in C^1(\mathbb{C})\) and is compactly supported.\label{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}
+        \item \(\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}=0\).\label{itm:diracdeltaapproximation_antiholomorphicderivativeintegral}
+        \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\wedge\dd{\eta}\leq\frac{2\piup}{r}\).\label{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}
+        \item \(\abs{\grad{\lambda_r}}\leq\frac4{r^3}\), where \(\grad=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.\label{itm:diracdeltaapproximation_gradientstatement}
+        \item\label{itm:diracdeltaapproximation_integralformula} For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula \[f(z)=\frac{1}{2\ii}\int_{D(0,r)}f(z-\zeta)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\ddzeta.\]
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    \begin{enumerate}
-        \item[(1) $\Rightarrow$ (2)] Proof that (1) implies (2).
-        \item[(2) $\Rightarrow$ (3)] Proof that (2) implies (3).
-        \item[(3) $\Rightarrow$ (4)] Proof that (3) implies (4).
-    \end{enumerate}
-    Let \(\zeta=\rho\ee^{\ii\theta}\).
+    Let \(\zeta=\rho\ee^{\ii\theta}\). Then we have
+    \begin{align*}
+        \iint_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_{0}^{2\piup}\int_0^r \lambda_r\qty(\rho\ee^{\ii\theta})\dd{\rho}\dd{\theta}\\
+        &=\int_{0}^{2\piup}\int_0^r\qty(1-\rho^2)^2\dd{\rho}\dd{\theta}
+    \end{align*}
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
 
