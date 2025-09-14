@@ -2178,7 +2178,7 @@ A function with an essential singularity exhibits striking behavior. We will fir
     Assume for the sake of contradiction that \(\exists\varepsilon,\delta>0\), and \(\exists w\in\mathbb{C}\) such that \(\forall z\in D^*(a,\delta)\), \(|f(z)-w|>\varepsilon\). Define the auxiliary function \(g(z)=\frac{f(z)-w}{z-a}\), which is holomorphic and non-vanishing on the punctured neighborhood of \(a\). Since as \(z\to a\), \(g(z)\to\infty\), it follows that \(g(z)\) has a pole at \(a\). Let the order of the pole be \(m\in\mathbb{N}\). By \autoref{thm:isolatedsingularities_pole_laurentexpansion}, \(g(z)\) has the Laurent expansion of \[\frac{c_{-m}}{(z-a)^m}+\cdots c_0+c_1(z-a)+\cdots\]
     for some \(m\in\mathbb{N}\). It follows that \[f(z)=\frac{c_{-m}}{(z-a)^{m-1}}+\cdots+c_{-1}+w+c_0(z-a)+\cdots.\] If \(m=1\), then \(f\) has a removable singularity at \(a\). If \(m\geq2\), then \(f\) has a pole at \(a\). Hence, we have a contradiction.
 \end{proof}
-A similar theorem exists for entire functions:
+A similar proof yields the following result for entire functions.
 \begin{theorem}
     The set of values that a non-constant entire function \(f\) assumes is dense in \(\mathbb{C}\).
 \end{theorem}
@@ -2209,9 +2209,9 @@ The classification of the singularity at \(\infty\) is then reduced to the class
 We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
 \begin{enumerate}
     \item If the infinity point is a removable singularity, then \(\lim_{z\to\infty} f(z)\) exists and is finite.
-        \begin{lemma}\label{lemma:removablesingularityatinftyentireconstant}
+        \begin{proposition}\label{prop:removablesingularityatinftyentireconstant}
             If \(f(z)\) is entire and has a removable singularity at \(z=\infty\), then \(f\) is constant.
-        \end{lemma}
+        \end{proposition}
         \begin{proof}
             Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \autoref{thm:removablesingularitiesriemann}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall \abs{z}>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\), and is bounded. For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \autoref{thm:continuousfunctionboundedoncompact}, is also bounded.
 
@@ -2228,7 +2228,7 @@ We have previously defined the concept of an entire function in \chpref{sec:comp
 \begin{example}
     The entire functions \(\sin(z)\), \(\cos(z)\), \(\sinh(z)\), \(\cosh(z)\), and \(\exp(z)\) are transcendental.
 \end{example}
-\begin{definition}[Meromorphic Function]\label{def:meromorphicfunction}
+\begin{definition}[Meromorphy]\label{def:meromorphicfunction}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a set of isolated points. Suppose \(f:U\setminus\cbraces{a_n}_{n\in\mathbb{N}}\to\mathbb{C}\) is holomorphic and has a pole at each of \(z\in\qty{a_n}\). Then \(f\) is \textscsl{meromorphic} in \(U\).
 \end{definition}
 Similar to holomorphy, meromorphy on a compact set can be defined as meromorphy on a neighborhood of the set. In general, we imply for the set to be open unless stated otherwise. If the set is not implicitly specified, we assume meromorphy on \(\mathbb{C}\).
@@ -2256,7 +2256,7 @@ We will then introduce the converse:
 
     Let \(z_1,\ldots,z_n\) be the isolated poles of \(f\) in \(\overline{D(0,R)}\). \(\forall k\in\qty{1,2,\ldots,n}\), \(f\) has the Laurent expansion at \(z_k\) with a principal part of \[\psi_k(z)=\frac{c_{k,-1}}{z-z_k}+\frac{c_{k,-2}}{\qty(z-z_k)^2}+\cdots+\frac{c_{k,-m_{k}}}{\qty(z-z_k)^{m_k}}.\] Define the auxiliary function \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\] which is meromorphic on \(\mathbb{C}\) with singularities at each of \(\qty{z_k}_{k=1}^n\cup\qty{\infty}\). Fix \(j\in\cbraces{1,\ldots n}\). Since \(z_j\) is an isolated singularity, \(\exists\varepsilon_j>0\) such that \(\forall k\neq j\), \(z_k\notin D^*\qty(z_j,\varepsilon_j)\). Then, \(\sum_{\substack{k=1\\k\neq j}}^n \psi_k(z)\) is holomorphic on \(D^*(z_j,\varepsilon_j)\). \(\psi_\infty(z)\) is a polynomial and therefore entire. Lastly, \(f(z)-\psi_j(z)=\varphi_j(z)\) is the holomorphic part of the expansion of \(f(z)\) at \(z_j\), and is holomorphic at \(z_j\). Therefore, \(z=z_j\) is a removable singularity of \(\Phi(z)\). By \autoref{thm:removablesingularitiesriemann}, define \(\Phi(z)\) to be the analytic continuation on all of \(\mathbb{C}\).
 
-    At a neighborhood of \(\infty\), \(f(z)-\psi_\infty(z)\) is the holomorphic part of the expansion of \(f(z)\), consisting of non-positive exponents. Therefore, \(\lim_{z\to\infty} f(z)-\psi_\infty(z)\) is finite. Since \(\psi_k\) are the principal parts of Laurent expansions at finite points, they consist of negative exponents. Therefore, we have \(\lim_{z\to\infty}\sum_{k=1}^n \psi_k(z)=0\), and consequently, \(\Phi(z)\) has a removable singularity at \(\infty\). By \autoref{lemma:removablesingularityatinftyentireconstant}, \(c=\Phi(z)\) is constant.
+    At a neighborhood of \(\infty\), \(f(z)-\psi_\infty(z)\) is the holomorphic part of the expansion of \(f(z)\), consisting of non-positive exponents. Therefore, \(\lim_{z\to\infty} f(z)-\psi_\infty(z)\) is finite. Since \(\psi_k\) are the principal parts of Laurent expansions at finite points, they consist of negative exponents. Therefore, we have \(\lim_{z\to\infty}\sum_{k=1}^n \psi_k(z)=0\), and consequently, \(\Phi(z)\) has a removable singularity at \(\infty\). By \autoref{prop:removablesingularityatinftyentireconstant}, \(c=\Phi(z)\) is constant.
 
     Thus, we have \[f(z)=c+\psi_\infty(z)+\sum_{k=1}^n\psi_k(z).\] Since each series contains finitely many terms, \(f(z)\) is rational.
 \end{proof}
@@ -2288,7 +2288,7 @@ In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C
     \(\forall f\in \Aut(\mathbb{C})\), \(f\) is linear and non-constant. In other words, \(\exists a\in\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) and \(\exists b\in\mathbb{C}\) such that \[f(z)=az+b.\]
 \end{theorem}
 \begin{proof}
-    First, assume that \(\infty\) is not an essential singularity of \(f(z)\) (we will prove this later). Then \(\infty\) must be a pole by trichotomy, as a removable singularity implies boundedness (\autoref{lemma:removablesingularityatinftyentireconstant}). Therefore, \(f(z)\) is a polynomial of degree \(m\), where \(m\in\mathbb{N}\).
+    First, assume that \(\infty\) is not an essential singularity of \(f(z)\) (we will prove this later). Then \(\infty\) must be a pole by trichotomy, as a removable singularity implies boundedness (\autoref{prop:removablesingularityatinftyentireconstant}). Therefore, \(f(z)\) is a polynomial of degree \(m\), where \(m\in\mathbb{N}\).
 
     Since \(f^{-1}\in\Aut(\mathbb{C})\), it is true that \(\qty(f^{-1})'\) is entire. Since \(\qty(f^{-1})'=\frac{1}{f'\qty(f^{-1})}\), it follows that \(f'\) has no zeros in \(\mathbb{C}\). By the Fundamental Theorem of Algebra (\autoref{thm:fundamentaltheoremofalgebra}), if \(m>1\), then \(f'\) has a complex zero, which is a contradiction. Hence, \(f\) must be linear, and all functions in \(\Aut(\mathbb{C})\) are in the form of \(az+b\), where \(a\in\mathbb{C}^*\), \(b\in\mathbb{C}\) are constants. In other words, any holomorphic automorphism on \(\mathbb{C}\) is a composition of a rotation, a dilation, and a translation.
 
@@ -2546,9 +2546,8 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
         f^{(n)}\qty(z_k) & =\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k} \\
         & =\lim_{z\to z_k}\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)                                                              \\
         & \quad-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)                                                                      \\
-        & =n!w_{k,n},
+        & =n!w_{k,n}.&&\qedhere
     \end{align*}
-    as desired.
 \end{proof}
 \begin{remark}
     For a general power series, there is no assurance that it corresponds to the Taylor expansion of an entire function. However, for any polynomial of degree \(n\), there always exists an entire function whose Taylor expansion agrees with the polynomial up to the first \(n+1\) terms, which is the fundamental difference between a polynomial and a transcendental entire function.
