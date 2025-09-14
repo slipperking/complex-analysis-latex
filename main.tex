@@ -383,7 +383,7 @@ We will now give statements relating to operations on Riemann integrals:
     The second part is self-explanatory as it can be interpreted as an area integral.
 
     Let \[\varphi(u)=\int_a^b f(x,u)\ddx.\]
-    Since \(f(x,u)\) is continuous on a compact set with respect to both \(x\) and \(u\), by \autoref{thm:heinecantor}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\]
+    Since \(f(x,u)\) is continuous on a compact set with respect to both \(x\) and \(u\), by \autoref{thm:heinecantor}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\qedhere\]
 \end{proof}
 \section{Complex Prerequisites}
 \subsection{The Extended Complex Plane and its Spherical Representation}
@@ -442,7 +442,7 @@ For the purpose of the following contents, a \textscsl{region} or \textscsl{doma
     where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\) and \(o\paren{\abs{\Delta z}}\) denotes a value with higher infinitesimal order to \(\abs{\Delta z}\), or that \(\lim_{\Delta z\to0}\frac{o\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\). Then letting \(\Delta z=x-x_0+\ii\paren{y-y_0}\),
     \[f\paren{z}-f\paren{z_0}=\alpha{\Delta z}+\ii\beta{\Delta z}+o\paren{\abs{\Delta z}}+o\paren{\abs{\Delta z}},\]
     \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta+\frac{o\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
-    Taking the limit as \(\Delta z\to0\), the high order infinitesimals on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta.\]
+    Taking the limit as \(\Delta z\to0\), the high order infinitesimals on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta.\qedhere\]
 \end{proof}
 We will prove later in \chpref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+\ii v(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
@@ -1160,7 +1160,7 @@ When Cauchy famously published \autoref{thm:cauchyintegralformula} and \autoref{
         \abs{\int_0^{2\piup}\paren{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}} & \leq\int_0^{2\piup}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t} \\
         & \leq2\piup\max\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\to0.
     \end{align*}
-    By rearrangement, \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\]
+    By rearrangement, \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\qedhere\]
 \end{proof}
 \begin{remark}
     In the proof of \autoref{thm:pompeiu}, we used Lipschitz continuity for a smooth function, which was a stronger condition than necessary. The true necessity of smoothness was to be able to apply Green's Theorem (\autoref{thm:complexgreen}).
@@ -1176,7 +1176,7 @@ This profound theorem is extremely important and helpful in complex integration 
     \end{equation}
     where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Formula (\autoref{thm:cauchygoursatformula}), equation~\eqref{eq:cauchygoursatformulazerosofunity} becomes: \[\sum_{k=0}^{n-1}\oint_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\piup\ii\sum_{k=0}^{n-1}c_k.\]
     Observe that \(\sum_{k=0}^{n-1} c_k=\lim_{z\to\infty}\sum_{k=0}^{n-1}\frac{zc_k}{z-\omega_k}=\lim_{z\to\infty}\frac{z}{z^n-1}=0\) since \(n\geq2\).
-    Therefore, \[\oint_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\]
+    Therefore, \[\oint_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\qedhere\]
 \end{proof}
 We have also already seen the utility of parameterization via a polar transformation. Many useful identities in classical calculus can also be derived from concepts in its generalization:
 \begin{example}
@@ -1847,7 +1847,7 @@ As a direct consequence of \autoref{thm:holomorphicautomorphismgrouponunitdisk},
     \begin{equation}
         \abs{\dv{w}{z}}\leq\frac{1-\overline{w}w}{1-\overline{z}z}\Longleftrightarrow\frac{\abs{\dd{w}}}{1-\overline{w}w}\leq\frac{\abs{\ddz}}{1-\overline{z}z}.\label{eq:schwarzpick_nonincreasingmetric}
     \end{equation}
-    By the Schwarz Lemma (\autoref{lemma:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\]
+    By the Schwarz Lemma (\autoref{lemma:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\qedhere\]
 \end{proof}
 \begin{remark}
     In \chpref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
@@ -2368,7 +2368,7 @@ Similar to series, absolute convergence is a stronger condition than convergence
 \end{lemma}
 \begin{proof}
     Let \(K\) be an arbitrary compact subset of \(U\). Since \(\sum_{k=1}^\infty f_k(z)\) converges uniformly on \(K\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{\sum_{k=m+1}^n f_k(z)}<\varepsilon\) for all \(z\in K\). Additionally, we have: \[\abs{\prod_{k=1}^n \exp\qty[f_k(z)]-\prod_{k=1}^m\exp\qty[f_k(z)]}=\abs{\exp[\sum_{k=1}^n f_k(z)]-\exp[\sum_{k=1}^m f_k(z)]}.\]
-    By \autoref{thm:weierstrassuniformlimit}, the uniform limit \(\sum_{k=1}^\infty f_k(z)\) is holomorphic on \(U\). By continuity and \autoref{thm:continuousfunctionboundedoncompact}, this limit is bounded on \(K\). It follows that each partial sum is uniformly bounded on \(K\). Since the exponential function is Lipschitz continuous on compact subsets of \(\mathbb{C}\), there exists a finite constant \(M>0\) such that \[\abs{\exp[\sum_{k=1}^n f_k(z)]-\exp[\sum_{k=1}^m f_k(z)]}\leq M\abs{\sum_{k=m+1}^n f_k(z)}<M\varepsilon.\]
+    By \autoref{thm:weierstrassuniformlimit}, the uniform limit \(\sum_{k=1}^\infty f_k(z)\) is holomorphic on \(U\). By continuity and \autoref{thm:continuousfunctionboundedoncompact}, this limit is bounded on \(K\). It follows that each partial sum is uniformly bounded on \(K\). Since the exponential function is Lipschitz continuous on compact subsets of \(\mathbb{C}\), there exists a finite constant \(M>0\) such that \[\abs{\exp[\sum_{k=1}^n f_k(z)]-\exp[\sum_{k=1}^m f_k(z)]}\leq M\abs{\sum_{k=m+1}^n f_k(z)}<M\varepsilon.\qedhere\]
 \end{proof}
 \begin{remark}
     Uniform convergence on compact subsets is also known as \textscsl{compact convergence}. In the case of \(\mathbb{C}\) (or in any topological space such that every point has a compact neighborhood), compact convergence is equivalent to \textscsl{locally uniform convergence}.
@@ -2863,7 +2863,7 @@ Residues are extremely important as they allow for simple evaluation of definite
         & =\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{\ee^{-\ii z}}{z}\dd{z} \\
         & \to2\ii\int_{-\infty}^0\frac{\sin{z}}{z}\ddz=2\ii\int_0^{\infty}\frac{\sin{z}}{z}\ddz.
     \end{align*}
-    Hence, \[-\ii\piup+2\ii\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\piup}{2}.\]
+    Hence, \[-\ii\piup+2\ii\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\piup}{2}.\qedhere\]
 \end{proof}
 \begin{example}[Fresnel Integral]
     Evaluate the improper integrals \[I_1=\int_0^\infty\cos\qty(x^2)\ddx,\qquad I_2=\int_0^\infty\sin\qty(x^2)\ddx.\]
@@ -2984,7 +2984,7 @@ Residues are extremely important as they allow for simple evaluation of definite
     \[\abs{\int_0^{\frac{2\piup}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\piup}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=\frac{2\piup}{\beta}\frac{R^{\alpha+1}}{R^\beta-1}\to 0.\]
     Similarly, as \(\varepsilon\to 0\), \[\abs{\int_{C_\varepsilon}f(z)\ddz}\leq\varepsilon\int_0^{\frac{2\piup}{\beta}}\abs{f\qty(\varepsilon\ee^{\ii\theta})}\dd{\theta}=\int_0^{\frac{2\piup}{\beta}}\frac{\varepsilon^{\alpha+1}}{1-\varepsilon^\beta}\dd{\theta}=\frac{2\piup}{\beta}\frac{\varepsilon^{\alpha+1}}{1-\varepsilon^{\beta}}\to 0.\]
     By letting \(R\to\infty\) and \(\varepsilon\to 0\), we have \[\qty[1-\exp(\ii\frac{2\piup}{\beta}(1+\alpha))]I=-\frac{2\piup\ii}{\beta}\exp(\ii\frac{\piup}{\beta}(\alpha+1)).\]
-    It follows that \[I=\frac{2\piup\ii}{\beta}\brackets{\exp(\ii\frac{\piup}{\beta}(\alpha+1))-\exp(-\ii\frac{\piup}{\beta}(\alpha+1))}^{-1}=\frac{\piup}{\beta}\csc(\frac{\piup}{\beta}(\alpha+1)).\]
+    It follows that \[I=\frac{2\piup\ii}{\beta}\brackets{\exp(\ii\frac{\piup}{\beta}(\alpha+1))-\exp(-\ii\frac{\piup}{\beta}(\alpha+1))}^{-1}=\frac{\piup}{\beta}\csc(\frac{\piup}{\beta}(\alpha+1)).\qedhere\]
 \end{proof}
 \begin{example}
     Prove that the Fourier transform of \(\sech(\piup x)\) is itself, or that \[I(\xi)=\int_{-\infty}^\infty\exp(-2\piup \ii x\xi)\sech(\piup x)\ddx=\sech(\piup\xi).\]
