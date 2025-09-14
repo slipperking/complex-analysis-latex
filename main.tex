@@ -44,7 +44,24 @@
 \newcommand{\Aut}{\mathrm{Aut}}
 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newtheorem{corollaryinner}{Corollary}[theorem]
+\NewDocumentEnvironment{corollary}{D<>{}}
+{
+    \if\relax\detokenize{#1}\relax
+    \else
+    \ifcsname #1-used\endcsname
+    \expandafter\xdef\csname #1-used\endcsname{\the\numexpr\csname #1-used\endcsname+1}%
+    \else
+    \expandafter\gdef\csname #1-used\endcsname{1}%
+    \fi
+    \renewcommand{\thecorollaryinner}{\ref{#1}.\csname #1-used\endcsname}%
+    \fi
+    \corollaryinner%
+}
+{\endcorollaryinner}
+
 \newtheorem{lemma}{Lemma}[section]
 \theoremstyle{remark}
 \newtheorem{example}{Example}[subsection]
@@ -54,7 +71,7 @@
 \newtheorem*{remark}{Remark}
 \providecommand*{\lemmaautorefname}{Lemma}
 \providecommand*{\definitionautorefname}{Definition}
-\providecommand*{\corollaryautorefname}{Corollary}
+\providecommand*{\corollaryinnerautorefname}{Corollary}
 \providecommand*{\exampleautorefname}{Example}
 \numberwithin{equation}{subsection}
 \numberwithin{figure}{section}
@@ -240,7 +257,7 @@ which is the definition of the total differential. For a 1-form in 3-dimensional
 Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
 \[\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\wedge\ddy\wedge\ddz.\]
 The two results above resemble the curl and divergence of \(\qty(P,Q,R)\). A differential form \(\omega\) is \textscsl{closed} if \(\dd{\omega}=0\), and is \textscsl{exact} if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
-\begin{lemma}[Poincaré Lemma]\label{lemma:poincare}
+\begin{lemma}[Poincaré]\label{lemma:poincare}
     For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
 \end{lemma}
 It is true that for any set \(U\subseteq \mathbb{R}^n\), regardless of contractibility, that for a differential form \(\omega\) defined on \(U\), \(\dd\dd\omega=0\). In other words, all exact differential forms are closed. (For a region \(U\), we have \(\partial\partial U=\emptyset\). This is one of many reasons for which the boundary operator is denoted by \(\partial\), in analogy to \(\dd\).)
@@ -340,15 +357,15 @@ A more general version of this proof can be achieved by using the Heine--Borel T
     A function \(f\) is Lipschitz continuous over \(U\) if \(\exists M\in\mathbb{R}_{\geq0}\) such that \(\forall x,y \in U\), \(|f(x)-f(y)| \leq M|x-y|\). The smallest possible \(M\) satisfying the above condition is known as the Lipschitz constant.
 \end{definition}
 Lipschitz continuity is an important concept in real analysis and the theory of differential equations. It is a strong form of uniform continuity.
-\begin{lemma}
+\begin{proposition}
     All Lipschitz continuous functions on \(U\) are uniformly continuous on \(U\).
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Let \(M>0\) be the Lipschitz constant. Then \(\forall \varepsilon>0\), let \(\delta=\frac{\varepsilon}{M}\). It then follows that \(\forall x,y\in U\) such that \(\abs{x-y}<\delta\), \(\abs{f(x)-f(y)}\leq M|x-y|<\varepsilon\).
 \end{proof}
-\begin{lemma}\label{lemma:c1lipschitz}
+\begin{proposition}\label{prop:c1lipschitz}
     A \(C^1\) function on a compact set \(K\) is Lipschitz continuous on \(K\).
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Let \(f:K\to\mathbb{R}\) be \(C^1\). By \autoref{thm:continuousfunctionboundedoncompact}, since \(K\) is compact and \(f'\) is continuous, \(\exists M>0\) such that \(\forall x\in K\), \(|f'(x)|\leq M\).
 
@@ -431,9 +448,9 @@ We will prove later in \chpref{sec:analyticityandholomorphy} that the complex de
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
 This type of equation is called the \textscsl{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textscsl{Laplacian}) \[\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a \textscsl{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
-\begin{lemma}\label{lemma:realvaluedholomorphicfunctionconstant}
+\begin{proposition}\label{prop:realvaluedholomorphicfunctionconstant}
     Let \(U\subseteq\mathbb{C}\) be open and connected and \(f:U\to\mathbb{R}\) be holomorphic. It follows that \(f\) is constant over \(U\).
-\end{lemma}
+\end{proposition}
 \begin{proof}
     Since \(f(x,y)=u(x,y)+\ii v(x,y)\) is real-valued, \(v(x,y)\equiv0\) on \(U\). Then by the Cauchy--Riemann equations on \(U\), \(\pdv{u}{x}=\pdv{v}{y}=0\). Similarly, \(\pdv{u}{y}=-\pdv{v}{x}=0.\) Therefore, \(f(z)=u(z)\) is constant.
 \end{proof}
@@ -673,8 +690,8 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
 \end{proof}
 Obviously, a substitution of \(z=\zeta-a\) where \(a\in\mathbb{C}\) translates the disk of convergence to \(D(a,R)\).
 
-The Uniform Limit Theorem in real analysis is generalized:
-\begin{theorem}[Uniform Limit Theorem]\label{thm:uniformlimit}
+The subsequent results on uniform convergence hold for complex functions:
+\begin{theorem}[Uniform Limit]\label{thm:uniformlimit}
     Let \(\cbraces{f_n(z)}\) be continuous on \(U\subseteq\mathbb{C}\) and uniformly convergent to \(f(z)\). Then \(f(z)\) is continuous on \(U\).
 \end{theorem}
 \begin{proof}
@@ -806,7 +823,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\autoref
         \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\piup}\frac{f\paren{z+\varepsilon \ee^{\ii t}}}{\varepsilon \ee^{\ii t}}\cdot \ii\varepsilon \ee^{\ii t}\dd{t}=\ii\int_0^{2\piup}f(z+\varepsilon \ee^{\ii t})\dd{t}\\
         =\ii\int_0^{2\piup}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}+\ii\int_0^{2\piup}f(z)\dd{t}.
     \end{gather*}
-    Because \(f\in C^1\left(\overline{U}\right)\), by \autoref{lemma:c1lipschitz}, \(f\) is Lipschitz continuous on \(\overline{U}\), and \(\exists M\in\mathbb{R}_{>0}\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). On \(\partial D(z,\varepsilon)\), we get that \(\abs{f(z+\varepsilon \ee^{\ii t})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\piup}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}}\leq\int_0^{2\piup}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}\leq 2M\piup\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain
+    Because \(f\in C^1\left(\overline{U}\right)\), by \autoref{prop:c1lipschitz}, \(f\) is Lipschitz continuous on \(\overline{U}\), and \(\exists M\in\mathbb{R}_{>0}\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). On \(\partial D(z,\varepsilon)\), we get that \(\abs{f(z+\varepsilon \ee^{\ii t})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\piup}\left(f\paren{z+\varepsilon \ee^{\ii t}}-f(z)\right)\dd{t}}\leq\int_0^{2\piup}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}\leq 2M\piup\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain
     \begin{equation}
         2\piup \ii f(z)=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}+\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}. \label{eq:pompeiu_epsilonlimitintermediate}
     \end{equation}
@@ -867,7 +884,7 @@ From the above result, we can directly obtain the following theorem:
     \begin{equation}
         \frac{u(z+\Delta z)-u\paren{z}}{\Delta z}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\xi+z+\Delta z)-\psi\paren{\xi+z}}{\Delta z\xi}\dd{\xi}\wedge\dd{\overline{\xi}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
-    For a fixed \(z\), the value of \[\frac{\psi(\xi+z+\Delta z)-\psi\paren{\xi+z}}{\Delta z}\] tends to \(\pdv{\psi}{\zeta}\paren{\xi+z}\) as \(\Delta z\to0\). Because \(\psi(\zeta)=\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{lemma:c1lipschitz}, it is Lipschitz continuous for a constant \(M\).
+    For a fixed \(z\), the value of \[\frac{\psi(\xi+z+\Delta z)-\psi\paren{\xi+z}}{\Delta z}\] tends to \(\pdv{\psi}{\zeta}\paren{\xi+z}\) as \(\Delta z\to0\). Because \(\psi(\zeta)=\psi\paren{\xi+z}\) has compact support and is \(C^1\), by \autoref{prop:c1lipschitz}, it is Lipschitz continuous for a constant \(M\).
 
     Let \(\Delta z<1\) and let \(K=\cbraces{z\in\mathbb{C}}{\inf_{\zeta\in\supp(\varphi)}|z-\zeta|\leq1}\). Then, \[\abs{\frac{\psi(\xi+z+\Delta z)-\psi\paren{\xi+z}}{\Delta z}}\leq M,\] and specifically, when \(\xi+z\notin K\), \[\frac{\psi(\xi+z+\Delta z)-\psi\paren{\xi+z}}{\Delta z}=0.\]
     As shown above, the integrand is uniformly bounded by \(M\), which has a convergent integral of \(\int_{K}M\dd{\xi}\wedge\dd{\overline{\xi}}\), the limit \(\Delta z\to0\) may commute with the integral in equation~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr}. Let \(\zeta=\alpha+\ii\beta\). From the real axis,
@@ -1623,7 +1640,7 @@ We will introduce a fundamental application of Liouville's Theorem (\autoref{thm
     Finally, parameterize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
     \[k=\frac{1}{2\piup\ii}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\piup\ii}\Delta_\Gamma\log(w)=\frac{1}{2\piup}\Delta_\Gamma\arg(w),\] which proves the result.
 \end{proof}
-This profound result proves that the number of zeros of a holomorphic function enclosed by a closed curve is also the number of times the image of the curve winds around the origin.
+Thus, one defines the \textscsl{winding index} to quantify how many times a closed curve winds counterclockwise around a given point in the complex plane. Formally, if \(\gamma=\gamma([0,1])\) is a counterclockwise-oriented closed curve and \(z\) is a point satisfying \(z\notin\gamma\), then \[\mathrm{Ind}_{\gamma}(z)=\frac{1}{2\piup\ii}\int_\gamma\frac{\ddzeta}{\zeta-z}=\frac{1}{2\piup\ii}\int_0^1\frac{\gamma'(t)\ddt}{\gamma(t)-z}.\]
 \begin{theorem}\label{thm:hurwitzsimplecase}
     Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\). If \(\forall n\in\mathbb{N}\), \(f_n(z)\) has no zeros in \(U\), then \(f\) is either identically 0 or has no zeros in \(U\).
 \end{theorem}
@@ -1877,7 +1894,7 @@ The Poisson kernel can also be rewritten as
 Thus, equation~\eqref{eq:poissonintegralformula2} is equivalent to:
 \[u(z)=\frac{1}{2\piup}\int_0^{2\piup}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
 Since \(\ddzeta=\ii R\ee^{\ii\tau}\dd{\tau}\), \(\dd{\tau}=\frac{\ddzeta}{\ii\zeta}\), and \[u(z)=\frac{1}{2\piup\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Re\qty(\frac{\zeta+z}{\zeta-z})\ddzeta=\Re\qty[\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta],\]
-where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \[\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\] is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+\ii c\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \autoref{lemma:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+\ii v(z)\),
+where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \[\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\] is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+\ii c\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \autoref{prop:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+\ii v(z)\),
 \begin{equation}
     v(z)=c+\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Im\qty(\frac{\zeta+z}{\zeta-z})\ddzeta.\label{eq:schwarzintegralformulaimaginarypart}
 \end{equation}
@@ -2300,16 +2317,16 @@ Let us now examine \(\Aut\qty(\extcomplex)\). Let \(f(z)\in \Aut\qty(\extcomplex
 Let \(f(z)\in\Aut\qty(\extcomplex)\) such that \(f(\infty)\neq\infty\). Then, \(g(z)=\frac{1}{f(z)-f(\infty)}\in\Aut\qty(\extcomplex)\) and \(g(\infty)=\infty\). By the property above, \(g(z)=cz+d\) for some complex \(d\) and nonzero \(c\). Hence, \(f(z)=\frac{f(\infty)(cz+d)+1}{cz+d}\). Let \(a=cf(\infty)\), \(b=df(\infty)+1\), \(f(z)=\frac{az+b}{cz+d}\). Then in this specific construction, \(ad-bc=-c\neq0\). Let the matrix \(\mqty(a&b\\c&d)\) correspond to this transformation, where for any nonzero scalar \(k\), \(k\mqty(a&b\\c&d)\) corresponds to \(\mqty(a&b\\c&d)\). Therefore, we can arbitrarily pick \(ad-bc\) to be \(1\).
 
 Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm\vb{I}},\right.\]
-where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textscsl{projective special linear group} of order 2, and is \textscsl{isomorphic} (one-to-one and homomorphic, or that the operation is preserved, see \autoref{lemma:mobiustransformationcompositionmatrixmultiplication}) to the \textscsl{group of Möbius transformations}, consisting of all linear fractional transformations.
+where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textscsl{projective special linear group} of order 2, and is \textscsl{isomorphic} (one-to-one and homomorphic, or that the operation is preserved, see \autoref{prop:mobiustransformationcompositionmatrixmultiplication}) to the \textscsl{group of Möbius transformations}, consisting of all linear fractional transformations.
 
 Therefore, any meromorphic automorphism on \(\extcomplex\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
 \begin{theorem}[The Meromorphic Automorphism Group on \(\extcomplex\)]\label{thm:meromorphicautomorphismgrouponextendedcomplexplane}
     \(\forall f\in \Aut\qty(\extcomplex)\), \(f\) is a Möbius transformation. In other words, \(\exists a,b,c,d\in\mathbb{C}\) satisfying \(ad-bc\neq 0\) such that \[f(z)=\frac{az+b}{cz+d}.\]
 \end{theorem}
 The group of holomorphic automorphisms on \(\mathbb{D}\), or \(\Aut(\mathbb{D})\), is also a subgroup of \(\Aut\qty(\extcomplex)\). We have the following property on Möbius transformations:
-\begin{lemma}\label{lemma:mobiustransformationcompositionmatrixmultiplication}
+\begin{proposition}\label{prop:mobiustransformationcompositionmatrixmultiplication}
     Suppose we have two Möbius transformations represented by the matrices \(\mqty(a&b\\c&d)\) and \(\mqty(e&f\\g&h)\). Then their composition is a Möbius transformation represented by \(\mqty(a&b\\c&d)\mqty(e&f\\g&h)\).
-\end{lemma}
+\end{proposition}
 \begin{proof}
     From simple substitution, we have
     \begin{align*}
@@ -2744,6 +2761,8 @@ There is not a directly trivial reason for the definition of the residue at \(\i
     \centerline{\includesvg[width=0.9\linewidth]{riemannsphere.svg}}
     \caption{The orientation of a neighborhood that does not enclose \(\infty\) after projection.}\label{fig:stereographicprojectionofneighborhood}
 \end{figure}However, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\autoref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\) at \(\zeta=0\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
+
+For any closed rectifiable curve \(\gamma\subset U\) (here we are not bound under the assumption of simpleness), the Residue Theorem can be generalized into: \[\oint_{\gamma}f(z)\ddz=2\piup\ii\sum_{k}\operatorname{Ind}_{\gamma}\qty(z_k)\residue_{z=z_k}f(z)\] where \(z_k\) are the singularities of \(f\) in \(U\) and \(\operatorname{Ind}_\gamma\) is the winding index.
 
 Residues are extremely important as they allow for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues at poles are generally easy to calculate and have an integral representation. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
 \begin{example}
@@ -3222,234 +3241,6 @@ This question is not necessarily an affirmative. The principal branch logarithm 
     Let \(\Omega\subseteq\mathbb{C}\) be simply connected, or that every closed curve in \(\Omega\) is null-homotopic (homotopic to a constant curve, or a point) in \(\Omega\). Let \(U\subseteq\Omega\) be a disk and suppose \(\qty(f,U)\) is an analytic function element with unrestricted continuation in \(\Omega\). Then \(\exists!\widetilde{f}\) that is holomorphic on \(\Omega\) such that \(\widetilde{f}\equiv f\) on \(U\).
 \end{corollary}
 The problems arising from the complex logarithm are now understood specifically as the failure of the homotopy condition. In a set excluding albeit enclosing the origin, such as \(\mathbb{C}\setminus\qty{0}\), curves enclosing the origin are not homotopic to the zero constant curve, and in the complex plane, the logarithm does not admit unrestricted continuation in \(\mathbb{C}\) since it cannot be continued along any curve passing through the origin.
-\section{Rational Approximation Theory}
-\subsection{Runge's Theorem}
-By definition, a rational function is the quotient of two polynomials; and by \autoref{thm:rationalmeromorphicfunctions}, in equivalent formulation, it is a function meromorphic on all of \(\extcomplex\). The poles and zeros may not accumulate in \(\extcomplex\), and thus there are finitely many as a consequence of Bolzano--Weierstrass (\autoref{thm:bolzanoweierstrass}).
-
-When we refer to approximation, we refer to the approximation of a function as the uniform limit (of a sequence) of functions. Let \(K\subset\mathbb{C}\) be compact and suppose \(f:K\to\mathbb{C}\) is a given function on \(K\). As a consequence of Mergelyan's Theorem (\autoref{thm:mergelyan}), sufficient conditions for \(f\) to be the uniform limit of rational functions whose poles lie in (a subset of given points of) \(\extcomplex\setminus K\) are the continuity of \(f\) on \(K\) and the holomorphy of \(f\) on \(\interior{K}\).
-
-In the earliest formulation by Carl Runge in 1885, he provided the sufficiency of the holomorphy of \(f\) on \(K\) (in effect, a neighborhood of \(K\)).
-
-The proof can be well-organized through the use of the results that we will now introduce. In essence, it involves applying Cauchy--Goursat to \(f\) and the subsequent use of Riemann sums to approximate the complex line integral.
-\begin{theorem}\label{thm:rungesimplepolesandremovablesingularityatinfinity}
-    Let \(K\subset\mathbb{C}\) be compact and suppose \(U\supset K\) is a neighborhood of \(K\) that is relatively compact in \(\mathbb{C}\). Let \(f:U\to\mathbb{C}\) be an arbitrary holomorphic function. Then for fixed \(\varepsilon>0\), there exists a rational function \(\psi(z)\) with only simple poles (all of which lie in \(\mathbb{C}\setminus K\)) such that \[\lim_{z\to\infty}\psi(z)=0,\qquad \sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
-\end{theorem}
-\begin{proof}
-    By assumption of relative compactness, \(\mathrm{dist}(\partial U,\partial K)\), or the distance (infimum) between \(K\) and \(\mathbb{C}\setminus U\), is positive and finite. More concretely, let \[d=\inf\cbraces{\abs{z_1-z_2}}{z_1\in K,z_2\in\mathbb{C}\setminus U}>0\]
-    The longest distance between two points in any square is the length of the diagonal. Hence, any square \(Q\) that intersects \(\partial K\) with a side length less than \(\frac{\sigma\sqrt{2}}{2}\) will lie completely within \(U\).
-
-    \begin{figure}
-        \centering
-        \begin{tikzpicture}
-            \foreach \x in {0,...,7}
-            \foreach \y in {0,...,7} {
-                \ifnum\x=0
-                \ifnum\y=1\else
-                \ifnum\y=2\else
-                \ifnum\y=3\else
-                \ifnum\y=4\else
-                \ifnum\y=5\else
-                \ifnum\y=6\else
-                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
-                \fi\fi\fi\fi\fi\fi\fi \else
-                \ifnum\x=1
-                \ifnum\y=2\else
-                \ifnum\y=4\else
-                \ifnum\y=5\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
-                \fi\fi\fi \else
-                \ifnum\x=2
-                \ifnum\y=0\else
-                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
-                \fi\fi \else
-                \ifnum\x=3
-                \ifnum\y=0\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
-                \fi\else
-                \ifnum\x=5
-                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
-                \fi\else
-                \ifnum\x=6
-                \ifnum\y=2\else
-                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
-                \fi\fi\else
-                \ifnum\x=7
-                \ifnum\y=0\else
-                \ifnum\y=1\else
-                \ifnum\y=2\else
-                \ifnum\y=4\else
-                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
-                \fi\fi\fi\fi\fi\else
-                \draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
-                \fi\fi\fi\fi\fi\fi\fi
-            }
-            \draw[thick] (0,0) -- (0,0.5) -- (0.5,0.5) -- (0.5,1) -- (1,1) -- (1,1.5) -- (0.5,1.5) -- (0.5,2) -- (1,2) -- (1,3) -- (0.5,3) -- (0.5,4) -- (1,4) -- (1,3.5) -- (1.5,3.5) -- (1.5,4) -- (2.5,4) -- (2.5,3.5) -- (4,3.5)-- (4,2.5) -- (3.5,2.5) -- (3.5,2) -- (4,2) -- (4,1.5) -- (3,1.5) -- (3,1) -- (3.5,1) -- (3.5,0) -- (2,0) -- (2,0.5) -- (1,0.5) -- (1,0) -- cycle;
-            \draw[thick] plot[smooth cycle] coordinates {
-                (3.8,3) (2.2,2.6) (3.7,1.7) (2.3,2.1) (3.3,0.2) (2.1,0.5) (2.4,0.8) (1.2,0.6) (0.3,0.3) (1.6,1.2) (0.8,1.7) (1.5,2.4) (0.6,3.6) (1.7,3.1) (2.1,3.9) (2.3,3.2)
-            };
-            \draw[thick] plot[smooth cycle] coordinates {
-                (0,-0.2) (0.2,4) (4,3.9) (3.9,0)
-            };
-            \node[anchor=east] at (2.2,2.1) {\(K\)};
-            \node[anchor=north] at (3.2,4.1) {\(\partial\widetilde{K}\)};
-            \node[anchor=south] at (2,4.4) {\(\partial U\)};
-        \end{tikzpicture}
-        \caption{The elements of \(\mathcal{G}\), relative to \(K\) and its neighborhood, \(U\).}\label{fig:rungesimplepolesandremovablesingularityatinfinity_grid}
-    \end{figure}Choose \(m\in\mathbb{N}\) to satisfy \(2^{1-m}<\sigma\) and consider the grid generated by compact squares in the form of \[\cbraces{x+\ii y}{\frac{j}{2^m}\leq x\leq\frac{j+1}{2^m},\frac{k}{2^m}\leq y\leq \frac{k+1}{2^m}}\] (where \(j\) and \(k\) are integers) and let \(\mathcal{G}\) be the collection of all such squares in this grid that intersect \(K\), and it follows that \(\widetilde{K}=\bigcup_{Q\in\mathcal{G}} Q\subset U\) (refer to \autoref{fig:rungesimplepolesandremovablesingularityatinfinity_grid}).
-
-    As a consequence of Cauchy--Goursat (\autoref{thm:cauchygoursatformula}), we have
-    \begin{equation}
-        \frac{1}{2\piup\ii}\oint_{\partial \widetilde{K}}\frac{f(\zeta)\ddzeta}{\zeta-z}=f(z)\label{eq:rungesimplepolesandremovablesingularityatinfinity_cauchygoursat}
-    \end{equation} in the case that \(z\in \widetilde{K}\). The boundary \(\partial \widetilde{K}\) may be written as the union of \(n\) lines parameterized by \(0\leq t\leq 1\); more concretely, we have \(\partial \widetilde{K}=\bigcup_{j\in\mathbb{N}_{\leq n}} \gamma_j([0,1])\). Hence we have in equivalent formulation, \[f(z)=\frac{1}{2\piup\ii}\sum_{j=1}^n\int_{\gamma_j([0,1])}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup\ii}\sum_{j=1}^n\int_0^1\frac{f\qty(\gamma_j(t))\gamma'_j(t)}{\gamma_j(t)-z}\ddt.\]
-    The distance between \(K\) and \(\partial\widetilde{K}\) is strictly positive. Suppose instead that the distance were zero. Then some point of \(K\) would lie on the boundary of a square \(Q\in\mathcal{G}\) that intersects \(\partial\widetilde{K}\). If this point lies on an edge of \(Q\) (but not at a vertex), then the square adjacent along that edge must also intersect \(K\), and hence belong to \(\mathcal{G}\), contradicting the assumption that the point lies on \(\partial\widetilde{K}\). If the point lies at a vertex of \(Q\), then all three adjacent squares also intersect \(K\), so they too belong to \(\mathcal{G}\), leading to the same contradiction. Thus, the distance must be positive.
-
-    Hence, each integrand as defined in equation~\eqref{eq:rungesimplepolesandremovablesingularityatinfinity_cauchygoursat} is jointly continuous for \(t\in[0,1]\) and \(z\in K\). By compactness of the product, it is in fact uniformly continuous by Heine--Cantor (\autoref{thm:heinecantor}).
-
-    Hence, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in K\), \(\forall 1\leq j\leq n\) (uniform in \(j\) as we can take the minimum of each \(\delta_j\)), and \(\forall t_1,t_2\in [0,1]\) satisfying \(\abs{t_1-t_2}<\delta\), \[\abs{\frac{f\qty(\gamma_j\qty(t_1))\gamma'_j\qty(t_1)}{\gamma_j\qty(t_1)-z}-\frac{f\qty(\gamma_j\qty(t_2))\gamma'_j\qty(t_2)}{\gamma_j\qty(t_2)-z}}<\frac{\varepsilon}{n}.\]
-    Partition \([0,1]\) by \(0=t_0<t_1<\cdots<t_m=1\) such that \(\forall 0\leq k<m\), \(\Delta t_k=t_{k+1}-t_k<\delta\). It follows that
-    \begin{multline*}
-        \abs{f(z)-\frac{1}{2\piup\ii}\sum_{j=1}^n \sum_{k=0}^{m-1}\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}\Delta t_k}\\
-        =\frac{1}{2\piup}\abs{\sum_{j=1}^n\sum_{k=0}^{m-1}\int_{t_k}^{t_{k+1}}\qty[\frac{f\qty(\gamma_j\qty(t))\gamma'_j\qty(t)}{\gamma_j\qty(t)-z}-\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}]\ddt}\\
-        \leq\frac{1}{2\piup}\sum_{j=1}^n\sum_{k=0}^{m-1}\int_{t_k}^{t_{k+1}}\abs{\frac{f\qty(\gamma_j\qty(t))\gamma'_j\qty(t)}{\gamma_j\qty(t)-z}-\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}}\ddt\\
-        \leq \frac{\varepsilon}{2n\piup}\sum_{j=1}^n\sum_{k=0}^{m-1}\Delta t_k=\frac{\varepsilon}{2\piup}<\varepsilon
-    \end{multline*} uniformly in \(z\in K\). The summation \[\psi(z)=\frac{1}{2\piup\ii}\sum_{j=1}^n \sum_{k=0}^{m-1}\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}\Delta t_k\] defines a rational function with simple poles at each \(\gamma_j\qty(t_k)\in\partial\widetilde{K}\), which is disjoint from \(K\).
-\end{proof}
-In its full generality, we will now apply a technique to \textit{push} a pole to a prescribed point, while ensuring that the resulting function remains uniformly approximated outside of a given connected compact set that contains both the original and target pole locations.
-\begin{lemma}[Pole-Pushing Lemma]\label{lemma:simplepolepushing}
-    Let \(\alpha,\beta\in\mathbb{C}\) and let \(f(z)\) be a rational function with a single singularity, a pole at \(z=\alpha\), whose Laurent expansion consists solely of its principal part. Then \(\forall r>\abs{\alpha-\beta}\), \(\forall\varepsilon>0\), there exists a rational function \(\psi(z)\) whose only singularity is a pole at \(z=\beta\) such that \[\sup_{z\in\extcomplex\setminus D(\beta,r)}\abs{f(z)-\psi(z)}<\varepsilon.\]
-\end{lemma}
-\begin{proof}
-    By assumption, \(f\) can be expressed as a polynomial of
-    \begin{align*}
-        (z-\alpha)^{-1}&=(z-\beta)^{-1}\frac{1}{\qty(z-\alpha)\qty(z-\beta)^{-1}}=\qty(z-\beta)^{-1}\frac{1}{1-\qty(\alpha-\beta)(z-\beta)^{-1}}\\
-        &=\qty(z-\beta)^{-1}\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k.
-    \end{align*}
-    This series locally uniformly converges on \[\cbraces{z\in\extcomplex}{\abs{\alpha-\beta}\abs{z-\beta}^{-1}<1}=\extcomplex\setminus\overline{D\qty(\beta,\abs{\alpha-\beta})}\] and uniformly converges on \(\extcomplex\setminus D(\beta,r)\).
-    Hence, for \(m\in\mathbb{N}\), we have \[f(z)=\sum_{j=1}^{m}a_{-j}\qty[\qty(z-\beta)^{-1}\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^j.\]
-    For fixed \(j\) (where \(a_{-j}\neq 0\)), we aim to prove the existence of an \(N\in\mathbb{N}\) such that \(\forall n>N\), we have at least
-    \begin{equation}
-        \abs{\qty[(z-\beta)^{-1}\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^j-\qty[(z-\beta)^{-1}\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j}<\frac{\varepsilon}{m\abs{a_{-j}}},\label{eq:simplepolepushing_uniformboundassumption}
-    \end{equation} where \(z\in\extcomplex\setminus D(\beta,r)\). Since \(\abs{\frac{1}{z-\beta}}<\frac{1}{r}\), we can restrict equation~\eqref{eq:simplepolepushing_uniformboundassumption} further with \[\abs{\qty[\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^j-\qty[\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j}<\frac{r^j\varepsilon}{m\abs{a_{-j}}}.\]
-    Additionally, the difference on the left-hand side is also equal to
-    \begin{equation}
-        \abs{\qty(\sum_{k=n+1}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k)\qty(\sum_{l=0}^{j-1}\qty[\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^l\qty[\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^{j-l-1})}.\label{eq:simplepolepushing_uniformboundassumption2}
-    \end{equation} For any \(n\in\mathbb{N}\), we have \[\abs{\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k}\leq\sum_{k=0}^n\abs{\frac{\alpha-\beta}{z-\beta}}^k\leq\sum_{k=0}^\infty\abs{\frac{\alpha-\beta}{r}}^k\leq\frac{1}{1-\abs{\frac{\alpha-\beta}{r}}}.\] Since the dominating sequence of partial sums are monotonically increasing, it follows that the sequence of partial sums is uniformly bounded by \[M=\frac{r}{r-\abs{\alpha-\beta}}\] on \(\extcomplex\setminus D(\beta,r)\). Thus, equation~\eqref{eq:simplepolepushing_uniformboundassumption2} is bounded by \(M^{j-1}j\abs{\sum_{k=n+1}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k}\), and we apply further restriction by setting this to be bounded by \(\frac{r^j\varepsilon}{m\abs{a_{-j}}}\).
-    By uniform convergence, for any \(\varepsilon>0\), \(\exists N_j\in\mathbb{N}\) such that \(\forall n>N_j\), \[\abs{\sum_{k=n+1}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k}<\frac{r^j\varepsilon}{M^{j-1}jm\abs{a_{-j}}}.\] For \(n>N_j\), equation~\eqref{eq:simplepolepushing_uniformboundassumption} is satisfied, and \(\forall n>\max_{\substack{j=1\\a_{-j}\neq 0}}^m\qty(N_j)\), \(z\in\extcomplex\setminus D(\beta,r)\), we have
-    \begin{align*}
-        \abs{f(z)-\sum_{j=1}^ma_{-j}\qty[\frac{1}{z-\beta}\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j}&\leq\sum_{\substack{j=1\\a_{-j}\neq 0}}^m\abs{a_{-j}}\abs{\qty[\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^j-\qty[\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j}\\
-        &\leq\sum_{\substack{j=1\\a_{-j}\neq 0}}^m\abs{a_{-j}}\frac{\varepsilon}{m\abs{a_{-j}}}\leq\varepsilon,
-    \end{align*}
-    which completes the proof as \[\psi(z)=\sum_{j=1}^ma_{-j}\qty[(z-\beta)^{-1}\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j\] is rational with a pole at \(z=\beta\).
-\end{proof}
-\begin{lemma}[Generalized Pole-Pushing Lemma]\label{lemma:generalpolepushing}
-    Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\mathbb{C}\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\xi\in U\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
-\end{lemma}
-\begin{proof}
-    Define the set
-    \[S=\cbraces{\xi\in U\setminus\qty{\infty}}{\forall\varepsilon>0,\exists\psi\text{ rational such that }
-            \begin{aligned}
-                &\psi(\mathbb{C}\setminus\qty{\xi})\subseteq\mathbb{C},\psi(\xi)=\infty,\\
-                &\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon
-    \end{aligned}}.\]
-    Since \(a\in U\) satisfies the condition with \(\psi(z)=\frac{1}{z-a}\), it follows that \(a\in S\), ensuring that \(S\) is nonempty.
-
-    Consider \(\xi\in S\), where \(\xi\) lies in the complement of \(K\). The distance from \(\xi\) to \(K\), denoted \(\mathrm{dist}(\xi,K)\), is positive, and the open disk \(D(\xi,\mathrm{dist}(\xi,K))\) is disjoint from \(K\). Let \(\xi'\) be an arbitrary point in this disk. By the definition of \(S\), for every \(\varepsilon>0\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that
-    \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\frac{\varepsilon}{2}.\]
-    By \autoref{lemma:simplepolepushing}, there exists a rational function \(\phi\) with a pole only at \(\xi'\) such that
-    \[\sup_{z\in\extcomplex\setminus D(\xi,\mathrm{dist}(\xi,K))}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2},\]
-    which implies
-    \[\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2}.\]
-    Thus,
-    \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}\leq\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}+\sup_{z\in K}\abs{\psi(z)-\phi(z)}<\varepsilon,\]
-    and by definition, \(\xi'\in S\Rightarrow D\qty(\xi,\mathrm{dist}\qty(\xi,K))\subseteq S\). Hence, \(S\) is relatively open in \(U\setminus\qty{\infty}\).
-
-    Now, consider \(\xi\in U\setminus \qty(S\cup\qty{\infty})\). Suppose there exists \(\xi'\in D(\xi,\mathrm{dist}(\xi,K))\cap S\). By repeated application of the preceding argument, this would imply \(\xi\in S\), contradicting the assumption that \(\xi\in U\setminus \qty(S\cup\qty{\infty})\). Therefore, no such \(\xi'\) exists, and \(S\) is relatively closed in \(U\setminus\qty{\infty}\).
-
-    Since \(U\setminus\qty{\infty}\) is connected and \(S\) is both relatively open and closed in \(U\setminus\qty{\infty}\), it follows from \autoref{thm:connectedtopologicalspaceclopensets} that \(S=U\setminus\qty{\infty}\), completing the proof under the assumption that \(\infty\notin U\).
-
-    Now suppose \(\infty\in U\). Let \(R>0\) satisfy \(K\subset D(0,R)\) and let \(b\in U\setminus\qty(\qty{\infty}\cup \overline{D(0,R)})\) be an arbitrary point. By \autoref{lemma:simplepolepushing}, there exists some rational function \(\widetilde{\psi}(z)\) with a pole at \(b\) such that \[\sup_{z\in K}\abs{\widetilde{\psi}(z)-\frac{1}{z-a}}<\frac\varepsilon2.\]
-    Since \(\widetilde{\psi}\) is holomorphic on some neighborhood of \(\overline{D(0,R)}\), we have \[\widetilde{\psi}(z)=\sum_{k=0}^\infty a_k z^k\qq{on}\overline{D(0,R)}\] and it uniformly converges on \(\overline{D(0,R)}\). Hence, \(\exists N\in\mathbb{N}\) such that \[\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_k z^k}<\frac{\varepsilon}{2}.\]
-    Since polynomials have poles at \(\infty\), we have \[\sup_{z\in\overline{D(0,R)}}\abs{\frac{1}{z-a}-\sum_{k=0}^N a_k z^K}\leq\sup_{z\in\overline{D(0,R)}}\abs{\frac{1}{z-a}-\widetilde{\psi}(z)}+\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_kz^k}<\varepsilon.\qedhere\]
-\end{proof}
-\begin{theorem}[Runge]\label{thm:runge}
-    Let \(K\subset\mathbb{C}\) be compact and suppose \(f\) is holomorphic on a neighborhood of \(K\). Let \(E\) be a subset of \(\extcomplex\setminus K\) containing one point from each of its connected components. Then \(\forall\varepsilon>0\), there is a rational function \(\psi\) whose poles lie in \(E\) such that \[\sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
-\end{theorem}
-\begin{proof}
-    By \autoref{thm:rungesimplepolesandremovablesingularityatinfinity}, there is a rational function \(\phi\) with simple poles in \(\mathbb{C}\setminus K\) satisfying \(\phi(\infty)=0\) such that
-    \begin{equation}
-        \sup_{z\in K}\abs{f(z)-\phi(z)}<\frac\varepsilon2.\label{eq:runge_intermediate1}
-    \end{equation}
-    Let the poles of \(\phi\) be \(\qty{\beta_k}_{k\in\mathbb{N}_{\leq n}}\subset\mathbb{C}\setminus K\), and as a consequence, we have \(\phi(z)=\sum_{k=1}^n\frac{a_k}{z-\beta_k}+\varphi(z)\) where \(\varphi(z)\) is entire. Since \(\phi(\infty)=0\), we have \(\varphi\equiv 0\) by Liouville's Theorem (\autoref{thm:liouville}). By \autoref{lemma:generalpolepushing}, there exist rational functions \(\qty{\psi_k}_{k\in\mathbb{N}_{\leq n}}\) whose only poles lie in \(E\) such that \(\forall k\), \[\sup_{z\in K}\abs{\frac{1}{z-\beta_k}-\psi_k(z)}<\frac{\varepsilon}{2n\abs{a_k}}\] and it follows that \[\sup_{z\in K}\abs{\phi(z)-\sum_{k=1}^n a_k\psi_k(z)}\leq\sup_{z\in K}\sum_{k=1}^n\abs{\frac{a_k}{z-\beta_k}-a_k\psi_k(z)}<\frac\varepsilon2.\]
-    Let \(\psi(z)=\sum_{k=1}^na_k\psi_k(z)\). From equation~\eqref{eq:runge_intermediate1}, we have \[\sup_{z\in K}\abs{f(z)-\psi(z)}\leq\sup_{z\in K}\abs{f(z)-\phi(z)}+\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\varepsilon.\qedhere\]
-\end{proof}
-\subsection{Mergelyan's Theorem}
-Although many mathematicians have since tried after the efforts of Weierstrass and Runge to approximation continuous functions holomorphic on the interior restriction, it was only 67 years later when Armenian mathematician provided the first widely accepted proof. The proof of Runge's Theorem (specifically in \autoref{thm:rungesimplepolesandremovablesingularityatinfinity}) relied heavily on the assumption of holomorphy on a neighborhood, a rational function was created by placing poles in prescribed points of a contour that lay outside of \(K\) but within its domain of holomorphy. Obviously, these assumptions are null under the context of this new formulation.
-
-The proof proposed by Mergelyan is almost trivial when compared with the results of many other mathematicians at the time. It even uses the concepts previously proposed by Runge. This begs the question: why was there such a prolonged time gap between the two similar formulations? Many mathematicians felt that the conclusion was too ethereal; during this elapsed time period there were many efforts of mathematicians that resulted in many technical partial results. Mergelyan's Theorem came as a surprise as it encapsulated many of those results with simplicity.
-
-As we have previously seen, there is a prevalent notion in complex analysis that regards \(\infty\) intrinsically as essentially any other point of \(\extcomplex\). An appertaining question relates to the complex derivative at \(\infty\). Trivially, one might define \[f'(\infty)\overset{?}{=}\lim_{z\to\infty} f'(z)\] in an attempt at unification. However, a quick examination of the identity map \(z\mapsto z\), points to an already apparent inconsistency: since \(\lim_{z\to\infty}z=\infty\) is a pole, then the function should not be differentiable there, whereas the other hand, \(\lim_{z\to\infty}z'=1\).
-\begin{definition}
-    Let \(R>0\), \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic such that \(f\) has a removable singularity at \(\infty\). Then we define the derivatives of \(f\) at \(\infty\) to be \[f^{(n)}(\infty)=\eval{\dv[n]{z}f\qty(\frac1z)}_{z=0}.\]
-    In the case that \(n=1\), we have \[f'(\infty)=-\lim_{z\to\infty}z^2 f'\qty(z).\]
-\end{definition}
-\begin{remark}
-    This definition may feel unsatisfactory, but the underlying logic here is similar to the method used to generalize residues to \(\infty\).
-\end{remark}
-Similarly, for locally injective meromorphic \(f\), if \(f\) has a pole at \(a\), we informally define \[\dv{z}{}\]
-\begin{lemma}
-    For any connected compact set \(K\subset\mathbb{C}\), such that \(\extcomplex\setminus K\) is connected, let \(\phi\) be an arbitrary biholomorphism mapping \(\extcomplex\setminus K\) to \(\mathbb{D}\) such that \(\phi(\infty)=\lim_{z\to\infty}\phi(z)=0\). It follows that \[\abs{\phi'(\infty)}\geq\frac14\mathrm{diam}(K),\] where \(\mathrm{diam}(K)=\sup_{z,\zeta\in K}\abs{\zeta-z}\).
-\end{lemma}
-\begin{proof}
-    Denote the derivative of \(\phi\) at the infinity point to be \(\alpha\). By definition, \(\phi\) admits a meromorphic inverse \(\phi^{-1}\), where \(\phi^{-1}(0)=\infty\) is its only pole. Define \(\qty(\phi)^{-1}(0)=\frac{1}{f'\qty(\infty)}=\)
-\end{proof}
-\begin{lemma}\label{lemma:diracdeltaapproximation}
-    Suppose \[\lambda(z)=
-        \begin{cases}
-            \qty(1-\abs{z}^2)^2&\qif*\abs{z}<1\\
-            0&\qif*\abs{z}\ge1.
-    \end{cases}\]
-    Then \(\forall r>0\), the function \(\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\) satisfies:
-    \begin{enumerate}
-        \item \(\int_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}=1\), where \(\zeta=\xi+\ii\eta\).\label{itm:diracdeltaapproximation_integralto1}
-        \item \(\lambda_r\in C^1(\mathbb{C})\) and is compactly supported.\label{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}
-        \item \(\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}=0\).\label{itm:diracdeltaapproximation_antiholomorphicderivativeintegral}
-        \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\wedge\dd{\eta}\leq\frac{2\piup}{r}\).\label{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}
-        \item \(\abs{\grad{\lambda_r(z)}}\leq\frac4{r^3}\) for all \(z\), where \(\grad=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.\label{itm:diracdeltaapproximation_gradientstatement}
-        \item\label{itm:diracdeltaapproximation_integralformula} For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula
-            \begin{equation}
-                f(z)=\frac{1}{2\ii}\int_{D(0,r)}f(z-\zeta)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\ddzeta.\label{eq:diracdeltaapproximation_integralformula}
-            \end{equation}
-    \end{enumerate}
-\end{lemma}
-\begin{proof}
-    Let \(\zeta=\rho\ee^{\ii\theta}\). Then we have
-    \begin{align*}
-        \iint_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_{0}^{2\piup}\int_0^r \lambda_r\qty(\rho\ee^{\ii\theta})\rho\dd{\rho}\dd{\theta}=\int_{0}^{2\piup}\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}\dd{\theta}\\
-        &=\frac{6}{r^2}\int_0^r\qty(\rho+\frac{\rho^5}{r^4}-2\frac{\rho^3}{r^2})\dd{\rho}=\frac{6}{r^2}\qty(\frac{r^2}{2}+\frac{r^6}{6r^4}-\frac{r^4}{2r^2})=1,
-    \end{align*}
-    which confirms property~\ref{itm:diracdeltaapproximation_integralto1}. Let \(z\in\mathbb{C}\) be arbitrary. The integral in equation~\eqref{eq:diracdeltaapproximation_integralformula} is equal to
-    \begin{align*}
-        \iint_{D(0,R)}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\int_0^{2\piup}f\qty(z-\rho\ee^{\ii\theta})\dd{\theta}\dd{\rho}\\
-        &=2\piup f(z)\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}=f(z)
-    \end{align*} by the mean-value property (\autoref{lemma:holomorphicmeanvalueproperty}), proving~\ref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\abs{\grad{\lambda(z)}}=
-    2\qty(1-\abs{z}^2)\abs{\grad(\abs{z}^2)}=2\qty(1-\abs{z}^2)2\abs{z}\abs{\grad\sqrt{x^2+y^2}}=4\qty(1-\abs{z}^2)\abs{z}.\]
-    Hence, \(\abs{\grad\lambda_r(z)}=\frac{3}{\piup r^2}\abs{\grad\qty[\lambda\qty(\frac{z}{r})]}=\frac{3}{\piup r^2}\abs{(\grad\lambda)\qty(\frac{z}{r})}\frac{1}{r}=\frac{12}{\piup r^3}\qty(1-\abs{z}^2)\abs{z}<\frac{4}{r^3}\), which confirms \ref{itm:diracdeltaapproximation_gradientstatement}.
-    
-    Since \(\abs{\pdv{\lambda_r}{\overline{\zeta}}}=\abs{\frac{1}{2}\qty(\pdv{\lambda_r}{\xi}+\ii\pdv{\lambda_r}{\eta})}=\frac{1}{2}\abs{\grad\lambda_r(\zeta)}<\frac{2}{r^3}\), we have \[\iint_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}=\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}<\piup r^2\frac{2}{r^3}=\frac{2\piup}{r}\] since \(\supp\qty(\lambda_r)=\overline{D(0,r)}\) which verifies the inequality in property ~\ref{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}. 
-    
-    The property~\ref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} is also true since
-    \begin{align*}
-        \iint_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\dd{\eta}&=\frac{1}{2}\int_{-r}^r\int_{-r}^{r}\pdv{\lambda_r}{\xi}\dd{\xi}\dd{\eta}+\frac{\ii}{2}\int_{-r}^r\int_{-r}^{r}\pdv{\lambda_r}{\eta}\dd{\eta}\dd{\xi}\\
-        &=\frac{1}{2}\int_{-r}^r\qty[\lambda_r\qty(r+\ii\eta)-\lambda\qty(-r+\ii\eta)]\dd{\eta}\\
-        &\quad+\frac{\ii}{2}\int_{-r}^r\qty[\lambda_r(\xi+\ii r)-\lambda_r(\xi-\ii r)]\dd{\xi}=0.
-    \end{align*}    
-    Trivially, \(\lambda_r\) is continuous on \(D\qty(0,r)\) and \(\mathbb{C}\setminus\overline{D(0,r)}\). Thus, we only need to prove the joint continuity of \(\lambda\) (the continuity of \(\lambda_r\) implies that of \(\lambda\)) on an open neighborhood of \(\partial D(0,r)\).
-    
-    Let \(\lambda(x,y)=\qty(1-x^2-y^2)^2\). By simple calculation, we have \[\pdv{\lambda}{x}=-4\qty(1-x^2-y^2)x,\qquad\pdv{\lambda}{y}=-4\qty(1-x^2-y^2)y.\] At \(x^2+y^2=1\), both partial derivatives vanish, and hence, they match the vanishing derivative on the complement of \(\supp(\lambda)\), verifying property~\ref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}.
-\end{proof}
-\begin{theorem}[Mergelyan]\label{thm:mergelyan}
-
-\end{theorem}
-\subsection{Analytic Capacity}
-
 \section{The Theory of Riemann}\label{sec:riemann}
 \subsection{Biholomorphy}
 In \chpref{sec:conformalityintroduction}, it was asserted that for a holomorphic function \(f(z)\), the map \(w=f(z)\) is conformal when \(f'(z)\neq 0\).
@@ -3528,7 +3319,7 @@ We will now give examples of biholomorphisms.
     Let \(\psi(z)\) be the biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\) in the form of \(\psi(z)=\frac{z-\ii}{z+\ii}\) (for \(\theta=0\) and \(a=\ii\)). Let \(f\) be an arbitrary biholomorphism from \(\mathbb{H}^+\) to \(\mathbb{D}\). It follows that \(\varphi=f\circ\psi^{-1}\) is a holomorphic automorphism of \(\mathbb{D}\). Since \(\varphi\in\Aut(\mathbb{D})\), we have \[f(z)=\varphi\circ\psi(z)=\ee^{\ii\theta}\frac{z\qty(1-a)-\ii\qty(a+1)}{z\qty(1-\overline{a})+\ii\qty(\overline{a}+1)}=\ee^{\ii\theta}\frac{z\frac{1-a}{1-\overline{a}}+\ii\frac{a+1}{\overline{a}-1}}{z-\ii\frac{\overline{a}+1}{\overline{a}-1}}=\ee^{\ii\theta}\frac{1-a}{1-\overline{a}}\frac{z-\ii\frac{a+1}{1-a}}{z-\overline{\ii\frac{a+1}{1-a}}}.\]
     Obviously, \(\ee^{\ii\theta}\frac{1-a}{1-\overline{a}}\) attains every value on the unit disk for varying \(a\) and \(\theta\). Similarly, the values attained by \(\ii\frac{a+1}{1-a}\) cover the upper half-plane for \(a\in\mathbb{D}\) (since it is in the form of equation~\eqref{eq:biholomorphismunitdisktoupperhalfplane_inverse}). Thus, all biholomorphisms from \(\mathbb{H}^+\) to \(\mathbb{D}\) are in the form of equation~\eqref{eq:biholomorphismunitdisktoupperhalfplane}.
 \end{proof}
-Let us now introduce some important properties of linear fractional transformations. By \autoref{lemma:mobiustransformationcompositionmatrixmultiplication}, it follows that the composition of two linear fractional transformations is also a linear fractional transformation.
+Let us now introduce some important properties of linear fractional transformations. By \autoref{prop:mobiustransformationcompositionmatrixmultiplication}, it follows that the composition of two linear fractional transformations is also a linear fractional transformation.
 \begin{theorem}\label{thm:linearfractionaltransformationmapscirclestocircles}
     Let \(\mathcal{C}\) be the collection of subsets of \(\extcomplex\) that are circles or \(L\cup\qty{\infty}\), where \(L\) is a straight line in \(\mathbb{C}\). Then every linear fractional transformation \(f:\extcomplex\to\extcomplex\) maps elements of \(\mathcal{C}\) to elements of \(\mathcal{C}\).
 \end{theorem}
@@ -3814,7 +3605,243 @@ A point that connects multiple branches or sheets is known as a \textscsl{branch
 \begin{theorem}[\textsc{Uniformization Theorem}]\label{thm:uniformization}
     Any simply connected Riemann surface is biholomorphically equivalent to either \(\mathbb{D}\), \(\mathbb{C}\), or \(\extcomplex\).
 \end{theorem}
-Unfortunely, the proof of this theorem is non-trivial, and we will not present it here.
+Unfortunately, the proof of this theorem is non-trivial, and we will not present it here.
+\section{Rational Approximation Theory}
+\subsection{Runge's Theorem}
+By definition, a rational function is the quotient of two polynomials; and by \autoref{thm:rationalmeromorphicfunctions}, in equivalent formulation, it is a function meromorphic on all of \(\extcomplex\). The poles and zeros may not accumulate in \(\extcomplex\), and thus there are finitely many as a consequence of Bolzano--Weierstrass (\autoref{thm:bolzanoweierstrass}).
+
+When we refer to approximation, we refer to the approximation of a function as the uniform limit (of a sequence) of functions. Let \(K\subset\mathbb{C}\) be compact and suppose \(f:K\to\mathbb{C}\) is a given function on \(K\). As a consequence of Mergelyan's Theorem (\autoref{thm:mergelyan}), sufficient conditions for \(f\) to be the uniform limit of rational functions whose poles lie in (a subset of given points of) \(\extcomplex\setminus K\) are the continuity of \(f\) on \(K\) and the holomorphy of \(f\) on \(\interior{K}\).
+
+In the earliest formulation by Carl Runge in 1885, he provided the sufficiency of the holomorphy of \(f\) on \(K\) (in effect, a neighborhood of \(K\)).
+
+The proof can be well-organized through the use of the results that we will now introduce. In essence, it involves applying Cauchy--Goursat to \(f\) and the subsequent use of Riemann sums to approximate the complex line integral.
+\begin{proposition}\label{prop:rungesimplepolesandremovablesingularityatinfinity}
+    Let \(K\subset\mathbb{C}\) be compact and suppose \(U\supset K\) is a neighborhood of \(K\) that is relatively compact in \(\mathbb{C}\). Let \(f:U\to\mathbb{C}\) be an arbitrary holomorphic function. Then for fixed \(\varepsilon>0\), there exists a rational function \(\psi(z)\) with only simple poles (all of which lie in \(\mathbb{C}\setminus K\)) such that \[\lim_{z\to\infty}\psi(z)=0,\qquad \sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
+\end{proposition}
+\begin{proof}
+    By assumption of relative compactness, \(\mathrm{dist}(\partial U,\partial K)\), or the distance (infimum) between \(K\) and \(\mathbb{C}\setminus U\), is positive and finite. More concretely, let \[d=\inf\cbraces{\abs{z_1-z_2}}{z_1\in K,z_2\in\mathbb{C}\setminus U}>0\]
+    The longest distance between two points in any square is the length of the diagonal. Hence, any square \(Q\) that intersects \(\partial K\) with a side length less than \(\frac{\sigma\sqrt{2}}{2}\) will lie completely within \(U\).
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \foreach \x in {0,...,7}
+            \foreach \y in {0,...,7} {
+                \ifnum\x=0
+                \ifnum\y=1\else
+                \ifnum\y=2\else
+                \ifnum\y=3\else
+                \ifnum\y=4\else
+                \ifnum\y=5\else
+                \ifnum\y=6\else
+                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\fi\fi\fi\fi\fi \else
+                \ifnum\x=1
+                \ifnum\y=2\else
+                \ifnum\y=4\else
+                \ifnum\y=5\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\fi \else
+                \ifnum\x=2
+                \ifnum\y=0\else
+                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi \else
+                \ifnum\x=3
+                \ifnum\y=0\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\else
+                \ifnum\x=5
+                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\else
+                \ifnum\x=6
+                \ifnum\y=2\else
+                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\else
+                \ifnum\x=7
+                \ifnum\y=0\else
+                \ifnum\y=1\else
+                \ifnum\y=2\else
+                \ifnum\y=4\else
+                \ifnum\y=7\else\draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\fi\fi\fi\else
+                \draw[ultra thin, dashed] (0.5*\x,0.5*\y) rectangle ++(0.5,0.5);
+                \fi\fi\fi\fi\fi\fi\fi
+            }
+            \draw[thick] (0,0) -- (0,0.5) -- (0.5,0.5) -- (0.5,1) -- (1,1) -- (1,1.5) -- (0.5,1.5) -- (0.5,2) -- (1,2) -- (1,3) -- (0.5,3) -- (0.5,4) -- (1,4) -- (1,3.5) -- (1.5,3.5) -- (1.5,4) -- (2.5,4) -- (2.5,3.5) -- (4,3.5)-- (4,2.5) -- (3.5,2.5) -- (3.5,2) -- (4,2) -- (4,1.5) -- (3,1.5) -- (3,1) -- (3.5,1) -- (3.5,0) -- (2,0) -- (2,0.5) -- (1,0.5) -- (1,0) -- cycle;
+            \draw[thick] plot[smooth cycle] coordinates {
+                (3.8,3) (2.2,2.6) (3.7,1.7) (2.3,2.1) (3.3,0.2) (2.1,0.5) (2.4,0.8) (1.2,0.6) (0.3,0.3) (1.6,1.2) (0.8,1.7) (1.5,2.4) (0.6,3.6) (1.7,3.1) (2.1,3.9) (2.3,3.2)
+            };
+            \draw[thick] plot[smooth cycle] coordinates {
+                (0,-0.2) (0.2,4) (4,3.9) (3.9,0)
+            };
+            \node[anchor=east] at (2.2,2.1) {\(K\)};
+            \node[anchor=north] at (3.2,4.1) {\(\partial\widetilde{K}\)};
+            \node[anchor=south] at (2,4.4) {\(\partial U\)};
+        \end{tikzpicture}
+        \caption{The elements of \(\mathcal{G}\), relative to \(K\) and its neighborhood, \(U\).}\label{fig:rungesimplepolesandremovablesingularityatinfinity_grid}
+    \end{figure}Choose \(m\in\mathbb{N}\) to satisfy \(2^{1-m}<\sigma\) and consider the grid generated by compact squares in the form of \[\cbraces{x+\ii y}{\frac{j}{2^m}\leq x\leq\frac{j+1}{2^m},\frac{k}{2^m}\leq y\leq \frac{k+1}{2^m}}\] (where \(j\) and \(k\) are integers) and let \(\mathcal{G}\) be the collection of all such squares in this grid that intersect \(K\), and it follows that \(\widetilde{K}=\bigcup_{Q\in\mathcal{G}} Q\subset U\) (refer to \autoref{fig:rungesimplepolesandremovablesingularityatinfinity_grid}).
+
+    As a consequence of Cauchy--Goursat (\autoref{thm:cauchygoursatformula}), we have
+    \begin{equation}
+        \frac{1}{2\piup\ii}\oint_{\partial \widetilde{K}}\frac{f(\zeta)\ddzeta}{\zeta-z}=f(z)\label{eq:rungesimplepolesandremovablesingularityatinfinity_cauchygoursat}
+    \end{equation} in the case that \(z\in \widetilde{K}\). The boundary \(\partial \widetilde{K}\) may be written as the union of \(n\) lines parameterized by \(0\leq t\leq 1\); more concretely, we have \(\partial \widetilde{K}=\bigcup_{j\in\mathbb{N}_{\leq n}} \gamma_j([0,1])\). Hence we have in equivalent formulation, \[f(z)=\frac{1}{2\piup\ii}\sum_{j=1}^n\int_{\gamma_j([0,1])}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup\ii}\sum_{j=1}^n\int_0^1\frac{f\qty(\gamma_j(t))\gamma'_j(t)}{\gamma_j(t)-z}\ddt.\]
+    The distance between \(K\) and \(\partial\widetilde{K}\) is strictly positive. Suppose instead that the distance were zero. Then some point of \(K\) would lie on the boundary of a square \(Q\in\mathcal{G}\) that intersects \(\partial\widetilde{K}\). If this point lies on an edge of \(Q\) (but not at a vertex), then the square adjacent along that edge must also intersect \(K\), and hence belong to \(\mathcal{G}\), contradicting the assumption that the point lies on \(\partial\widetilde{K}\). If the point lies at a vertex of \(Q\), then all three adjacent squares also intersect \(K\), so they too belong to \(\mathcal{G}\), leading to the same contradiction. Thus, the distance must be positive.
+
+    Hence, each integrand as defined in equation~\eqref{eq:rungesimplepolesandremovablesingularityatinfinity_cauchygoursat} is jointly continuous for \(t\in[0,1]\) and \(z\in K\). By compactness of the product, it is in fact uniformly continuous by Heine--Cantor (\autoref{thm:heinecantor}).
+
+    Hence, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in K\), \(\forall 1\leq j\leq n\) (uniform in \(j\) as we can take the minimum of each \(\delta_j\)), and \(\forall t_1,t_2\in [0,1]\) satisfying \(\abs{t_1-t_2}<\delta\), \[\abs{\frac{f\qty(\gamma_j\qty(t_1))\gamma'_j\qty(t_1)}{\gamma_j\qty(t_1)-z}-\frac{f\qty(\gamma_j\qty(t_2))\gamma'_j\qty(t_2)}{\gamma_j\qty(t_2)-z}}<\frac{\varepsilon}{n}.\]
+    Partition \([0,1]\) by \(0=t_0<t_1<\cdots<t_m=1\) such that \(\forall 0\leq k<m\), \(\Delta t_k=t_{k+1}-t_k<\delta\). It follows that
+    \begin{multline*}
+        \abs{f(z)-\frac{1}{2\piup\ii}\sum_{j=1}^n \sum_{k=0}^{m-1}\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}\Delta t_k}\\
+        =\frac{1}{2\piup}\abs{\sum_{j=1}^n\sum_{k=0}^{m-1}\int_{t_k}^{t_{k+1}}\qty[\frac{f\qty(\gamma_j\qty(t))\gamma'_j\qty(t)}{\gamma_j\qty(t)-z}-\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}]\ddt}\\
+        \leq\frac{1}{2\piup}\sum_{j=1}^n\sum_{k=0}^{m-1}\int_{t_k}^{t_{k+1}}\abs{\frac{f\qty(\gamma_j\qty(t))\gamma'_j\qty(t)}{\gamma_j\qty(t)-z}-\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}}\ddt\\
+        \leq \frac{\varepsilon}{2n\piup}\sum_{j=1}^n\sum_{k=0}^{m-1}\Delta t_k=\frac{\varepsilon}{2\piup}<\varepsilon
+    \end{multline*} uniformly in \(z\in K\). The summation \[\psi(z)=\frac{1}{2\piup\ii}\sum_{j=1}^n \sum_{k=0}^{m-1}\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}\Delta t_k\] defines a rational function with simple poles at each \(\gamma_j\qty(t_k)\in\partial\widetilde{K}\), which is disjoint from \(K\).
+\end{proof}
+In its full generality, we will now apply a technique to \textit{push} a pole to a prescribed point, while ensuring that the resulting function remains uniformly approximated outside of a given connected compact set that contains both the original and target pole locations.
+\begin{lemma}[Pole-Pushing Lemma]\label{lemma:simplepolepushing}
+    Let \(\alpha,\beta\in\mathbb{C}\) and let \(f(z)\) be a rational function with a single singularity, a pole at \(z=\alpha\), whose Laurent expansion consists solely of its principal part. Then \(\forall r>\abs{\alpha-\beta}\), \(\forall\varepsilon>0\), there exists a rational function \(\psi(z)\) whose only singularity is a pole at \(z=\beta\) such that \[\sup_{z\in\extcomplex\setminus D(\beta,r)}\abs{f(z)-\psi(z)}<\varepsilon.\]
+\end{lemma}
+\begin{proof}
+    By assumption, \(f\) can be expressed as a polynomial of
+    \begin{align*}
+        (z-\alpha)^{-1}&=(z-\beta)^{-1}\frac{1}{\qty(z-\alpha)\qty(z-\beta)^{-1}}=\qty(z-\beta)^{-1}\frac{1}{1-\qty(\alpha-\beta)(z-\beta)^{-1}}\\
+        &=\qty(z-\beta)^{-1}\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k.
+    \end{align*}
+    This series locally uniformly converges on \[\cbraces{z\in\extcomplex}{\abs{\alpha-\beta}\abs{z-\beta}^{-1}<1}=\extcomplex\setminus\overline{D\qty(\beta,\abs{\alpha-\beta})}\] and uniformly converges on \(\extcomplex\setminus D(\beta,r)\).
+    Hence, for \(m\in\mathbb{N}\), we have \[f(z)=\sum_{j=1}^{m}a_{-j}\qty[\qty(z-\beta)^{-1}\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^j.\]
+    For fixed \(j\) (where \(a_{-j}\neq 0\)), we aim to prove the existence of an \(N\in\mathbb{N}\) such that \(\forall n>N\), we have at least
+    \begin{equation}
+        \abs{\qty[(z-\beta)^{-1}\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^j-\qty[(z-\beta)^{-1}\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j}<\frac{\varepsilon}{m\abs{a_{-j}}},\label{eq:simplepolepushing_uniformboundassumption}
+    \end{equation} where \(z\in\extcomplex\setminus D(\beta,r)\). Since \(\abs{\frac{1}{z-\beta}}<\frac{1}{r}\), we can restrict equation~\eqref{eq:simplepolepushing_uniformboundassumption} further with \[\abs{\qty[\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^j-\qty[\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j}<\frac{r^j\varepsilon}{m\abs{a_{-j}}}.\]
+    Additionally, the difference on the left-hand side is also equal to
+    \begin{equation}
+        \abs{\qty(\sum_{k=n+1}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k)\qty(\sum_{l=0}^{j-1}\qty[\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^l\qty[\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^{j-l-1})}.\label{eq:simplepolepushing_uniformboundassumption2}
+    \end{equation} For any \(n\in\mathbb{N}\), we have \[\abs{\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k}\leq\sum_{k=0}^n\abs{\frac{\alpha-\beta}{z-\beta}}^k\leq\sum_{k=0}^\infty\abs{\frac{\alpha-\beta}{r}}^k\leq\frac{1}{1-\abs{\frac{\alpha-\beta}{r}}}.\] Since the dominating sequence of partial sums are monotonically increasing, it follows that the sequence of partial sums is uniformly bounded by \[M=\frac{r}{r-\abs{\alpha-\beta}}\] on \(\extcomplex\setminus D(\beta,r)\). Thus, equation~\eqref{eq:simplepolepushing_uniformboundassumption2} is bounded by \(M^{j-1}j\abs{\sum_{k=n+1}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k}\), and we apply further restriction by setting this to be bounded by \(\frac{r^j\varepsilon}{m\abs{a_{-j}}}\).
+    By uniform convergence, for any \(\varepsilon>0\), \(\exists N_j\in\mathbb{N}\) such that \(\forall n>N_j\), \[\abs{\sum_{k=n+1}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k}<\frac{r^j\varepsilon}{M^{j-1}jm\abs{a_{-j}}}.\] For \(n>N_j\), equation~\eqref{eq:simplepolepushing_uniformboundassumption} is satisfied, and \(\forall n>\max_{\substack{j=1\\a_{-j}\neq 0}}^m\qty(N_j)\), \(z\in\extcomplex\setminus D(\beta,r)\), we have
+    \begin{align*}
+        \abs{f(z)-\sum_{j=1}^ma_{-j}\qty[\frac{1}{z-\beta}\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j}&\leq\sum_{\substack{j=1\\a_{-j}\neq 0}}^m\abs{a_{-j}}\abs{\qty[\sum_{k=0}^\infty\qty(\frac{\alpha-\beta}{z-\beta})^k]^j-\qty[\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j}\\
+        &\leq\sum_{\substack{j=1\\a_{-j}\neq 0}}^m\abs{a_{-j}}\frac{\varepsilon}{m\abs{a_{-j}}}\leq\varepsilon,
+    \end{align*}
+    which completes the proof as \[\psi(z)=\sum_{j=1}^ma_{-j}\qty[(z-\beta)^{-1}\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j\] is rational with a pole at \(z=\beta\).
+\end{proof}
+\begin{lemma}[Generalized Pole-Pushing Lemma]\label{lemma:generalpolepushing}
+    Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\mathbb{C}\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\xi\in U\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
+\end{lemma}
+\begin{proof}
+    Define the set
+    \[S=\cbraces{\xi\in U\setminus\qty{\infty}}{\forall\varepsilon>0,\exists\psi\text{ rational such that }
+            \begin{aligned}
+                &\psi(\mathbb{C}\setminus\qty{\xi})\subseteq\mathbb{C},\psi(\xi)=\infty,\\
+                &\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon
+    \end{aligned}}.\]
+    Since \(a\in U\) satisfies the condition with \(\psi(z)=\frac{1}{z-a}\), it follows that \(a\in S\), ensuring that \(S\) is nonempty.
+
+    Consider \(\xi\in S\), where \(\xi\) lies in the complement of \(K\). The distance from \(\xi\) to \(K\), denoted \(\mathrm{dist}(\xi,K)\), is positive, and the open disk \(D(\xi,\mathrm{dist}(\xi,K))\) is disjoint from \(K\). Let \(\xi'\) be an arbitrary point in this disk. By the definition of \(S\), for every \(\varepsilon>0\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that
+    \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\frac{\varepsilon}{2}.\]
+    By \autoref{lemma:simplepolepushing}, there exists a rational function \(\phi\) with a pole only at \(\xi'\) such that
+    \[\sup_{z\in\extcomplex\setminus D(\xi,\mathrm{dist}(\xi,K))}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2},\]
+    which implies
+    \[\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2}.\]
+    Thus,
+    \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}\leq\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}+\sup_{z\in K}\abs{\psi(z)-\phi(z)}<\varepsilon,\]
+    and by definition, \(\xi'\in S\Rightarrow D\qty(\xi,\mathrm{dist}\qty(\xi,K))\subseteq S\). Hence, \(S\) is relatively open in \(U\setminus\qty{\infty}\).
+
+    Now, consider \(\xi\in U\setminus \qty(S\cup\qty{\infty})\). Suppose there exists \(\xi'\in D(\xi,\mathrm{dist}(\xi,K))\cap S\). By repeated application of the preceding argument, this would imply \(\xi\in S\), contradicting the assumption that \(\xi\in U\setminus \qty(S\cup\qty{\infty})\). Therefore, no such \(\xi'\) exists, and \(S\) is relatively closed in \(U\setminus\qty{\infty}\).
+
+    Since \(U\setminus\qty{\infty}\) is connected and \(S\) is both relatively open and closed in \(U\setminus\qty{\infty}\), it follows from \autoref{thm:connectedtopologicalspaceclopensets} that \(S=U\setminus\qty{\infty}\), completing the proof under the assumption that \(\infty\notin U\).
+
+    Now suppose \(\infty\in U\). Let \(R>0\) satisfy \(K\subset D(0,R)\) and let \(b\in U\setminus\qty(\qty{\infty}\cup \overline{D(0,R)})\) be an arbitrary point. By \autoref{lemma:simplepolepushing}, there exists some rational function \(\widetilde{\psi}(z)\) with a pole at \(b\) such that \[\sup_{z\in K}\abs{\widetilde{\psi}(z)-\frac{1}{z-a}}<\frac\varepsilon2.\]
+    Since \(\widetilde{\psi}\) is holomorphic on some neighborhood of \(\overline{D(0,R)}\), we have \[\widetilde{\psi}(z)=\sum_{k=0}^\infty a_k z^k\qq{on}\overline{D(0,R)}\] and it uniformly converges on \(\overline{D(0,R)}\). Hence, \(\exists N\in\mathbb{N}\) such that \[\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_k z^k}<\frac{\varepsilon}{2}.\]
+    Since polynomials have poles at \(\infty\), we have \[\sup_{z\in\overline{D(0,R)}}\abs{\frac{1}{z-a}-\sum_{k=0}^N a_k z^K}\leq\sup_{z\in\overline{D(0,R)}}\abs{\frac{1}{z-a}-\widetilde{\psi}(z)}+\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_kz^k}<\varepsilon.\qedhere\]
+\end{proof}
+\begin{theorem}[Runge]\label{thm:runge}
+    Let \(K\subset\mathbb{C}\) be compact and suppose \(f\) is holomorphic on a neighborhood of \(K\). Let \(E\) be a subset of \(\extcomplex\setminus K\) containing one point from each of its connected components. Then \(\forall\varepsilon>0\), there is a rational function \(\psi\) whose poles lie in \(E\) such that \[\sup_{z\in K}\abs{f(z)-\psi(z)}<\varepsilon.\]
+\end{theorem}
+\begin{proof}
+    By \autoref{prop:rungesimplepolesandremovablesingularityatinfinity}, there is a rational function \(\phi\) with simple poles in \(\mathbb{C}\setminus K\) satisfying \(\phi(\infty)=0\) such that
+    \begin{equation}
+        \sup_{z\in K}\abs{f(z)-\phi(z)}<\frac\varepsilon2.\label{eq:runge_intermediate1}
+    \end{equation}
+    Let the poles of \(\phi\) be \(\qty{\beta_k}_{k\in\mathbb{N}_{\leq n}}\subset\mathbb{C}\setminus K\), and as a consequence, we have \(\phi(z)=\sum_{k=1}^n\frac{a_k}{z-\beta_k}+\varphi(z)\) where \(\varphi(z)\) is entire. Since \(\phi(\infty)=0\), we have \(\varphi\equiv 0\) by Liouville's Theorem (\autoref{thm:liouville}). By \autoref{lemma:generalpolepushing}, there exist rational functions \(\qty{\psi_k}_{k\in\mathbb{N}_{\leq n}}\) whose only poles lie in \(E\) such that \(\forall k\), \[\sup_{z\in K}\abs{\frac{1}{z-\beta_k}-\psi_k(z)}<\frac{\varepsilon}{2n\abs{a_k}}\] and it follows that \[\sup_{z\in K}\abs{\phi(z)-\sum_{k=1}^n a_k\psi_k(z)}\leq\sup_{z\in K}\sum_{k=1}^n\abs{\frac{a_k}{z-\beta_k}-a_k\psi_k(z)}<\frac\varepsilon2.\]
+    Let \(\psi(z)=\sum_{k=1}^na_k\psi_k(z)\). From equation~\eqref{eq:runge_intermediate1}, we have \[\sup_{z\in K}\abs{f(z)-\psi(z)}\leq\sup_{z\in K}\abs{f(z)-\phi(z)}+\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\varepsilon.\qedhere\]
+\end{proof}
+\subsection{Mergelyan's Theorem}
+Although many mathematicians have since tried after the efforts of Weierstrass and Runge to approximation continuous functions holomorphic on the interior restriction, it was only 67 years later when Armenian mathematician provided the first widely accepted proof. The proof of Runge's Theorem (specifically in \autoref{prop:rungesimplepolesandremovablesingularityatinfinity}) relied heavily on the assumption of holomorphy on a neighborhood, a rational function was created by placing poles in prescribed points of a contour that lay outside of \(K\) but within its domain of holomorphy. Obviously, these assumptions are null under the context of this new formulation.
+
+The proof proposed by Mergelyan is almost trivial when compared with the results of many other mathematicians at the time. It even uses the concepts previously proposed by Runge. This begs the question: why was there such a prolonged time gap between the two similar formulations? Many mathematicians felt that the conclusion was too ethereal; during this elapsed time period there were many efforts of mathematicians that resulted in many technical partial results. Mergelyan's Theorem came as a surprise as it encapsulated many of those results with simplicity.
+
+As we have previously seen, there is a prevalent notion in complex analysis that regards \(\infty\) intrinsically as essentially any other point of \(\extcomplex\). An appertaining question relates to the complex derivative at \(\infty\). Although \[f'(\infty)\overset{?}{=}\lim_{z\to\infty} f'(z)\] may seem to be a natural object to consider, it is quite impractical; there exist functions which decay quickly to 0, while \(f'(z)\) is unbounded as \(z\to\infty\) (take \(z\mapsto\frac{\sin\qty(z^2)}{\sqrt{z}}\) as an example). Even the assumption that \(\lim_{z\to\infty}f'(z)=0\) does not imply that \(f(z)\) has a removable singularity at \(\infty\) (consider \(z\mapsto\sqrt{z}\)).
+\begin{definition}
+    Let \(R>0\), \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic such that \(f\) has a removable singularity at \(\infty\). Then we define the derivatives of \(f\) at \(\infty\) to be \[f^{(n)}(\infty)=\eval{\dv[n]{z}f\qty(\frac1z)}_{z=0}.\]
+    In the case that \(n=1\), we have \[f'(\infty)=-\lim_{z\to\infty}z^2 f'\qty(z).\]
+\end{definition}
+\begin{remark}
+    This definition may feel unsatisfactory, but the underlying logic here is similar to the method used to generalize residues to \(\infty\).
+\end{remark}
+Similarly, if \(f\) is bijective and meromorphic on some neighborhood of a point \(a\in\mathbb{C}\) such that \(f(a)=\infty\), then we informally define the derivative at the pole \(a\) to be
+\begin{equation}
+    f'(a)=\frac{1}{\qty(f^{-1})'\qty(\infty)}=-\lim_{w\to\infty}\frac{1}{w^2\qty(f^{-1})'(w)}=-\lim_{w\to\infty}\frac{f'\qty(f^{-1}(w))}{w^2}.\label{eq:derivativeatpole1}
+\end{equation}
+Let \(z=f^{-1}(w)\). Then we have
+\begin{equation}
+    f'(a)=-\lim_{z\to a}\frac{f'(z)}{f(z)^2}=\eval{\dv{z}(\frac{1}{f(z)})}_{z=a}.\label{eq:derivativeatpole2}
+\end{equation}
+\begin{proposition}
+    For any connected compact set \(K\subset\mathbb{C}\), such that \(\extcomplex\setminus K\) is connected, let \(\phi\) be an arbitrary biholomorphism mapping \(\extcomplex\setminus K\) to \(\mathbb{D}\) such that \(\phi(\infty)=\lim_{z\to\infty}\phi(z)=0\). It follows that \[\abs{\phi'(\infty)}\geq\frac14\mathrm{diam}(K),\] where \(\mathrm{diam}(K)=\sup_{z,\zeta\in K}\abs{\zeta-z}\).
+\end{proposition}
+\begin{proof}
+    Denote the derivative of \(\phi\) at the infinity point to be \(\alpha\). By equation~\eqref{eq:derivativeatpole1}, we have \[\qty(\phi^{-1})'(0)=\frac{1}{\phi'(\infty)}=\frac1\alpha.\]
+    Fix \(\tau\in K\) and let \(\psi(z)=\frac{\alpha}{\phi^{-1}(z)-\tau}\), univalent on \(\mathbb{D}\).
+\end{proof}
+\begin{proposition}\label{prop:diracdeltaapproximation}
+    Suppose \[\lambda(z)=
+        \begin{cases}
+            \qty(1-\abs{z}^2)^2&\qif*\abs{z}<1\\
+            0&\qif*\abs{z}\ge1.
+    \end{cases}\]
+    Then \(\forall r>0\), the function \(\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\) satisfies:
+    \begin{enumerate}
+        \item \(\int_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}=1\), where \(\zeta=\xi+\ii\eta\).\label{itm:diracdeltaapproximation_integralto1}
+        \item \(\lambda_r\in C^1(\mathbb{C})\) and is compactly supported.\label{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}
+        \item \(\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}=0\).\label{itm:diracdeltaapproximation_antiholomorphicderivativeintegral}
+        \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\wedge\dd{\eta}\leq\frac{2\piup}{r}\).\label{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}
+        \item \(\abs{\grad{\lambda_r(z)}}\leq\frac4{r^3}\) for all \(z\), where \(\grad=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.\label{itm:diracdeltaapproximation_gradientstatement}
+        \item\label{itm:diracdeltaapproximation_integralformula} For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula
+            \begin{equation}
+                f(z)=\frac{1}{2\ii}\int_{D(0,r)}f(z-\zeta)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\ddzeta.\label{eq:diracdeltaapproximation_integralformula}
+            \end{equation}
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Let \(\zeta=\rho\ee^{\ii\theta}\). Then we have
+    \begin{align*}
+        \iint_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_{0}^{2\piup}\int_0^r \lambda_r\qty(\rho\ee^{\ii\theta})\rho\dd{\rho}\dd{\theta}=\int_{0}^{2\piup}\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}\dd{\theta}\\
+        &=\frac{6}{r^2}\int_0^r\qty(\rho+\frac{\rho^5}{r^4}-2\frac{\rho^3}{r^2})\dd{\rho}=\frac{6}{r^2}\qty(\frac{r^2}{2}+\frac{r^6}{6r^4}-\frac{r^4}{2r^2})=1,
+    \end{align*}
+    which confirms property~\ref{itm:diracdeltaapproximation_integralto1}. Let \(z\in\mathbb{C}\) be arbitrary. The integral in equation~\eqref{eq:diracdeltaapproximation_integralformula} is equal to
+    \begin{align*}
+        \iint_{D(0,R)}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\int_0^{2\piup}f\qty(z-\rho\ee^{\ii\theta})\dd{\theta}\dd{\rho}\\
+        &=2\piup f(z)\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}=f(z)
+    \end{align*} by the mean-value property (\autoref{lemma:holomorphicmeanvalueproperty}), proving~\ref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\abs{\grad{\lambda(z)}}=
+    2\qty(1-\abs{z}^2)\abs{\grad(\abs{z}^2)}=2\qty(1-\abs{z}^2)2\abs{z}\abs{\grad\sqrt{x^2+y^2}}=4\qty(1-\abs{z}^2)\abs{z}.\]
+    Hence, \(\abs{\grad\lambda_r(z)}=\frac{3}{\piup r^2}\abs{\grad\qty[\lambda\qty(\frac{z}{r})]}=\frac{3}{\piup r^2}\abs{(\grad\lambda)\qty(\frac{z}{r})}\frac{1}{r}=\frac{12}{\piup r^3}\qty(1-\abs{z}^2)\abs{z}<\frac{4}{r^3}\), which confirms \ref{itm:diracdeltaapproximation_gradientstatement}.
+
+    Since \(\abs{\pdv{\lambda_r}{\overline{\zeta}}}=\abs{\frac{1}{2}\qty(\pdv{\lambda_r}{\xi}+\ii\pdv{\lambda_r}{\eta})}=\frac{1}{2}\abs{\grad\lambda_r(\zeta)}<\frac{2}{r^3}\), we have \[\iint_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}=\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}<\piup r^2\frac{2}{r^3}=\frac{2\piup}{r}\] since \(\supp\qty(\lambda_r)=\overline{D(0,r)}\) which verifies the inequality in property ~\ref{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}.
+
+    The property~\ref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} is also true since
+    \begin{align*}
+        \iint_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\dd{\eta}&=\frac{1}{2}\int_{-r}^r\int_{-r}^{r}\pdv{\lambda_r}{\xi}\dd{\xi}\dd{\eta}+\frac{\ii}{2}\int_{-r}^r\int_{-r}^{r}\pdv{\lambda_r}{\eta}\dd{\eta}\dd{\xi}\\
+        &=\frac{1}{2}\int_{-r}^r\qty[\lambda_r\qty(r+\ii\eta)-\lambda\qty(-r+\ii\eta)]\dd{\eta}\\
+        &\quad+\frac{\ii}{2}\int_{-r}^r\qty[\lambda_r(\xi+\ii r)-\lambda_r(\xi-\ii r)]\dd{\xi}=0.
+    \end{align*}
+    Trivially, \(\lambda_r\) is continuous on \(D\qty(0,r)\) and \(\mathbb{C}\setminus\overline{D(0,r)}\). Thus, we only need to prove the joint continuity of \(\lambda\) (the continuity of \(\lambda_r\) implies that of \(\lambda\)) on an open neighborhood of \(\partial D(0,r)\).
+
+    Let \(\lambda(x,y)=\qty(1-x^2-y^2)^2\). By simple calculation, we have \[\pdv{\lambda}{x}=-4\qty(1-x^2-y^2)x,\qquad\pdv{\lambda}{y}=-4\qty(1-x^2-y^2)y.\] At \(x^2+y^2=1\), both partial derivatives vanish, and hence, they match the vanishing derivative on the complement of \(\supp(\lambda)\), completing the proof of property~\ref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}.
+\end{proof}
+\begin{theorem}[Mergelyan]\label{thm:mergelyan}
+
+\end{theorem}
+\subsection{Analytic Capacity}
+
 \section{Differential Geometry}\label{sec:differentialgeometry}
 Émile Picard's original proof of his characterization on the value distribution near essential singularities, involving use of the modular \(\lambda\) function, is generally considered to be too advanced in many elementary complex analysis courses. His results were later independently rediscovered using simpler methods.
 \subsection{A Note on Curvature}
@@ -3969,10 +3996,11 @@ By the boundedness assumption for \(f\), we have:
 \subsection{One Type of Isolated Singularity}
 \section{Elliptic Functions}
 \section{Special Classes of Holomorphic Functions}
+\subsection{Schlicht Functions}
 \subsection{Boundary Continuity of Biholomorphisms}
-Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned whether there is a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\).
+Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned about the existence of a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\).
 
-As a matter of fact, it is almost always true that such an extension exists. We will give three main scenarios:
+As a matter of fact, it is almost always true that such an extension exists. We will give three dominant scenarios:
 \begin{enumerate}
     \item If \(\partial\Omega_1\) and \(\partial\Omega_2\) are two Jordan curves, then \(\varphi\) (whose existence is given by the Riemann Mapping Theorem or \autoref{thm:riemannmapping}) extends injectively and continuously to \(\partial\Omega_1\).
     \item
