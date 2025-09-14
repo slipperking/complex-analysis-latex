@@ -2504,7 +2504,7 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
                     \begin{equation}
                         \Phi_N(z)=\sum_{n=N+1}^\infty\brackets{\psi_n(z)-p_n(z)}\label{eq:mittagleffler_construction_uniformlyconvergentseries}
                     \end{equation} converges uniformly on \(D(0,R)\). Since \(z<R<\abs{\frac{a_n}{2}}<\abs{a_n}\) when \(n>N\), the pole of \(\psi_n(z)\), \(z=a_n\), is not in \(D(0,R)\) (when \(n>N\)). By \autoref{thm:weierstrassuniformlimit}, equation~\eqref{eq:mittagleffler_construction_uniformlyconvergentseries} is holomorphic on \(D(0,R)\). Let \[\Psi(z)=\sum_{n=1}^N\qty[\psi_n(z)-p_n(z)]+\Phi_N(z).\]
-                    The poles of \(\Psi(z)\) in \(D(0,R)\) are all of \(a_n\) with corresponding principal parts \(\psi_n(z)\), where \(n\in\mathbb{N}\) and satisfies \(a_n\in D(0,R)\). Since \(R\) was arbitrarily chosen, \(\Psi\) has poles at each \(a_n\) with the corresponding principal part \(\psi_n(z)\) on \(\mathbb{C}\). Let \(\varphi(z)=f(z)-\Psi(z)\) be analytically continued onto each of \(\qty{a_n}_{n\in\mathbb{N}}\). Then \(\varphi(z)\) is an entire function (since the Laurent expansions of \(\varphi\) at each of \(\qty{a_n}_{n\in\mathbb{N}}\) vanish). By rearrangement, we obtain our desired result.
+                    The poles of \(\Psi(z)\) in \(D(0,R)\) are all of \(a_n\) with corresponding principal parts \(\psi_n(z)\), where \(n\in\mathbb{N}\) and satisfies \(a_n\in D(0,R)\). Since \(R\) was arbitrarily chosen, \(\Psi\) has poles at each \(a_n\) with the corresponding principal part \(\psi_n(z)\) on \(\mathbb{C}\). Let \(\varphi(z)=f(z)-\Psi(z)\) be analytically continued onto each of \(\qty{a_n}_{n\in\mathbb{N}}\). Then \(\varphi(z)\) is an entire function (since the Laurent expansions of \(\varphi\) at each of \(\qty{a_n}_{n\in\mathbb{N}}\) vanish). By rearrangement, we obtain our desired result.\qedhere
             \end{enumerate}
         \end{proof}
 \end{enumerate}
@@ -2542,14 +2542,13 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     From rearrangement, we have \(\frac{g(z)}{\Phi(z)}=\pdv{\Psi}{\overline{z}}\), which has removable singularities at each \(z_k\). Define \(\frac{g(z)}{\Phi(z)}=0\) at \(z=z_k\). Under this assertion, we have \(\frac{g(z)}{\Phi(z)}\in C^\infty(\mathbb{C})\). Since the support of \(\frac{g(z)}{\Phi(z)}\) is the union of disjoint compact sets, by \autoref{thm:onedimensionalpartialconjugatesolution}, there exists a function \(\Psi\in C^\infty(\mathbb{C})\) satisfying \(\frac{g(z)}{\Phi(z)}=\pdv{\Psi}{\overline{z}}\). Since \(g\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), it follows that \(\frac{g}{\Phi}\) is vanishing on \(\bigcup_{k=1}^\infty \overline{D\qty(z_k,\varepsilon_k)}\), and \(\Psi\) is holomorphic on \(\bigcup_{k=1}^\infty{D\qty(z_k,\varepsilon_k)}\).
 
     Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in D\qty(z_k,\varepsilon_k)\), from equation~\eqref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\Psi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have \(\Phi(z)\Psi(z)\) vanishing at \(z_k\) with a multiplicity of at least \(n_k\). Therefore, we have that
-    \begin{equation*}
-        \begin{split}
-            f^{(n)}\qty(z_k) & =\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k} \\
-            & =\lim_{z\to z_k}\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)                                                              \\
-            & \quad-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)                                                                      \\
-            & =n!w_{k,n}.
-        \end{split}\qedhere
-    \end{equation*}
+    \begin{align*}
+        f^{(n)}\qty(z_k) & =\left.\dv[n]{z}(\sum_{j=0}^{n_k-1}w_{k,j}\qty(z-z_k)^j)\right|_{z=z_k}-\left.\dv[n]{z}(\sum_{j=n_k}^\infty w'_{k,j}\qty(z-z_k)^j)\right|_{z=z_k} \\
+        & =\lim_{z\to z_k}\sum_{j=n}^{n_k-1}\qty(w_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)                                                              \\
+        & \quad-\sum_{j=n_k}^\infty\qty(w'_{k,j}\qty(z-z_k)^{j-n}\prod_{r=j-n+1}^{j}r)                                                                      \\
+        & =n!w_{k,n},
+    \end{align*}
+    as desired.
 \end{proof}
 \begin{remark}
     For a general power series, there is no assurance that it corresponds to the Taylor expansion of an entire function. However, for any polynomial of degree \(n\), there always exists an entire function whose Taylor expansion agrees with the polynomial up to the first \(n+1\) terms, which is the fundamental difference between a polynomial and a transcendental entire function.
@@ -3596,7 +3595,7 @@ We will now give examples of Riemann surfaces (we will distinguish between \(\ex
 \end{proof}
 Riemann surfaces are particularly useful when considering multi-valued functions. These functions cannot be defined \emph{globally} as single-valued holomorphic maps, but they can be made into well-defined holomorphic functions if we enlarge the domain, passing on to a Riemann surface.
 
-Consider \(\log(z)=\log\abs{z}=i\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is multi-valued. The most common solution to this problem is achieved by restricting the range of \(\arg\), say to \((-\piup,\piup]\), effectively selecting a branch of \(\log\), inducing a discontinuity along the branch cut (here, along \(\mathbb{R}_{\leq0}\)).
+Consider \(\log(z)=\log\abs{z}=\ii\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is multi-valued. The most common solution to this problem is achieved by restricting the range of \(\arg\), say to \((-\piup,\piup]\), effectively selecting a branch of \(\log\), inducing a discontinuity along the branch cut (here, along \(\mathbb{R}_{\leq0}\)).
 
 The geometric solution is to construct a new topological space \(X\), where the branches or sheets of the logarithm are \emph{glued} together. More explicitly, we take infinite copies of \(\mathbb{C}^*\), each copy indexed by an integer \(k\in\mathbb{Z}\), and glue them along the consecutive branch cuts such that after traversing a counterclockwise loop around the origin, one moves from the \(k\)-th sheet to the \((k+1)\)-th sheet (also called a branch).
 
@@ -4157,8 +4156,7 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
         & =\int_0^\infty u^{z_2-1}\qty[\int_0^\infty \ee^{-v}\qty(\frac{v}{u+1})^{z_1+z_2-1}\dd(\frac{v}{u+1})]\dd{u}.\nonumber                                           \\
         & =\int_0^\infty \frac{u^{z_2-1}}{\qty(u+1)^{z_1+z_2}}\qty[\int_0^\infty \ee^{-v}v^{z_1+z_2-1}\dd{v}]\dd{u}.\label{eq:betagammafunctionrelationship_intermediate}
     \end{align}
-    Let \(r=\frac{u}{u+1}\), \(u=\frac{r}{1-r}\), and \(\dd{u}=\frac{1}{(1-r)^2}\). Then we have \[\Gamma\qty(z_1)\Gamma\qty(z_2)=\Gamma\qty(z_1+z_2)\int_0^1 r^{z_2-1}(1-r)^{z_1-1}\dd{r}=\Gamma\qty(z_1+z_2)\mathrm{B}\qty(z_1,z_2),\]
-    as desired.
+    Let \(r=\frac{u}{u+1}\), \(u=\frac{r}{1-r}\), and \(\dd{u}=\frac{1}{(1-r)^2}\). Then we have \[\Gamma\qty(z_1)\Gamma\qty(z_2)=\Gamma\qty(z_1+z_2)\int_0^1 r^{z_2-1}(1-r)^{z_1-1}\dd{r}=\Gamma\qty(z_1+z_2)\mathrm{B}\qty(z_1,z_2).\qedhere\]
 \end{proof}
 \begin{example}[MIT Integration Bee 2023 Finals \#1]
     Evaluate \[\int_0^{\frac{\piup}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx.\]
@@ -4170,7 +4168,7 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
         & =\int_0^\infty \frac{u^{\frac{1}{3}}\dd{u}}{(u+1)^2}         \\
         & =\mathrm{B}\qty(\frac{4}{3},\frac{2}{3}),
     \end{align*}
-    where the last step recognizes the form of equation~\eqref{eq:betagammafunctionrelationship_intermediate}. By \autoref{thm:betagammafunctionrelationship}, we have \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] Lastly, the Reflection Formula (\autoref{thm:gammafunction_eulerreflection}) gives that \[I=\frac{\piup}{3\sin(\frac{\piup}{3})}=\frac{2\piup\sqrt{3}}{9}.\]
+    where the last step recognizes the form of equation~\eqref{eq:betagammafunctionrelationship_intermediate}. By \autoref{thm:betagammafunctionrelationship}, we have \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] Lastly, the Reflection Formula (\autoref{thm:gammafunction_eulerreflection}) gives that \[I=\frac{\piup}{3\sin(\frac{\piup}{3})}=\frac{2\piup\sqrt{3}}{9}.\qedhere\]
 \end{proof}
 \subsection{The Riemann--\texorpdfstring{\(\zeta\)}{zeta} Function}
 The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is currently known as the \textscsl{Euler Product Formula}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\piup(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
