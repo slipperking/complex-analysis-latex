@@ -3789,11 +3789,12 @@ Let \(z=f^{-1}(w)\). Then we have
     For any connected compact set \(K\subset\mathbb{C}\), such that \(\extcomplex\setminus K\) is connected, let \(\phi\) be an arbitrary biholomorphism mapping \(\extcomplex\setminus K\) to \(\mathbb{D}\) such that \(\phi(\infty)=\lim_{z\to\infty}\phi(z)=0\). It follows that \[\abs{\phi'(\infty)}\geq\frac14\mathrm{diam}(K),\] where \(\mathrm{diam}(K)=\sup_{z,\zeta\in K}\abs{\zeta-z}\).
 \end{proposition}
 \begin{proof}
-    Denote the derivative of \(\phi\) at the infinity point to be \(\alpha\). By equation~\eqref{eq:derivativeatpole1}, we have \[\qty(\phi^{-1})'(0)=\frac{1}{\phi'(\infty)}=\frac1\alpha=-\lim_{z\to 0}\frac{\qty(\phi^{-1})'(z)}{\phi^{-1}(z)^2}\]
+    Denote the derivative of \(\phi\) at the infinity point to be \(\alpha\). By equation~\eqref{eq:derivativeatpole1}, we have \[\qty(\phi^{-1})'(0)=\frac{1}{\phi'(\infty)}=\frac1\alpha=-\lim_{z\to 0}\frac{\qty(\phi^{-1})'(z)}{\phi^{-1}(z)^2}\Longleftrightarrow-\lim_{z\to0}\frac{\phi^{-1}(z)^2}{\alpha\qty(\phi^{-1})'(z)}=1.\]
     Fix \(\tau\in K\) and let \(\psi(z)=\frac{\alpha}{\phi^{-1}(z)-\tau}\), univalent on \(\mathbb{D}\). By direct calculation, we have \(\psi(0)=0\). Additionally,
     \begin{align*}
-        \psi'(0)=\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}=-\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}\cdot\frac{\phi^{-1}(z)^2}{\alpha\qty(\phi^{-1})'(z)}
+        \psi'(0)=-\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}=\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}\cdot\frac{\phi^{-1}(z)^2}{\alpha\qty(\phi^{-1})'(z)}=1.
     \end{align*}
+    By the Koebe Quarter Theorem (\autoref{thm:koebequarter}), whose proof is independent of results of this section, \(D\qty(0,\frac14)\subseteq\psi(\mathbb{D})\).
 \end{proof}
 \begin{proposition}\label{prop:diracdeltaapproximation}
     Suppose \[\lambda(z)=
@@ -4000,6 +4001,9 @@ By the boundedness assumption for \(f\), we have:
 \section{Elliptic Functions}
 \section{Special Classes of Holomorphic Functions}
 \subsection{Schlicht Functions}
+\begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
+    
+\end{theorem}
 \subsection{Boundary Continuity of Biholomorphisms}
 Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned about the existence of a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\).
 
