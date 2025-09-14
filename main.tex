@@ -39,6 +39,7 @@
 \newcommand{\ddzeta}{\dd{\zeta}}
 \newcommand{\ddt}{\dd{t}}
 \newcommand{\supp}{\operatorname{supp}}
+\newcommand{\diam}{\operatorname{diam}}
 \newcommand{\Log}{\mathrm{Log}}
 \newcommand{\Arg}{\mathrm{Arg}}
 \newcommand{\Aut}{\mathrm{Aut}}
@@ -212,7 +213,7 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \end{theorem}
 A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\qty(P(t),Q(t),R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textscsl{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textscsl{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textscsl{piecewise smooth}. If it is of finite length, then the curve is said to be \textscsl{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textscsl{simple} if it is simple (non-self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textscsl{Jordan curve}.
 \begin{theorem}[Jordan Curve Theorem]\label{thm:jordancurve}
-    Let \(\gamma\) be a Jordan curve in \(\mathbb{R}^2\). Then the set \(\mathbb{R}^2\setminus\gamma\) consists of exactly two connected subsets. One of them is the interior, denoted by \(\mathrm{int}(\gamma)\), and is a bounded set, while the other is the exterior, denoted by \(\mathrm{ext}(\gamma)\), which is unbounded. Both of the two sets share the common boundary \(\gamma\).
+    Let \(\gamma\) be a Jordan curve in \(\mathbb{R}^2\). Then the set \(\mathbb{R}^2\setminus\gamma\) consists of exactly two connected subsets. One of them is the interior, denoted by \(\operatorname{int}(\gamma)\), and is a bounded set, while the other is the exterior, denoted by \(\operatorname{ext}(\gamma)\), which is unbounded. Both of the two sets share the common boundary \(\gamma\).
 \end{theorem}
 The theorem above seems trivial, but its rigorous proof in topology is extremely complex. The theorem itself can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textscsl{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is doubly connected, and a region bound by \(n\) non-intersecting Jordan curves is traditionally known as \(n\)-connected. Lastly, any closed curve can degenerate to a single point or slit.
 
@@ -3786,7 +3787,7 @@ Let \(z=f^{-1}(w)\). Then we have
     f'(a)=-\lim_{z\to a}\frac{f'(z)}{f(z)^2}=\eval{\dv{z}(\frac{1}{f(z)})}_{z=a}.\label{eq:derivativeatpole2}
 \end{equation}
 \begin{proposition}
-    For any connected compact set \(K\subset\mathbb{C}\), such that \(\extcomplex\setminus K\) is connected, let \(\phi\) be an arbitrary biholomorphism mapping \(\extcomplex\setminus K\) to \(\mathbb{D}\) such that \(\phi(\infty)=\lim_{z\to\infty}\phi(z)=0\). It follows that \[\abs{\phi'(\infty)}\geq\frac14\mathrm{diam}(K),\] where \(\mathrm{diam}(K)=\sup_{z,\zeta\in K}\abs{\zeta-z}\).
+    For any connected compact set \(K\subset\mathbb{C}\), such that \(\extcomplex\setminus K\) is connected, let \(\phi\) be an arbitrary biholomorphism mapping \(\extcomplex\setminus K\) to \(\mathbb{D}\) such that \(\phi(\infty)=\lim_{z\to\infty}\phi(z)=0\). It follows that \[\abs{\phi'(\infty)}\geq\frac14\diam(K),\] where \(\diam(K)=\sup_{z,\zeta\in K}\abs{\zeta-z}\).
 \end{proposition}
 \begin{proof}
     Denote the derivative of \(\phi\) at the infinity point to be \(\alpha\). By equation~\eqref{eq:derivativeatpole1}, we have \[\qty(\phi^{-1})'(0)=\frac{1}{\phi'(\infty)}=\frac1\alpha=-\lim_{z\to 0}\frac{\qty(\phi^{-1})'(z)}{\phi^{-1}(z)^2}\Longleftrightarrow-\lim_{z\to0}\frac{\phi^{-1}(z)^2}{\alpha\qty(\phi^{-1})'(z)}=1.\]
@@ -3801,7 +3802,7 @@ Let \(z=f^{-1}(w)\). Then we have
     Hence, \[\abs{\frac{\alpha}{\mu-\tau}}\geq\frac14\Longleftrightarrow\abs{\alpha}\geq\frac{\abs{\mu-\tau}}{4}.\] By taking the supremum for \(\mu,\tau\in K\), the proof is complete.
 \end{proof}
 \begin{proposition}
-    Let \(a\in\mathbb{C}\), \(r>0\), and suppose \(K\subseteq D(a,r)\) is compact such that \(\extcomplex\setminus K\) is connected and \(\operatorname{diam}(K)\geq\frac r2\). Then there is a family of 
+    Let \(a\in\mathbb{C}\), \(r>0\), and suppose \(K\subseteq D(a,r)\) is compact such that \(\extcomplex\setminus K\) is connected and \(\diam(K)\geq\frac r2\). Then there is a family of 
 \end{proposition}
 \begin{proposition}\label{prop:diracdeltaapproximation}
     Suppose \[\lambda(z)=
