@@ -318,7 +318,7 @@ We also have the definition of the limit of a sequence:
 \begin{definition}[Continuity]\label{def:continuity}
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if and only if \[\lim_{x\to a}f(x)=f(a).\]
 \end{definition}
-It is important to note that in the case of multiple explicit variables, a distinction is made between (separate) continuity (where there are two \(\delta\)'s on which variable varies, and does not guarantee a single \(\delta\) for when both variables vary simultaneously) and \textscsl{joint} continuity (where a single \(\delta\) controls both variables at once). 
+It is important to note that in the case of multiple explicit variables, a distinction is made between (separate) continuity (where there are two \(\delta\)'s on which variable varies, and does not guarantee a single \(\delta\) for when both variables vary simultaneously) and \textscsl{joint} continuity (where a single \(\delta\) controls both variables at once). To illustrate this, let \(\qty(x_0,y_0)\) be fixed. The former is commonly written as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{x-x_0}<\delta,\abs{f\qty(x,y_0)-f\qty(x_0,y_0)}<\varepsilon\] in conjunction with \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{y-y_0}<\delta,\abs{f\qty(x_0,y)-f\qty(x_0,y_0)}<\varepsilon,\] whereas the latter is expressed as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{\qty(x-x_0,y-y_0)}<\delta,\abs{f\qty(x,y)-f\qty(x_0,y_0)}<\varepsilon.\]
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
     Any continuous function on a compact set \(K\) is bounded on \(K\).
 \end{theorem}
@@ -3796,14 +3796,15 @@ Let \(z=f^{-1}(w)\). Then we have
     \begin{align*}
         \psi'(0)=-\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}=\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}\cdot\frac{\phi^{-1}(z)^2}{\alpha\qty(\phi^{-1})'(z)}=1.
     \end{align*}
-    By the Koebe Quarter Theorem (\autoref{thm:koebequarter}), whose proof is independent of results of this section, in accordance, \(D\qty(0,\frac14)\subseteq\psi(\mathbb{D})\). Let \(\mu\in K\setminus\qty{\tau}\). Obviously, \(\mu\notin\phi^{-1}(\mathbb{D})=\extcomplex\setminus K\). 
-    
+    By the Koebe Quarter Theorem (\autoref{thm:koebequarter}), whose proof is independent of results of this section, in accordance, \(D\qty(0,\frac14)\subseteq\psi(\mathbb{D})\). Let \(\mu\in K\setminus\qty{\tau}\). Obviously, \(\mu\notin\phi^{-1}(\mathbb{D})=\extcomplex\setminus K\).
+
     Let \(z\mapsto\frac{\alpha}{z-\tau}\) be injective on \(\extcomplex\). For the sake of contradiction, assume that \(\qty(z\mapsto\frac{\alpha}{z-\tau})(\mu)\in\psi(\mathbb{D})\). Then \(\exists\zeta\in\phi^{-1}(\mathbb{D})\) such that \(\frac{\alpha}{\zeta-\tau}=\frac{\alpha}{\mu-\tau}\). By injectivity, \(\zeta=\mu\), which contradicts \(\mu\in K\), and accordingly, \(\frac{\alpha}{\mu-\tau}\notin\psi(\mathbb{D})\supseteq D\qty(0,\frac14)\).
-    
+
     Hence, \[\abs{\frac{\alpha}{\mu-\tau}}\geq\frac14\Longleftrightarrow\abs{\alpha}\geq\frac{\abs{\mu-\tau}}{4}.\] By taking the supremum for \(\mu,\tau\in K\), the proof is complete.
 \end{proof}
 \begin{proposition}
-    Let \(a\in\mathbb{C}\), \(r>0\), and suppose \(K\subseteq D(a,r)\) is compact such that \(\extcomplex\setminus K\) is connected and \(\diam(K)\geq\frac r2\). Then there is a family of holomorphic functions \(\mathcal{F}=\qty{\phi_\zeta}_{\zeta\in D(a,r)}\), where \(\forall\zeta\in D(a,r)\), \[\phi_\zeta:\extcomplex\setminus K\to\mathbb{C},\] and \begin{enumerate}
+    Let \(a\in\mathbb{C}\), \(r>0\), and suppose \(K\subseteq D(a,r)\) is compact such that \(\extcomplex\setminus K\) is connected and \(\diam(K)\geq\frac r2\). Then there is a family of holomorphic functions \(\mathcal{F}=\qty{\phi_\zeta}_{\zeta\in D(a,r)}\), where \(\forall\zeta\in D(a,r)\), \[\phi_\zeta:\extcomplex\setminus K\to\mathbb{C},\] and
+    \begin{enumerate}
         \item \(\abs{\phi_\zeta(z)}<\frac{584}{r}\) for any \(z\in\extcomplex\setminus K\).
         \item \(\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}<\frac{4676r^2}{\abs{\zeta-z}^3}\) for any \(z\in\extcomplex\setminus K\).
         \item The function \(\phi(\zeta,z)\equiv\phi_\zeta(z)\) is \textscsl{jointly} continuous in \(\zeta\) and \(z\).
@@ -4015,7 +4016,7 @@ By the boundedness assumption for \(f\), we have:
 \section{Special Classes of Holomorphic Functions}
 \subsection{Schlicht Functions}
 \begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
-    
+
 \end{theorem}
 \subsection{Boundary Continuity of Biholomorphisms}
 Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned about the existence of a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\).
