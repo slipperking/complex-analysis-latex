@@ -898,8 +898,7 @@ From the above result, we can directly obtain the following theorem:
         \pdv{u}{y}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\beta}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\beta}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}
     \end{equation}
     Since \(\psi\in C^1\paren{\mathbb{C}}\) and has Lipschitz constant \(M\), equations~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative} and~\eqref{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative} are both continuous (by the same argument for the continuity of \(u(z)\)). Thus, \(u\in C^1(\mathbb{C})\). It follows from the two equations that \[\pdv{u}{\overline{z}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{K}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\]
-    On the bounded domain \(\supp\paren{\psi}\), and by the Cauchy--Pompeiu Theorem (\autoref{thm:pompeiu}), the integral above is equal to \[\pdv{u}{\overline{z}}=\psi(z)-\frac{1}{2\piup\ii}\oint_{\partial K}\frac{\psi(\zeta)}{\zeta-z}\ddzeta.\]
-    Since \(\psi\) is continuous and compactly supported, it vanishes on \(\partial K\): \[\pdv{u}{\overline{z}}=\psi(z),\] as expected.
+    On the bounded domain \(\supp\paren{\psi}\), and by \autoref{crl:pompeiuwithoutcauchyterm}, \[\pdv{u}{\overline{z}}=\psi(z).\qedhere\]
 \end{proof}
 \begin{remark}
     In the first part, we established that a function \(\psi(z)\in C^0(\mathbb{C})\) with compact support satisfies \[u(z)=-\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\in C^0(\mathbb{C}).\]
@@ -3808,8 +3807,8 @@ Let \(z=f^{-1}(w)\). Then we have
 \begin{proposition}\label{prop:complementbiholomorphismquarterestimate}
     Let \(a\in\mathbb{C}\), \(r>0\), and suppose \(K\subseteq D(a,r)\) is compact such that \(\extcomplex\setminus K\) is connected and \(\diam(K)\geq\frac r2\). Then there is a family of holomorphic functions \(\mathcal{F}=\qty{f_\zeta}_{\zeta\in D(a,r)}\), where \(\forall\zeta\in D(a,r)\), \[f_\zeta:\extcomplex\setminus K\to\mathbb{C},\] and
     \begin{enumerate}
-        \item \(\abs{f_\zeta(z)}<\frac{584}{r}\) for any \(z\in\extcomplex\setminus K\).
-        \item \(\abs{f_\zeta(z)-\frac{1}{z-\zeta}}<\frac{4676r^2}{\abs{\zeta-z}^3}\) for any \(z\in\extcomplex\setminus\qty(K\cup\qty{\zeta})\).\label{itm:complementbiholomorphismquarterestimate_absolute584r}
+        \item \(\abs{f_\zeta(z)}<\frac{584}{r}\) for any \(z\in\extcomplex\setminus K\).\label{itm:complementbiholomorphismquarterestimate_absolute584}
+        \item \(\abs{f_\zeta(z)-\frac{1}{z-\zeta}}<\frac{4676r^2}{\abs{\zeta-z}^3}\) for any \(z\in\extcomplex\setminus\qty(K\cup\qty{\zeta})\).\label{itm:complementbiholomorphismquarterestimate_absolutedifference4676}
         \item The function \(f(\zeta,z)\equiv f_\zeta(z)\) is \textscsl{jointly} continuous in \(\zeta\) and \(z\).
     \end{enumerate}
 \end{proposition}
@@ -3817,9 +3816,9 @@ Let \(z=f^{-1}(w)\). Then we have
     First consider the case when \(a=0\).
 
     Let \(\widetilde{\varphi}\) be a conformal mapping from \(\extcomplex\setminus K\) to \(\mathbb{D}\), such that \(\widetilde{\varphi}(\infty)=0\) and \(\alpha=\widetilde{\varphi}'(\infty)\in\mathbb{R}_{>0}\). Let \(\varphi(z)=\frac{1}{\alpha}\widetilde{\varphi}(z)\). It follows that \(\phi'(\infty)=1\), \(\varphi(\infty)=1\). By \autoref{prop:complementbiholomorphismquarterestimate}, \[\abs{\alpha}\geq\frac{1}{4}\diam(K)\Longleftrightarrow\abs{\varphi(z)}\leq\frac{4\abs{\widetilde{\varphi}(z)}}{\diam(K)}.\] Consequently, we have the crucial estimate of \(\varphi\qty(\extcomplex\setminus K)\subseteq D\qty(0,\frac{4}{\diam(K)})\subseteq D\qty(0,\frac{8}{r})\). For fixed \(\zeta\in D(0,r)\), define \[f_\zeta(z)=\varphi(z)+(\zeta-\beta)\varphi^2(z),\qquad z\in\extcomplex\setminus K\] where \(\beta=\frac{1}{2}\varphi''(\infty)\). By Cauchy's Estimate (\autoref{thm:cauchysestimate}) on \(\qty(z\mapsto\frac{1}{z})\qty(\extcomplex\setminus D(0,r))=D\qty(0,\frac{1}{r})\), \[\abs{\beta}=\frac{1}{2}\abs{\eval{\dv[2]{z}(\varphi\qty(\frac{1}{z}))}_{z=0}}\leq\frac{\sup_{D\qty(0,\frac1r)}\abs{\varphi\qty(\frac{1}{z})}}{\operatorname{dist}\qty(0,\partial D\qty(0,\frac{1}{r}))^2}=8r.\]
-    Hence, \[\abs{f_\zeta(z)}\leq \abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is \ref{itm:complementbiholomorphismquarterestimate_absolute584r}.
+    Hence, \[\abs{f_\zeta(z)}\leq \abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is \ref{itm:complementbiholomorphismquarterestimate_absolute584}.
 
-
+    Consider the Laurent expansion of \(f_\zeta\) at \(\infty\).
 \end{proof}
 \begin{proposition}\label{prop:diracdeltaapproximation}
     Suppose \[\lambda(z)=
