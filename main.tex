@@ -2090,8 +2090,8 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
 \begin{theorem}\label{thm:laurentexpansionofholomorphicfunction}
     Let \(V=\cbraces{z\in\mathbb{C}}{r<\abs{z-a}<R}\) for some \(0\leq r<R\leq\infty\). Let \(f\) be holomorphic on \(V\). Then \(f\) has the unique \textscsl{Laurent expansion}
     \begin{equation}
-        f(z)=\sum_{n=-\infty}^\infty c_n(z-a)^n\label{eq:laurentexpansionofholomorphicfunction_statement}
-    \end{equation} when \(z\in V\), where \(c_n=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f(\zeta)\ddzeta}{(\zeta-a)^{n+1}}\), where \(\gamma\subset V\) is a simple closed curve enclosing \(a\).
+        f(z)=\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f(\zeta)\ddzeta}{(\zeta-a)^{n+1}},\label{eq:laurentexpansionofholomorphicfunction_statement}
+    \end{equation} for \(z\in V\) and any simple closed curve \(\gamma\subset V\) enclosing \(a\).
 \end{theorem}
 \begin{proof}
     \begin{figure}
@@ -2129,7 +2129,7 @@ If \(R>r\), then \(f\) is convergent on the annulus \(D(a,R)\setminus\overline{D
     \begin{equation}
         f(z)=\sum_{n=-\infty}^\infty c'_n{(z-a)}^n,\label{eq:laurentexpansionofholomorphicfunction_uniquenessstatement}
     \end{equation}
-    where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. By the Cauchy--Goursat Differentiation Formula (\autoref{thm:cauchydifferentiationformula}), \[\oint_{\gamma}(z-a)^k\ddz=
+    where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. ByCauchy--Goursat (\autoref{thm:cauchydifferentiationformula}), \[\oint_{\gamma}(z-a)^k\ddz=
         \begin{cases}
             0                      &\qif* k\geq0   \\
             2\piup\ii\dv[-k-1]{z}(1) &\qif* k\leq -1
@@ -3818,7 +3818,7 @@ Let \(z=f^{-1}(w)\). Then we have
 
     Let \(\widetilde{\varphi}\) be a conformal mapping from \(\extcomplex\setminus K\) to \(\mathbb{D}\), such that \(\widetilde{\varphi}(\infty)=0\) and \(\alpha=\widetilde{\varphi}'(\infty)\in\mathbb{R}_{>0}\). Let \(\varphi(z)=\frac{1}{\alpha}\widetilde{\varphi}(z)\). It follows that \(\varphi'(\infty)=1\), \(\varphi(\infty)=1\). By \autoref{prop:complementbiholomorphismquarterestimate}, \[\abs{\alpha}\geq\frac{1}{4}\diam(K)\Longleftrightarrow\abs{\varphi(z)}\leq\frac{4\abs{\widetilde{\varphi}(z)}}{\diam(K)}.\] Consequently, we have the crucial estimate of \(\varphi\qty(\extcomplex\setminus K)\subseteq D\qty(0,\frac{4}{\diam(K)})\subseteq D\qty(0,\frac{8}{r})\). For fixed \(\zeta\in D(0,r)\), define \[f_\zeta(z)=\varphi(z)+(\zeta-\beta)\varphi^2(z),\qquad z\in\extcomplex\setminus K\] where \(\beta=\frac{1}{2}\varphi''(\infty)\). By Cauchy's Estimate (\autoref{thm:cauchysestimate}) on \(\qty(z\mapsto\frac{1}{z})\qty(\extcomplex\setminus D(0,r))=D\qty(0,\frac{1}{r})\), \[\abs{\beta}=\frac{1}{2}\abs{\eval{\dv[2]{z}(\varphi\qty(\frac{1}{z}))}_{z=0}}\leq\frac{\sup_{D\qty(0,\frac1r)}\abs{\varphi\qty(\frac{1}{z})}}{\operatorname{dist}\qty(0,\partial D\qty(0,\frac{1}{r}))^2}=8r.\]
     Hence, \[\abs{f_\zeta(z)}\leq \abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is~\ref{itm:complementbiholomorphismquarterestimate_absolute584}. By the Laurent expansion of \(\varphi\) at \(\infty\), \[\varphi(z)=\varphi(\infty)+\frac{\varphi'(\infty)}{z}+\frac{\varphi''(\infty)}{2z^2}+\cdots=\frac{1}{z}+\frac{\beta}{z^2}+\cdots\]
-    Similarly, since \(\abs{z-\zeta}>2r\) implies that \(\abs{z}+\abs{\zeta}\geq 2r\Rightarrow \abs{z}>r\), \(\varphi\) is holomorphic on the unbounded annulus \(\cbraces{z\in\mathbb{C}}{\abs{z-\zeta}>2r}\cup\qty{\infty}=\extcomplex\setminus \overline{D(\zeta,2r)}\). Hence, we have \[\varphi(z)=\]
+    Similarly, we have \[\varphi(z)=\]
     Define \[\eta(z)=\qty(f_\zeta(z)-\frac{1}{z-\zeta})\qty(z-\zeta)^3\]
 \end{proof}
 \begin{proposition}\label{prop:diracdeltaapproximation}
