@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amssymb, amsfonts, amsthm}
+\usepackage{amssymb, amsfonts, thmtools}
 \usepackage[fixamsmath]{mathtools}
 \usepackage{parskip}
 \usepackage{cancel}
@@ -44,8 +44,8 @@
 \newcommand{\Arg}{\mathrm{Arg}}
 \newcommand{\Aut}{\mathrm{Aut}}
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{proposition}[theorem]{Proposition}
 
 \newtheorem{corollaryinner}{Corollary}[theorem]
 \NewDocumentEnvironment{corollary}{D<>{}}
@@ -63,11 +63,11 @@
 }
 {\endcorollaryinner}
 
-\newtheorem{lemma}{Lemma}[section]
+\newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{remark}
 \newtheorem{example}{Example}[subsection]
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
+\newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \providecommand*{\lemmaautorefname}{Lemma}
