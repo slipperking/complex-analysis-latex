@@ -3949,7 +3949,7 @@ The three following metrics are of particular interest in complex differential g
 
         As a consequence of the Schwarz--Pick Lemma (\autoref{lemma:schwarzpick}), for any \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained if and only if \(f\in\Aut(\mathbb{D})\). The Poincaré metric has constant negative curvature \(-1\) since
         \begin{align*}
-            K&=-\frac{4}{\lambda^2}\pdv[2]{}{\overline{z}}{z}\qty(\log\circ\lambda)=-\frac{4}{\lambda^2}\pdv{\overline{z}}(\frac{\lambda'_z}{\lambda})=-\frac{2}{\lambda^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1-\abs{z}^2})\\
+            K_\lambda&=-\frac{4}{\lambda^2}\pdv[2]{}{\overline{z}}{z}\qty(\log\circ\lambda)=-\frac{4}{\lambda^2}\pdv{\overline{z}}(\frac{\lambda'_z}{\lambda})=-\frac{2}{\lambda^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1-\abs{z}^2})\\
             &=-\frac{2}{\lambda^2}\qty(\lambda+\overline{z}\lambda'_{\overline{z}})=-\frac{\qty(1-\abs{z}^2)^2}{2}\qty(\lambda+\overline{z}\qty(\frac{2z}{\qty(1-\abs{z}^2)^2}))\\
             &=-\qty(1-\abs{z}^2)-\abs{z}^2=-1,
         \end{align*} where \(\lambda'_z=\pdv{\lambda}{z}\) and \(\lambda'_{\overline{z}}=\pdv{\lambda}{\overline{z}}\).
@@ -3976,10 +3976,12 @@ The three following metrics are of particular interest in complex differential g
 
         The corresponding curvature is given by
         \begin{align*}
-            K=-\frac{4}{\sigma^2}\pdv[2]{}{\overline{z}}{z}\qty(\log(\sigma))=-\frac{4}{\sigma^2}\pdv{\overline{z}}(\frac{\sigma'_z}{\sigma})=\frac{2}{\sigma^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1+\abs{z}})
+            K_\sigma=-\frac{4}{\sigma^2}\pdv[2]{}{\overline{z}}{z}\qty(\log(\sigma))=-\frac{4}{\sigma^2}\pdv{\overline{z}}(\frac{\sigma'_z}{\sigma})=\frac{2}{\sigma^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1+\abs{z}})
         \end{align*}
 \end{enumerate}
-Let \(\Omega_1\) and \(\Omega_2\) be two regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent. If \(\rho\) is a metric on \(\Omega_2\), then \[f^*\rho=(\rho\circ f)\abs{f'}\] defines a metric on \(\Omega_1\), referred to as the \textscsl{pullback} of metric \(\rho\) by \(f\).
+Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by \autoref{lemma:univalentnonvanishingderivative}). If \(\rho\) is a metric on \(\Omega_2\), then \[f^*\rho=(\rho\circ f)\abs{f'}\] defines a metric on \(\Omega_1\), referred to as the \textscsl{pullback} of metric \(\rho\) by \(f\). 
+
+Curvature as defined in equation~\eqref{eq:curvatureofmetric} is invariant under pullbacks of conformal mappings, or in the case above, we now aim to show that \[K_\rho(f(z))=K_{f^*\rho}(z)\]
 \subsection{Consequences of Ahlfors--Schwarz}
 \begin{theorem}[\textsc{Ahlfors--Schwarz}]\label{thm:ahlforsschwarz}
 
