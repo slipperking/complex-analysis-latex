@@ -59,7 +59,12 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \newtheorem{example}[theorem]{Example}
-% -------------------------------------------
+
+\crefformat{section}{\S#2#1#3}
+\crefformat{subsection}{\S#2#1#3}
+\crefformat{subsubsection}{\S#2#1#3}
+\crefrangeformat{section}{\S\S#3#1#4 to~#5#2#6}
+\crefmultiformat{section}{\S\S#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
 
 \DeclarePairedDelimiter{\paren}{(}{)}
 \let\parendefault\paren%
@@ -79,7 +84,6 @@
 \newcommand{\extcomplex}{\widehat{\mathbb{C}}}
 \newcommand{\ee}{\mathrm{e}}
 \newcommand{\ii}{\mathrm{i}}
-\newcommand{\chpref}[1]{\hyperref[#1]{\S\ref*{#1}}}
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
 \newcommand{\doubletilde}[1]{
     \rlap{\raisebox{0.45ex}{$\widetilde{\phantom{#1{}}}$}}%
@@ -426,7 +430,7 @@ For the purpose of the following contents, a \textscsl{region} or \textscsl{doma
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. Then \(f\) is holomorphic on \(U\) if and only if \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
 \end{theorem}
 \begin{proof}
-    The first part is to prove that any holomorphic function on \(U\) has continuous first-order partial derivatives in \(U\). This requires an argument that will be covered later (specifically in \chpref{sec:analyticityandholomorphy}), which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
+    The first part is to prove that any holomorphic function on \(U\) has continuous first-order partial derivatives in \(U\). This requires an argument that will be covered later (specifically in \cref{sec:analyticityandholomorphy}), which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
 
     For the second part, let \(f(z)=f(x,y)=u(x,y)+\ii v(x,y)\). Assume that \(u,v\in C^1\paren{\{z_0\}}\) and satisfy the Cauchy--Riemann equations at \(z_0=x_0+\ii y_0\). Let \[\alpha=\pdv{u}{x}\paren{x_0,y_0}=\pdv{v}{y}\paren{x_0,y_0},\quad\beta=\pdv{v}{x}\paren{x_0,y_0}=-\pdv{u}{y}\paren{x_0,y_0}.\]
 
@@ -438,7 +442,7 @@ For the purpose of the following contents, a \textscsl{region} or \textscsl{doma
     \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta+\frac{o\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
     Taking the limit as \(\Delta z\to0\), the high order infinitesimals on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta.\qedhere\]
 \end{proof}
-We will prove later in \chpref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+\ii v(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
+We will prove later in \cref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+\ii v(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
 This type of equation is called the \textscsl{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textscsl{Laplacian}) \[\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a \textscsl{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
@@ -1394,7 +1398,7 @@ For the next theorem we will briefly introduce the concept of \textscsl{analytic
         \item \(F\equiv f\) on \(U\).
     \end{enumerate}
 \end{definition}
-The concept of analytic continuation and its consequent problems and properties will be discussed in more detail in \chpref{sec:analyticcontinuation}. For now, we will prove a theorem that is a direct consequence of the Cauchy--Goursat Differentiation Formula (\cref{thm:cauchydifferentiationformula}) and the existence of holomorphic functions with removable singularities.
+The concept of analytic continuation and its consequent problems and properties will be discussed in more detail in \cref{sec:analyticcontinuation}. For now, we will prove a theorem that is a direct consequence of the Cauchy--Goursat Differentiation Formula (\cref{thm:cauchydifferentiationformula}) and the existence of holomorphic functions with removable singularities.
 \begin{theorem}[Riemann]\label{thm:removablesingularitiesriemann}
     Let \(D^*\qty(z_0,r)=D\paren{z_0,r}\setminus\cbraces{z_0}\) (known as a punctured disk), and \(f:D^*\paren{z_0,r}\to\mathbb{C}\) be holomorphic and bounded. Then \(f\) can be analytically continued to \(D\paren{z_0,r}\).
 \end{theorem}
@@ -1844,7 +1848,7 @@ As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we
     By the Schwarz Lemma (\cref{lemma:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\qedhere\]
 \end{proof}
 \begin{remark}
-    In \chpref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
+    In \cref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
     From \cref{eq:schwarzpick_nonincreasingmetric}, we get that the hyperbolic metric does not increase under a holomorphic mapping of \(\mathbb{D}\) to itself. This metric is invariant (the equality condition) under all functions in \(\Aut(\mathbb{D})\). This gives a geometric explanation for \cref{lemma:schwarz}.
 \end{remark}
 \subsection{Alternative Integral Formulae}
@@ -2179,7 +2183,7 @@ A similar proof yields the following result for entire functions.
 \begin{proof}
     For the sake of contradiction, assume there exists \(w\in\mathbb{C}\) and \(\varepsilon>0\) such that \(D(w,\varepsilon)\notin f\qty(\mathbb{C})\). Define \(g(z)=\frac{1}{f(z)-w}\). It follows that \(\abs{g}\leq\frac{1}{\varepsilon}\) on \(\mathbb{C}\). By Liouville's Theorem (\cref{thm:liouville}), \(g\) is a constant function, and hence, \(f\) is also constant, which is a contradiction of the statement.
 \end{proof}
-In \chpref{sec:differentialgeometry}, we will prove a profound generalization of the two results (\cref{thm:greatpicard} and \cref{thm:littlepicard}), which was first proved by Émile Picard in 1879: \textit{the image of any open punctured neighborhood of an isolated essential singularity of a holomorphic function will attain every value in \(\mathbb{C}\), except for at most one possible exception, infinitely often}; and \textit{an entire function attains every value in \(\mathbb{C}\), except for at most one possible exception}.
+In \cref{sec:differentialgeometry}, we will prove a profound generalization of the two results (\cref{thm:greatpicard} and \cref{thm:littlepicard}), which was first proved by Émile Picard in 1879: \textit{the image of any open punctured neighborhood of an isolated essential singularity of a holomorphic function will attain every value in \(\mathbb{C}\), except for at most one possible exception, infinitely often}; and \textit{an entire function attains every value in \(\mathbb{C}\), except for at most one possible exception}.
 \subsubsection{At the \texorpdfstring{\(\infty\)}{Infinity} Point}
 Given the one-point compactification of \(\mathbb{C}\), \(\extcomplex\), we can now define and analyze the behavior of functions near the point at infinity. Similar to the classification of isolated singularities in \(\mathbb{C}\), we can classify \(\infty\) as a removable singularity, a pole, or an essential singularity of a holomorphic function.
 
@@ -2200,7 +2204,7 @@ The classification of the singularity at \(\infty\) is then reduced to the class
     The function \(z\mapsto\frac{1}{z}\) has a removable singularity at \(z=\infty\), the function \(z\mapsto z^2\) has a pole at \(z=\infty\), and \(z\mapsto \ee^z\) has an essential singularity at \(z=\infty\).
 \end{example}
 \subsection{Entireness and Meromorphy}
-We have previously defined the concept of an entire function in \chpref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
+We have previously defined the concept of an entire function in \cref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated singularity, by the uniqueness of the Laurent expansion, the expansion at \(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze the implications on the entire function \(f\) given an isolated singularity.
 \begin{enumerate}
     \item If the infinity point is a removable singularity, then \(\lim_{z\to\infty} f(z)\) exists and is finite.
         \begin{proposition}\label{prop:removablesingularityatinftyentireconstant}
@@ -3237,7 +3241,7 @@ This question is not necessarily an affirmative. The principal branch logarithm 
 The problems arising from the complex logarithm are now understood specifically as the failure of the homotopy condition. In a set excluding albeit enclosing the origin, such as \(\mathbb{C}\setminus\qty{0}\), curves enclosing the origin are not homotopic to the zero constant curve, and in the complex plane, the logarithm does not admit unrestricted continuation in \(\mathbb{C}\) since it cannot be continued along any curve passing through the origin.
 \section{The Theory of Riemann}\label{sec:riemann}
 \subsection{Biholomorphy}
-In \chpref{sec:conformalityintroduction}, it was asserted that for a holomorphic function \(f(z)\), the map \(w=f(z)\) is conformal when \(f'(z)\neq 0\).
+In \cref{sec:conformalityintroduction}, it was asserted that for a holomorphic function \(f(z)\), the map \(w=f(z)\) is conformal when \(f'(z)\neq 0\).
 
 We have the following immediate assertion:
 \begin{theorem}[\textsc{Open Mapping Theorem}]\label{thm:openmapping}
@@ -3424,7 +3428,7 @@ The following theorem is important in many areas of mathematical analysis and ha
 \end{proof}
 The notions and results introduced have profound implications and uses in the theory of differential equations and harmonic analysis.
 
-The notion of distance in the definitions of equicontinuity in the Arzelà--Ascoli is the Euclidean metric. However, the theorem remains valid for other metrics. We will revisit this concept in \chpref{sec:differentialgeometry}.
+The notion of distance in the definitions of equicontinuity in the Arzelà--Ascoli is the Euclidean metric. However, the theorem remains valid for other metrics. We will revisit this concept in \cref{sec:differentialgeometry}.
 
 Lastly, we will prove Montel's Theorem in preparation of the Riemann Mapping Theorem (\cref{thm:riemannmapping}).
 \begin{definition}
@@ -3501,7 +3505,7 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
 \begin{remark}
     It is natural that we require \(U\neq\mathbb{C}\); if there exists a univalent function \(f:\mathbb{C}\to\mathbb{D}\), then by Liouville's Theorem (\cref{thm:liouville}), \(f\) would be a constant function.
 
-    As we will see in \chpref{sec:multivariatecomplexanalysis}, this theorem and many other properties of one-variable holomorphic functions do not extend to functions of several complex variables.
+    As we will see in \cref{sec:multivariatecomplexanalysis}, this theorem and many other properties of one-variable holomorphic functions do not extend to functions of several complex variables.
 \end{remark}
 \subsection{The Schwarz--Christoffel Transformation}\label{sec:schwarzchristoffeltransformation}
 The Riemann Mapping Theorem is elegant in its own simplicity and definitions. However, it is only a theorem that guarantees existence of biholomorphisms. No information whatsoever can be straightforwardly extracted regarding the explicit construction of such biholomorphisms. However, in the explicit case that \(U\) is the open interior of a polygon, the result is provided by the Schwarz--Christoffel Transformation.
@@ -3972,7 +3976,7 @@ The three following metrics are of particular interest in complex differential g
             &=\qty(1+\abs{z}^2)-\abs{z}^2=1,
         \end{align*} where \(\sigma'_z=\pdv{\sigma}{z}\) and \(\sigma'_{\overline{z}}=\pdv{\sigma}{\overline{z}}\).
 \end{enumerate}
-The importance of the selected regions lies in the uniformization as mentioned in \chpref{sec:riemannsurfaces}.
+The importance of the selected regions lies in the uniformization as mentioned in \cref{sec:riemannsurfaces}.
 
 Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by \cref{lemma:univalentnonvanishingderivative}). If \(\rho\) is a metric on \(\Omega_2\), then
 \begin{equation}
