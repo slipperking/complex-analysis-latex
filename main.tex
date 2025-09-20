@@ -20,7 +20,7 @@
 \setlist[itemize]{label=\ding{226}}
 
 \usepackage{hyperref}
-\usepackage[nameinlink]{cleveref}
+\usepackage[noabbrev, nameinlink]{cleveref}
 \usepackage[backend=biber, style=alphabetic, sorting=ynt]{biblatex}
 \addbibresource{references.bib}
 \nocite{*}
@@ -45,15 +45,9 @@
 \newcommand{\Arg}{\mathrm{Arg}}
 \newcommand{\Aut}{\mathrm{Aut}}
 
-\declaretheorem[name=Theorem,
-    refname={theorem,theorems},
-Refname={Theorem,Theorems}, numberwithin=subsection]{theorem}
-\declaretheorem[name=Proposition,
-    refname={proposition,propositions},
-Refname={Proposition,Propositions}, numberwithin=subsection, sibling=theorem]{proposition}
-\declaretheorem[name=Corollary,
-    refname={corollary,corollaries},
-Refname={Corollary,Corollaries}, numberwithin=theorem]{corollaryinner}
+\declaretheorem[name=Theorem, refname={theorem, theorems}, Refname={Theorem, Theorems}, numberwithin=subsection]{theorem}
+\declaretheorem[name=Proposition, refname={proposition, propositions}, Refname={Proposition, Propositions}, numberwithin=subsection, sibling=theorem]{proposition}
+\declaretheorem[name=Corollary, refname={corollary, corollaries}, Refname={Corollary, Corollaries}, numberwithin=theorem]{corollaryinner}
 \NewDocumentEnvironment{corollary}{D<>{}}
 {
     \if\relax\detokenize{#1}\relax
@@ -69,21 +63,11 @@ Refname={Corollary,Corollaries}, numberwithin=theorem]{corollaryinner}
 }
 {\endcorollaryinner}
 
-\declaretheorem[name=Lemma,
-    refname={lemma,lemmas},
-Refname={Lemma,Lemmas}, numberwithin=subsection, sibling=theorem]{lemma}
-\declaretheorem[name=Remark,
-    numbered=no,
-    refname={remark,remarks},
-Refname={Remark,Remarks}, numberwithin=subsection, sibling=theorem, style=remark]{remark}
-\declaretheorem[name=Example,
-    refname={example,examples},
-Refname={Example,Examples}, numberwithin=subsection, sibling=theorem, style=remark]{example}
-\declaretheorem[name=Definition,
-    refname={definition,definitions},
-Refname={Definition,Definitions}, numberwithin=subsection, sibling=theorem, style=definition]{definition}
+\declaretheorem[name=Lemma, refname={lemma, lemmas}, Refname={Lemma, Lemmas}, numberwithin=subsection, sibling=theorem]{lemma}
+\declaretheorem[name=Remark, numbered=no, refname={remark, remarks}, Refname={Remark, Remarks}, numberwithin=subsection, sibling=theorem, style=remark]{remark}
+\declaretheorem[name=Example, refname={example, examples}, Refname={Example, Examples}, numberwithin=subsection, sibling=theorem, style=remark]{example}
+\declaretheorem[name=Definition, refname={definition, definitions}, Refname={Definition, Definitions}, numberwithin=subsection, sibling=theorem, style=definition]{definition}
 
-%
 \numberwithin{equation}{subsection}
 \numberwithin{figure}{section}
 \DeclarePairedDelimiter{\paren}{(}{)}
@@ -687,7 +671,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
 \begin{proof}[Proof of \cref{thm:abelradius}]
     We will prove that the value in \cref{eq:cauchyhadamard} satisfies the criteria in \cref{thm:abelradius}.
 
-    Assume \(\abs{z}<R\). Then, \(\forall\rho\in(\abs{z},R)\), and consequently, \(\frac{1}{\rho}>\frac{1}{R}\). By \cref{def:limsup} and \cref{eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\) and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_n z^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
+    Assume \(\abs{z}<R\). Then, \(\forall\rho\in(\abs{z},R)\), and consequently, \(\frac{1}{\rho}>\frac{1}{R}\). By \cref{def:limsup,eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\) and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_n z^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\qty|a_nz^n|\) converges.
 
     Let \(\rho'\in(\rho, R)\). Similarly, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N'\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho'}\), and \(\abs{a_n}<\frac{1}{\rho'^n}\). Then \(\qty|a_n z^n|<\qty|a_n\rho^n|<\frac{\rho^n}{\rho'^n}<1\). By the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), the \(\sum_{n=0}^\infty\abs{a_n z^n}\) is uniformly bounded (for \(n>N'\)) by the convergent series \(\sum_{n=0}^\infty a_n\rho^n\), and thus uniformly converges on \(\abs{z}<\rho\). This proves~\ref{itm:abelradius_absoluteanduniformconvergence}.
 
@@ -927,7 +911,7 @@ From the above result, we can directly obtain the following theorem:
 
     If the support of \(\psi(z)\) is the union of infinitely many or finitely many disjoint compact sets, then the integral in \cref{eq:onedimensionalpartialconjugatesolution} can be split into a sum of integrals over each compact set, and the same argument applies to each term.
 \end{remark}
-When Cauchy famously published \cref{thm:cauchyintegralformula} and \cref{thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives, and this condition was dropped by Goursat using an argument involving the triangulation of polygonal chains.
+When Cauchy famously published \cref{thm:cauchyintegralformula, thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives, and this condition was dropped by Goursat using an argument involving the triangulation of polygonal chains.
 \begin{lemma}\label{lemma:integralpiecewisesmoothtopolygonalchain}
     Let \(f:G\to\mathbb{C}\) be a continuous function defined for a region \(G\subseteq\mathbb{C}\). Let \(\Gamma\subset G\) be a rectifiable piecewise smooth curve. Then \(\forall\varepsilon>0\), there exists a polygonal chain \(P\subset G\) inscribing \(\Gamma\) (each vertex lies on \(\Gamma\)) where \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\]
 \end{lemma}
@@ -2032,7 +2016,7 @@ Substituting the coefficients gives
     \sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}} & =\sum_{n=-\infty}^\infty \qty(\frac{1}{2\piup}\int_0^{2\piup}u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau}) \ee^{\ii n\theta}\rho^{\abs{n}} \\
     & =\frac{1}{2\piup} \sum_{n=-\infty}^\infty \int_0^{2\piup}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)}\dd{\tau}.
 \end{align*}
-By the Weierstrass \(M\)-Test (\cref{thm:weierstrassmtest}) and \cref{thm:limitintegralswitch},
+By \cref{thm:weierstrassmtest, thm:limitintegralswitch},
 \begin{equation}
     \frac{1}{2\piup}\sum_{n=-\infty}^\infty \int_0^{2\piup} \rho^{\abs{n}}u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)} \dd{\tau}=\frac{1}{2\piup} \int_0^{2\piup} u\qty(\ee^{\ii\tau})\sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)}\dd{\tau}.\label{eq:poissonintegralformulafourierseriespostintegralsummationswitch}
 \end{equation}
