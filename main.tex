@@ -44,16 +44,15 @@
 \newcommand{\Arg}{\mathrm{Arg}}
 \newcommand{\Aut}{\mathrm{Aut}}
 
- \declaretheorem[name=Theorem,
- refname={theorem,theorems},
- Refname={Theorem,Theorems}, numberwithin=subsection]{theorem}
- \declaretheorem[name=Proposition,
- refname={proposition,propositions},
- Refname={Proposition,Propositions}, numberwithin=subsection, sibling=theorem]{theorem}
- \declaretheorem[name=Corollary,
- refname={corollary,corollaries},
- Refname={Corollary,Corollaries}, numberwithin=theorem]{theorem}
-\newtheorem{corollaryinner}{Corollary}[theorem]
+\declaretheorem[name=Theorem,
+    refname={theorem,theorems},
+Refname={Theorem,Theorems}, numberwithin=subsection]{theorem}
+\declaretheorem[name=Proposition,
+    refname={proposition,propositions},
+Refname={Proposition,Propositions}, numberwithin=subsection, sibling=theorem]{proposition}
+\declaretheorem[name=Corollary,
+    refname={corollary,corollaries},
+Refname={Corollary,Corollaries}, numberwithin=theorem]{corollaryinner}
 \NewDocumentEnvironment{corollary}{D<>{}}
 {
     \if\relax\detokenize{#1}\relax
@@ -3831,15 +3830,15 @@ Let \(z=f^{-1}(w)\). Then we have
     First consider the case when \(a=0\).
 
     Let \(\widetilde{\varphi}\) be a conformal mapping from \(\extcomplex\setminus K\) to \(\mathbb{D}\), such that \(\widetilde{\varphi}(\infty)=0\) and \(\alpha=\widetilde{\varphi}'(\infty)\in\mathbb{R}_{>0}\). Let \(\varphi(z)=\frac{1}{\alpha}\widetilde{\varphi}(z)\). It follows that \(\varphi'(\infty)=1\), \(\varphi(\infty)=0\). By \autoref{prop:complementbiholomorphismquarterestimate}, \[\abs{\alpha}\geq\frac{1}{4}\diam(K)\Longleftrightarrow\abs{\varphi(z)}\leq\frac{4\abs{\widetilde{\varphi}(z)}}{\diam(K)}.\] Consequently, we have the crucial estimate of \(\varphi\qty(\extcomplex\setminus K)\subseteq D\qty(0,\frac{4}{\diam(K)})\subseteq D\qty(0,\frac{8}{r})\). For fixed \(\zeta\in D(0,r)\), define \[f_\zeta(z)=\varphi(z)+(\zeta-\beta)\varphi^2(z),\qquad z\in\extcomplex\setminus K\] where \(\beta=\frac{1}{2}\varphi''(\infty)\). By Cauchy's Estimate (\autoref{thm:cauchysestimate}) on \(\qty(z\mapsto\frac{1}{z})\qty(\extcomplex\setminus D(0,r))=D\qty(0,\frac{1}{r})\), \[\abs{\beta}=\frac{1}{2}\abs{\eval{\dv[2]{z}(\varphi\qty(\frac{1}{z}))}_{z=0}}\leq\frac{\sup_{D\qty(0,\frac1r)}\abs{\varphi\qty(\frac{1}{z})}}{\operatorname{dist}\qty(0,\partial D\qty(0,\frac{1}{r}))^2}=8r.\]
-    Hence, \[\abs{f_\zeta(z)}\leq \abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is~\ref{itm:complementbiholomorphismquarterestimate_absolute584}. If 
+    Hence, \[\abs{f_\zeta(z)}\leq \abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is~\ref{itm:complementbiholomorphismquarterestimate_absolute584}. If
 \end{proof}
 \begin{proposition}\label{prop:diracdeltaapproximation}
-    Suppose 
+    Suppose
     \begin{equation}
         \lambda(z)=
-            \begin{cases}
-                \qty(1-\abs{z}^2)^2&\qif*\abs{z}<1\\
-                0&\qif*\abs{z}\ge1,
+        \begin{cases}
+            \qty(1-\abs{z}^2)^2&\qif*\abs{z}<1\\
+            0&\qif*\abs{z}\ge1,
         \end{cases}\qquad\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\quad\forall r>0\label{eq:diracdeltaapproximation_lambdadefinition}
     \end{equation}
     For fixed \(r\), the function \(\lambda_r\) satisfies:
@@ -3883,13 +3882,13 @@ Let \(z=f^{-1}(w)\). Then we have
 \end{proof}
 More generally, we have
 \begin{theorem}[\textsc{Tietze--Urysohn--Brouwer}]\label{thm:tietzeextension}
-    
+
 \end{theorem}
 Let \(f\in C^0(K)\) be holomorphic on \(\interior{K}\). Then \(f\) has a continuous extension to all of \(\mathbb{C}\) by virtue of the Tietze--Urysohn--Brouwer Theorem (\autoref{thm:tietzeextension}). Continue to designate the extension by \(f\).
 \begin{proposition}
     Let \(f\in C^1(\mathbb{C})\) be compactly supported. For \(r>0\), define \[\Phi(z)=\iint_\mathbb{C}\lambda_r(z-\zeta)f(\zeta)\dd{\xi}\dd{\eta},\] where \(\lambda_r\) employs the same definition as in equation~\eqref{eq:diracdeltaapproximation_lambdadefinition}. Then,
     \begin{enumerate}
-        \item 
+        \item
     \end{enumerate}
 \end{proposition}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
@@ -3983,7 +3982,7 @@ The three following metrics are of particular interest in complex differential g
             &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}+\order{\Delta z^3\qty[\frac{1}{\abs{z}^2+1}+\order{\Delta z}]^3}]\\
             &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+o\qty(\Delta z^2)}],
         \end{align*}
-        where we have taken the liberty to coalesce orders for simplification. Since \[\lim_{\Delta z\to 0}\abs{\frac{d\qty(z,z+\Delta z)}{\Delta z}}=\frac{2}{\abs{z}^2+1},\] the metric as defined in equation~\eqref{eq:sphericalmetricdefinition} has a clear geometric meaning: the distance between two points \(z\) and \(\widetilde{z}\) under the metric in equation~\eqref{eq:sphericalmetricdefinition} is the shortest distance between the corresponding points in \(S^2\), or their spherical distance. 
+        where we have taken the liberty to coalesce orders for simplification. Since \[\lim_{\Delta z\to 0}\abs{\frac{d\qty(z,z+\Delta z)}{\Delta z}}=\frac{2}{\abs{z}^2+1},\] the metric as defined in equation~\eqref{eq:sphericalmetricdefinition} has a clear geometric meaning: the distance between two points \(z\) and \(\widetilde{z}\) under the metric in equation~\eqref{eq:sphericalmetricdefinition} is the shortest distance between the corresponding points in \(S^2\), or their spherical distance.
 
         Thus, if curve \(\gamma\) joins \(z\) and \(\widetilde{z}\), we have \[d\qty(z,\widetilde{z})=\inf_{\gamma}\int_\gamma\sigma(z)\abs{\ddz},\] which attains its infimum when the inverse stereographic projection of \(\gamma\) is a great circle of \(S^2\). Thus, \(\sigma\) is known as the spherical metric.
 
@@ -3996,16 +3995,16 @@ The three following metrics are of particular interest in complex differential g
 \end{enumerate}
 The importance of the selected regions lies in the uniformization as mentioned in \chpref{sec:riemannsurfaces}.
 
-Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by \autoref{lemma:univalentnonvanishingderivative}). If \(\rho\) is a metric on \(\Omega_2\), then 
+Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by \autoref{lemma:univalentnonvanishingderivative}). If \(\rho\) is a metric on \(\Omega_2\), then
 \begin{equation}
     f^*\rho=(\rho\circ f)\abs{f'}\label{eq:pullbackmetric}
-\end{equation} defines a metric on \(\Omega_1\), referred to as the \textscsl{pullback of metric} \(\rho\) \textsc{by} \(f\). 
+\end{equation} defines a metric on \(\Omega_1\), referred to as the \textscsl{pullback of metric} \(\rho\) \textsc{by} \(f\).
 
-Curvature as defined in equation~\eqref{eq:curvatureofmetric} is invariant under pullbacks of conformal mappings, or in the case above, we now aim to show that 
+Curvature as defined in equation~\eqref{eq:curvatureofmetric} is invariant under pullbacks of conformal mappings, or in the case above, we now aim to show that
 \begin{equation}
     K_\rho(f(z))=K_{f^*\rho}(z).\label{eq:curvatureinvarianceunderholomorphicpullback}
 \end{equation}
-By explicit definition, \[K_{f^*\rho}(z)=-\frac{\laplacian(\log\circ f^*\rho)(z)}{(f^*\rho)(z)^2}=-\frac{\qty(\laplacian\log\circ \rho\qty(f))(z)+\laplacian\log\abs{f'(z)}}{\qty(f^*\rho)^2(z)}.\] Since \(f'(z)\neq 0\), \(\log\circ\abs{f'}=\Re\log(f')\) is harmonic on \(\Omega_1\) with a vanishing Laplacian. Hence, 
+By explicit definition, \[K_{f^*\rho}(z)=-\frac{\laplacian(\log\circ f^*\rho)(z)}{(f^*\rho)(z)^2}=-\frac{\qty(\laplacian\log\circ \rho\qty(f))(z)+\laplacian\log\abs{f'(z)}}{\qty(f^*\rho)^2(z)}.\] Since \(f'(z)\neq 0\), \(\log\circ\abs{f'}=\Re\log(f')\) is harmonic on \(\Omega_1\) with a vanishing Laplacian. Hence,
 \begin{align*}
     K_{f^*\rho}(z)&=-\frac{\qty(\laplacian\log\circ \rho\qty(f))(z)}{\qty(\rho\circ f)^2\abs{f'}^2}=-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{\overline{z}}(\pdv{z}(\log\circ\rho\circ f(z)))\\
     &=-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{\overline{z}}(\pdv{\log\circ\rho}{f}\pdv{f}{z}+\pdv{\log\circ\rho}{\overline{f}}\overline{\qty(\pdv{f}{\overline{z}})})\\
@@ -4022,7 +4021,7 @@ By explicit definition, \[K_{f^*\rho}(z)=-\frac{\laplacian(\log\circ f^*\rho)(z)
 \end{theorem}
 \subsection{A Generalization of Normal Families}
 \begin{theorem}
-    
+
 \end{theorem}
 \begin{theorem}[\textsc{Great Picard Theorem}]\label{thm:greatpicard}
 
