@@ -303,7 +303,7 @@ We also have the definition of the limit of a sequence:
 \begin{proof}
     We first prove that \(a=\lim_{n\to\infty}a_n\) implies \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n=a\).
     By \cref{def:epsilonn}, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[\abs{a_n-a}<\varepsilon\Longleftrightarrow a-\varepsilon<a_n<a+\varepsilon.\]
-    Then, from \cref{def:limsup,def:liminf}, we have that \(\varlimsup_{n\to\infty}a_n\geq a\) and \(\varliminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\varlimsup_{n\to\infty}a_n\leq a\) and \(\varliminf_{n\to\infty} a_n\geq a\). Therefore, \[\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n.\]
+    Then from \cref{def:limsup,def:liminf}, we have that \(\varlimsup_{n\to\infty}a_n\geq a\) and \(\varliminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\varlimsup_{n\to\infty}a_n\leq a\) and \(\varliminf_{n\to\infty} a_n\geq a\). Therefore, \[\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n.\]
 
     For the converse, assume \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\).\ \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty(N_1, N_2)\), \(\qty|a_n-a|<\varepsilon\), as expected.
 \end{proof}
@@ -795,7 +795,7 @@ Analogous to the real case, a 0-form is defined as a scalar-valued function in t
 \end{proof}
 The theorem above is only a specific case of the Stokes-Cartan Theorem (\cref{thm:stokescartan}). However, it proves the validity of the treatment of the \(\partial\) and \(\overline{\partial}\) operators, and the generalization to forms with basis \(\ddz\) and \(\dd{\overline{z}}\).
 \begin{theorem}[\textsc{Cauchy--Pompeiu}]\label{thm:pompeiu}
-    Let \(U\subset\mathbb{C}\) be bounded with a piecewise smooth boundary \(\partial U\). Let \(f(z)\in C^1(\overline{U})\). Then \(\forall z\in U\setminus\partial U\),
+    Let \(U\subset\mathbb{C}\) be bounded with a piecewise \(C^1\) boundary \(\partial U\). Let \(f(z)\in C^1(\overline{U})\). Then \(\forall z\in U\setminus\partial U\),
     \begin{equation}
         f(z)=\frac{1}{2\piup\ii}\left(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}\right).
     \end{equation}
@@ -850,7 +850,7 @@ In complex analysis, when integrating over a region that contains a singularity,
 
 From the above result, we can directly obtain the following theorem:
 \begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a \(C^1\) boundary \(\partial U\), and let \(f\in C^1\qty(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
+    Let \(U\subset\mathbb{C}\) be an open region with a piecewise \(C^1\) boundary \(\partial U\), and let \(f\in C^1\qty(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
     \begin{equation}
         f(z)=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
     \end{equation}
@@ -859,7 +859,7 @@ From the above result, we can directly obtain the following theorem:
     By \cref{eq:wirtingerderivative2}, for \(f\paren{\zeta,\overline{\zeta}}\), \(\pdv{f}{\overline{\zeta}}=0\). Applying the Cauchy--Pompeiu Theorem (\cref{thm:pompeiu}), the area integral vanishes, and \cref{eq:cauchyintegralformula} consequently follows.
 \end{proof}
 \begin{theorem}[Cauchy's Integral Theorem]\label{thm:cauchyintegraltheorem}
-    Let \(U\subset\mathbb{C}\) be an open region bounded with a \(C^1\) boundary \(\partial U\). For a function \(f(z)\in C^1\paren{\overline{U}}\) holomorphic over \(U\), \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
+    Let \(U\subset\mathbb{C}\) be an open region with piecewise \(C^1\) boundary \(\partial U\). For a function \(f(z)\in C^1\paren{\overline{U}}\) holomorphic over \(U\), \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
     Let \(\psi(z)=zf(z)\). Applying \cref{thm:cauchyintegralformula} on \(\psi(\zeta)\) with \(z=0\), we obtain \[0=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{\psi(\zeta)}{\zeta}\ddzeta=\frac{1}{2\piup\ii}\oint_{\partial U} f\paren{\zeta}\ddzeta.\]
@@ -1969,7 +1969,7 @@ A fundamental problem in the theory of partial differential equations is to find
         \end{tikzpicture}
         \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked. The use of \(+\) and \(-\) denote a value more or less (respectively) than the proceeding value.}
         \label{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}
-    \end{figure}Since \(\varphi\) is continuous on a compact set \(\partial D(0,R)\), it is bounded by \cref{thm:heinecantor}, or \(M=\sup_{\qty|\zeta|=R}\abs{\varphi(\zeta)}\) is finite. The Poisson kernel can be rewritten as \[P(\zeta,z)=\frac{R^2-\rho^2}{2\piup\qty|\zeta-z|^2},\]
+    \end{figure}Since \(\varphi\) is continuous on a compact set \(\partial D(0,R)\), by \cref{thm:heinecantor}, it is bounded, and that \(M=\sup_{\qty|\zeta|=R}\abs{\varphi(\zeta)}\) is finite. The Poisson kernel can be rewritten as \[P(\zeta,z)=\frac{R^2-\rho^2}{2\piup\qty|\zeta-z|^2},\]
     where \(\zeta=R\ee^{\ii\tau}\) and \(z=\rho \ee^{\ii\theta}\), with \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that \(\forall z\) with \(|\xi-z|<\eta\),
     \begin{equation}
         \abs{\theta-\tau}>\frac{\delta}{2}\label{eq:dirichletproblemwithlaplaceequationsolution_constraint1},
