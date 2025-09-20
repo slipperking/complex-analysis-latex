@@ -19,7 +19,7 @@
 \setlist[enumerate]{label=(\arabic*)}
 \setlist[itemize]{label=\ding{226}}
 
-\usepackage{hyperref}
+\usepackage{hyperref, cleveref}
 \usepackage[backend=biber, style=alphabetic, sorting=ynt]{biblatex}
 \addbibresource{references.bib}
 \nocite{*}
@@ -44,9 +44,12 @@
 \newcommand{\Arg}{\mathrm{Arg}}
 \newcommand{\Aut}{\mathrm{Aut}}
 
-\newtheorem{theorem}{Theorem}[subsection]
-\newtheorem{proposition}[theorem]{Proposition}
-
+ \declaretheorem[name=Theorem,
+ refname={theorem,theorems},
+ Refname={Theorem,Theorems}, numberwithin=subsection]{theorem}
+ \declaretheorem[name=Proposition,
+ refname={proposition,propositions},
+ Refname={Proposition,Propositions}, numberwithin=subsection, sharecounter=theorem]{theorem}
 \newtheorem{corollaryinner}{Corollary}[theorem]
 \NewDocumentEnvironment{corollary}{D<>{}}
 {
