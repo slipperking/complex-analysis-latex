@@ -3933,10 +3933,10 @@ The three following metrics are of particular interest in complex differential g
     \item Perhaps the most trivial metric is the \textscsl{Euclidean metric} (also known as the \textscsl{parabolic metric}) on \(\mathbb{C}\), and is given by \[\rho=1,\qquad\dd{s}^2=\abs{\ddz}^2.\] The \textscsl{Euclidean distance} between two points \(z_1,z_2\in\mathbb{C}\) is \[\inf_{\gamma}\int_\gamma\abs{\ddz}=\abs{z_2-z_1}\] is the length of the straight line segment connecting \(z_1\) and \(z_2\). The group formed by all transformations in the form of \(z\mapsto\ee^{\ii\theta}z+a\) (where \(a\in\mathbb{C}\) and \(\theta\in\mathbb{R}\)) is known as \textit{the group of rigid motions}, or more abstractly, the \textit{special Euclidean group} of order 2, denoted by \(\mathrm{SE}(2)<\Aut(\mathbb{C})\), intuitively consists of all rotations and translations and their compositions, while the \textit{Euclidean} group \(\mathrm{E}(2)>\mathrm{SE}(2)\) consists of reflections in the form of \(z\mapsto\ee^{\ii\theta}\overline{z}+a\). Obviously, the Euclidean metric is invariant under both groups.
 
         From \cref{eq:curvatureofmetric}, we find that Euclidean metric has curvature \(K=0\).
-    \item The \textscsl{Poincaré metric} (also referred to as the \textscsl{hyperbolic metric}) on \(\mathbb{D}\) is given by 
-    \begin{equation}
-        \rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\label{eq:poincaremetricdefinition}
-    \end{equation}
+    \item The \textscsl{Poincaré metric} (also referred to as the \textscsl{hyperbolic metric}) on \(\mathbb{D}\) is given by
+        \begin{equation}
+            \rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\label{eq:poincaremetricdefinition}
+        \end{equation}
         In \cref{lemma:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\).
 
         We will now calculate the Poincaré distance between two points \(z_1,z_2\in\mathbb{C}\). First assume the case where \(z_1=0\) and \(z_2=R\in (0,1)\). Consider a piecewise smooth curve \(\gamma\subset\mathbb{D}\) parameterized by \(z(t)\) connecting \(z_1\) and \(z_2\); or in other words \[z(t)=x(t)+\ii y(t),\qquad z(0)=z_1=0,\quad z(1)=z_2=R,\] where \(x\in C^1([0,1])\) and \(y\in C^1([0,1])\) are real-valued functions. Then
@@ -4005,7 +4005,8 @@ In 1938, Lars Ahlfors provided a further generalization via curvatures, promptin
 
 The hyperbolic metric \(\lambda\) in \cref{eq:poincaremetricdefinition} does not increase under any holomorphic \(f:\mathbb{D}\to\mathbb{D}\). It was realized that this was a consequence of the constant negative curvature \(-1\) of \(\lambda\).
 \begin{theorem}[\textsc{Schwarz--Ahlfors--Pick}]\label{thm:schwarzahlforspick}
-    Let \(f:\mathbb{D}\to U\) be holomorphic. If \(\rho\) is a metric defined on \(U\), where \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) and \(K_\rho(z)\leq -1\) for all \(z\in U\), then \[f^*\rho(z)\leq\lambda(z),\qquad\forall z\in\mathbb{D},\] where \(\lambda\) is the Poincaré metric.
+    Let \(f:\mathbb{D}\to U\) be holomorphic. If \(\rho\) is a metric defined on \(U\), where \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) and \(K_\rho(z)\leq -1\) for all \(z\in U\), then \[f^*\rho(z)\leq\lambda(z)\quad\forall z\in\mathbb{D},\]
+    where \(\lambda\) is the Poincaré metric, and equivalently, \[\dd{s}^2_{f^*\rho}\leq\dd{s}^2_\lambda,\] or that the metric \(\rho\) does not increase under \(f\).
 \end{theorem}
 \begin{theorem}[\textsc{Generalized Liouville}]
     Let \(f\)
