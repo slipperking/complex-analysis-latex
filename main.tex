@@ -68,13 +68,20 @@ Refname={Corollary,Corollaries}, numberwithin=theorem]{corollaryinner}
 }
 {\endcorollaryinner}
 
-\newtheorem{lemma}[theorem]{Lemma}
-\theoremstyle{remark}
-\newtheorem{example}{Example}[subsection]
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+\declaretheorem[name=Lemma,
+    refname={lemma,lemmas},
+Refname={Lemma,Lemmas}, numberwithin=subsection, sibling=theorem]{lemma}
+\declaretheorem[name=Remark,
+    numbered=no,
+    refname={remark,remarks},
+Refname={Remark,Remarks}, numberwithin=subsection, sibling=theorem, style=remark]{remark}
+\declaretheorem[name=Example,
+    refname={example,examples},
+Refname={Example,Examples}, numberwithin=subsection, sibling=theorem, style=remark]{example}
+\declaretheorem[name=Definition,
+    refname={definition,definitions},
+Refname={Definition,Definitions}, numberwithin=subsection, sibling=theorem, style=definition]{definition}
+
 \providecommand*{\lemmaautorefname}{Lemma}
 \providecommand*{\propositionautorefname}{Proposition}
 \providecommand*{\definitionautorefname}{Definition}
