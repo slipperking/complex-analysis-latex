@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amssymb, amsfonts, amsthm, thmtools}
+\usepackage{amssymb, amsfonts, amsthm}
 \usepackage[fixamsmath]{mathtools}
 \usepackage{parskip}
 \usepackage{cancel}
@@ -44,31 +44,23 @@
 
 \usepackage{hyperref}
 \usepackage[noabbrev, nameinlink]{cleveref}
-\declaretheorem[name=Theorem, refname={theorem, theorems}, Refname={Theorem, Theorems}, numberwithin=subsection]{theorem}
-\declaretheorem[name=Proposition, refname={proposition, propositions}, Refname={Proposition, Propositions}, sibling=theorem]{proposition}
-\declaretheorem[name=Corollary, refname={corollary, corollaries}, Refname={Corollary, Corollaries}, numberwithin=theorem]{corollaryinner}
-\NewDocumentEnvironment{corollary}{D<>{}}
-{
-    \if\relax\detokenize{#1}\relax
-    \else
-    \ifcsname #1-used\endcsname
-    \expandafter\xdef\csname #1-used\endcsname{\the\numexpr\csname #1-used\endcsname+1}%
-    \else
-    \expandafter\gdef\csname #1-used\endcsname{1}%
-    \fi
-    \renewcommand{\thecorollaryinner}{\ref{#1}.\csname #1-used\endcsname}%
-    \fi
-    \corollaryinner%
-}
-{\endcorollaryinner}
-
-\declaretheorem[name=Lemma, refname={lemma, lemmas}, Refname={Lemma, Lemmas}, sibling=theorem]{lemma}
-\declaretheorem[name=Remark, numbered=no, refname={remark, remarks}, Refname={Remark, Remarks}, sibling=theorem, style=remark]{remark}
-\declaretheorem[name=Example, refname={example, examples}, Refname={Example, Examples}, sibling=theorem, style=remark]{example}
-\declaretheorem[name=Definition, refname={definition, definitions}, Refname={Definition, Definitions}, sibling=theorem, style=definition]{definition}
 
 \numberwithin{equation}{subsection}
 \numberwithin{figure}{section}
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem{example}[theorem]{Example}
+% -------------------------------------------
+
 \DeclarePairedDelimiter{\paren}{(}{)}
 \let\parendefault\paren%
 \renewcommand{\paren}{\parendefault*}
@@ -201,7 +193,7 @@ It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a
 \end{theorem}
 \begin{theorem}[Fundamental Theorem of Calculus, Integral Form]
     Let \(\Phi(x)\) be a function differentiable over \([a,b]\). Let \(f(x)=\Phi'(x)\) over \([a,b]\). Then,
-    \[\int_a^xf(t)\dd{t}=\Phi(x)-\Phi(a).\]
+    \[{\int_a^x}f(t)\dd{t}=\Phi(x)-\Phi(a).\]
 \end{theorem}
 The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed for differentiating oftentimes have a corresponding inverse operation that can be done for integrating. For instance, \[\dv{(f(x)\pm g(x))}{x}=\dv{f(x)}{x}\pm\dv{g(x)}{x}\] corresponds to \[\int(f(x)\pm g(x))\ddx=\int f(x)\ddx\pm\int g(x)\ddx,\]
 and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx=f(x)g(x)-\int f'(x)g(x)\ddx,\] and \[\dv{f(g(x))}{x}=\dv{f(g)}{g}\cdot\dv{g(x)}{x}\] corresponds to \[\int_a^b f(g(x))g'(x)\ddx=\int_{g(a)}^{g(b)}f(u)\dd{u}.\] Another correspondence is the Mean Value Theorem:
@@ -311,7 +303,7 @@ We also have the definition of the limit of a sequence:
 \begin{proof}
     We first prove that \(a=\lim_{n\to\infty}a_n\) implies \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n=a\).
     By \cref{def:epsilonn}, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[\abs{a_n-a}<\varepsilon\Longleftrightarrow a-\varepsilon<a_n<a+\varepsilon.\]
-    Then from the first conditions of \cref{def:limsup,def:liminf}, we get that \(\varlimsup_{n\to\infty}a_n\geq a\) and \(\varliminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\varlimsup_{n\to\infty}a_n\leq a\) and \(\varliminf_{n\to\infty} a_n\geq a\). Therefore, \[\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n.\]
+    Then, from \cref{def:limsup,def:liminf}, we have that \(\varlimsup_{n\to\infty}a_n\geq a\) and \(\varliminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\varlimsup_{n\to\infty}a_n\leq a\) and \(\varliminf_{n\to\infty} a_n\geq a\). Therefore, \[\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n.\]
 
     For the converse, assume \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\).\ \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty(N_1, N_2)\), \(\qty|a_n-a|<\varepsilon\), as expected.
 \end{proof}
@@ -579,7 +571,7 @@ The functions \(\sin\) and \(\cos\), through their exponential form, still satis
 
 We now examine the regions over which they are univalent. Consider \(\cos(z)=\frac{\ee^{\ii z}+\ee^{-\ii z}}{2}\). Define the auxiliary functions \[\xi(z)=\ii z,\quad\zeta(\xi)=\ee^\xi,\quad w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}.\] Then, \(\cos(z)=(w\circ\zeta\circ\xi)(z)\).
 
-\(\xi\) is clearly univalent on \(\mathbb{C}\), as it is a linear map (specifically, a rotation by \(\frac{\piup}{2}\) radians followed by scaling). \(\zeta\) is univalent on any domain \(U\subset\mathbb{C}\) such that for all \(\xi_1,\xi_2\in U\), \(\xi_1-\xi_2\neq2\piup \ii k\) for any \(k\in\mathbb{Z}\). That is, \(U\) must not contain any pair of points differing by a nonzero integer multiple of \(2\piup\ii\). If \(\xi_1=\ii z_1\) and \(\xi_2=\ii z_2\), then this translates to \(z_1-z_2\neq2\piup k\) for \(k\in\mathbb{Z}\). \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) is univalent on regions excluding pairs \((\zeta_1,\zeta_2)\) such that \(\zeta_1=\frac{1}{\zeta_2}\). In terms of \(z\), this condition becomes \(\ee^{\ii z_1}\ee^{\ii z_2}\neq1\), or equivalently, \(z_1+z_2\neq2\piup k\) for any \(k\in\mathbb{Z}\).
+\(\xi\) is clearly univalent on \(\mathbb{C}\), as it is a linear map (specifically, a rotation by \(\frac{\piup}{2}\) radians followed by scaling).\ \(\zeta\) is univalent on any domain \(U\subset\mathbb{C}\) such that for all \(\xi_1,\xi_2\in U\), \(\xi_1-\xi_2\neq2\piup \ii k\) for any \(k\in\mathbb{Z}\). That is, \(U\) must not contain any pair of points differing by a nonzero integer multiple of \(2\piup\ii\). If \(\xi_1=\ii z_1\) and \(\xi_2=\ii z_2\), then this translates to \(z_1-z_2\neq2\piup k\) for \(k\in\mathbb{Z}\). \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) is univalent on regions excluding pairs \((\zeta_1,\zeta_2)\) such that \(\zeta_1=\frac{1}{\zeta_2}\). In terms of \(z\), this condition becomes \(\ee^{\ii z_1}\ee^{\ii z_2}\neq1\), or equivalently, \(z_1+z_2\neq2\piup k\) for any \(k\in\mathbb{Z}\).
 
 Combining these constraints, we conclude that \(\cos(z)\) is univalent on any vertical strip in the complex plane of width \(\piup\), such as a region of the form \[\{z\mid k\piup<\Re(z)<(k+1)\piup\},\quad k\in\mathbb{Z}.\] Let us now consider the specific region \(\{z\in\mathbb{C}\mid 0<\Re(z)<\piup\}\), and analyze how it is mapped under \(\cos(z)\).
 \begin{enumerate}
