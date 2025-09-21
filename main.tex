@@ -4012,7 +4012,8 @@ The hyperbolic metric \(\lambda\) in \cref{eq:poincaremetricdefinition} does not
     Define \[\lambda_r(z)=\qty(z\mapsto\frac{z}{r})^*\lambda(z)=\frac{2r}{r^2-\abs{z}^2},\qquad 0<r<1\] to generalize the Poincaré metric to \(D(0,r)\). By \cref{eq:curvatureinvarianceunderholomorphicpullback}, we have \(K_{\lambda_r}(z)=K_\rho\qty(\frac{z}{r})=-1\) for any \(z\in D(0,r)\). Define the real-valued function \[u_r(z)=\frac{f^*\rho\qty(z)}{\lambda_r(z)}\qfor z\in D(0,r),\] which is nonnegative and continuous on \(D(0,r)\). The pullback metric \(f^*\rho=\qty(\rho\circ f)\abs{f'}\) is continuous on \(\mathbb{D}\) and thus bounded on \(\overline{D(0,r)}\) (as a consequence of \cref{thm:continuousfunctionboundedoncompact}). As \(\abs{z}\to r^-\), \(\lambda_r(z)\to\infty\), and hence \(\lim_{\abs{z}\to r^{-}}u_r(z)=0\). Thus, \[M_r=\max_{z\in \overline{D(0,r)}}u_r(z)\] must be attained at some \(z=\tau_r\in D(0,r)\) (within the interior). 
 
     If \(M_r=0\), then \(\forall z\in D(0,r)\), \(\frac{f^*\rho(z)}{\lambda_r(z)}=0\) by maximality. On the contrary, if \(M_r>0\), \(f^*\rho\) has well defined Gaussian curvature at \(\tau_r\). Since \begin{align*}
-        \qty(\laplacian{\log(u_r)})(\tau)=\qty(\laplacian{\log\qty(f^*\rho)})(\tau)-\qty(\laplacian{\log\qty(\lambda_r)})(\tau)
+        \qty(\laplacian{\log(u_r)})(\tau)&=\qty(\laplacian{\log\qty(f^*\rho)})(\tau)-\qty(\laplacian{\log\qty(\lambda_r)})(\tau)\\
+        &=-K_{f^*\rho}(\tau)\qty(f^*\rho(\tau))^2+K_{\lambda_r}(\tau)\qty(\lambda_r(\tau))^2
     \end{align*}
 
 \end{proof}
