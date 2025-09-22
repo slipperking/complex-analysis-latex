@@ -4009,7 +4009,10 @@ The hyperbolic metric \(\lambda\) in \cref{eq:poincaremetricdefinition} does not
     where \(\lambda\) is the Poincaré metric, and equivalently, \[\dd{s}^2_{f^*\rho}\leq\dd{s}^2_\lambda,\] or that the metric \(\rho\) does not exceed the hyperbolic metric under the map \(f\).
 \end{theorem}
 \begin{proof}
-    Define \[\lambda_r(z)=\qty(z\mapsto\frac{z}{r})^*\lambda(z)=\frac{2r}{r^2-\abs{z}^2},\qquad 0<r<1\] to generalize the Poincaré metric to \(D(0,r)\). By \cref{eq:curvatureinvarianceunderholomorphicpullback}, we have \(K_{\lambda_r}(z)=K_\lambda\qty(\frac{z}{r})=-1\) for any \(z\in D(0,r)\). Define the real-valued function \[u_r(z)=\frac{f^*\rho\qty(z)}{\lambda_r(z)}\qfor z\in D(0,r),\] which is nonnegative and continuous on \(D(0,r)\). The pullback metric \(f^*\rho=\qty(\rho\circ f)\abs{f'}\) is continuous on \(\mathbb{D}\) and thus bounded on \(\overline{D(0,r)}\) (as a consequence of \cref{thm:continuousfunctionboundedoncompact}). As \(\abs{z}\to r^-\), \(\lambda_r(z)\to\infty\), and hence \(\lim_{\abs{z}\to r^{-}}u_r(z)=0\). Thus, \[M_r=\max_{z\in \overline{D(0,r)}}u_r(z)\] must be attained at some \(z=\tau_r\in D(0,r)\) (within the interior).
+    Define 
+    \begin{equation}
+        \lambda_r(z)=\qty(z\mapsto\frac{z}{r})^*\lambda(z)=\frac{2r}{r^2-\abs{z}^2},\qquad 0<r<1\label{eq:poincaremetriconscaleddisks}
+    \end{equation} to generalize the Poincaré metric to \(D(0,r)\). By \cref{eq:curvatureinvarianceunderholomorphicpullback}, we have \(K_{\lambda_r}(z)=K_\lambda\qty(\frac{z}{r})=-1\) for any \(z\in D(0,r)\). Define the real-valued function \[u_r(z)=\frac{f^*\rho\qty(z)}{\lambda_r(z)}\qfor z\in D(0,r),\] which is nonnegative and continuous on \(D(0,r)\). The pullback metric \(f^*\rho=\qty(\rho\circ f)\abs{f'}\) is continuous on \(\mathbb{D}\) and thus bounded on \(\overline{D(0,r)}\) (as a consequence of \cref{thm:continuousfunctionboundedoncompact}). As \(\abs{z}\to r^-\), \(\lambda_r(z)\to\infty\), and hence \(\lim_{\abs{z}\to r^{-}}u_r(z)=0\). Thus, \[M_r=\max_{z\in \overline{D(0,r)}}u_r(z)\] must be attained at some \(z=\tau_r\in D(0,r)\) (within the interior).
 
     If \(M_r=0\), then \(\forall z\in D(0,r)\), \(\frac{f^*\rho(z)}{\lambda_r(z)}=0\Rightarrow M_r=0\leq 1\) by maximality. On the contrary, if \(M_r>0\), \(f^*\rho\) has well defined Gaussian curvature at \(\tau_r\). Since
     \begin{align*}
@@ -4025,7 +4028,11 @@ For the purpose of the proceeding generalization, we define the conformal metric
 \begin{equation}
     \lambda_r^\alpha(z)=\frac{2r}{\sqrt{\alpha}\qty(r^2-z^2)},\qquad z\in D(0,r)\label{eq:poincaremetricscaledcurvature}
 \end{equation}
-Its Gaussian curvature is \[K_{\lambda_r^\alpha}(z)=-\frac{4}{\sqrt{\alpha}}\pdv[2]{}{\overline{z}}{z}\qty(\frac{2r}{r^2-z^2})\qty(\frac{\sqrt{\alpha}\qty(r^2-z^2)}{2r})^2\]
+Its Gaussian curvature is 
+\begin{align*}
+    K_{\lambda_r^\alpha}(z)&=-4\pdv[2]{}{\overline{z}}{z}\qty[\log(\frac{2r}{\sqrt{\alpha}\qty(r^2-z^2)})]\qty(\frac{\sqrt{\alpha}\qty(r^2-z^2)}{2r})^2\\
+    &=-4\alpha\pdv[2]{}{\overline{z}}{z}\qty[\log(\frac{2r}{r^2-z^2})]\qty(\frac{r^2-z^2}{2r})^2=\alpha K_{\lambda_r}(z)=-\alpha,
+\end{align*} via the results and definitions in \cref{eq:poincaremetriconscaleddisks}.
 \begin{corollary}
 
 \end{corollary}
