@@ -4026,7 +4026,7 @@ The result above indeed generalizes the Schwarz--Pick Theorem when \(\rho\) is c
 
 For the purpose of the proceeding generalization, we define the conformal metric
 \begin{equation}
-    \lambda_r^\alpha(z)=\frac{2r}{\sqrt{\alpha}\qty(r^2-\abs{z}^2)},\qquad r>0,z\in D(0,r).\label{eq:poincaremetricscaledcurvature}
+    \lambda_r^\alpha(z)=\frac{1}{\sqrt{\alpha}}\qty(z\mapsto\frac{z}{r})^*\lambda(z)=\frac{2r}{\sqrt{\alpha}\qty(r^2-\abs{z}^2)},\qquad r>0,z\in D(0,r).\label{eq:poincaremetricscaledcurvature}
 \end{equation}
 Its Gaussian curvature is 
 \begin{align*}
@@ -4036,6 +4036,10 @@ Its Gaussian curvature is
 \begin{corollary}
     Let \(r>0\) and suppose \(f:D(0,r)\to U\) is holomorphic, where \(U\subseteq\mathbb{C}\) is a region. For any \(\beta>0\), define \(\rho\) to be a conformal metric on \(U\) with \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho\qty(z)\leq-\beta,\qquad\forall z\in U.\] Then \(\forall\alpha>0\), \[f^*\rho(z)\leq\sqrt{\frac{\alpha}{\beta}}\lambda_r^\alpha(z)\] for any \(z\in D(0,r)\), where \(f^*\rho(z)=(\rho\circ f)\abs{f'}\) is the metric pullback.
 \end{corollary}
+\begin{proof}
+    Consider the \(\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})\), a conformal metric pullback of \(\rho\sqrt{\beta}\) to \(\mathbb{D}\), which satisfies \[K_{\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})}\leq -1.\] By Schwarz--Ahlfors--Pick (\autoref{thm:schwarzahlforspick}), we have \[\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})(z)\leq\lambda(z)=\sqrt{\alpha}\qty(z\mapsto rz)^*\lambda_r^\alpha(z)\qfor z\in\mathbb{D}.\]
+    Since \(r\neq 0\), this implies that \[f^*\qty(\rho\sqrt{\beta})(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z)\qfor z\in D(0,r).\] Since \(\sqrt{\beta}\) is a constant, \[f^*\rho(z)\leq\sqrt{\frac{\alpha}{\beta}}\lambda_r^\alpha(z),\qquad\forall z\in D(0,r).\qedhere\]
+\end{proof}
 \begin{theorem}[\textsc{Generalized Liouville}]
     Let \(f\)
 \end{theorem}
