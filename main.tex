@@ -2176,8 +2176,8 @@ A function with an essential singularity exhibits striking behavior. We will fir
     Assume for the sake of contradiction that \(\exists\varepsilon,\delta>0\), and \(\exists w\in\mathbb{C}\) such that \(\forall z\in D^*(a,\delta)\), \(|f(z)-w|>\varepsilon\). Define the auxiliary function \(g(z)=\frac{f(z)-w}{z-a}\), which is holomorphic and non-vanishing on the punctured neighborhood of \(a\). Since as \(z\to a\), \(g(z)\to\infty\), it follows that \(g(z)\) has a pole at \(a\). Let the order of the pole be \(m\in\mathbb{N}\). By \cref{thm:isolatedsingularities_pole_laurentexpansion}, \(g(z)\) has the Laurent expansion of \[\frac{c_{-m}}{(z-a)^m}+\cdots c_0+c_1(z-a)+\cdots\]
     for some \(m\in\mathbb{N}\). It follows that \[f(z)=\frac{c_{-m}}{(z-a)^{m-1}}+\cdots+c_{-1}+w+c_0(z-a)+\cdots.\] If \(m=1\), then \(f\) has a removable singularity at \(a\). If \(m\geq2\), then \(f\) has a pole at \(a\). Hence, we have a contradiction.
 \end{proof}
-A similar proof yields the following result for entire functions.
-\begin{theorem}
+An analogous proof yields the following result for entire functions.
+\begin{theorem}\label{thm:casoratiweierstrassentire}
     The set of values that a non-constant entire function \(f\) assumes is dense in \(\mathbb{C}\).
 \end{theorem}
 \begin{proof}
@@ -3998,7 +3998,7 @@ By explicit definition, \[K_{f^*\rho}(z)=-\frac{\laplacian(\log\circ f^*\rho)(z)
     &=-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{f}{z}\qty(\pdv[2]{\log\circ\rho}{f}\pdv{f}{\overline{z}}+\pdv[2]{\log\circ\rho}{\overline{f}}{f}\overline{\qty(\pdv{f}{z})})\\
     &=-\frac{4}{\qty(\rho\circ f)^2}\pdv[2]{}{\overline{f}}{f}\qty(\log\circ\rho)=-\frac{\laplacian_f\qty(\log\circ\rho)}{\qty(\rho\circ f)^2}=K_\rho\qty(f(z)).
 \end{align*}
-\subsection{From Schwarz--Pick to Ahlfors and Remarks on Value Distribution}
+\subsection{From Schwarz--Pick to Ahlfors and the Value Distribution of Entire Functions}
 While Schwarz Lemma in \cref{lemma:schwarz} concerns self-maps of \(\mathbb{D}\) with a fixed point at the origin, the Schwarz--Pick Lemma in \cref{lemma:schwarzpick} generalizes this to arbitrary points in \(\mathbb{D}\) as well as the hyperbolic contraction property of holomorphic maps.
 
 In 1938, Lars Ahlfors provided a further generalization via curvatures, prompting the study of complex functions from a differential-geometric approach.
@@ -4037,7 +4037,7 @@ Its Gaussian curvature is
     Let \(r>0\) and suppose \(f:D(0,r)\to U\) is holomorphic, where \(U\subseteq\mathbb{C}\) is a region. For any \(\beta>0\), define \(\rho\) to be a conformal metric on \(U\) with \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho\qty(z)\leq-\beta,\qquad\forall z\in U.\] Then \(\forall\alpha>0\), \[f^*\rho(z)\leq\sqrt{\frac{\alpha}{\beta}}\lambda_r^\alpha(z)\] for any \(z\in D(0,r)\), where \(f^*\rho(z)=(\rho\circ f)\abs{f'}\) is the metric pullback.
 \end{corollary}
 \begin{proof}
-    Consider the \(\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})\), a conformal metric pullback of \(\rho\sqrt{\beta}\) to \(\mathbb{D}\), which satisfies \[K_{\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})}\leq -1.\] By Schwarz--Ahlfors--Pick (\autoref{thm:schwarzahlforspick}), we have \[\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})(z)\leq\lambda(z)=\sqrt{\alpha}\qty(z\mapsto rz)^*\lambda_r^\alpha(z)\qfor z\in\mathbb{D}.\]
+    Consider the \(\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})\), a conformal metric pullback of \(\rho\sqrt{\beta}\) to \(\mathbb{D}\), which satisfies \[K_{\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})}\leq -1.\] By Schwarz--Ahlfors--Pick (\cref{thm:schwarzahlforspick}), we have \[\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})(z)\leq\lambda(z)=\sqrt{\alpha}\qty(z\mapsto rz)^*\lambda_r^\alpha(z)\qfor z\in\mathbb{D}.\]
     Since \(r\neq 0\), this implies that \[f^*\qty(\rho\sqrt{\beta})(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z)\qfor z\in D(0,r).\] Since \(\sqrt{\beta}\) is a constant, \[\sqrt{\beta}f^*\rho(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z),\qquad\forall z\in D(0,r).\qedhere\]
 \end{proof}
 \begin{corollary}[\textsc{Generalized Liouville}]\label{crl:generalizedliouville}
@@ -4051,22 +4051,34 @@ Its Gaussian curvature is
 \end{remark}
 It is understood that a entire function is guaranteed to be constant if it is bounded. This is a statement of sufficiency, but it begs the question of the capacity for possible generalization of boundedness under which constancy is still always satisfied.
 
-Consider an entire function \(f:\mathbb{C}\to U\), where \(U\) is an unbounded region such that \(\mathbb{C}\setminus U\) has positive area. Fix \(\zeta\in\operatorname{int}\qty(\mathbb{C}\setminus U)\). Then the map \(z\mapsto\frac{1}{z-\zeta}\) maps \(U\) to a bounded region and hence \(z\mapsto\frac{1}{f(z)-\zeta}\) is constant by Liouville's Theorem (\cref{thm:liouville}), implying the constancy of \(f\).
+Consider an entire function \(f:\mathbb{C}\to U\), where \(U\) is an unbounded region such that \(\mathbb{C}\setminus U\) has positive area. Fix \(\zeta\in\operatorname{int}\qty(\mathbb{C}\setminus U)\). Then the map \(z\mapsto\frac{1}{z-\zeta}\) maps \(U\) to a bounded region and hence \(z\mapsto\frac{1}{f(z)-\zeta}\) is constant by Liouville's Theorem (\cref{thm:liouville}), implying the constancy of \(f\) (the essential proof of \cref{thm:casoratiweierstrassentire}).
 
-In the case that \(f:\mathbb{C}\to U\) is entire, where \(\mathbb{C}\setminus U\) has zero area (such as a set of curves or discrete points), we are concerned with the sufficent conditions that imply the constancy of \(f\).
+In contrast, if \(f:\mathbb{C}\to U\) is entire and \(\mathbb{C}\setminus U\) has zero area (one readily considers sets consisting of curves or isolated points), we must be more specific in determining sufficient conditions that still imply constancy of \(f\).
 
-In the former case, we may apply well-chosen holomorphic square roots to reach a similar conclusion.
+Similar to in the proof of the Riemann Mapping Theorem (\cref{thm:riemannmapping}), one may use holomorphic square roots or other transformations to reduce to the bounded setting.
+\begin{example}
+    If \(f:\mathbb{C}\to\mathbb{C}\setminus\cbraces{x\in\mathbb{R}}{0\leq x\leq 1}\) is entire, then \(f\) must be constant.
+\end{example}
+\begin{proof}
+    Consider the biholomorphism \(\varphi(z)=\frac{1}{z}\), which maps \(\mathbb{C}\setminus\cbraces{x\in\mathbb{R}}{0\leq x\leq 1}\) to \(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1}\). By simple connectivity of \(\mathbb{C}\setminus\mathbb{R}_{\geq 1}\), there exists a univalent branch \(\psi\) of \(z\mapsto\sqrt{z-1}\) on \(\mathbb{C}\setminus\mathbb{R}_{\geq 1}\). Now omitting the origin, it is trivially realized that \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\cap-\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})=\emptyset\). If otherwise, then \(\exists\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\) such that \(-\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\), implying that \(\exists z_1,z_2\in\mathbb{C}^*\setminus\mathbb{R}_{\geq 1}\) such that \(\phi\qty(z_1)=\xi\) and \(\phi\qty(z_2)=-\xi\), implying that \(z_1=z_2\) and \(\xi=0\Rightarrow z_1=z_2=1\), which does not lie in \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\).
+
+    Now fix \(\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\). By the Open Mapping Theorem (\cref{thm:openmapping}), \(\exists\varepsilon>0\) such that \(D(\xi,\varepsilon)\subseteq\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\). Consequently, \(D(-\xi,\varepsilon)\cap\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})=\emptyset\). Lastly, the function \(\phi(z)=\frac{\varepsilon}{z+\xi}\) maps \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\) to \(\mathbb{D}\). By Liouville (\cref{thm:liouville}), \(\phi\circ\psi\circ\varphi\circ f\) is constant, which implies \(f\) is constant by the injectivity of \(\phi\), \(\psi\), and \(\varphi\).
+\end{proof} 
+The preceding examples show that if the omitted set is sufficiently ``large'' (in the sense of having positive area or disconnecting the plane in certain ways), then any entire function avoiding it must reduce to a constant. However, there are natural limits to the smallness of the omitted set. For instance, the exponential function \(\exp\) is an entire nonconstant function whose image is \(\mathbb{C}^*\), omitting only a single point. Thus, the property that \textit{an entire function omits a set} is not by itself sufficient to guarantee constancy unless that set is suitably substantial. This observation is formalized by Picard's Little Theorem (\cref{thm:littlepicard}), which as preluded to before, asserts that any nonconstant entire function can omit at most one complex value.
+\begin{proposition}\label{prop:conformalmetricnegativecurvatureexistencewhenomits2points}
+    Let \(U\subset\mathbb{C}\) be an open set such that \(\mathbb{C}\setminus U\) contains at least two points. Then \(U\) admits a conformal metric \(\rho\in C^2(U)\), \(\dd{s}_\rho^2=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho(z)\leq -\beta<0\qquad\forall z\in U\] for some \(\beta>0\). 
+\end{proposition}
+\begin{theorem}[\textsc{Picard's Little Theorem}]\label{thm:littlepicard}
+
+\end{theorem}
 \subsection{A Generalization of Normal Families}
 \begin{theorem}
 
 \end{theorem}
-\subsection{The Picard, Bloch, Landau, and Schottky Theorems}
-\begin{theorem}[\textsc{Great Picard Theorem}]\label{thm:greatpicard}
+\subsection{The Great Picard, Bloch, Landau, and Schottky Theorems}
+\begin{theorem}[\textsc{Picard's Great Theorem}]\label{thm:greatpicard}
 
 \end{theorem}
-\begin{corollary}[\textsc{Little Picard Theorem}]\label{thm:littlepicard}
-
-\end{corollary}
 The original proof introduced by
 \section{A Glimpse into the Function Theory of Multiple Complex Variables}\label{sec:multivariatecomplexanalysis}
 As in the single-variable case, there exist natural extensions of the definitions of holomorphy and of derivatives, as well as direct analogs of integral theorems.
