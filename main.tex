@@ -4115,11 +4115,14 @@ By equipping the extended complex plane \(\extcomplex\) with the spherical metri
 Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\extcomplex\) be a sequence. Then we say \(a_n\to a_\infty\) \textit{spherically} if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(d_\sigma\qty(a_n,a_\infty)<\varepsilon\), where \(d_\sigma\) is the spherical distance.
 
 \begin{definition}
-    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\extcomplex\) is said to be \textscsl{normal} if and only if every sequence has a locally uniformly spherically convergent subsequence on \(\Omega\).
+    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is said to be \textscsl{normal} if and only if every sequence has a locally uniformly spherically convergent subsequence on \(\Omega\).
 \end{definition}
-Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be generalized via the spherical metric:
+Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be generalized via the spherical metric.
+\begin{definition}[Spherical Derivative]
+    Let \(\Omega\subseteq\mathbb{C}\) be an open region or domain. Suppose \(f:\Omega\to\extcomplex\) is meromorphic. Then the \textscsl{spherical derivative} of \(f\) is given by \[f^\sharp(z)=f^*\sigma(z)=\frac{2\abs{f'(z)}}{1+\abs{f(z)'}}\] for \(f(z)\neq\infty\) and \[f^\sharp(z)=\lim_{\zeta\to z}f^\sharp(\zeta)\] otherwise.
+\end{definition}
 \begin{theorem}[\textsc{Marty's Criterion}]
-    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\extcomplex\) is normal if and only if \[\cbraces{f^*\sigma}{f\in\mathcal{F}},\] or the family of \textscsl{spherical derivatives} \(f^*\sigma\equiv f^\sharp\), is locally uniformly bounded in \(\Omega\). Equivalently, \(\mathcal{F}\) is a normal family if and only if for all compact \(K\subseteq\Omega\), there exists a constant \(M>0\) dependent on \(K\) such that \[f^\sharp(z)=\frac{2\abs{f'(z)}}{1+\abs{f(z)}^2}<M,\] for any \(f\in\mathcal{F}\) and \(z\in K\).
+    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is normal if and only if \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in \(\Omega\).
 \end{theorem}
 \begin{theorem}[\textsc{Fundamental Normality Test}]\label{thm:fundamentalnormalitytest}
 
