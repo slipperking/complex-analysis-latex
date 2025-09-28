@@ -2308,19 +2308,17 @@ Conversely, we have:
     \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z).\]
     This function is meromorphic on \(\mathbb{C}\), with potential singularities only at \(z_1,\dots,z_n\) and \(\infty\).
 
-    We now show that each of these singularities is removable. First, fix \(j\in\{1,\dots,n\}\). Since the poles are isolated, there exists \(\varepsilon_j>0\) such that the punctured disk \(D^*(z_j,\varepsilon_j)=\cbraces{z}{0<\abs{z-z_j}<\varepsilon_j}\) contains no other poles \(z_k\) for \(k\neq j\). On this disk:
+    We now show that each of these singularities is removable. First, fix \(j\in\qty{1,\dots,n}\). Since the poles are isolated, there exists \(\varepsilon_j>0\) such that the punctured disk \(D^*(z_j,\varepsilon_j)=\cbraces{z}{0<\abs{z-z_j}<\varepsilon_j}\) contains no other poles \(z_k\) for \(k\neq j\). 
     \begin{enumerate}
         \item \(f(z)-\psi_j(z)\) is the holomorphic part of the Laurent expansion at \(z_j\), hence holomorphic on \(D(z_j,\varepsilon_j)\) (including at \(z_j\)).
         \item \(\sum_{k\neq j}\psi_k(z)\) is holomorphic on \(D(z_j,\varepsilon_j)\), as each \(\psi_k\) has its singularity elsewhere.
         \item \(\psi_\infty(z)\) is a polynomial, hence entire.
     \end{enumerate}
     Thus,
-    \[\Phi(z)=[f(z)-\psi_j(z)]-\psi_\infty(z)-\sum_{k\neq j}\psi_k(z)\]
-    is holomorphic on \(D\qty(z_j,\varepsilon_j)\), including at \(z_j\). By Riemann's removable singularity theorem, we can define \(\Phi(z_j)\) to make \(\Phi\) holomorphic at \(z_j\).
+    \[\Phi(z)=\qty[f(z)-\psi_j(z)]-\psi_\infty(z)-\sum_{k\neq j}\psi_k(z)\]
+    is holomorphic on \(D\qty(z_j,\varepsilon_j)\), including at \(z_j\). Therefore, we can define \(\Phi(z_j)\) to make \(\Phi\) holomorphic at \(z_j\).
 
-    Now consider the behavior at \(\infty\). On the neighborhood \(\cbraces{z}{\abs{z}>R}\),
-    \begin{enumerate}
-        \item \(f(z)-\psi_\infty(z)\) is the holomorphic part of the expansion at \(\infty\), consisting of terms with non-positive powers of \(z\), so \(\lim_{|z|\to\infty}[f(z)-\psi_\infty(z)]\) exists and is finite.
+    Since \(f(z)-\psi_\infty(z)\) is the holomorphic part of the expansion at \(\infty\), consisting of terms with non-positive powers of \(z\), so \(\lim_{z\to\infty}[f(z)-\psi_\infty(z)]\) exists and is finite.
         \item Each \(\psi_k(z)\) consists of negative powers of \((z-z_k)\), so \(\lim_{|z|\to\infty}\psi_k(z)=0\) for each \(k\), and thus \(\lim_{|z|\to\infty}\sum_{k=1}^n\psi_k(z)=0\).
     \end{enumerate}
     Therefore, \(\lim_{|z|\to\infty}\Phi(z)\) exists and is finite, so \(\infty\) is a removable singularity of \(\Phi\). After removing all finite singularities as above, \(\Phi\) is entire (holomorphic on \(\mathbb{C}\)). Since \(\Phi\) has a finite limit at \(\infty\), it is bounded on \(\mathbb{C}\). By Liouville's theorem, \(\Phi(z)\equiv c\) for some constant \(c\).
