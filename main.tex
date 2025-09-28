@@ -49,17 +49,57 @@
 \numberwithin{equation}{subsection}
 \numberwithin{figure}{section}
 
-\newtheorem{theorem}{Theorem}[subsection]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
+\declaretheorem[
+  name=Theorem,
+  numberwithin=subsection,
+  refname={theorem,theorems},
+  Refname={Theorem,Theorems}
+]{theorem}
 
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
+\declaretheorem[
+  name=Proposition,
+  sibling=theorem,
+  refname={proposition,propositions},
+  Refname={Proposition,Propositions}
+]{proposition}
 
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem{example}[theorem]{Example}
+\declaretheorem[
+  name=Lemma,
+  sibling=theorem,
+  refname={lemma,lemmas},
+  Refname={Lemma,Lemmas}
+]{lemma}
+
+\declaretheorem[
+  name=Corollary,
+  sibling=theorem,
+  refname={corollary,corollaries},
+  Refname={Corollary,Corollaries}
+]{corollary}
+
+\declaretheorem[
+  name=Definition,
+  style=definition,
+  sibling=theorem,
+  refname={definition,definitions},
+  Refname={Definition,Definitions}
+]{definition}
+
+\declaretheorem[
+  name=Example,
+  style=remark,
+  sibling=theorem,
+  refname={example,examples},
+  Refname={Example,Examples}
+]{example}
+
+\declaretheorem[
+  name=Remark,
+  style=remark,
+  numbered=no,
+  refname={remark,remarks},
+  Refname={Remark,Remarks}
+]{remark}
 
 \crefformat{section}{\S#2#1#3}
 \crefformat{subsection}{\S#2#1#3}
@@ -3932,7 +3972,7 @@ Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(\rho\in C^2(\Omega)\) be
 The (Gaussian) \textscsl{curvature} of the metric \(\rho\) at \(z\in\Omega\) is defined as
 \begin{equation}
     K_\rho(z)=-\frac{\laplacian(\log\rho)(z)}{\rho(z)^2},\label{eq:curvatureofmetric}
-\end{equation} where \(\laplacian=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in \cref{TO BE CONTINUED}.
+\end{equation} where \(\laplacian=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in TO BE CONTINUED.
 
 The three following metrics are of particular interest in complex differential geometry:
 \begin{enumerate}
