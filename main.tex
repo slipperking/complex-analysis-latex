@@ -42,6 +42,7 @@
 \newcommand{\Arg}{\operatorname{Arg}}
 \newcommand{\Aut}{\operatorname{Aut}}
 
+\usepackage{thmtools}
 \usepackage{hyperref}
 \usepackage[noabbrev, nameinlink]{cleveref}
 
@@ -65,21 +66,6 @@
 \crefformat{subsubsection}{\S#2#1#3}
 \crefrangeformat{section}{\S\S#3#1#4 to~#5#2#6}
 \crefmultiformat{section}{\S\S#2#1#3}{ and~#2#1#3}{, #2#1#3}{ and~#2#1#3}
-
-\crefname{theorem}{theorem}{theorems}
-\Crefname{theorem}{Theorem}{Theorems}
-\crefname{proposition}{proposition}{propositions}
-\Crefname{proposition}{Proposition}{Propositions}
-\crefname{lemma}{lemma}{lemmas}
-\Crefname{lemma}{Lemma}{Lemmas}
-\crefname{corollary}{corollary}{corollaries}
-\Crefname{corollary}{Corollary}{Corollaries}
-\crefname{definition}{definition}{definitions}
-\Crefname{definition}{Definition}{Definitions}
-\crefname{example}{example}{examples}
-\Crefname{example}{Example}{Examples}
-\crefname{remark}{remark}{remarks}
-\Crefname{remark}{Remark}{Remarks}
 
 \DeclarePairedDelimiter{\paren}{(}{)}
 \let\parendefault\paren%
@@ -269,7 +255,7 @@ which is the definition of the total differential. For a 1-form in 3-dimensional
 Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
 \[\left(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z}\right)\ddx\wedge\ddy\wedge\ddz.\]
 The two results above resemble the curl and divergence of \(\qty(P,Q,R)\). A differential form \(\omega\) is \textscsl{closed} if \(\dd{\omega}=0\), and is \textscsl{exact} if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
-\begin{lemma}[Poincaré]\label{lemma:poincare}
+\begin{lemma}[Poincaré]\label{lem:poincare}
     For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
 \end{lemma}
 It is true that for any set \(U\subseteq \mathbb{R}^n\), regardless of contractibility, that for a differential form \(\omega\) defined on \(U\), \(\dd\dd\omega=0\). In other words, all exact differential forms are closed. (For a region \(U\), we have \(\partial\partial U=\emptyset\). This is one of many reasons for which the boundary operator is denoted by \(\partial\), in analogy to \(\dd\).)
@@ -385,7 +371,7 @@ Lipschitz continuity is an important concept in real analysis and the theory of 
     By the Mean Value Theorem, \(\forall x,y\in K\), \(\exists c\) between \(x\) and \(y\) such that \(f(x)-f(y)=f'(c)(x-y)\). Then, \(|f(x)-f(y)|=|f'(c)||x-y|\leq M|x-y|\), which means \(f\) is Lipschitz continuous with Lipschitz constant less than or equal to \(M\).
 \end{proof}
 We will now give statements relating to operations on Riemann integrals:
-\begin{lemma}\label{lemma:integralwithparameterproperties}
+\begin{lemma}\label{lem:integralwithparameterproperties}
     Let \(f(x,u)\) be a continuous complex function on the rectangle defined by \(a\leq x\leq b\), \(\alpha\leq u\leq\beta\) (where \(a<b\), \(\alpha<\beta\)). Then,
     \begin{enumerate}
         \item For an arbitrary point \(u_0\in [\alpha,\beta]\), we have \[\lim_{u\to u_0}\int_a^b f(x,u)\ddx=\int_a^b f\qty(x,u_0)\ddx.\]
@@ -922,7 +908,7 @@ From the above result, we can directly obtain the following theorem:
     If the support of \(\psi(z)\) is the union of infinitely many or finitely many disjoint compact sets, then the integral in \cref{eq:onedimensionalpartialconjugatesolution} can be split into a sum of integrals over each compact set, and the same argument applies to each term.
 \end{remark}
 When Cauchy famously published \cref{thm:cauchyintegralformula, thm:cauchyintegraltheorem}, he included the condition for \(f(z)\in C^1\paren{\overline{U}}\). It was later proved that all holomorphic functions had holomorphic derivatives, and this condition was dropped by Goursat using an argument involving the triangulation of polygonal chains.
-\begin{lemma}\label{lemma:integralpiecewisesmoothtopolygonalchain}
+\begin{lemma}\label{lem:integralpiecewisesmoothtopolygonalchain}
     Let \(f:G\to\mathbb{C}\) be a continuous function defined for a region \(G\subseteq\mathbb{C}\). Let \(\Gamma\subset G\) be a rectifiable piecewise smooth curve. Then \(\forall\varepsilon>0\), there exists a polygonal chain \(P\subset G\) inscribing \(\Gamma\) (each vertex lies on \(\Gamma\)) where \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
@@ -933,14 +919,14 @@ When Cauchy famously published \cref{thm:cauchyintegralformula, thm:cauchyintegr
     Then the sum above can be written as \[S=\sum_{k=0}^{n-1}\int_{\gamma_k}f\paren{z_k}\ddz=\sum_{k=0}^{n-1}\int_{l_k}f\paren{z_k}\ddz,\] and it follows that \[\abs{\int_{\Gamma}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{\gamma_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon\cdot\mathrm{length}(\Gamma)\] and \[\abs{\int_{P}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{l_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon\cdot\mathrm{length}(P)<\varepsilon\cdot\mathrm{length}(\Gamma)\] where \(\mathrm{length}(\Gamma)\) is the length of \(\Gamma\) and \(\mathrm{length}(P)\) is the length of \(P\).
     Then, \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}\leq\abs{\int_{\Gamma}f(z)\ddz-S}+\abs{\int_{P}f(z)\ddz-S}\leq 2\varepsilon\cdot\mathrm{length}(\Gamma).\qedhere\]
 \end{proof}
-\begin{lemma}\label{lemma:cauchyintegraltheoremoversimplyconnectedset}
+\begin{lemma}\label{lem:cauchyintegraltheoremoversimplyconnectedset}
     Given a holomorphic function \(f(z)\) on a simply connected region \(U\subseteq\mathbb{C}\), for any piecewise \(C^1\) closed curve \(\Gamma\subset U\),
     \begin{equation}
         \int_\Gamma f(\zeta)\ddzeta=0.\label{eq:cauchyintegraltheoremoversimplyconnectedset_statement}
     \end{equation}
 \end{lemma}
 \begin{proof}
-    By \cref{lemma:integralpiecewisesmoothtopolygonalchain}, \(\forall\varepsilon>0\), there is a polygonal chain \(P\) where
+    By \cref{lem:integralpiecewisesmoothtopolygonalchain}, \(\forall\varepsilon>0\), there is a polygonal chain \(P\) where
     \begin{equation}
         \abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\label{eq:cauchyintegraltheoremoversimplyconnectedset_chaindefinition}
     \end{equation} The statement we aim to prove is equivalent to proving that
@@ -1054,7 +1040,7 @@ When Cauchy famously published \cref{thm:cauchyintegralformula, thm:cauchyintegr
     Let \(U\subset\mathbb{C}\) be an open region bounded with boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
-    Since \(\partial U\cap U=\emptyset\) and \(f(z)\) is not necessarily holomorphic over \(\overline{U}\), we cannot directly apply \cref{lemma:cauchyintegraltheoremoversimplyconnectedset}.
+    Since \(\partial U\cap U=\emptyset\) and \(f(z)\) is not necessarily holomorphic over \(\overline{U}\), we cannot directly apply \cref{lem:cauchyintegraltheoremoversimplyconnectedset}.
     \begin{figure}
         \centering
         \begin{tikzpicture}[>=stealth,
@@ -1123,7 +1109,7 @@ When Cauchy famously published \cref{thm:cauchyintegralformula, thm:cauchyintegr
 
     First assume \(U\) has the shape of \(MNQP\) in \cref{fig:cauchygoursattheorem_simplifiedregion}. That is, \(U\) consists of \(x=a\), \(x=b\) for \(a<b\), and two rectifiable \(C^0\) curves \(\overrightarrow{MN}:y=\varphi(x)\) and \(\overrightarrow{QP}:\psi(x)\) such that \(\varphi(x)<\psi(x)\), \(\forall a\le x\le b\).
 
-    For some \(\varepsilon>0\), \(\eta>0\), construct a new curve \(M_1'N_1'Q_1'P_1'\in U\) to be the boundary of the region bounded by \(P_1M_1:x=a+\varepsilon\), \(N_1Q_1:b-\varepsilon\), \(M'N':\varphi(x)+\eta\), and \(Q'P': \psi(x)-\eta\) such that \(M_1'N_1'Q_1'P_1'\) remains simple. By \cref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[\oint_{M_1'N_1'Q_1'P_1'}f(z)\ddz=0.\]
+    For some \(\varepsilon>0\), \(\eta>0\), construct a new curve \(M_1'N_1'Q_1'P_1'\in U\) to be the boundary of the region bounded by \(P_1M_1:x=a+\varepsilon\), \(N_1Q_1:b-\varepsilon\), \(M'N':\varphi(x)+\eta\), and \(Q'P': \psi(x)-\eta\) such that \(M_1'N_1'Q_1'P_1'\) remains simple. By \cref{lem:cauchyintegraltheoremoversimplyconnectedset}, \[\oint_{M_1'N_1'Q_1'P_1'}f(z)\ddz=0.\]
     By \cref{thm:heinecantor}, \(f(z)\) is uniformly continuous over \(\overline{U}\), and therefore \(\forall\varepsilon'>0\), we can choose \(\eta>0\) so that \(\forall z\in\overrightarrow{M_1'N_1'}\), \(\abs{f\paren{z}-f\paren{z-\eta}}<\varepsilon'\) is satisfied. Letting \(\eta\to0\) (with \(\varepsilon'\to0\)) and fixing \(\varepsilon>0\), we get that
     \begin{align*}
         \abs{\int_{\overrightarrow{M_1'N_1'}}f(z)\ddz-\int_{\overrightarrow{M_1N_1}}f(z)\ddz} & \leq\int_{\overrightarrow{M_1'N_1'}}\abs{f(z)-f\paren{z-\eta}}\abs{\ddz} \\
@@ -1480,7 +1466,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
     For a topological space \(X\), an \textscsl{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\), such that \(\forall n\in\mathbb{N}\), \(K_n\subset \interior{K_{n+1}}\), and \[X=\bigcup_{n\in\mathbb{N}}K_n\]
 \end{definition}
-\begin{lemma}\label{lemma:locallyfiniteopencoverexistence}
+\begin{lemma}\label{lem:locallyfiniteopencoverexistence}
     Let \(\Omega\subseteq\mathbb{C}\) be an open set and \(\mathfrak{B}\) be an (open) basis of (the standard topology under) \(\Omega\). Then there exists a collection of sets \(\left\{U_n\right\}_{n\in\mathbb{N}}\) in \(\mathfrak{B}\) such that
     \begin{enumerate}
         \item \(\bigcup_{n\in\mathbb{N}}U_n=\Omega\).\label{itm:locallyfiniteopencoverexistence_cover}
@@ -1552,7 +1538,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     \begin{quote}
         \(\forall z\in\Omega\), there exists an open neighborhood of \(z\) intersecting finitely many sets in \(S\).
     \end{quote}
-    Obviously, this assertion implies \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lemma:locallyfiniteopencoverexistence}: let \(K\subset \Omega\) be compact, and for every \(z\in\Omega\), the collection of neighborhoods covers \(K\), and by the Heine--Borel Theorem (\cref{thm:heineborel}), admits a finite subcover. Therefore, \(K\) intersects finitely many sets in \(S\). Conversely, \(\forall z\in\Omega\), there exists an open neighborhood \(V\ni z\) relatively compact in \(\Omega\). By assumption, \(\overline{V}\) intersects finitely many sets in \(S\), and since \(V\subset\overline{V}\), the conclusion follows.
+    Obviously, this assertion implies \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lem:locallyfiniteopencoverexistence}: let \(K\subset \Omega\) be compact, and for every \(z\in\Omega\), the collection of neighborhoods covers \(K\), and by the Heine--Borel Theorem (\cref{thm:heineborel}), admits a finite subcover. Therefore, \(K\) intersects finitely many sets in \(S\). Conversely, \(\forall z\in\Omega\), there exists an open neighborhood \(V\ni z\) relatively compact in \(\Omega\). By assumption, \(\overline{V}\) intersects finitely many sets in \(S\), and since \(V\subset\overline{V}\), the conclusion follows.
 \end{remark}
 \begin{theorem}[\textsc{Partition of Unity}]\label{thm:partitionofunity}
     For a nonempty open set \(\Omega\subseteq\mathbb{C}\), suppose that \(\cbraces{\Omega_k}_{k\in\mathbb{Z}_{\ge0}}\) is an open cover of \(\Omega\). Then, there exists a collection of bump functions \(\alpha_1(z),\alpha_2(z),\ldots\in C^\infty(\mathbb{C})\), each with compact support in \(\Omega\) satisfying
@@ -1566,7 +1552,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
 \begin{proof}
     By the openness of \(\Omega_k\), \(\forall z\in\Omega\), \(\exists r_z>0\) such that \(\overline{D\paren{z,r_z}}\subset\Omega_{k_z}\) for some \(k_z\in\mathbb{Z}_{\ge0}\).
 
-    Then, \(\cbraces{D\paren{z,r}}{z\in\Omega, 0<r<r_z}\) forms an open basis of \(\Omega\). By \cref{lemma:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\cbraces{D\paren{z_j,r_{z_j}}}\) of \(\Omega\), and since it is a subcollection of the basis, \[D\paren{z_j,r_{z_j}}\subset\overline{D\paren{z_j,r_{z_j}}}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\] The most trivial bump function has the form \[\theta(z)=
+    Then, \(\cbraces{D\paren{z,r}}{z\in\Omega, 0<r<r_z}\) forms an open basis of \(\Omega\). By \cref{lem:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\cbraces{D\paren{z_j,r_{z_j}}}\) of \(\Omega\), and since it is a subcollection of the basis, \[D\paren{z_j,r_{z_j}}\subset\overline{D\paren{z_j,r_{z_j}}}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\] The most trivial bump function has the form \[\theta(z)=
         \begin{cases}
             \exp\paren{\frac{1}{\abs{z}^2-1}} &\qif* \abs{z}<1   \\
             0                                 &\qif* \abs{z}\ge1
@@ -1704,7 +1690,7 @@ Thus, one defines the \textscsl{winding index} to quantify how many times a clos
         & =\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\frac{g(z)}{f(z)})'}{\frac{g(z)}{f(z)}}\ddz.
     \end{align*}
     Let \(w=h(z)=\frac{g(z)}{f(z)}\) with \(\Gamma=h(\gamma)\). Then, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}.\]
-    From \cref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \cref{lemma:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
+    From \cref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \cref{lem:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
 \end{proof}
 By the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}), any polynomial in the form \(p(z)=\sum_{k=0}^n a_kz^k\) (\(n\in\mathbb{N}\), \(a_n\neq 0\), \(a_k\in\mathbb{C}\) where \(k=1,\ldots n\)) has at least one complex zero. Consider the function \(q(z)=a_nz^n\), with a zero at \(z=0\) with multiplicity \(n\). By Rouché's Theorem (\cref{thm:rouche}), since \(\exists R\in\mathbb{R}\) such that \(\abs{q(z)-p(z)}=\abs{\sum_{k=0}^{n-1}a_k z^k}<\abs{a_n z^n}\) over \(\abs{z}=R\), \(p\) and \(q\) have the same number of zeros, counting multiplicity.
 \begin{theorem}\label{thm:hurwitzshifts}
@@ -1732,7 +1718,7 @@ We also have the following generalization of \cref{thm:hurwitzsimplecase}, which
 A useful corollary of \cref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
 
 Before the theorem, we first introduce the mean-value property of holomorphic functions.
-\begin{lemma}\label{lemma:holomorphicmeanvalueproperty}
+\begin{lemma}\label{lem:holomorphicmeanvalueproperty}
     Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall \varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
 \end{lemma}
 \begin{proof}
@@ -1754,7 +1740,7 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
 
     Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=0,\] and \(z_\infty\in S\). Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with it being closed within \(V\)).
 
-    Since \(S\subseteq V\) and \(V\) are both open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \cref{lemma:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
+    Since \(S\subseteq V\) and \(V\) are both open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \cref{lem:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
     \begin{align*}
         |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}}\leq \frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon \ee^{\ii t}}}\dd{t} \\
         & \leq\frac{1}{2\piup}\int_0^{2\piup}\abs{f(z)}\dd{t}=\abs{f(z)}.
@@ -1777,7 +1763,7 @@ A similar theorem exists for real-valued harmonic functions. The proof follows i
 As a matter of fact, the theorem follows for any continuous function satisfying the mean-value property.
 \subsection{The Group of Holomorphic Automorphisms on the Unit Disk}
 The following important result can be directly obtained from the Maximum Modulus Principle.
-\begin{lemma}[Schwarz]\label{lemma:schwarz}
+\begin{lemma}[Schwarz]\label{lem:schwarz}
     If \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
     Any one of the inequalities becomes equalities if and only if \(f(z)\) is in the form of \(z\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
 \end{lemma}
@@ -1835,11 +1821,11 @@ It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is sur
 \begin{proof}
     Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(z)\). It follows that \(\psi\in\Aut(\mathbb{D})\). Furthermore, \(\psi(0)=\varphi_{f(0)}\circ f(0)=0\).
 
-    By the Schwarz Lemma (\cref{lemma:schwarz}), \(\qty|\psi'(0)|\leq1\). Since \(\psi^{-1}\in\Aut(\mathbb{D})\) with \(\psi^{-1}(0)=0\), \(\abs{\qty(\psi^{-1})'(0)}\leq1\). Then, \[\abs{\qty(\psi^{-1})'(0)}=\frac{1}{\psi'\qty(\psi^{-1}(0))}=\frac{1}{\psi'(0)}\leq 1.\]
-    Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \cref{lemma:schwarz}, \(\psi(z)=z\ee^{\ii\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By \cref{eq:inversemobiustransformation}, it follows that \(f(z)=\varphi_{-f(0)}\circ\rho_\tau(z)\).
+    By the Schwarz Lemma (\cref{lem:schwarz}), \(\qty|\psi'(0)|\leq1\). Since \(\psi^{-1}\in\Aut(\mathbb{D})\) with \(\psi^{-1}(0)=0\), \(\abs{\qty(\psi^{-1})'(0)}\leq1\). Then, \[\abs{\qty(\psi^{-1})'(0)}=\frac{1}{\psi'\qty(\psi^{-1}(0))}=\frac{1}{\psi'(0)}\leq 1.\]
+    Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \cref{lem:schwarz}, \(\psi(z)=z\ee^{\ii\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By \cref{eq:inversemobiustransformation}, it follows that \(f(z)=\varphi_{-f(0)}\circ\rho_\tau(z)\).
 \end{proof}
 As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we have the following result:
-\begin{lemma}[\textsc{Schwarz--Pick}]\label{lemma:schwarzpick}
+\begin{lemma}[\textsc{Schwarz--Pick}]\label{lem:schwarzpick}
     Let \(f:\mathbb{D}\to \mathbb{D}\) be holomorphic. \(\forall z_1,z_2\in \mathbb{D}\), let \(w_1=f\qty(z_1)\) and \(w_2=f\qty(z_2)\). Then,
     \begin{equation}
         \abs{\frac{w_1-w_2}{1-w_1\overline{w_2}}}\leq\abs{\frac{z_1-z_2}{1-z_1\overline{z_2}}},\label{eq:schwarzpick_statement1}
@@ -1851,7 +1837,7 @@ As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we
 \end{lemma}
 \begin{proof}
     Let \[\varphi_{-z_1}(z)=\frac{z+z_1}{1+\overline{z_1}z}\in\Aut(\mathbb{D}),\quad\varphi_{w_1}(z)=\frac{z-w_1}{1-\overline{w_1}z}\in\Aut(\mathbb{D}).\]
-    It follows that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}(0)=\varphi_{w_1}\qty(w_1)=0\). Then by the Schwarz Lemma (\cref{lemma:schwarz}), for \(z\in\mathbb{D}\), \[\abs{\varphi_{w_1}\circ f\circ\varphi_{-z_1}(z)}\leq\abs{z}.\] Let \(z_2=\varphi_{-z_1}(z)\). Then, \(\abs{\varphi_{w_1}\circ f\qty(z_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\Leftrightarrow\abs{\varphi_{w_1}\qty(w_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\), confirming \cref{eq:schwarzpick_statement1}. By the second statement of the Schwarz Lemma (\cref{lemma:schwarz}), \(\abs{\qty(\varphi_{w_1}\circ f\circ\varphi_{-z_1})'(0)}\leq1\).
+    It follows that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}(0)=\varphi_{w_1}\qty(w_1)=0\). Then by the Schwarz Lemma (\cref{lem:schwarz}), for \(z\in\mathbb{D}\), \[\abs{\varphi_{w_1}\circ f\circ\varphi_{-z_1}(z)}\leq\abs{z}.\] Let \(z_2=\varphi_{-z_1}(z)\). Then, \(\abs{\varphi_{w_1}\circ f\qty(z_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\Leftrightarrow\abs{\varphi_{w_1}\qty(w_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\), confirming \cref{eq:schwarzpick_statement1}. By the second statement of the Schwarz Lemma (\cref{lem:schwarz}), \(\abs{\qty(\varphi_{w_1}\circ f\circ\varphi_{-z_1})'(0)}\leq1\).
 
     By the chain rule, \(\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}\leq1\). Let us now calculate the derivatives of \(\varphi_{w_1}\) and \(\varphi_{-z_1}\). By the quotient rule, \[\varphi'_{w_1}(z)=\frac{1-\overline{w_1}w_1}{\paren{1-\overline{w_1}z}^2},\quad\varphi'_{w_1}\qty(w_1)=\frac{1}{1-\overline{w_1}w_1},\]
     and
@@ -1860,11 +1846,11 @@ As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we
     \begin{equation}
         \abs{\dv{w}{z}}\leq\frac{1-\overline{w}w}{1-\overline{z}z}\Longleftrightarrow\frac{\abs{\dd{w}}}{1-\overline{w}w}\leq\frac{\abs{\ddz}}{1-\overline{z}z}.\label{eq:schwarzpick_nonincreasingmetric}
     \end{equation}
-    By the Schwarz Lemma (\cref{lemma:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\qedhere\]
+    By the Schwarz Lemma (\cref{lem:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\qedhere\]
 \end{proof}
 \begin{remark}
     In \cref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
-    From \cref{eq:schwarzpick_nonincreasingmetric}, we get that the hyperbolic metric does not increase under a holomorphic mapping of \(\mathbb{D}\) to itself. This metric is invariant (the equality condition) under all functions in \(\Aut(\mathbb{D})\). This gives a geometric explanation for \cref{lemma:schwarz}.
+    From \cref{eq:schwarzpick_nonincreasingmetric}, we get that the hyperbolic metric does not increase under a holomorphic mapping of \(\mathbb{D}\) to itself. This metric is invariant (the equality condition) under all functions in \(\Aut(\mathbb{D})\). This gives a geometric explanation for \cref{lem:schwarz}.
 \end{remark}
 \subsection{Alternative Integral Formulae}
 As in the Cauchy Integral Formula (\cref{thm:cauchygoursatformula}), we can write holomorphic functions in terms of an integral representation. We define the \textscsl{Cauchy kernel} to be equal to
@@ -1872,7 +1858,7 @@ As in the Cauchy Integral Formula (\cref{thm:cauchygoursatformula}), we can writ
 Then \cref{eq:cauchygoursatformula} can be written as:
 \[f(z)=\oint_{\partial U}f(\zeta)H(\zeta,z)\ddzeta.\] There also exist other integral formulae for functions, varying in the kernel of the expression.
 
-Let \(z\in \mathbb{D}\) and notice that \(\varphi_z(\zeta)=\frac{\zeta-z}{1-\overline{z}\zeta}\in\Aut(\mathbb{D})\) maps \(\partial\mathbb{D}\) to \(\partial\mathbb{D}\) bijectively. Let \(\Phi:\mathbb{D}\to\mathbb{R}\) be harmonic such that \(\Phi\) is continuous on \(\overline{\mathbb{D}}\). By the mean-value property introduced in \cref{lemma:holomorphicmeanvalueproperty}, we have \[\Phi (0)=\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi},\]
+Let \(z\in \mathbb{D}\) and notice that \(\varphi_z(\zeta)=\frac{\zeta-z}{1-\overline{z}\zeta}\in\Aut(\mathbb{D})\) maps \(\partial\mathbb{D}\) to \(\partial\mathbb{D}\) bijectively. Let \(\Phi:\mathbb{D}\to\mathbb{R}\) be harmonic such that \(\Phi\) is continuous on \(\overline{\mathbb{D}}\). By the mean-value property introduced in \cref{lem:holomorphicmeanvalueproperty}, we have \[\Phi (0)=\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi},\]
 where \(0<\rho<1\). By the uniform continuity of \(\Phi\) on \(\overline{\mathbb{D}}\) (\cref{thm:heinecantor}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\rho\in\qty(\frac{1}{2},1)\) satisfying \(1-\rho<\delta\) and \(\forall\psi\in[0,2\piup]\), \[\abs{\Phi\qty(\ee^{\ii\psi})-\Phi\qty(\rho \ee^{\ii\psi})}<\varepsilon.\] It then follows that \[\abs{\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\ee^{\ii\psi})\dd{\psi}-\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi}}<\frac{\varepsilon}{\rho}<2\varepsilon.\]
 Hence,
 \begin{equation}
@@ -2379,7 +2365,7 @@ Similar to series, absolute convergence is a stronger condition than convergence
     \end{align*}
     which therefore satisfies \cref{thm:cauchycriterionsequenceconvergence}.
 \end{proof} We will now provide the following assertions on the \textscsl{locally uniform convergence} of infinite products:
-\begin{lemma}\label{lemma:infiniteproductlocallyuniformconvergencecriterion}
+\begin{lemma}\label{lem:infiniteproductlocallyuniformconvergencecriterion}
     Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty f_k(z)\) is uniformly convergent on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \exp\qty[f_k(z)]\) is uniformly convergent on compact subsets of \(U\).
 \end{lemma}
 \begin{proof}
@@ -2390,7 +2376,7 @@ Similar to series, absolute convergence is a stronger condition than convergence
     Uniform convergence on compact subsets is also known as \textscsl{compact convergence}. In the case of \(\mathbb{C}\) (or in any topological space such that every point has a compact neighborhood), compact convergence is equivalent to \textscsl{locally uniform convergence}.
 \end{remark}
 We also have:
-\begin{lemma}\label{lemma:infiniteproductlocallyuniformconvergencecriterion2}
+\begin{lemma}\label{lem:infiniteproductlocallyuniformconvergencecriterion2}
     Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty \abs{f_k(z)}\) is uniformly convergent on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on compact subsets of \(U\) to a holomorphic function, which vanishes only at a point \(z\) if and only if \(f_k(z)=-1\) for some \(k\in\mathbb{N}\). The multiplicity at each such zero \(z\) is the sum of the multiplicities of \(1+f_k\) at \(z\) for all \(k\) satisfying \(f_k(z)=-1\).
 \end{lemma}
 \begin{proof}
@@ -2436,7 +2422,7 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
             \abs{Q_{p_n}\qty(\frac{z}{a_n})} & =\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber                                       \\
             & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\frac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
         \end{align}
-        By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\), and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \cref{lemma:infiniteproductlocallyuniformconvergencecriterion}, \cref{thm:weierstrassuniformlimit}, and \cref{thm:hurwitzsimplecase}.
+        By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\), and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \cref{lem:infiniteproductlocallyuniformconvergencecriterion}, \cref{thm:weierstrassuniformlimit}, and \cref{thm:hurwitzsimplecase}.
 
         The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{\ee-1}\abs{\zeta}\). By \cref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
 
@@ -2601,7 +2587,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     which completes the proof.
 \end{proof}
 \subsubsection{Classifying Growth and the Hadamard Factorization Theorem}
-\begin{lemma}\label{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}
+\begin{lemma}\label{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}
     Let \(f:\overline{D(0,R)}\to\mathbb{C}^*\) (where \(R>0\)) be a nowhere-vanishing holomorphic function. It follows that \[\log\qty|f(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
 \end{lemma}
 \begin{proof}
@@ -2614,7 +2600,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
 \end{theorem}
 \begin{proof}
     First assume that no zeros lie on \(\partial D(0,R)\). It follows that \(\forall 1\leq k\leq n\), \[\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_k)}{R^2-\overline{a_k}z}\] is holomorphic on \(\overline{D(0,R)}\), and has a simple zero at \(z=a_j\).
-    Additionally, the transformation maps \(\partial D(0,R)\) to \(\partial\mathbb{D}\). The function \[g(z)=\frac{f(z)}{\prod_{k=1}^n\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})}\] is then holomorphic and non-vanishing in \(\overline{D(0,R)}\). Hence, by \cref{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}, \[\log\qty|g(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{g\qty(R\ee^{\ii\theta})}\dd{\theta},\]
+    Additionally, the transformation maps \(\partial D(0,R)\) to \(\partial\mathbb{D}\). The function \[g(z)=\frac{f(z)}{\prod_{k=1}^n\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})}\] is then holomorphic and non-vanishing in \(\overline{D(0,R)}\). Hence, by \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}, \[\log\qty|g(0)|=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{g\qty(R\ee^{\ii\theta})}\dd{\theta},\]
     implying that
     \begin{align}
         \log\abs{f(0)}-\sum_{k=1}^n\log\abs{\varphi_{\frac{a_k}{R}}(0)}&=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}\nonumber\\
@@ -2650,7 +2636,7 @@ Since the summation on the right is negative, we have the following consequence:
 \end{theorem}
 \begin{proof}
     Let \(\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}\) and let \(\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}\) for all \(1\leq j\leq m\) and \(1\leq k\leq n\). Consider the function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})},\]
-    which is holomorphic and nonzero on \(\overline{D(0,R)}\). Fix \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\) and let \(\Phi(\xi)=g\circ\qty(R\varphi_{-\frac{z}{R}})\qty(\xi)\), where \(R\varphi_{-\frac{z}{R}}\qty(\xi)=\frac{R^2\xi+Rz}{R+\overline{z}\xi}\) is holomorphic on \(\overline{\mathbb{D}}\) with \(\Phi(0)=z\). Since \(g\) is non-vanishing in \(\overline{D(0,R)}\), \(\Phi\) is non-vanishing in \(\overline{\mathbb{D}}\). By \cref{lemma:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty} on \(\Phi\),
+    which is holomorphic and nonzero on \(\overline{D(0,R)}\). Fix \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\) and let \(\Phi(\xi)=g\circ\qty(R\varphi_{-\frac{z}{R}})\qty(\xi)\), where \(R\varphi_{-\frac{z}{R}}\qty(\xi)=\frac{R^2\xi+Rz}{R+\overline{z}\xi}\) is holomorphic on \(\overline{\mathbb{D}}\) with \(\Phi(0)=z\). Since \(g\) is non-vanishing in \(\overline{D(0,R)}\), \(\Phi\) is non-vanishing in \(\overline{\mathbb{D}}\). By \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty} on \(\Phi\),
     \begin{equation}
         \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{\Phi\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:poissonjensenformula_intermediate1}
     \end{equation}
@@ -2672,7 +2658,7 @@ Since the summation on the right is negative, we have the following consequence:
 \begin{remark}
     Jensen's Formula (\cref{thm:jensensformula}) can also be generalized for meromorphic functions; by letting \(z=0\) in \cref{eq:poissonjensenformula_statement}, we have: \[\log\abs{f(0)}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^m\log\abs{\frac{a_j}{R}}-\sum_{k=1}^n\log\abs{\frac{b_k}{R}}.\]
 \end{remark}
-\begin{lemma}\label{lemma:boundedholomorphicfunctionblaschkecondition}
+\begin{lemma}\label{lem:boundedholomorphicfunctionblaschkecondition}
     Let \(f:\mathbb{D}\to\mathbb{C}\) be a non-constant bounded holomorphic function whose zeros are \(a_1,a_2,\ldots\), counted according to their multiplicities, ordered such that \(\abs{a_n}\leq \abs{a_{n+1}}\) for all \(n\in\mathbb{N}\). Then, \[\sum_{n=1}^\infty\qty(1-\abs{a_n})\] is convergent.
 \end{lemma}
 \begin{proof}
@@ -2689,7 +2675,7 @@ Since the summation on the right is negative, we have the following consequence:
     )\) is a Möbius transformation in the form of \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}, is uniformly convergent on compact subsets of \(\mathbb{D}\) to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\qty{a_k}\).
 \end{theorem}
 \begin{proof}
-    If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \cref{lemma:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,R)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
+    If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \cref{lem:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,R)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
     \begin{align*}
         \abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1} & =\abs{\frac{\overline{a_k}}{\abs{a_k}}\frac{a_k-z}{1-\overline{a_k}z}-1}=\abs{\frac{\abs{a_k}^2-\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}-1} \\
         & =\abs{\frac{\abs{a_k}^2-\overline{a_k}z-\abs{a_k}+\abs{a_k}\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                        \\
@@ -2697,7 +2683,7 @@ Since the summation on the right is negative, we have the following consequence:
         & =\abs{\frac{\qty(\overline{a_k}z+\abs{a_k})\qty(1-\abs{a_k})}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                                      \\
         & \leq\qty(1-\abs{a_k})\frac{\abs{\overline{a_k}}(1+R)}{\abs{a_k}\qty(1-\abs{a_k}R)}<\qty(1-\abs{a_k})\frac{1+R}{1-R}.
     \end{align*}
-    Since \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}<\frac{1+R}{1-R}\sum_{k=1}^\infty\qty(1-\abs{a_k})\] is convergent (Blaschke condition), by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), \(\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\) converges uniformly on \(\overline{D(0,R)}\). By \cref{lemma:infiniteproductlocallyuniformconvergencecriterion2}, the infinite product in \cref{eq:blaschkeproduct_statement} converges uniformly on compact subsets of \(\mathbb{D}\). The properties of its zeros follow from the lemma.
+    Since \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}<\frac{1+R}{1-R}\sum_{k=1}^\infty\qty(1-\abs{a_k})\] is convergent (Blaschke condition), by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), \(\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\) converges uniformly on \(\overline{D(0,R)}\). By \cref{lem:infiniteproductlocallyuniformconvergencecriterion2}, the infinite product in \cref{eq:blaschkeproduct_statement} converges uniformly on compact subsets of \(\mathbb{D}\). The properties of its zeros follow from the lemma.
 
     Lastly, since \(\abs{\varphi_{a_k}}\leq 1\) and each partial product is bounded by 1, it follows that \(\abs{B(z)}\leq 1\) on \(\mathbb{D}\).
 \end{proof}
@@ -3200,7 +3186,7 @@ This is a common issue when it comes to the problem of analytic continuation. Th
     \end{enumerate}
 \end{definition}
 For a fixed curve, such analytic continuations are unique in the following sense:
-\begin{lemma}\label{lemma:analyticcontinuationalongcurveuniqueness}
+\begin{lemma}\label{lem:analyticcontinuationalongcurveuniqueness}
     For a fixed curve \(\gamma:[0,1]\to\mathbb{C}\), let \(f\) be holomorphic on \(U\) (a disk centered at \(\gamma(0)\)). Then any two analytic continuations \(\qty{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\qty{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) along \(\gamma\) satisfy \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\) (where \(\qty(f_1,U_1)\) and \(\qty(\widetilde{f}_t,\widetilde{U}_t)\) are the respective terminal analytic function elements).
 \end{lemma}
 \begin{proof}
@@ -3249,9 +3235,9 @@ This question is not necessarily an affirmative. The principal branch logarithm 
 
     Let \[S=\cbraces{s\in[0,1]}{\forall 0\leq\lambda\leq s,f_{\lambda,1}\equiv f_{0,1}\text{ on }U_{\lambda,1}\cap U_{0,1}\ni Q}.\] Let us fix \(s\in S\). The analytic continuation \(\qty{\qty(f_{s,t},U_{s,t})}_{0\leq t\leq 1}\) along the curve \(t\mapsto H(s,t)\) generates the cover \(\qty{U_{s,t}}_{0\leq t\leq 1}\) of the compact curve \(\qty{H(s,t)}_{0\leq t\leq 1}\). By Heine--Borel (\cref{thm:heineborel}), there exists a finite subcover \(\qty{U_{s,t_k}}_{k=1}^n\). Then \(\exists\varepsilon>0\) such that each \(D\qty(H(s,t),\varepsilon)\subseteq\bigcup_{k=1}^n U_{s,t_k}\) for all \(t\in[0,1]\). In fact, we can choose \(\varepsilon\) to be \[\varepsilon=\min_{k=1}^n\qty[\mathrm{dist}\qty(H(s,[0,1]), \partial U_{s,t_k}\setminus\bigcup_{j=1}^n U_{s,t_j})].\] It can be verified that \(\mathrm{dist}\) here is positive since \(H(s,[0,1])\subset \bigcup_{j=1}^n U_{s,t_j}\) (thus both sets are disjoint) and both are compact sets. By continuity, \(\forall t\in[0,1]\), \(\exists\delta>0\) such that \(\forall s'\in[0,1]\cap(s-\delta,s+\delta)\), \(\abs{H(s,t)-h\qty(s',t)}<\varepsilon\). By the Heine--Cantor Theorem (\cref{thm:heinecantor}), \(\delta\) attains a positive infimum, and thus \(\exists\delta>0\) such that \(\forall s'\in[0,1]\cap(s-\delta,s+\delta)\), \(\forall t\in[0,1]\), \(\abs{H(s,t)-H\qty(s',t)}<\varepsilon\).
 
-    Fix \(s'\) and \(t\). By the derived inequality, we have that \(H\qty(s',t)\in U_{s,t}\) and therefore, \(\widetilde{U}_{s',t}=D\qty(H(s',t),\varepsilon-\abs{H(s,t)-H\qty(s',t)})\subseteq U_{s,t}\). Thus, the analytic function element \(\qty(f_{s,t},\widetilde{U}_{s',t})\) is a direct analytic continuation of \(\qty(f_{s,t},U_{s,t})\). By constructing analytic function elements in a similar manner for all \(t\), we obtain an analytic continuation of \(\qty(f_{s,0},\widetilde{U}_{s',0})\) along \(H\qty(s',[0,1])\). Because \(\qty(f_{s,0},U_{s,0})\) and \(\qty(f_{s,0},\widetilde{U}_{s',0})\) are direct analytic continuations of each other, by \cref{lemma:analyticcontinuationalongcurveuniqueness}, the continuations \(\qty{\qty(f_{s,t},\widetilde{U}_{s',t})}_{0\leq t\leq 1}\) and \(\qty{\qty(f_{s',t},U_{s',t})}_{0\leq t\leq 1}\) are equivalent. Thus, all elements of \((s-\delta,s+\delta)\cap[0,1]\) belong in \(S\), and thus \(S\) is relatively open in \([0,1]\).
+    Fix \(s'\) and \(t\). By the derived inequality, we have that \(H\qty(s',t)\in U_{s,t}\) and therefore, \(\widetilde{U}_{s',t}=D\qty(H(s',t),\varepsilon-\abs{H(s,t)-H\qty(s',t)})\subseteq U_{s,t}\). Thus, the analytic function element \(\qty(f_{s,t},\widetilde{U}_{s',t})\) is a direct analytic continuation of \(\qty(f_{s,t},U_{s,t})\). By constructing analytic function elements in a similar manner for all \(t\), we obtain an analytic continuation of \(\qty(f_{s,0},\widetilde{U}_{s',0})\) along \(H\qty(s',[0,1])\). Because \(\qty(f_{s,0},U_{s,0})\) and \(\qty(f_{s,0},\widetilde{U}_{s',0})\) are direct analytic continuations of each other, by \cref{lem:analyticcontinuationalongcurveuniqueness}, the continuations \(\qty{\qty(f_{s,t},\widetilde{U}_{s',t})}_{0\leq t\leq 1}\) and \(\qty{\qty(f_{s',t},U_{s',t})}_{0\leq t\leq 1}\) are equivalent. Thus, all elements of \((s-\delta,s+\delta)\cap[0,1]\) belong in \(S\), and thus \(S\) is relatively open in \([0,1]\).
 
-    Let \(\qty{s_n}_{n\in\mathbb{N}}\subset S\) be an arbitrarily chosen convergent sequence accumulating at \(s_\infty\). Since there exists an analytic continuation of \(\qty(f_{s_\infty,0},U_{s_\infty,0})\) along the curve \(H\qty(s_\infty,[0,1])\), we can use the same argument as before to construct \(\varepsilon\) such that each \(D\qty(H\qty(s_\infty, \varepsilon))\subseteq U_{s_\infty,t}\) and \(\delta\) such that \(\forall s\in [0,1]\cap(s_\infty-\delta,s_\infty+\delta)\), \(\forall t\in[0,1]\), \(\abs{H(s,t)-H\qty(s_\infty,t)}<\varepsilon\). By convergence, for sufficiently large \(n\), \(\abs{s_n-s_\infty}<\delta\). Hence, there is an analytic continuation \[\qty{\qty(f_{s_\infty,t}, D\qty(H\qty(s_n,t),\varepsilon-\abs{H(s_n,t)-H\qty(s_\infty,t)}))}_{0\leq t\leq 1}\] along \(H\qty(s_n,[0,1])\), which is equivalent to \(\qty{\qty(f_{s_n,t},U_{s_n,t})}_{0\leq t\leq 1}\) by \cref{lemma:analyticcontinuationalongcurveuniqueness} under the same preliminary assumptions as shown previously. By the following logic, \(f_{s_\infty,1}\equiv f_{s_n,1}\) on the intersection, and \(s_\infty\in S\) and \(S\) is closed. Hence, by \cref{thm:connectedtopologicalspaceclopensets}, \(S=[0,1]\). Thus, \(\forall 0\leq\lambda\leq 1\), \(f_{\lambda,1}\equiv f_{0,1}\) on \(U_{\lambda,1}\cap U_{0,1}\ni Q\).
+    Let \(\qty{s_n}_{n\in\mathbb{N}}\subset S\) be an arbitrarily chosen convergent sequence accumulating at \(s_\infty\). Since there exists an analytic continuation of \(\qty(f_{s_\infty,0},U_{s_\infty,0})\) along the curve \(H\qty(s_\infty,[0,1])\), we can use the same argument as before to construct \(\varepsilon\) such that each \(D\qty(H\qty(s_\infty, \varepsilon))\subseteq U_{s_\infty,t}\) and \(\delta\) such that \(\forall s\in [0,1]\cap(s_\infty-\delta,s_\infty+\delta)\), \(\forall t\in[0,1]\), \(\abs{H(s,t)-H\qty(s_\infty,t)}<\varepsilon\). By convergence, for sufficiently large \(n\), \(\abs{s_n-s_\infty}<\delta\). Hence, there is an analytic continuation \[\qty{\qty(f_{s_\infty,t}, D\qty(H\qty(s_n,t),\varepsilon-\abs{H(s_n,t)-H\qty(s_\infty,t)}))}_{0\leq t\leq 1}\] along \(H\qty(s_n,[0,1])\), which is equivalent to \(\qty{\qty(f_{s_n,t},U_{s_n,t})}_{0\leq t\leq 1}\) by \cref{lem:analyticcontinuationalongcurveuniqueness} under the same preliminary assumptions as shown previously. By the following logic, \(f_{s_\infty,1}\equiv f_{s_n,1}\) on the intersection, and \(s_\infty\in S\) and \(S\) is closed. Hence, by \cref{thm:connectedtopologicalspaceclopensets}, \(S=[0,1]\). Thus, \(\forall 0\leq\lambda\leq 1\), \(f_{\lambda,1}\equiv f_{0,1}\) on \(U_{\lambda,1}\cap U_{0,1}\ni Q\).
 \end{proof}
 \begin{corollary}
     Let \(\Omega\subseteq\mathbb{C}\) be simply connected, or that every closed curve in \(\Omega\) is null-homotopic (homotopic to a constant curve, or a point) in \(\Omega\). Let \(U\subseteq\Omega\) be a disk and suppose \(\qty(f,U)\) is an analytic function element with unrestricted continuation in \(\Omega\). Then \(\exists!\widetilde{f}\) that is holomorphic on \(\Omega\) such that \(\widetilde{f}\equiv f\) on \(U\).
@@ -3275,7 +3261,7 @@ We have the following immediate assertion:
     Let \(w_1,w_2\in f(U)\) be arbitrary and distinct. Then there exist \(z_1, z_2\in U\) such that \(f\qty(z_1)=w_1\) and \(f\qty(z_2)=w_2\). By the connectivity of \(U\), there exists a path \(\gamma\subset U\) that connects \(z_1\) and \(z_2\). Then \(f(\gamma)\subset f(U)\) is a curve that joins \(w_1\) and \(w_2\). Thus, \(f(U)\) is connected.
 \end{proof}
 Holomorphic injectivity, or univalence, satisfies the proceeding assertion:
-\begin{lemma}\label{lemma:univalentnonvanishingderivative}
+\begin{lemma}\label{lem:univalentnonvanishingderivative}
     Let \(U\subseteq\mathbb{C}\) be a region and suppose \(f:U\to\mathbb{C}\) is univalent. Then \(f'\) is non-vanishing on \(U\).
 \end{lemma}
 \begin{proof}
@@ -3485,7 +3471,7 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
     \begin{equation}
         0<M=\sup_{\alpha\in\mathcal{F}}\abs{\alpha'\qty(z_0)}\leq\frac{1}{r},\label{eq:riemannmapping_fixedpointderivativesupremum}
     \end{equation}
-    where we can assure that \(M\) is positive since each \(\alpha\in\mathcal{F}\) is univalent at \(z_0\) and by \cref{lemma:univalentnonvanishingderivative}.
+    where we can assure that \(M\) is positive since each \(\alpha\in\mathcal{F}\) is univalent at \(z_0\) and by \cref{lem:univalentnonvanishingderivative}.
 
     If \(M\) is an accumulation point of \(\qty{\abs{\alpha'\qty(z_0)}}_{\alpha\in\mathcal{F}}\), there exists a sequence \(\qty{\alpha_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that \(\qty{\abs{\alpha'_n\qty(z_0)}}_{n\in\mathbb{N}}\) converges to \(M\). If \(M\) is attained as a maximum or that \(\abs{\alpha'(z_0)}=M\) for some \(\alpha\in\mathcal{F}\), we may let each \(\alpha_n\equiv\alpha\).
     
@@ -3518,7 +3504,7 @@ The Riemann Mapping Theorem is one of the most profound results in complex analy
     Fix \(\xi\in\psi(U')\) to be arbitrary. By the Open Mapping Theorem (\cref{thm:openmapping}), there exists an open neighborhood \(D(\xi,\varepsilon)\subseteq \psi(U')\). It follows that \(D\qty(-\xi,\varepsilon)\cap\psi\qty(U')=\emptyset\). Therefore, \(\forall z\in U'\), \(\abs{\psi(z)+\xi}\geq\varepsilon\), and consequently, \(\abs{\frac{1}{\psi(z)+\xi}}\leq\frac{1}{\varepsilon}\). Hence, the function \(\varphi(z)=\frac{1}{z+\xi}\) maps \(U'\) to a bounded region that lies within the compact disk \(\overline{D\qty(0,\frac{1}{\varepsilon})}\). Denote \(\varphi\circ\psi(U')\) by \(\widetilde{U}\).
 
     It is easy to see that \(\widetilde{U}\) is simply connected. Let \(\widetilde{U}=\varphi\circ\psi\circ\rho(U)\). To prove this, it suffices to show that the line integral of any holomorphic function over any closed curve in \(\widetilde{U}\) vanishes. Let \(g : \widetilde{U} \to \mathbb{C}\) be holomorphic, and let \(\Gamma \subset \widetilde{U}\) be a closed piecewise \(C^1\) curve. Then  \[\oint_\Gamma g(z)\ddz=\oint_{\rho^{-1}\circ\psi^{-1}\circ\varphi^{-1}(\Gamma)}g\circ\varphi\circ\psi\circ\rho(z)\ddz=0,\]
-    by \cref{lemma:cauchyintegraltheoremoversimplyconnectedset}, since \(U\) is simply connected by assumption, \(\rho^{-1} \circ \psi^{-1} \circ \varphi^{-1}(\Gamma)\) is a closed piecewise \(C^1\) curve in \(U\), and \(g \circ \varphi \circ \psi \circ \rho\) is holomorphic on \(U\). Therefore, \(\widetilde{U}\) is simply connected.
+    by \cref{lem:cauchyintegraltheoremoversimplyconnectedset}, since \(U\) is simply connected by assumption, \(\rho^{-1} \circ \psi^{-1} \circ \varphi^{-1}(\Gamma)\) is a closed piecewise \(C^1\) curve in \(U\), and \(g \circ \varphi \circ \psi \circ \rho\) is holomorphic on \(U\). Therefore, \(\widetilde{U}\) is simply connected.
 
     Hence, we may use our previous result and establish a biholomorphism \(\widetilde{f}:\widetilde{U}\to\mathbb{D}\), unique up to a transformation in \(\Aut(\mathbb{D})\). Let \(f=\widetilde{f}\circ\varphi\circ\psi\circ\rho\), which is a biholomorphism from \(U\) to \(\mathbb{D}\). Similarly, it is unique up to a transformation in \(\Aut(\mathbb{D})\), and the same assertion follows.
 \end{proof}
@@ -3715,7 +3701,7 @@ The proof can be well-organized through the use of the results that we will now 
     \end{multline*} uniformly in \(z\in K\). The summation \[\psi(z)=\frac{1}{2\piup\ii}\sum_{j=1}^n \sum_{k=0}^{m-1}\frac{f\qty(\gamma_j\qty(t_k))\gamma'_j\qty(t_k)}{\gamma_j\qty(t_k)-z}\Delta t_k\] defines a rational function with simple poles at each \(\gamma_j\qty(t_k)\in\partial\widetilde{K}\), which is disjoint from \(K\).
 \end{proof}
 In its full generality, we will now apply a technique to \textit{push} a pole to a prescribed point, while ensuring that the resulting function remains uniformly approximated outside of a given connected compact set that contains both the original and target pole locations.
-\begin{lemma}[Pole-Pushing Lemma]\label{lemma:simplepolepushing}
+\begin{lemma}[Pole-Pushing Lemma]\label{lem:simplepolepushing}
     Let \(\alpha,\beta\in\mathbb{C}\) and let \(f(z)\) be a rational function with a single singularity, a pole at \(z=\alpha\), whose Laurent expansion consists solely of its principal part. Then \(\forall r>\abs{\alpha-\beta}\), \(\forall\varepsilon>0\), there exists a rational function \(\psi(z)\) whose only singularity is a pole at \(z=\beta\) such that \[\sup_{z\in\extcomplex\setminus D(\beta,r)}\abs{f(z)-\psi(z)}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
@@ -3741,7 +3727,7 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     \end{align*}
     which completes the proof as \[\psi(z)=\sum_{j=1}^ma_{-j}\qty[(z-\beta)^{-1}\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j\] is rational with a pole at \(z=\beta\).
 \end{proof}
-\begin{lemma}[Generalized Pole-Pushing Lemma]\label{lemma:generalpolepushing}
+\begin{lemma}[Generalized Pole-Pushing Lemma]\label{lem:generalpolepushing}
     Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\mathbb{C}\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\xi\in U\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
@@ -3755,7 +3741,7 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
 
     Consider \(\xi\in S\), where \(\xi\) lies in the complement of \(K\). The distance from \(\xi\) to \(K\), denoted \(\mathrm{dist}(\xi,K)\), is positive, and the open disk \(D(\xi,\mathrm{dist}(\xi,K))\) is disjoint from \(K\). Let \(\xi'\) be an arbitrary point in this disk. By the definition of \(S\), for every \(\varepsilon>0\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that
     \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\frac{\varepsilon}{2}.\]
-    By \cref{lemma:simplepolepushing}, there exists a rational function \(\phi\) with a pole only at \(\xi'\) such that
+    By \cref{lem:simplepolepushing}, there exists a rational function \(\phi\) with a pole only at \(\xi'\) such that
     \[\sup_{z\in\extcomplex\setminus D(\xi,\mathrm{dist}(\xi,K))}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2},\]
     which implies
     \[\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2}.\]
@@ -3767,7 +3753,7 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
 
     Since \(U\setminus\qty{\infty}\) is connected and \(S\) is both relatively open and closed in \(U\setminus\qty{\infty}\), it follows from \cref{thm:connectedtopologicalspaceclopensets} that \(S=U\setminus\qty{\infty}\), completing the proof under the assumption that \(\infty\notin U\).
 
-    Now suppose \(\infty\in U\). In essence, we pole push to a point outside a disk on which we can make approximations by Taylor polynomials. Let \(R>0\) satisfy \(K\subset D(0,R)\) and let \(b\in U\setminus\qty(\qty{\infty}\cup \overline{D(0,R)})\) be an arbitrary point. By \cref{lemma:simplepolepushing}, there exists some rational function \(\widetilde{\psi}(z)\) with a pole at \(b\) such that \[\sup_{z\in K}\abs{\widetilde{\psi}(z)-\frac{1}{z-a}}<\frac\varepsilon2.\]
+    Now suppose \(\infty\in U\). In essence, we pole push to a point outside a disk on which we can make approximations by Taylor polynomials. Let \(R>0\) satisfy \(K\subset D(0,R)\) and let \(b\in U\setminus\qty(\qty{\infty}\cup \overline{D(0,R)})\) be an arbitrary point. By \cref{lem:simplepolepushing}, there exists some rational function \(\widetilde{\psi}(z)\) with a pole at \(b\) such that \[\sup_{z\in K}\abs{\widetilde{\psi}(z)-\frac{1}{z-a}}<\frac\varepsilon2.\]
     Since \(\widetilde{\psi}\) is holomorphic on some neighborhood of \(\overline{D(0,R)}\), we have \[\widetilde{\psi}(z)=\sum_{k=0}^\infty a_k z^k\qq{on}\overline{D(0,R)}\] and it uniformly converges on \(\overline{D(0,R)}\). Hence, \(\exists N\in\mathbb{N}\) such that \[\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_k z^k}<\frac{\varepsilon}{2}.\]
     Since polynomials have poles at \(\infty\), we have \[\sup_{z\in\overline{D(0,R)}}\abs{\frac{1}{z-a}-\sum_{k=0}^N a_k z^K}\leq\sup_{z\in\overline{D(0,R)}}\abs{\frac{1}{z-a}-\widetilde{\psi}(z)}+\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_kz^k}<\varepsilon.\qedhere\]
 \end{proof}
@@ -3779,7 +3765,7 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     \begin{equation}
         \sup_{z\in K}\abs{f(z)-\phi(z)}<\frac\varepsilon2.\label{eq:runge_intermediate1}
     \end{equation}
-    Let the poles of \(\phi\) be \(\qty{\beta_k}_{k\in\mathbb{N}_{\leq n}}\subset\mathbb{C}\setminus K\), and as a consequence, we have \(\phi(z)=\sum_{k=1}^n\frac{a_k}{z-\beta_k}+\varphi(z)\) where \(\varphi(z)\) is entire. Since \(\phi(\infty)=0\), we have \(\varphi\equiv 0\) by Liouville's Theorem (\cref{thm:liouville}). By \cref{lemma:generalpolepushing}, there exist rational functions \(\qty{\psi_k}_{k\in\mathbb{N}_{\leq n}}\) whose only poles lie in \(E\) such that \(\forall k\), \[\sup_{z\in K}\abs{\frac{1}{z-\beta_k}-\psi_k(z)}<\frac{\varepsilon}{2n\abs{a_k}}\] and it follows that \[\sup_{z\in K}\abs{\phi(z)-\sum_{k=1}^n a_k\psi_k(z)}\leq\sup_{z\in K}\sum_{k=1}^n\abs{\frac{a_k}{z-\beta_k}-a_k\psi_k(z)}<\frac\varepsilon2.\]
+    Let the poles of \(\phi\) be \(\qty{\beta_k}_{k\in\mathbb{N}_{\leq n}}\subset\mathbb{C}\setminus K\), and as a consequence, we have \(\phi(z)=\sum_{k=1}^n\frac{a_k}{z-\beta_k}+\varphi(z)\) where \(\varphi(z)\) is entire. Since \(\phi(\infty)=0\), we have \(\varphi\equiv 0\) by Liouville's Theorem (\cref{thm:liouville}). By \cref{lem:generalpolepushing}, there exist rational functions \(\qty{\psi_k}_{k\in\mathbb{N}_{\leq n}}\) whose only poles lie in \(E\) such that \(\forall k\), \[\sup_{z\in K}\abs{\frac{1}{z-\beta_k}-\psi_k(z)}<\frac{\varepsilon}{2n\abs{a_k}}\] and it follows that \[\sup_{z\in K}\abs{\phi(z)-\sum_{k=1}^n a_k\psi_k(z)}\leq\sup_{z\in K}\sum_{k=1}^n\abs{\frac{a_k}{z-\beta_k}-a_k\psi_k(z)}<\frac\varepsilon2.\]
     Let \(\psi(z)=\sum_{k=1}^na_k\psi_k(z)\). From \cref{eq:runge_intermediate1}, we have \[\sup_{z\in K}\abs{f(z)-\psi(z)}\leq\sup_{z\in K}\abs{f(z)-\phi(z)}+\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\varepsilon.\qedhere\]
 \end{proof}
 \subsection{Mergelyan's Theorem}
@@ -3867,7 +3853,7 @@ Let \(z=f^{-1}(w)\). Then we have
     \begin{align*}
         \iint_{D(0,R)}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\int_0^{2\piup}f\qty(z-\rho\ee^{\ii\theta})\dd{\theta}\dd{\rho}\\
         &=2\piup f(z)\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}=f(z)
-    \end{align*} by the mean-value property (\cref{lemma:holomorphicmeanvalueproperty}), proving~\ref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\abs{\grad{\lambda(z)}}=
+    \end{align*} by the mean-value property (\cref{lem:holomorphicmeanvalueproperty}), proving~\ref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\abs{\grad{\lambda(z)}}=
     2\qty(1-\abs{z}^2)\abs{\grad(\abs{z}^2)}=2\qty(1-\abs{z}^2)2\abs{z}\abs{\grad\sqrt{x^2+y^2}}=4\qty(1-\abs{z}^2)\abs{z}.\]
     Hence, \(\abs{\grad\lambda_r(z)}=\frac{3}{\piup r^2}\abs{\grad\qty[\lambda\qty(\frac{z}{r})]}=\frac{3}{\piup r^2}\abs{(\grad\lambda)\qty(\frac{z}{r})}\frac{1}{r}=\frac{12}{\piup r^3}\qty(1-\abs{z}^2)\abs{z}<\frac{4}{r^3}\), which confirms \ref{itm:diracdeltaapproximation_gradientstatement}.
 
@@ -3957,15 +3943,15 @@ The three following metrics are of particular interest in complex differential g
         \begin{equation}
             \rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\label{eq:poincaremetricdefinition}
         \end{equation}
-        In \cref{lemma:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\).
+        In \cref{lem:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\).
 
         We will now calculate the Poincaré distance between two points \(z_1,z_2\in\mathbb{C}\). First assume the case where \(z_1=0\) and \(z_2=R\in (0,1)\). Consider a piecewise smooth curve \(\gamma\subset\mathbb{D}\) parameterized by \(z(t)\) connecting \(z_1\) and \(z_2\); or in other words \[z(t)=x(t)+\ii y(t),\qquad z(0)=z_1=0,\quad z(1)=z_2=R,\] where \(x\in C^1([0,1])\) and \(y\in C^1([0,1])\) are real-valued functions. Then
         \begin{align*}
             \int_\gamma \dd{s}&=\int_0^1 \frac{2\sqrt{x'(t)^2+y'(t)^2}}{1-x(t)^2-y(t)^2}\dd{t}\geq\int_0^1 \frac{2\abs{x'(t)}}{1-x(t)^2}\ddt\geq\abs{\int_0^1 \frac{2x'(t)}{1-x(t)^2}\dd{t}}\\
             &=\abs{\int_0^R \frac{2}{1-x^2}\ddx}=\log(\frac{1+R}{1-R}).
-        \end{align*} Assuming that \(\gamma\) is in the form of \(z(t)=Rt, z'(t)=R\) where \(t\in[0,1]\), we have \[\int_\gamma\dd{s}=\int_0^1 \frac{2R\ddt}{1-R^2t^2}=\log(\frac{1+R}{1-R}).\] Hence, the Poincaré distance between \(0\) and \(R\) is given by \[d\qty(0,R)=\log(\frac{1+R}{1-R})\] and the straight line segment connecting the two points is a \textscsl{geodesic}. For fixed \(\theta\in\mathbb{R}\) since \(z\mapsto z\ee^{\ii\theta}\in\Aut(\mathbb{D})\), by the Schwarz--Pick Lemma (\cref{lemma:schwarzpick}), we have \[d\qty(0,R)=d\qty(0,R\ee^{\ii\theta})=\log(\frac{1+R}{1-R})\] by the invariance under \(\Aut(\mathbb{D})\). Now let \(z_1\) and \(z_2\) be arbitrary points in \(\mathbb{D}\). The Möbius transformation \[\varphi_{z_1}(z)=\frac{z-z_1}{1-\overline{z_1}z}\] maps \(z_1\) to \(0\) and maps \(z_2\) to \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\). Hence, we have \[d\qty(z_1,z_2)=d\qty(0,\frac{z_2-z_1}{1-\overline{z_1}z_2})=\log\qty[\frac{1+\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}{1-\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}]=\inf_{\gamma}\int_\gamma \dd{s},\] which is the Poincaré distance (or \textscsl{hyperbolic distance}) between \(z_1\) and \(z_2\). The infimum is attained along the geodesic curve \(\gamma\) parameterized by \[z(t)=\qty(\varphi_{z_1})^{-1}\qty(\frac{z_2-z_1}{1-\overline{z_1}z_2}t)=\frac{z_1+\frac{z_2-z_1}{1-\overline{z_1}z_2}t}{1+\overline{z_1}\frac{z_2-z_1}{1-\overline{z_1}z_2}t}=\frac{z_1(1-t)+z_2\qty(t-\abs{z_1}^2)}{1-\abs{z_1}^2 t-\overline{z_1}z_2(1-t)}\] for \(t\in[0,1]\).
+        \end{align*} Assuming that \(\gamma\) is in the form of \(z(t)=Rt, z'(t)=R\) where \(t\in[0,1]\), we have \[\int_\gamma\dd{s}=\int_0^1 \frac{2R\ddt}{1-R^2t^2}=\log(\frac{1+R}{1-R}).\] Hence, the Poincaré distance between \(0\) and \(R\) is given by \[d\qty(0,R)=\log(\frac{1+R}{1-R})\] and the straight line segment connecting the two points is a \textscsl{geodesic}. For fixed \(\theta\in\mathbb{R}\) since \(z\mapsto z\ee^{\ii\theta}\in\Aut(\mathbb{D})\), by the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), we have \[d\qty(0,R)=d\qty(0,R\ee^{\ii\theta})=\log(\frac{1+R}{1-R})\] by the invariance under \(\Aut(\mathbb{D})\). Now let \(z_1\) and \(z_2\) be arbitrary points in \(\mathbb{D}\). The Möbius transformation \[\varphi_{z_1}(z)=\frac{z-z_1}{1-\overline{z_1}z}\] maps \(z_1\) to \(0\) and maps \(z_2\) to \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\). Hence, we have \[d\qty(z_1,z_2)=d\qty(0,\frac{z_2-z_1}{1-\overline{z_1}z_2})=\log\qty[\frac{1+\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}{1-\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}]=\inf_{\gamma}\int_\gamma \dd{s},\] which is the Poincaré distance (or \textscsl{hyperbolic distance}) between \(z_1\) and \(z_2\). The infimum is attained along the geodesic curve \(\gamma\) parameterized by \[z(t)=\qty(\varphi_{z_1})^{-1}\qty(\frac{z_2-z_1}{1-\overline{z_1}z_2}t)=\frac{z_1+\frac{z_2-z_1}{1-\overline{z_1}z_2}t}{1+\overline{z_1}\frac{z_2-z_1}{1-\overline{z_1}z_2}t}=\frac{z_1(1-t)+z_2\qty(t-\abs{z_1}^2)}{1-\abs{z_1}^2 t-\overline{z_1}z_2(1-t)}\] for \(t\in[0,1]\).
 
-        As a consequence of the Schwarz--Pick Lemma (\cref{lemma:schwarzpick}), for any \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained if and only if \(f\in\Aut(\mathbb{D})\). The Poincaré metric has constant negative curvature \(-1\) since
+        As a consequence of the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), for any \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained if and only if \(f\in\Aut(\mathbb{D})\). The Poincaré metric has constant negative curvature \(-1\) since
         \begin{align*}
             K_\lambda&=-\frac{4}{\lambda^2}\pdv[2]{}{\overline{z}}{z}\qty(\log\circ\lambda)=-\frac{4}{\lambda^2}\pdv{\overline{z}}(\frac{\lambda'_z}{\lambda})=-\frac{2}{\lambda^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1-\abs{z}^2})\\
             &=-\frac{2}{\lambda^2}\qty(\lambda+\overline{z}\lambda'_{\overline{z}})=-\frac{\qty(1-\abs{z}^2)^2}{2}\qty(\lambda+\overline{z}\qty(\frac{2z}{\qty(1-\abs{z}^2)^2}))\\
@@ -4001,7 +3987,7 @@ The three following metrics are of particular interest in complex differential g
 \end{enumerate}
 The importance of the selected regions lies in the uniformization as mentioned in \cref{sec:riemannsurfaces}.
 
-Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by \cref{lemma:univalentnonvanishingderivative}). If \(\rho\) is a metric on \(\Omega_2\), then
+Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by \cref{lem:univalentnonvanishingderivative}). If \(\rho\) is a metric on \(\Omega_2\), then
 \begin{equation}
     f^*\rho=(\rho\circ f)\abs{f'}\label{eq:pullbackmetric}
 \end{equation} defines a metric on \(\Omega_1\), referred to as the \textscsl{metric pullback of} \(\rho\) \textscsl{by} \(f\).
@@ -4019,7 +4005,7 @@ By explicit definition, \[K_{f^*\rho}(z)=-\frac{\laplacian(\log\circ f^*\rho)(z)
     &=-\frac{4}{\qty(\rho\circ f)^2}\pdv[2]{}{\overline{f}}{f}\qty(\log\circ\rho)=-\frac{\laplacian_f\qty(\log\circ\rho)}{\qty(\rho\circ f)^2}=K_\rho\qty(f(z)).
 \end{align*}
 \subsection{From Schwarz--Pick to Ahlfors and Value Distribution of Entire Functions}
-While Schwarz Lemma in \cref{lemma:schwarz} concerns self-maps of \(\mathbb{D}\) with a fixed point at the origin, the Schwarz--Pick Lemma in \cref{lemma:schwarzpick} generalizes this to arbitrary points in \(\mathbb{D}\) as well as the hyperbolic contraction property of holomorphic maps.
+While Schwarz Lemma in \cref{lem:schwarz} concerns self-maps of \(\mathbb{D}\) with a fixed point at the origin, the Schwarz--Pick Lemma in \cref{lem:schwarzpick} generalizes this to arbitrary points in \(\mathbb{D}\) as well as the hyperbolic contraction property of holomorphic maps.
 
 In 1938, Lars Ahlfors provided a further generalization via curvatures, prompting the study of complex functions from a differential-geometric approach.
 
