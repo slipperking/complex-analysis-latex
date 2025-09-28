@@ -2287,20 +2287,49 @@ Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\) and
         0               &\qif* n<m \\
         \infty          &\qif* n>m
 \end{cases}.\]
-Conversely,
+Conversely, we have:
 \begin{theorem}\label{thm:rationalmeromorphicfunctions}
     If \(f(z)\) is meromorphic on \(\mathbb{C}\) and has a pole or removable singularity at \(z=\infty\), then \(f\) is a rational function.
 \end{theorem}
 \begin{proof}
-    Since the singularity at \(\infty\) is isolated, there exists a (punctured) neighborhood of \(\infty\), \(\cbraces{z\in\mathbb{C}}{R<\abs{z}<\infty}\), on which \(f\) is holomorphic. Let \(\psi_\infty(z)\) equal the principal part of \(f(z)\). If \(z=\infty\) is a removable singularity of \(f\), then \(\psi_\infty\) is identically zero, and if \(z=\infty\) is a pole of \(f\), then \(\psi_\infty\) is a polynomial.
+    Since \(f\) is meromorphic on \(\mathbb{C}\), its singularities are isolated poles. The assumption that \(f\) has either a pole or a removable singularity at \(\infty\) implies that this singularity is also isolated. Thus, there exists some \(R>0\) such that \(f\) is holomorphic on the punctured neighborhood \(\{z\in\mathbb{C}:R<|z|<\infty\}\) of \(\infty\).
 
-    It is clear that \(f\) has finitely many poles in \(\overline{D(0,R)}\). Indeed, if \(f\) has infinitely many poles in the closed disk, by the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), the set \[\cbraces{z\in\overline{D(0,R)}}{\lim_{\zeta\to z} f(\zeta)=\infty}\] contains an accumulation point in \(\overline{D(0,R)}\), which is not an isolated singularity, contradicting the definition of meromorphy.
+    Consider the Laurent expansion of \(f\) at \(\infty\), obtained by substituting \(w=1/z\) and expanding around \(w=0\):
+    \[f(z)=\sum_{n=-\infty}^{\infty}a_nz^n,\]
+    where the series converges for sufficiently large \(|z|\). If \(\infty\) is a removable singularity, the coefficients \(a_n=0\) for all \(n>0\). If \(\infty\) is a pole of order \(m\), then \(a_n=0\) for all \(n>m\), and \(a_m\neq0\). In either case, the principal part at \(\infty\) is
+    \[\psi_\infty(z)=\sum_{n=1}^{m}a_nz^n,\]
+    which is a polynomial (of degree 0 if removable, i.e., identically zero).
 
-    Let \(z_1,\ldots,z_n\) be the isolated poles of \(f\) in \(\overline{D(0,R)}\). For any \(k\in\qty{1,2,\ldots,n}\), \(f\) has the Laurent expansion at \(z_k\) with a principal part of \[\psi_k(z)=\frac{c_{k,-1}}{z-z_k}+\frac{c_{k,-2}}{\qty(z-z_k)^2}+\cdots+\frac{c_{k,-m_{k}}}{\qty(z-z_k)^{m_k}}.\] Define the auxiliary function \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\] which is meromorphic on \(\mathbb{C}\) with singularities at each of \(\qty{z_k}_{k=1}^n\cup\qty{\infty}\). Fix \(j\in\cbraces{1,\ldots n}\). Since \(z_j\) is an isolated singularity, \(\exists\varepsilon_j>0\) such that \(\forall k\neq j\), \(z_k\notin D^*\qty(z_j,\varepsilon_j)\). Then, \(\sum_{\substack{k=1\\k\neq j}}^n \psi_k(z)\) is holomorphic on \(D^*(z_j,\varepsilon_j)\).\ \(\psi_\infty(z)\) is a polynomial and therefore entire. Lastly, \(f(z)-\psi_j(z)=\varphi_j(z)\) is the holomorphic part of the expansion of \(f(z)\) at \(z_j\), and is holomorphic at \(z_j\). Therefore, \(z=z_j\) is a removable singularity of \(\Phi(z)\). By \cref{thm:removablesingularitiesriemann}, define \(\Phi(z)\) to be the analytic continuation on all of \(\mathbb{C}\).
+    Next, observe that \(f\) has only finitely many poles in the closed disk \(\overline{D(0,R)}=\{z:|z|\leq R\}\). Suppose otherwise; then the set of poles in \(\overline{D(0,R)}\) would be infinite. By the Bolzano--Weierstrass theorem, this set would have an accumulation point in \(\overline{D(0,R)}\). At such an accumulation point, \(f\) would have a non-isolated singularity, contradicting the meromorphicity of \(f\) on \(\mathbb{C}\).
 
-    At a neighborhood of \(\infty\), \(f(z)-\psi_\infty(z)\) is the holomorphic part of the expansion of \(f(z)\), consisting of non-positive exponents. Therefore, \(\lim_{z\to\infty} f(z)-\psi_\infty(z)\) is finite. Since \(\psi_k\) are the principal parts of Laurent expansions at finite points, they consist of negative exponents. Therefore, we have \(\lim_{z\to\infty}\sum_{k=1}^n \psi_k(z)=0\), and consequently, \(\Phi(z)\) has a removable singularity at \(\infty\). By \cref{prop:removablesingularityatinftyentireconstant}, \(c=\Phi(z)\) is constant.
+    Let \(z_1,\dots,z_n\) denote these finitely many poles in \(\overline{D(0,R)}\). For each \(k=1,\dots,n\), the Laurent expansion of \(f\) at \(z_k\) has principal part
+    \[\psi_k(z)=\sum_{j=1}^{m_k}\frac{c_{k,-j}}{(z-z_k)^j},\]
+    where \(m_k\) is the order of the pole at \(z_k\).
 
-    Thus, we have \[f(z)=c+\psi_\infty(z)+\sum_{k=1}^n\psi_k(z).\] Since each series contains finitely many terms, \(f(z)\) is rational.
+    Define the auxiliary function
+    \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z).\]
+    This function is meromorphic on \(\mathbb{C}\), with potential singularities only at \(z_1,\dots,z_n\) and \(\infty\).
+
+    We now show that each of these singularities is removable. First, fix \(j\in\{1,\dots,n\}\). Since the poles are isolated, there exists \(\varepsilon_j>0\) such that the punctured disk \(D^*(z_j,\varepsilon_j)=\{z:0<|z-z_j|<\varepsilon_j\}\) contains no other poles \(z_k\) for \(k\neq j\). On this disk:
+    \begin{itemize}
+        \item \(f(z)-\psi_j(z)\) is the holomorphic part of the Laurent expansion at \(z_j\), hence holomorphic on \(D(z_j,\varepsilon_j)\) (including at \(z_j\)).
+        \item \(\sum_{k\neq j}\psi_k(z)\) is holomorphic on \(D(z_j,\varepsilon_j)\), as each \(\psi_k\) has its singularity elsewhere.
+        \item \(\psi_\infty(z)\) is a polynomial, hence entire.
+    \end{itemize}
+    Thus,
+    \[\Phi(z)=[f(z)-\psi_j(z)]-\psi_\infty(z)-\sum_{k\neq j}\psi_k(z)\]
+    is holomorphic on \(D(z_j,\varepsilon_j)\), including at \(z_j\). By Riemann's removable singularity theorem, we can define \(\Phi(z_j)\) to make \(\Phi\) holomorphic at \(z_j\).
+
+    Now consider the behavior at \(\infty\). On the neighborhood \(\{z:|z|>R\}\):
+    \begin{itemize}
+        \item \(f(z)-\psi_\infty(z)\) is the holomorphic part of the expansion at \(\infty\), consisting of terms with non-positive powers of \(z\), so \(\lim_{|z|\to\infty}[f(z)-\psi_\infty(z)]\) exists and is finite.
+        \item Each \(\psi_k(z)\) consists of negative powers of \((z-z_k)\), so \(\lim_{|z|\to\infty}\psi_k(z)=0\) for each \(k\), and thus \(\lim_{|z|\to\infty}\sum_{k=1}^n\psi_k(z)=0\).
+    \end{itemize}
+    Therefore, \(\lim_{|z|\to\infty}\Phi(z)\) exists and is finite, so \(\infty\) is a removable singularity of \(\Phi\). After removing all finite singularities as above, \(\Phi\) is entire (holomorphic on \(\mathbb{C}\)). Since \(\Phi\) has a finite limit at \(\infty\), it is bounded on \(\mathbb{C}\). By Liouville's theorem, \(\Phi(z)\equiv c\) for some constant \(c\).
+
+    Hence,
+    \[f(z)=c+\psi_\infty(z)+\sum_{k=1}^n\psi_k(z).\]
+    The right-hand side is a sum of a constant, a polynomial, and finitely many principal parts (each a rational function with a single pole), so \(f\) is rational.
 \end{proof}
 If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textscsl{transcendental meromorphic function}.
 \subsection{Further Properties of Meromorphic and Entire Functions}
