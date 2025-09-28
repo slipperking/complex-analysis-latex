@@ -4145,15 +4145,18 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     In essence, for any point \(z\), there exists an open disk \(D_z\) centered at \(z\) on which the spherical derivatives \(f^\sharp_{n_k}\) are bounded by some constant \(M_z\) for \(k>N_z\). By Heine--Borel (\cref{thm:heineborel}), there exists a finite collection of disks \(\qty{D_{z_j}}_{1\leq j\leq n}\) that cover \(K\). Thus, \(\qty{f_{n_k}^\sharp(z)}_{k>N}\) is uniformly bounded on \(K\) by \(\max_{1\leq j\leq n}M_{z_j}\), where \(N=\max_{1\leq j\leq n} N_{z_j}\), contradicting the assumption that \(\sup_{z\in K}f^\sharp_n(z)>n\) for all \(n\in\mathbb{N}\).
 \end{proof}
 \begin{theorem}[\textsc{Fundamental Normality Test}]\label{thm:fundamentalnormalitytest}
-    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions. If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\qty{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a normal family.
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of holomorphic functions. If there exist two different points \(\alpha,\beta\in\mathbb{C}\) such that \(\qty{\alpha,\beta}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a normal family.
 \end{theorem}
 \begin{proof}
-    Let \(U\) be the image of \(\Omega\) under the linear fractional transformation \(\varphi(z)=\frac{(z-\alpha)(\beta-\gamma)}{(z-\gamma)(\beta-\alpha)}\), which maps \(\alpha,\beta,\gamma\) to \(0,1,\infty\). Hence, we only need to consider the normality of \(\mathcal{F}\) under the assumption that every function omits \(0\), \(1\), and \(\infty\).
+
 \end{proof}
-\Cref{thm:fundamentalnormalitytest} is also known as the \textscsl{Montel's Three Omitted Values Theorem}. In the case that \(\infty\) is omitted, every function \(f\in\mathcal{F}\) is holomorphic, and hence, we obtain the following consequence:
 \begin{corollary}[Montel]
-    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of holomorphic functions. If there exist two different points \(\alpha,\beta\in\mathbb{C}\) such that \(\qty{\alpha,\beta}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a normal family.
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions. If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\qty{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a normal family.
 \end{corollary}
+\begin{proof}
+    Let \(U\) be the image of \(\Omega\) under the linear fractional transformation \(\varphi(z)=\frac{(z-\alpha)(\beta-\gamma)}{(z-\gamma)(\beta-\alpha)}\), which maps \(\alpha,\beta,\gamma\) to \(0,1,\infty\). 
+    Hence, the family of meromorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\), \(1\), and \(\infty\) (and hence each function is holomorphic). 
+\end{proof}
 \subsection{The Great Picard, Bloch, Landau, and Schottky Theorems}
 \begin{theorem}[\textsc{Picard's Great Theorem}]\label{thm:greatpicard}
     Suppose \(f\) is meromorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(f\qty(D^*\qty(z_0,\delta))\) omits three different values of \(\extcomplex\), then \(f\) has a meromorphic continuation to \(z_0\).
