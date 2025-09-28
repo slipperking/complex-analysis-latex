@@ -2292,15 +2292,15 @@ Conversely, we have:
     If \(f(z)\) is meromorphic on \(\mathbb{C}\) and has a pole or removable singularity at \(z=\infty\), then \(f\) is a rational function.
 \end{theorem}
 \begin{proof}
-    Since \(f\) is meromorphic on \(\mathbb{C}\), its singularities are isolated poles. The assumption that \(f\) has either a pole or a removable singularity at \(\infty\) implies that this singularity is also isolated. Thus, there exists some \(R>0\) such that \(f\) is holomorphic on the punctured neighborhood \(\{z\in\mathbb{C}:R<|z|<\infty\}\) of \(\infty\).
+    Since \(f\) is meromorphic on \(\mathbb{C}\), its singularities are isolated poles. The assumption that \(f\) has either a pole or a removable singularity at \(\infty\) implies that this singularity is also isolated. Thus, there exists some \(R>0\) such that \(f\) is holomorphic on the punctured neighborhood \(\cbraces{z\in\mathbb{C}}{R<|z|<\infty}\) of \(\infty\).
 
-    Consider the Laurent expansion of \(f\) at \(\infty\), obtained by substituting \(w=1/z\) and expanding around \(w=0\):
-    \[f(z)=\sum_{n=-\infty}^{\infty}a_nz^n,\]
+    Consider the Laurent expansion of \(f\) at \(\infty\), obtained by substituting \(w=\frac{1}{z}\) and expanding around \(w=0\):
+    \[f(z)=\sum_{n=-\infty}^{\infty}a_n z^n,\]
     where the series converges for sufficiently large \(|z|\). If \(\infty\) is a removable singularity, the coefficients \(a_n=0\) for all \(n>0\). If \(\infty\) is a pole of order \(m\), then \(a_n=0\) for all \(n>m\), and \(a_m\neq0\). In either case, the principal part at \(\infty\) is
     \[\psi_\infty(z)=\sum_{n=1}^{m}a_nz^n,\]
-    which is a polynomial (of degree 0 if removable, i.e., identically zero).
+    which is a polynomial (identically zero if degree is 0).
 
-    Next, observe that \(f\) has only finitely many poles in the closed disk \(\overline{D(0,R)}=\{z:|z|\leq R\}\). Suppose otherwise; then the set of poles in \(\overline{D(0,R)}\) would be infinite. By the Bolzano--Weierstrass theorem, this set would have an accumulation point in \(\overline{D(0,R)}\). At such an accumulation point, \(f\) would have a non-isolated singularity, contradicting the meromorphicity of \(f\) on \(\mathbb{C}\).
+    Next, observe that \(f\) has only finitely many poles in the closed disk \(\overline{D(0,R)}=\cbraces{z}{\abs{z}\leq R}\). Suppose otherwise. Then the set of poles in \(\overline{D(0,R)}\) would be infinite. By Bolzano--Weierstrass (\cref{thm:bolzanoweierstrass}), this set would have an accumulation point in \(\overline{D(0,R)}\). At such an accumulation point, \(f\) would have a non-isolated singularity, a contradiction of the meromorphy of \(f\) on \(\mathbb{C}\).
 
     Let \(z_1,\dots,z_n\) denote these finitely many poles in \(\overline{D(0,R)}\). For each \(k=1,\dots,n\), the Laurent expansion of \(f\) at \(z_k\) has principal part
     \[\psi_k(z)=\sum_{j=1}^{m_k}\frac{c_{k,-j}}{(z-z_k)^j},\]
