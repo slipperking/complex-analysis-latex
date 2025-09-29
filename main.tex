@@ -53,27 +53,26 @@
     parent=subsection,
     sibling=theorem,
 ]
-\newkeytheorem[
-    name=Corollary,
-    sibling=theorem,
+\newkeytheorem{corollary}[
+    parent=theorem,
     refname={corollary,corollaries},
     Refname={Corollary,Corollaries}
-]{corollary}
+]
 
-\newkeytheorem[
+\newkeytheorem{definition}[
     style=definition,
     sibling=theorem,
-]{definition}
+]
 
-\newkeytheorem[
+\newkeytheorem{example}[
     style=remark,
     sibling=theorem,
-]{example}
+]
 
-\newkeytheorem[
+\newkeytheorem{remark}[
     style=remark,
     numbered=no,
-]{remark}
+]
 
 \crefformat{section}{\S#2#1#3}
 \crefformat{subsection}{\S#2#1#3}
@@ -2282,7 +2281,7 @@ Conversely, we have:
     \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\]
     which is meromorphic on \(\mathbb{C}\), with potential singularities only at \(z_1,\dots,z_n\) and \(\infty\).
 
-    We now show that each of these singularities is removable. First, fix \(j\in\qty{1,\ldots,n}\) arbitrarily. Since the poles are isolated, there exists \(\varepsilon_j>0\) such that the punctured disk \(D^*(z_j,\varepsilon_j)=\cbraces{z}{0<\abs{z-z_j}<\varepsilon_j}\) contains no other poles \(z_k\) for \(k\neq j\). 
+    We now show that each of these singularities is removable. First, fix \(j\in\qty{1,\ldots,n}\) arbitrarily. Since the poles are isolated, there exists \(\varepsilon_j>0\) such that the punctured disk \(D^*(z_j,\varepsilon_j)=\cbraces{z}{0<\abs{z-z_j}<\varepsilon_j}\) contains no other poles \(z_k\) for \(k\neq j\).
     \begin{enumerate}
         \item Since \(f(z)-\psi_j(z)\) is the holomorphic part of the Laurent expansion at \(z_j\), it is holomorphic on \(D(z_j,\varepsilon_j)\) (including at \(z_j\)).
         \item \(\sum_{k\neq j}\psi_k(z)\) is holomorphic on \(D(z_j,\varepsilon_j)\), as each \(\psi_k\) has its singularity elsewhere.
@@ -3987,9 +3986,9 @@ The three following metrics are of particular interest in complex differential g
             \int_\gamma \dd{s}&=\int_0^1 \frac{2\sqrt{x'(t)^2+y'(t)^2}}{1-x(t)^2-y(t)^2}\dd{t}\geq\int_0^1 \frac{2\abs{x'(t)}}{1-x(t)^2}\ddt\geq\abs{\int_0^1 \frac{2x'(t)}{1-x(t)^2}\dd{t}}\\
             &=\abs{\int_0^R \frac{2}{1-x^2}\ddx}=\log(\frac{1+R}{1-R}).
         \end{align*} Assuming that \(\gamma\) is in the form of \(z(t)=Rt, z'(t)=R\) where \(t\in[0,1]\), we have \[\int_\gamma\dd{s}=\int_0^1 \frac{2R\ddt}{1-R^2t^2}=\log(\frac{1+R}{1-R}).\] Hence, the Poincaré distance between \(0\) and \(R\) is given by \[d\qty(0,R)=\log(\frac{1+R}{1-R})\] and the straight line segment connecting the two points is a \textscsl{geodesic}. For fixed \(\theta\in\mathbb{R}\) since \(z\mapsto z\ee^{\ii\theta}\in\Aut(\mathbb{D})\), by the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), we have \[d\qty(0,R)=d\qty(0,R\ee^{\ii\theta})=\log(\frac{1+R}{1-R})\] by the invariance under \(\Aut(\mathbb{D})\). Now let \(z_1\) and \(z_2\) be arbitrary points in \(\mathbb{D}\). The Möbius transformation \[\varphi_{z_1}(z)=\frac{z-z_1}{1-\overline{z_1}z}\]
-        maps \(z_1\) to \(0\) and maps \(z_2\) to \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\). Hence, we have \[d\qty(z_1,z_2)=d\qty(0,\frac{z_2-z_1}{1-\overline{z_1}z_2})=\log\qty[\frac{1+\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}{1-\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}]=\inf_{\gamma}\int_\gamma \dd{s},\] which is the Poincaré distance (or \textscsl{hyperbolic distance}) between \(z_1\) and \(z_2\). The infimum is attained along the geodesic curve \(\gamma\) parameterized by 
+        maps \(z_1\) to \(0\) and maps \(z_2\) to \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\). Hence, we have \[d\qty(z_1,z_2)=d\qty(0,\frac{z_2-z_1}{1-\overline{z_1}z_2})=\log\qty[\frac{1+\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}{1-\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}]=\inf_{\gamma}\int_\gamma \dd{s},\] which is the Poincaré distance (or \textscsl{hyperbolic distance}) between \(z_1\) and \(z_2\). The infimum is attained along the geodesic curve \(\gamma\) parameterized by
         \[z(t)=\qty(\varphi_{z_1})^{-1}\qty(\frac{z_2-z_1}{1-\overline{z_1}z_2}t)\]
-        for \(t\in[0,1]\). By \cref{thm:linearfractionaltransformationmapscirclestocircles}, the geodesic is either an arc or a straight line segment passing through \(z_1\) and \(z_2\). Since \(\partial\mathbb{D}\) is orthogonal to the straight line passing through \(0\) and \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\), by the conformality of \(\varphi_{z_1}^{-1}\), \(\varphi_{z_1}^{-1}\qty(\partial\mathbb{D})=\partial\mathbb{D}\) is orthogonal to the circular (or straight line) extension of the geodesic curve. 
+        for \(t\in[0,1]\). By \cref{thm:linearfractionaltransformationmapscirclestocircles}, the geodesic is either an arc or a straight line segment passing through \(z_1\) and \(z_2\). Since \(\partial\mathbb{D}\) is orthogonal to the straight line passing through \(0\) and \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\), by the conformality of \(\varphi_{z_1}^{-1}\), \(\varphi_{z_1}^{-1}\qty(\partial\mathbb{D})=\partial\mathbb{D}\) is orthogonal to the circular (or straight line) extension of the geodesic curve.
 
         As a consequence of the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), for any \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained if and only if \(f\in\Aut(\mathbb{D})\). The Poincaré metric has constant negative curvature \(-1\) since
         \begin{align*}
@@ -4117,7 +4116,7 @@ The preceding examples show that if the omitted set is sufficiently ``large'' (i
 \begin{proof}
     Without loss of generality, we may assume that \(\qty{0,1}\subseteq\mathbb{C}\setminus U\) (if not, a linear transformation \(z\mapsto\frac{z-\xi_1}{\xi_2-\xi_1}\) where \(\xi_1,\xi_2\in\mathbb{C}\setminus U\) are distinct will suffice to transform \(U\) to such a region).
 
-    Define a conformal metric with 
+    Define a conformal metric with
     \begin{equation}
         \rho(z)=\frac{\sqrt{1+\abs{z}^{\frac{1}{3}}}\sqrt{1+\abs{z-1}^{\frac{1}{3}}}}{\abs{z}^{\frac{5}{6}}\abs{z-1}^{\frac{5}{6}}},\qquad\dd{s}_{\rho}^2=\rho^2(z)\abs{\dd{z}}^2\label{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric}
     \end{equation} on \(\mathbb{C}\setminus\qty{0,1}\).
@@ -4200,7 +4199,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of holomorphic functions. If there exist two different points \(\alpha,\beta\in\mathbb{C}\) such that \(\qty{\alpha,\beta}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a normal family.
 \end{theorem}
 \begin{proof}
-    Map \(\alpha\) and \(\beta\) to \(0,1\) by a linear function \(\varphi(z)=\frac{z-\alpha}{\beta-\alpha}\). Then the family of holomorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\) and \(1\). 
+    Map \(\alpha\) and \(\beta\) to \(0,1\) by a linear function \(\varphi(z)=\frac{z-\alpha}{\beta-\alpha}\). Then the family of holomorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\) and \(1\).
 \end{proof}
 \begin{corollary}[\textsc{Montel's 3 Omitted Values}]
     Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions. If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\qty{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a normal family.
