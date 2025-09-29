@@ -42,63 +42,37 @@
 \newcommand{\Arg}{\operatorname{Arg}}
 \newcommand{\Aut}{\operatorname{Aut}}
 
-\usepackage{thmtools}
+\usepackage{keytheorems}
 \usepackage{hyperref}
 \usepackage[noabbrev, nameinlink]{cleveref}
 
 \numberwithin{equation}{subsection}
 \numberwithin{figure}{section}
 
-\declaretheorem[
-    name=Theorem,
-    numberwithin=subsection,
-    refname={theorem,theorems},
-    Refname={Theorem,Theorems}
-]{theorem}
-
-\declaretheorem[
-    name=Proposition,
+\newkeytheorem{theorem, proposition, lemma}[
+    parent=subsection,
     sibling=theorem,
-    refname={proposition,propositions},
-    Refname={Proposition,Propositions}
-]{proposition}
-
-\declaretheorem[
-    name=Lemma,
-    sibling=theorem,
-    refname={lemma,lemmas},
-    Refname={Lemma,Lemmas}
-]{lemma}
-
-\declaretheorem[
+]
+\newkeytheorem[
     name=Corollary,
     sibling=theorem,
     refname={corollary,corollaries},
     Refname={Corollary,Corollaries}
 ]{corollary}
 
-\declaretheorem[
-    name=Definition,
+\newkeytheorem[
     style=definition,
     sibling=theorem,
-    refname={definition,definitions},
-    Refname={Definition,Definitions}
 ]{definition}
 
-\declaretheorem[
-    name=Example,
+\newkeytheorem[
     style=remark,
     sibling=theorem,
-    refname={example,examples},
-    Refname={Example,Examples}
 ]{example}
 
-\declaretheorem[
-    name=Remark,
+\newkeytheorem[
     style=remark,
     numbered=no,
-    refname={remark,remarks},
-    Refname={Remark,Remarks}
 ]{remark}
 
 \crefformat{section}{\S#2#1#3}
