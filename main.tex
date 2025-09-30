@@ -169,12 +169,12 @@ The following definitions are subject to the assumption where the topological sp
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
 
-    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\{B^n(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\{B^n(0,k_1),\ldots,B^n(0,k_m)\}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB^n(0,k_i)=B^n(0,\max(k_1,\ldots k_m)).\] By contradiction, \(X\) must be bounded.
+    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\{B^n(0,k)\mid k\in\mathbb{N}\}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\{B^n(0,k_1),\ldots,B^n(0,k_m)\}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB^n(0,k_i)=B^n\qty(0,\max\qty{k_1,\ldots k_m}).\] By contradiction, \(X\) must be bounded.
 
     \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
     \[\mathcal{U}=\left\{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k})}\;\middle|\; \forall k\in\mathbb{N}\right\}.\]
-    There then exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k_j})}\;\middle|\; j\in\mathbb{N}_{\leq m}\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{\max(k_1,\ldots,k_m)})},\]
-    and that \(X\cap\overline{B^n\qty(z_0,\frac{1}{\max(k_1,\ldots,k_m)})}=\emptyset\). However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect \(X\). Therefore, by contradiction, \(X\) is closed.
+    There then exists a finite subcover \(\mathcal{C}=\left\{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k_j})}\;\middle|\; j\in\mathbb{N}_{\leq m}\right\}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{\max\qty{k_1,\ldots,k_m}})},\]
+    and that \(X\cap\overline{B^n\qty(z_0,\frac{1}{\max\qty{k_1,\ldots,k_m}})}=\emptyset\). However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect \(X\). Therefore, by contradiction, \(X\) is closed.
 
     We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the \(X\) is contained within the closed cube \[Q=\cbraces{z\in\mathbb{C}^n}{\max_{j\in\mathbb{N}_{\leq n}}\abs{\Re(z_j)}\le R,\max_{j\in\mathbb{N}_{\leq n}}\abs{\Im(z_j)}\le R}.\]
 
@@ -311,7 +311,7 @@ We also have the definition of the limit of a sequence:
     By \cref{def:epsilonn}, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[\abs{a_n-a}<\varepsilon\Longleftrightarrow a-\varepsilon<a_n<a+\varepsilon.\]
     Then from \cref{def:limsup,def:liminf}, we have that \(\varlimsup_{n\to\infty}a_n\geq a\) and \(\varliminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\varlimsup_{n\to\infty}a_n\leq a\) and \(\varliminf_{n\to\infty} a_n\geq a\). Therefore, \[\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n.\]
 
-    For the converse, assume \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\).\ \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty(N_1, N_2)\), \(\qty|a_n-a|<\varepsilon\), as expected.
+    For the converse, assume \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\).\ \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty{N_1,N_2}\), \(\qty|a_n-a|<\varepsilon\), as expected.
 \end{proof}
 \begin{definition}[Continuity]\label{def:continuity}
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if and only if \[\lim_{x\to a}f(x)=f(a).\]
@@ -684,7 +684,7 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     Since \(S'_n(z)\to f_1(z)\) as \(n\to\infty\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{S'_n(z)-f_1(z)}<\frac{\varepsilon}{3}\). Since \[\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}=\sum_{k=n}^\infty a_k\frac{z^k-z_0^k}{z-z_0}=\sum_{k=n}^\infty a_k\qty(z^{k-1}+z^{k-2}z+\cdots+z_0^{k-1})\]
     for \(z\neq z_0\), \(\abs{z}<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty \abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) is absolutely convergent, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
 
-    Finally, for a fixed \(n>\max\qty(N,N')\), \(\exists\delta>0\) such that \(\forall z\in D\qty(z_0, \delta)\setminus\qty{z_0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
+    Finally, for a fixed \(n>\max\qty{N,N'}\), \(\exists\delta>0\) such that \(\forall z\in D\qty(z_0, \delta)\setminus\qty{z_0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
     From \cref{eq:abelradius_differentiationintermediate}, we get:
     \[\qty|\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}|<\varepsilon,\] confirming \ref{itm:abelradius_differentiation}.
 \end{proof}
@@ -1128,7 +1128,7 @@ When Cauchy famously published \cref{thm:cauchyintegralformula,thm:cauchyintegra
         \int_{\overrightarrow{P_1'M_1'}}f(z)\ddz\to \int_{\overrightarrow{P_1M_1}}f(z)\ddz,\quad\int_{\overrightarrow{N_1'Q_1'}}f(z)\ddz\to \int_{\overrightarrow{N_1Q_1}}f(z)\ddz.\label{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}
     \end{equation}
     Then letting \(\varepsilon\to0\), for the same reason as \cref{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}, \cref{eq:cauchygoursattheorem_innerinnerhorizontaltoouterinnerhorizontal1,eq:cauchygoursattheorem_innerinnerhorizontaltoouterinnerhorizontal2} yield \[\int_{\overrightarrow{M_1N_1}}f(z)\ddz\to \int_{\overrightarrow{MN}}f(z)\ddz,\quad\int_{\overrightarrow{Q_1P_1}}f(z)\ddz\to \int_{\overrightarrow{QP}}f(z)\ddz.\]
-    We are left to show the subsequent limits of the results from \cref{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}. For the left integral, let \(y_{\varphi}=\max\paren{\varphi(a),\varphi\paren{a+\varepsilon}}\) and \(y_{\psi}=\max\paren{\psi(a),\psi\paren{a+\varepsilon}}\).
+    We are left to show the subsequent limits of the results from \cref{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}. For the left integral, let \(y_{\varphi}=\max\qty{\varphi(a),\varphi\paren{a+\varepsilon}}\) and \(y_{\psi}=\max\qty{\psi(a),\psi\paren{a+\varepsilon}}\).
 
     Then, \[\int_{\overrightarrow{PM}}f(z)\ddz=\ii\int_{\psi(a)}^{\varphi(a)}f\paren{a+\ii y}\ddy=\ii\paren{\int_{\psi(a)}^{y_\varphi}+\int_{y_\varphi}^{y_\psi}+\int_{y_\psi}^{\varphi(a)}}f(a+\ii y)\ddy.\]
     Similarly, \[\int_{\overrightarrow{P_1M_1}}f(z)\ddz=\ii\paren{\int_{\psi(a+\varepsilon)}^{y_\varphi}+\int_{y_\varphi}^{y_\psi}+\int_{y_\psi}^{\varphi(a+\varepsilon)}}f(a+\varepsilon+\ii y)\ddy.\]
@@ -1158,7 +1158,7 @@ When Cauchy famously published \cref{thm:cauchyintegralformula,thm:cauchyintegra
     Since \(f\in C^0(\partial D(z,\varepsilon))\), as \(\varepsilon\to0\),
     \begin{align*}
         \abs{\int_0^{2\piup}\paren{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t}} & \leq\int_0^{2\piup}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\dd{t} \\
-        & \leq2\piup\max\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\to0.
+        & \leq2\piup\max_{t\in[0,2\piup]}\abs{f\paren{z+\varepsilon \ee^{\ii t}}-f(z)}\to0.
     \end{align*}
     By rearrangement, \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\qedhere\]
 \end{proof}
