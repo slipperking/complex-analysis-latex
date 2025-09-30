@@ -4218,15 +4218,17 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
 \end{proof}
 \subsection{The Great Picard, Bloch, Landau, and Schottky Theorems}
 Recall the 
-\begin{theorem}[store=thm:greatpicardmeromorphic]\label{thm:greatpicardmeromorphic}
-    Suppose \(f\) is meromorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(f\qty(D^*\qty(z_0,\delta))\) omits three different values of \(\extcomplex\), then \(f\) has a meromorphic continuation to \(z_0\).
-\end{theorem}
-\begin{proof}
-    Let \[\mathcal{F}=\cbraces{z\mapsto f\qty(z_0+\frac{z-z_0}n)}{n\in\mathbb{N}}\] be a family of meromorphic functions on \(D^*\qty(z_0,\delta)\). In essence, each function \(f_n\) in the family restricts the domain of \(f\) to a subdisk. Since each \(f_n\) omits three values \(\alpha,\beta,\gamma\in\extcomplex\).
-\end{proof}
 \begin{theorem}[name=\textsc{Picard's Great Theorem},store=thm:greatpicard]\label{thm:greatpicard}
     Suppose \(f\) is holomorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(z_0\) is an essential singularity of \(f\), then \(f\qty(D^*\qty(z_0,\delta))\) omits at most one value of \(\mathbb{C}\).
 \end{theorem}
+\begin{proof}
+    Let \[\mathcal{F}=\cbraces{z\mapsto \qty{f\qty(z_0+\frac{z-z_0}n)-\alpha}{\beta-\alpha}}{n\in\mathbb{N}}\] be a family of meromorphic functions on \(D^*\qty(z_0,\delta)\), where \(f\) omits \(\alpha\) and \(\beta\). In essence, each function \(f_n\) in the family restricts the domain of \(f\) to a subdisk and applies a linear transformation so that \(\mathcal{F}\) omits 0 and 1.
+\end{proof}
+\begin{corollary}[store=crl:greatpicardmeromorphic]\label{crl:greatpicardmeromorphic}
+    Suppose \(f\) is meromorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(f\qty(D^*\qty(z_0,\delta))\) omits three different values of \(\extcomplex\), then \(f\) has a meromorphic continuation to \(z_0\).
+\end{corollary}
+\begin{proof}
+\end{proof}
 \begin{remark}
     An accumulation point of poles is an essential singularity on the Riemann sphere.
 \end{remark}
