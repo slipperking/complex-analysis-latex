@@ -4164,6 +4164,13 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
 \begin{proposition}
     Let \(\qty{f_n}_{n\in\mathbb{N}}\) be a sequence of meromorphic functions on a domain \(\Omega\subseteq\mathbb{C}\). If \(f_n\to f\) locally uniformly spherically, then \(f\) is either meromorphic on \(\Omega\) or identically \(\infty\).
 \end{proposition}
+\begin{proof}
+    Let \(z_0\in\Omega\) be arbitrary.
+    \begin{enumerate}
+        \item If \(f(z)\neq\infty\), then by continuity, \(\exists\delta>0\) such that \(\forall \zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[d_\sigma\qty(f(\zeta),f_{n_k}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
+            Hence, we have \[d_\sigma\qty(\infty,f(z))-d_\sigma\qty(f(z),f_{n_k}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(\infty,f_{n_k}(\zeta))>0.\]
+    \end{enumerate}
+\end{proof}
 \begin{theorem}[\textsc{Marty's Criterion}]\label{thm:marty}
     A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal if and only if \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in \(\Omega\).
 \end{theorem}
@@ -4193,17 +4200,18 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
 
     By \cref{prop:conformalmetricnegativecurvatureexistencewhenomits2points}, \(\exists\beta>0\) such that for \[\rho(z)=\frac{\sqrt{1+\abs{z}^{\frac13}}\sqrt{1+\abs{z-1}^{\frac13}}}{\abs{z}^{\frac56}\abs{z-1}^{\frac56}},\qquad\dd{s}^2_{\rho}=\rho(z)^2\abs{\ddz}^2\] as in \cref{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric},
     \[K_\rho(z)\leq-\beta\qquad\forall z\in\mathbb{C}\setminus\qty{0,1}.\]
-    Therefore, if we let \(\mu=\rho\sqrt{\beta}\), then 
+    Therefore, if we let \(\mu=\rho\sqrt{\beta}\), then
     \begin{equation}
         K_\mu=-\frac{\laplacian(\log\circ\mu)}{\mu^2}=-\frac{\laplacian(\log\circ\rho)}{\rho^2\beta}=\frac{K_\rho}{\beta}\leq-1\qq{on}\mathbb{C}\setminus\qty{0,1}.\label{eq:fundamentalnormalitytest_f_mu_pullback_inequality}
     \end{equation}
     Let \(\zeta\in\Omega\) be arbitrary and let \(r_\zeta>0\) satisfy \(D\qty(\zeta,r_\zeta)\subseteq\Omega\). By \cref{crl:generalizedahlfors}, the pullback of \(\mu\) from \(\mathbb{C}\setminus\qty{0,1}\) to \(D\qty(\zeta,r_\zeta)\subseteq\Omega\) satisfies \[f^*\mu(z)\leq\lambda_{r_\zeta}(z-\zeta)\implies\mu\qty(f(z))\abs{f'(z)}\leq \frac{2r_\zeta}{r_\zeta^2-\abs{z-\zeta}^2}\qquad\forall z\in D\qty(\zeta,r_\zeta),f\in\widetilde{\mathcal{F}}.\]
-    Since \(\forall w\in\mathbb{C}\setminus\qty{0,1}\), \[\frac{\sigma(w)}{\mu(w)}=\frac{\frac{2}{1+\abs{w}^2}}{\frac{\sqrt{1+\abs{w}^{\frac13}}\sqrt{1+\abs{w-1}^{\frac13}}}{\abs{w}^{\frac56}\abs{w-1}^{\frac56}}}\to\begin{cases}
-        0&\qq*{as}w\to 0\\
-        0&\qq*{as}w\to 1\\
-        \frac{2\abs{w}^{-2}}{\abs{w}^{-\frac43}}\to0&\qq*{as}w\to\infty
+    Since \(\forall w\in\mathbb{C}\setminus\qty{0,1}\), \[\frac{\sigma(w)}{\mu(w)}=\frac{\frac{2}{1+\abs{w}^2}}{\frac{\sqrt{1+\abs{w}^{\frac13}}\sqrt{1+\abs{w-1}^{\frac13}}}{\abs{w}^{\frac56}\abs{w-1}^{\frac56}}}\to
+        \begin{cases}
+            0&\qq*{as}w\to 0\\
+            0&\qq*{as}w\to 1\\
+            \frac{2\abs{w}^{-2}}{\abs{w}^{-\frac43}}\to0&\qq*{as}w\to\infty
     \end{cases}.\]
-    Hence, there exist open neighborhoods \(U_0,U_1,U_\infty\) of \(0,1,\infty\) respectively on which \(\frac\sigma\mu<1\). Since \(\frac{\sigma}{\mu}\in C^0(\mathbb{C})\), 
+    Hence, there exist open neighborhoods \(U_0,U_1,U_\infty\) of \(0,1,\infty\) respectively on which \(\frac\sigma\mu<1\). Since \(\frac{\sigma}{\mu}\in C^0(\mathbb{C})\),
     by \cref{thm:continuousfunctionboundedoncompact}, \(\exists M'>0\) such that \(\frac{\sigma}{\mu}<M'\) on \(\mathbb{C}\setminus\qty(U_0\cup U_1\cup U_\infty)\). Let \(M=\max\qty{M',1}\), and \[\therefore \sigma\leq M\mu\qq{on}\mathbb{C}\setminus\qty{0,1}.\]
     Hence, \(\forall f\in\widetilde{\mathcal{F}}\), we have by virtue of \cref{eq:fundamentalnormalitytest_f_mu_pullback_inequality}, \[f^\sharp(z)=\sigma\circ f(z)\abs{f'(z)}\leq M\mu\circ f(z)\abs{f'(z)}\leq \frac{2rM}{r_\zeta^2-\abs{z-\zeta}^2}\] for any \(z\in D\qty(\zeta,r_\zeta)\). Now restricting \(z\) to \(D\qty(\zeta,\frac{r_\zeta}{2})\), we have \[\abs{z-\zeta}^2<\frac{r_\zeta^2}4\implies r_\zeta^2-\abs{z-\zeta}^2>\frac{3r_\zeta^2}4\implies\abs{f^\sharp(z)}<\frac{8r_\zeta M}{3r_\zeta^2}=\frac{8M}{3r_\zeta}.\]
     For any compact \(K\subset\Omega\), the collection of open disks \[\cbraces{D\qty(\zeta,\frac{r_\zeta}{2})}{\zeta\in K}\] forms an open cover of \(K\). Hence, by Heine--Borel (\cref{thm:heineborel}), it admits a finite subcover \[\cbraces{D\qty(\zeta_k,\frac{r_{\zeta_k}}{2})}{1\leq k\leq n}\] for some \(n\in\mathbb{N}\). Then \(\cbraces{f^\sharp}{f\in\widetilde{\mathcal{F}}}\) is uniformly bounded on \(K\) by \[M_K=\max\cbraces{\frac{8M}{3r_{\zeta_k}}}{1\leq k\leq n}\] and thus locally uniformly bounded on \(\Omega\). By Marty's Criterion (\cref{thm:marty}), \(\widetilde{\mathcal{F}}\) is a normal family; since \(\varphi\) is linear, it follows that \(\mathcal{F}\) is also normal on \(\Omega\).
@@ -4220,7 +4228,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     Therefore, \(\forall z\in K\), \(k>N\), we have \[d_\sigma\qty(\varphi^{-1}\circ\widetilde{f}_{n_k}(z),\varphi^{-1}\circ\widetilde{f}(z))=d_\sigma\qty(f_{n_k}(z),f(z))<\varepsilon.\] Hence, every sequence \(f_n\) has a locally uniformly spherically convergent subsequence, and the normality of \(\mathcal{F}\) follows.
 \end{proof}
 \subsection{The Great Picard, Bloch, Landau, and Schottky Theorems}
-Recall the 
+Recall the
 \begin{theorem}[name=\textsc{Picard's Great Theorem},store=thm:greatpicard]\label{thm:greatpicard}
     Suppose \(f\) is holomorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(z_0\) is an essential singularity of \(f\), then \(f\qty(D^*\qty(z_0,\delta))\) omits at most one value of \(\mathbb{C}\).
 \end{theorem}
@@ -4239,7 +4247,7 @@ Recall the
 Picard's Great Theorem is also a generalization of Picard's Little Theorem (\cref{thm:littlepicard}):
 \getkeytheorem{thm:littlepicard}
 \begin{proof}
-    
+
 \end{proof}
 The efforts of many mathematicians resulted in several alternative proofs following that of Picard; the geometric realization of Ahlfors (\cref{thm:schwarzahlforspick}) was followed by results discovered by R. M. Robinson. Other approaches from Nevanlinna theory appeared later in the 20th century.
 
@@ -4250,7 +4258,7 @@ More importantly, we have shown the utility of even seemingly fundamental differ
     Let \(f:\mathbb{D}\to\mathbb{C}\) be holomorphic such that \(f'(0)=1\). Then \(f(\mathbb{D})\) contains a disk with radius \(B\), where \(B\) is a constant independent of \(f\), known as the \textscsl{Bloch constant}.
 \end{theorem}
 \begin{proof}
-    
+
 \end{proof}
 \begin{remark}
     The exact value or expression of Bloch's constant \(B\) is still currently unknown. Early estimates show that \(B\geq\frac1{72}\), while H. Grunsky and Ahlfors showed that \(\frac{\sqrt3}{4}\leq B\leq\frac{\Gamma\qty(\frac13)\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac14)}\sqrt{\frac{\sqrt{3}-1}{2}}\) (where \(\Gamma\) is the Gamma function as described in \cref{eq:gammafunction}) in 1937. M. Bonk provided a proof of the marginally improved estimate \(B\geq\frac{\sqrt{3}}{4}+\frac{10^{-12}}{13}\) from the well-known estimate \(B\geq\frac{\sqrt{3}}{4}\), which was subsequently improved to \(B\geq\frac{\sqrt3}{4}+\frac{1}{5000}\) by H. Chen and P. M. Gauthier in 1996.
@@ -4261,7 +4269,7 @@ More importantly, we have shown the utility of even seemingly fundamental differ
     Let \(f(z)=\sum_{n=0}^\infty a_n z^n\) such that \(a_1\neq0\).
 \end{theorem}
 \begin{theorem}[\textsc{Schottky}]
-    
+
 \end{theorem}
 \section{A Glimpse into the Function Theory of Multiple Complex Variables}\label{sec:multivariatecomplexanalysis}
 As in the single-variable case, there exist natural extensions of the definitions of holomorphy and of derivatives, as well as direct analogs of integral theorems.
