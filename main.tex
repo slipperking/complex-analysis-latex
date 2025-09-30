@@ -1659,7 +1659,7 @@ Thus, one defines the \textscsl{winding index} to quantify how many times a clos
     \begin{equation}
         \lim_{n\to\infty}\oint_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\label{eq:hurwitzsimplecase_argumentprinciple}
     \end{equation}
-    Since \(f\) and \(f'\) are holomorphic over \(\gamma\), by \cref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\paren{\abs{f(z)},\abs{f'(z)}}<M\).
+    Since \(f\) and \(f'\) are holomorphic over \(\gamma\), by \cref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\qty{\abs{f(z)},\abs{f'(z)}}<M\).
 
     Since \(\gamma\) does not pass through the zeros of \(f\), \(\exists\lambda>0\) such that \(\forall z\in\gamma\), \(\abs{f(z)}>\lambda\). By the uniform convergence of \(\cbraces{f_n(z)}\), \(\exists N\in\mathbb{N}\) such that
     \[\abs{f_n(z)-f(z)}<\frac{\lambda}{2},\quad\forall n>N,\forall z\in\gamma.\]
@@ -2404,7 +2404,7 @@ We also have:
     Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty \abs{f_k(z)}\) is uniformly convergent on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on compact subsets of \(U\) to a holomorphic function, which vanishes only at a point \(z\) if and only if \(f_k(z)=-1\) for some \(k\in\mathbb{N}\). The multiplicity at each such zero \(z\) is the sum of the multiplicities of \(1+f_k\) at \(z\) for all \(k\) satisfying \(f_k(z)=-1\).
 \end{lemma}
 \begin{proof}
-    Let \(K\subset U\) be an arbitrary compact set. By the uniform convergence of \(\sum_{k=1}^\infty \abs{f_k(z)}\) on \(K\), it follows that the uniform limit is continuous by the Uniform Limit Theorem (\cref{thm:uniformlimit}). By continuity on a compact set, it follows that the limit is bounded by some constant \(M'\). Additionally, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sum_{k=1}^n \abs{f_k(z)}<M'+\varepsilon\). It follows that the partial sums are uniformly bounded in \(K\) by \(M=\max\qty[\max_{k=1}^N\qty(\max_{z\in K}f_k(z)), M'+\varepsilon]\). Similarly, by earlier discussion of infinite products, we have \[F_n(z)=\prod_{k=1}^n\qty(1+\abs{f_k(z)})\leq\exp\qty(\sum_{k=1}^n\abs{f_k(z)})\leq \ee^{M},\]
+    Let \(K\subset U\) be an arbitrary compact set. By the uniform convergence of \(\sum_{k=1}^\infty \abs{f_k(z)}\) on \(K\), it follows that the uniform limit is continuous by the Uniform Limit Theorem (\cref{thm:uniformlimit}). By continuity on a compact set, it follows that the limit is bounded by some constant \(M'\). Additionally, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sum_{k=1}^n \abs{f_k(z)}<M'+\varepsilon\). It follows that the partial sums are uniformly bounded in \(K\) by \(M=\max\qty{\max_{k=1}^N\qty(\max_{z\in K}f_k(z)), M'+\varepsilon}\). Similarly, by earlier discussion of infinite products, we have \[F_n(z)=\prod_{k=1}^n\qty(1+\abs{f_k(z)})\leq\exp\qty(\sum_{k=1}^n\abs{f_k(z)})\leq \ee^{M},\]
     or in other words, the partial products are uniformly bounded on \(K\). Let \(0<\varepsilon<1\) be arbitrary. By definition, there exists \(N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{\sum_{k=m+1}^n f_k(z)}<\varepsilon\) for all \(z\in K\). The difference between the non-absolute partial products satisfies
     \begin{align*}
         \abs{\prod_{k=1}^n\qty(1+{f_k(z)})-\prod_{k=1}^m\qty(1+{f_k(z)})} & \leq \abs{\prod_{k=1}^m\qty(1+{f_k(z)})}\abs{\prod_{k=m+1}^n\qty(1+{f_k(z)})-1} \\
@@ -2603,7 +2603,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
         & \leq \frac{1}{\sin[2](\piup x)\cosh[2](\piup y)+\sinh[2](\piup y)\qty[1-\sin[2](\piup x)]}+\frac{1}{3}+\frac{2}{\piup^2}\nonumber                                                                    \\
         & \leq \frac{1}{\sin[2](\piup x)+\sinh[2](\piup y)}+\frac{1}{3}+\frac{2}{\piup^2}\leq\csch[2](\piup)+\frac{1}{3}+\frac{2}{\piup^2}.\label{eq:csc^2poleexpansionuniformbound}
     \end{align}
-    Since \[\abs{f}<\max\qty[M,\csch[2](\piup)+\frac{1}{3}+\frac{2}{\piup^2}]\] on \(\mathbb{C}\), Liouville's Theorem (\cref{thm:liouville}) gives that \(f\) is constant. At \(z=\frac{1}{2}\), we have
+    Since \[\abs{f}<\max\qty{M,\csch[2](\piup)+\frac{1}{3}+\frac{2}{\piup^2}}\] on \(\mathbb{C}\), Liouville's Theorem (\cref{thm:liouville}) gives that \(f\) is constant. At \(z=\frac{1}{2}\), we have
     \begin{align*}
         f\qty(\frac{1}{2}) & =\csc[2](\frac{\piup}{2})-\frac{8}{\piup^2}\sum_{n=1}^\infty\frac{1}{\qty[2n-1]^2}=1-\frac{8}{\piup^2}\qty(\sum_{n=1}^\infty\frac{1}{n^2}-\sum_{n=1}^\infty\frac{1}{(2n)^2}) \\
         & =1-\frac{8}{\piup^2}\qty(\frac{\piup^2}{6}-\frac{\piup^2}{24})=0,
@@ -3433,7 +3433,7 @@ The following theorem is important in many areas of mathematical analysis and ha
     For the fixed value of \(\varepsilon\), the collection \(\qty{D\qty(\zeta_k,\delta)}_{k\in\mathbb{N}}\) forms an open cover of \(K\), and by the Heine--Borel Theorem (\cref{thm:heineborel}), it admits finite subcovering \(\qty{D\qty(\zeta_k,\delta)}_{k\in\qty{1,\ldots,l}}\) for some finite \(l=l(\varepsilon)\in\mathbb{N}\).
 
     Hence, \(\exists k=k(\varepsilon)\leq l\) such that any point \(z\in K\) lies in \(D\qty(\zeta_k,\delta)\). By \cref{eq:arzelaascoli_uniformequicontinuitydirectconsequence}, we have that \[\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}<\frac{\varepsilon}{3},\qquad \abs{f_{n'_i}(z)-f_{n'_i}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
-    Letting \(\widetilde{N}=\widetilde{N}(\varepsilon)=\max\qty[N(\varepsilon,1),\ldots,N(\varepsilon, l(\varepsilon))]\), we have that \(\forall i,j>\widetilde{N}\), \(\forall z\in K\),
+    Letting \(\widetilde{N}=\widetilde{N}(\varepsilon)=\max\qty{N(\varepsilon,1),\ldots,N(\varepsilon, l(\varepsilon))}\), we have that \(\forall i,j>\widetilde{N}\), \(\forall z\in K\),
     \begin{align*}
         \abs{f_{n'_j}(z)-f_{n'_i}(z)} & \leq\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}+\abs{f_{n'_j}\qty(\zeta_k)-f_{n'_i}\qty(\zeta_{k})}+\abs{f_{n'_i}\qty(\zeta_{k})-f_{n'_i}(z)} \\
         & =\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon.
@@ -3442,7 +3442,7 @@ The following theorem is important in many areas of mathematical analysis and ha
 
     For the proof of the necessity, we will first assume the normality of \(\mathcal{F}\) in \(K\).
 
-    For the sake of contradiction, assume that \(\mathcal{F}\) is not uniformly bounded. Then \(\forall n\in\mathbb{N}\), \(\exists f_n\in\mathcal{F}\) and \(\exists z_n\in K\) such that \(\abs{f_n\qty(z_n)}>n\). By assumption, this sequence has a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) that uniformly converges. Hence, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\forall z\in K\), \(\abs{f_{n_k}(z)-f(z)}<1\). By the reverse triangle inequality, it follows that \(\abs{f_{n_k}(z)}<\abs{f(z)}+1\). Since \(f\) is continuous on \(K\) by \cref{thm:uniformlimit}, it is bounded by some \(M_1\) (\cref{thm:continuousfunctionboundedoncompact}). Let \(M_2=\max_{k=1}^N\sup_{z\in K}\abs{f_{n_k}(z)}\). It follows that this subsequence is uniformly bounded by \(\max\qty(M_1+1,M_2)\). However, since \(\abs{f_{n_k}\qty(z_{n_k})}>n_k\to\infty\) for any \(k\), this subsequence cannot be uniformly bounded, and hence we have a contradiction.
+    For the sake of contradiction, assume that \(\mathcal{F}\) is not uniformly bounded. Then \(\forall n\in\mathbb{N}\), \(\exists f_n\in\mathcal{F}\) and \(\exists z_n\in K\) such that \(\abs{f_n\qty(z_n)}>n\). By assumption, this sequence has a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) that uniformly converges. Hence, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(\forall z\in K\), \(\abs{f_{n_k}(z)-f(z)}<1\). By the reverse triangle inequality, it follows that \(\abs{f_{n_k}(z)}<\abs{f(z)}+1\). Since \(f\) is continuous on \(K\) by \cref{thm:uniformlimit}, it is bounded by some \(M_1\) (\cref{thm:continuousfunctionboundedoncompact}). Let \(M_2=\max_{k=1}^N\sup_{z\in K}\abs{f_{n_k}(z)}\). It follows that this subsequence is uniformly bounded by \(\max\qty{M_1+1,M_2}\). However, since \(\abs{f_{n_k}\qty(z_{n_k})}>n_k\to\infty\) for any \(k\), this subsequence cannot be uniformly bounded, and hence we have a contradiction.
 
     We will now assume that \(\mathcal{F}\) is not pointwise equicontinuous at some arbitrary point \(z_0\in K\). In other words, \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists f\in\mathcal{F}\), \(\exists z\in K\) such that \(\abs{z-z_0}<\delta\) satisfying \[\abs{f(z)-f(z_0)}>\varepsilon.\]
     Let us define sequences \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) and \(\qty{z_n}_{n\in\mathbb{N}}\subseteq K\) such that \(\abs{z_n-z_0}<\frac{1}{n}\) and
@@ -4124,7 +4124,7 @@ The preceding examples show that if the omitted set is sufficiently ``large'' (i
         \item \(\lim_{z\to 1}K_\rho(z)=-\frac1{36}\).
         \item \(\lim_{z\to \infty}K_\rho(z)=-\infty\) in any direction (as in the one-point compactification).
     \end{enumerate}
-    Hence, \(\exists\delta>0\) such that \(\abs{K_\rho(z)+\frac{1}{36}}<\frac{1}{72}\) for any \(z\in D^*(0,\delta)\cup D^*(1,\delta)\) and \(\exists R>0\) such that \(K_\rho(z)<-1\) for any \(z\) satisfying \(\abs{z}>R\). By compactness of \(\overline{D(0,R)}\setminus \qty(D(0,\delta)\cup D(1,\delta))\) and continuity, it attains its supremum of some value \(-M<0\) by \cref{thm:extremevalue}. Let \(-\beta=\max\qty{-\frac{1}{72}, -M}<0\).
+    Hence, \(\exists\delta>0\) such that \(\abs{K_\rho(z)+\frac{1}{36}}<\frac{1}{72}\) for any \(z\in D^*(0,\delta)\cup D^*(1,\delta)\) and \(\exists R>0\) such that \(K_\rho(z)<-1\) for any \(z\) satisfying \(\abs{z}>R\). By compactness of \(\overline{D(0,R)}\setminus \qty(D(0,\delta)\cup D(1,\delta))\) and continuity, it attains its supremum of some value \(-M<0\) by \cref{thm:extremevalue}. Let \(-\beta=\max\qty{-\frac{1}{72},-M}<0\).
     \[\therefore\quad K_\rho(z)\leq-\beta<0\quad\forall z\in\mathbb{C}\setminus\qty{0,1}.\qedhere\]
 \end{proof}
 And we have the final implication:
