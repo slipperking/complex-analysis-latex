@@ -4161,6 +4161,9 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     The spherical distance between two points \(w_1=\psi\qty(z_1),w_2=\psi\qty(z_2)\) is given by \[d_\sigma\qty(w_1,w_2)=\inf_{\gamma}\int_\gamma \psi^\sharp(z)\abs{\ddz}=\inf_{\gamma}\int_\gamma\frac{2\abs{\frac{ad-bc}{(cz+d)^2}}}{1+\abs{\frac{az+b}{cz+d}}^2}\abs{\ddz}\] where \(\gamma\) joins \(z_1\) and \(z_2\). The spherical distance is bounded by the integral over the Euclidean straight line \(\gamma'\) joining \(z_1\) and \(z_2\):
     \[d_\sigma\qty(w_1,w_2)\leq\int_{\gamma'}\frac{2\abs{ad-bc}}{\abs{cz+d}^2+\abs{az+b}^2}\abs{\ddz}.\] Since \(\frac{2\abs{ad-bc}}{\abs{cz+d}^2+\abs{az+b}^2}\to 0\) as \(z\to\infty\) and \(z\mapsto \frac{2\abs{ad-bc}}{\abs{cz+d}^2+\abs{az+b}^2}\in C^0(\mathbb{C})\), it is bounded by some constant \(M\) on \(\mathbb{C}\). Hence, we have \[d_\sigma\qty(w_1,w_2)\leq M\abs{z_1-z_2}.\] Hence, \(\forall \varepsilon>0\), \(\forall \abs{z_1-z_2}<\frac{\varepsilon}{M}\), \[d_\sigma\qty(\psi\qty(z_1),\psi\qty(z_2))<\varepsilon.\qedhere\]
 \end{proof}
+\begin{proposition}
+    Let \(\qty{f_n}_{n\in\mathbb{N}}\) be a sequence of meromorphic functions on a domain \(\Omega\subseteq\mathbb{C}\). If \(f_n\to f\) locally uniformly spherically, then \(f\) is either meromorphic on \(\Omega\) or identically \(\infty\).
+\end{proposition}
 \begin{theorem}[\textsc{Marty's Criterion}]\label{thm:marty}
     A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal if and only if \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in \(\Omega\).
 \end{theorem}
@@ -4205,7 +4208,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     Hence, \(\forall f\in\widetilde{\mathcal{F}}\), we have by virtue of \cref{eq:fundamentalnormalitytest_f_mu_pullback_inequality}, \[f^\sharp(z)=\sigma\circ f(z)\abs{f'(z)}\leq M\mu\circ f(z)\abs{f'(z)}\leq \frac{2rM}{r_\zeta^2-\abs{z-\zeta}^2}\] for any \(z\in D\qty(\zeta,r_\zeta)\). Now restricting \(z\) to \(D\qty(\zeta,\frac{r_\zeta}{2})\), we have \[\abs{z-\zeta}^2<\frac{r_\zeta^2}4\implies r_\zeta^2-\abs{z-\zeta}^2>\frac{3r_\zeta^2}4\implies\abs{f^\sharp(z)}<\frac{8r_\zeta M}{3r_\zeta^2}=\frac{8M}{3r_\zeta}.\]
     For any compact \(K\subset\Omega\), the collection of open disks \[\cbraces{D\qty(\zeta,\frac{r_\zeta}{2})}{\zeta\in K}\] forms an open cover of \(K\). Hence, by Heine--Borel (\cref{thm:heineborel}), it admits a finite subcover \[\cbraces{D\qty(\zeta_k,\frac{r_{\zeta_k}}{2})}{1\leq k\leq n}\] for some \(n\in\mathbb{N}\). Then \(\cbraces{f^\sharp}{f\in\widetilde{\mathcal{F}}}\) is uniformly bounded on \(K\) by \[M_K=\max\cbraces{\frac{8M}{3r_{\zeta_k}}}{1\leq k\leq n}\] and thus locally uniformly bounded on \(\Omega\). By Marty's Criterion (\cref{thm:marty}), \(\widetilde{\mathcal{F}}\) is a normal family; since \(\varphi\) is linear, it follows that \(\mathcal{F}\) is also normal on \(\Omega\).
 \end{proof}
-\begin{corollary}[name=\textsc{Montel--Carathéodory}]
+\begin{corollary}[name=\textsc{Montel--Carathéodory}]\label{crl:montelcaratheodory}
     Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions on \(\Omega\). If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\qty{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
 \end{corollary}
 \begin{proof}
@@ -4228,7 +4231,7 @@ Recall the
     Suppose \(f\) is meromorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(f\qty(D^*\qty(z_0,\delta))\) omits three different values of \(\extcomplex\), then \(f\) has a meromorphic continuation to \(z_0\).
 \end{corollary}
 \begin{proof}
-    A linear fractional transformation maps the omitted values to \(0,1,\infty\). Similar to the case of \cref{crl:}
+    A linear fractional transformation maps the omitted values to \(0,1,\infty\), mapping \(f\) so that it exhibits holomorphy. Similar to the case of \cref{crl:montelcaratheodory}, the preceeding result is preserved under the inverse linear fractional transformation.
 \end{proof}
 \begin{remark}
     An accumulation point of poles is an essential singularity on the Riemann sphere.
