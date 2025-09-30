@@ -2175,7 +2175,7 @@ An \textscsl{isolated singularity} of a complex function is a point \(a\in\mathb
 \end{enumerate}
 A function with an essential singularity exhibits striking behavior. We will first introduce the following famous result.
 \begin{theorem}[name=\textsc{Casorati--Sokhotski--Weierstrass},store=thm:casoratiweierstrass]\label{thm:casoratiweierstrass}
-    Let \(a\in\mathbb{C}\) and \(U\subseteq\mathbb{C}\) be open. Suppose \(f:U\setminus\qty{a}\to\mathbb{C}\) is holomorphic with an essential singularity at \(a\). Then the set of values that \(f\) attains on any open punctured neighborhood of \(a\) is dense. In other words, \(\forall\varepsilon,\delta>0\), \(\forall w\in\mathbb{C}\), \(\exists z\in D^*(a,\delta)\) such that \(|f(z)-w|<\varepsilon\).
+    Let \(a\in\mathbb{C}\) and \(U\subseteq\mathbb{C}\) be an open region. Suppose \(f:U\setminus\qty{a}\to\mathbb{C}\) is holomorphic with an essential singularity at \(a\). Then the set of values that \(f\) attains on any open punctured neighborhood of \(a\) is dense. In other words, \(\forall\varepsilon,\delta>0\), \(\forall w\in\mathbb{C}\), \(\exists z\in D^*(a,\delta)\) such that \(|f(z)-w|<\varepsilon\).
 \end{theorem}
 \begin{proof}
     Assume for the sake of contradiction that \(\exists\varepsilon,\delta>0\), and \(\exists w\in\mathbb{C}\) such that \(\forall z\in D^*(a,\delta)\), \(|f(z)-w|>\varepsilon\). Define the auxiliary function \(g(z)=\frac{f(z)-w}{z-a}\), which is holomorphic and non-vanishing on the punctured neighborhood of \(a\). Since as \(z\to a\), \(g(z)\to\infty\), it follows that \(g(z)\) has a pole at \(a\). Let the order of the pole be \(m\in\mathbb{N}\). By \cref{thm:isolatedsingularities_pole_laurentexpansion}, \(g(z)\) has the Laurent expansion of \[\frac{c_{-m}}{(z-a)^m}+\cdots c_0+c_1(z-a)+\cdots\]
@@ -4231,7 +4231,8 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
 \end{proof}
 \subsection{The Great Picard, Bloch, Landau, and Schottky Theorems}
 Recall the Casorati--Weierstrass Theorem, one of the earliest results on the value distribution near essential singularities:
-\getkeytheorem{thm:casoratiweierstrass}.
+\getkeytheorem{thm:casoratiweierstrass}
+We will now prove a more advanced characterization of this distribution by methods of differential geometry.
 \begin{theorem}[name=\textsc{Picard's Great Theorem},store=thm:greatpicard]\label{thm:greatpicard}
     Suppose \(f\) is holomorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(z_0\) is an essential singularity of \(f\), then \(f\qty(D^*\qty(z_0,\delta))\) omits at most one value of \(\mathbb{C}\).
 \end{theorem}
