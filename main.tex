@@ -4167,19 +4167,19 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     Let \(\qty{f_n}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on a domain \(\Omega\subseteq\mathbb{C}\). If \(f_n\to f\) locally uniformly spherically, then \(f\) is either holomorphic on \(\Omega\) or identically \(\infty\).
 \end{proposition}
 \begin{proof}
-    Let \(z\in\Omega\) be arbitrary.
+    A result analogous to \cref{thm:uniformlimit} can be used to show that \(f\) is spherically continuous. Let \(z\in\Omega\) be arbitrary.
     \begin{enumerate}
-        \item If \(f(z)\neq\infty\), then by continuity, \(\exists\delta>0\) such that \(\forall \zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_{n}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
+        \item If \(f(z)\neq\infty\), then by spherical continuity, \(\exists\delta>0\) such that \(\forall \zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_{n}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
             Hence, we have \[d_\sigma\qty(\infty,f(z))-d_\sigma\qty(f(z),f_{n}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(\infty,f_{n}(\zeta))>0.\]
-            By Weierstrass (\autoref{thm:weierstrassconvergence}), \(f\) is holomorphic on \(D(z,\delta)\).
+            By Weierstrass (\cref{thm:weierstrassconvergence}), \(f\) is holomorphic on \(D(z,\delta)\).
         \item Consider \(f(z)=\infty\). Assume, for the sake of contradiction, \(z\) is an isolated pole of \(f\). Hence, \(\exists\delta\) such that \(f\) is holomorphic on \(D^*(z,\delta)\).
 
             Because each \(f_n\) is holomorphic on \(D(z,\delta)\), by the Maximum Modulus Principle (\cref{thm:maximummodulus}), \(\forall n\in\mathbb{N}\), \[\abs{f_n(\zeta)}\leq\sup_{\xi\in\partial D(z,\delta)}\abs{f_n(\xi)}\qquad\forall \zeta\in D(z,\delta).\]
             By letting \(n\to\infty\), we have \[\abs{f(\zeta)}\leq\sup_{\xi\in\partial D(z,\delta)}\abs{f(\xi)}<\infty\qquad\forall \zeta\in D(z,\delta),\] contradicting the assumption that \(f(z)=\infty\) is an isolated pole. Hence, \(z\) must be an accumulation of values evaluating to \(\infty\). By spherical continuity, \(\exists\delta>0\) such that \[d_\sigma\qty(f(\zeta),\infty)<\frac\piup2\qquad\forall\zeta\in D(z,\delta).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_n(\zeta))<\frac\piup2.\]
             Hence, we have \[\piup-d_\sigma\qty(\infty,f_n(\zeta))=d_\sigma(\infty,0)-d_\sigma\qty(\infty,f_n(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(0,f_n(\zeta))>0.\]
-            Hence each \(\frac{1}{f_n}\) is holomorphic on \(D(z,\delta)\) and converges locally uniformly spherically to \(\frac{1}{f}\) on \(D(z,\delta)\). By Weierstrass' Convergence Theorem (\cref{thm:weierstrassconvergence}), \(\frac1f\) is holomorphic on \(D(z,\delta)\) and has zeros that accumulate to \(z\). By the Identity Theorem, \(\frac1f\equiv0\Rightarrow f\equiv\infty\) on \(D(z,\delta)\).
+            Hence each \(\frac{1}{f_n}\) is holomorphic on \(D(z,\delta)\) and converges locally uniformly spherically to \(\frac{1}{f}\) on \(D(z,\delta)\). By Weierstrass (\cref{thm:weierstrassconvergence}), \(\frac1f\) is holomorphic on \(D(z,\delta)\) and has zeros that accumulate at \(z\). By the Identity Theorem, \(\frac1f\equiv0\Rightarrow f\equiv\infty\) on \(D(z,\delta)\).
     \end{enumerate}
-    Let \(S\) be the set of all \(z\in\Omega\) such that \(f(z)\) is finite. By the argument above, \(S\) is open. The complement \(\Omega\setminus S\) then consists of all points where \(f(z)=\infty\). By the argument above, \(\Omega\setminus S\) is also open. Since \(\Omega\) is connected, either \(S=\emptyset\) or \(S=\Omega\). In the former case, \(f\equiv\infty\) on \(\Omega\), and in the latter case, \(f\) is holomorphic on \(\Omega\).
+    Let \(S\) be the set of all \(z\in\Omega\) such that \(f(z)\) is finite. By the argument above, \(S\) is open. The complement \(\Omega\setminus S\) then consists of all points where \(f(z)=\infty\). By the argument above, \(\Omega\setminus S\) is also open. Since \(\Omega\) is connected, by \cref{thm:connectedtopologicalspaceclopensets}, either \(S=\emptyset\) or \(S=\Omega\). In the former case, \(f\equiv\infty\) on \(\Omega\), and in the latter case, \(f\) is holomorphic on \(\Omega\).
 \end{proof}
 \begin{theorem}[\textsc{Marty's Criterion}]\label{thm:marty}
     A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal if and only if \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in \(\Omega\).
