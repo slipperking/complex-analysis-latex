@@ -139,7 +139,7 @@ The following definitions are subject to the assumption where the topological sp
     For a set \(X\in\mathbb{C}^n\), the \textscsl{interior} of \(X\), denoted \(\interior{X}\), is the union of all open sets contained in \(X\), or the set of points \(z\in\mathbb{C}^n\) such that there exists an open neighborhood of \(z\) that is fully contained in \(X\).
 \end{definition}
 \begin{definition}[Compact Set]\label{def:compactsets}
-    A set \(X\in\mathbb{C}^n\) is compact if and only if \(X\) is closed and bounded.
+    A set \(X\in\mathbb{C}^n\) is compact iff \(X\) is closed and bounded.
 \end{definition}
 \begin{definition}[Set Covering]
     A cover \(\mathcal{C}\) of a set \(X\) is a collection of sets \(\cbraces{U_n}\) such that \[\bigcup_{n\in\mathbb{N}}U_n\supseteq X.\] A cover is \textscsl{open} if every set in the collection is open.
@@ -164,7 +164,7 @@ The following definitions are subject to the assumption where the topological sp
     We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B^n(z_\infty, \delta)\), and hence \(Q_k\cap X=\emptyset\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
 \begin{theorem}[\textsc{Heine--Borel}]\label{thm:heineborel}
-    A set \(X\in\mathbb{C}^n\) is compact if and only if every open cover has a finite subcover.
+    A set \(X\in\mathbb{C}^n\) is compact iff if every open cover has a finite subcover.
 \end{theorem}
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
@@ -280,7 +280,7 @@ We also have the definition of the limit of a sequence:
     Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. If \(\exists a_\infty\in\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\qty{a_n}\) \textscsl{converges} to \(a_\infty\).
 \end{definition}
 \begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionsequenceconvergence}
-    Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. Then \(\qty{a_n}\) is convergent if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_m}<\varepsilon\).
+    Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. Then \(\qty{a_n}\) is convergent iff \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_m}<\varepsilon\).
 \end{theorem}
 \begin{proof}
     Assume \(\qty{a_n}\) is convergent. Then \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_\infty}<\frac{\varepsilon}{2}\) and \(\abs{a_m-a_\infty}<\frac{\varepsilon}{2}\) for some \(a_\infty\in\mathbb{R}\). It follows that \[\abs{a_n-a_m}\leq\abs{a_n-a_\infty}+\abs{a_m-a_\infty}=\varepsilon.\]
@@ -4344,14 +4344,14 @@ By the boundedness assumption for \(f\), we have:
         &\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)},
     \end{align*} since \(\varepsilon_k\leq r_k\) for all \(k\).
 \end{proof}
+% Talk about power series here
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
 \end{theorem}
 \begin{theorem}[\textsc{Maximum Modulus Principle}]
 
 \end{theorem}
-\subsection{The Group of Holomorphic Automorphisms of \texorpdfstring{\(\mathbb{D}^n\)}{Polydisks} and \texorpdfstring{\(B^n\)}{Ball}}
-In a multivariate setting, a matrix-valued function is said to be holomorphic if each of its entries is holomorphic. 
+\subsection{The Group of Holomorphic Automorphisms of \texorpdfstring{\(\mathbb{D}^n\)}{Polydisks} and \texorpdfstring{\(B^n\)}{Ball}}A function \[f:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. 
 
 The Schwarz Lemma (\cref{lem:schwarz}) can be generalized as follows:
 \begin{lemma}[Cartan]
