@@ -304,7 +304,7 @@ We also have the definition of the limit of a sequence:
     then the \textscsl{inferior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{lemma}
-    A number sequence \(\qty{a_n}\) is convergent if and only if \(\varlimsup_{n\to\infty} a_n=\varliminf_{n\to\infty}a_n\).
+    A number sequence \(\qty{a_n}\) is convergent iff if \(\varlimsup_{n\to\infty} a_n=\varliminf_{n\to\infty}a_n\).
 \end{lemma}
 \begin{proof}
     We first prove that \(a=\lim_{n\to\infty}a_n\) implies \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n=a\).
@@ -314,7 +314,7 @@ We also have the definition of the limit of a sequence:
     For the converse, assume \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\).\ \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty{N_1,N_2}\), \(\qty|a_n-a|<\varepsilon\), as expected.
 \end{proof}
 \begin{definition}[Continuity]\label{def:continuity}
-    A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) if and only if \[\lim_{x\to a}f(x)=f(a).\]
+    A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) iff if \[\lim_{x\to a}f(x)=f(a).\]
 \end{definition}
 It is important to note that in the case of multiple \textit{explicit} variables, a distinction is made between (separate) continuity (where there are two \(\delta\)'s on which variable varies, and does not guarantee a single \(\delta\) for when both variables vary simultaneously) and \textscsl{joint} continuity (where a single \(\delta\) controls both variables at once). To illustrate this, let \(\qty(x_0,y_0)\) be fixed. The former is commonly written as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{x-x_0}<\delta,\abs{f\qty(x,y_0)-f\qty(x_0,y_0)}<\varepsilon\] in conjunction with \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{y-y_0}<\delta,\abs{f\qty(x_0,y)-f\qty(x_0,y_0)}<\varepsilon,\] whereas the latter is expressed as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{\qty(x-x_0,y-y_0)}<\delta,\abs{f\qty(x,y)-f\qty(x_0,y_0)}<\varepsilon.\]
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
@@ -332,7 +332,7 @@ It is important to note that in the case of multiple \textit{explicit} variables
     Assume that \(f\) never attains its supremum \(M\). Then, \(f(x)<M\). Define the auxiliary function \(\psi(x)=\frac{1}{M-f(x)}\), which is strictly positive and continuous as the denominator never reaches \(0\). By \cref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\).\ \(f(x)\) also has the representation \(M-\frac{1}{\psi(x)}\), and therefore, \[f(x)\leq M-\frac{1}{\mu},\] which means that \(M\) is not the supremum. Similarly, assume that \(f\) never attains its infimum \(m\). Then \(f(x)>m\). Let \(\psi(x)=\frac{1}{f(x)-m}\), which is strictly positive and continuous as the denominator never reaches \(0\). By \cref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\).\ \(f(x)\) also has the representation \(m+\frac{1}{\psi(x)}\), and therefore, \[f(x)\geq m+\frac{1}{\mu},\] which means that \(m\) is not the infimum.
 \end{proof}
 \begin{definition}[Uniform Continuity]\label{def:uniformcontinuity}
-    A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous if and only if \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y\in U\) where \(|x-y|<\delta\), \(\abs{f(x)-f(y)}<\varepsilon\).
+    A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous iff \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y\in U\) where \(|x-y|<\delta\), \(\abs{f(x)-f(y)}<\varepsilon\).
 \end{definition}
 \begin{example}
     The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
@@ -429,7 +429,7 @@ If a function \(f(z)\) is complex differentiable over an open neighborhood of \(
 
 For the purpose of the following contents, a \textscsl{region} or \textscsl{domain} will denote a nonempty, open, connected subset of the complex plane.
 \begin{theorem}\label{thm:holomorphycondition}
-    Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. Then \(f\) is holomorphic on \(U\) if and only if \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
+    Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. Then \(f\) is holomorphic on \(U\) iff \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
 \end{theorem}
 \begin{proof}
     The first part is to prove that any holomorphic function on \(U\) has continuous first-order partial derivatives in \(U\). This requires an argument that will be covered later (specifically in \cref{sec:analyticityandholomorphy}), which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
@@ -615,17 +615,17 @@ Lastly, there exist series representations of functions using power functions (T
 \subsection{Complex Power Series}
 Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex analysis:
 \begin{definition}[Uniform Convergence]
-    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textscsl{uniformly converges} to a function \(f(z)\) on \(U\) if and only if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f_n(z)-f(z)}<\varepsilon\).
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textscsl{uniformly converges} to a function \(f(z)\) on \(U\) iff \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f_n(z)-f(z)}<\varepsilon\).
 \end{definition}
 \begin{remark}
     The definition above is equivalent to the following definition.
 
-    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) if and only if
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) iff
     \[\lim_{n\to\infty}\sup_{z\in U}\abs{f_n(z)-f(z)}=0.\]
     (Informally, we will use the notation \(f_n(z)\rightrightarrows f(z)\) to represent uniform convergence.)
 \end{remark}
 \begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionuniformconvergence}
-    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to a function \(f(z)\) if and only if \(\forall\varepsilon>0\),\(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\forall z\in U\), \(\abs{f_n(z)-f_m(z)}<\varepsilon\).
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to a function \(f(z)\) iff \(\forall\varepsilon>0\),\(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\forall z\in U\), \(\abs{f_n(z)-f_m(z)}<\varepsilon\).
 \end{theorem}
 \begin{proof}
     \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\forall z\in U\), \[\abs{f_m(z)-f(z)}<\frac{\varepsilon}{2},\quad\abs{f_n(z)-f(z)}<\frac{\varepsilon}{2}.\]
@@ -1452,7 +1452,7 @@ In a topological space \(X\), a subset can either be open, closed (the complemen
 
 Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A technique used in many proofs in complex analysis follow from the following fact:
 \begin{theorem}\label{thm:connectedtopologicalspaceclopensets}
-    A topological space \(X\) is \textscsl{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).
+    A topological space \(X\) is \textscsl{connected} iff \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).
 \end{theorem}
 \begin{proof}
     Suppose that \(X\) is connected. Suppose that \(A\subseteq X\) is clopen. Notice that \(A\) and \(X\setminus A\) are both open in \(X\) by clopenness and are disjoint from each other. Since \(X=A\cup\qty(X\setminus A)\), it follows that either \(A=\emptyset\) or \(X\setminus A=\emptyset\Leftrightarrow A=X\).
@@ -1576,7 +1576,7 @@ Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A te
     When \(z\in\Omega_1\setminus\Omega_2=V(K,\varepsilon)\), the first summation vanishes, meaning that \(\varphi(z)\equiv1\) on the neighborhood \(V(K,\varepsilon)\) of \(K\). When \(z\in\Omega_2\setminus\Omega_1=\Omega\setminus V(K,2\varepsilon)\), \(\varphi(z)\) vanishes.
 \end{proof}
 \subsection{Zeros of a Holomorphic Function}
-For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textscsl{zero} of \(f\) if and only if \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
+For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textscsl{zero} of \(f\) iff \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
 
 We will introduce a fundamental application of Liouville's Theorem (\cref{thm:liouville}) below.
 \begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
@@ -1766,7 +1766,7 @@ As a matter of fact, the theorem follows for any continuous function satisfying 
 The following important result can be directly obtained from the Maximum Modulus Principle.
 \begin{lemma}[Schwarz]\label{lem:schwarz}
     If \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
-    Any one of the inequalities becomes equalities if and only if \(f(z)\) is in the form of \(z\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
+    Any one of the inequalities becomes equalities iff \(f(z)\) is in the form of \(z\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
 \end{lemma}
 \begin{proof}
     Define the auxiliary function \[g(z)=
@@ -1834,7 +1834,7 @@ As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we
     \begin{equation}
         \frac{\abs{\dd{w}}}{1-\qty|w|^2}\leq\frac{\abs{\ddz}}{1-\abs{z}^2}.\label{eq:schwarzpick_statement2}
     \end{equation}
-    The equalities hold if and only if \(f\in\Aut(\mathbb{D})\).
+    The equalities hold iff \(f\in\Aut(\mathbb{D})\).
 \end{lemma}
 \begin{proof}
     Let \[\varphi_{-z_1}(z)=\frac{z+z_1}{1+\overline{z_1}z}\in\Aut(\mathbb{D}),\quad\varphi_{w_1}(z)=\frac{z-w_1}{1-\overline{w_1}z}\in\Aut(\mathbb{D}).\]
@@ -1973,7 +1973,7 @@ A fundamental problem in the theory of partial differential equations is to find
             \node[anchor=north] at (2.2,0.4) {\(\tau\)};
             \node[anchor=east] at ([yshift=-6pt, xshift=-2pt] $(z)!0.5!(zeta)$) {\(|\zeta-z|^-\)};
         \end{tikzpicture}
-        \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked. The use of \(+\) and \(-\) denote a value more or less (respectively) than the proceeding value.}
+        \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked. The use of \(+\) and \(-\) denote a value more or less (respectively) than the preceeding value.}
         \label{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}
     \end{figure}By continuity of \(\varphi\) compact set \(\partial D(0,R)\), by \cref{thm:heinecantor}, it is bounded and \(M=\sup_{\qty|\zeta|=R}\abs{\varphi(\zeta)}\) is finite. The Poisson kernel can be rewritten as \[P(\zeta,z)=\frac{R^2-\rho^2}{2\piup\qty|\zeta-z|^2},\]
     where \(\zeta=R\ee^{\ii\tau}\) and \(z=\rho \ee^{\ii\theta}\), with \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that \(\forall z\) with \(|\xi-z|<\eta\),
@@ -2327,7 +2327,7 @@ It is generally common to consider a meromorphic function as a function in the f
 
 To make more profound conclusions on the structure of \(\Aut\qty(\extcomplex)\), we will introduce certain concepts from group theory.
 \begin{definition}[Coset]\label{def:coset}
-    Let \(G\) be a group, and let \(H\leq G\) be a subgroup (operation denoted by juxtaposition). Then the \textscsl{left coset} of \(H\) in \(G\) with respect to \(g\in G\) is defined as \[gH=\cbraces{gh}{h\in H}.\] The \textscsl{right coset} is defined as \[Hg=\cbraces{hg}{h\in H}.\] The subgroup \(H\) is \textscsl{normal} if and only if the left and right cosets are equal. The notation \(H\trianglelefteq G\) is used to represent a normal subgroup. Cosets, like groups and sets, are unordered.
+    Let \(G\) be a group, and let \(H\leq G\) be a subgroup (operation denoted by juxtaposition). Then the \textscsl{left coset} of \(H\) in \(G\) with respect to \(g\in G\) is defined as \[gH=\cbraces{gh}{h\in H}.\] The \textscsl{right coset} is defined as \[Hg=\cbraces{hg}{h\in H}.\] The subgroup \(H\) is \textscsl{normal} iff the left and right cosets are equal. The notation \(H\trianglelefteq G\) is used to represent a normal subgroup. Cosets, like groups and sets, are unordered.
 \end{definition}
 \begin{definition}[Quotient Group]\label{def:quotientgroup}
     Let \(G\) be a group, and let \(H\trianglelefteq G\) be a normal subgroup. Then the \textscsl{quotient group} of \(G\) by \(H\) is defined as \[G/H=\cbraces{gH}{g\in G}.\] The operation on the quotient group is defined as \((g_1H)(g_2H)=g_1g_2H\), where \(g_1,g_2\in G\) and \(g_1H,g_2H\in G/H\).
@@ -2403,7 +2403,7 @@ Similar to series, absolute convergence is a stronger condition than convergence
 \end{remark}
 We also have:
 \begin{lemma}\label{lem:infiniteproductlocallyuniformconvergencecriterion2}
-    Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty \abs{f_k(z)}\) is uniformly convergent on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on compact subsets of \(U\) to a holomorphic function, which vanishes only at a point \(z\) if and only if \(f_k(z)=-1\) for some \(k\in\mathbb{N}\). The multiplicity at each such zero \(z\) is the sum of the multiplicities of \(1+f_k\) at \(z\) for all \(k\) satisfying \(f_k(z)=-1\).
+    Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty \abs{f_k(z)}\) is uniformly convergent on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on compact subsets of \(U\) to a holomorphic function, which vanishes only at a point \(z\) iff \(f_k(z)=-1\) for some \(k\in\mathbb{N}\). The multiplicity at each such zero \(z\) is the sum of the multiplicities of \(1+f_k\) at \(z\) for all \(k\) satisfying \(f_k(z)=-1\).
 \end{lemma}
 \begin{proof}
     Let \(K\subset U\) be an arbitrary compact set. By the uniform convergence of \(\sum_{k=1}^\infty \abs{f_k(z)}\) on \(K\), it follows that the uniform limit is continuous by the Uniform Limit Theorem (\cref{thm:uniformlimit}). By continuity on a compact set, it follows that the limit is bounded by some constant \(M'\). Additionally, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sum_{k=1}^n \abs{f_k(z)}<M'+\varepsilon\). It follows that the partial sums are uniformly bounded in \(K\) by \(M=\max\qty{\max_{k=1}^N\qty(\max_{z\in K}f_k(z)), M'+\varepsilon}\). Similarly, by earlier discussion of infinite products, we have \[F_n(z)=\prod_{k=1}^n\qty(1+\abs{f_k(z)})\leq\exp\qty(\sum_{k=1}^n\abs{f_k(z)})\leq \ee^{M},\]
@@ -3405,7 +3405,7 @@ In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta
 \end{proof}
 The following theorem is important in many areas of mathematical analysis and has a plethora of generalizations. It was first introduced by Ascoli (who proved the sufficiency of compactness) and later formalized by Arzelà, who proved the necessity of uniform equicontinuity and uniform boundedness.
 \begin{theorem}[\textsc{Arzelà--Ascoli}]\label{thm:arzelaascoli}
-    Let \(\mathcal{F}\) be a family of complex continuous functions defined on a compact subset \(K\subseteq\mathbb{R}^n\). Then, \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\) if and only if \(\mathcal{F}\) is normal on \(K\).
+    Let \(\mathcal{F}\) be a family of complex continuous functions defined on a compact subset \(K\subseteq\mathbb{R}^n\). Then, \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\) iff \(\mathcal{F}\) is normal on \(K\).
 \end{theorem}
 \begin{proof}
     We will first prove the sufficiency of uniform boundedness and uniform equicontinuity. Let \(\qty{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(x)}\leq M\) for all \(x\in K\) and all \(n\in\mathbb{N}\).
@@ -3466,7 +3466,7 @@ Lastly, we will prove Montel's Theorem in preparation of the Riemann Mapping The
 \end{definition}
 Obviously, the equivalence is established similarly to local finiteness and locally uniform convergence.
 \begin{theorem}[Montel's Theorem]\label{thm:montel}
-    Let \(U\subseteq\mathbb{C}\) be open, and suppose that \(\mathcal{F}\) is a family of holomorphic functions on \(U\). Then, \(\mathcal{F}\) is locally uniformly bounded on \(U\) if and only if \(\mathcal{F}\) is a normal family.
+    Let \(U\subseteq\mathbb{C}\) be open, and suppose that \(\mathcal{F}\) is a family of holomorphic functions on \(U\). Then, \(\mathcal{F}\) is locally uniformly bounded on \(U\) iff \(\mathcal{F}\) is a normal family.
 \end{theorem}
 \begin{proof}
     Obviously, if \(\mathcal{F}\) is normal on \(U\), for any compact \(K\subset U\), it follows that \(\mathcal{F}\) is normal on \(K\), and the uniform boundedness on \(K\) follows from the Arzelà--Ascoli Theorem (\cref{thm:arzelaascoli}).
@@ -3979,7 +3979,7 @@ The three following metrics are of particular interest in complex differential g
         \[z(t)=\qty(\varphi_{z_1})^{-1}\qty(\frac{z_2-z_1}{1-\overline{z_1}z_2}t)\]
         for \(t\in[0,1]\). By \cref{thm:linearfractionaltransformationmapscirclestocircles}, the geodesic is either an arc or a straight line segment passing through \(z_1\) and \(z_2\). Since \(\partial\mathbb{D}\) is orthogonal to the straight line passing through \(0\) and \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\), by the conformality of \(\varphi_{z_1}^{-1}\), \(\varphi_{z_1}^{-1}\qty(\partial\mathbb{D})=\partial\mathbb{D}\) is orthogonal to the circular (or straight line) extension of the geodesic curve.
 
-        As a consequence of the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), for any \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained if and only if \(f\in\Aut(\mathbb{D})\). The Poincaré metric has constant negative curvature \(-1\) since
+        As a consequence of the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), for any \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained iff \(f\in\Aut(\mathbb{D})\). The Poincaré metric has constant negative curvature \(-1\) since
         \begin{align*}
             K_\lambda&=-\frac{4}{\lambda^2}\pdv[2]{}{\overline{z}}{z}\qty(\log\circ\lambda)=-\frac{4}{\lambda^2}\pdv{\overline{z}}(\frac{\lambda'_z}{\lambda})=-\frac{2}{\lambda^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1-\abs{z}^2})\\
             &=-\frac{2}{\lambda^2}\qty(\lambda+\overline{z}\lambda'_{\overline{z}})=-\frac{\qty(1-\abs{z}^2)^2}{2}\qty(\lambda+\overline{z}\qty(\frac{2z}{\qty(1-\abs{z}^2)^2}))\\
@@ -4149,7 +4149,7 @@ By equipping the extended complex plane \(\extcomplex\) with the spherical metri
 
 Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\extcomplex\) be a sequence. Then we say \(a_n\to a_\infty\) \textit{spherically} if \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(d_\sigma\qty(a_n,a_\infty)<\varepsilon\), where \(d_\sigma\) is the spherical distance.
 \begin{definition}
-    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is said to be \textscsl{spherically normal} if and only if every sequence has a locally uniformly spherically convergent subsequence on \(\Omega\).
+    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is said to be \textscsl{spherically normal} iff every sequence has a locally uniformly spherically convergent subsequence on \(\Omega\).
 \end{definition}
 Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be generalized via the spherical metric by the statement of Marty's Criterion (\cref{thm:marty}).
 \begin{definition}[Spherical Derivative]
@@ -4182,7 +4182,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     Let \(S\) be the set of all \(z\in\Omega\) such that \(f(z)\) is finite. By the argument above, \(S\) is open. The complement \(\Omega\setminus S\) then consists of all points where \(f(z)=\infty\). By the argument above, \(\Omega\setminus S\) is also open. Since \(\Omega\) is connected, by \cref{thm:connectedtopologicalspaceclopensets}, either \(S=\emptyset\) or \(S=\Omega\). In the former case, \(f\equiv\infty\) on \(\Omega\), and in the latter case, \(f\) is holomorphic on \(\Omega\).
 \end{proof}
 \begin{theorem}[\textsc{Marty's Criterion}]\label{thm:marty}
-    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal if and only if \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in \(\Omega\).
+    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal iff \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in \(\Omega\).
 \end{theorem}
 \begin{proof}
     The condition is equivalent to that of \[\frac{2\abs{f'(z)}}{1+\abs{f(z)}^2}\leq M\qquad\forall f\in\mathcal{F}\] for all compact \(K\subset\Omega\), \(\forall z\in K\), where \(M\) depends only on \(K\). Under the assumption that this holds, then \[d_\sigma\qty(f\qty(z_1),f\qty(z_2))=\inf_\gamma\int_{\gamma}\dd{s}_{\sigma}\leq M\abs{z_2-z_1}\qquad \forall f\in\mathcal{F}\] where \(\gamma\) joins \(f\qty(z_1)\) and \(f\qty(z_2)\) where \(z_1,z_2\in K\). Hence, \(\forall\varepsilon>0\), \(\forall z_1,z_2\in K\) such that \(\abs{z_1-z_2}<\frac{\varepsilon}{M}\), \(d_\sigma\qty(f\qty(z_1),f\qty(z_2))<\varepsilon\), and hence \(\mathcal{F}\) is \textscsl{uniformly spherically equicontinuous}. Since \(d_\sigma\leq\piup\) for any two points by geometry of \(S^2\), \(\mathcal{F}\) is also \textit{uniformly spherically bounded} (the compactness of \(S^2\)). Then the Arzelà--Ascoli Theorem (\cref{thm:arzelaascoli}) under the spherical metric gives that \(\mathcal{F}\) is a normal family.
@@ -4318,9 +4318,7 @@ Obviously, we will first formally define the concept of holomorphy in higher dim
 \begin{definition}
     A function \(f:\Omega\subseteq\mathbb{C}^n\to\mathbb{C}\) is \textscsl{holomorphic} if it is holomorphic with respect to each variable when the others are held constant.
 \end{definition}
-If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic if and only if \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has all continuous partial derivatives.
-
-Subsequently, we have for Cartesian products,
+If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic iff \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has all continuous partial derivatives.
 \begin{theorem}[Cauchy's Integral Formula on Polydisks]\label{thm:cauchyintegralformulapolydisks}
     Fix \(a=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) arbitrarily and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)=\frac{\prod_{k=1}^n j_k!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
@@ -4351,9 +4349,10 @@ By the boundedness assumption for \(f\), we have:
 \begin{theorem}[\textsc{Maximum Modulus Principle}]
 
 \end{theorem}
-\subsection{The Group of Holomorphic Automorphisms of \texorpdfstring{\(\mathbb{D}^n\)}{Polydisks} and \texorpdfstring{\(B^n\)}{Ball}}A function \[f:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. 
+\subsection{The Group of Holomorphic Automorphisms of \texorpdfstring{\(\mathbb{D}^n\)}{Polydisks} and \texorpdfstring{\(B^n\)}{Ball}}
+A function \[f:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms of complex domains in higher dimensions.
 
-The Schwarz Lemma (\cref{lem:schwarz}) can be generalized as follows:
+For the aforesaid purpose, Schwarz Lemma (\cref{lem:schwarz}) can be generalized as follows:
 \begin{lemma}[Cartan]
     
 \end{lemma}
