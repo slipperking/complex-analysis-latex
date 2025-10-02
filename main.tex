@@ -4343,9 +4343,9 @@ By the boundedness assumption for \(f\), we have:
     \end{align*} since \(\varepsilon_k\leq r_k\) for all \(k\).
 \end{proof}
 % Talk about power series here
-Similar to the single-variable case, we may derive Taylor expansions of holomorphic functions in several complex variables. 
+Similar to the univariate case, there are Taylor expansions of holomorphic functions in several complex variables. 
 
-Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on a polydisk \(\Omega=\prod_{k=1}^n D\qty(a_k,r_k)\) centered at \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(z=\qty(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion \[f(z)=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots k_n}z^{k_1}\cdots z^{k_n},\] where \(\forall k_1,\ldots k_n\in\mathbb{Z}_{\ge0}\), \[a_{k_1,\ldots k_n}=\qty(\prod_{j=1}^n \pdv[k_j]{}{z_j})f(z)\]
+Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on a polydisk \(\Omega=\prod_{k=1}^n D\qty(a_k,r_k)\) centered at \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(z=\qty(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion \[f(z)=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots k_n}z^{k_1}\cdots z^{k_n},\] where \(\forall k_1,\ldots k_n\in\mathbb{Z}_{\ge0}\), \[a_{k_1,\ldots k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{}{z_j})f(z)\]
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
 \end{theorem}
@@ -4359,14 +4359,17 @@ For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cr
 \begin{lemma}[Cartan]
     Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n)\) is holomorphic on \(\Omega\). If \(\exists\zeta\in\Omega\) such that \(\vb{f}\qty(\zeta)=\zeta\) and the complex Jacobian at \(\zeta\) is the identity matrix, or equivalently, if \[\vb*{J}_{\vb{f}}\qty(\zeta)=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\zeta)=\vb*{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\] then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
 \end{lemma}
+\begin{proof}
+    
+\end{proof}
 \begin{lemma}[Cartan]
 \end{lemma}
 For the purpose of procession, we define the following concepts for complex matrices:
 \begin{definition}
-    The \textscsl{conjugate transpose}, \textscsl{Hermitian transpose}, or \textscsl{adjoint} of a complex matrix \(\vb*{A}\) is defined as \(\vb*{A}^\dagger=\overline{\vb*{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
+    The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb*{A}\) is defined as \(\vb*{A}^\dagger=\overline{\vb*{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
 \end{definition}
 \begin{definition}
-    A matrix \(\vb*{U}\) is said to be 
+    A matrix \(\vb*{U}\) is said to be \textscsl{unitary} iff its inverse is its conjugate transpose; or iff \(\vb*{U}^\dagger\vb*{U}=\vb*{U}\vb*{U}^\dagger=\vb*{I}\).
 \end{definition}
 \subsection{Topological Equivalence does not Imply Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
