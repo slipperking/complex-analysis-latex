@@ -2344,8 +2344,8 @@ Let us now examine \(\Aut\qty(\extcomplex)\). Let \(f(z)\in \Aut\qty(\extcomplex
 
 Let \(f(z)\in\Aut\qty(\extcomplex)\) such that \(f(\infty)\neq\infty\). Then, \(g(z)=\frac{1}{f(z)-f(\infty)}\in\Aut\qty(\extcomplex)\) and \(g(\infty)=\infty\). By the property above, \(g(z)=cz+d\) for some complex \(d\) and nonzero \(c\). Hence, \(f(z)=\frac{f(\infty)(cz+d)+1}{cz+d}\). Let \(a=cf(\infty)\), \(b=df(\infty)+1\), \(f(z)=\frac{az+b}{cz+d}\). Then in this specific construction, \(ad-bc=-c\neq0\). Let the matrix \(\mqty(a&b\\c&d)\) correspond to this transformation, where for any nonzero scalar \(k\), \(k\mqty(a&b\\c&d)\) corresponds to \(\mqty(a&b\\c&d)\). Therefore, we can arbitrarily pick \(ad-bc\) to be \(1\).
 
-Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm\vb{I}},\right.\]
-where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textscsl{projective special linear group} of order 2, and is \textscsl{isomorphic} (one-to-one and homomorphic, or that the operation is preserved, see \cref{prop:mobiustransformationcompositionmatrixmultiplication}) to the \textscsl{group of Möbius transformations}, consisting of all linear fractional transformations.
+Therefore, there exists a one-to-one correspondence between \(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm\vb*{I}},\right.\]
+where \(\vb*{I}=\mqty(\imat{2})\). The quotient group (a group of elements in the form \(\qty{\vb*{A},-\vb*{A}}\)) is taken because the matrix \(\mqty(a&b\\c&d)\) corresponds to the same transformation as \(\mqty(-a&-b\\-c&-d)\). This group, denoted by \(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm \vb*{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the \textscsl{projective special linear group} of order 2, and is \textscsl{isomorphic} (one-to-one and homomorphic, or that the operation is preserved, see \cref{prop:mobiustransformationcompositionmatrixmultiplication}) to the \textscsl{group of Möbius transformations}, consisting of all linear fractional transformations.
 
 Therefore, any meromorphic automorphism on \(\extcomplex\) is a composition of rotations, dilations, translations, and inversions. We will now state this formally:
 \begin{theorem}[The Meromorphic Automorphism Group on \(\extcomplex\)]\label{thm:meromorphicautomorphismgrouponextendedcomplexplane}
@@ -4357,14 +4357,16 @@ A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \text
 
 For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is given by the following two results of Cartan:
 \begin{lemma}[Cartan]
-    Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n)\) is holomorphic on \(\Omega\). If \(\exists\zeta\in\Omega\) such that \(\vb{f}\qty(\zeta)=\zeta\) and the complex Jacobian at \(\zeta\) is the identity matrix, or equivalently, if \[\vb{J}_{\vb{f}}\qty(\zeta)=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\zeta)=\vb{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\] then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
+    Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n)\) is holomorphic on \(\Omega\). If \(\exists\zeta\in\Omega\) such that \(\vb{f}\qty(\zeta)=\zeta\) and the complex Jacobian at \(\zeta\) is the identity matrix, or equivalently, if \[\vb{J}_{\vb{f}}\qty(\zeta)=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\zeta)=\vb*{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\] then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
 \end{lemma}
 \begin{lemma}[Cartan]
-    If \(U\) is a unitary matrix, 
 \end{lemma}
 For the purpose of procession, we define the following concepts for complex matrices:
 \begin{definition}
-    The conjugate transpose, Hermetian transpose, or adjoint of a complex matrix \(A\) is defined as \(A^\dagger=\overline{A}^\top\).
+    The conjugate transpose, Hermitian transpose, or adjoint of a complex matrix \(\vb*{A}\) is defined as \(\vb*{A}^\dagger=\overline{\vb*{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
+\end{definition}
+\begin{definition}
+    A matrix \(U\) is
 \end{definition}
 \subsection{Topological Equivalence does not Imply Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
