@@ -738,13 +738,13 @@ Now consider two smooth curves \(\gamma_1,\gamma_2\in C^1([0,1])\) such that \(\
 \[\arg(\sigma_1'(0))-\arg(\gamma_1'(0))=\arg(f'(z_0))=\arg(\sigma_2'(0))-\arg(\gamma_2'(0)),\]
 and by rearrangement,
 \[\arg(\sigma_1'(0))-\arg(\sigma_2'(0))=\arg(\gamma_1'(0))-\arg(\gamma_2'(0)).\]
-This equality demonstrates that the angle between two smooth curves at \(z_0\) is preserved under \(f\), provided \(f'(z_0)\neq 0\). In other words, holomorphic functions with non-vanishing derivatives preserve angles and orientation locally--a property known as \textscsl{conformality}.
+This equality demonstrates that the angle between two smooth curves at \(z_0\) is preserved under \(f\), provided \(f'(z_0)\neq 0\). In other words, holomorphic functions with non-vanishing derivatives preserve angles and orientation locally---a property known as \textscsl{conformality}.
 
 Furthermore, for any smooth curve \(\gamma\in C^1([0,1])\) passing through \(z_0\), the limit
 \[\lim_{\substack{z\to z_0\\z\in\gamma}}\frac{\abs{f(z)-f(z_0)}}{\abs{z-z_0}}=\abs{f'(z_0)}\]
 shows that infinitesimal lengths are locally scaled by a factor of \(\abs{f'(z_0)}\) under the mapping \(f\).
 
-Therefore, at points where \(\abs{f'(z)}\neq 0\), the function \(f\) is conformal; it preserves angles and scales lengths.
+Therefore, at points where \(\abs{f'(z)}\neq 0\), the function \(f\) is conformal; it preserves angles but not lengths.
 \section{Complex Integration}
 \subsection{The Cauchy--Goursat Theorem}
 It is important to know the differential 2-forms even for a single variable complex function. Consider \(z=x+\ii y\) and \(\overline{z}=x-\ii y\). We can then define their corresponding differentials:
@@ -2045,7 +2045,7 @@ We now establish that real-valued continuous functions satisfying the mean-value
 \section{The Theory of Weierstrass}
 While Weierstrass' contributions in complex analysis are mainly characterized by his discoveries on uniform convergence, he also characterized entire and \textscsl{meromorphic functions} and a unique representation of entire functions, as well as his contributions toward the study of \textscsl{essential singularities}.
 
-To help understand the behavior of non-removable singularities, we will introduce the concept of \textscsl{Laurent series}.
+To classify the behavior of non-removable singularities, mathematicians generalized Taylor series to \textscsl{Laurent series}.
 \subsection{Laurent Series}
 The Laurent series generalizes the Taylor series to holomorphic functions with isolated singularities. While Taylor series are valid within a disk centered at a point of holomorphy, Laurent series apply to annular regions surrounding a singularity, making them essential for studying functions near non-removable singularities (refer to \cref{thm:removablesingularitiesriemann}).
 
@@ -4245,16 +4245,23 @@ We will now prove a more advanced characterization of this distribution by metho
     Suppose \(f\) is holomorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(z_0\) is an essential singularity of \(f\), then \(f\qty(D^*\qty(z_0,\delta))\) omits at most one value of \(\mathbb{C}\).
 \end{theorem}
 \begin{proof}
-    Without loss of generality, assume that \(f\) omits 0 and 1 and that \(z_0=0\) (otherwise we consider \(z\mapsto\frac{1}{\beta-\alpha}\qty(f\qty(z-z_0)-\alpha)\), where \(\alpha\) and \(\beta\) are omitted values). Let \[\mathcal{F}=\cbraces{z\mapsto f\qty(\frac zn)}{n\in\mathbb{N}}\]
-    be a family of holomorphic functions on \(D^*\qty(0,\delta)\). In essence, each function \(f_n\) in the family restricts the domain of \(f\) to a subdisk and applies a linear transformation so that \(\mathcal{F}\) omits 0 and 1. By the Fundamental Normality Test (\cref{thm:fundamentalnormalitytest}), \(\mathcal{F}\) is a spherically normal family. Hence, there is a sequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\subseteq\mathcal{F}=\qty{f_n}_{n\in\mathbb{N}}\) that locally uniformly converges in \(D^*\qty(0,\delta)\) in the spherical sense. By \cref{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit}, \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) either locally uniformly converges to a holomorphic function or to \(\infty\) on \(D^*\qty(0,\delta)\).
+    Without loss of generality, assume \(z_0=0\) and that \(f\) omits the values \(0\) and \(1\) (otherwise, consider \(z\mapsto\frac1{\beta-\alpha}(f\qty(z+z_0)-\alpha)\), where \(\alpha\) and \(\beta\) are the omitted values). Define the family
+    \[\mathcal{F}=\cbraces{z\mapsto f\qty(\frac zn)}{n\in\mathbb{N}}\]
+    of holomorphic functions on \(D^*\qty(0,\delta)\). Since \(f\) omits \(0\) and \(1\), each element of \(\mathcal{F}\) does as well. By the Fundamental Normality Test (\cref{thm:fundamentalnormalitytest}), \(\mathcal{F}\) is spherically normal. Thus, there exists a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\subseteq\mathcal{F}\) that converges locally uniformly on \(D^*\qty(0,\delta)\) in the spherical metric. By \cref{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit}, this subsequence converges locally uniformly either to a holomorphic function on \(D^*\qty(0,\delta)\) or to \(\infty\) thereon.
     \begin{enumerate}
-        \item If \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) locally uniformly converges to some holomorphic function, then \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) is uniformly bounded on \(\partial D\qty(0,\frac\delta2)\). Hence, \(\exists M>0\) such that \[\abs{f\qty(\frac z{n_k})}=\abs{f_{n_k}(z)}<M\qquad\forall z\in\partial D\qty(0,\frac\delta2),k\in\mathbb{N}.\]
-            In other words, \(f\) is bounded on every circle \(\partial D\qty(0,\frac{\delta}{2n_k})\) for all \(k\in\mathbb{N}\). By the Maximum Modulus Principle (\cref{thm:maximummodulus}), \(f\) is bounded on each \(D\qty(0,\frac{\delta}{2n_k})\setminus \overline{D\qty(0,\frac{\delta}{2n_{k+1}})}\) by \(M\) for all \(k\in\mathbb{N}\).
+        \item Suppose \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to a holomorphic function on \(D^*\qty(0,\delta)\). Then \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) is uniformly bounded on \(\partial D\qty(0,\frac\delta2)\). Hence, there exists \(M>0\) such that
+            \[\abs{f\qty(\frac z{n_k})}=\abs{f_{n_k}(z)}<M\qquad\forall z\in\partial D\qty(0,\frac\delta2),\ k\in\mathbb{N}.\]
+            In other words, \(f\) is bounded by \(M\) on every circle \(\partial D\qty(0,\frac{\delta}{2n_k})\) for \(k\in\mathbb{N}\). By the Maximum Modulus Principle (\cref{thm:maximummodulus}), \(f\) is then bounded by \(M\) on each annulus \(\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})\) for \(k\in\mathbb{N}\). As
+            \[\bigcup_{k\in\mathbb{N}}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})=\overline{D\qty(0,\frac\delta{2n_1})}\setminus\qty{0},\]
+            it follows that \(f\) is bounded on \(D^*\qty(0,\frac\delta2)\). By Riemann's Removable Singularity Theorem (\cref{thm:removablesingularitiesriemann}), \(f\) therefore extends holomorphically to \(0\).
 
-            Hence, by Riemann's Removable Singularity Theorem (\cref{thm:removablesingularitiesriemann}), \(f\) extends holomorphically to \(0\), contradicting the assumption that \(0\) is an essential singularity.
-        \item If \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) locally uniformly converges to \(\infty\) on \(D^*\qty(0,\delta)\), then \(\qty{\frac1{f_{n_k}}}_{k\in\mathbb{N}}\) locally uniformly converges to \(0\) on \(D^*\qty(0,\delta)\).
+        \item Suppose \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to \(\infty\) on \(D^*\qty(0,\delta)\). Then, for every \(\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that, for all \(k>N\),
+            \[\abs{\frac{1}{f\qty(\frac{z}{n_k})}}=\abs{\frac1{f_{n_k}(z)}}<\varepsilon\qquad\forall z\in\partial D\qty(0,\frac\delta2).\]
+            By the same reasoning as in the previous case, \(\abs{\frac1f}<\varepsilon\) on
+            \[\bigcup_{k>N}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})\supset D^*\qty(0,\frac{\delta}{2n_{N+1}}).\]
+            Thus, by the definition of the limit, \(\lim_{z\to 0}1/f(z)=0\), so \(f\) has a pole at \(0\).
     \end{enumerate}
-    In either case, by \cref{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit}, \(f\) extends meromorphically to \(0\).
+    In either case, we have derived a meromorphic continuation of \(f\) to \(0\), contradicting the assumption that \(0\) is an essential singularity of \(f\).
 \end{proof}
 \begin{corollary}[store=crl:greatpicardmeromorphic]\label{crl:greatpicardmeromorphic}
     Suppose \(f\) is meromorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(f\qty(D^*\qty(z_0,\delta))\) omits at least three different values of \(\extcomplex\), then \(f\) has a meromorphic continuation to \(z_0\).
@@ -4268,11 +4275,9 @@ We will now prove a more advanced characterization of this distribution by metho
 Picard's Great Theorem is also a generalization of Picard's Little Theorem (\cref{thm:littlepicard}):
 \getkeytheorem{thm:littlepicard}
 \begin{proof}
-    Let \(g(z)=f\qty(\frac1z)\), which his holomorphic at \(\infty\), with an isolated singularity at 0. By Picard's Great Theorem (\cref{thm:greatpicard}), \(g(z)\) has extends meromorphically to \(z=0\). If \(z=0\) is a removable singularity, then \cref{prop:removablesingularityatinftyentireconstant} gives the constancy of \(g\) and \(f\).
+    Let \(g(z)=f\qty(\frac 1z)\) with an isolated singularity at 0 and a removable singularity at \(\infty\). By Picard's Great Theorem (\cref{thm:greatpicard}), \(g(z)\) has a meromorphic extension to \(z=0\). If \(z=0\) is removable, by virtue of \cref{prop:removablesingularityatinftyentireconstant,thm:liouville}, the constancy of \(g\) and \(f\) follows.
 
-    If \(z=0\) is a pole of \(g\), then \(f\) has a pole at \(\infty\) and is therefore a polynomial. Let \(w=\mathbb{C}\) be arbitrary. Assume, for the sake of contradiction, that \(f\) is non-constant. Then by the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}), \(z\mapsto f(z)-w\) has a complex zero. Hence, \(f\) attains every value in \(\mathbb{C}\)---a contradiction of the theorem's hypothesis.
-
-    Hence, \(f\) is a constant function.
+    If instead \(z=0\) is a pole of \(g\), then \(z=\infty\) is a pole of \(f\), and hence \(f\) is a polynomial. Assume, for the sake of contradiction that \(f\) is constant. Then \(\forall w\in\mathbb{C}\), the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}) gives the existence of some \(z\in\mathbb{C}\) such that \(f(z)=w\). Hence, \(f\) attains every value \(w\in\mathbb{C}\). This contradicts the statement and hence \(f\) is constant.
 \end{proof}
 The efforts of many mathematicians resulted in several alternative proofs following that of Picard; the geometric realization of Ahlfors (\cref{thm:schwarzahlforspick}) was followed by results discovered by R. M. Robinson. Other approaches from Nevanlinna theory appeared later in the 20th century.
 
@@ -4280,15 +4285,19 @@ Picard's original proof, providing an advanced characterization of the value dis
 
 More importantly, we have shown the utility of even seemingly fundamental differential geometry, which can also be used in the proof of many other important results.
 \begin{theorem}[name=\textsc{Bloch}]\label{thm:bloch}
-    Let \(f:\mathbb{D}\to\mathbb{C}\) be holomorphic such that \(f'(0)=1\). Then \(f(\mathbb{D})\) contains a disk with radius \(B\), where \(B\) is a constant independent of \(f\), known as the \textscsl{Bloch constant}.
+    Let \(f:\mathbb{D}\to\mathbb{C}\) be holomorphic such that \(f'(0)=1\). Then \(f(\mathbb{D})\) contains a disk with a radius of at least \(\frac{1}{72}\).
 \end{theorem}
 \begin{proof}
 
 \end{proof}
 \begin{remark}
-    The exact value or expression of Bloch's constant \(B\) is still currently unknown. Early estimates show that \(B\geq\frac1{72}\), while H. Grunsky and Ahlfors showed that \(\frac{\sqrt3}{4}\leq B\leq\frac{\Gamma\qty(\frac13)\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac14)}\sqrt{\frac{\sqrt{3}-1}{2}}\) (where \(\Gamma\) is the Gamma function as described in \cref{eq:gammafunction}) in 1937. M. Bonk provided a proof of the marginally improved estimate \(B\geq\frac{\sqrt{3}}{4}+\frac{10^{-12}}{13}\) from the well-known estimate \(B\geq\frac{\sqrt{3}}{4}\), which was subsequently improved to \(B\geq\frac{\sqrt3}{4}+\frac{1}{5000}\) by H. Chen and P. M. Gauthier in 1996.
+    The estimate \(\frac{1}{72}\) is far from optimal. Bloch's constant \(B\) is defined as the supremum of the radii of such disks that can be contained in \(f(\mathbb{D})\) for any holomorphic function \(f:\mathbb{D}\to\mathbb{C}\) satisfying \(f'(0)=1\).
 
-    Grunsky and Ahlfors actually conjectured that the upper limit was the value of \(B\), or that \(B=\frac{\Gamma\qty(\frac13)\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac14)}\sqrt{\frac{\sqrt{3}-1}{2}}\).
+    The precise value of \(B\) remains unknown to this day. In 1937, H. Grunsky and L. Ahlfors established the bounds
+    \[\frac{\sqrt{3}}{4}\leq B\leq\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})} \sqrt{\frac{\sqrt{3}-1}{2}},\]
+    where \(\Gamma\) denotes the Gamma function (as in \cref{eq:gammafunction}). M. Bonk later refined the lower bound to \(B\geq\frac{\sqrt{3}}{4}+\frac{10^{-12}}{13}\). This was further improved in 1996 by H. Chen and P. M. Gauthier to \(B\geq\frac{\sqrt{3}}{4}+\frac{1}{5000}\).
+
+    Grunsky and Ahlfors actually conjectured that the upper bound in their inequality is exact---that is, \(B=\frac{\Gamma\qty(\frac{1}{3}) \Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}}\).
 \end{remark}
 \begin{theorem}[\textsc{Landau}]
     Let \(f(z)=\sum_{n=0}^\infty a_n z^n\) such that \(a_1\neq0\).
@@ -4342,14 +4351,14 @@ By the boundedness assumption for \(f\), we have:
 
 \end{theorem}
 \subsection{Hartog's Phenomenon}
-\section{Special Classes of Holomorphic Functions}
+\section{Elliptic Functions}
 \subsection{Elliptic Functions}
 The theory of elliptic functions is an elaborate chapter of complex analysis, with origins in seemingly trivial problems of calculus. In the 18th century, mathematicians studying the rectification (arc length calculation) of curves such as the ellipse and the lemniscate discovered that these could not be expressed in terms of elementary functions, leading to the introduction of elliptic integrals. Inverting these integrals gave rise to elliptic functions, which extend the idea of trigonometric functions by being \textscsl{doubly periodic} in the complex plane. Closely related ideas also appeared in conformal mapping, such as the Schwarz--Christoffel transformation (\cref{sec:schwarzchristoffeltransformation}) between the upper half-plane and rectangles. Henceforth, elliptic functions became a central subject related to calculus, geometry, and complex analysis.
 
 It is well-known in real analysis that a periodic function can be expressed as a Fourier series, with terms involving the most trivial periodic functions \(\sin,\cos,\ldots,\sin(nx),\cos(nx)\). Such functions are called \textscsl{singly periodic}.
 
 If \(f:\mathbb{C}\to\extcomplex\) is meromorphic with period \(\omega\in\mathbb{C}\), then it has the Fourier expansion \[f(z)=\sum_{n=-\infty}^\infty c_n\exp\qty(\frac{2\piup\ii nz}{\omega}),\quad c_n=\frac1\omega\int_a^{a+\omega}f(z)\exp(\frac{2\piup\ii nz}{\omega})\ddz\quad\forall n\in\mathbb{Z},\]
-where \(a\in\mathbb{C}\).
+\section{Special Classes of Holomorphic Functions}
 \subsection{Schlicht Functions}
 \begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
 
