@@ -4408,7 +4408,7 @@ The properties of an elliptic function can be more easily observed on its fundam
     \end{scope}
     \begin{scope}[xshift=3cm, yshift=0.7cm]
         \pgfmathsetmacro{\smallradius}{0.25}
-        \pgfmathsetmacro{\largeradius}{0.3}
+        \pgfmathsetmacro{\largeradius}{0.35}
         \pgfmathsetmacro{\cylinderlength}{1.5}
         \pgfmathsetmacro{\arrowthreshold}{0.3}
         \draw[thick] (0,0) ellipse ({\smallradius} and {\largeradius});
@@ -4442,8 +4442,24 @@ The properties of an elliptic function can be more easily observed on its fundam
         \draw[thick] (\halfcenterdistance+\largeradius,0) arc (0:180:{\halfcenterdistance+\largeradius} and {(\halfcenterdistance+\largeradius)*\smallradius/\largeradius});
     \end{scope}
     \begin{scope}[xshift=9cm]
-        \draw[thick] (0,0) ellipse (0.4 and 0.3);
-        \draw[thick] (0,0) ellipse (1 and 0.7);
+% Parameters
+\pgfmathsetmacro{\R}{2}   % major radius
+\pgfmathsetmacro{\r}{0.7} % minor radius
+\pgfmathsetmacro{\k}{0.5} % vertical squash factor
+
+% Outer boundary (ellipse)
+\draw[thick] (0,0) ellipse ({\R+\r} and {\k*(\R+\r)});
+
+% Inner boundary = two ellipse arcs
+\draw[thick]
+  ({\R-\r},0) arc[start angle=0, end angle=180, 
+                  x radius={\R-\r}, y radius={\k*(\R-\r)}];
+\draw[thick]
+  ({-\R+\r},0) arc[start angle=180, end angle=360, 
+                  x radius={\R-\r}, y radius={\k*(\R-\r)}];
+
+\node at (0,-\k*(\R+\r)-0.7) {Slanted torus view};
+
     \end{scope}
 \end{tikzpicture}
 \subsection{Schlicht Functions}
