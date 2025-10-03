@@ -4442,6 +4442,7 @@ The properties of an elliptic function can be more easily observed on its fundam
         \draw[thick] (\halfcenterdistance+\largeradius,0) arc (0:180:{\halfcenterdistance+\largeradius} and {(\halfcenterdistance+\largeradius)*\smallradius/\largeradius});
     \end{scope}
     \begin{scope}[xshift=9cm]
+
 % Parameters
 \pgfmathsetmacro{\R}{2}   % major radius
 \pgfmathsetmacro{\r}{0.7} % minor radius
@@ -4450,13 +4451,16 @@ The properties of an elliptic function can be more easily observed on its fundam
 % Outer boundary (ellipse)
 \draw[thick] (0,0) ellipse ({\R+\r} and {\k*(\R+\r)});
 
-% Inner boundary = two ellipse arcs
+% Inner boundary = two offset arcs (front and back edges of the hole)
 \draw[thick]
   ({\R-\r},0) arc[start angle=0, end angle=180, 
-                  x radius={\R-\r}, y radius={\k*(\R-\r)}];
+                  x radius={\R-0.6*\r}, y radius={\k*(\R-\r)}];
 \draw[thick]
   ({-\R+\r},0) arc[start angle=180, end angle=360, 
-                  x radius={\R-\r}, y radius={\k*(\R-\r)}];
+                  x radius={\R-1.4*\r}, y radius={\k*(\R-\r)}];
+
+\node at (0,-\k*(\R+\r)-0.7) {Slanted torus view (with pinched hole)};
+
     \end{scope}
 \end{tikzpicture}
 \subsection{Schlicht Functions}
