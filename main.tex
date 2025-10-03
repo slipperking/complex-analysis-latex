@@ -4402,25 +4402,18 @@ The properties of an elliptic function can be more easily observed on its fundam
 %--- Step 1: Square with arrows
 \begin{scope}
   \draw[thick] (0,0) rectangle (2,2);
-  \draw[->,thick,blue] (0,0.3)--(0,1.7);
-  \draw[->,thick,blue] (2,1.7)--(2,0.3);
-  \draw[->,thick,red] (0.3,0)--(1.7,0);
-  \draw[->,thick,red] (1.7,2)--(0.3,2);
-  \node at (1,-0.6) {Parallelogram};
+  \draw[->,thick] (0.1,0.3)--(0.1,1.7);
+  \draw[->,thick] (1.9,1.7)--(1.9,0.3);
+  \draw[->,thick] (0.3,0.1)--(1.7,0.1);
+  \draw[->,thick] (1.7,1.9)--(0.3,1.9);
 \end{scope}
-
-%--- Step 2: Cylinder
-\begin{scope}[xshift=5cm]
-  \draw[thick] (0,0) ellipse (1 and 0.3);
-  \draw[thick] (-1,0)--(-1,2.5);
-  \draw[thick] (1,0)--(1,2.5);
-  \draw[thick] (0,2.5) ellipse (1 and 0.3);
-  \node at (0,-0.6) {Cylinder};
+\begin{scope}[xshift=3cm]
+  \draw[thick] (0,0) ellipse (0.2 and 0.8);
+  \draw[thick] (0,-1)--(2,-1);
+  \draw[thick] (0,1)--(2,1);
+  \draw[thick] (2,0) ellipse (0.2 and 0.8);
 \end{scope}
-
-%--- Step 3: Bent cylinder (half rolled)
-\begin{scope}[xshift=10cm]
-  % Draw bent tube as two ellipses with connecting arcs
+\begin{scope}[xshift=6cm]
   \draw[thick] (-1,0) ellipse (0.5 and 0.2);
   \draw[thick] (1,0) ellipse (0.5 and 0.2);
   \draw[thick] (-1.5,0) .. controls (-1.5,1) and (1.5,1) .. (1.5,0);
