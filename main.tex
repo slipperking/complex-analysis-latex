@@ -4413,8 +4413,8 @@ The properties of an elliptic function can be more easily observed on its fundam
         \pgfmathsetmacro{\arrowthreshold}{0.3}
         \draw[thick] (0,0) ellipse ({\smallradius} and {\largeradius});
 
-        \draw[-{Stealth}, thick, dashed] ({\smallradius*(\arrowthreshold-1)},0) arc (180:-160:{\smallradius*(1-\arrowthreshold)} and {\largeradius*(1-\arrowthreshold)});
-        \draw[-{Stealth}, dashed] ({\smallradius*(\arrowthreshold-1)+\cylinderlength},0) arc (180:-160:{\smallradius*(1-\arrowthreshold)} and {\largeradius*(1-\arrowthreshold)});
+        \draw[-{Stealth}, thick, dashed] ({\smallradius*(1-\arrowthreshold)},0) arc 360:20:{\smallradius*(1-\arrowthreshold)} and {\largeradius*(1-\arrowthreshold)});
+        \draw[-{Stealth}, dashed] ({\smallradius*(1-\arrowthreshold)+\cylinderlength},0) arc (360:20:{\smallradius*(1-\arrowthreshold)} and {\largeradius*(1-\arrowthreshold)});
 
         \draw[thick] (0,-\largeradius) -- (\cylinderlength,-\largeradius);
         \draw[thick] (0,\largeradius) -- (\cylinderlength,\largeradius);
