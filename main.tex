@@ -4408,7 +4408,7 @@ The properties of an elliptic function can be more easily observed on its fundam
     \end{scope}
     \begin{scope}[xshift=3cm, yshift=0.7cm]
         \pgfmathsetmacro{\smallradius}{0.25}
-        \pgfmathsetmacro{\largeradius}{0.35}
+        \pgfmathsetmacro{\largeradius}{0.3}
         \pgfmathsetmacro{\cylinderlength}{1.5}
         \pgfmathsetmacro{\arrowthreshold}{0.3}
         \draw[thick] (0,0) ellipse ({\smallradius} and {\largeradius});
@@ -4428,7 +4428,7 @@ The properties of an elliptic function can be more easily observed on its fundam
     \begin{scope}[xshift=6.5cm]
         \pgfmathsetmacro{\smallradius}{0.25}
         \pgfmathsetmacro{\largeradius}{0.3}
-        \pgfmathsetmacro{\halfcenterdistance}{0.75}
+        \pgfmathsetmacro{\halfcenterdistance}{0.65}
         \pgfmathsetmacro{\arrowthreshold}{0.3}
 
         \draw[thick] (-\halfcenterdistance,0) ellipse ({\largeradius} and {\smallradius});
@@ -4442,22 +4442,11 @@ The properties of an elliptic function can be more easily observed on its fundam
         \draw[thick] (\halfcenterdistance+\largeradius,0) arc (0:180:{\halfcenterdistance+\largeradius} and {(\halfcenterdistance+\largeradius)*\smallradius/\largeradius});
     \end{scope}
     \begin{scope}[xshift=9cm]
-
-% Parameters
-\pgfmathsetmacro{\R}{2}   % major radius
-\pgfmathsetmacro{\r}{0.7} % minor radius
-\pgfmathsetmacro{\k}{0.5} % vertical squash factor
-
-% Outer boundary (ellipse)
-\draw[thick] (0,0) ellipse ({\R+\r} and {\k*(\R+\r)});
-
-% Inner boundary = two offset arcs (front and back edges of the hole)
-\draw[thick]
-  ({\R-\r},0) arc[start angle=0, end angle=180, 
-                  x radius={\R-0.6*\r}, y radius={\k*(\R-\r)}];
-\draw[thick]
-  ({-\R+\r},0) arc[start angle=180, end angle=360, 
-                  x radius={\R-1.4*\r}, y radius={\k*(\R-\r)}];
+        \pgfmathsetmacro{\smallradius}{0.25}
+        \pgfmathsetmacro{\largeradius}{0.3}
+        
+        \draw[thick] (0,0) ellipse (0.7 and 1.0);
+        \draw[thick] (-3,-0.5) arc (180:0:{\halfcenterdistance+\largeradius} and {(\halfcenterdistance+\largeradius)*\smallradius/\largeradius});
     \end{scope}
 \end{tikzpicture}
 \subsection{Schlicht Functions}
