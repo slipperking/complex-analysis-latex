@@ -4422,15 +4422,22 @@ The properties of an elliptic function can be more easily observed on its fundam
 
         \draw (\cylinderlength,-\largeradius) arc (270:90:{\smallradius} and {\largeradius});
         \draw[thick] (\cylinderlength,\largeradius) arc (90:-90:{\smallradius} and {\largeradius});
-        
+
         \draw[-{Stealth}] (\smallradius+\arrowthreshold, 0)--(\cylinderlength+\smallradius-\arrowthreshold, 0);
     \end{scope}
     \begin{scope}[xshift=6cm]
-        \pgfmathsetmacro{\smallradius}{0.3}
-        \pgfmathsetmacro{\largeradius}{0.4}
-        \pgfmathsetmacro{\halfcenterdistance}{0.8}
+        \pgfmathsetmacro{\smallradius}{0.25}
+        \pgfmathsetmacro{\largeradius}{0.3}
+        \pgfmathsetmacro{\halfcenterdistance}{0.65}
+        \pgfmathsetmacro{\arrowthreshold}{0.3}
+
         \draw[thick] (-\halfcenterdistance,0) ellipse ({\largeradius} and {\smallradius});
         \draw[thick] (\halfcenterdistance,0) ellipse ({\largeradius} and {\smallradius});
+
+        \draw[-{Stealth}, thick, dashed] (-\halfcenterdistance+\largeradius*(1-\arrowthreshold),0) arc (0:160:{\largeradius*(1-\arrowthreshold)} and {\smallradius*(1-\arrowthreshold)});
+
+        \draw[-{Stealth}, dashed] (\halfcenterdistance+\largeradius*(1-\arrowthreshold),0) arc (0:160:{\largeradius*(1-\arrowthreshold)} and {\smallradius*(1-\arrowthreshold)});
+
         \draw[thick] (\halfcenterdistance-\largeradius,0) arc (0:180:{\halfcenterdistance-\largeradius} and {(\halfcenterdistance-\largeradius)*\smallradius/\largeradius});
         \draw[thick] (\halfcenterdistance+\largeradius,0) arc (0:180:{\halfcenterdistance+\largeradius} and {(\halfcenterdistance+\largeradius)*\smallradius/\largeradius});
     \end{scope}
