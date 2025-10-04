@@ -4320,7 +4320,7 @@ Obviously, we will first formally define the concept of holomorphy in higher dim
 \end{definition}
 If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic iff \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has all continuous partial derivatives.
 \begin{theorem}[Cauchy's Integral Formula on Polydisks]\label{thm:cauchyintegralformulapolydisks}
-    Fix \(a=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) arbitrarily and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
+    Fix \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) arbitrarily and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)=\frac{\prod_{k=1}^n j_k!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{theorem}
 \begin{proof}
@@ -4345,7 +4345,8 @@ By the boundedness assumption for \(f\), we have:
 % Talk about power series here
 Similar to the univariate case, there are Taylor expansions of holomorphic functions in several complex variables.
 
-Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on a polydisk \(\Omega=\prod_{k=1}^n D\qty(a_k,r_k)\) centered at \(\vb{a}=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(\vb{z}=\qty(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\] where \(\forall k_1,\ldots k_n\in\mathbb{Z}_{\ge0}\), \[a_{k_1,\ldots k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{}{z_j})f(\vb{a})\]
+Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on a polydisk \(\Omega=\prod_{k=1}^n D\qty(a_k,r_k)\) centered at \(\vb{a}=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(\vb{z}=\qty(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\] where \(\forall k_1,\ldots k_n\in\mathbb{Z}_{\ge0}\), \[a_{k_1,\ldots k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{}{z_j})f(\vb{a}).\]
+Then \(f\) converges absolutely and locally uniformly on \(\Omega\).
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
 \end{theorem}
