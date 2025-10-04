@@ -4344,13 +4344,13 @@ By the boundedness assumption for \(f\), we have:
 \end{proof}
 Similar to the univariate case, there are Taylor expansions of holomorphic functions in several complex variables.
 \begin{theorem}\label{thm:taylorexpansionmultivariable}
-    Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on the closure \(\overline{\Omega}\) of a polydisk \(\Omega=\prod_{k=1}^n D(a_k,r_k)\) centered at \(\vb{a}=(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(\vb{z}=(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion
+    Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on (a neighborhood of) the closure \(\overline{\Omega}\) of a polydisk \(\Omega=\prod_{k=1}^n D(a_k,r_k)\) centered at \(\vb{a}=(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(\vb{z}=(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion
     \begin{equation}
         f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\label{eq:taylorexpansionmultivariable_series}
     \end{equation}
     where \(\forall k_1,\ldots,k_n\in\mathbb{Z}_{\ge0}\),
     \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}).\]
-    The series converges absolutely and locally uniformly on \(\Omega\).
+    The series converges absolutely and uniformly on \(\Omega\).
 \end{theorem}
 \begin{proof}
 By \cref{thm:cauchyintegralformulapolydisks} we have
@@ -4360,7 +4360,7 @@ For each \(j\), since \(\abs{z_j-a_j}<r_j=\abs{\zeta_j-a_j}\) on \(\partial D\qt
 \[\frac{1}{\zeta_j-z_j}=\frac{1}{\zeta_j-a_j}\cdot\frac{1}{1-\frac{z_j-a_j}{\zeta_j-a_j}}=\sum_{k_j=0}^\infty\frac{(z_j-a_j)^{k_j}}{(\zeta_j-a_j)^{k_j+1}},\]
 which converges uniformly in \(\zeta_j\) on \(\partial D\qty(a_j,r_j)\).
 Hence, we have \[f(\vb{z})=\frac{1}{\qty(2\piup\ii)^n}\sum_{k_1=0}^\infty\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\qty(z_1-a_1)^{k_1}\dd{\zeta_n}\cdots\dd{\zeta_1}}{\qty(\zeta_1-a_1)^{k_1+1}\qty(\zeta_2-z_2)\cdots\qty(\zeta_n-z_n)}\] where uniform convergence has allowed the interchange of summation and integration. Reiteration of this process gives \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\frac{\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\dd{\zeta_n}\cdots\dd{\zeta_1}}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}.\]
-By the Cauchy Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a})=\frac{\prod_{j=1}^nk_j!}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1},\] and hence if we let \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}),\] then \cref{eq:taylorexpansionmultivariable_series} follows. Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq\prod_{j=1}^n\qty(\frac{M}{r_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\). Hence, \[\abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\]
+By the Cauchy Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a})=\frac{\prod_{j=1}^nk_j!}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1},\] and hence if we let \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}),\] then \cref{eq:taylorexpansionmultivariable_series} follows. Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq\prod_{j=1}^n\qty(\frac{M}{\rho_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\). Hence, \[\abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\]
 \end{proof}
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
