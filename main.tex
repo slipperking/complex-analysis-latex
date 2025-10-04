@@ -4331,13 +4331,13 @@ If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2}
 By the boundedness assumption for \(f\), we have:
 \begin{corollary}[Cauchy's Estimate on Polydisks]
     Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
-    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(\vb{z}=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
+    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(\vb{z})}\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(\vb{z}=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{corollary}
 \begin{proof}
-    For each \(k\), let \(\varepsilon_k\) satisfy \(D\qty(z_k,\varepsilon_k)\subseteq D(a_k,r_k)\). By Cauchy's Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\frac{\prod_{k=1}^n j_k!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
+    For each \(k\), let \(\varepsilon_k\) satisfy \(D\qty(z_k,\varepsilon_k)\subseteq D(a_k,r_k)\). By Cauchy's Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(\vb{z})}\leq\frac{\prod_{k=1}^n j_k!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
     For each \(k\), let \(\zeta_k=a_k+r_k\ee^{\ii t_k}\), and it follows that \(\dd{\zeta_k}=\ii r_k\ee^{\ii t_k}\dd{t_k}\). Because \(\abs{\zeta_k-z_k}>\varepsilon_k\), we have, after substition,
     \begin{align*}
-        \abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}&\leq\frac{\prod_{k=1}^n\qty(r_k j_k!)}{(2\piup)^n}\int_0^{2\piup}\cdots\int_0^{2\piup}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n \varepsilon_k^{j_k+1}}}\dd{t_n}\cdots\dd{t_1}\\
+        \abs{\qty(\prod_{k=1}^n\frac{\partial^{j_k}}{\partial z_k^{j_k}})f(\vb{z})}&\leq\frac{\prod_{k=1}^n\qty(r_k j_k!)}{(2\piup)^n}\int_0^{2\piup}\cdots\int_0^{2\piup}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n \varepsilon_k^{j_k+1}}}\dd{t_n}\cdots\dd{t_1}\\
         &\leq \prod_{k=1}^n\qty(\frac{r_k j_k!}{2\piup\varepsilon_k^{j_k+1}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)}\idotsint_{[0,2\piup]^n}\dd{t_n}\cdots\dd{t_1}.\\
         &\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)},
     \end{align*} since \(\varepsilon_k\leq r_k\) for all \(k\).
@@ -4353,13 +4353,13 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
 \begin{proof}
     Since \(f\) is holomorphic on the polydisk \(\Omega\), it is holomorphic in each variable \(z_j\) separately, with the other variables fixed. We proceed by induction on the dimension \(n\).
 
-    For \(n=1\), the result reduces to the classical Taylor theorem for holomorphic functions on a disk, which holds by Cauchy's integral formula:
-    \[f(z_1) = \sum_{k_1=0}^\infty \frac{f^{(k_1)}(a_1)}{k_1!} (z_1 - a_1)^{k_1},\]
-    with radius of convergence at least \(r_1\), so the series converges absolutely and uniformly on compact subsets of \(D(a_1, r_1)\).
+    For \(n=1\), by Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}),
+    \[f(z_1)=\sum_{k_1=0}^\infty\frac{f^{(k_1)}\qty(a_1)}{k_1!}\qty(z_1-a_1)^{k_1},\]
+    with radius of convergence at least \(r_1\), so the series converges absolutely and uniformly on compact subsets of \(D\qty(a_1,r_1)\).
 
-    Assume the result holds for dimension \(n-1\). Fix \(z_2, \dots, z_n \in \Omega\) (so \(|z_j - a_j| < r_j\) for \(j=2,\dots,n\)), and consider \(f\) as a function of \(z_1\) on the disk \(D(a_1, r_1)\). By the one-variable case,
-    \[f(z_1, z_2, \dots, z_n) = \sum_{k_1=0}^\infty \frac{1}{k_1!} \left( \frac{\partial^{k_1} f}{\partial z_1^{k_1}} (a_1, z_2, \dots, z_n) \right) (z_1 - a_1)^{k_1}.\]
-    Now, for each fixed \(k_1\), the function \(g_{k_1}(z_2, \dots, z_n) := \frac{\partial^{k_1} f}{\partial z_1^{k_1}} (a_1, z_2, \dots, z_n)\) is holomorphic in \(z_2, \dots, z_n\) on the polydisk \(\prod_{j=2}^n D(a_j, r_j)\), by the properties of mixed partial derivatives for holomorphic functions. By the induction hypothesis,
+    Assume the result holds for dimension \(n-1\). Fix \(z_2,\dots,z_n\in \Omega\) (so \(\abs{z_j-a_j}<r_j\) for \(j=2,\dots,n\)), and consider \(f\) as a function of \(z_1\) on the disk \(D\qty(a_1,r_1)\). By the univariate case,
+    \[f\qty(z_1,z_2,\dots,z_n)=\sum_{k_1=0}^\infty\frac{1}{k_1!}\qty(\pdv[k_1]{f}{z_1}\qty(a_1,z_2,\dots,z_n))\qty(z_1-a_1)^{k_1}.\]
+    Now, for each fixed \(k_1\), the function \(g_{k_1}(z_2,\dots,z_n)=\pdv[k_1]{f}{z_1}\qty(a_1,z_2,\dots,z_n)\) is holomorphic in \(z_2,\dots,z_n\) on the polydisk \(\prod_{j=2}^n D(a_j, r_j)\). By the induction hypothesis,
     \[g_{k_1}(z_2, \dots, z_n) = \sum_{k_2=0}^\infty \cdots \sum_{k_n=0}^\infty b_{k_1; k_2, \dots, k_n} (z_2 - a_2)^{k_2} \cdots (z_n - a_n)^{k_n},\]
     where
     \[b_{k_1; k_2, \dots, k_n} = \frac{1}{(k_2!)\cdots(k_n!)} \left( \prod_{j=2}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) g_{k_1}(a_2, \dots, a_n) = \frac{1}{k_1! \prod_{j=2}^n k_j!} \left( \prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) f(\vb{a}),\]
