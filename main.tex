@@ -4445,8 +4445,12 @@ The properties of an elliptic function can be more easily observed on its fundam
         \pgfmathsetmacro{\smallradius}{0.25}
         \pgfmathsetmacro{\largeradius}{0.3}
         
-        \draw[thick] (0,0) ellipse (0.7 and 1.0);
-        \draw[thick] (-0.7*0.5,-0.5) arc (180:0:{0.7*0.5} and {0.5});
+        \draw[thick] (0,0) ellipse (1 and 0.7);
+        \begin{scope}
+            \clip (-2,-2) rectangle (2,0);
+            \draw[thick] (-0.5,-0.2) arc (180:0:{0.5} and {0.5*0.7});
+        \end{scope}
+        \draw[thick] (-0.5,0.2) arc (180:360:{0.5} and {0.5*0.7});
     \end{scope}
 \end{tikzpicture}
 \subsection{Schlicht Functions}
