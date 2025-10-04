@@ -4344,7 +4344,7 @@ By the boundedness assumption for \(f\), we have:
 \end{proof}
 Similar to the univariate case, there are Taylor expansions of holomorphic functions in several complex variables.
 \begin{theorem}\label{thm:taylorexpansionmultivariable}
-    Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on a polydisk \(\Omega=\prod_{k=1}^n D(a_k,r_k)\) centered at \(\vb{a}=(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(\vb{z}=(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion
+    Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on the closure \(\overline{\Omega}\) of a polydisk \(\Omega=\prod_{k=1}^n D(a_k,r_k)\) centered at \(\vb{a}=(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(\vb{z}=(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion
     \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\]
     where \(\forall k_1,\ldots k_n\in\mathbb{Z}_{\ge0}\),
     \[a_{k_1,\ldots k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}).\]
@@ -4356,7 +4356,7 @@ By \cref{thm:cauchyintegralformulapolydisks} we have
 
 For each \(j\), since \(\abs{z_j-a_j}<r_j=\abs{\zeta_j-a_j}\) on \(\partial D\qty(a_j,r_j)\), the geometric series expansion holds:
 \[\frac{1}{\zeta_j-z_j}=\frac{1}{\zeta_j-a_j}\cdot\frac{1}{1-\frac{z_j-a_j}{\zeta_j-a_j}}=\sum_{k_j=0}^\infty\frac{(z_j-a_j)^{k_j}}{(\zeta_j-a_j)^{k_j+1}},\]
-converging uniformly on the contour. Hence
+which converges uniformly in \(\zeta_j\) on \(\partial D\qty(a_j,r_j)\). Hence
 \[\prod_{j=1}^n\frac{1}{\zeta_j-z_j}=\sum_{k_1,\dots,k_n\ge0}\frac{\prod_{j=1}^n(z_j-a_j)^{k_j}}{\prod_{j=1}^n(\zeta_j-a_j)^{k_j+1}}.\]
 
 Substituting into the integral and interchanging sum and integral gives
