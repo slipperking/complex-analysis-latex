@@ -1226,7 +1226,7 @@ We have also already seen the utility of parameterization via a polar transforma
                     0    &\qif* z\in\mathrm{int}(\gamma) \\
                     f(z) &\qif* z\in\mathrm{ext}(\gamma)
             \end{cases}.\]
-            By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{R\ee^{\ii\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded in \(R\) under \(\theta\), and we can commute the limit with the integral. Hence,
+            By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{R\ee^{\ii\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded in \(R\) and \(\theta\), and hence the order of the limit and the integral may be exchanged. Hence,
             \begin{align*}
                 \frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\piup}\int_0^{2\piup}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{cases}
@@ -2637,7 +2637,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     Suppose \(f\) has additional zeros at each \(\qty{b_j=R\ee^{\ii\vartheta_j}}_{1\leq j\leq m}\subset\partial D(0,R)\), each with multiplicity \(k_j\). Since the zeros here are discrete, we can pad them with disks \(D\qty(b_j,\varepsilon_j)\) within the domain of holomorphy of \(f\) such that their closures are disjoint and do not intersect any \(a_k\). Notice that near each \(b_j\), \(f(z)=\qty(z-b_j)^{k_j}h_j(z)\), where \(h_j\) is nonzero on \(D\qty(b_j,\varepsilon_j)\). Thus, \(\log\abs{f\qty(R\ee^{\ii\theta})}=k_j\log\abs{z-b_j}+\log\abs{h_j(z)}\).
 
     Let \(\rho\) satisfy \(\max_{1\leq j\leq m}\qty(R-\varepsilon_j)<\rho<R\) and for simplicity, define \(\tau_j=2\arcsin(\frac{\varepsilon_j}{2R})\) to be half the angle subtended by the arc \(K_j=\partial D(0,R)\cap\overline{D\qty(b_j,\varepsilon_j)}\). By the previous result, we have \[\log\abs{f(0)}=\frac{1}{2\piup}\qty(\int_{R\ee^{\ii\theta}\notin\bigcup \interior{K_j}}+\sum_{j=1}^m\int_{\vartheta_j-\tau_j}^{\vartheta_j+\tau_j})\log\abs{f\qty(\rho\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\abs{\frac{a_k}{\rho}}.\]
-    It is easy to see that as \(\rho\to R^{-}\), the first integral approaches \[\int_{R\ee^{\ii\theta}\notin\bigcup \interior{K_j}}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\] Indeed, because \(\log\abs{f\qty(R\ee^{\ii\theta})}\) is \(C^1\) on all connected compact components of \(\cbraces{\theta\in[0,2\piup]}{R\ee^{\ii\theta}\notin\bigcup\interior{K_j}}\). Hence, \(\pdv{\rho}(\log\abs{f\qty(\rho\ee^{\ii\theta})})\) is bounded on that set by \(M\). Therefore, \(\log\abs{f\qty(\rho\ee^{\ii\theta})}\rightrightarrows\log\abs{f\qty(R\ee^{\ii\theta})}\) as \(\rho\to R^{-}\) (with respect to \(\theta\)), it follows that \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall \max_{1\leq j\leq m}\qty(R-\varepsilon_j)<\rho<R\), \[\abs{\log\abs{f\qty(R\ee^{\ii\theta})}-\log\abs{f\qty(\rho\ee^{\ii\theta})}}<\varepsilon\] for all \(R\ee^{\ii\theta}\notin\bigcup\interior{K_j}\). It follows that
+    It is easy to see that as \(\rho\to R^{-}\), the first integral approaches \[\int_{R\ee^{\ii\theta}\notin\bigcup \interior{K_j}}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\] Indeed, because \(\log\abs{f\qty(R\ee^{\ii\theta})}\) is \(C^1\) on all connected compact components of \(\cbraces{\theta\in[0,2\piup]}{R\ee^{\ii\theta}\notin\bigcup\interior{K_j}}\). Hence, \(\pdv{\rho}(\log\abs{f\qty(\rho\ee^{\ii\theta})})\) is bounded on that set by \(M\). Therefore, \(\log\abs{f\qty(\rho\ee^{\ii\theta})}\rightrightarrows\log\abs{f\qty(R\ee^{\ii\theta})}\) as \(\rho\to R^{-}\) (uniformity in \(\theta\)), it follows that \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall \max_{1\leq j\leq m}\qty(R-\varepsilon_j)<\rho<R\), \[\abs{\log\abs{f\qty(R\ee^{\ii\theta})}-\log\abs{f\qty(\rho\ee^{\ii\theta})}}<\varepsilon\] for all \(R\ee^{\ii\theta}\notin\bigcup\interior{K_j}\). It follows that
     \begin{equation}
         \abs{\int_{R\ee^{\ii\theta}\notin\bigcup\interior{K_j}}\qty(\log\abs{f\qty(R\ee^{\ii\theta})}-\log\abs{f\qty(\rho\ee^{\ii\theta})})}\dd{\theta}<2\piup\varepsilon\to 0.\label{eq:jensensformula_firstintegralvanishes}
     \end{equation}
@@ -4316,7 +4316,7 @@ Whereas the efforts of mathematicians of over two centuries gives rise to the de
 \subsection{Consequences of Holomorphy}
 Obviously, we will first formally define the concept of holomorphy in higher dimensions.
 \begin{definition}
-    A function \(f:\Omega\subseteq\mathbb{C}^n\to\mathbb{C}\) is \textscsl{holomorphic} if it is holomorphic with respect to each variable when the others are held constant.
+    A function \(f:\Omega\subseteq\mathbb{C}^n\to\mathbb{C}\) is \textscsl{holomorphic} if it is holomorphic in each variable when the others are held constant.
 \end{definition}
 If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic iff \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has all continuous partial derivatives.
 \begin{theorem}[Cauchy's Integral Formula on Polydisks]\label{thm:cauchyintegralformulapolydisks}
@@ -4331,7 +4331,7 @@ If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2}
 By the boundedness assumption for \(f\), we have:
 \begin{corollary}[Cauchy's Estimate on Polydisks]
     Let \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
-    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
+    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(\vb{z}=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{corollary}
 \begin{proof}
     For each \(k\), let \(\varepsilon_k\) satisfy \(D\qty(z_k,\varepsilon_k)\subseteq D(a_k,r_k)\). By Cauchy's Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)}\leq\frac{\prod_{k=1}^n j_k!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
@@ -4351,29 +4351,21 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     The series converges absolutely and locally uniformly on \(\Omega\).
 \end{theorem}
 \begin{proof}
-    Since $f$ is holomorphic on the polydisk $\Omega$, it is holomorphic in each variable $z_j$ separately, with the other variables fixed. We proceed by induction on the dimension $n$.
+    Since \(f\) is holomorphic on the polydisk \(\Omega\), it is holomorphic in each variable \(z_j\) separately, with the other variables fixed. We proceed by induction on the dimension \(n\).
 
-    For $n=1$, the result reduces to the classical Taylor theorem for holomorphic functions on a disk, which holds by Cauchy's integral formula:
-    \[
-        f(z_1) = \sum_{k_1=0}^\infty \frac{f^{(k_1)}(a_1)}{k_1!} (z_1 - a_1)^{k_1},
-    \]
-    with radius of convergence at least $r_1$, so the series converges absolutely and uniformly on compact subsets of $D(a_1, r_1)$.
+    For \(n=1\), the result reduces to the classical Taylor theorem for holomorphic functions on a disk, which holds by Cauchy's integral formula:
+    \[f(z_1) = \sum_{k_1=0}^\infty \frac{f^{(k_1)}(a_1)}{k_1!} (z_1 - a_1)^{k_1},\]
+    with radius of convergence at least \(r_1\), so the series converges absolutely and uniformly on compact subsets of \(D(a_1, r_1)\).
 
-    Assume the result holds for dimension $n-1$. Fix $z_2, \dots, z_n \in \Omega$ (so $|z_j - a_j| < r_j$ for $j=2,\dots,n$), and consider $f$ as a function of $z_1$ on the disk $D(a_1, r_1)$. By the one-variable case,
-    \[
-        f(z_1, z_2, \dots, z_n) = \sum_{k_1=0}^\infty \frac{1}{k_1!} \left( \frac{\partial^{k_1} f}{\partial z_1^{k_1}} (a_1, z_2, \dots, z_n) \right) (z_1 - a_1)^{k_1}.
-    \]
-    Now, for each fixed $k_1$, the function $g_{k_1}(z_2, \dots, z_n) := \frac{\partial^{k_1} f}{\partial z_1^{k_1}} (a_1, z_2, \dots, z_n)$ is holomorphic in $z_2, \dots, z_n$ on the polydisk $\prod_{j=2}^n D(a_j, r_j)$, by the properties of mixed partial derivatives for holomorphic functions. By the induction hypothesis,
-    \[
-        g_{k_1}(z_2, \dots, z_n) = \sum_{k_2=0}^\infty \cdots \sum_{k_n=0}^\infty b_{k_1; k_2, \dots, k_n} (z_2 - a_2)^{k_2} \cdots (z_n - a_n)^{k_n},
-    \]
+    Assume the result holds for dimension \(n-1\). Fix \(z_2, \dots, z_n \in \Omega\) (so \(|z_j - a_j| < r_j\) for \(j=2,\dots,n\)), and consider \(f\) as a function of \(z_1\) on the disk \(D(a_1, r_1)\). By the one-variable case,
+    \[f(z_1, z_2, \dots, z_n) = \sum_{k_1=0}^\infty \frac{1}{k_1!} \left( \frac{\partial^{k_1} f}{\partial z_1^{k_1}} (a_1, z_2, \dots, z_n) \right) (z_1 - a_1)^{k_1}.\]
+    Now, for each fixed \(k_1\), the function \(g_{k_1}(z_2, \dots, z_n) := \frac{\partial^{k_1} f}{\partial z_1^{k_1}} (a_1, z_2, \dots, z_n)\) is holomorphic in \(z_2, \dots, z_n\) on the polydisk \(\prod_{j=2}^n D(a_j, r_j)\), by the properties of mixed partial derivatives for holomorphic functions. By the induction hypothesis,
+    \[g_{k_1}(z_2, \dots, z_n) = \sum_{k_2=0}^\infty \cdots \sum_{k_n=0}^\infty b_{k_1; k_2, \dots, k_n} (z_2 - a_2)^{k_2} \cdots (z_n - a_n)^{k_n},\]
     where
-    \[
-        b_{k_1; k_2, \dots, k_n} = \frac{1}{(k_2!)\cdots(k_n!)} \left( \prod_{j=2}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) g_{k_1}(a_2, \dots, a_n) = \frac{1}{k_1! \prod_{j=2}^n k_j!} \left( \prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) f(\vb{a}),
-    \]
-    which matches the desired coefficients $a_{k_1, \dots, k_n}$. Substituting back yields the full multiple series.
+    \[b_{k_1; k_2, \dots, k_n} = \frac{1}{(k_2!)\cdots(k_n!)} \left( \prod_{j=2}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) g_{k_1}(a_2, \dots, a_n) = \frac{1}{k_1! \prod_{j=2}^n k_j!} \left( \prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) f(\vb{a}),\]
+    which matches the desired coefficients \(a_{k_1, \dots, k_n}\). Substituting back yields the full multiple series.
 
-    For convergence: On any compact polydisk $K = \prod_{j=1}^n \overline{D(a_j, \rho_j)}$ with $0 < \rho_j < r_j$ for each $j$, the one-variable series in $z_1$ converges uniformly on $K$ (since the coefficients $g_{k_1}$ are bounded uniformly in $z_2, \dots, z_n \in K$). Each $g_{k_1}$ then has its own series converging uniformly on the compact set $\prod_{j=2}^n \overline{D(a_j, \rho_j)}$, and since the partial derivatives are bounded on $K$, the multiple series converges absolutely and uniformly on $K$ by Weierstrass M-test (using majorants from the one-variable estimates). As $K \Subset \Omega$ is arbitrary, convergence is locally uniform on $\Omega$. Absolute convergence follows similarly.
+    For convergence: On any compact polydisk \(K = \prod_{j=1}^n \overline{D(a_j, \rho_j)}\) with \(0 < \rho_j < r_j\) for each \(j\), the one-variable series in \(z_1\) converges uniformly on \(K\) (since the coefficients \(g_{k_1}\) are bounded uniformly in \(z_2, \dots, z_n \in K\)). Each \(g_{k_1}\) then has its own series converging uniformly on the compact set \(\prod_{j=2}^n \overline{D(a_j, \rho_j)}\), and since the partial derivatives are bounded on \(K\), the multiple series converges absolutely and uniformly on \(K\) by Weierstrass M-test (using majorants from the one-variable estimates). As \(K \Subset \Omega\) is arbitrary, convergence is locally uniform on \(\Omega\). Absolute convergence follows similarly.
 \end{proof}
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
