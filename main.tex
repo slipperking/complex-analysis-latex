@@ -4351,21 +4351,6 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     The series converges absolutely and locally uniformly on \(\Omega\).
 \end{theorem}
 \begin{proof}
-    Since \(f\) is holomorphic on the polydisk \(\Omega\), it is holomorphic in each variable \(z_j\) separately, with the other variables fixed. We proceed by induction on the dimension \(n\).
-
-    For \(n=1\), by Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}),
-    \[f(z_1)=\sum_{k_1=0}^\infty\frac{f^{(k_1)}\qty(a_1)}{k_1!}\qty(z_1-a_1)^{k_1},\]
-    with radius of convergence at least \(r_1\), so the series converges absolutely and uniformly on compact subsets of \(D\qty(a_1,r_1)\).
-
-    Assume the result holds for dimension \(n-1\). Fix \(z_2,\dots,z_n\in \Omega\) (so \(\abs{z_j-a_j}<r_j\) for \(j=2,\dots,n\)), and consider \(f\) as a function of \(z_1\) on the disk \(D\qty(a_1,r_1)\). By the univariate case,
-    \[f\qty(z_1,z_2,\dots,z_n)=\sum_{k_1=0}^\infty\frac{1}{k_1!}\qty(\pdv[k_1]{f}{z_1}\qty(a_1,z_2,\dots,z_n))\qty(z_1-a_1)^{k_1}.\]
-    Now, for each fixed \(k_1\), the function \(g_{k_1}(z_2,\dots,z_n)=\pdv[k_1]{f}{z_1}\qty(a_1,z_2,\dots,z_n)\) is holomorphic in \(z_2,\dots,z_n\) on the polydisk \(\prod_{j=2}^n D(a_j, r_j)\). By the induction hypothesis,
-    \[g_{k_1}(z_2, \dots, z_n) = \sum_{k_2=0}^\infty \cdots \sum_{k_n=0}^\infty b_{k_1; k_2, \dots, k_n} (z_2 - a_2)^{k_2} \cdots (z_n - a_n)^{k_n},\]
-    where
-    \[b_{k_1; k_2, \dots, k_n} = \frac{1}{(k_2!)\cdots(k_n!)} \left( \prod_{j=2}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) g_{k_1}(a_2, \dots, a_n) = \frac{1}{k_1! \prod_{j=2}^n k_j!} \left( \prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) f(\vb{a}),\]
-    which matches the desired coefficients \(a_{k_1, \dots, k_n}\). Substituting back yields the full multiple series.
-
-    For convergence: On any compact polydisk \(K = \prod_{j=1}^n \overline{D(a_j, \rho_j)}\) with \(0 < \rho_j < r_j\) for each \(j\), the one-variable series in \(z_1\) converges uniformly on \(K\) (since the coefficients \(g_{k_1}\) are bounded uniformly in \(z_2, \dots, z_n \in K\)). Each \(g_{k_1}\) then has its own series converging uniformly on the compact set \(\prod_{j=2}^n \overline{D(a_j, \rho_j)}\), and since the partial derivatives are bounded on \(K\), the multiple series converges absolutely and uniformly on \(K\) by Weierstrass M-test (using majorants from the one-variable estimates). As \(K \Subset \Omega\) is arbitrary, convergence is locally uniform on \(\Omega\). Absolute convergence follows similarly.
 \end{proof}
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
