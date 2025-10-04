@@ -4348,7 +4348,7 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\]
     where \(\forall k_1,\ldots k_n\in\mathbb{Z}_{\ge0}\),
     \[a_{k_1,\ldots k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}).\]
-    The series converges absolutely and locally uniformly on \(\Omega\).
+    The series converges absolutely and uniformly on \(\Omega\).
 \end{theorem}
 \begin{proof}
 By \cref{thm:cauchyintegralformulapolydisks} we have
@@ -4356,29 +4356,8 @@ By \cref{thm:cauchyintegralformulapolydisks} we have
 
 For each \(j\), since \(\abs{z_j-a_j}<r_j=\abs{\zeta_j-a_j}\) on \(\partial D\qty(a_j,r_j)\), the geometric series expansion holds:
 \[\frac{1}{\zeta_j-z_j}=\frac{1}{\zeta_j-a_j}\cdot\frac{1}{1-\frac{z_j-a_j}{\zeta_j-a_j}}=\sum_{k_j=0}^\infty\frac{(z_j-a_j)^{k_j}}{(\zeta_j-a_j)^{k_j+1}},\]
-which converges uniformly in \(\zeta_j\) on \(\partial D\qty(a_j,r_j)\). Hence
-\[\prod_{j=1}^n\frac{1}{\zeta_j-z_j}=\sum_{k_1,\dots,k_n\ge0}\frac{\prod_{j=1}^n(z_j-a_j)^{k_j}}{\prod_{j=1}^n(\zeta_j-a_j)^{k_j+1}}.\]
-
-Substituting into the integral and interchanging sum and integral gives
-\[f(\vb{z})=\sum_{k_1,\dots,k_n\ge0}\qty[\frac{1}{(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}]\prod_{j=1}^n(z_j-a_j)^{k_j}.\]
-
-Thus \(f\) has an expansion
-\[f(\vb z)=\sum_{\alpha\in\mathbb{N}^n}c_\alpha(\vb z-\vb a)^\alpha,\qquad c_\alpha=\frac{1}{(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n(\zeta_j-a_j)^{\alpha_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}.\]
-
-By \cref{thm:cauchyintegralformulapolydisks}, differentiating \(f\) at \(\vb{a}\) gives
-\[\qty(\pdv[\alpha_1]{z_1})\cdots\qty(\pdv[\alpha_n]{}{z_n})f\qty(\vb{a})=\alpha!c_\alpha,\]
-so
-\[c_\alpha=\frac{1}{\alpha!}\qty(\pdv[\alpha_1]{z_1})\cdots\qty(\pdv[\alpha_n]{}{z_n})f(\vb{a}).\]
-
-Finally, by \cref{cor:cauchysestimateonpolydisks}, the coefficients satisfy the bound
-\[\abs{c_\alpha}\le\prod_{j=1}^n\frac{1}{r_j^{\alpha_j}}\sup_{\zeta\in\prod_{j=1}^n\partial D(a_j,r_j)}\abs{f(\zeta)}.\]
-Hence for any smaller polydisk \(\prod_j D(a_j,\rho_j)\) with \(\rho_j<r_j\),
-\[\sum_{\alpha\in\mathbb N^n}\abs{c_\alpha}\abs{\vb{z}-\vb{a}}^\alpha\le M\prod_{j=1}^n\sum_{\alpha_j=0}^\infty\qty(\frac{\rho_j}{r_j})^{\alpha_j}=M\prod_{j=1}^n\frac{1}{1-\rho_j/r_j}<\infty,\]
-so the series converges absolutely and uniformly on compact subsets of \(\Omega\).
-
-Thus \(f\) admits the Taylor expansion
-\[f(\vb{z})=\sum_{\alpha\in\mathbb N^n}\frac{1}{\alpha!}\qty(\pdv[\alpha_1]{z_1})\cdots\qty(\pdv[\alpha_n]{}{z_n})f(\vb{a})(\vb{z}-\vb{a})^\alpha,\]
-with absolute and locally uniform convergence on \(\Omega\).
+which converges uniformly in \(\zeta_j\) on \(\partial D\qty(a_j,r_j)\).
+Hence, we have \[f(\vb{z})=\frac{1}{\qty(2\piup\ii)^n}\sum_{k_1}^\infty\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{(\zeta_2-z_2)\cdots(\zeta_n-z_n)}\frac{(z_j-a_j)^{k_j}}{(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\]
 \end{proof}
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
