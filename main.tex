@@ -4342,11 +4342,43 @@ By the boundedness assumption for \(f\), we have:
         &\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)},
     \end{align*} since \(\varepsilon_k\leq r_k\) for all \(k\).
 \end{proof}
-% Talk about power series here
 Similar to the univariate case, there are Taylor expansions of holomorphic functions in several complex variables.
+\begin{theorem}[Multivariable Taylor Theorem]
+    Let $f:\mathbb{C}^n\to\mathbb{C}$ be holomorphic on a polydisk $\Omega=\prod_{k=1}^n D(a_k,r_k)$ centered at $\vb{a}=(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n$. Then, for any $\vb{z}=(z_1,z_2,\ldots,z_n)\in\Omega$, we have the expansion
+    \[
+        f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots k_n}(z_1-a_1)^{k_1}\cdots(z_n-a_n)^{k_n},
+    \]
+    where $\forall k_1,\ldots k_n\in\mathbb{Z}_{\ge0}$,
+    \[
+        a_{k_1,\ldots k_n}=\frac{1}{\prod_{j=1}^n k_j!}\left(\prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}}\right)f(\vb{a}).
+    \]
+    The series converges absolutely and locally uniformly on $\Omega$.
+\end{theorem}
+\begin{proof}
+    Since $f$ is holomorphic on the polydisk $\Omega$, it is holomorphic in each variable $z_j$ separately, with the other variables fixed. We proceed by induction on the dimension $n$.
 
-Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on a polydisk \(\Omega=\prod_{k=1}^n D\qty(a_k,r_k)\) centered at \(\vb{a}=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(\vb{z}=\qty(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\] where \(\forall k_1,\ldots k_n\in\mathbb{Z}_{\ge0}\), \[a_{k_1,\ldots k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{}{z_j})f(\vb{a}).\]
-Then \(f\) converges absolutely and locally uniformly on \(\Omega\).
+    For $n=1$, the result reduces to the classical Taylor theorem for holomorphic functions on a disk, which holds by Cauchy's integral formula:
+    \[
+        f(z_1) = \sum_{k_1=0}^\infty \frac{f^{(k_1)}(a_1)}{k_1!} (z_1 - a_1)^{k_1},
+    \]
+    with radius of convergence at least $r_1$, so the series converges absolutely and uniformly on compact subsets of $D(a_1, r_1)$.
+
+    Assume the result holds for dimension $n-1$. Fix $z_2, \dots, z_n \in \Omega$ (so $|z_j - a_j| < r_j$ for $j=2,\dots,n$), and consider $f$ as a function of $z_1$ on the disk $D(a_1, r_1)$. By the one-variable case,
+    \[
+        f(z_1, z_2, \dots, z_n) = \sum_{k_1=0}^\infty \frac{1}{k_1!} \left( \frac{\partial^{k_1} f}{\partial z_1^{k_1}} (a_1, z_2, \dots, z_n) \right) (z_1 - a_1)^{k_1}.
+    \]
+    Now, for each fixed $k_1$, the function $g_{k_1}(z_2, \dots, z_n) := \frac{\partial^{k_1} f}{\partial z_1^{k_1}} (a_1, z_2, \dots, z_n)$ is holomorphic in $z_2, \dots, z_n$ on the polydisk $\prod_{j=2}^n D(a_j, r_j)$, by the properties of mixed partial derivatives for holomorphic functions. By the induction hypothesis,
+    \[
+        g_{k_1}(z_2, \dots, z_n) = \sum_{k_2=0}^\infty \cdots \sum_{k_n=0}^\infty b_{k_1; k_2, \dots, k_n} (z_2 - a_2)^{k_2} \cdots (z_n - a_n)^{k_n},
+    \]
+    where
+    \[
+        b_{k_1; k_2, \dots, k_n} = \frac{1}{(k_2!)\cdots(k_n!)} \left( \prod_{j=2}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) g_{k_1}(a_2, \dots, a_n) = \frac{1}{k_1! \prod_{j=2}^n k_j!} \left( \prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}} \right) f(\vb{a}),
+    \]
+    which matches the desired coefficients $a_{k_1, \dots, k_n}$. Substituting back yields the full multiple series.
+
+    For convergence: On any compact polydisk $K = \prod_{j=1}^n \overline{D(a_j, \rho_j)}$ with $0 < \rho_j < r_j$ for each $j$, the one-variable series in $z_1$ converges uniformly on $K$ (since the coefficients $g_{k_1}$ are bounded uniformly in $z_2, \dots, z_n \in K$). Each $g_{k_1}$ then has its own series converging uniformly on the compact set $\prod_{j=2}^n \overline{D(a_j, \rho_j)}$, and since the partial derivatives are bounded on $K$, the multiple series converges absolutely and uniformly on $K$ by Weierstrass M-test (using majorants from the one-variable estimates). As $K \Subset \Omega$ is arbitrary, convergence is locally uniform on $\Omega$. Absolute convergence follows similarly.
+\end{proof}
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
 \end{theorem}
