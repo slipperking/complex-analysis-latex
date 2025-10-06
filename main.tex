@@ -4491,7 +4491,7 @@ Relating to the subject of poles and zeros of elliptic functions, for brevity, w
 
     Under the assumption that \(f\not\equiv 0\), the same argument shows that \(\frac{1}{f}\) has finitely many poles in \(\overline{P}\), or equivalently, that \(f\) has finitely many zeros in \(\overline{P}\).
 \end{proof}
-\begin{proposition}
+\begin{proposition}\label{prop:ellipticfunctionresiduesum}
     For any elliptic function \(f\) with period lattice \(\Lambda\), the sum of the residues of \(f\) in \(\mathbb{C}/\Lambda\) is zero.
 \end{proposition}
 \begin{proof}
@@ -4501,7 +4501,7 @@ Relating to the subject of poles and zeros of elliptic functions, for brevity, w
     For any elliptic function \(f\) with period lattice \(\Lambda\), the number of zeros and poles (counting multiplicities and orders, respectively) in \(\mathbb{C}/\Lambda\) are equal.
 \end{theorem}
 \begin{proof}
-    Let \(P\) be a fundamental parallelogram of \(\Lambda\). By the Argument Principle (\cref{thm:argumentprinciplemeromorphic}), we have \[\frac{1}{2\piup\ii}\oint_{\partial P}\frac{f'(z)}{f(z)}\ddz=\sum_{f=0}-\sum_{f=\infty}\] where the sums are over all zeros and poles of \(f\) in \(\mathbb{C}/\Lambda\) (effectively \(P\)) counted with multiplicities and orders, respectively. Since \(f(z+\omega_1)=f(z+\omega_2)=f(z)\), we have \[f'(z+\omega_1)=f'(z+\omega_2)=f'(z)\] and hence \[\frac{f'(z+\omega_1)}{f(z+\omega_1)}=\frac{f'(z+\omega_2)}{f(z+\omega_2)}=\frac{f'(z)}{f(z)}.\] Therefore, the integrals on the opposite sides of \(\partial P\) cancel out, giving \[\oint_{\partial P}\frac{f'(z)}{f(z)}\ddz=0.\] It follows that the number of zeros and poles (counting multiplicities and orders, respectively) in \(\mathbb{C}/\Lambda\) are equal.
+    Let \(P\) be a fundamental parallelogram of \(\Lambda\). By the Argument Principle (\cref{thm:argumentprinciplemeromorphic}), we have \[\frac{1}{2\piup\ii}\oint_{\partial P}\frac{f'(z)}{f(z)}\ddz=\sum_{f=0}-\sum_{f=\infty}\] where the sums are over all zeros and poles of \(f\) in \(\mathbb{C}/\Lambda\) (effectively \(P\)) counted with multiplicities and orders, respectively. If \(f'\equiv 0\), then \(f\) is constant and the result holds trivially. Otherwise, \(\frac{f'}{f}\) is elliptic with period lattice \(\Lambda\). By \cref{prop:ellipticfunctionresiduesum}, the integral vanishes and hence the assertion follows.
 \end{proof}
 \subsection{Schlicht Functions}
 \begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
