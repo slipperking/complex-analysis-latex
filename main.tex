@@ -2290,7 +2290,7 @@ Conversely, we have:
 \end{proof}
 If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textscsl{transcendental meromorphic function}.
 \subsection{Further Properties of Meromorphic and Entire Functions}
-\begin{theorem}\label{thm:generalargumentprinciple}
+\begin{theorem}\label{thm:generalizedargumentprinciple}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be meromorphic. Let \(\gamma\subset U\) be a positively oriented Jordan curve that is null-homotopic in \(U\). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros and poles in the region bounded by \(\gamma\). Denote the zeros of \(f\) in the bounded region by \(a_1,\ldots,a_k\) with respective multiplicities \(\alpha_1,\ldots,\alpha_k\), and the poles by \(b_1,\ldots,b_m\) with respective orders \(\beta_1,\ldots,\beta_m\). Let \(\psi\) be any function holomorphic on a neighborhood of the closure of the bounded region. Then
     \[\frac{1}{2\piup\ii}\oint_{\gamma}\frac{\psi(z)f'(z)}{f(z)}\dd z=\sum_{i=1}^k\alpha_i\psi\qty(a_i)-\sum_{j=1}^m\beta_j\psi\qty(b_j).\]
 \end{theorem}
@@ -2331,7 +2331,7 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k-k'=\operatorname{Ind}_{\Gamma}(0)\).
 \end{theorem}
 \begin{proof}
-    By \cref{thm:generalargumentprinciple} for \(\psi\equiv 1\),
+    By \cref{thm:generalizedargumentprinciple} for \(\psi\equiv 1\),
     \[\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=k-k'\]
 
     Parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
@@ -4387,7 +4387,9 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     \[\frac{1}{\zeta_j-z_j}=\frac{1}{\zeta_j-a_j}\cdot\frac{1}{1-\frac{z_j-a_j}{\zeta_j-a_j}}=\sum_{k_j=0}^\infty\frac{(z_j-a_j)^{k_j}}{(\zeta_j-a_j)^{k_j+1}},\]
     which converges uniformly in \(\zeta_j\) on \(\partial D\qty(a_j,r_j)\).
     Hence, we have \[f(\vb{z})=\frac{1}{\qty(2\piup\ii)^n}\sum_{k_1=0}^\infty\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\qty(z_1-a_1)^{k_1}\dd{\zeta_n}\cdots\dd{\zeta_1}}{\qty(\zeta_1-a_1)^{k_1+1}\qty(\zeta_2-z_2)\cdots\qty(\zeta_n-z_n)}\] where uniform convergence has allowed the interchange of summation and integration. Reiteration of this process gives \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\frac{\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\dd{\zeta_n}\cdots\dd{\zeta_1}}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}.\]
-    By the Cauchy Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a})=\frac{\prod_{j=1}^nk_j!}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1},\] and hence if we let \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}),\] then \cref{eq:taylorexpansionmultivariable_series} follows. Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq\prod_{j=1}^n\qty(\frac{M}{r_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\). Hence, \[\abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\]
+    By the Cauchy Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a})=\frac{\prod_{j=1}^nk_j!}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1},\] and hence if we let \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}),\] then \cref{eq:taylorexpansionmultivariable_series} follows.
+
+    Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq\prod_{j=1}^n\qty(\frac{M}{r_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\). Hence, \[\abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\]
 \end{proof}
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
@@ -4523,7 +4525,11 @@ Let \(\mathbb{C}\) be closed under addition and let \(\Lambda\) be the subgroup 
     For any elliptic function \(f\) with period lattice \(\Lambda\), the sum of the residues of \(f\) in \(\mathbb{C}/\Lambda\) is zero.
 \end{proposition}
 \begin{proof}
-    Let \(\alpha\), \(\alpha+\omega_1\), \(\alpha+\omega_2\), and \(\alpha+\omega_1+\omega_2\) be the vertices of a fundamental parallelogram \(P\) of \(\Lambda\). By the Residue Theorem (\cref{thm:residuethm}), we have \[2\piup\ii\sum_{z_k\in P}\residue_{z=z_k}f(z)=\oint_{\partial P}f(z)\ddz,\] where the sum is over all poles \(z_k\) of \(f\) in \(\mathbb{C}/\Lambda\) (effectively \(P\)).
+    Let \(\alpha\), \(\alpha+\omega_1\), \(\alpha+\omega_2\), and \(\alpha+\omega_1+\omega_2\) be the vertices of a fundamental parallelogram \(P\) of \(\Lambda\) such that \(\partial P\) does not pass through the poles \(f\). By the Residue Theorem (\cref{thm:residuethm}), we have \[2\piup\ii\sum_{z_k\in P}\residue_{z=z_k}f(z)=\oint_{\partial P}f(z)\ddz,\] where the sum is over all poles \(z_k\) of \(f\) in \(\mathbb{C}/\Lambda\) (effectively \(P\)). The integral is equivalent to
+    \begin{align*}
+        \oint_{\partial P}f(z)\ddz&=\pm\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_1}^{\alpha+\omega_1+\omega_2}+\int_{\alpha+\omega_1+\omega_2}^{\alpha+\omega_2}+\int_{\alpha+\omega_2}^\alpha)f(z)\ddz\\
+        &=\pm\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha}^{\alpha+\omega_2}+\int_{\alpha+\omega_1}^{\alpha}+\int_{\alpha+\omega_2}^\alpha)f(z)\ddz=0
+    \end{align*} by the periodicity of \(f\).
 \end{proof}
 \begin{theorem}\label{thm:ellipticfunctionnumberofzerosandpoles}
     For any non-constant elliptic function \(f\) with period lattice \(\Lambda\), the number of zeros and poles (counting multiplicities and orders, respectively) in \(\mathbb{C}/\Lambda\) are equal.
@@ -4548,10 +4554,17 @@ Hence, it is only natural to quantify this number:
     If \(f\) is of order 1, then \(f\) has a simple pole at some \(z_0\) in a fundamental parallelogram of its period lattice \(\Lambda\). By the simplicity of the pole, it must have a nonzero residue there. By \cref{prop:ellipticfunctionresiduesum}, this is an impossibility.
 \end{proof}
 \begin{theorem}
-    Suppose that \(f\) is a non-constant elliptic function with period lattice \(\Lambda\). Let \(a_1,\ldots,a_n\) and \(b_1,\ldots,b_n\) be the zeros and poles (counting multiplicities and orders, respectively) in a fundamental parallelogram \(P\) of \(\Lambda\). Then \[\sum_{j=1}^n a_j-\sum_{j=1}^n b_j\in\Lambda,\] or in other words, this difference is also a period of \(f\).
+    Suppose that \(f\) is a non-constant elliptic function with period lattice \(\Lambda\). Let \(a_1,\ldots,a_n\) and \(b_1,\ldots,b_n\) be the zeros and poles (counting multiplicities and orders, respectively) in a fundamental parallelogram \(P\) (whose boundary intersects neither zeros or poles) of \(\Lambda\). Then \[\sum_{j=1}^n a_j-\sum_{j=1}^n b_j\in\Lambda,\] or in other words, this difference is also a period of \(f\).
 \end{theorem}
 \begin{proof}
-
+    By \cref{thm:generalizedargumentprinciple}, the quantity in question is equal to 
+    \begin{align*}
+        \sum_{j=1}^n a_j-\sum_{j=1}^n b_j&=\frac1{2\piup\ii}\oint_{\partial P}\frac{zf'(z)}{f(z)}\ddz\\
+        &=\pm\frac1{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_1}^{\alpha+\omega_1+\omega_2}+\int_{\alpha+\omega_1+\omega_2}^{\alpha+\omega_2}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz\\
+        &=\pm\frac1{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz\\
+        &\quad\pm\frac{1}{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_2}\frac{\qty(z+\omega_1)f'(z)}{f(z)}\ddz+\int_{\alpha+\omega_1}^\alpha\frac{\qty(z+\omega_2)f'(z)}{f(z)}\ddz)\\
+        &=\pm\frac1{2\piup\ii}\qty(\int_{\alpha+\omega_1}^\alpha\frac{\omega_2f'(z)}{f(z)}\ddz+\int_\alpha^{\alpha+\omega_2}\frac{\omega_1f'(z)}{f(z)}\ddz)
+    \end{align*}
 \end{proof}
 \subsubsection{The Weierstrass Elliptic Functions}
 
