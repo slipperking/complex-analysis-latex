@@ -4585,25 +4585,24 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
     \begin{figure}
         \centering
         \begin{tikzpicture}
-            \def\n{4}
-            \def\ax{1.2}   % basis vector a (x-direction)
-            \def\ay{0}
-            \def\bx{0.6}   % basis vector b (slant)
-            \def\by{1.0}
-            \def\over{0.3} % overhang beyond border
-
+            \pgfmathsetmacro{\n}{4}
+            \pgfmathsetmacro{\ax}{1.2}
+            \pgfmathsetmacro{\ay}{0}
+            \pgfmathsetmacro{\bx}{0.6}
+            \pgfmathsetmacro{\by}{1.0}
+            \pgfmathsetmacro{\over}{0.3}
             % Lines parallel to vector a
             \foreach \j in {0,...,\n} {
                 \draw[gray, thick]
-                ($(-\over*\ax,-\over*\ay) + (\j)*(\bx,\by)$)
-                -- ($((\n+\over)*\ax,(\n+\over)*\ay) + (\j)*(\bx,\by)$);
+                ({-\over*\ax+\j*\bx},{-\over*\ay+\j*\by})
+                -- ({(\n+\over)*\ax+\j*\bx},{(\n+\over)*\ay+\j*\by});
             }
 
             % Lines parallel to vector b
             \foreach \i in {0,...,\n} {
                 \draw[gray, thick]
-                ($(\i*\ax,\i*\ay) - \over*(\bx,\by)$)
-                -- ($(\i*\ax,\i*\ay) + (\n+\over)*(\bx,\by)$);
+                ({-\over*\bx+\i*\ax},{-\over*\by+\i*\ay})
+                -- (0,0);
             }
         \end{tikzpicture}
         \caption{Parallelogram}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
