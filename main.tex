@@ -2305,16 +2305,13 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     Near each zero \(a_i\), write \(f(z)=\qty(z-a_i)^{\alpha_i}h(z)\) where \(h\) is holomorphic at \(a_i\) with \(h(a_i)\neq0\). Then
     \[\frac{f'(z)}{f(z)}=\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)},\]
     so
-    \[
-        g(z)=\psi(z)\left(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)}\right).
-    \]
-    Parametrize \(\partial D(a_i,\varepsilon_i)\) by \(z=a_i+\varepsilon_i e^{i\theta}\), \(\dd z=i\varepsilon_i e^{i\theta}\dd\theta\), \(\theta\in[0,2\pi]\). Then
-    \[
-        \begin{aligned}
-            \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z
-            &= \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\left(\frac{\alpha_i}{\varepsilon_i e^{i\theta}}+\frac{h'(a_i+\varepsilon_i e^{i\theta})}{h(a_i+\varepsilon_i e^{i\theta})}\right)i\varepsilon_i e^{i\theta}\dd\theta \\
-            &= \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\alpha_i i \dd\theta + \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\frac{h'(a_i+\varepsilon_i e^{i\theta})}{h(a_i+\varepsilon_i e^{i\theta})}i\varepsilon_i e^{i\theta}\dd\theta.
-    \end{aligned}\]
+    \[g(z)=\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)}).\]
+    Parametrize \(\partial D\qty(a_i,\varepsilon_i)\) by \(z=a_i+\varepsilon_i\ee^{i\theta}\), \(\ddz=\ii\varepsilon_i\ee^{i\theta}\dd{\theta}\), \(\theta\in[0,2\piup]\). Then
+    \begin{align*}
+        \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z
+        &= \int_0^{2\piup} \psi\qty(a_i+\varepsilon_i\ee^{i\theta})\qty(\frac{\alpha_i}{\varepsilon_i\ee^{\ii\theta}}+\frac{h'\qty(a_i+\varepsilon_i\ee^{i\theta})}{h\qty(a_i+\varepsilon_i\ee^{i\theta})})\ii\varepsilon_i\ee^{\ii\theta}\dd{\theta} \\
+        &= \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\alpha_i i \dd\theta + \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\frac{h'(a_i+\varepsilon_i e^{i\theta})}{h(a_i+\varepsilon_i e^{i\theta})}i\varepsilon_i e^{i\theta}\dd\theta.
+    \end{align*}
     As \(\varepsilon_i\to0\), the first integral approaches \(\alpha_i i\psi(a_i)\int_0^{2\pi}\dd\theta=2\pi i\alpha_i\psi(a_i)\), while the second integral approaches \(0\) since \(\psi h'/h\) is holomorphic (hence bounded) at \(a_i\) and multiplied by \(\varepsilon_i\). Choosing \(\varepsilon_i\) small enough yields
     \[
         \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z=2\pi i\alpha_i\psi(a_i).
@@ -2355,14 +2352,12 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k-k'=\operatorname{Ind}_{\Gamma}(0)\).
 \end{theorem}
 \begin{proof}
-    The hypotheses ensure that \(\gamma\) is piecewise \(C^1\), positively oriented, bounding the domain \(\mathrm{int}(\gamma)\subseteq U\), and \(f\) is meromorphic on a domain containing the closure of \(\mathrm{int}(\gamma)\) (namely \(U\)). Set \(\psi(z)=1\), which is holomorphic everywhere. By \cref{thm:generalargumentprinciple},
-    \[
-        \frac{1}{2\pi i}\oint_{\gamma}\frac{f'(z)}{f(z)}\dd z=\sum_{i=1}^k\alpha_i-\sum_{j=1}^m\beta_j=k-k',
-    \]
+    By \cref{thm:generalargumentprinciple} for \(\psi\equiv 1\),
+    \[\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{i=1}^k\alpha_i-\sum_{j=1}^m\beta_j=k-k',\]
     where \(k=\sum\alpha_i\) and \(k'=\sum\beta_j\).
 
-    Parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd w=f'(z)\dd z\), and
-    \[k-k'=\frac{1}{2\pi i}\oint_{\Gamma}\frac{\dd w}{w}=\frac{1}{2\pi i}\Delta_\Gamma\log(w)=\frac{1}{2\pi}\Delta_\Gamma\arg(w)=\operatorname{Ind}_{\Gamma}(0),\]
+    Parametrize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
+    \[k-k'=\frac{1}{2\piup i}\oint_{\Gamma}\frac{\ddw}{w}=\operatorname{Ind}_{\Gamma}(0),\]
     completing the proof.
 \end{proof}
 \subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
