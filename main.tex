@@ -4557,7 +4557,7 @@ Hence, it is only natural to quantify this number:
     Suppose that \(f\) is a non-constant elliptic function with period lattice \(\Lambda\). Let \(a_1,\ldots,a_n\) and \(b_1,\ldots,b_n\) be the zeros and poles (counting multiplicities and orders, respectively) in a fundamental parallelogram \(P\) (whose boundary intersects neither zeros or poles) of \(\Lambda\). Then \[\sum_{j=1}^n a_j-\sum_{j=1}^n b_j\in\Lambda,\] or in other words, this difference is also a period of \(f\).
 \end{theorem}
 \begin{proof}
-    By \cref{thm:generalizedargumentprinciple}, the quantity in question is equal to 
+    By \cref{thm:generalizedargumentprinciple}, the quantity in question is equal to
     \begin{align*}
         \sum_{j=1}^n a_j-\sum_{j=1}^n b_j&=\frac1{2\piup\ii}\oint_{\partial P}\frac{zf'(z)}{f(z)}\ddz\\
         &=\pm\frac1{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_1}^{\alpha+\omega_1+\omega_2}+\int_{\alpha+\omega_1+\omega_2}^{\alpha+\omega_2}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz\\
@@ -4576,11 +4576,32 @@ Within a fundamental parallelogram, according to \cref{thm:ellipticfunctionnumbe
 
 In practice, elliptic functions derived from the Jacobi formulation often have more practical use cases, whereas the Weierstrass theory tends to be more convenient in theoretical analysis.
 \begin{proposition}\label{prop:weierstrasspfunctionintermediateseriesconvergence}
-    Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series \begin{equation}
+    Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series
+    \begin{equation}
         \sum_{\omega\in\Lambda\setminus\qty{0}}\frac{1}{\abs{\omega}^\alpha}\label{eq:weierstrasspfunctionintermediateseriesconvergence_statement}
     \end{equation} is (absolutely) convergent for \(\alpha>2\).
 \end{proposition}
 \begin{proof}
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \def\n{4}
+            \def\xstep{1.2}
+            \def\ystep{0.8}
+            \def\overhang{0.3}
+            \foreach \i in {0,...,\n} {
+                \draw[gray, thick]
+                ({-\overhang + \i*\xstep}, {-\overhang})
+                -- ({-\overhang + \i*\xstep - \n*\ystep}, {\n*\ystep + \overhang});
+            }
+            \foreach \j in {0,...,\n} {
+                \draw[gray, thick]
+                ({-\overhang}, {\j*\ystep - \overhang})
+                -- ({\n*\xstep + \overhang - \j*\ystep}, {\n*\ystep + \overhang});
+            }
+        \end{tikzpicture}
+        \caption{Parallelogram}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
+    \end{figure}Let \(P_n\) be a parallelogram whose center is 0 and has \(n\qty(\omega_1+\omega_2)\) as a vertex (the specific case of \(n=1\) is illustrated).
 \end{proof}
 \subsection{Schlicht Functions}
 \begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
