@@ -2309,32 +2309,15 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     Then,
     \begin{align*}
         \oint_{\partial D\qty(a_i,\varepsilon_i)}g(z)\ddz
-        &=\oint_{\partial D\qty(a_i,\varepsilon_i)}\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)})\ddz
-    \end{align*}
-    As \(\varepsilon_i\to0\), the first integral approaches \(\alpha_i i\psi(a_i)\int_0^{2\pi}\dd\theta=2\pi i\alpha_i\psi(a_i)\), while the second integral approaches \(0\) since \(\psi h'/h\) is holomorphic (hence bounded) at \(a_i\) and multiplied by \(\varepsilon_i\). Choosing \(\varepsilon_i\) small enough yields
-    \[
-        \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z=2\pi i\alpha_i\psi(a_i).
-    \]
+        &=\oint_{\partial D\qty(a_i,\varepsilon_i)}\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)})\ddz=2\piup\ii\alpha_i\psi\qty(a_i),
+    \end{align*} where the first integral has been reduced by the Cauchy--Goursat Formula (\cref{eq:cauchygoursatformula}) and the second integral vanishes by the Cauchyy--Goursat Theorem (\cref{thm:cauchygoursattheorem}).
 
-    Near a pole \(b_j\), write \(f(z)=(z-b_j)^{-\beta_j}k(z)\) where \(k\) is holomorphic at \(b_j\) with \(k(b_j)\neq0\). Then
-    \[
-        \frac{f'(z)}{f(z)}=-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)},
-    \]
+    Near a pole \(b_j\), write \(f(z)=\qty(z-b_j)^{-\beta_j}k(z)\) where \(k\) is holomorphic at \(b_j\) with \(k(b_j)\neq0\). Then
+    \[\frac{f'(z)}{f(z)}=-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)},\]
     so
-    \[
-        g(z)=\psi(z)\left(-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)}\right).
-    \]
-    Parametrizing \(\partial D(b_j,\varepsilon'_j)\) similarly,
-    \[
-        \begin{aligned}
-            \oint_{\partial D(b_j,\varepsilon'_j)} g(z) \dd z
-            &= \int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\left(-\frac{\beta_j}{\varepsilon'_j e^{i\theta}}+\frac{k'(b_j+\varepsilon'_j e^{i\theta})}{k(b_j+\varepsilon'_j e^{i\theta})}\right)i\varepsilon'_j e^{i\theta}\dd\theta \\
-            &= -\int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\beta_j i \dd\theta + \int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\frac{k'(b_j+\varepsilon'_j e^{i\theta})}{k(b_j+\varepsilon'_j e^{i\theta})}i\varepsilon'_j e^{i\theta}\dd\theta.
-    \end{aligned}\]
-    As \(\varepsilon'_j\to0\), the first integral approaches \(-\beta_j i\psi(b_j)\int_0^{2\pi}\dd\theta=-2\pi i\beta_j\psi(b_j)\), while the second approaches \(0\). Choosing \(\varepsilon'_j\) small enough yields
-    \[
-        \oint_{\partial D(b_j,\varepsilon'_j)} g(z) \dd z=-2\pi i\beta_j\psi(b_j).
-    \]
+    \[g(z)=\psi(z)\qty(-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)}).\]
+    A similar calculation yields that
+    \[\oint_{\partial D\qty(b_j,\varepsilon'_j)}g(z)\ddz=-2\piup\ii\beta_j\psi\qty(b_j).\]
 
     Combining these,
     \[
