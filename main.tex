@@ -4595,8 +4595,8 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
             % Lines parallel to vector a
             \foreach \j in {0,...,\n} {
                 \draw[gray, thick]
-                ($(-\over*\ax,-\over*\ay) + \j*(\bx,\by)$)
-                -- ($((\n+\over)*\ax,(\n+\over)*\ay) + \j*(\bx,\by)$);
+                ($(-\over*\ax,-\over*\ay) + (\j)*(\bx,\by)$)
+                -- ($((\n+\over)*\ax,(\n+\over)*\ay) + (\j)*(\bx,\by)$);
             }
 
             % Lines parallel to vector b
@@ -4605,14 +4605,6 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
                 ($(\i*\ax,\i*\ay) - \over*(\bx,\by)$)
                 -- ($(\i*\ax,\i*\ay) + (\n+\over)*(\bx,\by)$);
             }
-
-            % Outer boundary (optional)
-            \draw[very thick]
-            (0,0)
-            -- (\n*\ax,\n*\ay)
-            -- ($(\n*\ax,\n*\ay) + \n*(\bx,\by)$)
-            -- (\n*\bx,\n*\by)
-            -- cycle;
         \end{tikzpicture}
         \caption{Parallelogram}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
     \end{figure}Let \(P_n\) be a parallelogram whose center is 0 and has \(n\qty(\omega_1+\omega_2)\) as a vertex (the specific case of \(n=1\) is illustrated).
