@@ -2290,7 +2290,7 @@ Conversely, we have:
 \end{proof}
 If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textscsl{transcendental meromorphic function}.
 \subsection{Further Properties of Meromorphic and Entire Functions}
-\begin{theorem}[General Argument Principle]\label{thm:generalargumentprinciple}
+\begin{theorem}\label{thm:generalargumentprinciple}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be meromorphic. Let \(\gamma\subset U\) be a positively oriented Jordan curve that is null-homotopic in \(U\). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros and poles in the region bounded by \(\gamma\). Denote the zeros of \(f\) in the bounded region by \(a_1,\ldots,a_k\) with respective multiplicities \(\alpha_1,\ldots,\alpha_k\), and the poles by \(b_1,\ldots,b_m\) with respective orders \(\beta_1,\ldots,\beta_m\). Let \(\psi\) be any function holomorphic on a neighborhood of the closure of the bounded region. Then
     \[\frac{1}{2\piup\ii}\oint_{\gamma}\frac{\psi(z)f'(z)}{f(z)}\dd z=\sum_{i=1}^k\alpha_i\psi\qty(a_i)-\sum_{j=1}^m\beta_j\psi\qty(b_j).\]
 \end{theorem}
@@ -2306,11 +2306,10 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     \[\frac{f'(z)}{f(z)}=\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)},\]
     so
     \[g(z)=\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)}).\]
-    Parametrize \(\partial D\qty(a_i,\varepsilon_i)\) by \(z=a_i+\varepsilon_i\ee^{i\theta}\), \(\ddz=\ii\varepsilon_i\ee^{i\theta}\dd{\theta}\), \(\theta\in[0,2\piup]\). Then
+    Then,
     \begin{align*}
-        \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z
-        &= \int_0^{2\piup} \psi\qty(a_i+\varepsilon_i\ee^{i\theta})\qty(\frac{\alpha_i}{\varepsilon_i\ee^{\ii\theta}}+\frac{h'\qty(a_i+\varepsilon_i\ee^{i\theta})}{h\qty(a_i+\varepsilon_i\ee^{i\theta})})\ii\varepsilon_i\ee^{\ii\theta}\dd{\theta} \\
-        &= \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\alpha_i i \dd\theta + \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\frac{h'(a_i+\varepsilon_i e^{i\theta})}{h(a_i+\varepsilon_i e^{i\theta})}i\varepsilon_i e^{i\theta}\dd\theta.
+        \oint_{\partial D\qty(a_i,\varepsilon_i)}g(z)\ddz
+        &=\oint_{\partial D\qty(a_i,\varepsilon_i)}\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)})\ddz
     \end{align*}
     As \(\varepsilon_i\to0\), the first integral approaches \(\alpha_i i\psi(a_i)\int_0^{2\pi}\dd\theta=2\pi i\alpha_i\psi(a_i)\), while the second integral approaches \(0\) since \(\psi h'/h\) is holomorphic (hence bounded) at \(a_i\) and multiplied by \(\varepsilon_i\). Choosing \(\varepsilon_i\) small enough yields
     \[
