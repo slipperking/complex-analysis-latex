@@ -4586,19 +4586,33 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
         \centering
         \begin{tikzpicture}
             \def\n{4}
-            \def\xstep{1.2}
-            \def\ystep{0.8}
-            \def\overhang{0.3}
-            \foreach \i in {0,...,\n} {
-                \draw[gray, thick]
-                ({-\overhang + \i*\xstep}, {-\overhang})
-                -- ({-\overhang + \i*\xstep - \n*\ystep}, {\n*\ystep + \overhang});
-            }
+            \def\ax{1.2}   % basis vector a (x-direction)
+            \def\ay{0}
+            \def\bx{0.6}   % basis vector b (slant)
+            \def\by{1.0}
+            \def\over{0.3} % overhang beyond border
+
+            % Lines parallel to vector a
             \foreach \j in {0,...,\n} {
                 \draw[gray, thick]
-                ({-\overhang}, {\j*\ystep - \overhang})
-                -- ({\n*\xstep + \overhang - \j*\ystep}, {\n*\ystep + \overhang});
+                ($(-\over*\ax,-\over*\ay) + \j*(\bx,\by)$)
+                -- ($((\n+\over)*\ax,(\n+\over)*\ay) + \j*(\bx,\by)$);
             }
+
+            % Lines parallel to vector b
+            \foreach \i in {0,...,\n} {
+                \draw[gray, thick]
+                ($(\i*\ax,\i*\ay) - \over*(\bx,\by)$)
+                -- ($(\i*\ax,\i*\ay) + (\n+\over)*(\bx,\by)$);
+            }
+
+            % Outer boundary (optional)
+            \draw[very thick]
+            (0,0)
+            -- (\n*\ax,\n*\ay)
+            -- ($(\n*\ax,\n*\ay) + \n*(\bx,\by)$)
+            -- (\n*\bx,\n*\by)
+            -- cycle;
         \end{tikzpicture}
         \caption{Parallelogram}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
     \end{figure}Let \(P_n\) be a parallelogram whose center is 0 and has \(n\qty(\omega_1+\omega_2)\) as a vertex (the specific case of \(n=1\) is illustrated).
