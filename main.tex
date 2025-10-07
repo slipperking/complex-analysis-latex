@@ -4591,17 +4591,17 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
             \pgfmathsetmacro{\bx}{0.6}
             \pgfmathsetmacro{\by}{1.0}
             \pgfmathsetmacro{\over}{0.3}
-            % Lines parallel to vector a
             \foreach \j in {0,...,\n} {
-                \draw[gray, thick]
+                \draw[thin]
                 ({-\over*\ax+\j*\bx},{-\over*\ay+\j*\by})
                 -- ({(\n+\over)*\ax+\j*\bx},{(\n+\over)*\ay+\j*\by});
             }
-
-            % Lines parallel to vector b
             \foreach \i in {0,...,\n} {
-                \draw[gray, thick]
+                \draw[thin]
                 ({-\over*\bx+\i*\ax},{-\over*\by+\i*\ay}) -- ({\i*\ax+(\n+\over)*\bx},{\i*\ay+(\n+\over)*\by});
+            }
+            \foreach \i in {-1,1} {
+\draw[thick] ({-\over*\bx+(\n/2+\i)*\ax},{-\over*\by+(\n/2+\i)*\ay}) -- ({(\n/2+\i)*\ax+(\n+\over)*\bx},{(\n/2+\i)*\ay+(\n+\over)*\by});
             }
         \end{tikzpicture}
         \caption{Parallelogram}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
