@@ -2294,68 +2294,60 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be meromorphic. Let \(\gamma\subset U\) be a positively oriented Jordan curve that is null-homotopic in \(U\). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros and poles in the region bounded by \(\gamma\). Denote the zeros of \(f\) in the bounded region by \(a_1,\ldots,a_k\) with respective multiplicities \(\alpha_1,\ldots,\alpha_k\), and the poles by \(b_1,\ldots,b_m\) with respective orders \(\beta_1,\ldots,\beta_m\). Let \(\psi\) be any function holomorphic on a neighborhood of the closure of the bounded region. Then
     \[\frac{1}{2\piup\ii}\oint_{\gamma}\frac{\psi(z)f'(z)}{f(z)}\dd z=\sum_{i=1}^k\alpha_i\psi\qty(a_i)-\sum_{j=1}^m\beta_j\psi\qty(b_j).\]
 \end{theorem}
-\begin{proof}Choose disjoint disks \(D(a_i,\varepsilon_i)\) around each zero \(a_i\) and \(D(b_j,\varepsilon'_j)\) around each pole \(b_j\), with \(\varepsilon_i,\varepsilon'_j>0\) sufficiently small so that these disks are contained in \(\mathrm{int}(\gamma)\), disjoint from \(\gamma\), and contained in the neighborhood where \(\psi\) is holomorphic. The function
-    \[
-    g(z)=\frac{\psi(z)f'(z)}{f(z)}
-    \]
+\begin{proof}
+    Choose disks \(D(a_i,\varepsilon_i)\) (with pairwise disjoint closures) around each zero \(a_i\) and \(D(b_j,\varepsilon'_j)\) around each pole \(b_j\), with \(\varepsilon_i,\varepsilon'_j>0\) sufficiently small so that these disks are contained in \(\mathrm{int}(\gamma)\), disjoint from \(\gamma\), and contained in the neighborhood where \(\psi\) is holomorphic. The function
+    \[g(z)=\frac{\psi(z)f'(z)}{f(z)}\]
     is holomorphic on
-    \[
-    \mathrm{int}(\gamma)\setminus\left(\bigcup_{i=1}^k D(a_i,\varepsilon_i)\cup\bigcup_{j=1}^m D(b_j,\varepsilon'_j)\right),
-    \]
-    since \(\psi\) is holomorphic there, \(f\) is meromorphic with no other singularities, and \(f\neq0\) on \(\gamma\). The oriented boundary of this punctured domain is \(\gamma^+\cup\bigcup_{i=1}^k\partial D(a_i,\varepsilon_i)^-\cup\bigcup_{j=1}^m\partial D(b_j,\varepsilon'_j)^-\). By the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}),
-    \[\begin{aligned}
-    \oint_{\gamma^+} g(z) \dd z
-    &+ \sum_{i=1}^k \oint_{\partial D(a_i,\varepsilon_i)^-} g(z) \dd z \\
-    &+ \sum_{j=1}^m \oint_{\partial D(b_j,\varepsilon'_j)^-} g(z) \dd z = 0.
-    \end{aligned}\]
+    \[\operatorname{int}(\gamma)\setminus\qty(\bigcup_{i=1}^k D(a_i,\varepsilon_i)\cup\bigcup_{j=1}^m D(b_j,\varepsilon'_j)),\]
+    since \(\psi\) is holomorphic there, \(f\) is meromorphic with no other singularities, and \(f\neq0\) on \(\gamma\). The oriented boundary of this punctured domain is \(\gamma^+\cup\bigcup_{i=1}^k\partial D\qty(a_i,\varepsilon_i)^-\cup\bigcup_{j=1}^m\partial D\qty(b_j,\varepsilon'_j)^-\). By Cauchy--Goursat (\cref{thm:cauchygoursattheorem}), \[\oint_{\gamma^+}g(z)\ddz+\sum_{i=1}^k\oint_{\partial D\qty(a_i,\varepsilon_i)^-}g(z)\ddz+\sum_{j=1}^m\oint_{\partial D\qty(b_j,\varepsilon'_j)^-}g(z)\ddz=0.\]
     Thus,
+    \[-\oint_{\gamma}g(z)\ddz=\sum_{i=1}^k \oint_{\partial D\qtys(a_i,\varepsilon_i)^+}g(z)\ddz+\sum_{j=1}^m\oint_{\partial D\qty(b_j,\varepsilon'_j)^+}g(z)\ddz.\]
+    Near a zero \(a_i\), write \(f(z)=\qty(z-a_i)^{\alpha_i}h(z)\) where \(h\) is holomorphic at \(a_i\) with \(h(a_i)\neq0\). Then
     \[
-    \oint_{\gamma} g(z) \dd z = \sum_{i=1}^k \oint_{\partial D(a_i,\varepsilon_i)^+} g(z) \dd z + \sum_{j=1}^m \oint_{\partial D(b_j,\varepsilon'_j)^+} g(z) \dd z.
-    \]
-
-    Near a zero \(a_i\), write \(f(z)=(z-a_i)^{\alpha_i}h(z)\) where \(h\) is holomorphic at \(a_i\) with \(h(a_i)\neq0\). Then
-    \[
-    \frac{f'(z)}{f(z)}=\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)},
+        \frac{f'(z)}{f(z)}=\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)},
     \]
     so
     \[
-    g(z)=\psi(z)\left(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)}\right).
+        g(z)=\psi(z)\left(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)}\right).
     \]
     Parametrize \(\partial D(a_i,\varepsilon_i)\) by \(z=a_i+\varepsilon_i e^{i\theta}\), \(\dd z=i\varepsilon_i e^{i\theta}\dd\theta\), \(\theta\in[0,2\pi]\). Then
-    \[\begin{aligned}
-    \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z
-    &= \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\left(\frac{\alpha_i}{\varepsilon_i e^{i\theta}}+\frac{h'(a_i+\varepsilon_i e^{i\theta})}{h(a_i+\varepsilon_i e^{i\theta})}\right)i\varepsilon_i e^{i\theta}\dd\theta \\
-    &= \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\alpha_i i \dd\theta + \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\frac{h'(a_i+\varepsilon_i e^{i\theta})}{h(a_i+\varepsilon_i e^{i\theta})}i\varepsilon_i e^{i\theta}\dd\theta.
+    \[
+        \begin{aligned}
+            \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z
+            &= \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\left(\frac{\alpha_i}{\varepsilon_i e^{i\theta}}+\frac{h'(a_i+\varepsilon_i e^{i\theta})}{h(a_i+\varepsilon_i e^{i\theta})}\right)i\varepsilon_i e^{i\theta}\dd\theta \\
+            &= \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\alpha_i i \dd\theta + \int_0^{2\pi} \psi(a_i+\varepsilon_i e^{i\theta})\frac{h'(a_i+\varepsilon_i e^{i\theta})}{h(a_i+\varepsilon_i e^{i\theta})}i\varepsilon_i e^{i\theta}\dd\theta.
     \end{aligned}\]
     As \(\varepsilon_i\to0\), the first integral approaches \(\alpha_i i\psi(a_i)\int_0^{2\pi}\dd\theta=2\pi i\alpha_i\psi(a_i)\), while the second integral approaches \(0\) since \(\psi h'/h\) is holomorphic (hence bounded) at \(a_i\) and multiplied by \(\varepsilon_i\). Choosing \(\varepsilon_i\) small enough yields
     \[
-    \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z=2\pi i\alpha_i\psi(a_i).
+        \oint_{\partial D(a_i,\varepsilon_i)} g(z) \dd z=2\pi i\alpha_i\psi(a_i).
     \]
 
     Near a pole \(b_j\), write \(f(z)=(z-b_j)^{-\beta_j}k(z)\) where \(k\) is holomorphic at \(b_j\) with \(k(b_j)\neq0\). Then
     \[
-    \frac{f'(z)}{f(z)}=-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)},
+        \frac{f'(z)}{f(z)}=-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)},
     \]
     so
     \[
-    g(z)=\psi(z)\left(-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)}\right).
+        g(z)=\psi(z)\left(-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)}\right).
     \]
     Parametrizing \(\partial D(b_j,\varepsilon'_j)\) similarly,
-    \[\begin{aligned}
-    \oint_{\partial D(b_j,\varepsilon'_j)} g(z) \dd z
-    &= \int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\left(-\frac{\beta_j}{\varepsilon'_j e^{i\theta}}+\frac{k'(b_j+\varepsilon'_j e^{i\theta})}{k(b_j+\varepsilon'_j e^{i\theta})}\right)i\varepsilon'_j e^{i\theta}\dd\theta \\
-    &= -\int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\beta_j i \dd\theta + \int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\frac{k'(b_j+\varepsilon'_j e^{i\theta})}{k(b_j+\varepsilon'_j e^{i\theta})}i\varepsilon'_j e^{i\theta}\dd\theta.
+    \[
+        \begin{aligned}
+            \oint_{\partial D(b_j,\varepsilon'_j)} g(z) \dd z
+            &= \int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\left(-\frac{\beta_j}{\varepsilon'_j e^{i\theta}}+\frac{k'(b_j+\varepsilon'_j e^{i\theta})}{k(b_j+\varepsilon'_j e^{i\theta})}\right)i\varepsilon'_j e^{i\theta}\dd\theta \\
+            &= -\int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\beta_j i \dd\theta + \int_0^{2\pi} \psi(b_j+\varepsilon'_j e^{i\theta})\frac{k'(b_j+\varepsilon'_j e^{i\theta})}{k(b_j+\varepsilon'_j e^{i\theta})}i\varepsilon'_j e^{i\theta}\dd\theta.
     \end{aligned}\]
     As \(\varepsilon'_j\to0\), the first integral approaches \(-\beta_j i\psi(b_j)\int_0^{2\pi}\dd\theta=-2\pi i\beta_j\psi(b_j)\), while the second approaches \(0\). Choosing \(\varepsilon'_j\) small enough yields
     \[
-    \oint_{\partial D(b_j,\varepsilon'_j)} g(z) \dd z=-2\pi i\beta_j\psi(b_j).
+        \oint_{\partial D(b_j,\varepsilon'_j)} g(z) \dd z=-2\pi i\beta_j\psi(b_j).
     \]
 
     Combining these,
-    \[\begin{aligned}
-    \oint_{\gamma} \frac{\psi(z) f'(z)}{f(z)} \dd z
-    &= \sum_{i=1}^k 2\pi i \alpha_i \psi(a_i) + \sum_{j=1}^m (-2\pi i \beta_j \psi(b_j)) \\
-    &= 2\pi i \left( \sum_{i=1}^k \alpha_i \psi(a_i) - \sum_{j=1}^m \beta_j \psi(b_j) \right).
+    \[
+        \begin{aligned}
+            \oint_{\gamma} \frac{\psi(z) f'(z)}{f(z)} \dd z
+            &= \sum_{i=1}^k 2\pi i \alpha_i \psi(a_i) + \sum_{j=1}^m (-2\pi i \beta_j \psi(b_j)) \\
+            &= 2\pi i \left( \sum_{i=1}^k \alpha_i \psi(a_i) - \sum_{j=1}^m \beta_j \psi(b_j) \right).
     \end{aligned}\]
     Dividing by \(2\piup\ii\) completes the proof.
 \end{proof}
@@ -2367,7 +2359,7 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
 \begin{proof}
     The hypotheses ensure that \(\gamma\) is piecewise \(C^1\), positively oriented, bounding the domain \(\mathrm{int}(\gamma)\subseteq U\), and \(f\) is meromorphic on a domain containing the closure of \(\mathrm{int}(\gamma)\) (namely \(U\)). Set \(\psi(z)=1\), which is holomorphic everywhere. By \cref{thm:generalargumentprinciple},
     \[
-    \frac{1}{2\pi i}\oint_{\gamma}\frac{f'(z)}{f(z)}\dd z=\sum_{i=1}^k\alpha_i-\sum_{j=1}^m\beta_j=k-k',
+        \frac{1}{2\pi i}\oint_{\gamma}\frac{f'(z)}{f(z)}\dd z=\sum_{i=1}^k\alpha_i-\sum_{j=1}^m\beta_j=k-k',
     \]
     where \(k=\sum\alpha_i\) and \(k'=\sum\beta_j\).
 
