@@ -2310,7 +2310,7 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     \begin{align*}
         \oint_{\partial D\qty(a_i,\varepsilon_i)}g(z)\ddz
         &=\oint_{\partial D\qty(a_i,\varepsilon_i)}\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)})\ddz=2\piup\ii\alpha_i\psi\qty(a_i),
-    \end{align*} where the first integral has been reduced by the Cauchy--Goursat Formula (\cref{eq:cauchygoursatformula}) and the second integral vanishes by the Cauchyy--Goursat Theorem (\cref{thm:cauchygoursattheorem}).
+    \end{align*} where the first term has been reduced by the Cauchy--Goursat Formula (\cref{eq:cauchygoursatformula}) and the second integral vanishes by the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}).
 
     Near a pole \(b_j\), write \(f(z)=\qty(z-b_j)^{-\beta_j}k(z)\) where \(k\) is holomorphic at \(b_j\) with \(k(b_j)\neq0\). Then
     \[\frac{f'(z)}{f(z)}=-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)},\]
@@ -2318,14 +2318,12 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     \[g(z)=\psi(z)\qty(-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)}).\]
     A similar calculation yields that
     \[\oint_{\partial D\qty(b_j,\varepsilon'_j)}g(z)\ddz=-2\piup\ii\beta_j\psi\qty(b_j).\]
-
     Combining these,
-    \[
-        \begin{aligned}
-            \oint_{\gamma} \frac{\psi(z) f'(z)}{f(z)} \dd z
-            &= \sum_{i=1}^k 2\pi i \alpha_i \psi(a_i) + \sum_{j=1}^m (-2\pi i \beta_j \psi(b_j)) \\
-            &= 2\pi i \left( \sum_{i=1}^k \alpha_i \psi(a_i) - \sum_{j=1}^m \beta_j \psi(b_j) \right).
-    \end{aligned}\]
+    \begin{align*}
+        \oint_{\gamma}\frac{\psi(z)f'(z)}{f(z)}\ddz
+        &= \sum_{i=1}^k 2\piup\ii\alpha_i \psi\qty(a_i)-\sum_{j=1}^m-2\piup\ii\beta_j\psi(b_j) \\
+        &= 2\piup\ii\qty(\sum_{i=1}^k \alpha_i\psi(a_i)-\sum_{j=1}^m \beta_j\psi(b_j)).
+    \end{align*}
     Dividing by \(2\piup\ii\) completes the proof.
 \end{proof}
 \begin{theorem}[Argument Principle]\label{thm:argumentprinciplemeromorphic}
