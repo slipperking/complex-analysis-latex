@@ -4618,9 +4618,9 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
             \pgfmathsetmacro{\lengtha}{sqrt(\ax*\ax+\ay*\ay)}
             \pgfmathsetmacro{\lengthb}{sqrt(\bx*\bx+\by*\by)}
             \pgfmathsetmacro{\sineanglebetween}{sqrt(1-((\ax*\bx+\ay*\by)/(\lengtha*\lengthb))^2)}
-            \coordinate (H) at ([shift={(\ay*\sineanglebetween/\lengtha,-\ax*\sineanglebetween/\lengtha)}] O);
-            \draw[dashed, thick] (O) -- (H);
-            \node[xshift=-5] at ($(O)!0.5!(H)$) {\(\delta\)};
+            \coordinate (H) at ([shift={(\ay*\lengthb*\sineanglebetween/\lengtha,-\ax*\lengthb*\sineanglebetween/\lengtha)}] O);
+            \draw[dotted, thick] (O) -- (H);
+            \node[xshift=-4, yshift=-2] at ($(O)!0.5!(H)$) {\(\delta\)};
         \end{tikzpicture}
         \caption{The parallelogram \(P_1\) with 8 periods on its boundary.}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
     \end{figure}Let \(P_n\) be a parallelogram whose center is 0 and has \(n\qty(\omega_1+\omega_2)\) as a vertex (the specific case of \(n=1\) is illustrated in \cref{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}). For each \(n\in\mathbb{N}\), there exist \(8n\) periods on \(\partial P_n\).
