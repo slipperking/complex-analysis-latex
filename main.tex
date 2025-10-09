@@ -424,9 +424,13 @@ By multiplying the second equation by \(\ii\) and adding it to the first, we obt
 \cref{eq:cauchyriemanneqs1,eq:cauchyriemanneqs2} are known as the \textscsl{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\Re(z)\Im(z)\right|}\). Let \(z=x+\ii y\), \(x=\alpha t\), and \(y=\beta t\). Then
 \[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+\ii\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+\ii\beta}.\]
 The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However, the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
-
-If a function \(f(z)\) is complex differentiable over an open neighborhood of \(z_0\), then \(f(z)\) is \textscsl{holomorphic} at \(z_0\). If \(f(z)\) is holomorphic for every point in an open set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over a closed set if it is holomorphic over an open set containing the closed set. A function is \textscsl{entire} if it is holomorphic over \(\mathbb{C}\).
-
+\begin{definition}[Holomorphy]\label{def:holomorphy}
+    A function \(f:U\to\mathbb{C}\) is said to be \textscsl{holomorphic} at \(z_0\in U\) if it is complex differentiable on a neighborhood of \(z_0\). If \(f(z)\) is holomorphic for every point in an open connected set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over compact set \(K\) if it is holomorphic on a neighborhood of \(K\).
+\end{definition}
+Weierstrass provided the following classification:
+\begin{definition}
+    A function is \textscsl{entire} if it is holomorphic over \(\mathbb{C}\).
+\end{definition}
 For the purpose of the following contents, a \textscsl{region} or \textscsl{domain} will denote a nonempty, open, connected subset of the complex plane.
 \begin{theorem}\label{thm:holomorphycondition}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. Then \(f\) is holomorphic on \(U\) iff \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
@@ -4653,7 +4657,9 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
         \wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\qty{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}],\qquad z\in\mathbb{C}\setminus\Lambda.\label{eq:weierstrasspfunction}
     \end{equation}
 \end{definition}
-By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp\) is well-defined and meromorphic on \(\mathbb{C}\). By \cref{thm:weierstrassconvergence}, we can use termwise differentiation to get \[\wp'(z)=-\frac{2}{z^3}-\sum_{\omega\in\Lambda\setminus\qty{0}}\frac{2}{\qty(z-\omega)^3}=-2\sum_{\omega\in\Lambda}\frac1{\qty(z-\omega)^3},\] which is absolutely convergent for \(z\notin\Lambda\). It follows that \(\wp'\) is also meromorphic on \(\mathbb{C}\). Hence, the series expression for \(\wp'(z)\) may be rearranged to \(\wp'(z+\omega_1)\), and hence, \[\wp'(z)=\wp'(z+\omega_1)=\wp'(z+\omega_2).\] Hence, \(\wp'\) is also an elliptic function with period lattice \(\Lambda\). Hence, we must have \[\wp(z)+c_1=\wp\qty(z+\omega_1),\qquad \wp(z)+c_2=\wp\qty(z+\omega_2).\] At \(z=-\frac{\omega_1}{2},-\frac{\omega_2}{2}\), we have \[\wp\qty(-\frac{\omega_1}{2})+c_1=\wp\qty(\frac{\omega_1}{2}),\qquad\wp\qty(-\frac{\omega_2}{2})+c_2=\wp\qty(\frac{\omega_2}{2})\] By evenness of \(\wp\), we must have \(c_1=c_2=0\). Therefore, \(\wp\) is also an elliptic function with period lattice \(\Lambda\). Moreover, each isolated singularity \(\omega\in\Lambda\) is a pole of order two with residue 0 (by \cref{prop:ellipticfunctionresiduesum}). 
+By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp\) is well-defined and meromorphic on \(\mathbb{C}\). By \cref{thm:weierstrassconvergence}, we can use termwise differentiation to get \[\wp'(z)=-\frac{2}{z^3}-\sum_{\omega\in\Lambda\setminus\qty{0}}\frac{2}{\qty(z-\omega)^3}=-2\sum_{\omega\in\Lambda}\frac1{\qty(z-\omega)^3},\] which is absolutely convergent for \(z\notin\Lambda\). It follows that \(\wp'\) is also meromorphic on \(\mathbb{C}\). Hence, the series expression for \(\wp'(z)\) may be rearranged to \(\wp'(z+\omega_1)\), and hence, \[\wp'(z)=\wp'(z+\omega_1)=\wp'(z+\omega_2).\] Hence, \(\wp'\) is also an elliptic function with period lattice \(\Lambda\). Hence, we must have \[\wp(z)+c_1=\wp\qty(z+\omega_1),\qquad \wp(z)+c_2=\wp\qty(z+\omega_2).\] At \(z=-\frac{\omega_1}{2},-\frac{\omega_2}{2}\), we have \[\wp\qty(-\frac{\omega_1}{2})+c_1=\wp\qty(\frac{\omega_1}{2}),\qquad\wp\qty(-\frac{\omega_2}{2})+c_2=\wp\qty(\frac{\omega_2}{2})\] By evenness of \(\wp\), we must have \(c_1=c_2=0\). Therefore, \(\wp\) is also an elliptic function with period lattice \(\Lambda\). Moreover, each isolated singularity \(\omega\in\Lambda\) is a pole of order two with residue 0 (by \cref{prop:ellipticfunctionresiduesum}). The quotient group \(\mathbb{C}/\Lambda\), may be represented by a fundamental parallelogram \(P\) of \(\Lambda\) with vertices at \(0\), \(\omega_1\), \(\omega_2\), and \(\omega_1+\omega_2\), which by identification, are homeomorphic to a single point on the torus.
+
+
 \begin{definition}[Weierstrass \(\zeta\)-Function]
     
 \end{definition}
