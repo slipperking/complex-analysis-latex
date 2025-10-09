@@ -711,7 +711,7 @@ Lastly, the sufficient criteria to pass a limit through an integral:
     Let \(\gamma\) be a rectifiable curve on which the function sequence \(\cbraces{f_n}_{n\in\mathbb{N}}\) is continuous on. If \(\cbraces{f_n(z)}\) uniformly converges to \(f\), then \[\lim_{n\to\infty}\int_{\gamma}f_n(z)\ddz=\int_{\gamma}f(z)\ddz.\]
 \end{theorem}
 \begin{proof}
-    Since \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) on \(\gamma\), \(\forall\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that for all \(n > N\), \[\abs{f_n(z)-f(z)}<\frac{\varepsilon}{\mathrm{length}(\gamma)},\quad \forall z\in\gamma.\]
+    Since \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) on \(\gamma\), \(\forall\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that for all \(n > N\), \[\abs{f_n(z)-f(z)}<\frac{\varepsilon}{\operatorname{length}(\gamma)},\quad \forall z\in\gamma.\]
     Since each \(f_n\) is continuous and \(\gamma\) is rectifiable, each integral \(\int_\gamma f_n(z)\ddz\) is convergent and well-defined.
 
     Then \(\forall n>N\),
@@ -719,7 +719,7 @@ Lastly, the sufficient criteria to pass a limit through an integral:
         \abs{\int_\gamma f_n(z)\ddz-\int_\gamma f(z)\ddz}
         & =\abs{\int_\gamma\paren{f_n(z)-f(z)}\ddz}                                      \\
         & \leq\int_\gamma\abs{f_n(z)-f(z)}\abs{\ddz}                                     \\
-        & <\int_\gamma\frac{\varepsilon}{\mathrm{length}(\gamma)}\abs{\ddz}=\varepsilon.
+        & <\int_\gamma\frac{\varepsilon}{\operatorname{length}(\gamma)}\abs{\ddz}=\varepsilon.
     \end{align*}
     Therefore, \[\lim_{n\to\infty}\int_\gamma f_n(z)\ddz=\int_\gamma f(z)\ddz.\qedhere\]
 \end{proof}
@@ -921,7 +921,7 @@ When Cauchy famously published \cref{thm:cauchyintegralformula,thm:cauchyintegra
     \begin{equation*}
         \int_{\Gamma}f(z)\ddz
     \end{equation*} can be approximated with the Riemann sum \[S=\sum_{k=0}^{n-1}f\paren{z_k}\Delta z_k\] where \[\Delta z_k=z_{k+1}-z_k=\int_{\gamma_k}\ddz=\int_{l_k}\ddz.\]
-    Then the sum above can be written as \[S=\sum_{k=0}^{n-1}\int_{\gamma_k}f\paren{z_k}\ddz=\sum_{k=0}^{n-1}\int_{l_k}f\paren{z_k}\ddz,\] and it follows that \[\abs{\int_{\Gamma}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{\gamma_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon\cdot\mathrm{length}(\Gamma)\] and \[\abs{\int_{P}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{l_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon\cdot\mathrm{length}(P)<\varepsilon\cdot\mathrm{length}(\Gamma)\] where \(\mathrm{length}(\Gamma)\) is the length of \(\Gamma\) and \(\mathrm{length}(P)\) is the length of \(P\).
+    Then the sum above can be written as \[S=\sum_{k=0}^{n-1}\int_{\gamma_k}f\paren{z_k}\ddz=\sum_{k=0}^{n-1}\int_{l_k}f\paren{z_k}\ddz,\] and it follows that \[\abs{\int_{\Gamma}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{\gamma_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon\cdot\operatorname{length}(\Gamma)\] and \[\abs{\int_{P}f(z)\ddz-S}=\abs{\sum_{k=0}^{n-1}\int_{l_k}\brackets{f(z)-f\paren{z_k}}\ddz}<\varepsilon\cdot\mathrm{length}(P)<\varepsilon\cdot\mathrm{length}(\Gamma)\] where \(\mathrm{length}(\Gamma)\) is the length of \(\Gamma\) and \(\mathrm{length}(P)\) is the length of \(P\).
     Then, \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}\leq\abs{\int_{\Gamma}f(z)\ddz-S}+\abs{\int_{P}f(z)\ddz-S}\leq 2\varepsilon\cdot\mathrm{length}(\Gamma).\qedhere\]
 \end{proof}
 \begin{lemma}\label{lem:cauchyintegraltheoremoversimplyconnectedset}
@@ -4642,13 +4642,13 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
     Let \(R>0\) be arbitrary. Then \(\forall z\in D(0,R)\), and for \(\abs{\omega}>2R\), we have \[\frac{\abs{z}}{\abs{\omega}}<\frac12,\quad\abs{2-\frac{z}{\omega}}\leq 2+\frac{\abs{z}}{\abs{\omega}}<\frac52,\quad\abs{1-\frac{z}{\omega}}^2\geq\qty(1-\abs{\frac{z}{\omega}})^2>\frac14.\]
     It follows that
     \[\abs{\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}}=\abs{\frac{2\omega z-z^2}{\omega^2(z-\omega)^2}}=\abs{\frac{z\qty(2-\frac{z}{\omega})}{\omega^3\qty(\frac{z}{\omega}-1)^2}}<\frac{\frac52z}{\frac14\omega^3}\leq\frac{10R}{\omega^3}.\]
-    Hence, by \cref{prop:weierstrasspfunctionintermediateseriesconvergence}, 
+    Hence, by \cref{prop:weierstrasspfunctionintermediateseriesconvergence},
     \begin{equation}
         \sum_{\substack{\omega\in\Lambda\\
         \omega\notin\overline{D\qty(0,2R)}}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]\label{eq:weierstrasspfunctionconvergence_intermediateseries}
     \end{equation} is termwise bounded by a series \(\sum_{\substack{\omega\in\Lambda\\
     \omega\notin\overline{D\qty(0,2R)}}}\frac{10R}{\omega^3}\), which is convergent by \cref{prop:weierstrasspfunctionintermediateseriesconvergence}. Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}) gives the uniform convergence of \cref{eq:weierstrasspfunctionconvergence_intermediateseries} on \(D(0,R)\). Since we have omitted only finitely many terms, \cref{eq:weierstrasspfunctionintermediateseriesconvergence_statement} converges uniformly on \(D(0,R)\setminus\Lambda\).
-    
+
     Let \(K\subset\mathbb{C}\setminus\Lambda\) be compact and arbitrary. By boundedness, \(\exists R>0\) such that \(K\subset D(0,R)\setminus\Lambda\), on which it uniformly converges.
 \end{proof}
 \begin{definition}[Weierstrass \texorpdfstring{\(\wp\)}{p}-Function]\label{def:weierstrasspfunction}
@@ -4661,10 +4661,10 @@ By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp
 
 
 \begin{definition}[Weierstrass \(\zeta\)-Function]
-    
+
 \end{definition}
 \begin{definition}[Weierstrass \(\sigma\)-Function]
-    
+
 \end{definition}
 \subsubsection{Jacobi Elliptic Functions}
 \newcommand{\sn}{\operatorname{sn}}
