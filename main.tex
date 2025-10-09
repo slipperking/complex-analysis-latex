@@ -4625,7 +4625,7 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
         \caption{The parallelogram \(P_1\) with 8 periods on its boundary with lattice \(\Lambda\).}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
     \end{figure}Let \(P_n\) be a parallelogram whose center is 0 and has \(n\qty(\omega_1+\omega_2)\) as a vertex (the specific case of \(n=1\) is illustrated in \cref{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}). For each \(n\in\mathbb{N}\), there exist \(8n\) periods (points in \(\Lambda\)) on \(\partial P_n\).
 
-    Let \(\delta\) be the distance from 0 to \(\partial P_1\). Hence, the distance from 0 to \(\partial P_n\) is \(n\delta\). Since each \(\omega\in\Lambda^*=\Lambda\setminus\qty{0}\) lies in a unique \(\partial P_n\), it follows that \(\abs{\omega}^\alpha\geq n^\alpha \delta^\alpha\) for all \(\alpha>0\). Hence, \[\sum_{\omega\in\Lambda^*}\frac{1}{\abs{\omega}^\alpha}\leq\sum_{n=1}^\infty\frac{8n}{n^\alpha\delta^\alpha}=\frac{8}{\delta^\alpha}\sum_{n=1}^\infty\frac{1}{n^{\alpha-1}},\] which is a \(p\)-series that converges for \(\alpha>2\). 
+    Let \(\delta\) be the distance from 0 to \(\partial P_1\). Hence, the distance from 0 to \(\partial P_n\) is \(n\delta\). Since each \(\omega\in\Lambda^*=\Lambda\setminus\qty{0}\) lies in a unique \(\partial P_n\), it follows that \(\abs{\omega}^\alpha\geq n^\alpha \delta^\alpha\) for all \(\alpha>0\). Hence, \[\sum_{\omega\in\Lambda^*}\frac{1}{\abs{\omega}^\alpha}\leq\sum_{n=1}^\infty\frac{8n}{n^\alpha\delta^\alpha}=\frac{8}{\delta^\alpha}\sum_{n=1}^\infty\frac{1}{n^{\alpha-1}},\] which is a \(p\)-series that converges for \(\alpha>2\).
 \end{proof}
 \begin{proposition}\label{prop:weierstrasspfunctionconvergence}
     Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series
@@ -4638,7 +4638,8 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
     Let \(R>0\) be arbitrary. Then \(\forall z\in \overline{D(0,R)}\), and for \(\abs{\omega}>2R\), we have \[\frac{\abs{z}}{\abs{\omega}}<\frac12,\quad\abs{2-\frac{z}{\omega}}\leq 2+\frac{\abs{z}}{\abs{\omega}}<\frac52,\quad\abs{1-\frac{z}{\omega}}^2\geq\qty(1-\abs{\frac{z}{\omega}})^2>\frac14.\]
     It follows that
     \[\abs{\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}}=\abs{\frac{2\omega z-z^2}{\omega^2(z-\omega)^2}}=\abs{\frac{z\qty(2-\frac{z}{\omega})}{\omega^3\qty(\frac{z}{\omega}-1)^2}}<\frac{\frac52z}{\frac14\omega^3}\leq\frac{10R}{\omega^3}.\]
-    Hence, by \cref{prop:weierstrasspfunctionintermediateseriesconvergence}, \[\sum_{\omega\in\Lambda\cap\mathbb{C}\setminus\overline{D\qty(0,2R)}}\]
+    Hence, by \cref{prop:weierstrasspfunctionintermediateseriesconvergence}, \[\sum_{\substack{\omega\in\Lambda\\
+    \omega\notin\overline{D\qty(0,2R)}}}\]
 \end{proof}
 \subsection{Schlicht Functions}
 \begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
