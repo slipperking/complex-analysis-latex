@@ -2621,7 +2621,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     \end{align*}
     where the linear term vanishes since \(\frac{\qty(\zeta-n)^2}{\sin[2](\piup\zeta)}\) is even around \(\zeta=n\). Hence, the principal part of \(\csc^2(\piup z)\) at \(z=n\) is \(\psi_n(z)=\frac{1}{\piup^2(z-n)^2}\). Let \(z=x+\ii y\). Since
     \begin{align*}
-        \abs{\sum_{n=-\infty}^\infty\psi_n(z)} & \leq\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{\qty|z-n|^2}\leq\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{\qty[x-n]^2}                                  \\
+        \abs{\sum_{n=-\infty}^\infty\psi_n(z)} & \leq\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{\qty|z-n|^2}\leq\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{\qty(x-n)^2}                                  \\
         & =\frac{1}{\piup^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}] \\
         & \leq\frac{1}{\piup^2}\qty[2\sum_{n=1}^\infty\frac{1}{n^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}]
     \end{align*} (where \(\qty{x}\) is the fractional part of the real component of \(z\)), it converges uniformly on compact subsets of \(\mathbb{C}\setminus\mathbb{Z}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). It follows that this sum is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\) by \cref{thm:weierstrassconvergence}. The difference \[f(z)=\csc[2](\piup z)-\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{(z-n)^2}\] is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\). Since the principal parts of \(f\) at each \(z=n\) are zero, it follows that \(f\) is entire. Therefore, it is bounded on every compact subset of the complex plane. Since \(f\) is bounded on the compact rectangle \(K=\cbraces{z\in\mathbb{C}}{0\leq\Re(z)\leq 1,-1\leq\Im(z)\leq 1}\), for some \(M>0\), we have \(\abs{f}\leq M\) on \(K\). For \(0\leq x=\Re(z)\leq 1\) satisfying \(\abs{y}=\abs{\Im(z)}>1\), by the reverse triangle inequality, we have
@@ -2862,7 +2862,7 @@ Residues are extremely important as they allow for simple evaluation of definite
     We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii \ee^{\ii\theta}}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2\ee^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\piup]\), and we can commute the limit with the integral. Therefore, we have
     \begin{align*}
         \int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx & =\lim_{R\to\infty}\oint_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz                                                                             \\
-        & \quad-\int_0^{\piup}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\piup}{2^{2n}(n!)^2}.
+        & \quad-\int_0^{\piup}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\piup}{2^{2n}(n!)^2}.\qedhere
     \end{align*}
 \end{proof}
 \begin{example}[Dirichlet Integral]
@@ -4653,7 +4653,7 @@ In practice, elliptic functions derived from the Jacobi formulation often have m
         \wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\qty{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}],\qquad z\in\mathbb{C}\setminus\Lambda.\label{eq:weierstrasspfunction}
     \end{equation}
 \end{definition}
-By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp\) is well-defined and meromorphic on \(\mathbb{C}\). By \cref{thm:weierstrassconvergence}, we can use termwise differentiation to get \[\wp'(z)=-\frac{2}{z^3}-\sum_{\omega\in\Lambda\setminus\qty{0}}\frac{2}{\qty(z-\omega)^3}=-2\sum_{\omega\in\Lambda}\frac1{\qty(z-\omega)^3},\] which is absolutely convergent for \(z\notin\Lambda\). It follows that \(\wp'\) is also meromorphic on \(\mathbb{C}\) with triple poles at each point in \(\Lambda\). Hence, the series expression for \(\wp'(z)\) may be rearranged to \(\wp'(z+\omega_1)\), and hence, \[\wp'(z)=\wp'(z+\omega_1)=\wp'(z+\omega_2).\] Hence, \(\wp'\) is also an elliptic function with period lattice \(\Lambda\). Hence, we must have \[\wp(z)=\wp\qty(z+\omega_1)+c_1=\wp\qty(z+\omega_2)+c_2,\qquad\]
+By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp\) is well-defined and meromorphic on \(\mathbb{C}\). By \cref{thm:weierstrassconvergence}, we can use termwise differentiation to get \[\wp'(z)=-\frac{2}{z^3}-\sum_{\omega\in\Lambda\setminus\qty{0}}\frac{2}{\qty(z-\omega)^3}=-2\sum_{\omega\in\Lambda}\frac1{\qty(z-\omega)^3},\] which is absolutely convergent for \(z\notin\Lambda\). It follows that \(\wp'\) is also meromorphic on \(\mathbb{C}\). Hence, the series expression for \(\wp'(z)\) may be rearranged to \(\wp'(z+\omega_1)\), and hence, \[\wp'(z)=\wp'(z+\omega_1)=\wp'(z+\omega_2).\] Hence, \(\wp'\) is also an elliptic function with period lattice \(\Lambda\). Hence, we must have \[\wp(z)=\wp\qty(z+\omega_1)+c_1=\wp\qty(z+\omega_2)+c_2.\] By evennes, we must have \(c_1=c_2=0\). Therefore, \(\wp\) is also an elliptic function with period lattice \(\Lambda\). Moreover, each isolated singularity \(\omega
 \begin{definition}[Weierstrass \(\zeta\)-Function]
     
 \end{definition}
