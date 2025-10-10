@@ -4415,13 +4415,16 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
 A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms of complex domains in higher dimensions.
 
 For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is given by the following two results of Cartan:
-\begin{lemma}[Cartan]
-    Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n)\) is holomorphic on \(\Omega\). If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if \[\vb{J}_{\vb{f}}\qty(\vb{a})=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\vb{a})=\vb{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\] then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
+\begin{lemma}[Cartan]\label{lem:multivarcartan1}
+    Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n)\) is holomorphic on \(\Omega\). If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if 
+    \begin{equation}
+        \vb{J}_{\vb{f}}\qty(\vb{a})=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\vb{a})=\vb{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\label{eq:multivarcartan1_jacobian}
+    \end{equation} then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
 \end{lemma}
 \begin{proof}
     By \cref{thm:taylorexpansionmultivariable}, we have the expansion \[\vb{f}(\vb{z})=\vb{a}+\sum_{j=1}^\infty\sum_{k_1+\cdots+k_n=j}\vb{a}_{k_1,\ldots,k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\] where \(\vb{a}_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})\vb{f}(\vb{a})\), and the terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial (whose exponents add up to \(j\)).
 
-    
+    Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\), etc.
 \end{proof}
 \begin{lemma}[Cartan]
 \end{lemma}
