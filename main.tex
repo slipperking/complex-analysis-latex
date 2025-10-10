@@ -4393,7 +4393,13 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     Hence, we have \[f(\vb{z})=\frac{1}{\qty(2\piup\ii)^n}\sum_{k_1=0}^\infty\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\qty(z_1-a_1)^{k_1}\dd{\zeta_n}\cdots\dd{\zeta_1}}{\qty(\zeta_1-a_1)^{k_1+1}\qty(\zeta_2-z_2)\cdots\qty(\zeta_n-z_n)}\] where uniform convergence has allowed the interchange of summation and integration. Reiteration of this process gives \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\frac{\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\dd{\zeta_n}\cdots\dd{\zeta_1}}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}.\]
     By the Cauchy Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a})=\frac{\prod_{j=1}^nk_j!}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1},\] and hence if we let \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}),\] then \cref{eq:taylorexpansionmultivariable_series} follows.
 
-    Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq\prod_{j=1}^n\qty(\frac{M}{r_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\). Hence, \[\abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\]
+    Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq M\prod_{j=1}^n\qty(\frac{1}{\rho_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\) for some \(\rho_j>r_j\) for all \(j\). Hence, 
+    \begin{align*}
+        \abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}&\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\\
+        &\leq M\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \prod_{j=1}^n\abs{\frac{r_j}{\rho_j}}^{k_j}\\
+        &=M\prod_{j=1}^n\sum_{k_j=0}^\infty\abs{\frac{r_j}{\rho_j}}^{k_j}<\infty.
+    \end{align*}
+    By the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), the series converges absolutely and uniformly on \(\Omega\).
 \end{proof}
 \begin{theorem}[\textsc{Identity}]
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
@@ -4413,7 +4419,7 @@ For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cr
     Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n)\) is holomorphic on \(\Omega\). If \(\exists\vb*{\zeta}\in\Omega\) such that \(\vb{f}\qty(\vb*{\zeta})=\vb*{\zeta}\) and the complex Jacobian at \(\vb*{\zeta}\) is the identity matrix, or equivalently, if \[\vb{J}_{\vb{f}}\qty(\vb*{\zeta})=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\vb*{\zeta})=\vb{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\] then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
 \end{lemma}
 \begin{proof}
-
+    By \cref{thm:taylorexpansionmultivariable}, we have the expansion \[\vb{f}(\vb{z})=\]
 \end{proof}
 \begin{lemma}[Cartan]
 \end{lemma}
