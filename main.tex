@@ -4423,7 +4423,7 @@ In preparation, we will introduce several relevant concepts.
 \begin{definition}[Multi-Index Notation]\label{def:multiindex}
     A \textscsl{multi-index} is an \(n\)-tuple of nonnegative integers \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\geq0}^n\).
     We define
-    \[\abs{\vb{k}}=k_1+\cdots+k_n,\qquad \vb{z}^{\vb{k}}=z_1^{k_1}\cdots z_n^{k_n},\qquad\partial^{\vb{k}}=\pdv[\vb{k}]{}{\vb{z}}=\pdv[k_1]{z_1}\cdots\pdv[k_n]{z_n}.\]
+    \[\abs{\vb{k}}=\sum_{j=1}^n k_j,\qquad \vb{z}^{\vb{k}}=\prod_{j=1}^n z_j^{k_j},\qquad\partial^{\vb{k}}=\pdv[\vb{k}]{}{\vb{z}}=\prod_{j=1}^n\pdv[k_j]{z_j}.\]
 \end{definition}
 \begin{definition}\label{def:homogeneouspolynomial}
     A polynomial \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
@@ -4465,7 +4465,7 @@ In preparation, we will introduce several relevant concepts.
 
     Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
     Define a sequence of holomorphic functions \(\qty{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ \vb{f}\qquad\forall k\in\mathbb{N}.\]
-    Let \(m\geq2\) be the smallest \(j\) such that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1=\qty(\vb{z}\mapsto\vb{z})+\vb*{\psi}_m+\sum_{j>m}\vb*{\psi}_j,\] it then follows that
+    Let \(m\geq2\) be the smallest \(j\) such that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1(z)=\vb{z}+\vb*{\psi}_m\qty(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j\qty(\vb{z}-\vb{a}),\] it then follows that
     \begin{align*}
         \vb{f}_2(\vb{z})&=\vb{z}+\vb*{\psi}_m(\vb{z})+\sum_{j>m}\vb*{\psi}_j(\vb{z})+\vb*{\psi}_m\qty(\vb{z}+\sum_{j\geq m}\vb*{\psi}_j(\vb{z}))+\sum_{j>m}\vb*{\psi}_j\circ\vb{f}\\
         &=\vb{z}+2\vb*{\psi}_m(\vb{z})+\text{homogeneous polynomials of degree \(>m\)}.
