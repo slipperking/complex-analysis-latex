@@ -4462,8 +4462,8 @@ In preparation, we will introduce several relevant concepts.
 \begin{proof}
     By \cref{thm:taylorexpansionmultivariable}, we have the expansion
     \begin{equation}
-        \vb{f}(\vb{z})=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\label{eq:multivarcartan1_taylorseries}
-    \end{equation} where \(\vb{a}_{\vb{k}}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})\vb{f}(\vb{a})\), and the terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
+        \vb{f}(\vb{z})=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\qquad\forall z\in D,\label{eq:multivarcartan1_taylorseries}
+    \end{equation} where \(\vb{a}_{\vb{k}}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})\vb{f}(\vb{a})\) and \(D\subseteq\Omega\) is a polydisk. The terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
 
     Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
     Define a sequence of holomorphic functions \(\qty{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ \vb{f}\qquad\forall k\in\mathbb{N}.\]
