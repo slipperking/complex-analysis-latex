@@ -4393,7 +4393,7 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     Hence, we have \[f(\vb{z})=\frac{1}{\qty(2\piup\ii)^n}\sum_{k_1=0}^\infty\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\qty(z_1-a_1)^{k_1}\dd{\zeta_n}\cdots\dd{\zeta_1}}{\qty(\zeta_1-a_1)^{k_1+1}\qty(\zeta_2-z_2)\cdots\qty(\zeta_n-z_n)}\] where uniform convergence has allowed the interchange of summation and integration. Reiteration of this process gives \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\frac{\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\dd{\zeta_n}\cdots\dd{\zeta_1}}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}.\]
     By the Cauchy Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a})=\frac{\prod_{j=1}^nk_j!}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1},\] and hence if we let \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}),\] then \cref{eq:taylorexpansionmultivariable_series} follows.
 
-    Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq M\prod_{j=1}^n\qty(\frac{1}{\rho_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\) for some \(\rho_j>r_j\) for all \(j\). Hence, 
+    Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq M\prod_{j=1}^n\qty(\frac{1}{\rho_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\) for some \(\rho_j>r_j\) for all \(j\). Hence,
     \begin{align*}
         \abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}&\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\\
         &\leq M\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \prod_{j=1}^n\abs{\frac{r_j}{\rho_j}}^{k_j}\\
@@ -4412,32 +4412,37 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     \[\qty(\prod_{j=1}^n\pdv[k_j]{}{z_j})f_k\to\qty(\prod_{j=1}^n\pdv[k_j]{}{z_j})f\] locally uniformly on \(\Omega\).
 \end{theorem}
 \begin{theorem}[Montel]\label{thm:montelmultivar}
-    
+
 \end{theorem}
 \subsection{The Group of Holomorphic Automorphisms of \texorpdfstring{\(\mathbb{D}^n\)}{Polydisks} and \texorpdfstring{\(B^n\)}{Ball}}
 A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms of complex domains in higher dimensions.
 
 For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is given by the following two results of Cartan:
 \begin{lemma}[Cartan]\label{lem:multivarcartan1}
-    Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is holomorphic. If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if 
+    Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is holomorphic. If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if
     \begin{equation}
         \vb{J}_{\vb{f}}\qty(\vb{a})=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\vb{a})=\vb{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\label{eq:multivarcartan1_jacobian}
     \end{equation} then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
 \end{lemma}
 \begin{proof}
-    By \cref{thm:taylorexpansionmultivariable}, we have the expansion 
+    By \cref{thm:taylorexpansionmultivariable}, we have the expansion
     \begin{equation}
         \vb{f}(\vb{z})=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z})=\vb{a}+\sum_{j=1}^\infty\sum_{k_1+\cdots+k_n=j}\vb{a}_{k_1,\ldots,k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\label{eq:multivarcartan1_taylorseries}
     \end{equation} where \(\vb{a}_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})\vb{f}(\vb{a})\), and the terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) whose exponents add up to \(j\).
 
     Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{k_1+\cdots+k_n=j}\vb{a}_{k_1,\ldots,k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n}.\]
-    Define a sequence of holomorphic functions \(\qty{\vb{f}_j(\vb{z})}_{j\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{j+1}=\vb{f}_j\circ \vb{f}\qquad\forall j\in\mathbb{N}.\] Since \(\vb{f}_j(\Omega)\subseteq\Omega\) for any \(j\), the sequence \(\qty{\vb{f}_j}_{j\in\mathbb{N}}\) is uniformly bounded on \(\Omega\). By Montel's Theorem (\cref{thm:montelmultivar}), there exists a subsequence \(\qty{\vb{f}_{j_k}}_{k\in\mathbb{N}}\) that converges locally uniformly to some holomorphic function \(\vb{F}\) by virtue of Weierstrass (\cref{thm:weierstrassconvergencemultivar}). Let \(m\geq2\) be the smallest \(j\) such that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1=\qty(\vb{z}\mapsto\vb{z})+\vb*{\psi}_m+\sum_{j=m+1}^\infty\text{homogeneous polynomial of degree \(j\)},\] it then follows that 
+    Define a sequence of holomorphic functions \(\qty{\vb{f}_j(\vb{z})}_{j\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{j+1}=\vb{f}_j\circ \vb{f}\qquad\forall j\in\mathbb{N}.\] Since \(\vb{f}_j(\Omega)\subseteq\Omega\) for any \(j\), the sequence \(\qty{\vb{f}_j}_{j\in\mathbb{N}}\) is uniformly bounded on \(\Omega\). By Montel's Theorem (\cref{thm:montelmultivar}), there exists a subsequence \(\qty{\vb{f}_{j_k}}_{k\in\mathbb{N}}\) that converges locally uniformly to some holomorphic function \(\vb{F}\) by virtue of Weierstrass (\cref{thm:weierstrassconvergencemultivar}). Let \(m\geq2\) be the smallest \(j\) such that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1=\qty(\vb{z}\mapsto\vb{z})+\vb*{\psi}_m+\sum_{j>m}\text{homogeneous polynomial of degree \(j\)},\] it then follows that
     \begin{align*}
         \vb{f}_2(\vb{z})&=\vb{z}+\vb*{\psi}_m(\vb{z})+\sum_{j>m}\vb*{\psi}_j(\vb{z})+\vb*{\psi}_m\qty(\vb{z}+\sum_{j\geq m}\text{degree \(j\) hom. polynomial})\\
         &\quad+\sum_{j>m}\qty(\text{homogeneous polynomial of degree \(j\)})\circ\vb{f}\\
         &=\vb{z}+2\vb*{\psi}_m(\vb{z})+\text{higher degree polynomials}.
     \end{align*}
-    Assume, for induction, that \(\vb{f}_k(\vb{z})=\vb{z}+k\vb*{\psi}_m(\vb{z})+\text{higher degree polynomials}\). Then we have \[\vb{f}_{k+1}(\vb{z})=\]
+    Assume, for induction, that \(\vb{f}_k(\vb{z})=\vb{z}+k\vb*{\psi}_m(\vb{z})+\text{higher degree polynomials}\). Then we have
+    \begin{align*}
+        \vb{f}_{k+1}(\vb{z})&=\vb{z}+\vb*{\psi}_m(\vb{z})+k\sum_{j>m}\vb*{\psi}_j(\vb{z})+\vb*{\psi}_m\qty(\vb{z}+\sum_{j\geq m}\text{degree \(j\) hom. polynomial})\\
+        &\quad+\sum_{j>m}\qty(\text{homogeneous polynomial of degree \(j\)})\circ\vb{f}_k\\
+        &=\vb{z}+2\vb*{\psi}_m(\vb{z})+\text{higher degree polynomials}.
+    \end{align*}
 \end{proof}
 \begin{lemma}[Cartan]
 \end{lemma}
