@@ -4434,10 +4434,10 @@ In preparation, we will introduce several relevant concepts.
 \begin{proposition}\label{prop:homogeneouspolyderivatives}
     Let \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) be a homogeneous polynomial of degree \(d\).
     \begin{enumerate}
-        \item For any multi-index \(\vb*{\alpha}=(\alpha_1,\ldots,\alpha_n)\) with \(\abs{\vb*{\alpha}}=r\le d\),
+        \item For any multi-index \(\vb*{\alpha}=(\alpha_1,\ldots,\alpha_n)\) with \(\abs{\vb*{\alpha}}=r<d\),
             \[\partial^{\vb{\alpha}}\vb*{\psi}(\vb{z})=\frac{\partial^r \vb*{\psi}}{\partial z_1^{\alpha_1}\cdots \partial z_n^{\alpha_n}}(\vb{z})\]
             is a homogeneous polynomial of degree \(d-r\).
-        \item If \(r=d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\) is constant (and not identically zero if \(\vb*{\psi}\not\equiv 0\)).
+        \item If \(r=d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\) is constant (and there exists a multi-index \(\vb*{\alpha}\) with \(\abs{\vb*{\alpha}}=d\) such that \(\partial^{\vb{\alpha}}\vb*{\psi}\) is nonzero).
         \item If \(r>d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\equiv 0\).
     \end{enumerate}
 \end{proposition}
@@ -4445,10 +4445,8 @@ In preparation, we will introduce several relevant concepts.
     Writing \(\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\), we have
     \[\partial^{\vb*{\alpha}}\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\prod_{j=1}^n\frac{k_j!}{(k_j-\alpha_j)!} z_j^{k_j-\alpha_j},
     \]
-    where terms with \(k_j<\alpha_j\) vanish. Each surviving monomial has total degree
-    \[
-        (k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-|\vb{\alpha}|,
-    \]
+    where terms with \(k_j<\alpha_j\) vanish. Each surviving monomial has degree
+    \[(k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-\abs{\vb*{\alpha}},\]
     proving the homogeneity and each of the three claims.
 \end{proof}
 \begin{lemma}[Cartan]\label{lem:multivarcartan1}
