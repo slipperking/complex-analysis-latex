@@ -4468,12 +4468,13 @@ In preparation, we will introduce several relevant concepts.
     Let \(m\geq2\) be the smallest \(j\) such that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1(z)=\vb{z}+\vb*{\psi}_m\qty(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j\qty(\vb{z}-\vb{a}),\] it then follows that
     \begin{align*}
         \vb{f}_2(\vb{z})&=\vb{z}+\vb*{\psi}_m(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j(\vb{z}-\vb{a})+\vb*{\psi}_m\qty(\vb{z}-\vb{a}+\sum_{j\geq m}\vb*{\psi}_j(\vb{z}-\vb{a}))+\sum_{j>m}\vb*{\psi}_j\circ(\vb{f}(\vb{z})-\vb{a})\\
-        &=\vb{z}+2\vb*{\psi}_m(\vb{z}-\vb{a})+\text{homogeneous polynomials of degree \(>m\)}.
+        &=\vb{z}+2\vb*{\psi}_m(\vb{z}-\vb{a})+(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a}).
     \end{align*}
-    Assume, for induction, that \(\vb{f}_k(\vb{z})=\vb{z}+k\vb*{\psi}_m(\vb{z}-\vb{a})+\text{higher degree polynomials}\). Then we have
+    Assume, for induction, that \[\vb{f}_k(\vb{z})=\vb{z}+k\vb*{\psi}_m(\vb{z}-\vb{a})+\qty(\text{higher degree polynomials})(\vb{z}-\vb{a}).\]
+    Then we have
     \begin{align*}
-        \vb{f}_{k+1}(\vb{z})&=\vb{z}+\vb*{\psi}_m(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j(\vb{z}-\vb{a})+k\vb*{\psi}_m\qty(\vb{z}-\vb{a}+\sum_{j\geq m}\text{degree \(j\) hom. polynomial})\\
-        &\quad+\sum_{j>m}\qty(\text{homogeneous polynomial of degree \(j\)})\circ\vb{f}\\
+        \vb{f}_{k+1}(\vb{z})&=\vb{z}+\sum_{j\geq m}\vb*{\psi}_j(\vb{z}-\vb{a})+k\vb*{\psi}_m\qty(\vb{z}-\vb{a}+\sum_{j\geq m}\qty(\text{degree \(j\) polynomial})(\vb{z}-\vb{a}))\\
+        &\quad+\sum_{j>m}\qty(\text{homogeneous polynomial of degree \(j\)})\circ\qty(\vb{f}(\vb{z})-\vb{a})\\
         &=\vb{z}+(k+1)\vb*{\psi}_m(\vb{z})+\text{homogeneous polynomials of degree \(>m\)}.
     \end{align*}
     Since \(\vb{f}_k(\Omega)\subseteq\Omega\) for any \(k\), the sequence \(\qty{\vb{f}_k}_{k\in\mathbb{N}}\) is uniformly bounded on \(\Omega\). By Montel's Theorem (\cref{thm:montelmultivar}), there exists a subsequence \(\qty{\vb{f}_{k_l}}_{l\in\mathbb{N}}\) that converges locally uniformly to some holomorphic function \(\vb{F}\) by virtue of Weierstrass (\cref{thm:weierstrassconvergencemultivar}).
