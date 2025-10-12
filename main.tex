@@ -4431,23 +4431,25 @@ In preparation, we will introduce several relevant concepts.
     or equivalently, iff \(\vb*{\psi}\) can be written as
     \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d} \vb{a}_{k_1,\ldots,k_n}z_1^{k_1}\cdots z_n^{k_n}\] where \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\ge0}^n\).
 \end{definition}
-\begin{proposition}\label{prop:homogeneouspolyderivatives}
+\begin{proposition}\label{prop:homogeneouspolynomialderivatives}
     Let \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) be a homogeneous polynomial of degree \(d\).
     \begin{enumerate}
-        \item For any multi-index \(\vb*{\alpha}=(\alpha_1,\ldots,\alpha_n)\) with \(\abs{\vb*{\alpha}}=r<d\),
-            \[\partial^{\vb{\alpha}}\vb*{\psi}(\vb{z})=\frac{\partial^r \vb*{\psi}}{\partial z_1^{\alpha_1}\cdots \partial z_n^{\alpha_n}}(\vb{z})\]
-            is a homogeneous polynomial of degree \(d-r\).
-        \item If \(r=d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\) is constant (and there exists a multi-index \(\vb*{\alpha}\) with \(\abs{\vb*{\alpha}}=d\) such that \(\partial^{\vb{\alpha}}\vb*{\psi}\) is nonzero).
-        \item If \(r>d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\equiv 0\).
+        \item For any multi-index \(\vb*{\alpha}=(\alpha_1,\ldots,\alpha_n)\) with \(\abs{\vb*{\alpha}}=r\leq d\), \[\partial^{\vb{\alpha}}\vb*{\psi}(\vb{z})=\frac{\partial^r \vb*{\psi}}{\partial z_1^{\alpha_1}\cdots \partial z_n^{\alpha_n}}(\vb{z})\] is a homogeneous polynomial of degree \(d-r\).\label{itm:homogeneouspolynomialderivatives_less}
+        \item If \(r=d\neq 0\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\) is constant (and there exists a multi-index \(\vb*{\alpha}\) with \(\abs{\vb*{\alpha}}=d\) such that \(\partial^{\vb{\alpha}}\vb*{\psi}\) is nonzero).\label{itm:homogeneouspolynomialderivatives_equality}
+        \item If \(r>d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\equiv 0\).\label{itm:homogeneouspolynomialderivatives_greater}
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Writing \(\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\), we have
-    \[\partial^{\vb*{\alpha}}\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\prod_{j=1}^n\frac{k_j!}{(k_j-\alpha_j)!} z_j^{k_j-\alpha_j},
-    \]
-    where terms with \(k_j<\alpha_j\) vanish. Each surviving monomial has degree
-    \[(k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-\abs{\vb*{\alpha}},\]
-    proving the homogeneity. If \(r=d\), then there exists a nonzero coefficient \(\vb{a}_{\vb{k}}\) for some \(\vb{k}\) with \(\abs{\vb{k}}=d\), and by letting \(\vb*{\alpha}=\vb{k}\), the corresponding term in the summation is a nonzero constant. Thus, the three statements follow.
+    Writing \(\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\) with coefficients \(\vb{a}_{\vb{k}}\in\mathbb{C}^m\), we compute
+    \[\partial^{\vb*{\alpha}}\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\prod_{j=1}^n \frac{k_j!}{(k_j-\alpha_j)!}z_j^{k_j-\alpha_j},\]
+    where terms with \(k_j<\alpha_j\) vanish. For each leftover monomial, the total degree is
+    \[(k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-\abs{\vb*{\alpha}}.\]
+    Hence, \(\partial^{\vb*{\alpha}}\vb*{\psi}\) is a homogeneous polynomial of degree \(d-\abs{\vb*{\alpha}}\), establishing \ref{itm:homogeneouspolynomialderivatives_less}.
+
+    If \(r=d\), every surviving monomial has degree \(0\), so \(\partial^{\vb*{\alpha}}\vb*{\psi}\) is constant.
+    Moreover, since \(\vb*{\psi}\) has degree exactly \(d\), there exists some multi-index \(\vb{k}\) with \(\abs{\vb{k}}=d\) and \(\vb{a}_{\vb{k}}\neq \vb{0}\); choosing \(\vb*{\alpha}=\vb{k}\) yields a nonzero constant derivative. This proves \ref{itm:homogeneouspolynomialderivatives_equality}.
+
+    Finally, if \(r>d\), then for every term in the expansion, at least one \(k_j<\alpha_j\), so all summands vanish identically. Thus \(\partial^{\vb*{\alpha}}\vb*{\psi}\equiv 0\), verifying \ref{itm:homogeneouspolynomialderivatives_greater}.
 \end{proof}
 \begin{lemma}[Cartan]\label{lem:multivarcartan1}
     Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is holomorphic. If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if
