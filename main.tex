@@ -4426,30 +4426,26 @@ In preparation, we will introduce several relevant concepts.
     \[\abs{\vb{k}}=k_1+\cdots+k_n,\qquad \vb{z}^{\vb{k}}=z_1^{k_1}\cdots z_n^{k_n},\qquad\partial^{\vb{k}}=\pdv[\vb{k}]{}{\vb{z}}=\pdv[k_1]{z_1}\cdots\pdv[k_n]{z_n}.\]
 \end{definition}
 \begin{definition}\label{def:homogeneouspolynomial}
-    A polynomial \(\psi:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
-    \[\psi(\lambda\vb{z})=\lambda^d\psi(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n,\]
-    or equivalently, iff \(\psi\) can be written as
-    \[\psi(\vb{z})=\sum_{\abs{\vb{k}}=d} \vb{a}_{k_1,\ldots,k_n}z_1^{k_1}\cdots z_n^{k_n}\] where \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\ge0}^n\).
+    A polynomial \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
+    \[\vb*{\psi}(\lambda\vb{z})=\lambda^d\vb*{\psi}(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n,\]
+    or equivalently, iff \(\vb*{\psi}\) can be written as
+    \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d} \vb{a}_{k_1,\ldots,k_n}z_1^{k_1}\cdots z_n^{k_n}\] where \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\ge0}^n\).
 \end{definition}
 \begin{proposition}\label{prop:homogeneouspolyderivatives}
     Let \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) be a homogeneous polynomial of degree \(d\).
     \begin{enumerate}
         \item For any multi-index \(\vb*{\alpha}=(\alpha_1,\ldots,\alpha_n)\) with \(\abs{\vb*{\alpha}}=r\le d\),
-            \[\partial^{\vb{\alpha}}\vb*{\psi}(\vb{z})=\frac{\partial^r P}{\partial z_1^{\alpha_1}\cdots \partial z_n^{\alpha_n}}(\vb{z})\]
+            \[\partial^{\vb{\alpha}}\vb*{\psi}(\vb{z})=\frac{\partial^r \vb*{\psi}}{\partial z_1^{\alpha_1}\cdots \partial z_n^{\alpha_n}}(\vb{z})\]
             is a homogeneous polynomial of degree \(d-r\).
-        \item If \(r=d\), then \(\partial^{\vb{\alpha}} P\) is constant (and not identically zero if \(P\not\equiv 0\)).
-        \item If \(r>d\), then \(\partial^{\vb{\alpha}} P \equiv 0\).
+        \item If \(r=d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\) is constant (and not identically zero if \(\vb*{\psi}\not\equiv 0\)).
+        \item If \(r>d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\equiv 0\).
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Writing \(P(\vb{z})=\sum_{|\vb{k}|=d} \vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\) with \(\vb{z}^{\vb{k}}=z_1^{k_1}\cdots z_n^{k_n}\),
-    we have
-    \[
-        \partial^{\vb{\alpha}} P(\vb{z})
-        = \sum_{|\vb{k}|=d} \vb{a}_{\vb{k}}
-        \prod_{j=1}^n \frac{k_j!}{(k_j-\alpha_j)!} z_j^{k_j-\alpha_j},
+    Writing \(\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\), we have
+    \[\partial^{\vb*{\alpha}}\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\prod_{j=1}^n\frac{k_j!}{(k_j-\alpha_j)!} z_j^{k_j-\alpha_j},
     \]
-    where terms with \(k_j < \alpha_j\) vanish. Each surviving monomial has total degree
+    where terms with \(k_j<\alpha_j\) vanish. Each surviving monomial has total degree
     \[
         (k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-|\vb{\alpha}|,
     \]
