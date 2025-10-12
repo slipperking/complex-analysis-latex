@@ -4417,7 +4417,7 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
 \subsection{The Group of Holomorphic Automorphisms of \texorpdfstring{\(\mathbb{D}^n\)}{Polydisks} and \texorpdfstring{\(B^n\)}{Ball}}
 A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms of complex domains in higher dimensions.
 
-For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is equivalent to two results of Cartan.
+For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is equivalent to several results of Cartan.
 
 In preparation, we will introduce several relevant concepts.
 \begin{definition}[Multi-Index Notation]\label{def:multiindex}
@@ -4429,7 +4429,7 @@ In preparation, we will introduce several relevant concepts.
     A polynomial \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
     \[\vb*{\psi}(\lambda\vb{z})=\lambda^d\vb*{\psi}(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n,\]
     or equivalently, iff \(\vb*{\psi}\) can be written as
-    \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{k_1,\ldots,k_n}\vb{z}{\vb{k}}\] where \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\ge0}^n\) is a multi-index.
+    \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{k_1,\ldots,k_n}\vb{z}^{\vb{k}}\] where \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\ge0}^n\) is a multi-index.
 \end{definition}
 \begin{proposition}\label{prop:homogeneouspolynomialderivatives}
     Let \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) be a homogeneous polynomial of degree \(d\).
@@ -4463,7 +4463,7 @@ In preparation, we will introduce several relevant concepts.
         \vb{f}(\vb{z})=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\label{eq:multivarcartan1_taylorseries}
     \end{equation} where \(\vb{a}_{\vb{k}}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})\vb{f}(\vb{a})\), and the terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
 
-    Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{k_1+\cdots+k_n=j}\vb{a}_{k_1,\ldots,k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n}.\]
+    Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
     Define a sequence of holomorphic functions \(\qty{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ \vb{f}\qquad\forall k\in\mathbb{N}.\]
     Let \(m\geq2\) be the smallest \(j\) such that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1=\qty(\vb{z}\mapsto\vb{z})+\vb*{\psi}_m+\sum_{j>m}\vb*{\psi}_j,\] it then follows that
     \begin{align*}
