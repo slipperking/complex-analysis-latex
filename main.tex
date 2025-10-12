@@ -4403,7 +4403,7 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     \end{align*}
     By the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), the series converges absolutely and uniformly on \(\Omega\).
 \end{proof}
-\begin{theorem}[\textsc{Identity}]
+\begin{theorem}[\textsc{Identity}]\label{thm:identitymultivar}
     Let \(f\) be a holomorphic function on \(\Omega\subseteq \mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
 \end{theorem}
 \begin{theorem}[\textsc{Maximum Modulus Principle}]
@@ -4462,8 +4462,8 @@ In preparation, we will introduce several relevant concepts.
 \begin{proof}
     By \cref{thm:taylorexpansionmultivariable}, we have the expansion
     \begin{equation}
-        \vb{f}(\vb{z})=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\qquad\forall z\in D,\label{eq:multivarcartan1_taylorseries}
-    \end{equation} where \(\vb{a}_{\vb{k}}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})\vb{f}(\vb{a})\) and \(D\subseteq\Omega\) is a polydisk. The terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
+        \vb{f}(\vb{z})=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\label{eq:multivarcartan1_taylorseries}
+    \end{equation} where \(\vb{a}_{\vb{k}}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})\vb{f}(\vb{a})\). The terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
 
     Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
     Define a sequence of holomorphic functions \(\qty{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ \vb{f}\qquad\forall k\in\mathbb{N}.\]
@@ -4481,7 +4481,7 @@ In preparation, we will introduce several relevant concepts.
     \end{align*}
     Since \(\vb{f}_k(\Omega)\subseteq\Omega\) for any \(k\), the sequence \(\qty{\vb{f}_k}_{k\in\mathbb{N}}\) is uniformly bounded on \(\Omega\). By Montel's Theorem (\cref{thm:montelmultivar}), there exists a subsequence \(\qty{\vb{f}_{k_l}}_{l\in\mathbb{N}}\) that converges locally uniformly to some holomorphic function \(\widetilde{\vb{f}}\) by virtue of Weierstrass (\cref{thm:weierstrassconvergencemultivar}).
 
-    Since \(\vb*{\psi}_m\not\equiv 0\), there exists \(\vb*{\alpha}\) satisfying \(\abs{\vb*{\alpha}}=m\) such that \[\partial^{\vb*{\alpha}}\vb*{\psi}_m\equiv\vb{c}\neq\vb{0}\] is a nonzero constant by \cref{prop:homogeneouspolynomialderivatives}. Consequently, \[\partial^{\vb*{\alpha}}\qty(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a})\] is a homogeneous polynomial with degree \(\geq 1\) and thus vanishes as \(\vb{z}\to\vb{a}\). Similarly, \(\vb{z}\mapsto\vb{z}\) is homogeneous with degree \(1<m\) and thus \(\partial^{\vb*{\alpha}}z\) vanishes. Therefore, \[\partial^{\vb*{\alpha}}\vb{f}_k(\vb{a})=k\vb{c},\] which diverges as \(k\to\infty\). Weierstrass' Convergence Theorem (\cref{thm:weierstrassconvergencemultivar}) gives that \(\partial^{\vb*{\alpha}}\vb{f}_{k_l}(\vb{a})\to\partial^{\vb*{\alpha}}\widetilde{\vb{f}}(\vb{a})\) which must be finite by holomorphy, contradicting the divergence. Hence, the assumed value for \(m\) cannot exist and hence \(\vb*{\psi}_j\equiv 0\) for all \(j\geq 2\). Thus, \(\vb{f}(\vb{z})\equiv\vb{z}\).
+    Since \(\vb*{\psi}_m\not\equiv 0\), there exists \(\vb*{\alpha}\) satisfying \(\abs{\vb*{\alpha}}=m\) such that \[\partial^{\vb*{\alpha}}\vb*{\psi}_m\equiv\vb{c}\neq\vb{0}\] is a nonzero constant by \cref{prop:homogeneouspolynomialderivatives}. Consequently, \[\partial^{\vb*{\alpha}}\qty(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a})\] is a homogeneous polynomial with degree \(\geq 1\) and thus vanishes as \(\vb{z}\to\vb{a}\). Similarly, \(\vb{z}\mapsto\vb{z}\) is homogeneous with degree \(1<m\) and thus \(\partial^{\vb*{\alpha}}z\) vanishes. Therefore, \[\partial^{\vb*{\alpha}}\vb{f}_k(\vb{a})=k\vb{c},\] which diverges as \(k\to\infty\). Weierstrass' Convergence Theorem (\cref{thm:weierstrassconvergencemultivar}) gives that \(\partial^{\vb*{\alpha}}\vb{f}_{k_l}(\vb{a})\to\partial^{\vb*{\alpha}}\widetilde{\vb{f}}(\vb{a})\) which must be finite by holomorphy, contradicting the divergence. Hence, the assumed value for \(m\) cannot exist and hence \(\vb*{\psi}_j\equiv 0\) for all \(j\geq 2\). Thus, \(\vb{f}(\vb{z})\equiv\vb{z}\) on some polydisk centered at \(\vb{a}\). By the Identity Theorem (\cref{thm:identitymultivar}), \(\vb{f}(\vb{z})\equiv\vb{z}\) on \(\Omega\).
 \end{proof}
 \begin{lemma}[Cartan]
 \end{lemma}
