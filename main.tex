@@ -4419,13 +4419,45 @@ A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \text
 
 For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is equivalent to two results of Cartan.
 
-In preparation, we will introduce homogeneous polynomials of several variables.
+In preparation, we will introduce several relevant concepts.
+\begin{definition}[Multi-index notation]\label{def:multiindex}
+    A \textscsl{multi-index} is an \(n\)-tuple of nonnegative integers \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_0^n\).
+    We define
+    \[\abs{\vb{k}}=k_1+\cdots+k_n,\qquad \vb{z}^{\vb{k}}=z_1^{k_1}\cdots z_n^{k_n},\qquad\pdv[\vb{k}]=\pdv[k_1]{z_1}\cdots\pdv[k_n]{z_n}.\]
+\end{definition}
 \begin{definition}\label{def:homogeneouspolynomial}
     A polynomial \(\psi:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
     \[\psi(\lambda\vb{z})=\lambda^d\psi(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n,\]
     or equivalently, iff \(\psi\) can be written as
     \[\psi(\vb{z})=\sum_{k_1+\cdots+k_n=d} \vb{a}_{k_1,\ldots,k_n}z_1^{k_1}\cdots z_n^{k_n}.\]
 \end{definition}
+\begin{proposition}\label{prop:homogeneouspolyderivatives}
+    Let \(P:\mathbb{C}^n \to \mathbb{C}^m\) be a homogeneous polynomial of degree \(d\).
+    \begin{enumerate}[(i)]
+        \item For any multi-index \(\vb{\alpha}=(\alpha_1,\ldots,\alpha_n)\) with \(|\vb{\alpha}|=\alpha_1+\cdots+\alpha_n=r\le d\),
+            \[
+                \partial^{\vb{\alpha}} P(\vb{z}) =
+                \frac{\partial^r P}{\partial z_1^{\alpha_1}\cdots \partial z_n^{\alpha_n}}(\vb{z})
+            \]
+            is a homogeneous polynomial of degree \(d-r\).
+        \item If \(r=d\), then \(\partial^{\vb{\alpha}} P\) is constant (and not identically zero if \(P\not\equiv 0\)).
+        \item If \(r>d\), then \(\partial^{\vb{\alpha}} P \equiv 0\).
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Writing \(P(\vb{z})=\sum_{|\vb{k}|=d} \vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\) with \(\vb{z}^{\vb{k}}=z_1^{k_1}\cdots z_n^{k_n}\),
+    we have
+    \[
+        \partial^{\vb{\alpha}} P(\vb{z})
+        = \sum_{|\vb{k}|=d} \vb{a}_{\vb{k}}
+        \prod_{j=1}^n \frac{k_j!}{(k_j-\alpha_j)!} z_j^{k_j-\alpha_j},
+    \]
+    where terms with \(k_j < \alpha_j\) vanish. Each surviving monomial has total degree
+    \[
+        (k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-|\vb{\alpha}|,
+    \]
+    proving the homogeneity and each of the three claims.
+\end{proof}
 \begin{lemma}[Cartan]\label{lem:multivarcartan1}
     Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is holomorphic. If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if
     \begin{equation}
