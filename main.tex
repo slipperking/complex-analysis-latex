@@ -4417,7 +4417,16 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
 \subsection{The Group of Holomorphic Automorphisms of \texorpdfstring{\(\mathbb{D}^n\)}{Polydisks} and \texorpdfstring{\(B^n\)}{Ball}}
 A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms of complex domains in higher dimensions.
 
-For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is given by the following two results of Cartan:
+For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is equivalent to two results of Cartan.
+
+In preparation, we will introduce homogeneous polynomials of several variables.
+\begin{definition}\label{def:homogeneouspolynomial}
+    A polynomial \(\psi:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
+    \[\psi(\lambda\vb{z})=\lambda^d\psi(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n.\]
+    Equivalently, \(\psi\) can be written as
+    \[\psi(\vb{z})=\sum_{k_1+\cdots+k_n=d} \vb{a}_{k_1,\ldots,k_n}z_1^{k_1}\cdots z_n^{k_n},\]
+    where the sum runs over all multi-indices of total degree \(d\).
+\end{definition}
 \begin{lemma}[Cartan]\label{lem:multivarcartan1}
     Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is holomorphic. If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if
     \begin{equation}
