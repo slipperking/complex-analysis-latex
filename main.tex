@@ -4486,19 +4486,28 @@ In preparation, we will introduce several relevant concepts.
 \begin{definition}[Reinhardt Domain]\label{def:reinhardtdomain}
     An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{Reinhardt domain} centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), \[\cbraces{\qty(z_1,\ldots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}=\abs{\zeta_k-a_k},1\leq k\leq n}\] is fully contained in \(\Omega\). In other words, \(\Omega\) is invariant under all rotations about the center \(\vb{a}\) in each coordinate.
 \end{definition}
-\begin{definition}
+\begin{definition}\label{def:completereinhardtdomain}
     A Reinhardt domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textscsl{complete} iff \(\forall \vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), the polydisk \[\cbraces{\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}\leq\abs{\zeta_k-a_k},1\leq k\leq n}\] is contained in \(\Omega\).
 \end{definition}
-\begin{definition}[Circular Domain]\label{def:reinhardtdomain}
+\begin{definition}[Circular Domain]\label{def:circulardomain}
     A (Reinhardt) domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{circular domain} centered at \(\vb{a}\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\ee^{\ii\theta}\qty(\vb*{\zeta}-\vb{a})}{0\leq\theta<2\piup}\] is fully contained in \(\Omega\).
 \end{definition}
-\begin{definition}
+\begin{definition}\label{def:completecirculardomain}
     A circular domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textscsl{complete} iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\mu\qty(\vb*{\zeta}-\vb{a})}{\forall\mu\in\overline{\mathbb{D}}}\] is contained in \(\Omega\).
 \end{definition}
+\begin{proposition}\label{prop:jacobianchainrule}
+    Let \(U_0\subseteq\mathbb{C}^{n_0}, U_1\subseteq\mathbb{C}^{n_1}, \dots, U_k\subseteq\mathbb{C}^{n_k}\) be open domains with \(n_i\geq 1\) for each \(i\), and let \(\vb{h}_i:U_{i-1}\to U_i\) be holomorphic maps for \(i=1,\dots,k\). Define the composition \(\vb{h}=\vb{h}_1\circ\vb{h}_2\circ\cdots\circ\vb{h}_k:U_0\to U_k\). Then \(\vb{h}\) is holomorphic on \(U_0\), and for every \(\vb{z}\in U_0\), the complex Jacobian matrix of \(\vb{h}\) at \(\vb{z}\) is
+    \[\vb{J}_{\vb{h}}(\vb{z})=\vb{J}_{\vb{h}_1}(\vb{h}_2\circ\cdots\circ\vb{h}_k(\vb{z})) \cdot \vb{J}_{\vb{h}_2}(\vb{h}_3\circ\cdots\circ\vb{h}_k(\vb{z})) \cdots \vb{J}_{\vb{h}_{k-1}}(\vb{h}_k(\vb{z}))\cdot\vb{J}_{\vb{h}_k}(\vb{z}).\]
+\end{proposition}
+\begin{proof}
+\end{proof}
 \begin{lemma}[Cartan]
     Let \(\Omega\subset\mathbb{C}^n\) be a bounded complete circular domain centered at \(\vb{0}\), and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is a biholomorphism. If \(\vb{f}(\vb{0})=\vb{0}\), then \(\vb{f}\) is linear.
 \end{lemma}
-For the purpose of procession, we define the following concepts for complex matrices:
+\begin{proof}
+    Let \(\vb*{\rho}_\theta(\vb{z})=\theta\vb{z}\) for all \(\theta\in\mathbb{R}\) and suppose that \(\vb*{\varphi}=\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}\).
+\end{proof}
+Before moving on, we introduce the following concepts relating to complex matrices.
 \begin{definition}
     The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{A}\) is defined as \(\vb{A}^\dagger=\overline{\vb{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
 \end{definition}
