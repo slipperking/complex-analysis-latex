@@ -4483,7 +4483,11 @@ In preparation, we will introduce several relevant concepts.
 
     Since \(\vb*{\psi}_m\not\equiv 0\), there exists \(\vb*{\alpha}\) satisfying \(\abs{\vb*{\alpha}}=m\) such that \[\partial^{\vb*{\alpha}}\vb*{\psi}_m\equiv\vb{c}\neq\vb{0}\] is a nonzero constant by \cref{prop:homogeneouspolynomialderivatives}. Consequently, \[\partial^{\vb*{\alpha}}\qty(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a})\] is a homogeneous polynomial with degree \(\geq 1\) and thus vanishes as \(\vb{z}\to\vb{a}\). Similarly, \(\vb{z}\mapsto\vb{z}\) is homogeneous with degree \(1<m\) and thus \(\partial^{\vb*{\alpha}}z\) vanishes. Therefore, \[\partial^{\vb*{\alpha}}\vb{f}_k(\vb{a})=k\vb{c},\] which diverges as \(k\to\infty\). Weierstrass' Convergence Theorem (\cref{thm:weierstrassconvergencemultivar}) gives that \(\partial^{\vb*{\alpha}}\vb{f}_{k_l}(\vb{a})\to\partial^{\vb*{\alpha}}\widetilde{\vb{f}}(\vb{a})\) which must be finite by holomorphy, contradicting the divergence. Hence, the assumed value for \(m\) cannot exist and hence \(\vb*{\psi}_j\equiv 0\) for all \(j\geq 2\). Thus, \(\vb{f}(\vb{z})\equiv\vb{z}\) on some polydisk centered at \(\vb{a}\). By the Identity Theorem (\cref{thm:identitymultivar}), \(\vb{f}(\vb{z})\equiv\vb{z}\) on \(\Omega\).
 \end{proof}
+\begin{definition}[Reinhardt Domain]\label{def:reinhardtdomain}
+    A domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{Reinhardt domain} centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) iff \(\forall \vb{\zeta}\in\Omega\), \[\cbraces{\vb{z}=\qty(z_1,\ldots,z_n)}{\forall 1\leq k\leq n,\abs{z_k-a_k}=\abs{\vb{\zeta}-a_k}}\]
+\end{definition}
 \begin{lemma}[Cartan]
+    
 \end{lemma}
 For the purpose of procession, we define the following concepts for complex matrices:
 \begin{definition}
@@ -4497,11 +4501,6 @@ For the purpose of procession, we define the following concepts for complex matr
     For any \(n>2\), the \(n\)-dimensional unit ball \(B^n\) and the \(n\)-dimensional polydisk \(\mathbb{D}^n\) are not biholomorphically equivalent.
 \end{theorem}
 \subsection{Hartogs' Phenomenon}
-\begin{definition}[Reinhardt Domain]\label{def:reinhardtdomain}
-    A domain \(\Omega\subseteq\mathbb{C}^n\) is called a \textscsl{Reinhardt domain} iff it is invariant under independent rotations in each coordinate. In other words, \[\qty(z_1,\ldots,z_n)\in\Omega\Rightarrow\qty(\ee^{\ii\theta_1}z_1,\ldots,\ee^{\ii\theta_n}z_n)\in\Omega\]
-    for all \(\theta_1,\ldots,\theta_n\in\mathbb{R}\).
-\end{definition}
-Notable examples of Reinhardt domains include the polydisk \(\mathbb{D}^n\), the unit ball \(B^n\), and annulus-type regions.
 \section{Special Classes of Holomorphic Functions}
 \subsection{Elliptic Functions}
 The theory of elliptic functions is an elaborate chapter of complex analysis, with origins in seemingly trivial problems of calculus. In the 18th century, mathematicians studying the rectification (arc length calculation) of curves such as the ellipse and the lemniscate discovered that these could not be expressed in terms of elementary functions, leading to the introduction of elliptic integrals. Inverting these integrals gave rise to elliptic functions, which extend the idea of trigonometric functions by being \textscsl{doubly periodic} in the complex plane. Closely related ideas also appeared in conformal mapping, such as the Schwarz--Christoffel transformation (\cref{sec:schwarzchristoffeltransformation}) between the upper half-plane and rectangles. Henceforth, elliptic functions became a central subject related to calculus, geometry, and complex analysis.
