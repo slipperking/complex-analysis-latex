@@ -81,7 +81,7 @@
 \let\floordefault\floor%
 \renewcommand{\floor}{\floordefault*}
 
-\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\lbrace#1\IfNoValueTF{#2}{}{\;\middle|\;#2}\right\rbrace}}
+\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\lbrace#1\IfNoValueTF{#2}{}{\,\middle|\,#2}\right\rbrace}}
 
 \newcommand{\extcomplex}{\widehat{\mathbb{C}}}
 \newcommand{\ee}{\mathrm{e}}
@@ -380,10 +380,9 @@ We will now give statements relating to operations on Riemann integrals:
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    The second part is self-explanatory as it can be interpreted as an area integral.
-
-    Let \[\varphi(u)=\int_a^b f(x,u)\ddx.\]
-    Since \(f(x,u)\) is continuous on a compact set in both \(x\) and \(u\), by \cref{thm:heinecantor}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \(\abs{\qty(x_1-x_2,u_1-u_2)}<\delta\), we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\qedhere\]
+    The second part is self-explanatory as it can be interpreted as an area integral. Let \[\varphi(u)=\int_a^b f(x,u)\ddx.\]
+    Since \(f(x,u)\) is continuous on a compact set in both \(x\) and \(u\), by \cref{thm:heinecantor}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \[\abs{\qty(x_1-x_2,u_1-u_2)}<\delta,\]
+    we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\qedhere\]
 \end{proof}
 \section{Complex Prerequisites}
 \subsection{The Extended Complex Plane and its Spherical Representation}
