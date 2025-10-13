@@ -81,7 +81,7 @@
 \let\floordefault\floor%
 \renewcommand{\floor}{\floordefault*}
 
-\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\lbrace#1\IfNoValueTF{#2}{}{\,\middle|\,#2}\right\rbrace}}
+\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\qty{#1\IfNoValueTF{#2}{}{:#2}}}}
 
 \newcommand{\extcomplex}{\widehat{\mathbb{C}}}
 \newcommand{\ee}{\mathrm{e}}
@@ -3513,7 +3513,7 @@ Obviously, the equivalence is established similarly to local finiteness and loca
     We will now invoke the same diagonalization argument as in the proof of the Arzelà--Ascoli Theorem (\cref{thm:arzelaascoli}). Let \(K\subset U\) be an arbitrary compact set. It follows that for some \(k\in\mathbb{N}\), \(K_k\supseteq K\). Since \(\qty{f_{n'_j}}_{j\geq k}\subseteq\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is the subsequence of a sequence that converges on \(K\), the assertion follows.
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
-The Riemann Mapping Theorem is one of the most profound results in complex analysis; in the case of one dimension, it establishes sufficient conditions for the biholomorphic equivalence between two open subsets of the complex plane. 
+The Riemann Mapping Theorem is one of the most profound results in complex analysis; in the case of one dimension, it establishes sufficient conditions for the biholomorphic equivalence between two open subsets of the complex plane.
 
 If there exists a biholomorphism \(f\) between two regions, then the two regions are said to be \textscsl{conformally equivalent}, \textscsl{holomorphically equivalent}, or \textscsl{biholomorphically equivalent}.
 \begin{theorem}[\textsc{Riemann Mapping Theorem}]\label{thm:riemannmapping}
@@ -4490,7 +4490,7 @@ In preparation, we will introduce several relevant concepts.
     A Reinhardt domain \(\Omega\subseteq\mathbb{C}^n\) is said to be \textscsl{complete} iff \(\forall \vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), the polydisk \[\cbraces{\vb{z}=\qty(z_1,\dots,z_n)}{\abs{z_k-a_k}\leq\abs{\zeta_k-a_k},1\leq k\leq n}\] is contained in \(\Omega\).
 \end{definition}
 \begin{lemma}[Cartan]
-    
+
 \end{lemma}
 For the purpose of procession, we define the following concepts for complex matrices:
 \begin{definition}
