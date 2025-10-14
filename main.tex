@@ -4343,7 +4343,7 @@ As in the single-variable case, there exist natural extensions of the definition
 
 Many other results, however, have to be separately derived.
 
-Throughout mathematical history, many efforts were made to study the nature of complex functions in a multivariate setting. In the 20th century, Poincaré proved that the unit ball \(B^2=\cbraces{\qty(z_1,z_2)\in\mathbb{C}^2}{\abs{z_1}^2+\abs{z_2}^2<1}\) and the bidisk \(\mathbb{D}^2=\mathbb{D}\times\mathbb{D}\) are not biholomorphically equivalent by comparison of their automorphism groups, under certain assumptions of the automorphisms on their respective boundaries; the proof was later formalized by Cartan, but is nonetheless largely attributed to Poincaré. As one of the first of many deviations, the miracle of the Riemann Mapping Theorem (\cref{thm:riemannmapping}) fails in higher dimensions. Hartogs later also showed that poles and essential singularities cannot exist as isolated singularities of multivariate holomorphic functions. Perhaps these are the results of an unsatisfactory generalization.
+Throughout mathematical history, many efforts were made to study the nature of complex functions in a multivariate setting. In the 20th century, Poincaré proved that the unit ball \(B^n=\cbraces{\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\sum_{k=1}^n\abs{z_k}^2<1}\) and the bidisk \(\mathbb{D}^n=\mathbb{D}\times\cdots\times\mathbb{D}\) are not biholomorphically equivalent by comparison of their automorphism groups, under certain assumptions of the automorphisms on their respective boundaries; the proof was later formalized by Cartan, but is nonetheless largely attributed to Poincaré. As one of the first of many deviations, the miracle of the Riemann Mapping Theorem (\cref{thm:riemannmapping}) fails in higher dimensions. Hartogs later also showed that poles and essential singularities cannot exist as isolated singularities of multivariate holomorphic functions. Perhaps these are the results of an unsatisfactory generalization.
 
 Whereas the efforts of mathematicians of over two centuries gives rise to the development of function theory of one complex variable, the theory of multivariate complex functions is still largely rudimentary. Many seemingly fundamental problems still largely remain as conjecture.
 \subsection{Consequences of Holomorphy}
@@ -4417,7 +4417,7 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     A family \(\mathcal{F}\) of holomorphic functions on some region \(\Omega\subseteq\mathbb{C}^n\) is normal iff it is locally uniformly bounded on \(\Omega\).
 \end{theorem}
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{D}^n\)}{the Unit Polydisk} and \texorpdfstring{\(B^n\)}{the Unit Ball}}
-A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms of complex domains in higher dimensions.
+A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms on complex domains in higher dimensions.
 
 For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is equivalent to several results of Cartan.
 
@@ -4425,13 +4425,13 @@ In preparation, we will introduce several relevant concepts.
 \begin{definition}[Multi-Index Notation]\label{def:multiindex}
     A \textscsl{multi-index} is an \(n\)-tuple of nonnegative integers \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\geq0}^n\).
     We define
-    \[\abs{\vb{k}}=\sum_{j=1}^n k_j,\qquad \vb{z}^{\vb{k}}=\prod_{j=1}^n z_j^{k_j},\qquad\partial^{\vb{k}}=\pdv[\vb{k}]{}{\vb{z}}=\prod_{j=1}^n\pdv[k_j]{z_j}.\]
+    \[\abs{\vb{k}}=\sum_{j=1}^n k_j,\qquad \vb{z}^{\vb{k}}=\prod_{j=1}^n z_j^{k_j},\qquad\partial^{\vb{k}}=\pdv[\vb{k}]{}{\vb{z}}=\prod_{j=1}^n\pdv[k_j]{z_j},\qquad\vb{z}=\qty(z_1,\dots,z_n)\in\mathbb{C}^n.\]
 \end{definition}
 \begin{definition}\label{def:homogeneouspolynomial}
     A polynomial \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
     \[\vb*{\psi}(\lambda\vb{z})=\lambda^d\vb*{\psi}(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n,\]
     or equivalently, iff \(\vb*{\psi}\) can be written as
-    \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{k_1,\ldots,k_n}\vb{z}^{\vb{k}}\] where \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\ge0}^n\) is a multi-index.
+    \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\] where \(\vb{k}\in\mathbb{N}_{\ge0}^n\) is a multi-index.
 \end{definition}
 \begin{proposition}\label{prop:homogeneouspolynomialderivatives}
     Let \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) be a homogeneous polynomial of degree \(d\).
@@ -4443,7 +4443,7 @@ In preparation, we will introduce several relevant concepts.
 \end{proposition}
 \begin{proof}
     Writing \(\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\) with coefficients \(\vb{a}_{\vb{k}}\in\mathbb{C}^m\), we compute
-    \[\partial^{\vb*{\alpha}}\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\prod_{j=1}^n \frac{k_j!}{(k_j-\alpha_j)!}z_j^{k_j-\alpha_j},\]
+    \[\partial^{\vb*{\alpha}}\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\prod_{j=1}^n \frac{k_j!}{(k_j-\alpha_j)!}z_j^{k_j-\alpha_j},\qquad\vb{k}=\qty(k_1,\dots,k_n),\]
     where terms with \(k_j<\alpha_j\) vanish. For each remaining term, the total degree is
     \[(k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-\abs{\vb*{\alpha}}.\]
     Hence, \(\partial^{\vb*{\alpha}}\vb*{\psi}\) is a homogeneous polynomial of degree \(d-\abs{\vb*{\alpha}}\), establishing \ref{itm:homogeneouspolynomialderivatives_less}.
@@ -4531,7 +4531,11 @@ In preparation, we will introduce several relevant concepts.
 \begin{remark}
     If \(n=1\), then \(\Omega=D(0,R)\) for some \(R>0\) and any automorphism \(f\) with a fixed point \(0\) is a rotation in the form of \(z\mapsto\ee^{\ii\theta}z\), hence linear.
 \end{remark}
-\begin{theorem}[]
+\begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{D}^n\)]\label{thm:holomorphicautomorphismgrouppolydisk}
+    The holomorphic automorphism group of the polydisk \(\mathbb{D}^n\) is generated by the maps
+    \begin{equation}
+        \vb{z}=\qty(z_1,\ldots,z_n)\mapsto\vb*{\tau}(\vb{z})=\qty(\tau_1(z_1),\ldots,\tau_n(z_n)),\quad\tau_j(z)=\ee^{\ii\theta_j}\frac{z-a_j}{1-\overline{a_j}z},\label{eq:holomorphicautomorphismgrouppolydisk_generators}
+    \end{equation} where \(\theta_j\in\mathbb{R}\) and \(a_j\in\mathbb{D}\) for each \(j=1,\ldots,n\), and by permutations of coordinates.
     
 \end{theorem}
 \begin{definition}
