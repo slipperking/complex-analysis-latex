@@ -4517,12 +4517,11 @@ In preparation, we will introduce several relevant concepts.
         \vb{J}_{\vb*{\varphi}}(\vb{0})&=\mqty(\ee^{-\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{-\ii\theta})\cdot\vb{J}_{\vb{f}^{-1}}(\vb{0})\cdot\mqty(\ee^{\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{\ii\theta})\cdot\vb{J}_{\vb{f}}(\vb{0})=\ee^{-\ii\theta}\ee^{\ii\theta}\qty(\vb{J}_{\vb{f}^{-1}}\cdot\vb{J}_{\vb{f}})(\vb{0})=\vb{I}.
     \end{align*}
     By \cref{lem:multivarcartan1}, \(\vb*{\varphi}(\vb{z})\equiv\vb{z}\) on \(\Omega\). Hence, \(\vb{f}\circ\vb*{\rho}_\theta=\vb*{\rho}_\theta\circ\vb{f}\) for all \(\theta\in\mathbb{R}\). By \cref{thm:taylorexpansionmultivariable}, we may write \begin{equation}
-        \vb{f}(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\vb{a}_{k_1,\ldots,k_n}z_1^{k_1}z_2^{k_2}\cdots z_n^{k_n}\label{eq:multivarcartan2_taylorseries}
+        \vb{f}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\label{eq:multivarcartan2_taylorseries}
     \end{equation} on a polydisk centered at \(\vb{0}\). Thus,
-    \begin{align*}
-        \vb{f}\circ\vb*{\rho}(\vb{z})&=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\vb{a}_{k_1,\ldots,k_n}\qty(z_1\ee^{\ii\theta})^{k_1}\cdots\qty(z_n\ee^{\ii\theta})^{k_n}\\
-        &=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\vb{a}_{k_1,\ldots,k_n}\ee^{\ii\theta\sum_{j=1}^n k_j}z_1^{k_1}\cdots z_n^{k_n}.
-    \end{align*}
+    \begin{equation*}
+        \vb{f}\circ\vb*{\rho}(\vb{z})=\sum_{\vb{k}=0}^\infty\vb{a}_{\vb{k}}\qty(\ee^{\ii\theta}\vb{z})^{\vb{k}}=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta\abs{\vb{k}}}\vb{z}^{\vb{k}}.
+    \end{equation*}
     On the other hand, composing with \(\vb*{\rho}_\theta\) with \cref{eq:multivarcartan2_taylorseries} gives
     \begin{align*}
         \vb*{\rho}_\theta\circ\vb{f}(\vb{z})&=\ee^{\ii\theta}\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\vb{a}_{k_1,\ldots,k_n}z_1^{k_1}\cdots z_n^{k_n}\\
