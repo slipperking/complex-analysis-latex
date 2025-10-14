@@ -4507,15 +4507,16 @@ In preparation, we will introduce several relevant concepts.
         \mqty(\pdv{g_1}{z_1}&\cdots&\pdv{g_1}{z_{n_0}}\\\vdots&\ddots&\vdots\\\pdv{g_{n_1}}{z_1}&\cdots&\pdv{g_{n_1}}{z_{n_0}})=\vb{J}_{\vb{f}}(\vb{g})\cdot\vb{J}_{\vb{g}}.\qedhere
     \end{align*}
 \end{proof}
-\begin{lemma}[Cartan]
+\begin{lemma}[Cartan]\label{lem:multivarcartan2}
     Let \(\Omega\subset\mathbb{C}^n\) be a bounded complete circular domain centered at \(\vb{0}\), and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is a biholomorphism. If \(\vb{f}(\vb{0})=\vb{0}\), then \(\vb{f}\) is linear.
 \end{lemma}
 \begin{proof}
     Let \(\vb*{\rho}_\theta(\vb{z})=\ee^{\ii\theta}\vb{z}\) for all \(\theta\in\mathbb{R}\) and suppose that \(\vb*{\varphi}=\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}\). By \cref{prop:jacobianchainrule}, we must have that
     \begin{align*}
         \vb{J}_{\vb*{\varphi}}(\vb{z})&=\vb{J}_{\vb*{\rho}_{-\theta}}\qty(\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}}\qty(\vb*{\rho}_\theta\circ\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta}\qty(\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}}\qty(\vb{z})\\
-        \vb{J}_{\vb*{\varphi}}(\vb{0})&=\mqty(\ee^{-\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{-\ii\theta})\cdot\vb{J}_{\vb{f}^{-1}}(\vb{0})\cdot\mqty(\ee^{\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{\ii\theta})\cdot\vb{J}_{\vb{f}}(\vb{0}).
+        \vb{J}_{\vb*{\varphi}}(\vb{0})&=\mqty(\ee^{-\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{-\ii\theta})\cdot\vb{J}_{\vb{f}^{-1}}(\vb{0})\cdot\mqty(\ee^{\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{\ii\theta})\cdot\vb{J}_{\vb{f}}(\vb{0})=\ee^{-\ii\theta}\ee^{\ii\theta}\qty(\vb{J}_{\vb{f}^{-1}}\cdot\vb{J}_{\vb{f}})(\vb{0})=\vb{I}.
     \end{align*}
+    By \cref{lem:multivarcartan1}, \(\vb*{\varphi}(\vb{z})\equiv\vb{z}\) on \(\Omega\). Hence, \(\vb{f}\circ\vb*{\rho}_\theta=\vb*{\rho}_\theta\circ\vb{f}\) for all \(\theta\in\mathbb{R}\).
 \end{proof}
 Before moving on, we introduce the following concepts relating to complex matrices.
 \begin{definition}
