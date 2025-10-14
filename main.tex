@@ -4463,7 +4463,7 @@ In preparation, we will introduce several relevant concepts.
     By \cref{thm:taylorexpansionmultivariable}, we have the expansion
     \begin{equation}
         \vb{f}(\vb{z})=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\label{eq:multivarcartan1_taylorseries}
-    \end{equation} which is absolutely convergent on some polydisk centered at \(\vb{a}\), where \(\vb{a}_{\vb{k}}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})\vb{f}(\vb{a})\) and \(\vb{k}=\qty(k_1,\dots,k_n)\). The terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
+    \end{equation} which is absolutely convergent on some polydisk centered at \(\vb{a}\), where \(\vb{a}_{\vb{k}}=\frac{\partial^{\vb{k}}\vb{f}(\vb{a})}{\prod_{j=1}^n k_j!}\) and \(\vb{k}=\qty(k_1,\dots,k_n)\). The terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
 
     Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
     Define a sequence of holomorphic functions \(\qty{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ \vb{f}\qquad\forall k\in\mathbb{N}.\]
@@ -4526,7 +4526,7 @@ In preparation, we will introduce several relevant concepts.
     \begin{equation*}
         \vb*{\rho}_\theta\circ\vb{f}(\vb{z})=\ee^{\ii\theta}\sum_{\abs{k}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}=\sum_{\vb{k}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta}\vb{z}^{\vb{k}}.
     \end{equation*}
-    Hence, by the uniqueness of power series expansions, we must either have that \(\vb{a}_{\vb{k}}=\vb{0}\), \(\ee^{\ii\theta}\equiv\ee^{\ii\theta\qty\abs{\vb{k}}}\), or equivalently, that \[\abs{\vb{k}}\equiv 1\pmod{2\piup}.\] This is only possible when \(\abs{\vb{k}}\) by irrationality, and thus \(\vb{a}_{\vb{k}}=\vb{0}\) for all \(\abs{\qty(k_1,\ldots,k_n)}\neq 1\). Therefore, \(\vb{f}\) must be linear.
+    Hence, by the uniqueness of power series expansions, we must either have that \(\vb{a}_{\vb{k}}=\vb{0}\), \(\ee^{\ii\theta}\equiv\ee^{\ii\theta\abs{\vb{k}}}\), or equivalently, that \[\abs{\vb{k}}\equiv 1\pmod{2\piup}.\] This is only possible when \(\abs{\vb{k}}\) by irrationality, and thus \(\vb{a}_{\vb{k}}=\vb{0}\) for all \(\abs{\vb{k}}\neq 1\). Therefore, \(\vb{f}\) must be linear.
 \end{proof}
 Before moving on, we introduce the following concepts relating to complex matrices.
 \begin{definition}
