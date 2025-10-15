@@ -4354,26 +4354,26 @@ Obviously, we will first formally define the concept of holomorphy in higher dim
 If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic iff \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has all continuous partial derivatives.
 \begin{theorem}[Cauchy's Integral Formula on Polydisks]\label{thm:cauchyintegralformulapolydisks}
     Fix \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) arbitrarily and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
-    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(z)=\frac{\prod_{k=1}^n j_k!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
+    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(k_1, k_2,\ldots, k_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}})f(z)=\frac{\prod_{j=1}^n k_j!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{j=1}^n\qty(\zeta_j-z_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{theorem}
 \begin{proof}
-    By Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}), we have \[\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)=\frac{j_1!}{2\piup\ii}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,z_2\ldots,z_n)}{\qty(\zeta_1-z_1)^{j_1+1}}\dd{\zeta_1}\] for \(z\in\Omega\), which is holomorphic. Thus, by the same application on \(\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)\), we have
-    \[\frac{\partial^{j_{2}}}{\partial z_{2}^{j_{2}}}\frac{\partial^{j_1}}{\partial z_1^{j_1}}f(z)=\frac{j_{2}!j_1!}{\qty(2\piup\ii)^2}\oint_{\partial D\qty(a_{2},r_{2})}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,\zeta_2,z_3,\ldots,z_n)}{\qty(\zeta_1-z_1)^{j_1+1}\qty(\zeta_{2}-z_{2})^{j_{2}+1}}\dd{\zeta_1}\dd{\zeta_2}.\]
+    By Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}), we have \[\frac{\partial^{k_1}}{\partial z_1^{k_1}}f(z)=\frac{k_1!}{2\piup\ii}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,z_2\ldots,z_n)}{\qty(\zeta_1-z_1)^{k_1+1}}\dd{\zeta_1}\] for \(z\in\Omega\), which is holomorphic. Thus, by the same application on \(\frac{\partial^{k_1}}{\partial z_1^{k_1}}f(z)\), we have
+    \[\frac{\partial^{k_{2}}}{\partial z_{2}^{k_{2}}}\frac{\partial^{k_1}}{\partial z_1^{k_1}}f(z)=\frac{k_{2}!k_1!}{\qty(2\piup\ii)^2}\oint_{\partial D\qty(a_{2},r_{2})}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,\zeta_2,z_3,\ldots,z_n)}{\qty(\zeta_1-z_1)^{k_1+1}\qty(\zeta_{2}-z_{2})^{k_{2}+1}}\dd{\zeta_1}\dd{\zeta_2}.\]
     By reiterating \(n\) times and reversing the order of differentiation and integration, the conclusion follows.
 \end{proof}
 By the boundedness assumption for \(f\), we have:
 \begin{corollary}[Cauchy's Estimate on Polydisks]\label{crl:cauchysestimatepolydisks}
     Let \(\vb{a}=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
-    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(j_1, j_2,\ldots, j_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(\vb{z})}\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n \partial D\qty(a_k,r_k)}\abs{f(\zeta)}\] for any \(\vb{z}=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
+    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(k_1, k_2,\ldots, k_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}})f(\vb{z})}\leq\prod_{j=1}^n\qty(\frac{k_j!}{r_j^{k_j}})\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\] for any \(\vb{z}=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{corollary}
 \begin{proof}
-    For each \(k\), let \(\varepsilon_k\) satisfy \(D\qty(z_k,\varepsilon_k)\subseteq D(a_k,r_k)\). By Cauchy's Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{k=1}^n \frac{\partial^{j_k}}{\partial z_k^{j_k}})f(\vb{z})}\leq\frac{\prod_{k=1}^n j_k!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n\qty(\zeta_k-z_k)^{j_k+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
-    For each \(k\), let \(\zeta_k=a_k+r_k\ee^{\ii t_k}\), and it follows that \(\dd{\zeta_k}=\ii r_k\ee^{\ii t_k}\dd{t_k}\). Because \(\abs{\zeta_k-z_k}>\varepsilon_k\), we have, after substition,
+    For each \(j\), let \(\varepsilon_j\) satisfy \(D\qty(z_j,\varepsilon_j)\subseteq D(a_j,r_j)\). By Cauchy's Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}})f(\vb{z})}\leq\frac{\prod_{j=1}^n k_j!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{j=1}^n\qty(\zeta_j-z_j)^{k_j+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
+    For each \(j\), let \(\zeta_j=a_j+r_j\ee^{\ii t_j}\), and it follows that \(\dd{\zeta_j}=\ii r_j\ee^{\ii t_j}\dd{t_j}\). Because \(\abs{\zeta_j-z_j}>\varepsilon_j\), we have, after substition,
     \begin{align*}
-        \abs{\qty(\prod_{k=1}^n\frac{\partial^{j_k}}{\partial z_k^{j_k}})f(\vb{z})}&\leq\frac{\prod_{k=1}^n\qty(r_k j_k!)}{(2\piup)^n}\int_0^{2\piup}\cdots\int_0^{2\piup}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{k=1}^n \varepsilon_k^{j_k+1}}}\dd{t_n}\cdots\dd{t_1}\\
-        &\leq \prod_{k=1}^n\qty(\frac{r_k j_k!}{2\piup\varepsilon_k^{j_k+1}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)}\idotsint_{[0,2\piup]^n}\dd{t_n}\cdots\dd{t_1}.\\
-        &\leq\prod_{k=1}^n\qty(\frac{j_k!}{r_k^{j_k}})\sup_{\zeta\in\prod_{k=1}^n\partial D\qty(a_k,r_k)}\abs{f(\zeta)},
-    \end{align*} since \(\varepsilon_k\leq r_k\) for all \(k\).
+        \abs{\qty(\prod_{j=1}^n\frac{\partial^{k_j}}{\partial z_j^{k_j}})f(\vb{z})}&\leq\frac{\prod_{j=1}^n\qty(r_j k_j!)}{(2\piup)^n}\int_0^{2\piup}\cdots\int_0^{2\piup}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{j=1}^n \varepsilon_j^{k_j+1}}}\dd{t_n}\cdots\dd{t_1}\\
+        &\leq \prod_{j=1}^n\qty(\frac{r_j k_j!}{2\piup\varepsilon_j^{k_j+1}})\sup_{\zeta\in\prod_{j=1}^n\partial D\qty(a_j,r_j)}\abs{f(\zeta)}\idotsint_{[0,2\piup]^n}\dd{t_n}\cdots\dd{t_1}.\\
+        &\leq\prod_{j=1}^n\qty(\frac{k_j!}{r_j^{k_j}})\sup_{\zeta\in\prod_{j=1}^n\partial D\qty(a_j,r_j)}\abs{f(\zeta)},
+    \end{align*} since \(\varepsilon_j\leq r_j\) for all \(j\).
 \end{proof}
 Similar to the univariate case, there are Taylor expansions of holomorphic functions in several complex variables.
 \begin{theorem}\label{thm:taylorexpansionmultivariable}
@@ -4462,7 +4462,7 @@ In preparation, we will introduce several relevant concepts.
 \begin{proof}
     By \cref{thm:taylorexpansionmultivariable}, we have the expansion
     \begin{equation}
-        \vb{f}(\vb{z})=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\label{eq:multivarcartan1_taylorseries}
+        \vb{f}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}(\vb{z}-\vb{a})^{\vb{k}}=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\label{eq:multivarcartan1_taylorseries}
     \end{equation} which is absolutely convergent on some polydisk centered at \(\vb{a}\), where \(\vb{a}_{\vb{k}}=\frac{\partial^{\vb{k}}\vb{f}(\vb{a})}{\prod_{j=1}^n k_j!}\) and \(\vb{k}=\qty(k_1,\dots,k_n)\). The terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
 
     Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
