@@ -4566,11 +4566,10 @@ In preparation, we will introduce several relevant concepts.
     \[\vb{f}\qty(\vb{z})=\vb*{\varphi}^{-1}\circ\qty(\vb{B}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{z}).\]
     Let \(\sigma:\mathbb{N}_{\leq n}\to\mathbb{N}_{\leq n}\) be the permutation induced by \(\vb{B}\). The map \(\vb{A}\) multiplies the \(m\)-th input coordinate \(z_m\) by \(\ee^{\ii\theta_m}\) and permutes to place it in the \(\sigma(m)\)-th output position, so the \(\sigma(m)\)-th coordinate of \(\vb{A}\vb{z}\) is \(\ee^{\ii\theta_m}z_m\). Applying \(\vb*{\varphi}^{-1}\) componentwise then gives, for the \(k\)-th output coordinate,
     \[\vb{f}\qty(\vb{z})_k=\varphi_{\alpha_k}^{-1}\qty(\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)})=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}.\]
-    To match the standard form, set \(a_k=-\alpha_k\ee^{-\ii\theta_{\sigma^{-1}(k)}}\in\mathbb{D}\). Then
-    \[\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_k}{1-\overline{a_k}z_{\sigma^{-1}(k)}}=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}},\]
-    as required. Relabeling indices via \(\sigma\) (so the \(m\)-th input feeds into the \(\sigma(m)\)-th transformed slot) yields
-    \[\vb{z}\mapsto\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n})\]
-    for some \(\qty(a_1,\ldots,a_n)\in\mathbb{D}^n\), as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, every map of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
+    Set \(a_k=-\alpha_k\ee^{-\ii\theta_{\sigma^{-1}(k)}}\in\mathbb{D}\). Then
+    \[\vb{f}\qty(\vb{z})_k=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}=\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_k}{1-\overline{a_k}z_{\sigma^{-1}(k)}}.\] Letting \(\vb{P}=\vb{B}^{-1}\) yields
+    \[f(\vb{z})=\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\]
+    as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, every map of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
 \end{proof}
 \begin{definition}
     The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{A}\) is defined as \(\vb{A}^\dagger=\overline{\vb{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
