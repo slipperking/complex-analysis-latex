@@ -4534,7 +4534,7 @@ In preparation, we will introduce several relevant concepts.
 \begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{D}^n\)]\label{thm:holomorphicautomorphismgrouponpolydisk}
     The holomorphic automorphism group of the polydisk \(\mathbb{D}^n\) consists solely of biholomorphisms in the form of
     \begin{equation}
-        \vb{z}=\qty(z_1,\ldots,z_n)\mapsto\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\label{eq:holomorphicautomorphismgrouponpolydisk_generators}
+        \vb{z}=\qty(z_1,\ldots,z_n)\mapsto\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\label{eq:holomorphicautomorphismgrouponpolydisk_statement}
     \end{equation} where \(\vb{P}\) is a \(n\times n\) permutation matrix (for coordinate permutations), \(\qty(\theta_1,\dots,\theta_n)\in\mathbb{R}^n\), and \(\qty(a_1,\ldots,a_n)\in\mathbb{D}^n\).
 \end{theorem}
 \begin{proof}
@@ -4546,10 +4546,11 @@ In preparation, we will introduce several relevant concepts.
     Specifically, at the \(j\)-th index, we have \[\qty(1-\frac1k)\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{j,i}=\qty(1-\frac1k)\sum_{i=1}^n\abs{\zeta_{j,i}}\in\mathbb{D}.\]
     As \(k\to\infty\), 
     \begin{equation}
-        \qty(1-\frac1k)\sum_{i=1}^n\abs{\zeta_{j,i}}\to\sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\mathbb{N}_{\leq n}.\label{eq:holomorphicautomorphismgrouponpolydisk}
+        \qty(1-\frac1k)\sum_{i=1}^n\abs{\zeta_{j,i}}\to\sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\mathbb{N}_{\leq n}.\label{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}
     \end{equation}
     Now let \(\vb{z}_{j,k}=\qty(0,\ldots,0,1-\frac1k,0,\ldots,0)\), where \(1-\frac1k\) appears once at the \(j\)-th index, and thus \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,k})=\qty(1-\frac1k)\qty(\zeta_{1,j},\ldots,\zeta_{n,j}).\]
-    Since \(\vb{z}_{j,k}\to\vb{z}_{j,\infty}=\qty(0,\dots,1,\dots,0)\in\partial\qty(\mathbb{D}^n)\) as \(k\to\infty\), it follows that \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,\infty})=\qty(\zeta_{1,j},\dots,\zeta_{n,j})\in\partial\qty(\mathbb{D}^n)\]
+    Since \(\vb{z}_{j,k}\to\vb{z}_{j,\infty}=\qty(0,\dots,1,\dots,0)\in\partial\qty(\mathbb{D}^n)\) as \(k\to\infty\), it follows that \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,\infty})=\qty(\zeta_{1,j},\dots,\zeta_{n,j})\in\partial\qty(\mathbb{D}^n).\]
+    Hence, \(\max_{1\leq i\leq n}\abs{\zeta_{i,j}}=1\). In tandem with \cref{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}
 \end{proof}
 \begin{definition}
     The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{A}\) is defined as \(\vb{A}^\dagger=\overline{\vb{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
