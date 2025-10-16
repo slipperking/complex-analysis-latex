@@ -4538,20 +4538,40 @@ In preparation, we will introduce several relevant concepts.
     \end{equation} where \(\vb{P}\) is a \(n\times n\) permutation matrix (for coordinate permutations), \(\qty(\theta_1,\dots,\theta_n)\in\mathbb{R}^n\), and \(\qty(a_1,\ldots,a_n)\in\mathbb{D}^n\).
 \end{theorem}
 \begin{proof}
-    Let \(\vb{f}\in\Aut\qty(\mathbb{D}^n)\) be arbitrary and define \(\vb*{\alpha}=\qty(\alpha_1,\ldots,\alpha_n)=\vb{f}(\vb{0})\). Then \(\vb*{\varphi}\qty(z_1,\ldots,z_n)=\qty(\frac{z_1-\alpha_1}{1-\overline{\alpha_1}z_1},\ldots,\frac{z_n-\alpha_n}{1-\overline{\alpha_n}z_n})\in\Aut\qty(\mathbb{D}^n)\) Moreover, \[\vb*{\varphi}\circ\vb{f}(\vb{0})=\vb{0},\qquad \vb*{\varphi}\circ\vb{f}\in\Aut\qty(\mathbb{D}^n).\]
-    By \cref{lem:multivarcartan2}, the composition \(\vb*{\varphi}\circ\vb{f}\) is linear, and thus \(\vb*{\varphi}\circ\vb{f}(\vb{z})=\vb{A}\vb{z}\) for some invertible constant matrix \(\vb{A}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n})\). Consequently, we must have \[\abs{\sum_{j=1}^n\zeta_{k,j}z_j}<1\qquad\forall\vb{z}=\qty(z_1,\ldots,z_n)\in\mathbb{D}^n,\forall k\in\mathbb{N}_{\leq n},\] and consequently, \(\abs{\zeta_{k,j}}\leq 1\) for any \(j,k\in\mathbb{N}_{\leq n}\) (otherwise, letting \(\frac{1}{\abs{\zeta_{k,j}}}<z_j<1\), \(z_l=0\) for any \(l\neq j\) yields a contradiction). 
+    Let \(\vb{f}\in\Aut\qty(\mathbb{D}^n)\) be arbitrary, and set \(\vb*{\alpha}=\qty(\alpha_1,\ldots,\alpha_n)=\vb{f}(\vb{0})\). Define the Möbius transformation \(\vb*{\varphi}\qty(z_1,\ldots,z_n)=\qty(\frac{z_1-\alpha_1}{1-\overline{\alpha_1}z_1},\ldots,\frac{z_n-\alpha_n}{1-\overline{\alpha_n}z_n})\in\Aut\qty(\mathbb{D}^n)\). It follows that \(\vb*{\varphi}\circ\vb{f}(\vb{0})=\vb{0}\) and \(\vb*{\varphi}\circ\vb{f}\in\Aut\qty(\mathbb{D}^n)\).
 
-    Now define the sequence \(\qty{\vb{z}_{j,k}}_{k\in\mathbb{N}}\) for all \(j\in\mathbb{N}_{\leq n}\) \[\vb{z}_{j,k}=\qty(z_{j,k,1},\dots,z_{j,k,n})=\qty(\qty(1-\frac1k)\frac{\abs{\zeta_{j,1}}}{\zeta_{j,1}},\dots,\qty(1-\frac1k)\frac{\abs{\zeta_{j,n}}}{\zeta_{j,n}})\in\mathbb{D}^n\qquad\forall k\in\mathbb{N}.\]
-    Hence, \(\forall j\in\mathbb{N}_{\leq n}\), \(\forall k\in\mathbb{N}\), \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,k})=\qty(1-\frac1k)\qty(\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{1,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{j,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{n,i})\in\mathbb{D}^n.\]
-    Specifically, at the \(j\)-th index, we have \[\qty(1-\frac1k)\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{j,i}=\qty(1-\frac1k)\sum_{i=1}^n\abs{\zeta_{j,i}}\in\mathbb{D}.\]
-    As \(k\to\infty\), 
-    \begin{equation}
-        \qty(1-\frac1k)\sum_{i=1}^n\abs{\zeta_{j,i}}\to\sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\mathbb{N}_{\leq n}.\label{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}
-    \end{equation}
-    Now let \(\vb{z}_{j,k}=\qty(0,\ldots,0,1-\frac1k,0,\ldots,0)\), where \(1-\frac1k\) appears once at the \(j\)-th index, and thus \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,k})=\qty(1-\frac1k)\qty(\zeta_{1,j},\ldots,\zeta_{n,j}).\]
-    Since \(\vb{z}_{j,k}\to\vb{z}_{j,\infty}=\qty(0,\dots,1,\dots,0)\in\partial\qty(\mathbb{D}^n)\) as \(k\to\infty\), it follows that \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,\infty})=\qty(\zeta_{1,j},\dots,\zeta_{n,j})\in\partial\qty(\mathbb{D}^n).\]
-    Hence, \(\max_{i\in\mathbb{N}_{\leq n}}\abs{\zeta_{i,j}}=1\). In tandem with \cref{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}, exactly one element of \(\qty{\zeta_{1,j},\zeta_{2,j},\ldots,\zeta_{n,j}}\) must be in the form of \(\ee^{\ii\theta_j}\) while all others are zero. By invertibility, each column of \(\vb{A}\) contains at least one nonzero component. Thus \(\vb{A}\) is a monomial matrix, and we may factor it as \[\vb{A}=\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\] where \(\vb{P}\) is a permutation matrix. A simplification from \[\vb{f}(\vb{z})=\vb*{\varphi}^{-1}\circ\qty(\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{z})\]
-    shows that it is indeed in the form of \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Moreover, every function in the form of \cref{eq:holomorphicautomorphismgrouponpolydisk_statement} is in \(\Aut\qty(\mathbb{D}^n)\).
+    By \cref{lem:multivarcartan2}, the map \(\vb*{\varphi}\circ\vb{f}\) is linear, so \(\vb*{\varphi}\circ\vb{f}\qty(\vb{z})=\vb{A}\vb{z}\) for some invertible constant matrix \(\vb{A}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n})\). Thus,
+    \[\abs{\sum_{j=1}^n\zeta_{k,j}z_j}<1\qquad\forall\vb{z}\in\mathbb{D}^n,\ \forall k\in\qty{1,\ldots,n},\]
+    which implies \(\abs{\zeta_{k,j}}\leq1\) for all \(j,k\in\qty{1,\ldots,n}\) (for if \(\abs{\zeta_{k,j}}>1\), then choosing \(z_j=1/\abs{\zeta_{k,j}}+\varepsilon\) with \(0<\varepsilon<1-1/\abs{\zeta_{k,j}}\) and \(z_l=0\) for \(l\neq j\) yields a contradiction).
+
+    For each \(j\in\qty{1,\ldots,n}\), define the sequence \(\qty{\vb{z}_{j,k}}_{k\in\mathbb{N}}\) by
+    \[\vb{z}_{j,k}=\qty(z_{j,k,1},\dots,z_{j,k,n})=\qty(\qty(1-\frac{1}{k})\frac{\abs{\zeta_{j,1}}}{\zeta_{j,1}},\dots,\qty(1-\frac{1}{k})\frac{\abs{\zeta_{j,n}}}{\zeta_{j,n}})\in\mathbb{D}^n\qquad\forall k\in\mathbb{N},\]
+    where we interpret \(\abs{\zeta_{j,i}}/\zeta_{j,i}=0\) if \(\zeta_{j,i}=0\). Then, for all \(j\in\qty{1,\ldots,n}\) and \(k\in\mathbb{N}\),
+    \[\qty(\vb*{\varphi}\circ\vb{f})\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{1,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{j,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{n,i})\in\mathbb{D}^n.\]
+    In particular, the \(j\)-th component is
+    \[\qty(1-\frac{1}{k})\sum_{i=1}^n\abs{\zeta_{j,i}}\in\mathbb{D}.\]
+    Taking \(k\to\infty\) yields
+    \[\sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\qty{1,\ldots,n}.\label{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}\]
+
+    Now consider, for each \(j\in\qty{1,\ldots,n}\), the sequence \(\vb{z}_{j,k}=\qty(0,\ldots,0,1-\frac{1}{k},0,\ldots,0)\), where \(1-\frac{1}{k}\) is in the \(j\)-th position. Then
+    \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\zeta_{1,j},\ldots,\zeta_{n,j}).\]
+    As \(k\to\infty\), \(\vb{z}_{j,k}\to\vb{e}_j\in\partial\qty(\mathbb{D}^n)\), so the limit
+    \[\qty(\zeta_{1,j},\ldots,\zeta_{n,j})\in\partial\qty(\mathbb{D}^n)\]
+    holds by continuity (extending across the boundary in this direction). Thus, \(\max_{i\in\qty{1,\ldots,n}}\abs{\zeta_{i,j}}=1\). Combined with \cref{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}, this forces exactly one entry in the \(j\)-th column of \(\vb{A}\) to have absolute value \(1\) (of the form \(\ee^{\ii\theta_j}\)), with all others zero.
+
+    Invertibility of \(\vb{A}\) ensures each column has at least one nonzero entry, so \(\vb{A}\) is a monomial matrix, which factors as
+    \[\vb{A}=\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\]
+    for some permutation matrix \(\vb{P}\). Therefore,
+    \[\vb{f}\qty(\vb{z})=\vb*{\varphi}^{-1}\circ\qty(\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{z}).\]
+    Let \(\sigma\in S_n\) be the permutation induced by \(\vb{P}\). The map \(\vb{A}\) multiplies the \(m\)-th input coordinate \(z_m\) by \(\ee^{\ii\theta_m}\) and permutes to place it in the \(\sigma(m)\)-th output position, so the \(\sigma(m)\)-th coordinate of \(\vb{A}\vb{z}\) is \(\ee^{\ii\theta_m}z_m\). Applying \(\vb*{\varphi}^{-1}\) componentwise then gives, for the \(k\)-th output coordinate,
+    \[\vb{f}\qty(\vb{z})_k=\varphi_{\alpha_k}^{-1}\qty(\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)})=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}.\]
+    To match the standard form, set \(a_k=-\alpha_k\ee^{-\ii\theta_{\sigma^{-1}(k)}}\in\mathbb{D}\). Then
+    \[\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_k}{1-\overline{a_k}z_{\sigma^{-1}(k)}}=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}},\]
+    as required. Relabeling indices via \(\sigma\) (so the \(m\)-th input feeds into the \(\sigma(m)\)-th transformed slot) yields
+    \[
+    \vb{z}\mapsto\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n})
+    \]
+    for some \(\qty(a_1,\ldots,a_n)\in\mathbb{D}^n\), as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, every map of this form lies in \(\Aut\qty(\mathbb{D}^n)\), completing the proof.
 \end{proof}
 \begin{definition}
     The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{A}\) is defined as \(\vb{A}^\dagger=\overline{\vb{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
