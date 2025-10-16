@@ -4560,7 +4560,7 @@ In preparation, we will introduce several relevant concepts.
     \[\qty(\zeta_{1,j},\ldots,\zeta_{n,j})\in\partial\qty(\mathbb{D}^n)\]
     holds by continuity (extending across the boundary in this direction). Thus, \(\max_{i\in\qty{1,\ldots,n}}\abs{\zeta_{i,j}}=1\). Combined with \cref{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}, this forces exactly one entry in the \(j\)-th column of \(\vb{A}\) to have absolute value \(1\) (of the form \(\ee^{\ii\theta_j}\)), with all others zero.
 
-    Invertibility of \(\vb{A}\) ensures each column has at least one nonzero entry, so \(\vb{A}\) is a monomial matrix, which factors as
+    Invertibility of \(\vb{A}\) ensures each column has at least one nonzero entry, so \(\vb{A}\) is a monomial matrix, which factors to
     \[\vb{A}=\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\]
     for some permutation matrix \(\vb{P}\). Therefore,
     \[\vb{f}\qty(\vb{z})=\vb*{\varphi}^{-1}\circ\qty(\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{z}).\]
@@ -4571,17 +4571,21 @@ In preparation, we will introduce several relevant concepts.
     as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, each automorphism of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
 \end{proof}
 \begin{definition}
-    The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{A}\) is defined as \(\vb{A}^\dagger=\overline{\vb{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
+    The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{U}\) is defined as \(\vb{U}^\dagger=\overline{\vb{U}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
 \end{definition}
 \begin{definition}
     A matrix \(\vb{U}\) is said to be \textscsl{unitary} iff its inverse is its conjugate transpose, or iff \(\vb{U}^\dagger\vb{U}=\vb{U}\vb{U}^\dagger=\vb{I}\).
 \end{definition}
+A \textscsl{unitary rotation} is a map in the form of \(\vb{z}\mapsto\vb{U}\vb{z}\), where \(\vb{U}\) is a unitary matrix.
 \begin{proposition}\label{prop:unitballsimpleautomorphism}
     For any \(a\in\mathbb{D}\), 
     \begin{equation}
-        \vb*{\varphi}_{a}(\vb{z})=\qty(\frac{z_1-a}{1-\overline{a}z_1},z_2\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1})\label{eq:unitballsimpleautomorphism_statement}
+        \vb*{\varphi}_{a}(\vb{z})=\qty(\frac{z_1-a}{1-\overline{a}z_1},z_2\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},z_3\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},\ldots,z_n\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1})\label{eq:unitballsimpleautomorphism_statement}
     \end{equation} lies in \(\Aut\qty(B^2)\), where \(\vb{z}=\qty(z_1,z_2)\).
 \end{proposition}
+\begin{proof}
+    
+\end{proof}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
     For any \(n>2\), the \(n\)-dimensional unit ball \(B^n\) and the \(n\)-dimensional polydisk \(\mathbb{D}^n\) are not biholomorphically equivalent.
