@@ -4550,7 +4550,7 @@ In preparation, we will introduce several relevant concepts.
     \[\qty(\vb*{\varphi}\circ\vb{f})\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{1,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{j,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{n,i})\in\mathbb{D}^n.\]
     In particular, the \(j\)-th component is
     \[\qty(1-\frac{1}{k})\sum_{i=1}^n\abs{\zeta_{j,i}}\in\mathbb{D}.\]
-    Taking \(k\to\infty\) yields
+    As \(k\to\infty\),
     \begin{equation}
         \sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\qty{1,\ldots,n}.\label{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}
     \end{equation}
@@ -4567,9 +4567,8 @@ In preparation, we will introduce several relevant concepts.
     Let \(\sigma:\mathbb{N}_{\leq n}\to\mathbb{N}_{\leq n}\) be the permutation induced by \(\vb{P}\). The map \(\vb{A}\) multiplies the \(m\)-th input coordinate \(z_m\) by \(\ee^{\ii\theta_m}\) and permutes to place it in the \(\sigma(m)\)-th output position, so the \(\sigma(m)\)-th coordinate of \(\vb{A}\vb{z}\) is \(\ee^{\ii\theta_m}z_m\). Applying \(\vb*{\varphi}^{-1}\) componentwise then gives, for the \(k\)-th output coordinate,
     \[\vb{f}\qty(\vb{z})_k=\varphi_{\alpha_k}^{-1}\qty(\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)})=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}.\]
     Set \(a_k=-\alpha_k\ee^{-\ii\theta_{\sigma^{-1}(k)}}\in\mathbb{D}\). Then
-    \[\vb{f}\qty(\vb{z})_k=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}=\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_k}{1-\overline{a_k}z_{\sigma^{-1}(k)}}.\] This is an effective permutation
-    \[f(\vb{z})=\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\]
-    as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, every map of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
+    \[\vb{f}\qty(\vb{z})_k=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}=\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_k}{1-\overline{a_k}z_{\sigma^{-1}(k)}}.\] Hence, \[\vb{f}\qty(\vb{z})_{\sigma(k)}=\ee^{\ii\theta_{k}}\frac{z_{k}-a_k}{1-\overline{a_k}z_{k}}\Longleftrightarrow f(\vb{z})=\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\]
+    as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, each automorphism of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
 \end{proof}
 \begin{definition}
     The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{A}\) is defined as \(\vb{A}^\dagger=\overline{\vb{A}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
