@@ -2066,7 +2066,7 @@ We now introduce a fundamental result in complex analysis due to Weierstrass, wh
 \end{proof}
 The condition of uniform convergence on every compact subset can also be significantly loosened, by the fact demonstrated below:
 \begin{proposition}
-    Let \(U\subseteq\mathbb{C}\) be open and bounded, and let \(\qty{f_n(z)}\) be holomorphic on \(U\). Let \(K\subseteq U\) be compact. If \(f_n\rightrightarrows f\) on \(\partial K\), then \(f_n\rightrightarrows f\) on \(K\).
+    Let \(U\subseteq\mathbb{C}\) be an open bounded region, and let \(\qty{f_n(z)}\) be holomorphic on \(U\). Let \(K\subset U\) be compact. If \(f_n\rightrightarrows f\) on \(\partial K\), then \(f_n\rightrightarrows f\) on \(K\).
 \end{proposition}
 \begin{proof}
     By the converse statement of the Cauchy Criterion (\cref{thm:cauchycriterionuniformconvergence}), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \[\sup_{z\in\partial K}\qty|f_n(z)-f_m(z)|<\varepsilon.\]
@@ -3436,10 +3436,10 @@ In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta
 \end{proof}
 The following theorem is important in many areas of mathematical analysis and has a plethora of generalizations. It was first introduced by Ascoli (who proved the sufficiency of compactness) and later formalized by Arzelà, who proved the necessity of uniform equicontinuity and uniform boundedness.
 \begin{theorem}[\textsc{Arzelà--Ascoli}]\label{thm:arzelaascoli}
-    Let \(\mathcal{F}\) be a family of complex continuous functions defined on a compact subset \(K\subseteq\mathbb{R}^n\). Then, \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\) iff \(\mathcal{F}\) is normal on \(K\).
+    Let \(\mathcal{F}\) be a family of complex continuous functions defined on a compact subset \(K\subseteq\mathbb{C}\). Then, \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\) iff \(\mathcal{F}\) is normal on \(K\).
 \end{theorem}
 \begin{proof}
-    We will first prove the sufficiency of uniform boundedness and uniform equicontinuity. Let \(\qty{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(x)}\leq M\) for all \(x\in K\) and all \(n\in\mathbb{N}\).
+    We will first prove the sufficiency of uniform boundedness and uniform equicontinuity. Let \(\qty{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(z)}\leq M\) for all \(z\in K\) and all \(n\in\mathbb{N}\).
 
     Let \(\qty{\zeta_k}_{k\in\mathbb{N}}\) be a countably dense subset of \(K\). By the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), there exists a subsequence of \(\qty{f_n}_{n\in\mathbb{N}}\), namely \(\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\), such that \(\qty{f_{n_{1,j}}\qty(\zeta_1)}_{j\in\mathbb{N}}\) is convergent. The set \(\qty{f_{n_{1,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\) is also bounded by \(M\), and hence, by the Bolzano--Weierstrass Theorem, it too has a convergent subsequence \(\qty{f_{n_{2,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\). Similarly, there exists a subsequence of \(\qty{f_{n_{2,j}}}_{j\in\mathbb{N}}\), namely \(\qty{f_{n_{3,j}}}_{j\in\mathbb{N}}\), such that \(\qty{f_{n_{3,j}}\qty(\zeta_3)}_{j\in\mathbb{N}}\) is convergent.
 
@@ -3941,7 +3941,6 @@ Let \(z=f^{-1}(w)\). Then we have
 
     Let \(\lambda(x,y)=\qty(1-x^2-y^2)^2\). By simple calculation, we have \[\pdv{\lambda}{x}=-4\qty(1-x^2-y^2)x,\qquad\pdv{\lambda}{y}=-4\qty(1-x^2-y^2)y.\] At \(x^2+y^2=1\), both partial derivatives vanish, and hence, they match the vanishing derivative on the complement of \(\supp(\lambda)\), completing the proof of property~\ref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}.
 \end{proof}
-More generally, we have
 \begin{theorem}[\textsc{Tietze--Urysohn--Brouwer}]\label{thm:tietzeextension}
 
 \end{theorem}
