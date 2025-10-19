@@ -3879,7 +3879,12 @@ Let \(z=f^{-1}(w)\). Then we have
 
     Let \(\widetilde{\varphi}\) be a conformal mapping from \(\extcomplex\setminus K\) to \(\mathbb{D}\), such that \(\widetilde{\varphi}(\infty)=0\) and \(\alpha=\widetilde{\varphi}'(\infty)\in\mathbb{R}_{>0}\). Let \(\varphi(z)=\frac{1}{\alpha}\widetilde{\varphi}(z)\). It follows that \(\varphi'(\infty)=1\), \(\varphi(\infty)=0\). By \cref{prop:complementbiholomorphismquarterestimate}, \[\abs{\alpha}\geq\frac{1}{4}\diam(K)\Longleftrightarrow\abs{\varphi(z)}\leq\frac{4\abs{\widetilde{\varphi}(z)}}{\diam(K)}.\] Consequently, we have the crucial estimate of \(\varphi\qty(\extcomplex\setminus K)\subseteq D\qty(0,\frac{4}{\diam(K)})\subseteq D\qty(0,\frac{8}{r})\). For fixed \(\zeta\in D(0,r)\), define \[f_\zeta(z)=\varphi(z)+(\zeta-\beta)\varphi^2(z),\qquad z\in\extcomplex\setminus K\] where \(\beta=\frac{\varphi''(\infty)}{2}\). Cauchy's Estimate (\cref{thm:cauchysestimate}) on \(\qty(z\mapsto\frac{1}{z})\qty(\extcomplex\setminus D(0,r))=D\qty(0,\frac{1}{r})\) gives: \[\abs{\beta}=\frac{1}{2}\abs{\eval{\dv[2]{z}(\varphi\qty(\frac{1}{z}))}_{z=0}}\leq\frac{\sup_{D\qty(0,\frac1r)}\abs{\varphi\qty(\frac{1}{z})}}{\operatorname{dist}\qty(0,\partial D\qty(0,\frac{1}{r}))^2}=8r.\]
     Hence, \[\abs{f_\zeta(z)}\leq \abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is~\ref{itm:complementbiholomorphismquarterestimate_absolute584}. Suppose that \(\abs{z-\zeta}>2r\). It follows from \(\abs{\zeta}<r\) that \(\abs{z}>r\) (from the reverse triangle inequality) and hence disjoint from \(K\) and \(\zeta\). On this infinite annulus, we have the Laurent expansion (from \cref{thm:laurentexpansionofholomorphicfunction}) that \[\varphi(z)=\sum_{k=1}^\infty\frac{\mu_k}{\qty(z-\zeta)^k}=\frac{1}{z-\zeta}+\frac{\mu}{(z-\zeta)^2}+\order{\frac1{\qty(z-\zeta)^3}}\] where \(\mu_1=1\) because \(\varphi\sim\frac{1}{z}\) as \(z\to\infty\). Since \(\abs{z}>r\), we have the global Laurent expansion \[\varphi(z)=\frac1z+\frac\beta{z^2}+\order{\frac1{z^3}}.\]
-    Hence, \[\frac1{z-\zeta}+\frac\mu{\qty(z-\zeta)^2}=\frac1z+\frac\beta{z^2}+\order{\frac1{z^3}}\] 
+    Hence,
+    \begin{align*}
+        \frac1{z-\zeta}+\frac\mu{\qty(z-\zeta)^2}&=\frac1z+\frac\beta{z^2}+\order{\frac1{z^3}}\\
+        z+\zeta+\mu&=z+\frac{\zeta^2}z+\beta+\frac{\beta\zeta^2}{z^2}-\frac{2\beta\zeta}{z}+\order{\frac1z}=z+\beta+\order{\frac1z}\\
+        \mu&=\beta-\zeta
+    \end{align*} since they are constants.
 \end{proof}
 \begin{proposition}\label{prop:diracdeltaapproximation}
     Suppose
@@ -4517,7 +4522,8 @@ In preparation, we will introduce several relevant concepts.
         \vb{J}_{\vb*{\varphi}}(\vb{z})&=\vb{J}_{\vb*{\rho}_{-\theta}}\qty(\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}}\qty(\vb*{\rho}_\theta\circ\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta}\qty(\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}}\qty(\vb{z})\\
         \vb{J}_{\vb*{\varphi}}(\vb{0})&=\mqty(\ee^{-\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{-\ii\theta})\cdot\vb{J}_{\vb{f}^{-1}}(\vb{0})\cdot\mqty(\ee^{\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{\ii\theta})\cdot\vb{J}_{\vb{f}}(\vb{0})=\ee^{-\ii\theta}\ee^{\ii\theta}\qty(\vb{J}_{\vb{f}^{-1}}\cdot\vb{J}_{\vb{f}})(\vb{0})=\vb{I}.
     \end{align*}
-    By \cref{lem:multivarcartan1}, \(\vb*{\varphi}(\vb{z})\equiv\vb{z}\) on \(\Omega\). Hence, \(\vb{f}\circ\vb*{\rho}_\theta=\vb*{\rho}_\theta\circ\vb{f}\) for all \(\theta\in\mathbb{R}\). Together with \cref{thm:taylorexpansionmultivariable}, write \begin{equation}
+    By \cref{lem:multivarcartan1}, \(\vb*{\varphi}(\vb{z})\equiv\vb{z}\) on \(\Omega\). Hence, \(\vb{f}\circ\vb*{\rho}_\theta=\vb*{\rho}_\theta\circ\vb{f}\) for all \(\theta\in\mathbb{R}\). Together with \cref{thm:taylorexpansionmultivariable}, write
+    \begin{equation}
         \vb{f}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\label{eq:multivarcartan2_taylorseries}
     \end{equation} on a polydisk centered at \(\vb{0}\). Thus,
     \begin{equation*}
@@ -4579,13 +4585,13 @@ In preparation, we will introduce several relevant concepts.
 \end{definition}
 A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U}\vb{z}\), where \(\vb{U}\) is a unitary matrix.
 \begin{proposition}\label{prop:unitballsimpleautomorphism}
-    For any \(a\in\mathbb{D}\), 
+    For any \(a\in\mathbb{D}\),
     \begin{equation}
         \vb{w}=\qty(w_1,\dots,w_n)=\vb*{\varphi}_{a}(\vb{z})=\qty(\frac{z_1-a}{1-\overline{a}z_1},z_2\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},z_3\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},\ldots,z_n\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1})\label{eq:unitballsimpleautomorphism_statement}
     \end{equation} lies in \(\Aut\qty(B^n)\), where \(\vb{z}=\qty(z_1,\dots,z_n)\). Moreover, \(\vb*{\varphi}_a^{-1}=\vb*{\varphi}_{-a}\).
 \end{proposition}
 \begin{proof}
-    For \(\vb{z}=\qty(z_1,\dots,z_n)\in B^n\), because \(\sum_{k=2}^n\abs{z_k}^2<1-\abs{z_1}^2\), 
+    For \(\vb{z}=\qty(z_1,\dots,z_n)\in B^n\), because \(\sum_{k=2}^n\abs{z_k}^2<1-\abs{z_1}^2\),
     \begin{align*}
         \norm{\vb*{\varphi}_a(\vb{z})}^2&=\frac{1}{\abs{1-\overline{a}z_1}^2}\qty[\abs{z_1-a}^2+\sum_{k=2}^n\qty(1-\abs{a}^2)\abs{z_k}^2]\\
         &<\frac{1}{\qty(1-\overline{a}z_1)\qty(1-a\overline{z_1})}\qty[\qty(z_1-a)\qty(\overline{z_1}-\overline{a})+\qty(1-\abs{z_1}^2)\qty(1-\abs{a}^2)]\\
