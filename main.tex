@@ -3956,10 +3956,15 @@ so that the continuous extension is compactly supported. Continue to designate t
 
 Define the \textscsl{modulus of continuity} of \(f\) to be the function \(\omega_f:\mathbb{R}_{\geq0}\to\mathbb{R}_{\geq0}\) with \[\omega_f(\delta)=\sup_{\substack{z,\zeta\in\mathbb{C}\\\abs{z-\zeta}\leq\delta}}\abs{f(z)-f(\zeta)}.\]
 Because \(f\) has compact support, it must be uniformly continuous; hence we have \(\lim_{\delta\to0^+}\omega_f(\delta)=0\).
+
+For \(r>0\), define \[\Phi(z)=\iint_\mathbb{C}\lambda_r(z-\zeta)f(\zeta)\dd{\xi}\dd{\eta},\] where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproximation_lambdadefinition}. 
 \begin{proposition}
-    Let \(K\subset\mathbb{C}\) be compact and suppose that \(f\in C^0(\mathbb{C})\) is compactly supported and holomorphic on \(\interior{K}\). For \(r>0\), define \[\Phi(z)=\iint_\mathbb{C}\lambda_r(z-\zeta)f(\zeta)\dd{\xi}\dd{\eta},\] where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproximation_lambdadefinition}. Then,
+    The function \(\Phi\) satisfies:
     \begin{enumerate}
-        \item
+        \item \(\Phi\in\mathbb{C}^1(\mathbb{C})\) and has compact support.
+        \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}(z,\mathbb{C}\setminus K)>r}\).
+        \item \(\abs{f(z)-\Phi(z)}\leq\omega_f(r)\) for all \(z\in\mathbb{C}\).
+        \item 
     \end{enumerate}
 \end{proposition}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
