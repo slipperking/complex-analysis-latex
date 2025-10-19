@@ -3944,12 +3944,18 @@ Let \(z=f^{-1}(w)\). Then we have
 \begin{theorem}[\textsc{Tietze--Urysohn--Brouwer}]\label{thm:tietzeextension}
     Let \(K\subseteq\mathbb{C}\) be compact and \(f:K\to\mathbb{R}\) be continuous. Then \(\exists g\in C^0(\mathbb{C})\) such that \(g\equiv f\) on \(K\).
 \end{theorem}
+\begin{proof}
+    Consider the continuous separation function \[\]
+\end{proof}
 Let \(f\in C^0(K)\) be holomorphic on \(\interior{K}\). Then \(f\) has a continuous extension to all of \(\mathbb{C}\) by virtue of the Tietze--Urysohn--Brouwer Theorem (\cref{thm:tietzeextension}). Suppose that \(K\) is fully contained within \(D(0,R)\) for some \(R>0\) (provided by compactness). Then the product with the piecewise-linear function \[\begin{cases}
     1&\qif*\abs{z}\leq R\\
     2-\frac{\abs{z}}{R}&\qif*R<\abs{z}<2R\\
     0&\qif*\abs{z}\geq 2R
 \end{cases}\]
 so that the continuous extension is compactly supported. Continue to designate the extension by \(f\).
+
+Define the \textscsl{modulus of continuity} of \(f\) to be the function \(\omega_f:\mathbb{R}_{\geq0}\to\mathbb{R}_{\geq0}\) with \[\omega_f(\delta)=\sup_{\substack{z,\zeta\in\mathbb{C}\\\abs{z-\zeta}\leq\delta}}\abs{f(z)-f(\zeta)}.\]
+Because \(f\) has compact support, it must be uniformly continuous; hence, \(\lim_{\delta\to0^+}\omega_f(\delta)=0\).
 \begin{proposition}
     Let \(f\in C^1(\mathbb{C})\) be compactly supported. For \(r>0\), define \[\Phi(z)=\iint_\mathbb{C}\lambda_r(z-\zeta)f(\zeta)\dd{\xi}\dd{\eta},\] where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproximation_lambdadefinition}. Then,
     \begin{enumerate}
