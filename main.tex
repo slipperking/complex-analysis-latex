@@ -850,7 +850,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\cref{th
 \end{proof}
 \begin{corollary}\label{crl:pompeiuwithoutcauchyterm}
     Let \(f:\mathbb{C}\to\mathbb{C}\) be a continuously differentiable, compactly supported function.
-    Then \[\phi(z)=-\frac{1}{\piup}\iint_{\mathbb{C}}\pdv{f}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\] for all \(z\in\mathbb{C}\) where \(\zeta=\xi+\ii\eta\).
+    Then \[f(z)=-\frac{1}{\piup}\iint_{\mathbb{C}}\pdv{f}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\] for all \(z\in\mathbb{C}\) where \(\zeta=\xi+\ii\eta\).
 \end{corollary}
 \begin{proof}
     Choose \(R>0\) such that \(D(0,R)\supset\supp(f)\). By the Cauchy--Pompeiu Theorem (\cref{thm:pompeiu}), we have \[f(z)=\frac1\piup\qty(\frac1{2\ii}\int_{\partial D(0,R)}\frac{f(\zeta)\ddzeta}{\zeta-z}-\iint_{D(0,R)}\pdv{f}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{\zeta-z}).\]
@@ -3975,14 +3975,14 @@ For \(r>0\), define
     The function \(\Phi\) as in \cref{eq:integralofcontinuousextensionofholomorphic} satisfies:
     \begin{enumerate}
         \item \(\Phi\in\mathbb{C}^1(\mathbb{C})\) and has compact support.
-        \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}(z,\mathbb{C}\setminus K)>r}\) is a subset of \(K\).
+        \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}(z,\mathbb{C}\setminus K)>r}\).
         \item \(\abs{f(z)-\Phi(z)}\leq\omega_f(r)\) for all \(z\in\mathbb{C}\).
         \item For all \(z\in\mathbb{C}\), \(\abs{\pdv{F}{\overline{z}}(z)}\leq\frac{4\piup\omega(r)}{r}\).
-        \item \(F(z)=-\frac1\piup\iint_H\pdv{F}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\).
+        \item \(\Phi(z)=-\frac1\piup\iint_H\pdv{F}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\), where \(H=\supp(\Phi)\setminus U\)
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Because \(\supp\qty(\lambda_r(z-\zeta))=\overline{D(\zeta,r)}\) and \(\supp f\)
+    Because \(\supp\qty(\lambda_r(z-\zeta))=\overline{D(z,r)}\) and \(\supp f\) is compact, for sufficiently large \(z\), the two supports will be disjoint and hence the integrand vanishes for all \(\zeta\).
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
     Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) is connected. Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a polynomial \(\psi(z)\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\qedhere\]
