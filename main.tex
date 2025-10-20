@@ -848,7 +848,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\cref{th
     Then from rearranging \cref{eq:pompeiu_epsilonlimitintermediate}, we obtain:
     \[f(z)=\frac{1}{2\piup\ii}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\qedhere\]
 \end{proof}
-\begin{corollary}\label{crl:pompeiuwithoutcauchyterm}
+\begin{corollary}\label{cor:pompeiuwithoutcauchyterm}
     Let \(f:\mathbb{C}\to\mathbb{C}\) be a continuously differentiable, compactly supported function.
     Then \[f(z)=-\frac{1}{\piup}\iint_{\mathbb{C}}\pdv{f}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\] for all \(z\in\mathbb{C}\) where \(\zeta=\xi+\ii\eta\).
 \end{corollary}
@@ -902,7 +902,7 @@ From the above result, we can directly obtain the following theorem:
         \pdv{u}{y}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\beta}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\beta}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}
     \end{equation}
     Since \(\psi\in C^1\paren{\mathbb{C}}\) and has Lipschitz constant \(M\), \cref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative,eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative} are both continuous (by the same argument for the continuity of \(u(z)\)). Thus, \(u\in C^1(\mathbb{C})\). It follows from the two equations that \[\pdv{u}{\overline{z}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{K}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\]
-    By \cref{crl:pompeiuwithoutcauchyterm}, \[\pdv{u}{\overline{z}}=\psi(z).\qedhere\]
+    By \cref{cor:pompeiuwithoutcauchyterm}, \[\pdv{u}{\overline{z}}=\psi(z).\qedhere\]
 \end{proof}
 \begin{remark}
     In the first part, we established that a function \(\psi(z)\in C^0(\mathbb{C})\) with compact support satisfies \[u(z)=-\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\in C^0(\mathbb{C}).\]
@@ -1389,7 +1389,7 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
 
     The problem now stands to prove that \(\varphi(z)\) exists in the first place, which requires a topological argument to be later discussed in \cref{thm:bumpfunctionexistence}.
 \end{proof}
-\begin{corollary}\label{crl:nthderivativeboundedsupremum}
+\begin{corollary}\label{cor:nthderivativeboundedsupremum}
     Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\). For any holomorphic function \(f(z)\) in \(U\), there exist constants (independent of \(z\) and \(f\)) \(\cbraces{c_n}\) such that \[\sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\sup_{z\in V}\abs{f(z)}.\]
 \end{corollary}
 \begin{proof}
@@ -1655,7 +1655,7 @@ Thus, one defines the \textscsl{winding index} to quantify how many times a clos
     \end{equation}
     Then by Morera's Theorem (\cref{thm:morera}), \(f(z)\) is holomorphic, and \(f'(z)\) is holomorphic. We aim to show that \(f'_n(z)\rightrightarrows f'(z)\).
 
-    Let \(K\subset U\) be arbitrary and compact and \(V\supset K\) be open and relatively compact in \(U\). Since \(\cbraces{f'_n(z)}\) is holomorphic, by \cref{crl:nthderivativeboundedsupremum}, there exists a finite constant \(c>0\) such that \[\lim_{n\to\infty}\sup_{z\in K}\abs{f'_n(z)-f'(z)}\leq c\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)-f(z)}.\]
+    Let \(K\subset U\) be arbitrary and compact and \(V\supset K\) be open and relatively compact in \(U\). Since \(\cbraces{f'_n(z)}\) is holomorphic, by \cref{cor:nthderivativeboundedsupremum}, there exists a finite constant \(c>0\) such that \[\lim_{n\to\infty}\sup_{z\in K}\abs{f'_n(z)-f'(z)}\leq c\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)-f(z)}.\]
 
     By the definition of uniform convergence, the right-hand side approaches 0, and \(\cbraces{f'_n(z)}\) is then uniformly convergent to \(f'(z)\) by the same reasoning.
 
@@ -2060,7 +2060,7 @@ We now introduce a fundamental result in complex analysis due to Weierstrass, wh
 \begin{proof}
     By Morera's Theorem (\cref{thm:morera}) and the uniform convergence of \(\qty{f_n(z)}\), the holomorphy of \(f(z)\) follows (refer to \cref{eq:hurwitzsimplecase_integrallimitswitchforholomorphy} and preceding explanations).
 
-    Following the same logic, by \cref{crl:nthderivativeboundedsupremum}, \(\forall k\in\mathbb{N}\) and for all compact \(K\subset U\) and open \(V\supset K\) relatively compact in \(U\) there exists a finite constant \(c_k>0\) such that
+    Following the same logic, by \cref{cor:nthderivativeboundedsupremum}, \(\forall k\in\mathbb{N}\) and for all compact \(K\subset U\) and open \(V\supset K\) relatively compact in \(U\) there exists a finite constant \(c_k>0\) such that
     \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)-f^{(k)}(z)}\leq c_k\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)-f(z)}.\] Since \(\cbraces{f_n(z)}\) is uniformly convergent, the limit on the right-hand side vanishes. Then,
     \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)-f^{(k)}(z)}=0,\] and therefore \(\qty{f^{(k)}_n(z)}\) uniformly converges on all compact subsets of \(U\).
 \end{proof}
@@ -2680,7 +2680,7 @@ As it turns out, an entire function can in fact be constructed for infinitely ma
     By the same heuristic reasoning as the integral in \cref{eq:jensensformula_firstintegralvanishes}, the integral \(\int_{\vartheta_j-\tau_j}^{\vartheta_j+\tau_j}\abs{\log\abs{\frac{h_j\qty(R\ee^{\ii\theta})}{h_j\qty(\rho\ee^{\ii\theta})}}}\dd{\theta}\to 0\) as \(\rho\to R^-\). TO BE CONTINUED.
 \end{proof}
 Since the summation on the right is negative, we have the following consequence:
-\begin{corollary}[Jensen's Inequality]\label{crl:jensensinequality}
+\begin{corollary}[Jensen's Inequality]\label{cor:jensensinequality}
     Let \(f\) be holomorphic on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\). It follows that \[\log\abs{f(0)}\leq\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
 \end{corollary}
 \begin{theorem}[\textsc{Poisson--Jensen Formula}]\label{thm:poissonjensenformula}
@@ -3502,7 +3502,7 @@ Obviously, the equivalence is established similarly to local finiteness and loca
 \begin{proof}
     Obviously, if \(\mathcal{F}\) is normal on \(U\), for any compact \(K\subset U\), it follows that \(\mathcal{F}\) is normal on \(K\), and the uniform boundedness on \(K\) follows from the Arzelà--Ascoli Theorem (\cref{thm:arzelaascoli}).
 
-    Conversely, we will first assume that \(\mathcal{F}\) is locally uniformly bounded. Let \(z\in U\) be arbitrary, and choose \(R_z>0\) such that \(\overline{D\qty(z,R_z)}\subset U\). Therefore, it follows that \(\mathbb{C}\setminus U\) is closed and disjoint from \(\overline{D\qty(z,R_z)}\) and the distance between them is positive. Let this distance be \(d_z=\inf\qty(\cbraces{\abs{\zeta-\zeta'}}{\zeta\in\mathbb{C}\setminus U, \zeta'\in \overline{D\qty(z,R_z)}})\). It follows that the disk \(V_z=D\qty(z,R_z+\frac{d_z}{2})\) is relatively compact in \(U\). By \cref{crl:nthderivativeboundedsupremum}, there exists a finite constant \(c'_z>0\) independent of \(f\in\mathcal{F}\) such that \[\abs{f'(\zeta)}<c'_z\max_{\substack{\xi\in\overline{V_z}\\ \widetilde{f}\in\mathcal{F}}}\abs{\widetilde{f}(\xi)},\qquad\forall \zeta\in \overline{D\qty(z,R_z)},\forall f\in\mathcal{F}\]
+    Conversely, we will first assume that \(\mathcal{F}\) is locally uniformly bounded. Let \(z\in U\) be arbitrary, and choose \(R_z>0\) such that \(\overline{D\qty(z,R_z)}\subset U\). Therefore, it follows that \(\mathbb{C}\setminus U\) is closed and disjoint from \(\overline{D\qty(z,R_z)}\) and the distance between them is positive. Let this distance be \(d_z=\inf\qty(\cbraces{\abs{\zeta-\zeta'}}{\zeta\in\mathbb{C}\setminus U, \zeta'\in \overline{D\qty(z,R_z)}})\). It follows that the disk \(V_z=D\qty(z,R_z+\frac{d_z}{2})\) is relatively compact in \(U\). By \cref{cor:nthderivativeboundedsupremum}, there exists a finite constant \(c'_z>0\) independent of \(f\in\mathcal{F}\) such that \[\abs{f'(\zeta)}<c'_z\max_{\substack{\xi\in\overline{V_z}\\ \widetilde{f}\in\mathcal{F}}}\abs{\widetilde{f}(\xi)},\qquad\forall \zeta\in \overline{D\qty(z,R_z)},\forall f\in\mathcal{F}\]
     where the maximum on the right-hand side is finite by assumption of the locally uniform boundedness of \(\mathcal{F}\). For simplicity, let \(c_z=c'_z\max_{\substack{\xi\in\overline{V_z}\\ \widetilde{f}\in\mathcal{F}}}\abs{\widetilde{f}(\xi)}\). Let \(\xi,\xi'\in \overline{D\qty(z,R_z)}\) be arbitrary and distinct, and let \(\gamma\) be a curve from \(\xi\) to \(\xi'\). For an arbitrary function \(f\in\mathcal{F}\), we have that \[\abs{f(\xi')-f(\xi)}=\abs{\int_\gamma f'(\zeta)\ddzeta}\leq c_z\int_\gamma\abs{\ddz}\leq c_z\abs{\xi'-\xi}.\]
     Therefore, \(\mathcal{F}\) is uniformly equicontinuous in \(\overline{D\qty(z,R_z)}\) (and also in \(D\qty(z,R_z)\)). Indeed, \(\forall\varepsilon>0\), we can choose \(\delta_z=\frac{\varepsilon}{c_z}\) and the assertion follows.
 
@@ -3982,7 +3982,7 @@ For \(r>0\), define
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Because \(\supp\qty(\lambda_r(z-\zeta))=\overline{D(z,r)}\) and \(\supp f\) is compact, for sufficiently large \(z\), the two supports will be disjoint and hence the integrand vanishes for all \(\zeta\). We can explicitly find that \[\pdv{\Phi}{x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\frac{\Phi(z+\Delta x)-\Phi(\Delta x)}{\Delta x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\int_{\mathbb{C}}\frac{\lambda_r(z+\Delta x-\zeta)-\lambda_r(z-\zeta)}{\Delta x}f(\zeta)\dd{\xi}\wedge\dd{\eta}\]
+    Because \(\supp\qty(\lambda_r(z-\zeta))=\overline{D(z,r)}\) and \(\supp f\) is compact, for sufficiently large \(z\), the two supports will be disjoint and hence the integrand vanishes for all \(\zeta\). We can explicitly find that \[\pdv{\Phi}{x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\frac{\Phi(z+\Delta x)-\Phi(\Delta x)}{\Delta x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\int_{\mathbb{C}}\frac{\lambda_r(z+\Delta x-\zeta)-\lambda_r(z-\zeta)}{\Delta x}f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Because \(f\) is continuous and vanishes on a compact set, it is bounded. Similarly, \ref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability} of \cref{prop:diracdeltaapproximation} implies that \(\pdv{\lambda_r}{x}\) is bounded. Hence, by Lebesgue's Dominated Convergence Theorem, we have \[\]
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
     Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) is connected. Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a polynomial \(\psi(z)\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\qedhere\]
@@ -4145,21 +4145,21 @@ Its Gaussian curvature is
     K_{\lambda_r^\alpha}(z)&=-4\pdv[2]{}{\overline{z}}{z}\qty[\log(\frac{2r}{\sqrt{\alpha}\qty(r^2-\abs{z}^2)})]\qty(\frac{\sqrt{\alpha}\qty(r^2-\abs{z}^2)}{2r})^2\\
     &=-4\alpha\pdv[2]{}{\overline{z}}{z}\qty[\log(\frac{2r}{r^2-\abs{z}^2})]\qty(\frac{r^2-\abs{z}^2}{2r})^2=\alpha K_{\lambda_r}(z)=-\alpha,
 \end{align*} via the results and definitions in \cref{eq:poincaremetriconscaleddisks}.
-\begin{corollary}\label{crl:generalizedahlfors}
+\begin{corollary}\label{cor:generalizedahlfors}
     Let \(r>0\) and suppose \(f:D(0,r)\to U\) is holomorphic, where \(U\subseteq\mathbb{C}\) is a region. For any \(\beta>0\), define \(\rho\) to be a conformal metric on \(U\) with \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho\qty(z)\leq-\beta,\qquad\forall z\in U.\] Then \(\forall\alpha>0\), \[f^*\rho(z)\leq\sqrt{\frac{\alpha}{\beta}}\lambda_r^\alpha(z)\] for any \(z\in D(0,r)\), where \(f^*\rho(z)=(\rho\circ f)\abs{f'}\) is the metric pullback.
 \end{corollary}
 \begin{proof}
     Consider the \(\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})\), a conformal metric pullback of \(\rho\sqrt{\beta}\) to \(\mathbb{D}\), which satisfies \[K_{\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})}\leq -1.\] By Schwarz--Ahlfors--Pick (\cref{thm:schwarzahlforspick}), we have \[\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})(z)\leq\lambda(z)=\sqrt{\alpha}\qty(z\mapsto rz)^*\lambda_r^\alpha(z)\qfor z\in\mathbb{D}.\]
     Since \(r\neq 0\), this implies that \[f^*\qty(\rho\sqrt{\beta})(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z)\qfor z\in D(0,r).\] Since \(\sqrt{\beta}\) is a constant, \[\sqrt{\beta}f^*\rho(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z),\qquad\forall z\in D(0,r).\qedhere\]
 \end{proof}
-\begin{corollary}[\textsc{Generalized Liouville}]\label{crl:generalizedliouville}
+\begin{corollary}[\textsc{Generalized Liouville}]\label{cor:generalizedliouville}
     If \(f:\mathbb{C}\to U\) is entire and \(U\) admits a conformal metric of curvature bounded above by a negative constant, then \(f\) must be constant.
 \end{corollary}
 \begin{proof}
-    By assumption, \(\exists\beta>0\) such that \(\sup_{z\in U}\qty(K_\rho(z))\leq-\beta\). Then \cref{crl:generalizedahlfors} gives that \[f^*\rho(z)\leq\frac{1}{\sqrt{\beta}}\lambda_r(z)\qquad\forall z\in D(0,r)\] for any \(r>0\). As \(r\to\infty\), \(\lambda_r\to 0\). Hence, \(f^*\rho(z)=0\), implying that \(\qty(\rho\circ f)(z)\abs{f'}=0\). Hence, \(f\) is constant.
+    By assumption, \(\exists\beta>0\) such that \(\sup_{z\in U}\qty(K_\rho(z))\leq-\beta\). Then \cref{cor:generalizedahlfors} gives that \[f^*\rho(z)\leq\frac{1}{\sqrt{\beta}}\lambda_r(z)\qquad\forall z\in D(0,r)\] for any \(r>0\). As \(r\to\infty\), \(\lambda_r\to 0\). Hence, \(f^*\rho(z)=0\), implying that \(\qty(\rho\circ f)(z)\abs{f'}=0\). Hence, \(f\) is constant.
 \end{proof}
 \begin{remark}
-    \Cref{crl:generalizedliouville} implies Liouville's Theorem (\cref{thm:liouville}). To justify this differential-geometric generalization, suppose \(f:\mathbb{C}\to U\) is entire such that \(U\) is bounded. There then exists some \(R>0\) such that \(U\subseteq D(0,R)\). The metric \(\lambda_R\) has constant negative curvature \(K=-1\) on \(D(0,R)\), and hence, under \(\beta=1\), \cref{crl:generalizedliouville} implies that \(f\) is constant.
+    \Cref{cor:generalizedliouville} implies Liouville's Theorem (\cref{thm:liouville}). To justify this differential-geometric generalization, suppose \(f:\mathbb{C}\to U\) is entire such that \(U\) is bounded. There then exists some \(R>0\) such that \(U\subseteq D(0,R)\). The metric \(\lambda_R\) has constant negative curvature \(K=-1\) on \(D(0,R)\), and hence, under \(\beta=1\), \cref{cor:generalizedliouville} implies that \(f\) is constant.
 \end{remark}
 It is understood that a entire function is guaranteed to be constant if it is bounded. This is a statement of sufficiency, but it begs the question of the capacity for possible generalization of boundedness under which constancy is still always satisfied.
 
@@ -4211,7 +4211,7 @@ And we have the final implication:
     Let \(f:\mathbb{C}\to U\) be entire such that \(\mathbb{C}\setminus U\) contains two or more points. Then \(f\) is constant.
 \end{theorem}
 \begin{proof}
-    By the result of \cref{prop:conformalmetricnegativecurvatureexistencewhenomits2points}, we may find a conformal metric \(\rho\) on \(U\) such that \(\exists\beta>0\) satisfying \(K_\rho(U)\subseteq\mathbb{R}_{\leq-\beta}\). Then by the aforementioned generalization of Liouville (\cref{crl:generalizedliouville}), \(f\) exhibits constancy on \(\mathbb{C}\) and the assertion follows.
+    By the result of \cref{prop:conformalmetricnegativecurvatureexistencewhenomits2points}, we may find a conformal metric \(\rho\) on \(U\) such that \(\exists\beta>0\) satisfying \(K_\rho(U)\subseteq\mathbb{R}_{\leq-\beta}\). Then by the aforementioned generalization of Liouville (\cref{cor:generalizedliouville}), \(f\) exhibits constancy on \(\mathbb{C}\) and the assertion follows.
 \end{proof}
 \begin{remark}
     This is commonly stated in its contrapositive: the image of any non-constant entire function omits at most one value.
@@ -4292,7 +4292,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     \begin{equation}
         K_\mu=-\frac{\laplacian(\log\circ\mu)}{\mu^2}=-\frac{\laplacian(\log\circ\rho)}{\rho^2\beta}=\frac{K_\rho}{\beta}\leq-1\qq{on}\mathbb{C}\setminus\qty{0,1}.\label{eq:fundamentalnormalitytest_f_mu_pullback_inequality}
     \end{equation}
-    Let \(\zeta\in\Omega\) be arbitrary and let \(r_\zeta>0\) satisfy \(D\qty(\zeta,r_\zeta)\subseteq\Omega\). By \cref{crl:generalizedahlfors}, the pullback of \(\mu\) from \(\mathbb{C}\setminus\qty{0,1}\) to \(D\qty(\zeta,r_\zeta)\subseteq\Omega\) satisfies \[f^*\mu(z)\leq\lambda_{r_\zeta}(z-\zeta)\implies\mu\qty(f(z))\abs{f'(z)}\leq \frac{2r_\zeta}{r_\zeta^2-\abs{z-\zeta}^2}\qquad\forall z\in D\qty(\zeta,r_\zeta),f\in\widetilde{\mathcal{F}}.\]
+    Let \(\zeta\in\Omega\) be arbitrary and let \(r_\zeta>0\) satisfy \(D\qty(\zeta,r_\zeta)\subseteq\Omega\). By \cref{cor:generalizedahlfors}, the pullback of \(\mu\) from \(\mathbb{C}\setminus\qty{0,1}\) to \(D\qty(\zeta,r_\zeta)\subseteq\Omega\) satisfies \[f^*\mu(z)\leq\lambda_{r_\zeta}(z-\zeta)\implies\mu\qty(f(z))\abs{f'(z)}\leq \frac{2r_\zeta}{r_\zeta^2-\abs{z-\zeta}^2}\qquad\forall z\in D\qty(\zeta,r_\zeta),f\in\widetilde{\mathcal{F}}.\]
     Since \(\forall w\in\mathbb{C}\setminus\qty{0,1}\), \[\frac{\sigma(w)}{\mu(w)}=\frac{\frac{2}{1+\abs{w}^2}}{\frac{\sqrt{1+\abs{w}^{\frac13}}\sqrt{1+\abs{w-1}^{\frac13}}}{\abs{w}^{\frac56}\abs{w-1}^{\frac56}}}\to
         \begin{cases}
             0&\qq*{as}w\to 0\\
@@ -4304,7 +4304,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     Hence, \(\forall f\in\widetilde{\mathcal{F}}\), we have by virtue of \cref{eq:fundamentalnormalitytest_f_mu_pullback_inequality}, \[f^\sharp(z)=\sigma\circ f(z)\abs{f'(z)}\leq M\mu\circ f(z)\abs{f'(z)}\leq \frac{2rM}{r_\zeta^2-\abs{z-\zeta}^2}\] for any \(z\in D\qty(\zeta,r_\zeta)\). Now restricting \(z\) to \(D\qty(\zeta,\frac{r_\zeta}{2})\), we have \[\abs{z-\zeta}^2<\frac{r_\zeta^2}4\implies r_\zeta^2-\abs{z-\zeta}^2>\frac{3r_\zeta^2}4\implies\abs{f^\sharp(z)}<\frac{8r_\zeta M}{3r_\zeta^2}=\frac{8M}{3r_\zeta}.\]
     For any compact \(K\subset\Omega\), the collection of open disks \[\cbraces{D\qty(\zeta,\frac{r_\zeta}{2})}{\zeta\in K}\] forms an open cover of \(K\). Hence, by Heine--Borel (\cref{thm:heineborel}), it admits a finite subcover \[\cbraces{D\qty(\zeta_k,\frac{r_{\zeta_k}}{2})}{1\leq k\leq n}\] for some \(n\in\mathbb{N}\). Then \(\cbraces{f^\sharp}{f\in\widetilde{\mathcal{F}}}\) is uniformly bounded on \(K\) by \[M_K=\max\cbraces{\frac{8M}{3r_{\zeta_k}}}{1\leq k\leq n}\] and is thus locally uniformly bounded on \(\Omega\). Marty's Criterion (\cref{thm:marty}) gives the normality of \(\widetilde{\mathcal{F}}\); since \(\varphi\) is linear, it follows that \(\mathcal{F}\) is also normal on \(\Omega\).
 \end{proof}
-\begin{corollary}[name=\textsc{Montel--Carathéodory}]\label{crl:montelcaratheodory}
+\begin{corollary}[name=\textsc{Montel--Carathéodory}]\label{cor:montelcaratheodory}
     Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions on \(\Omega\). If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\qty{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
 \end{corollary}
 \begin{proof}
@@ -4341,11 +4341,11 @@ We will now prove a more advanced characterization of this distribution by metho
     \end{enumerate}
     In either case, we have derived a meromorphic continuation of \(f\) to \(0\), contradicting the assumption that \(0\) is an essential singularity of \(f\).
 \end{proof}
-\begin{corollary}[store=crl:greatpicardmeromorphic]\label{crl:greatpicardmeromorphic}
+\begin{corollary}[store=cor:greatpicardmeromorphic]\label{cor:greatpicardmeromorphic}
     Suppose that \(f\) is meromorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(f\qty(D^*\qty(z_0,\delta))\) omits at least three different values of \(\extcomplex\), then \(f\) has a meromorphic continuation to \(z_0\).
 \end{corollary}
 \begin{proof}
-    A linear fractional transformation maps the omitted values to \(0,1,\infty\), mapping \(f\) so that it exhibits holomorphy. Similar to \cref{crl:montelcaratheodory}, the preceeding result is preserved under the inverse linear fractional transformation.
+    A linear fractional transformation maps the omitted values to \(0,1,\infty\), mapping \(f\) so that it exhibits holomorphy. Similar to \cref{cor:montelcaratheodory}, the preceeding result is preserved under the inverse linear fractional transformation.
 \end{proof}
 \begin{remark}
     An accumulation point of poles is an essential singularity on the Riemann sphere.
@@ -4407,7 +4407,7 @@ If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2}
     By reiterating \(n\) times and reversing the order of differentiation and integration, the conclusion follows.
 \end{proof}
 By the boundedness assumption for \(f\), we have:
-\begin{corollary}[Cauchy's Estimate on Polydisks]\label{crl:cauchysestimatepolydisks}
+\begin{corollary}[Cauchy's Estimate on Polydisks]\label{cor:cauchysestimatepolydisks}
     Let \(\vb{a}=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
     Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(k_1, k_2,\ldots, k_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{j=1}^n \frac{\partial^{k_j}}{\partial z_j^{k_j}})f(\vb{z})}\leq\prod_{j=1}^n\qty(\frac{k_j!}{r_j^{k_j}})\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\] for any \(\vb{z}=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
 \end{corollary}
@@ -4440,7 +4440,7 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     Hence, we have \[f(\vb{z})=\frac{1}{\qty(2\piup\ii)^n}\sum_{k_1=0}^\infty\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\qty(z_1-a_1)^{k_1}\dd{\zeta_n}\cdots\dd{\zeta_1}}{\qty(\zeta_1-a_1)^{k_1+1}\qty(\zeta_2-z_2)\cdots\qty(\zeta_n-z_n)}\] where uniform convergence has allowed the interchange of summation and integration. Reiteration of this process gives \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\frac{\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)\dd{\zeta_n}\cdots\dd{\zeta_1}}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}.\]
     By the Cauchy Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a})=\frac{\prod_{j=1}^nk_j!}{\qty(2\piup\ii)^n}\oint_{\partial D(a_1,r_1)}\cdots\oint_{\partial D(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1},\] and hence if we let \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n \pdv[k_j]{z_j})f\qty(\vb{a}),\] then \cref{eq:taylorexpansionmultivariable_series} follows.
 
-    Cauchy's Estimate (\cref{crl:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq M\prod_{j=1}^n\qty(\frac{1}{\rho_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\) for some \(\rho_j>r_j\) for all \(j\). Hence,
+    Cauchy's Estimate (\cref{cor:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq M\prod_{j=1}^n\qty(\frac{1}{\rho_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n \partial D\qty(a_j,r_j)}\abs{f(\zeta)}\) for some \(\rho_j>r_j\) for all \(j\). Hence,
     \begin{align*}
         \abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}&\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\\
         &\leq M\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty \prod_{j=1}^n\abs{\frac{r_j}{\rho_j}}^{k_j}\\
