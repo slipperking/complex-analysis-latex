@@ -3945,7 +3945,9 @@ Let \(z=f^{-1}(w)\). Then we have
     Let \(K\subset\mathbb{C}\) be compact and \(f:K\to\mathbb{R}\) be continuous. Then \(\exists g\in C^0(\mathbb{C})\) such that \(g\equiv f\) on \(K\).
 \end{theorem}
 \begin{proof}
-    For any two disjoint closed \(A,B\subseteq\mathbb{C}\), consider the continuous separation function \[\eta_{A,B}(z)=\frac{\operatorname{dist}(z,A)}{\operatorname{dist}(z,A)+\operatorname{dist}(z,B)}\] so that \(\eta_{A,B}(A)=\qty{0}\) and \(\eta_{A,B}(B)=\qty{1}\).
+    For any two disjoint closed \(A,B\subseteq\mathbb{C}\), consider the continuous separation function \[\eta_{A,B}(z)=\frac{\operatorname{dist}(z,A)-\operatorname{dist}(z,B)}{\operatorname{dist}(z,A)+\operatorname{dist}(z,B)}\] so that \(\eta_{A,B}(A)=\qty{-1}\) and \(\eta_{A,B}(B)=\qty{1}\).
+
+    For simplicity, by the boundedness of \(f\), we may assume that \(f(K)=[-1,1]\) (by a scaling and a shift).
 \end{proof}
 Let \(f\in C^0(K)\) be holomorphic on \(\interior{K}\). Then \(f\) has a continuous extension to all of \(\mathbb{C}\) by virtue of the Tietze--Urysohn--Brouwer Theorem (\cref{thm:tietzeextension}). Suppose that \(K\) is fully contained within \(D(0,R)\) for some \(R>0\) (provided by compactness). Then the product with the piecewise-linear function \[\begin{cases}
     1&\qif*\abs{z}\leq R\\
