@@ -4003,46 +4003,7 @@ For \(r>0\), define
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
     Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) has finitely many connected components. Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Let \(E\) be a subset of \(\extcomplex\setminus K\) containing one point from each of its connected components. Then \(\forall\varepsilon>0\), there exists a rational function \(\psi(z)\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\]
 \end{theorem}
-\begin{proof}
-    Let \(\varepsilon > 0\). By the uniform continuity of \(f\) on the compact set \(K\), there exists \(r > 0\) sufficiently small such that \(\omega_f(r) < \varepsilon / (3C)\) for some absolute constant \(C > 0\) to be determined later (e.g., \(C = 30000\pi + 10\)). Construct the extension \(\Phi\) of \(f\) as in \cref{eq:integralofcontinuousextensionofholomorphic}, so that \(\abs{f - \Phi} < \varepsilon/3\) on \(K\) by~\ref{itm:integralofcontinuousextensionofholomorphicproperties_differbymodulusofcontinuity} of~\cref{prop:integralofcontinuousextensionofholomorphicproperties}. Moreover, \(\abs{\partial_{\overline{\zeta}} \Phi} \leq M := 4\pi \omega_f(r)/r < \varepsilon/(3Cr)\) everywhere by~\ref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}.
 
-    Cover the compact set \(H = \supp(\Phi) \setminus U\) by finitely many disks \(D(P_j, r')\), \(j = 1, \dots, k\), where \(r' > r\) is slightly larger than \(r\), each \(P_j \notin K\), the disks are disjoint, and no \(P_j\) lies in \(K\). Since \(\widehat{\mathbb{C}} \setminus K\) is connected, for each \(j\) there is a piecewise linear path \(\gamma_j\) contained in \(\widehat{\mathbb{C}} \setminus K\) connecting \(P_j\) to \(\infty\). Let \(\widetilde{E}_j = \gamma_j \cap \overline{D(P_j, r/2)}\), and take \(E_j\) to be its initial connected component if necessary. Then \(\diam(E_j) \geq r/2\), \(E_j \cap K = \emptyset\), and \(\widehat{\mathbb{C}} \setminus E_j\) is connected, all \(j = 1, \dots, k\).
-
-    Now \cref{prop:complementbiholomorphism584r4767r2estimates} supplies, for each \(j\), a function \(\widetilde{\varphi}_j(\zeta, z)\) with \(\zeta \in D(P_j, r)\), \(z \in \widehat{\mathbb{C}} \setminus E_j\), such that
-    \begin{equation}
-        \abs{\widetilde{\varphi}_j(\zeta, z)} < \frac{584}{r}, \label{eq:phi-bound}
-    \end{equation}
-    \begin{equation}
-        \left| \widetilde{\varphi}_j(\zeta, z) - \frac{1}{z - \zeta} \right| < \frac{4676 r^2}{\abs{z - \zeta}^3}, \label{eq:phi-approx}
-    \end{equation}
-    and \(\widetilde{\varphi}_j\) is jointly continuous in \(\zeta, z\). Define \(\widetilde{H}_j = H \cap D(P_j, r)\) and make the sets disjoint by setting \(H_1 = \widetilde{H}_1\), \(H_2 = \widetilde{H}_2 \setminus H_1\), and so forth. Define
-    \begin{equation}
-        G(z) = \sum_{j=1}^k \frac{1}{\pi} \iint_{H_j} \frac{\partial \Phi}{\partial \overline{\zeta}}(\zeta) \cdot \widetilde{\varphi}_j(\zeta, z) \, \dd\xi \dd\eta. \label{eq:G-definition}
-    \end{equation}
-    Then it is clear from the construction of the \(\widetilde{\varphi}_j\) that \(G\) is holomorphic on the complement of \(\bigcup_{j=1}^k E_j\). In particular, \(G\) is holomorphic on an open neighborhood \(V\) of \(K\) (since the \(E_j\) are disjoint from \(K\)).
-
-    We claim that \(G\) approximates \(\Phi\) on \(K\) as closely as desired provided \(r\) is sufficiently small. For \(z \in V\),
-    \begin{equation}
-        \begin{aligned}
-            |G(z) - \Phi(z)| &= \left| \sum_{j=1}^k \left[ \frac{1}{\pi} \iint_{H_j} \frac{\partial \Phi}{\partial \overline{\zeta}}(\zeta) \widetilde{\varphi}_j(\zeta, z) \, \dd\xi \dd\eta - \frac{1}{\pi} \iint_{H_j} \frac{\partial \Phi}{\partial \overline{\zeta}}(\zeta) \frac{1}{z - \zeta} \, \dd\xi \dd\eta \right] \right| \\
-            &\leq \sum_{j=1}^k \frac{M}{\pi} \iint_{H_j} \left| \widetilde{\varphi}_j(\zeta, z) - \frac{1}{z - \zeta} \right| \, \dd\xi \dd\eta
-        \end{aligned} \label{eq:G-Phi-diff}
-    \end{equation}
-    (by property~\ref{itm:integralofcontinuousextensionofholomorphicproperties_integralformula} of \cref{prop:integralofcontinuousextensionofholomorphicproperties}). This, in turn, is
-    \begin{equation}
-        \leq \frac{1}{4\pi r} \sum_{j=1}^k \iint_{H_j} \left| \widetilde{\varphi}_j(\zeta, z) - \frac{1}{z - \zeta} \right| \cdot 4\pi r \, \dd\xi \dd\eta \leq \frac{4\pi r k}{4\pi r} \max_j \iint_{H_j} \left| \widetilde{\varphi}_j(\zeta, z) - \frac{1}{z - \zeta} \right| \, \dd\xi \dd\eta, \label{eq:trivial-bound}
-    \end{equation}
-    but we bound more carefully by splitting each integral over \(H_j \cap D(z, 2r)\) (close) and \(H_j \setminus D(z, 2r)\) (far). For the far part (\(\abs{z - \zeta} > 2r\)), \cref{eq:phi-approx} gives
-    \[
-    \iint_{H_j \setminus D(z, 2r)} \left| \widetilde{\varphi}_j(\zeta, z) - \frac{1}{z - \zeta} \right| \, \dd\xi \dd\eta \leq 4676 r^2 \iint_{|w| > 2r} \frac{1}{|w|^3} \, \dd u \dd v = 4676 r^2 \cdot \frac{\pi}{r} = 4676 \pi r,
-    \]
-    so the far error per \(j\) is at most \(M \cdot 4676 \pi r / \pi = 4676 M r < 4676 \cdot (\varepsilon/(3Cr)) \cdot r = 4676 \varepsilon / (3C) < \varepsilon/3\) if \(C > 4676 \cdot k\) (finite \(k\)). For the close part, since the cover is fine and \(r\) small, the area of \(H_j \cap D(z, 2r)\) is \(O(r^2)\), and by \cref{eq:phi-bound}, \(\abs{\widetilde{\varphi}_j} < 584/r\), while the singular kernel \(1/(z - \zeta)\) is integrable with bound \(O(1/r)\) over \(O(r^2)\) area, so the close contribution per \(j\) is \(O(M r^2 \cdot (584/r + 1/r)) = O(M r) < \varepsilon/(3k)\) similarly, total close error \(< \varepsilon/3\).
-
-    Thus, \(\sup_{z \in K} \abs{G(z) - \Phi(z)} < \varepsilon/3\). Now \(G\) is holomorphic on a neighborhood \(V\) of \(K\). To apply Runge's theorem~\cref{prop:rungesimplepolesandremovablesingularityatinfinity}, note that each \(E_j\) lies in a distinct connected component of \(\widehat{\mathbb{C}} \setminus K\) (by construction via paths \(\gamma_j\)), so we may choose one point \(e_j \in E \cap C_{i(j)}\) per component and connect \(E_j\) to \(e_j\) if needed, but since poles in \(E_j \subset C_{i(j)}\) can be moved to \(e_j\) by Runge, there exists a rational \(\psi\) with poles only in \(E\) such that \(\sup_{z \in K} \abs{\psi(z) - G(z)} < \varepsilon/3\). Therefore,
-    \[
-    \sup_{z \in K} \abs{\psi(z) - f(z)} \leq \sup_{z \in K} \abs{\psi(z) - G(z)} + \sup_{z \in K} \abs{G(z) - \Phi(z)} + \sup_{z \in K} \abs{\Phi(z) - f(z)} < \varepsilon.
-    \]
-\end{proof}
 \subsection{Analytic Capacity}
 
 \section{Differential Geometry}\label{sec:differentialgeometry}
