@@ -3976,7 +3976,7 @@ For \(r>0\), define
         \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}\qty(z,\mathbb{C}\setminus K)>r}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_equivalenceonU}
         \item \(\abs{f(z)-\Phi(z)}\leq\omega_f(r)\) for all \(z\in\mathbb{C}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_differbymodulusofcontinuity}
         \item For all \(z\in\mathbb{C}\), \(\abs{\pdv{F}{\overline{z}}(z)}\leq\frac{4\piup\omega(r)}{r}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}
-        \item \(\Phi(z)=-\frac1\piup\iint_H\pdv{F}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\), where \(H=\supp(\Phi)\setminus U\).\label{itm:integralofcontinuousextensionofholomorphicproperties_integralformula}
+        \item \(\Phi(z)=-\frac1\piup\iint_H\pdv{\Phi}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\), where \(H=\supp(\Phi)\setminus U\).\label{itm:integralofcontinuousextensionofholomorphicproperties_integralformula}
     \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -3998,7 +3998,7 @@ For \(r>0\), define
         \abs{\pdv{\Phi}{\overline{z}}}&\leq\int_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\abs{f(z-\zeta)-f(z)}\dd{\xi}\dd{\eta}\leq\omega_f(r)\int_{D(0,r)}\abs{\grad{\lambda_r}}\dd{\xi}\dd{\eta}\\
         &\leq\frac{4\omega_f(r)}{r^3}\int_{D(0,r)}\dd{\xi}\dd{\eta}\leq\frac{4\omega_f(r)}{r^3}\cdot\piup r^2=\frac{4\piup\omega_f(r)}{r},
     \end{align*}
-    by~\ref{itm:diracdeltaapproximation_gradientstatement} of \cref{prop:diracdeltaapproximation}, confirming~\ref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}. Finally, \ref{itm:integralofcontinuousextensionofholomorphicproperties_integralformula} follows from \cref{cor:pompeiuwithoutcauchyterm}.
+    by~\ref{itm:diracdeltaapproximation_gradientstatement} of \cref{prop:diracdeltaapproximation}, confirming~\ref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}. Finally, \ref{itm:integralofcontinuousextensionofholomorphicproperties_integralformula} follows from \cref{cor:pompeiuwithoutcauchyterm} (since outside the support the integral trivially vanishes and within \(U\), \(\pdv{Phi}{\overline{\zeta}}\) vanishes).
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
     Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) is connected. Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a polynomial \(\psi(z)\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\qedhere\]
