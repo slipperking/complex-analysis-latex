@@ -3993,7 +3993,12 @@ For \(r>0\), define
         &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)f(z-\zeta)\dd{\xi}\dd{\eta}-f(z)\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\dd{\eta}\\
         &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)\qty(f(z-\zeta)-f(z))\dd{\xi}\dd{\eta}
     \end{align*}
-    by~\ref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} of \cref{prop:diracdeltaapproximation}. Hence, \[\abs{\pdv{\Phi}{\overline{z}}}\leq\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\abs{f(z-\zeta-f(z))}\dd{\xi}\dd{\eta}\leq\int_{\mathbb{C}}\grad{\lambda_r}\omega_f(r)\dd{\xi}\dd{\eta}\]
+    by~\ref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} of \cref{prop:diracdeltaapproximation}. Hence, 
+    \begin{align*}
+        \abs{\pdv{\Phi}{\overline{z}}}&\leq\int_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\abs{f(z-\zeta-f(z))}\dd{\xi}\dd{\eta}\leq\omega_f(r)\int_{D(0,r)}\abs{\grad{\lambda_r}}\dd{\xi}\dd{\eta}\\
+        &\leq\frac{4\omega_f(r)}{r^3}\int_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}\leq\frac{4\omega_f(r)}{r^3}
+    \end{align*}
+    by~\ref{itm:diracdeltaapproximation_gradientstatement} and~\ref{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral} of \cref{prop:diracdeltaapproximation}.
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
     Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) is connected. Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a polynomial \(\psi(z)\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\qedhere\]
