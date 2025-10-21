@@ -3973,8 +3973,8 @@ For \(r>0\), define
     The function \(\Phi\) as in \cref{eq:integralofcontinuousextensionofholomorphic} satisfies:
     \begin{enumerate}
         \item \(\Phi\in\mathbb{C}^1(\mathbb{C})\) and has compact support.\label{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}
-        \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}\qty(z,\mathbb{C}\setminus K)>r}\).
-        \item \(\abs{f(z)-\Phi(z)}\leq\omega_f(r)\) for all \(z\in\mathbb{C}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_equivalenceonU}
+        \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}\qty(z,\mathbb{C}\setminus K)>r}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_equivalenceonU}
+        \item \(\abs{f(z)-\Phi(z)}\leq\omega_f(r)\) for all \(z\in\mathbb{C}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_differbymodulusofcontinuity}
         \item For all \(z\in\mathbb{C}\), \(\abs{\pdv{F}{\overline{z}}(z)}\leq\frac{4\piup\omega(r)}{r}\).
         \item \(\Phi(z)=-\frac1\piup\iint_H\pdv{F}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\), where \(H=\supp(\Phi)\setminus U\).
     \end{enumerate}
@@ -3982,10 +3982,11 @@ For \(r>0\), define
 \begin{proof}
     Because \(\supp\qty(\lambda_r(z-\zeta))=\overline{D(z,r)}\) and \(\supp f\) is compact, for sufficiently large \(z\), the two supports will be disjoint and hence the integrand vanishes for all \(\zeta\). We can explicitly find that \[\pdv{\Phi}{x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\frac{\Phi(z+\Delta x)-\Phi(\Delta x)}{\Delta x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\int_{\mathbb{C}}\frac{\lambda_r(z+\Delta x-\zeta)-\lambda_r(z-\zeta)}{\Delta x}f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Because \(f\) is continuous and vanishes on a compact set, it is bounded. Similarly, \ref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability} of \cref{prop:diracdeltaapproximation} implies that \(\pdv{\lambda_r}{x}\) is bounded. Hence, by Lebesgue's Dominated Convergence Theorem, we have \[\pdv{\Phi}{x}=\int_{\mathbb{C}}{\pdv{\lambda_r}{x}}(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta},\] and similarly, \[\pdv{\Phi}{y}=\int_{\mathbb{C}}{\pdv{\lambda_r}{y}}(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Hence, \(\Phi\in C^1(\mathbb{C})\) and this is~\ref{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}. Because \[\Phi(z)=\iint_{\mathbb{C}}\lambda_r(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta}=\iint_{\mathbb{C}}\lambda_r(\zeta)f(z-\zeta)\dd{\xi}\wedge\dd{\eta},\] by~\ref{itm:diracdeltaapproximation_integralto1} of \cref{prop:diracdeltaapproximation}, we have
     \begin{align*}
-        \abs{f(z)-\Phi(z)}&\leq\abs{\int_{\mathbb{C}}f(z)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\dd{\zeta}-\int_{\mathbb{C}}f(z-\zeta)\lambda_r(\zeta)\dd{\overline{\zeta}}\wedge\dd{\zeta}}\\
-        &=\abs{\int_{\mathbb{C}}\lambda_r(\zeta)\qty(f(z)-f(z-\zeta))\dd{\overline{\zeta}}\wedge\dd{\zeta}}\\
-        &\leq\int_{\mathbb{C}}\lambda_r(\zeta)\abs{f(z)-f(z-\zeta)}\dd{\overline{\zeta}}\wedge\dd{\zeta}\leq\omega_f(r)
+        \abs{f(z)-\Phi(z)}&\leq\abs{\int_{\mathbb{C}}f(z)\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}-\int_{\mathbb{C}}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}}\\
+        &=\abs{\int_{\mathbb{C}}\lambda_r(\zeta)\qty(f(z)-f(z-\zeta))\dd{\xi}\wedge\dd{\eta}}\\
+        &\leq\int_{\mathbb{C}}\lambda_r(\zeta)\abs{f(z)-f(z-\zeta)}\dd{\xi}\wedge\dd{\eta}\leq\omega_f(r),
     \end{align*}
+    which implies~\ref{itm:integralofcontinuousextensionofholomorphicproperties_differbymodulusofcontinuity}.
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
     Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) is connected. Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a polynomial \(\psi(z)\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\qedhere\]
