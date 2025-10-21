@@ -883,8 +883,6 @@ From the above result, we can directly obtain the following theorem:
     \end{equation}
 \end{theorem}
 \begin{proof}
-    We aim to prove the theorem in three parts: the continuity of \(u(z)\), the continuous differentiability of \(u(z)\), and the fact that it satisfies the differential equation \(\pdv{u(z)}{\overline{z}}=\psi(z)\).
-
     Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(\overline{D\paren{z,\varepsilon}}\).\ \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\piup\ii}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \cref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\piup\ii}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\]
     Therefore, \cref{eq:onedimensionalpartialconjugatesolution} is continuous. A trivial substitution can be used to rewrite \[u(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta+z)}{\zeta}\dd{\zeta}\wedge\dd{\overline{\zeta}}\] Then,
     \begin{equation}
@@ -892,21 +890,21 @@ From the above result, we can directly obtain the following theorem:
     \end{equation}
     For a fixed \(z\), the value of \[\frac{\psi(\zeta+z+\Delta z)-\psi\paren{\zeta+z}}{\Delta z}\] tends to \(\pdv{\psi}{\zeta}\paren{\zeta+z}\) as \(\Delta z\to0\). Because \(\psi(\zeta)=\psi\qty(\zeta+z)\) has compact support and is \(C^1\), by \cref{prop:c1lipschitz}, it is Lipschitz continuous for a constant \(M\).
 
-    Let \(\Delta z<1\) and let \(K=\cbraces{z\in\mathbb{C}}{\inf_{\zeta\in\supp(\varphi)}|z-\zeta|\leq1}\). Then, \[\abs{\frac{\psi(\xi+z+\Delta z)-\psi\paren{\xi+z}}{\Delta z}}\leq M,\] and specifically, when \(\xi+z\notin K\), \[\frac{\psi(\xi+z+\Delta z)-\psi\paren{\xi+z}}{\Delta z}=0.\]
-    As shown above, the integrand is uniformly bounded by \(M\), which has a convergent integral of \(\int_{K}M\dd{\xi}\wedge\dd{\overline{\xi}}\), the limit \(\Delta z\to0\) may commute with the integral in \cref{eq:onedimensionalpartialconjugatesolution_differenceexpr}. Let \(\zeta=\alpha+\ii\beta\). From the real axis,
+    Let \(\abs{\Delta z}<1\) and let \(K=\cbraces{w\in\mathbb{C}}{\inf_{\zeta\in\supp\varphi}\abs{w-\zeta}\leq1}\). Then, \[\abs{\frac{\psi(\zeta+z+\Delta z)-\psi\paren{\zeta+z}}{\Delta z}}\leq M,\] and specifically, when \(\zeta+z\notin K\), \[\frac{\psi(\zeta+z+\Delta z)-\psi\paren{\zeta+z}}{\Delta z}=0.\]
+    As shown above, the integrand is uniformly bounded by \(M\), which has a convergent integral of \(\int_{K}M\dd{\zeta}\wedge\dd{\overline{\zeta}}\), the limit \(\Delta z\to0\) may commute with the integral in \cref{eq:onedimensionalpartialconjugatesolution_differenceexpr}. Let \(\zeta=\xi+\ii\eta\). From the real axis,
     \begin{equation}
-        \pdv{u}{x}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\alpha}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\alpha}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
+        \pdv{u}{x}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\zeta}\pdv{\psi}{\xi}\paren{\zeta+z}\dd{\zeta}\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\xi}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
     \end{equation}
     From the imaginary axis,
     \begin{equation}
-        \pdv{u}{y}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\xi}\pdv{\psi}{\beta}\paren{\xi+z}\dd{\xi}\wedge\dd{\overline{\xi}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\beta}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}
+        \pdv{u}{y}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\zeta}\pdv{\psi}{\eta}\paren{\zeta+z}\dd{\zeta}\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\eta}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}
     \end{equation}
     Since \(\psi\in C^1\paren{\mathbb{C}}\) and has Lipschitz constant \(M\), \cref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative,eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative} are both continuous (by the same argument for the continuity of \(u(z)\)). Thus, \(u\in C^1(\mathbb{C})\). It follows from the two equations that \[\pdv{u}{\overline{z}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{K}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\]
     By \cref{cor:pompeiuwithoutcauchyterm}, \[\pdv{u}{\overline{z}}=\psi(z).\qedhere\]
 \end{proof}
 \begin{remark}
     In the first part, we established that a function \(\psi(z)\in C^0(\mathbb{C})\) with compact support satisfies \[u(z)=-\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\in C^0(\mathbb{C}).\]
-    If \(\psi(z)\in C^1(\mathbb{C})\), then the first order derivatives of \(u(z)\) can be written in the same form (\cref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative,eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}) since \(\pdv{\psi}{\alpha},\pdv{\psi}{\beta}\in C^0(\mathbb{C})\) and are also compactly supported. Then they too are continuous functions, and \(u(z)\in C^1(\mathbb{C})\).
+    If \(\psi(z)\in C^1(\mathbb{C})\), then the first order derivatives of \(u(z)\) can be written in the same form (\cref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative,eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}) since \(\pdv{\psi}{\xi},\pdv{\psi}{\eta}\in C^0(\mathbb{C})\) and are also compactly supported. Then they too are continuous functions, and \(u(z)\in C^1(\mathbb{C})\).
 
     Then using the same argument, In general, for \(\psi(z)\in C^k(\mathbb{C})\), the same process can be used recursively to find that \(u(z)\in C^k(\mathbb{C})\) as well.
 
@@ -3967,7 +3965,7 @@ Let \(z=f^{-1}(w)\). Then we have
 Let \(f\in C^0(K)\) be holomorphic on \(\interior{K}\). Then \(f\) has a continuous extension to all of \(\mathbb{C}\) by virtue of \cref{cor:tietzeextensioncomplexcompactsupport}. Define the \textscsl{modulus of continuity} of \(f\) to be the function \(\omega_f:\mathbb{R}_{\geq0}\to\mathbb{R}_{\geq0}\) with \[\omega_f(\delta)=\sup_{\substack{z,\zeta\in\mathbb{C}\\\abs{z-\zeta}\leq\delta}}\abs{f(z)-f(\zeta)}.\]
 Because \(f\) has compact support, it must be uniformly continuous; hence we have \(\lim_{\delta\to0^+}\omega_f(\delta)=0\).
 
-For \(r>0\), define 
+For \(r>0\), define
 \begin{equation*}
     \Phi(z)=\iint_\mathbb{C}\lambda_r(z-\zeta)f(\zeta)\dd{\xi}\dd{\eta}\qq{where}\zeta=\xi+\ii\eta,\label{eq:integralofcontinuousextensionofholomorphic}
 \end{equation*} where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproximation_lambdadefinition}.
@@ -3975,14 +3973,14 @@ For \(r>0\), define
     The function \(\Phi\) as in \cref{eq:integralofcontinuousextensionofholomorphic} satisfies:
     \begin{enumerate}
         \item \(\Phi\in\mathbb{C}^1(\mathbb{C})\) and has compact support.\label{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}
-        \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}(z,\mathbb{C}\setminus K)>r}\).
+        \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}\qty(z,\mathbb{C}\setminus K)>r}\).
         \item \(\abs{f(z)-\Phi(z)}\leq\omega_f(r)\) for all \(z\in\mathbb{C}\).
         \item For all \(z\in\mathbb{C}\), \(\abs{\pdv{F}{\overline{z}}(z)}\leq\frac{4\piup\omega(r)}{r}\).
         \item \(\Phi(z)=-\frac1\piup\iint_H\pdv{F}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\), where \(H=\supp(\Phi)\setminus U\).
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Because \(\supp\qty(\lambda_r(z-\zeta))=\overline{D(z,r)}\) and \(\supp f\) is compact, for sufficiently large \(z\), the two supports will be disjoint and hence the integrand vanishes for all \(\zeta\). We can explicitly find that \[\pdv{\Phi}{x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\frac{\Phi(z+\Delta x)-\Phi(\Delta x)}{\Delta x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\int_{\mathbb{C}}\frac{\lambda_r(z+\Delta x-\zeta)-\lambda_r(z-\zeta)}{\Delta x}f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Because \(f\) is continuous and vanishes on a compact set, it is bounded. Similarly, \ref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability} of \cref{prop:diracdeltaapproximation} implies that \(\pdv{\lambda_r}{x}\) is bounded. Hence, by Lebesgue's Dominated Convergence Theorem, we have \[\pdv{\Phi}{x}=\int_{\mathbb{C}}{\pdv{\lambda_r}{x}}(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta},\] and similarly, \[\pdv{\Phi}{y}=\int_{\mathbb{C}}{\pdv{\lambda_r}{y}}(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Hence, \(\Phi\in C^1(\mathbb{C})\) and this is \ref{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}.
+    Because \(\supp\qty(\lambda_r(z-\zeta))=\overline{D(z,r)}\) and \(\supp f\) is compact, for sufficiently large \(z\), the two supports will be disjoint and hence the integrand vanishes for all \(\zeta\). We can explicitly find that \[\pdv{\Phi}{x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\frac{\Phi(z+\Delta x)-\Phi(\Delta x)}{\Delta x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\int_{\mathbb{C}}\frac{\lambda_r(z+\Delta x-\zeta)-\lambda_r(z-\zeta)}{\Delta x}f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Because \(f\) is continuous and vanishes on a compact set, it is bounded. Similarly, \ref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability} of \cref{prop:diracdeltaapproximation} implies that \(\pdv{\lambda_r}{x}\) is bounded. Hence, by Lebesgue's Dominated Convergence Theorem, we have \[\pdv{\Phi}{x}=\int_{\mathbb{C}}{\pdv{\lambda_r}{x}}(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta},\] and similarly, \[\pdv{\Phi}{y}=\int_{\mathbb{C}}{\pdv{\lambda_r}{y}}(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Hence, \(\Phi\in C^1(\mathbb{C})\) and this is~\ref{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}.
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
     Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) is connected. Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a polynomial \(\psi(z)\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\qedhere\]
