@@ -3833,7 +3833,10 @@ The proof proposed by Mergelyan is almost trivial when compared with the results
 As we have previously seen, there is a prevalent notion in complex analysis that regards \(\infty\) intrinsically as essentially any other point of \(\extcomplex\). An appertaining question relates to the complex derivative at \(\infty\). Although \[f'(\infty)\overset{?}{=}\lim_{z\to\infty} f'(z)\] may seem to be a natural object to consider, it is quite impractical; there exist functions which decay quickly to 0, while \(f'(z)\) is unbounded as \(z\to\infty\) (take \(z\mapsto\frac{\sin\qty(z^2)}{\sqrt{z}}\) as an example). Even the assumption that \(\lim_{z\to\infty}f'(z)=0\) does not imply that \(f(z)\) has a removable singularity at \(\infty\) (consider \(z\mapsto\sqrt{z}\)).
 \begin{definition}
     Let \(R>0\), \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic such that \(f\) has a removable singularity at \(\infty\). Then we define the derivatives of \(f\) at \(\infty\) to be \[f^{(n)}(\infty)=\eval{\dv[n]{z}f\qty(\frac1z)}_{z=0}.\]
-    In the case that \(n=1\), we have \[f'(\infty)=-\lim_{z\to\infty}z^2 f'\qty(z).\]
+    In the case that \(n=1\), we have 
+    \begin{equation}
+        f'(\infty)=-\lim_{z\to\infty}z^2 f'\qty(z).\label{eq:derivativeatinfinity}
+    \end{equation}
 \end{definition} This is precisely the first singular term of the Laurent expansion of \(f\) at \(\infty\).
 \begin{remark}
     This definition may feel unsatisfactory, but the underlying logic here is similar to the method used to generalize residues to \(\infty\).
@@ -4044,7 +4047,7 @@ For \(r>0\), define
 \subsection{Analytic Capacity}
 The theory of rational approximation is essentially built upon the concept of \textscsl{analytic capacity}, which was introduced in 1940 by Finnish mathematician Lars Ahlfors. Our purpose here is to give a brief and elementary introduction. Despite its importance, still many trivially simple results remain conjecture.
 \begin{definition}[Analytic Capacity]\label{def:analyticcapacity}
-    Let \(K\subset\mathbb{C}\) be compact. The \textscsl{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\qty{\abs{f'(\infty)}:f\in\mathcal{H}(\mathbb{C}\setminus K)},\] where \(\mathcal{H}(U)\) is the space of all bounded holomorphic functions on the set \(U\).
+    Let \(K\subset\mathbb{C}\) be compact. The \textscsl{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\qty{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}
 \end{definition}
 \section{Differential Geometry}\label{sec:differentialgeometry}
 \subsection{A Note on Curvature}
