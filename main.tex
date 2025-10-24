@@ -3988,15 +3988,15 @@ For \(r>0\), define
     \end{align}
     which implies~\ref{itm:integralofcontinuousextensionofholomorphicproperties_differbymodulusofcontinuity}. For \(z\in U\), \(\zeta\in D(0,r)\) now implies that \(z-\zeta\in\interior{K}\) and hence \(f(z)-f(z-\zeta)\) is holomorphic in \(\zeta\) on \(D(z,r)\). By \ref{itm:diracdeltaapproximation_integralformula} of \cref{prop:diracdeltaapproximation}, \cref{eq:integralofcontinuousextensionofholomorphicproperties_differencebound} becomes \[\abs{\int_{\mathbb{C}}\lambda_r(\zeta)\qty(f(z)-f(z-\zeta))\dd{\xi}\wedge\dd{\eta}}=\abs{f(z)-f(z-0)}=0,\] which proves~\ref{itm:integralofcontinuousextensionofholomorphicproperties_equivalenceonU}. Because \(\forall z\in\mathbb{C}\),
     \begin{align*}
-        \pdv{\Phi}{\overline{z}}\qty(z)&=\frac12\qty(\pdv{\Phi}{x}+\ii\pdv{\Phi}{y})=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{z}}\qty(z-\zeta)f(\zeta)\dd{\xi}\dd{\eta}\\
-        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)f(z-\zeta)\dd{\xi}\dd{\eta}\\
-        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)f(z-\zeta)\dd{\xi}\dd{\eta}-f(z)\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\dd{\eta}\\
-        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)\qty(f(z-\zeta)-f(z))\dd{\xi}\dd{\eta}
+        \pdv{\Phi}{\overline{z}}\qty(z)&=\frac12\qty(\pdv{\Phi}{x}+\ii\pdv{\Phi}{y})=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{z}}\qty(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta}\\
+        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)f(z-\zeta)\dd{\xi}\wedge\dd{\eta}\\
+        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)f(z-\zeta)\dd{\xi}\dd{\eta}-f(z)\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}\\
+        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)\qty(f(z-\zeta)-f(z))\dd{\xi}\wedge\dd{\eta}
     \end{align*}
     by~\ref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} of \cref{prop:diracdeltaapproximation}. Hence,
     \begin{align*}
-        \abs{\pdv{\Phi}{\overline{z}}}&\leq\int_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\abs{f(z-\zeta)-f(z)}\dd{\xi}\dd{\eta}\leq\omega_f(r)\int_{D(0,r)}\abs{\grad{\lambda_r}}\dd{\xi}\dd{\eta}\\
-        &\leq\frac{4\omega_f(r)}{r^3}\int_{D(0,r)}\dd{\xi}\dd{\eta}\leq\frac{4\omega_f(r)}{r^3}\cdot\piup r^2=\frac{4\piup\omega_f(r)}{r},
+        \abs{\pdv{\Phi}{\overline{z}}}&\leq\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\abs{f(z-\zeta)-f(z)}\dd{\xi}\dd{\eta}\leq\omega_f(r)\iint_{D(0,r)}\abs{\grad{\lambda_r}}\dd{\xi}\dd{\eta}\\
+        &\leq\frac{4\omega_f(r)}{r^3}\iint_{D(0,r)}\dd{\xi}\dd{\eta}\leq\frac{4\omega_f(r)}{r^3}\cdot\piup r^2=\frac{4\piup\omega_f(r)}{r},
     \end{align*}
     by~\ref{itm:diracdeltaapproximation_gradientstatement} of \cref{prop:diracdeltaapproximation}, confirming~\ref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}. Finally, \ref{itm:integralofcontinuousextensionofholomorphicproperties_integralformula} follows from \cref{cor:pompeiuwithoutcauchyterm} (since outside the support the integral trivially vanishes and within \(U\), \(\pdv{\Phi}{\overline{\zeta}}\) vanishes as a consequence of holomorphy).
 \end{proof}
@@ -4013,7 +4013,7 @@ For \(r>0\), define
 
     Now for each \(j\) and \(k\), \cref{prop:complementbiholomorphism584r4767r2estimates} now provides the existence of a holomorphic function \(\phi_{\zeta,k}^{(j)}:\extcomplex\setminus E_k^{(j)}\to\mathbb{C}\) where \(\zeta\in D\qty(p_k,r)\) such that \[\abs{\phi_{\zeta,k}^{(j)}(z)}\leq\frac{584}r,\quad\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\leq\frac{4676}{\abs{z-\zeta}^3}\qquad\forall z\in D\qty(p_k,r).\]
     Let \(\widetilde{H}_k^{(j)}=H\cap D\qty(\zeta_k^{(j)},2r)\), for each \(j,k\) and construct the disjoint sets \[H_k^{(j)}=\widetilde{H}_k^{(j)}\setminus \widetilde{H}_k^{(j-1)}\text{ if }j\neq 1,\qquad H_k^{1}=\widetilde{H}_k^{1}\setminus\widetilde{H}_{k-1}^{m_{k-1}}\quad\forall k>1,\qquad H_1^{(1)}=\widetilde{H}_1^{(1)}.\]
-    Thus the union \[\bigcup_{k=1}^n\bigcup_{j=1}^{m_k}H_k^{(j)}=H\cap\qty(\bigcup D\qty(\zeta_k^{(j)},2r))=H\] since the set of all \(D\qty(\zeta_k^{(j)},2r)\) covers \(H\). Let \[\Psi\]
+    Thus the union \[\bigcup_{k=1}^n\bigcup_{j=1}^{m_k}H_k^{(j)}=H\cap\qty(\bigcup D\qty(\zeta_k^{(j)},2r))=H\] since the set of all \(D\qty(\zeta_k^{(j)},2r)\) covers \(H\). Let \[\Psi(z)=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int\]
 \end{proof}
 \subsection{Analytic Capacity}
 
