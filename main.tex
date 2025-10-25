@@ -130,7 +130,7 @@ Made with \LaTeX.\AddToHookNext{shipout/background}{
 \subsection{Topological Preliminaries}
 The following definitions are subject to the assumption where the topological space is defined to be \(X=\mathbb{C}^n\). This is satisfactory to the main purpose of our proceeding passage, but it is noteworthy that it can be generalized to more abstract sets.
 \begin{definition}[Accumulation Point]\label{def:accumulationpoint}
-    A point \(z\in\mathbb{C}^n\) is an \textscsl{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\{z\})\cap X\neq\emptyset\)
+    A point \(z\in\mathbb{C}^n\) is an \textscsl{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\qty{z})\cap X\neq\emptyset\)
 \end{definition}
 \begin{definition}[Closure]\label{def:closure}
     For a set \(X\in\mathbb{C}^n\), define the \textscsl{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and its accumulation points.
@@ -169,7 +169,7 @@ The following definitions are subject to the assumption where the topological sp
 \begin{proof}
     We will first show that any set satisfying the condition is compact.
 
-    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\cbraces{B^n(0,k)}{k\in\mathbb{N}}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\{B^n(0,k_1),\ldots,B^n(0,k_m)\}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB^n(0,k_i)=B^n\qty(0,\max\qty{k_1,\ldots k_m}).\] By contradiction, \(X\) must be bounded.
+    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\cbraces{B^n(0,k)}{k\in\mathbb{N}}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\qty{B^n(0,k_1),\ldots,B^n(0,k_m)}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB^n(0,k_i)=B^n\qty(0,\max\qty{k_1,\ldots k_m}).\] By contradiction, \(X\) must be bounded.
 
     \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
     \[\mathcal{U}=\cbraces{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k})}}{\forall k\in\mathbb{N}}.\]
@@ -388,13 +388,13 @@ We will now give statements relating to operations on Riemann integrals:
 \subsection{The Extended Complex Plane and its Spherical Representation}
 All complex numbers form a field that extends the real number field. A complex number \(\alpha+\ii\beta\) can be visualized on a rectangular plane as the point \((\alpha,\beta)\), with two axes: the real axis and the imaginary axis. It is well known that any complex number also has the polar form \(r\ee^{\ii\theta}=r\paren{\cos\theta+\ii\sin\theta}\).
 
-The infinity point, \(\infty\), extends \(\mathbb{C}\) with \(\extcomplex=\mathbb{C}\cup\{\infty\}\). The following arithmetic operations are defined: \(\forall a\in\mathbb{C}\), \(a+\infty=\infty+a=\infty\), and \(\forall b\in\mathbb{C}\setminus\{0\}\), \(b\cdot\infty=\infty\cdot b=\infty\) and \(\frac{a}{\infty}=0\).
+The infinity point, \(\infty\), extends \(\mathbb{C}\) with \(\extcomplex=\mathbb{C}\cup\qty{\infty}\). The following arithmetic operations are defined: \(\forall a\in\mathbb{C}\), \(a+\infty=\infty+a=\infty\), and \(\forall b\in\mathbb{C}\setminus\qty{0}\), \(b\cdot\infty=\infty\cdot b=\infty\) and \(\frac{a}{\infty}=0\).
 
 Let \(S^2=\cbraces{\qty(x_1,x_2,x_3)\in\mathbb{R}}{x_1^2+x_2^2+x_3^2=1}\). There exists a \textscsl{stereographic projection} of \(S^2\) onto \(\extcomplex\). For every point other than \((0,0,1)\), there is a corresponding complex number
 \begin{equation}\label{eq:extcomplexformula1}
     z=\frac{x_1+\ii x_2}{1-x_3}.
 \end{equation}
-This correspondence between \(\mathbb{C}\) and \(S^2\setminus\left\{(0,0,1)\right\}\) is injective. In fact, the inverse can be solved for:
+This correspondence between \(\mathbb{C}\) and \(S^2\setminus\qty{(0,0,1)}\) is injective. In fact, the inverse can be solved for:
 \[\abs{z}^2=\frac{1-x_3^2}{\paren{1-x_3}^2}=\frac{1+x_3}{1-x_3},\]
 which results in \[x_3=\frac{\abs{z}^2-1}{\abs{z}^2+1},\]
 and consequently,
