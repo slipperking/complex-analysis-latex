@@ -340,7 +340,7 @@ It is important to note that in the case of multiple \textit{explicit} variables
 \begin{proof}
     If \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) satisfying both \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\), then \(f\) is not uniformly continuous over \((0,1)\).
 
-    Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\left|x-y\right|=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
+    Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\abs{x-y}=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
 \end{proof}
 \begin{theorem}[\textsc{Heine--Cantor}]\label{thm:heinecantor}
     A continuous function on a compact set \(K\) is uniformly continuous on \(K\).
@@ -420,8 +420,8 @@ By multiplying the second equation by \(\ii\) and adding it to the first, we obt
 \begin{equation}
     \pdv{f}{x}=-\ii\pdv{f}{y}\label{eq:cauchyriemanneqs2}
 \end{equation}
-\cref{eq:cauchyriemanneqs1,eq:cauchyriemanneqs2} are known as the \textscsl{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\left|\Re(z)\Im(z)\right|}\). Let \(z=x+\ii y\), \(x=\alpha t\), and \(y=\beta t\). Then
-\[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\left|\alpha\beta t^2\right|}}{\alpha t+\ii\beta t}=\frac{\sqrt{\left|\alpha\beta\right|}}{\alpha+\ii\beta}.\]
+\cref{eq:cauchyriemanneqs1,eq:cauchyriemanneqs2} are known as the \textscsl{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\abs{\Re(z)\Im(z)}}\). Let \(z=x+\ii y\), \(x=\alpha t\), and \(y=\beta t\). Then
+\[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\abs{\alpha\beta t^2}}}{\alpha t+\ii\beta t}=\frac{\sqrt{\abs{\alpha\beta}}}{\alpha+\ii\beta}.\]
 The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However, the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
 \begin{definition}[Holomorphy]\label{def:holomorphy}
     A function \(f:U\to\mathbb{C}\) is said to be \textscsl{holomorphic} at \(z_0\in U\) if it is complex differentiable on a neighborhood of \(z_0\). If \(f(z)\) is holomorphic for every point in an open connected set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over compact set \(K\) if it is holomorphic on a neighborhood of \(K\).
@@ -463,7 +463,7 @@ We have previously introduced the concept of expressing a complex function as a 
     \pdv{z}=\pdv{x}\pdv{x}{z}+\pdv{y}\pdv{y}{z}=\frac{1}{2}\qty(\pdv{x}-\ii\pdv{y})\label{eq:wirtingerderivative1}
 \end{equation} and
 \begin{equation}
-    \pdv{}{\overline{z}}=\pdv{}{x}\pdv{x}{\overline{z}}+\pdv{}{y}\pdv{y}{\overline{z}}=\frac{1}{2}\left(\pdv{}{x}+\ii\pdv{}{y}\right).\label{eq:wirtingerderivative2}
+    \pdv{}{\overline{z}}=\pdv{}{x}\pdv{x}{\overline{z}}+\pdv{}{y}\pdv{y}{\overline{z}}=\frac{1}{2}\qty(\pdv{}{x}+\ii\pdv{}{y}).\label{eq:wirtingerderivative2}
 \end{equation}
 If \cref{eq:wirtingerderivative1} is set equal to 0, then it is the equivalent form of the homogeneous Cauchy--Riemann Equations. Then for a holomorphic function \(f(z)\), the Wirtinger derivative \(\pdv{f}{z}=\dv{f}{z}\).
 
@@ -1033,7 +1033,7 @@ When Cauchy formalized \cref{thm:cauchyintegralformula,thm:cauchyintegraltheorem
 
     By the definition of holomorphy, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in D\paren{z_0,\delta}\), \[\abs{\frac{f\paren{z}-f\paren{z_0}}{z-z_0}-f'\paren{z_0}}<\varepsilon,\]\[\abs{f\paren{z}-f\paren{z_0}-f'\paren{z_0}\paren{z-z_0}}<\varepsilon\abs{z-z_0},\] and \(\exists N\in\mathbb{N}\) such that \(\forall n\in \mathbb{N}_{>N}\), \(\Delta^n\subset D\paren{z_0,\delta}\). By \cref{thm:cauchyintegraltheorem}, since the functions \(z\mapsto 1\) and \(z\mapsto z\) are both entire, \[\int_{\Delta^n}\ddz=0,\quad\int_{\Delta^n}z\ddz=0.\] Then
     \begin{align*}
-        \int_{\Delta^n}f(z)\ddz & =\int_{\Delta^n}f(z)\ddz-f\paren{z_0}\int_{\Delta^n}\ddz-f'\paren{z_0}\left(\int_{\Delta^n}z\ddz-z_0\int_{\Delta^n}\ddz\right) \\
+        \int_{\Delta^n}f(z)\ddz & =\int_{\Delta^n}f(z)\ddz-f\paren{z_0}\int_{\Delta^n}\ddz-f'\paren{z_0}\qty(\int_{\Delta^n}z\ddz-z_0\int_{\Delta^n}\ddz) \\
         & =\int_{\Delta^n}\brackets{f(z)-f\paren{z_0}-f'\paren{z_0}\paren{z-z_0}}\ddz.
     \end{align*}
     Because the distance between any two points in the interior of a triangle is always less than its perimeter, using the triangle inequality for complex integrals, \[\int_{\Delta^n}\abs{f(z)}\abs{\ddz}\leq\varepsilon\int_{\Delta^n}\abs{z-z_0}\abs{\ddz}=\frac{\varepsilon L}{2^n}\int_{\Delta^n}\abs{\ddz}=\frac{\varepsilon L^2}{4^n}.\]
@@ -1371,7 +1371,7 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
 \begin{theorem}\label{thm:nthderivativeboundedl1norm}
     Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\) (\(V\) is a neighborhood of \(K\) that is relatively compact in \(U\)). Let \(f(z)\) be holomorphic in \(U\). Then there exists a sequence \(\cbraces{c_n}\subset\mathbb{R}\) dependent only on \(K\) and \(V\) (independent of \(f\) and \(z\)) such that \(\forall n\in\mathbb{N}\),
     \begin{equation}
-        \sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\left\|f\right\|_{L^1(V)},\label{eq:nthderivativeboundedl1norm_statement}
+        \sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\norm{f}_{L^1(V)},\label{eq:nthderivativeboundedl1norm_statement}
     \end{equation}
     where \(\norm{f}_{L^p(V)}\) denotes \[\paren{\int_V\abs{f(z)}^p\ddx\wedge\ddy}^{\flatfrac{1}{p}}.\]
 \end{theorem}
@@ -1391,7 +1391,7 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
     Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\). For any holomorphic function \(f(z)\) in \(U\), there exist constants (independent of \(z\) and \(f\)) \(\cbraces{c_n}\) such that \[\sup_{z\in K}\abs{f^{(n)}(z)}\leq c_n\sup_{z\in V}\abs{f(z)}.\]
 \end{corollary}
 \begin{proof}
-    Starting from \cref{eq:nthderivativeboundedl1norm_statement}, observe that \[c_n\left\|f\right\|_{L^1(V)}\leq c_n\mathrm{area}(V)\sup_{z\in V}\abs{f(z)},\] and we can define a new set of constants equal to \(c_n\mathrm{area}(V)\), which are still independent of \(z\).
+    Starting from \cref{eq:nthderivativeboundedl1norm_statement}, observe that \[c_n\norm{f}_{L^1(V)}\leq c_n\mathrm{area}(V)\sup_{z\in V}\abs{f(z)},\] and we can define a new set of constants equal to \(c_n\mathrm{area}(V)\), which are still independent of \(z\).
 \end{proof}
 For the next theorem we will briefly introduce the concept of \textscsl{analytic continuation}.
 \begin{definition}[Analytic Continuation]\label{def:analyticcontinuation}
