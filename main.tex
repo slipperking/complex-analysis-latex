@@ -1434,15 +1434,15 @@ A topology allows the definition and general conceptualization of continuity, co
 \begin{example}
     Consider the function \(f: \mathbb{R} \to \mathbb{R}\) defined by
     \[
-    f(x) =
-    \begin{cases}
-        1 & \text{if } x \geq 0, \\
-        0 & \text{if } x < 0.
-    \end{cases}
+        f(x) =
+        \begin{cases}
+            1 & \text{if } x \geq 0, \\
+            0 & \text{if } x < 0.
+        \end{cases}
     \]
     We equip both the domain and codomain with the standard topology on \(\mathbb{R}\). Let \(V = (0.5, 1.5) \subseteq \mathbb{R}\). Then the preimage of \(V\) is
     \[
-    f^{-1}(V) = \{ x \in \mathbb{R} \mid f(x) \in (0.5, 1.5) \} = [0, \infty),
+        f^{-1}(V) = \{ x \in \mathbb{R} \mid f(x) \in (0.5, 1.5) \} = [0, \infty),
     \]
     which is not an open set in the standard topology on \(\mathbb{R}\). Thus, \(f\) is not continuous.
 \end{example}
@@ -1486,13 +1486,13 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 \begin{proof}
     Let \(\{ K_n \}_{n \in \mathbb{N}} \subset \Omega\) be an exhaustion by compact sets with \(K_0 = \emptyset\) and \(K_n \subseteq \interior{K_{n+1}}\) for all \(n \in \mathbb{N}\). For each \(n \in \mathbb{N}\), define
     \[
-    W_n = \interior{K_{n+1}} \setminus K_{n-1}, \quad V_n = K_n \setminus \interior{K_{n-1}},
+        W_n = \interior{K_{n+1}} \setminus K_{n-1}, \quad V_n = K_n \setminus \interior{K_{n-1}},
     \]
     where \(K_{-1} = \emptyset\). Each \(W_n\) is open and each \(V_n\) is compact, with \(V_n \subseteq W_n\) and \(\bigcup_{n \in \mathbb{N}} V_n = \Omega\).
 
     For each \(n \in \mathbb{N}\) and each \(z \in V_n\), since \(W_n\) is open and contains \(z\), there exists \(U_{z,n} \in \mathfrak{B}\) such that \(z \in U_{z,n} \subseteq W_n\). The collection \(\{ U_{z,n} \mid z \in V_n \}\) is an open cover of the compact set \(V_n\), so by the Heine--Borel theorem it admits a finite subcover: there exist finitely many points \(z_{n,1}, \dots, z_{n,k_n} \in V_n\) such that
     \[
-    V_n \subset \bigcup_{i=1}^{k_n} U_{z_{n,i},n} \subseteq W_n.
+        V_n \subset \bigcup_{i=1}^{k_n} U_{z_{n,i},n} \subseteq W_n.
     \]
     Enumerate all such \(U_{z_{n,i},n}\) over \(n \in \mathbb{N}\) and \(i = 1, \dots, k_n\) to obtain a countable collection \(\{ U_j \}_{j \in \mathbb{N}} \subseteq \mathfrak{B}\). Then \(\bigcup_{j \in \mathbb{N}} U_j = \Omega\), proving \ref{itm:locallyfiniteopencoverexistence_cover}.
 
@@ -1566,25 +1566,21 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 \end{theorem}
 \begin{proof}
     For each \(z\in\Omega\) there exists \(r_z>0\) and \(k_z\in\mathbb{N}\) such that \(\overline{D(z,r_z)}\subset\Omega_{k_z}\). The collection \(\cbraces{D(z,r)\mid z\in\Omega,\ 0<r<r_z}\) is an open basis for \(\Omega\). By \cref{lem:locallyfiniteopencoverexistence} there exists a locally finite open cover \(\cbraces{D(z_j,r_{z_j})}_{j\in\mathbb{N}}\subseteq\mathfrak{B}\) of \(\Omega\) with
-    \[
-    D(z_j,r_{z_j})\subset\overline{D(z_j,r_{z_j})}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.
-    \]
-
+    \[D\qty(z_j,r_{z_j})\subset\overline{D(z_j,r_{z_j})}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\]
     Define the standard bump function
-    \[
-    \theta(z)=
-    \begin{cases}
-        \exp\!\big(\tfrac{1}{|z|^2-1}\big) &\text{if }|z|<1,\\
-        0 &\text{if }|z|\ge1.
-    \end{cases}
-    \]
-    For \(\varepsilon>0\) let \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta(z/\varepsilon)\), which has support \(\overline{D(0,\varepsilon)}\) and satisfies \(\int_{\mathbb{C}}\theta_\varepsilon(z)\,\dd x\wedge\dd y=1.\) Define \(\beta_j(z)=\theta_{r_{z_j}}(z-z_j)\), so \(\supp(\beta_j)=\overline{D(z_j,r_{z_j})}\subset\Omega_{k_{z_j}}.\)
+    \[\theta(z)=
+        \begin{cases}
+            \exp\qty(\frac{1}{\abs{z}^2-1})&\qif*\abs{z}<1,\\
+            0&\qif*\abs{z}\ge1.
+    \end{cases}\]
+    For \(\varepsilon>0\) let \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta\qty(\frac z\varepsilon)\), which has support \(\overline{D(0,\varepsilon)}\) and satisfies \[\int_{\mathbb{C}}\theta_\varepsilon(z)\ddx\wedge\ddy=1.\]
+    Define \(\beta_j(z)=\theta_{r_{z_j}}\qty(z-z_j)\), so \(\supp(\beta_j)=\overline{D\qty(z_j,r_{z_j})}\subset\Omega_{k_{z_j}}\).
 
     By local finiteness of \(\cbraces{D(z_j,r_{z_j})}_{j\in\mathbb{N}}\), for each \(z_0\in\Omega\) there exists an open neighborhood \(V\ni z_0\) intersecting only finitely many \(\overline{D(z_j,r_{z_j})}\). Thus \(\cbraces{\supp(\beta_j)}_{j\in\mathbb{N}}\) is locally finite on \(\Omega\).
 
     For each \(z\in\Omega\) the sum \(S(z)=\sum_{j=1}^\infty\beta_j(z)\) involves only finitely many nonzero terms (by local finiteness), so \(S\in C^\infty(\Omega)\) and \(S(z)>0\) (since \(\cbraces{D(z_j,r_{z_j})}_{j\in\mathbb{N}}\) covers \(\Omega\)). Define
     \[
-    \alpha_j(z)=\frac{\beta_j(z)}{S(z)},\quad j\in\mathbb{N}.
+        \alpha_j(z)=\frac{\beta_j(z)}{S(z)},\quad j\in\mathbb{N}.
     \]
     Each \(\alpha_j\in C^\infty(\mathbb{C})\) has compact support in \(\Omega\), \(0\le\alpha_j\le1\), the supports are locally finite, and \(\sum_{j=1}^\infty\alpha_j(z)=1\) for all \(z\in\Omega\). Moreover \(\supp(\alpha_j)\subseteq\Omega_{k_{z_j}}\), proving subordination.
 \end{proof}
@@ -1598,7 +1594,7 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 
     Define
     \[
-    \varphi(z) = \sum_{\substack{j \in \mathbb{N} \\ \supp(\alpha_j) \subseteq \Omega_1}} \alpha_j(z).
+        \varphi(z) = \sum_{\substack{j \in \mathbb{N} \\ \supp(\alpha_j) \subseteq \Omega_1}} \alpha_j(z).
     \]
     Then \(\varphi \in C^\infty(\mathbb{C})\) has compact support in \(\Omega_1 \subset V\). For \(z \in V(K, \varepsilon) = \Omega_1 \setminus \Omega_2\), the terms with support in \(\Omega_2\) vanish, so \(\varphi(z) = 1\). For \(z \in \mathbb{C} \setminus V(K, 2\varepsilon) = \Omega_2 \setminus \Omega_1\), \(\varphi(z) = 0\).
 \end{proof}
