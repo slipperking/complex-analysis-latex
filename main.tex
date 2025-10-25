@@ -3785,33 +3785,34 @@ In its full generality, we will now apply a technique to \textit{push} a pole to
     which completes the proof as \[\psi(z)=\sum_{j=1}^ma_{-j}\qty[(z-\beta)^{-1}\sum_{k=0}^n\qty(\frac{\alpha-\beta}{z-\beta})^k]^j\] is rational with a pole at \(z=\beta\).
 \end{proof}
 \begin{lemma}[Generalized Pole-Pushing Lemma]\label{lem:generalpolepushing}
-    Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\mathbb{C}\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\xi\in U\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
+    Let \(K\subset\mathbb{C}\) be compact and choose \(a\in\mathbb{C}\setminus K\). Let \(U\) be the connected component of \(\extcomplex\setminus K\) containing \(a\). Then \(\forall\varepsilon>0\), \(\forall\zeta\in U\), there exists a rational function \(\psi\) with a pole only at \(\zeta\) such that \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
     Define the set
-    \[S=\cbraces{\xi\in U\setminus\qty{\infty}}{(\forall\varepsilon>0)(\exists\psi)\qty[\psi\text{ is rational}\wedge\bigwedge
-            \begin{aligned}
-                &\psi(\mathbb{C}\setminus\qty{\xi})\subseteq\mathbb{C}\wedge\psi(\xi)=\infty,\\
-                &\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon
+    \[S=\cbraces{\zeta\in U\setminus\qty{\infty}}{(\forall\varepsilon>0)(\exists\psi)\qty[\bigwedge
+                \begin{aligned}
+                    &\psi\text{ is rational},\\
+                    &\psi(\mathbb{C}\setminus\qty{\zeta})\subseteq\mathbb{C}\wedge\psi(\zeta)=\infty,\\
+                    &\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon
     \end{aligned}]}.\]
     Since \(a\in U\) satisfies the condition with \(\psi(z)=\frac{1}{z-a}\), it follows that \(a\in S\), ensuring that \(S\) is nonempty.
 
-    Consider \(\xi\in S\), where \(\xi\) lies in the complement of \(K\). The distance from \(\xi\) to \(K\), denoted \(\mathrm{dist}(\xi,K)\), is positive, and the open disk \(D(\xi,\mathrm{dist}(\xi,K))\) is disjoint from \(K\). Let \(\xi'\) be an arbitrary point in this disk. By the definition of \(S\), for every \(\varepsilon>0\), there exists a rational function \(\psi\) with a pole only at \(\xi\) such that
+    Consider \(\zeta\in S\), where \(\zeta\) lies in the complement of \(K\). The distance from \(\zeta\) to \(K\), denoted \(\mathrm{dist}(\zeta,K)\), is positive, and the open disk \(D(\zeta,\mathrm{dist}(\zeta,K))\) is disjoint from \(K\). Let \(\zeta'\) be an arbitrary point in this disk. By the definition of \(S\), for every \(\varepsilon>0\), there exists a rational function \(\psi\) with a pole only at \(\zeta\) such that
     \[\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\frac{\varepsilon}{2}.\]
-    By \cref{lem:simplepolepushing}, there exists a rational function \(\phi\) with a pole only at \(\xi'\) such that
-    \[\sup_{z\in\extcomplex\setminus D(\xi,\mathrm{dist}(\xi,K))}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2},\]
+    By \cref{lem:simplepolepushing}, there exists a rational function \(\phi\) with a pole only at \(\zeta'\) such that
+    \[\sup_{z\in\extcomplex\setminus D(\zeta,\mathrm{dist}(\zeta,K))}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2},\]
     which implies
     \[\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\frac{\varepsilon}{2}.\]
     Thus,
     \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}\leq\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}+\sup_{z\in K}\abs{\psi(z)-\phi(z)}<\varepsilon,\]
-    and by definition, \(\xi'\in S\Rightarrow D\qty(\xi,\mathrm{dist}\qty(\xi,K))\subseteq S\). Hence, \(S\) is relatively open in \(U\setminus\qty{\infty}\).
+    and by definition, \(\zeta'\in S\Rightarrow D\qty(\zeta,\mathrm{dist}\qty(\zeta,K))\subseteq S\). Hence, \(S\) is relatively open in \(U\setminus\qty{\infty}\).
 
-    Now, consider \(\xi\in U\setminus \qty(S\cup\qty{\infty})\). Suppose there exists \(\xi'\in D(\xi,\mathrm{dist}(\xi,K))\cap S\). By repeated application of the preceding argument, this would imply \(\xi\in S\), contradicting the assumption that \(\xi\in U\setminus \qty(S\cup\qty{\infty})\). Therefore, no such \(\xi'\) exists, and \(S\) is relatively closed in \(U\setminus\qty{\infty}\).
+    Now, consider \(\zeta\in U\setminus \qty(S\cup\qty{\infty})\). Suppose there exists \(\zeta'\in D(\zeta,\mathrm{dist}(\zeta,K))\cap S\). By repeated application of the preceding argument, this would imply \(\zeta\in S\), contradicting the assumption that \(\zeta\in U\setminus \qty(S\cup\qty{\infty})\). Therefore, no such \(\zeta'\) exists, and \(S\) is relatively closed in \(U\setminus\qty{\infty}\).
 
     Since \(U\setminus\qty{\infty}\) is connected and \(S\) is both relatively open and closed in \(U\setminus\qty{\infty}\), it follows from \cref{thm:connectedtopologicalspaceclopensets} that \(S=U\setminus\qty{\infty}\), completing the proof under the assumption that \(\infty\notin U\).
 
     Now suppose \(\infty\in U\). In essence, we pole push to a point outside a disk on which we can make approximations by Taylor polynomials. Let \(R>0\) satisfy \(K\subset D(0,R)\) and let \(b\in U\setminus\qty(\qty{\infty}\cup \overline{D(0,R)})\) be an arbitrary point. By \cref{lem:simplepolepushing}, there exists some rational function \(\widetilde{\psi}(z)\) with a pole at \(b\) such that \[\sup_{z\in K}\abs{\widetilde{\psi}(z)-\frac{1}{z-a}}<\frac\varepsilon2.\]
-    Since \(\widetilde{\psi}\) is holomorphic on some neighborhood of \(\overline{D(0,R)}\), we have \[\widetilde{\psi}(z)=\sum_{k=0}^\infty a_k z^k\qq{on}\overline{D(0,R)}\] and it uniformly converges on \(\overline{D(0,R)}\). Hence, \(\exists N\in\mathbb{N}\) such that \[\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_k z^k}<\frac{\varepsilon}{2}.\]
+    Since \(\widetilde{\psi}\) is holomorphic on some neighborhood of \(\overline{D(0,R)}\), we have \[\widetilde{\psi}(z)=\sum_{k=0}^\infty a_k z^k\qq{on}\overline{D(0,R)},\] and it uniformly converges on \(\overline{D(0,R)}\). Hence, \(\exists N\in\mathbb{N}\) such that \[\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_k z^k}<\frac{\varepsilon}{2}.\]
     Since polynomials have poles at \(\infty\), we have \[\sup_{z\in\overline{D(0,R)}}\abs{\frac{1}{z-a}-\sum_{k=0}^N a_k z^K}\leq\sup_{z\in\overline{D(0,R)}}\abs{\frac{1}{z-a}-\widetilde{\psi}(z)}+\sup_{z\in\overline{D(0,R)}}\abs{\widetilde{\psi}(z)-\sum_{k=0}^N a_kz^k}<\varepsilon.\qedhere\]
 \end{proof}
 \begin{theorem}[Runge]\label{thm:runge}
@@ -3833,7 +3834,7 @@ The proof proposed by Mergelyan is almost trivial when compared with the results
 As we have previously seen, there is a prevalent notion in complex analysis that regards \(\infty\) intrinsically as essentially any other point of \(\extcomplex\). An appertaining question relates to the complex derivative at \(\infty\). Although \[f'(\infty)\overset{?}{=}\lim_{z\to\infty} f'(z)\] may seem to be a natural object to consider, it is quite impractical; there exist functions which decay quickly to 0, while \(f'(z)\) is unbounded as \(z\to\infty\) (take \(z\mapsto\frac{\sin\qty(z^2)}{\sqrt{z}}\) as an example). Even the assumption that \(\lim_{z\to\infty}f'(z)=0\) does not imply that \(f(z)\) has a removable singularity at \(\infty\) (consider \(z\mapsto\sqrt{z}\)).
 \begin{definition}
     Let \(R>0\), \(f:\mathbb{C}\setminus\overline{D(0,R)}\to\mathbb{C}\) be holomorphic such that \(f\) has a removable singularity at \(\infty\). Then we define the derivatives of \(f\) at \(\infty\) to be \[f^{(n)}(\infty)=\eval{\dv[n]{z}f\qty(\frac1z)}_{z=0}.\]
-    In the case that \(n=1\), we have 
+    In the case that \(n=1\), we have
     \begin{equation}
         f'(\infty)=-\lim_{z\to\infty}z^2 f'\qty(z).\label{eq:derivativeatinfinity}
     \end{equation}
@@ -4014,28 +4015,29 @@ For \(r>0\), define
 
     Hence, the intersection \(\overline{D\qty(\zeta_k^{(j)},\frac34r)}\cap \gamma_{k}^{(j)}\) consists of at least one connected component joining \(\zeta_k^{(j)}\) to a point on \(\partial D\qty(\zeta_k^{(j)},\frac34 r)\). Denote this intersection by \(E_k^{(j)}\), satisfying \(\diam E_k^{(j)}\geq\frac34r\) and \(E_k^{(j)}\cap K=\emptyset\).
 
-    Now for each \(j\) and \(k\), \cref{prop:complementbiholomorphism584r4767r2estimates} now provides the existence of a family of holomorphic functions \(\phi_{\zeta,k}^{(j)}:\extcomplex\setminus E_k^{(j)}\to\mathbb{C}\) given with \(\zeta\in D\qty(\zeta_k^{(j)},\frac54r)\) such that 
+    Now for each \(j\) and \(k\), \cref{prop:complementbiholomorphism584r4767r2estimates} now provides the existence of a family of holomorphic functions \(\phi_{\zeta,k}^{(j)}:\extcomplex\setminus E_k^{(j)}\to\mathbb{C}\) given with \(\zeta\in D\qty(\zeta_k^{(j)},\frac54r)\) such that
     \begin{equation}
         \abs{\phi_{\zeta,k}^{(j)}(z)}\leq\frac{584}r,\quad\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\leq\frac{4676}{\abs{z-\zeta}^3}\qquad\forall z\in\extcomplex\setminus E_k^{(j)}.\label{eq:mergelyan_familybounds}
     \end{equation}
     Let \(\widetilde{H}_k^{(j)}=H\cap D\qty(\zeta_k^{(j)},\frac54r)\), for each \(j,k\) and construct the disjoint sets \[H_k^{(j)}=\widetilde{H}_k^{(j)}\setminus \widetilde{H}_k^{(j-1)}\text{ if }j\neq 1,\qquad H_k^{1}=\widetilde{H}_k^{1}\setminus\widetilde{H}_{k-1}^{m_{k-1}}\quad\forall k>1,\qquad H_1^{(1)}=\widetilde{H}_1^{(1)}.\]
     Thus the union \[\bigcup_{k=1}^n\bigcup_{j=1}^{m_k}H_k^{(j)}=H\cap\qty(\bigcup D\qty(\zeta_k^{(j)},\frac54r))=H\] since the set of all \(D\qty(\zeta_k^{(j)},\frac54r)\) covers \(H\). Let \[\Psi(z)=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\wedge\dd{\eta},\quad\zeta=\xi+\ii\eta,\quad\forall z\notin\bigcup E_k^{(j)}.\]
     Because \[\frac{\Psi(z+\Delta x)-\Psi(z)}{\Delta x}=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\frac{\phi_{\zeta,k}^{(j)}(z+\Delta x)-\phi_{\zeta,k}^{(j)}(z)}{\Delta x}\dd{\xi}\wedge\dd{\eta},\]
-    and both \(\pdv{\Phi}{\overline{\zeta}}\) and the integrand is continuous on a set (we only need to consider the term involving \(\phi_{\zeta,k}^{(j)}\) since \(\pdv{\Phi}{\overline{\zeta}}\) is independent from \(z\)) by Cauchy's Estimates and the first bound of \cref{eq:mergelyan_familybounds}, Lebesgue's Dominate Convergence gives that 
+    and both \(\pdv{\Phi}{\overline{\zeta}}\) and the integrand is continuous on a set (we only need to consider the term involving \(\phi_{\zeta,k}^{(j)}\) since \(\pdv{\Phi}{\overline{\zeta}}\) is independent from \(z\)) by Cauchy's Estimates and the first bound of \cref{eq:mergelyan_familybounds}, Lebesgue's Dominate Convergence gives that
     \[\pdv{\Psi}{x}=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{x}\qty(z)\dd{\xi}\wedge\dd{\eta},\] and in analogous fashion, \[\pdv{\Psi}{y}=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{y}\qty(z)\dd{\xi}\wedge\dd{\eta}.\]
-    Hence, \(\Psi\) is holomorphic on \(\extcomplex\setminus\bigcup_{k=1}^n\bigcup_{j=1}^{m_k} E_{k}^{(j)}\), a neighborhood of \(K\). Since \(\forall z\in\extcomplex\setminus\bigcup E_k^{(j)}\), by~\ref{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676} of \cref{prop:complementbiholomorphism584r4767r2estimates}, \begin{align*}
+    Hence, \(\Psi\) is holomorphic on \(\extcomplex\setminus\bigcup_{k=1}^n\bigcup_{j=1}^{m_k} E_{k}^{(j)}\), a neighborhood of \(K\). Since \(\forall z\in\extcomplex\setminus\bigcup E_k^{(j)}\), by~\ref{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676} of \cref{prop:complementbiholomorphism584r4767r2estimates},
+    \begin{align*}
         \abs{\Psi(z)-\Phi(z)}&=\abs{\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\dd{\eta}-\frac1\piup\iint_H\pdv{\Phi}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{z-\zeta}}\\
         &=\frac1{\piup}\abs{\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\qty(\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta})\dd{\xi}\dd{\eta}}\\
         &\leq\frac1{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\abs{\pdv{\Phi}{\overline{\zeta}}}\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\dd{\xi}\dd{\eta}\\
         &\leq\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\qty(\iint_{H_k^{(j)}\cap D(z,2r)}+\iint_{H_k^{(j)}\setminus D(z,2r)})\abs{\pdv{\Phi}{\overline{\zeta}}}\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\dd{\xi}\dd{\eta}
     \end{align*}
-    The estimates in~\ref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound} of \cref{prop:integralofcontinuousextensionofholomorphicproperties}, in tandem with those from \cref{eq:mergelyan_familybounds} now give that 
+    The estimates in~\ref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound} of \cref{prop:integralofcontinuousextensionofholomorphicproperties}, in tandem with those from \cref{eq:mergelyan_familybounds} now give that
     \begin{align*}
         \abs{\Psi(z)-\Phi(z)}&\leq 18704r\omega_f(r)\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}\setminus D(z,2r)}\frac{1}{\abs{z-\zeta}^3}\dd{\xi}\dd{\eta}\\
         &\quad+\frac{4\omega_f(r)}{r}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}\cap D(z,2r)}\qty(\frac{584}r+\frac{1}{\abs{z-\zeta}})\dd{\xi}\dd{\eta}\\
         &\leq 18704r\omega_f(r)\iint_{\abs{\zeta}>2r}\frac{\dd{\xi}\dd{\eta}}{\abs{\zeta}^3}+\frac{4\omega_f(r)}{r}\iint_{\abs{\zeta}<2r}\qty(\frac{584}r+\frac{1}{\abs{\zeta}})\dd{\xi}\dd{\eta}
     \end{align*}
-    through a linear change of variables. Now evaluation via polar coordinates (with \(\rho\ee^{\ii\theta}=\xi+\ii\eta\), \(\dd{\xi}\wedge\dd{\eta}=\rho\dd{\rho}\wedge\dd{\theta}\)) yields a revised upper bound of 
+    through a linear change of variables. Now evaluation via polar coordinates (with \(\rho\ee^{\ii\theta}=\xi+\ii\eta\), \(\dd{\xi}\wedge\dd{\eta}=\rho\dd{\rho}\wedge\dd{\theta}\)) yields a revised upper bound of
     \begin{multline*}
         18704r\omega_f(r)\int_0^{2\piup}\int_{2r}^\infty\frac{\dd{\rho}\dd{\theta}}{\rho^2}+\frac{4\omega_f(r)}{r}\qty(\frac{584}{r}\operatorname{area}D(0,2r)+\int_0^{2\piup}\int_0^{2r}\dd{\rho}\dd{\theta})\\
         =18704r\omega_f(r)2\piup\eval{\frac{1}{\rho}}_{\infty}^{2r}+\frac{9344\piup\omega_f(r)r^2}{r^2}+\frac{4\omega_f(r)}{r}4r\piup\\
