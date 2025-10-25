@@ -1461,7 +1461,7 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
     For a topological space \(X\), an \textscsl{exhaustion by compact sets} is a nested sequence of compact sets \(\qty{K_n}_{n\in\mathbb{N}}\subseteq X\) such that \(K_n\subset\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\) and \(X=\bigcup_{n\in\mathbb{N}}K_n\).
 \end{definition}
-\begin{lemma}[Locally Finite Open Cover]\label{lem:locallyfiniteopencoverexistence}
+\begin{lemma}\label{lem:locallyfiniteopencoverexistence}
     Let \(\Omega\subseteq\mathbb{C}\) be an open set and let \(\mathfrak{B}\) be a basis for the standard topology on \(\Omega\). Then there exists a collection of sets \(\qty{U_n}_{n\in\mathbb{N}}\subseteq\mathfrak{B}\) such that
     \begin{enumerate}
         \item \(\bigcup_{n\in\mathbb{N}}U_n=\Omega\). \label{itm:locallyfiniteopencoverexistence_cover}
@@ -1529,7 +1529,7 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 \begin{remark}
     The property of local finiteness of an open collection \(S\) in \(\Omega\) is commonly stated as: for every \(z \in \Omega\), there exists an open neighborhood of \(z\) that intersects only finitely many sets in \(S\).
 
-    This is equivalent to \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lem:locallyfiniteopencoverexistence}. Indeed, if every point has such a neighborhood, then any compact \(K \subset \Omega\) admits a finite subcover of these neighborhoods by Heine--Borel, so \(K\) intersects finitely many sets in \(S\). Conversely, for any \(z \in \Omega\), take an open neighborhood \(V \ni z\) with relatively compact closure in \(\Omega\); then \(\overline{V}\) intersects finitely many sets in \(S\), and so does \(V\).
+    This is equivalent to \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lem:locallyfiniteopencoverexistence}. Indeed, if every point has such a neighborhood, then any compact \(K\subset\Omega\) admits a finite subcover of these neighborhoods by Heine--Borel (\cref{thm:heineborel}), so \(K\) intersects finitely many sets in \(S\). Conversely, for any \(z \in \Omega\), take an open neighborhood \(V \ni z\) with relatively compact closure in \(\Omega\); then \(\overline{V}\) intersects finitely many sets in \(S\), and so does \(V\).
 \end{remark}
 \begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
     Let \(\Omega\subseteq\mathbb{C}\) be a nonempty open set and let \(\cbraces{\Omega_k}_{k\in\mathbb{N}}\) be an open cover of \(\Omega\). Then there exists a collection of bump functions \(\cbraces{\alpha_j}_{j\in\mathbb{N}}\subset C^\infty(\mathbb{C})\), each with compact support in \(\Omega\), satisfying:
@@ -1539,10 +1539,10 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
         \item For each \(j\in\mathbb{N}\), \(0\le\alpha_j\le1\). \label{itm:partitionofunity_nonnegativity}
         \item \(\sum_{j=1}^\infty\alpha_j\equiv1\) on \(\Omega\).\label{itm:partitionofunity_partitionofunity}
     \end{enumerate}
-    This is called a \(C^\infty\) partition of unity \textsc{subordinate to}\(\cbraces{\Omega_k}_{k\in\mathbb{N}}\).
+    This is called a \(C^\infty\) partition of unity \textscsl{subordinate to} \(\cbraces{\Omega_k}_{k\in\mathbb{N}}\).
 \end{theorem}
 \begin{proof}
-    For each \(z\in\Omega\) there exists \(r_z>0\) and \(k_z\in\mathbb{N}\) such that \(\overline{D(z,r_z)}\subset\Omega_{k_z}\). The collection \(\cbraces{D(z,r)\mid z\in\Omega,\ 0<r<r_z}\) is an open basis for \(\Omega\). By \cref{lem:locallyfiniteopencoverexistence} there exists a locally finite open cover \(\cbraces{D(z_j,r_{z_j})}_{j\in\mathbb{N}}\subseteq\mathfrak{B}\) of \(\Omega\) with
+    For each \(z\in\Omega\) there exists \(r_z>0\) and \(k_z\in\mathbb{N}\) such that \(\overline{D\qty(z,r_z)}\subset\Omega_{k_z}\). The collection \(\cbraces{D(z,r)}{z\in\Omega\wedge0<r<r_z}\) is an open basis for \(\Omega\). By \cref{lem:locallyfiniteopencoverexistence} there exists a locally finite open cover \(\cbraces{D(z_j,r_{z_j})}_{j\in\mathbb{N}}\subseteq\mathfrak{B}\) of \(\Omega\) with
     \[D\qty(z_j,r_{z_j})\subset\overline{D(z_j,r_{z_j})}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\]
     Define the standard bump function
     \[\theta(z)=
