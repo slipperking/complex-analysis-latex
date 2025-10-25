@@ -1418,164 +1418,191 @@ The concept of analytic continuation and its consequent problems and properties 
 \end{proof}
 \subsubsection{Partitions of Unity and the Existence of Bump Functions}\label{sec:partitionsofunity}
 \begin{definition}[Topological Space]
-    A \textscsl{topological space} is a pair \((X, \tau)\), where \(X\) is a set and \(\tau\) is a collection of subsets of \(X\) satisfying the following properties:
+    A \textsc{topological space} is a pair \((X, \tau)\), where \(X\) is a set and \(\tau\) is a collection of subsets of \(X\) satisfying the following properties:
     \begin{enumerate}
-        \item \(\emptyset\in\tau\) and \(X\in\tau\),
-        \item The union of any collection of sets in \(\tau\) is also in \(\tau\),
-        \item The intersection of any finite number of sets in \(\tau\) is also in \(\tau\).
+        \item \(\emptyset \in \tau\) and \(X \in \tau\),
+        \item The union of any (possibly infinite) collection of sets in \(\tau\) is also in \(\tau\),
+        \item The intersection of any finite collection of sets in \(\tau\) is also in \(\tau\).
     \end{enumerate}
-    The collection \(\tau\) is called a \textscsl{topology} on \(X\), and its elements are referred to as \textscsl{open sets} under the topology \(\tau\).
+    The collection \(\tau\) is called a \textsc{topology} on \(X\), and its elements are referred to as \textsc{open sets} under the topology \(\tau\).
 \end{definition}
-If a topological space \(X\) can be written as the union between two nonempty disjoint open sets, then it is \textscsl{disconnected}. Otherwise, it is \textscsl{connected}.
 
-A topology allows the definition and general conceptualization of continuity, convergence, and connectivity in a general setting, without necessarily relying on a notion of distance (a metric).
+A topological space \(X\) is \textsc{disconnected} if it can be written as the union of two nonempty disjoint open sets. Otherwise, it is \textsc{connected}.
 
-For example, in a topological space, a function \(f:X\to Y\) between two topological spaces is said to be continuous if the preimage of every open set in \(Y\) is an open set in \(X\). This generalizes the familiar \(\varepsilon\)-\(\delta\) definition of continuity from calculus.
+A topology allows the definition and general conceptualization of continuity, convergence, and connectivity in a general setting, without necessarily relying on a notion of distance (a metric). For example, in a topological space, a function \(f: X \to Y\) between two topological spaces is said to be continuous if the preimage of every open set in \(Y\) is an open set in \(X\). This generalizes the familiar \(\varepsilon\)-\(\delta\) definition of continuity from calculus.
+
 \begin{example}
-    To illustrate this, consider the function \(f:\mathbb{R} \to \mathbb{R}\) defined by
-    \[f(x)=
-        \begin{cases}
-            1 &\qif* x\geq0, \\
-            0 &\qif* x<0.
-        \end{cases}
+    Consider the function \(f: \mathbb{R} \to \mathbb{R}\) defined by
+    \[
+    f(x) =
+    \begin{cases}
+        1 & \text{if } x \geq 0, \\
+        0 & \text{if } x < 0.
+    \end{cases}
     \]
-    We equip both the domain and codomain with the standard topology on \(\mathbb{R}\).
-    Let \(V=(0.5,1.5)\subseteq\mathbb{R}\). Then the preimage of \(V\) is \[f^{-1}(V)=\cbraces{x\in\mathbb{R}}{f(x)\in(0.5,1.5)}=[0,\infty),\]
-    which is not an open set in the standard topology on \(\mathbb{R}\).
+    We equip both the domain and codomain with the standard topology on \(\mathbb{R}\). Let \(V = (0.5, 1.5) \subseteq \mathbb{R}\). Then the preimage of \(V\) is
+    \[
+    f^{-1}(V) = \{ x \in \mathbb{R} \mid f(x) \in (0.5, 1.5) \} = [0, \infty),
+    \]
+    which is not an open set in the standard topology on \(\mathbb{R}\). Thus, \(f\) is not continuous.
 \end{example}
+
 \begin{definition}[Basis of a Topology]
-    For a topological space \((X,\tau)\), a \textscsl{basis} \(\mathfrak{B}\subseteq\tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of a subcollection of \(\mathfrak{B}\).
+    For a topological space \((X, \tau)\), a \textsc{basis} \(\mathfrak{B} \subseteq \tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of some subcollection of \(\mathfrak{B}\).
 \end{definition}
-It is easy to see that \(\mathfrak{B}\) forms an open cover of \(X\). For any two sets in a topology, their intersection is also in the topology, which means there is a set in the basis of the topology that is a subset of the intersection.
 
-In other words, \(\forall B_1,B_2\in\mathfrak{B}\), \(\forall x\in B_1\cap B_2\), \(\exists B_3\in\mathfrak{B}\) such that \(x\in B_3\) and \(B_3\subseteq B_1\cap B_2\).
+It is easy to see that \(\mathfrak{B}\) forms an open cover of \(X\). Moreover, for any two sets \(B_1, B_2 \in \mathfrak{B}\) and any \(x \in B_1 \cap B_2\), there exists \(B_3 \in \mathfrak{B}\) such that \(x \in B_3 \subseteq B_1 \cap B_2\).
 
-In a topological space \(X\), a subset can either be open, closed (the complement of some open set), both (clopen), or neither.
+In a topological space \(X\), a subset can be open, closed (the complement of some open set), both (clopen), or neither. The only clopen sets that exist in any topological space \(X\) are \(\emptyset\) and \(X\) if \(X\) is connected. A technique used in many proofs in complex analysis relies on the following fact:
 
-Two clopen sets in any topological space \(X\) are \(\emptyset\) and \(X\). A technique used in many proofs in complex analysis follow from the following fact:
-\begin{theorem}\label{thm:connectedtopologicalspaceclopensets}
-    A topological space \(X\) is \textscsl{connected} iff \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).
+\begin{theorem}[Characterization of Connectedness]\label{thm:connectedtopologicalspaceclopensets}
+    A topological space \(X\) is \textsc{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).
 \end{theorem}
+
 \begin{proof}
-    Suppose that \(X\) is connected. Suppose that \(A\subseteq X\) is clopen. Notice that \(A\) and \(X\setminus A\) are both open in \(X\) by clopenness and are disjoint from each other. Since \(X=A\cup\qty(X\setminus A)\), it follows that either \(A=\emptyset\) or \(X\setminus A=\emptyset\Leftrightarrow A=X\).
+    Suppose \(X\) is connected and let \(A \subseteq X\) be clopen. Then \(A\) and \(X \setminus A\) are both open in \(X\), disjoint, and their union is \(X\). Thus, either \(A = \emptyset\) or \(X \setminus A = \emptyset\) (i.e., \(A = X\)).
 
-    Conversely, for the sake of contradiction, assume \(X\) is disconnected. Then, there exist two nonempty open sets \(U,V\subseteq X\) such that \(U\cap V=\emptyset\) and \(U\cup V=X\). It follows that \(U=X\setminus V\neq X\) and \(V=X\setminus U\neq X\) are closed and consequently clopen. This contradicts the assumption that \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).  Thus, \(X\) must be connected.
+    Conversely, suppose \(X\) is disconnected. Then there exist nonempty open sets \(U, V \subseteq X\) such that \(U \cap V = \emptyset\) and \(U \cup V = X\). Thus, \(U = X \setminus V\) and \(V = X \setminus U\) are both clopen, contradicting the assumption that \(X\) and \(\emptyset\) are the only clopen subsets. Hence, \(X\) must be connected.
 \end{proof}
-\begin{example}
-    The topological space \(\mathbb{R}\) under the standard topology only contains two clopen sets: \(\mathbb{R}\) and \(\emptyset\).
 
-    The topological space of \(X=\paren{\bigcup_{n\in 2\mathbb{Z}}(n,n+1),\tau}\), where \(\tau\) is the unique topology formed by the basis \(\cbraces{(n,n+1)}{n\in 2\mathbb{Z}}\), which is disconnected. Consider \((0,1)\subset X\). Obviously, \((0,1)\in\tau\) so it is open. However, \(\bigcup_{n\in 2\mathbb{Z}}(n,n+1)\setminus (0,1)=\bigcup_{\substack{n\in 2\mathbb{Z}\\n\neq 0}}(n,n+1)\in\tau\), and therefore, \((0,1)\) is also closed under \(\tau\). In fact, every set in \(\tau\) is clopen.
+\begin{example}
+    The topological space \(\mathbb{R}\) under the standard topology has only two clopen sets: \(\mathbb{R}\) and \(\emptyset\).
+
+    Now consider \(X = \bigcup_{n \in 2\mathbb{Z}} (n, n+1)\), equipped with the topology \(\tau\) generated by the basis \(\{ (n, n+1) \mid n \in 2\mathbb{Z} \}\). This space is disconnected. For instance, \((0,1) \subset X\) is open (as it is in \(\tau\)) and closed (since its complement in \(X\) is \(\bigcup_{\substack{n \in 2\mathbb{Z} \\ n \neq 0}} (n, n+1) \in \tau\)). In fact, every set in \(\tau\) is clopen.
 \end{example}
+
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
-    For a topological space \(X\), an \textscsl{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\), such that \(\forall n\in\mathbb{N}\), \(K_n\subset \interior{K_{n+1}}\), and \[X=\bigcup_{n\in\mathbb{N}}K_n\]
+    For a topological space \(X\), an \textsc{exhaustion by compact sets} is a nested sequence of compact sets \(\{ K_n \}_{n \in \mathbb{N}} \subseteq X\) such that \(K_n \subset \interior{K_{n+1}}\) for all \(n \in \mathbb{N}\) and \(X = \bigcup_{n \in \mathbb{N}} K_n\).
 \end{definition}
-\begin{lemma}\label{lem:locallyfiniteopencoverexistence}
-    Let \(\Omega\subseteq\mathbb{C}\) be an open set and \(\mathfrak{B}\) be an (open) basis of (the standard topology under) \(\Omega\). Then there exists a collection of sets \(\left\{U_n\right\}_{n\in\mathbb{N}}\) in \(\mathfrak{B}\) such that
+
+\begin{lemma}[Locally Finite Open Cover]\label{lem:locallyfiniteopencoverexistence}
+    Let \(\Omega \subseteq \mathbb{C}\) be an open set and let \(\mathfrak{B}\) be a basis for the standard topology on \(\Omega\). Then there exists a collection of sets \(\{ U_n \}_{n \in \mathbb{N}} \subseteq \mathfrak{B}\) such that
     \begin{enumerate}
-        \item \(\bigcup_{n\in\mathbb{N}}U_n=\Omega\).\label{itm:locallyfiniteopencoverexistence_cover}
-        \item \(\forall K\subset\Omega\) that is compact, \(K\) intersects only a finite number of sets in \(\left\{U_n\right\}_{n\in\mathbb{N}}\).\label{itm:locallyfiniteopencoverexistence_localfiniteness}
+        \item \(\bigcup_{n \in \mathbb{N}} U_n = \Omega\), \label{itm:locallyfiniteopencoverexistence_cover}
+        \item For every compact \(K \subset \Omega\), \(K\) intersects only finitely many sets in \(\{ U_n \}_{n \in \mathbb{N}}\). \label{itm:locallyfiniteopencoverexistence_localfiniteness}
     \end{enumerate}
 \end{lemma}
+
 \begin{proof}
-    \begin{figure}
-        \centering
-        \begin{tikzpicture}
-            \draw[line width=0.35] plot[smooth cycle] coordinates {
-                (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
-            };
-            \draw[line width=0.5] plot[smooth cycle] coordinates {
-                (-0.5,1) (2,-0.3) (4,0.6) (5.3,2.3) (4.3,5.3) (1.7,5.5) (0.6,4.2) (-0.3,2)
-            };
-            \draw[line width=0.65] plot[smooth cycle] coordinates {
-                (0,1) (2,0) (4,1) (5,3.1) (4,4.7) (2,5) (1,4) (0,2)
-            };
-            \draw[thick] plot[smooth cycle] coordinates {
-                (0.2,1.5) (2,0.5) (3.5,1.4) (4.2,2.7) (4.4,4) (2,4.5) (1.5,4) (1,3)
-            };
-            \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4.4,4.3) (4.5,5.4) (2.7,5.7) (2.5,4.6) (3.5,4.7)
-            };
-            \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
-            };
-            \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
-            };
-            \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (-0.5,2) (-0.2,3) (0.6,4.6) (1.5,4.3) (0.7,3) (0.2,2) (0,1.2)
-            };
-            \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (0,0.5) (2.2,-0.6) (2,0.1) (1,0.5) (0,1.3) (-0.3,2) (-0.5,2) (-0.7,1.2)
-            };
-            \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (2,0.2) (3.5,0.8) (4,1.7) (5.2,1.7) (3.5,0.1) (1.8,-0.4)
-            };
-            \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4,1.2) (4.3,2.2) (5.5,3) (5.6,2)
-            };
-            \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
-            };
+    Let \(\{ K_n \}_{n \in \mathbb{N}} \subset \Omega\) be an exhaustion by compact sets with \(K_0 = \emptyset\) and \(K_n \subseteq \interior{K_{n+1}}\) for all \(n \in \mathbb{N}\). For each \(n \in \mathbb{N}\), define
+    \[
+    W_n = \interior{K_{n+1}} \setminus K_{n-1}, \quad V_n = K_n \setminus \interior{K_{n-1}},
+    \]
+    where \(K_{-1} = \emptyset\). Each \(W_n\) is open and each \(V_n\) is compact, with \(V_n \subseteq W_n\) and \(\bigcup_{n \in \mathbb{N}} V_n = \Omega\).
 
-            \node[anchor=north] at (2.5,2.8) {\(K_{n-2}\)};
-            \node[anchor=north] at (2.7,5) {\(V_{n-1}\)};
-            \node[anchor=north] at (2.7,5.6) {\(V_n\)};
-            \node[anchor=north] at (2.7,6.2) {\(V_{n+1}\)};
-            \draw[decorate,decoration={calligraphic
-            brace, amplitude=7pt},thick] (3.4,6.18) -- (3.2,4.4) node[midway, yshift=-3pt,right=4pt] {\(W_n\)};
-        \end{tikzpicture}
-        \caption{The geometry of the finite subcover of \(V_n\subset W_n\) for some \(n\in\mathbb{N}\).}
-        \label{fig:locallyfiniteopencoverexistence}
-    \end{figure}Let \(K_{-1}=K_0=\emptyset,K_1,K_2,\cdots\subset\Omega\) exhaust \(\Omega\), with each \(K_n\) compact and \(K_n\subseteq \interior{K_{n+1}}\). For each \(n\in\mathbb{N}\), define \(W_n=\interior{K_{n+1}}\setminus K_{n-2}\), which is open, and \(V_n=K_n\setminus \interior{K_{n-1}}\), which is compact (as in \cref{fig:locallyfiniteopencoverexistence}).
+    For each \(n \in \mathbb{N}\) and each \(z \in V_n\), since \(W_n\) is open and contains \(z\), there exists \(U_{z,n} \in \mathfrak{B}\) such that \(z \in U_{z,n} \subseteq W_n\). The collection \(\{ U_{z,n} \mid z \in V_n \}\) is an open cover of the compact set \(V_n\), so by the Heine--Borel theorem it admits a finite subcover: there exist finitely many points \(z_{n,1}, \dots, z_{n,k_n} \in V_n\) such that
+    \[
+    V_n \subset \bigcup_{i=1}^{k_n} U_{z_{n,i},n} \subseteq W_n.
+    \]
+    Enumerate all such \(U_{z_{n,i},n}\) over \(n \in \mathbb{N}\) and \(i = 1, \dots, k_n\) to obtain a countable collection \(\{ U_j \}_{j \in \mathbb{N}} \subseteq \mathfrak{B}\). Then \(\bigcup_{j \in \mathbb{N}} U_j = \Omega\), proving \ref{itm:locallyfiniteopencoverexistence_cover}.
 
-    By construction, \(V_n\subseteq W_n\) for all \(n\in\mathbb{N}\). The sets \(\{V_n\}\) form compact shells exhausting \(\Omega\), since \(\bigcup_{n\in\mathbb{N}}V_n=\Omega\).
-
-    \(\forall n\in\mathbb{N}\) and \(\forall z\in V_n\), since \(W_n\) is an open set containing \(z\) and \(\mathfrak{B}\) is a basis, there exists \(U_{z,n}\in\mathfrak{B}\) such that \(z\in U_{z,n}\subseteq W_n\) (in short, \(U_{z,n}\) is an open neighborhood of \(z\) that is contained in \(W_n\)). The collection \(\cbraces{U_{z,n}}{z\in V_n}\) is an open cover of the compact set \(V_n\), so by the Heine-Borel Theorem (\cref{thm:heineborel}) it admits a finite subcover of \(V_n\), as pictured in the dotted lines of \cref{fig:locallyfiniteopencoverexistence}. That is, there exist finitely many points \(z_{n,1},\ldots,z_{n,k_n}\) such that \(V_n\subset\bigcup_{i=1}^{k_n}U_{z_{n,i},n}\subseteq W_n\).
-
-    Let \(\{U_j\}\) be the collection formed by enumerating all such \(U_{z_{n,i},n}\) for \(n\in\mathbb{N}\) and \(i=1,\ldots,k_n\). Then \(\{U_j\}\subset\mathfrak{B}\) is a countable collection whose union covers \(\Omega\), proving~\ref{itm:locallyfiniteopencoverexistence_cover}.
-
-    For \ref{itm:locallyfiniteopencoverexistence_localfiniteness}, let \(K\subset\Omega\) be compact. Then \(\exists N\in\mathbb{N}\) such that \(K\subset \interior{K_N}\), and hence \(K\) is disjoint from \(V_n\) for all \(n>N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), it follows that \(K\) intersects only finitely many of the \(U_j\). Thus, the collection is \textscsl{locally finite}.
+    For \ref{itm:locallyfiniteopencoverexistence_localfiniteness}, let \(K \subset \Omega\) be compact. There exists \(N \in \mathbb{N}\) such that \(K \subset \interior{K_N}\), so \(K\) is disjoint from \(V_n\) for all \(n > N+1\). Since each \(V_n\) intersects only finitely many \(U_j\), \(K\) intersects only finitely many \(U_j\). Thus, the collection is locally finite.
 \end{proof}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw[line width=0.35] plot[smooth cycle] coordinates {
+            (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
+        };
+        \draw[line width=0.5] plot[smooth cycle] coordinates {
+            (-0.5,1) (2,-0.3) (4,0.6) (5.3,2.3) (4.3,5.3) (1.7,5.5) (0.6,4.2) (-0.3,2)
+        };
+        \draw[line width=0.65] plot[smooth cycle] coordinates {
+            (0,1) (2,0) (4,1) (5,3.1) (4,4.7) (2,5) (1,4) (0,2)
+        };
+        \draw[thick] plot[smooth cycle] coordinates {
+            (0.2,1.5) (2,0.5) (3.5,1.4) (4.2,2.7) (4.4,4) (2,4.5) (1.5,4) (1,3)
+        };
+        \draw[thick, dotted] plot[smooth cycle] coordinates {
+            (4.4,4.3) (4.5,5.4) (2.7,5.7) (2.5,4.6) (3.5,4.7)
+        };
+        \draw[thick, dotted] plot[smooth cycle] coordinates {
+            (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
+        };
+        \draw[thick, dotted] plot[smooth cycle] coordinates {
+            (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
+        };
+        \draw[thick, dotted] plot[smooth cycle] coordinates {
+            (-0.5,2) (-0.2,3) (0.6,4.6) (1.5,4.3) (0.7,3) (0.2,2) (0,1.2)
+        };
+        \draw[thick, dotted] plot[smooth cycle] coordinates {
+            (0,0.5) (2.2,-0.6) (2,0.1) (1,0.5) (0,1.3) (-0.3,2) (-0.5,2) (-0.7,1.2)
+        };
+        \draw[thick, dotted] plot[smooth cycle] coordinates {
+            (2,0.2) (3.5,0.8) (4,1.7) (5.2,1.7) (3.5,0.1) (1.8,-0.4)
+        };
+        \draw[thick, dotted] plot[smooth cycle] coordinates {
+            (4,1.2) (4.3,2.2) (5.5,3) (5.6,2)
+        };
+        \draw[thick, dotted] plot[smooth cycle] coordinates {
+            (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
+        };
+
+        \node[anchor=north] at (2.5,2.8) {\(K_{n-2}\)};
+        \node[anchor=north] at (2.7,5) {\(V_{n-1}\)};
+        \node[anchor=north] at (2.7,5.6) {\(V_n\)};
+        \node[anchor=north] at (2.7,6.2) {\(V_{n+1}\)};
+        \draw[decorate,decoration={brace, amplitude=7pt}, thick] (3.4,6.18) -- (3.2,4.4) node[midway, yshift=-3pt, right=4pt] {\(W_n\)};
+    \end{tikzpicture}
+    \caption{The geometry of the finite subcover of \(V_n \subset W_n\) for some \(n \in \mathbb{N}\).}
+    \label{fig:locallyfiniteopencoverexistence}
+\end{figure}
+
 \begin{remark}
-    The property of local finiteness of an open collection \(S\) in \(\Omega\) is commonly stated as:
-    \begin{quote}
-        \(\forall z\in\Omega\), there exists an open neighborhood of \(z\) intersecting finitely many sets in \(S\).
-    \end{quote}
-    Obviously, this assertion implies \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lem:locallyfiniteopencoverexistence}: let \(K\subset \Omega\) be compact, and for every \(z\in\Omega\), the collection of neighborhoods covers \(K\), and by the Heine--Borel Theorem (\cref{thm:heineborel}), admits a finite subcover. Therefore, \(K\) intersects finitely many sets in \(S\). Conversely, \(\forall z\in\Omega\), there exists an open neighborhood \(V\ni z\) relatively compact in \(\Omega\). By assumption, \(\overline{V}\) intersects finitely many sets in \(S\), and since \(V\subset\overline{V}\), the conclusion follows.
+    The property of local finiteness of an open collection \(S\) in \(\Omega\) is commonly stated as: for every \(z \in \Omega\), there exists an open neighborhood of \(z\) that intersects only finitely many sets in \(S\).
+
+    This is equivalent to \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lem:locallyfiniteopencoverexistence}. Indeed, if every point has such a neighborhood, then any compact \(K \subset \Omega\) admits a finite subcover of these neighborhoods by Heine--Borel, so \(K\) intersects finitely many sets in \(S\). Conversely, for any \(z \in \Omega\), take an open neighborhood \(V \ni z\) with relatively compact closure in \(\Omega\); then \(\overline{V}\) intersects finitely many sets in \(S\), and so does \(V\).
 \end{remark}
-\begin{theorem}[\textsc{Partition of Unity}]\label{thm:partitionofunity}
-    For a nonempty open set \(\Omega\subseteq\mathbb{C}\), suppose that \(\cbraces{\Omega_k}_{k\in\mathbb{Z}_{\ge0}}\) is an open cover of \(\Omega\). Then, there exists a collection of bump functions \(\alpha_1(z),\alpha_2(z),\ldots\in C^\infty(\mathbb{C})\), each with compact support in \(\Omega\) satisfying
+
+\begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
+    Let \(\Omega \subseteq \mathbb{C}\) be a nonempty open set and let \(\{ \Omega_k \}_{k \in \mathbb{N}}\) be an open cover of \(\Omega\). Then there exists a collection of bump functions \(\{ \alpha_j \}_{j \in \mathbb{N}} \subset C^\infty(\mathbb{C})\), each with compact support in \(\Omega\), satisfying:
     \begin{enumerate}
-        \item \(\forall j\in\mathbb{N}\), \(\exists k\in\mathbb{Z}_{\geq0}\) such that \(\supp\paren{\alpha_j}\subseteq\Omega_k\).\label{itm:partitionofunity_subordinate}
-        \item The collection \(\qty{\supp\paren{\alpha_j}}\) is locally finite.\label{itm:partitionofunity_localfiniteness}
-        \item \(\forall j\in\mathbb{N}\), \(0\leq\alpha_j\leq 1\).\label{itm:partitionofunity_nonnegativity}
-        \item \(\forall z\in\Omega\), \(\sum_{j=1}^\infty \alpha_j(z)=1,\)\label{itm:itm:partitionofunity_partitionofunity}
-    \end{enumerate} known as a \(C^\infty\) partition of unity \textscsl{subordinate to} \(\cbraces{\Omega_k}_{k\in\mathbb{Z}_{\geq0}}\).
+        \item For each \(j \in \mathbb{N}\), there exists \(k \in \mathbb{N}\) such that \(\supp(\alpha_j) \subseteq \Omega_k\). \label{itm:partitionofunity_subordinate}
+        \item The collection \(\{ \supp(\alpha_j) \}_{j \in \mathbb{N}}\) is locally finite. \label{itm:partitionofunity_localfiniteness}
+        \item For each \(j \in \mathbb{N}\), \(0 \leq \alpha_j \leq 1\). \label{itm:partitionofunity_nonnegativity}
+        \item For all \(z \in \Omega\), \(\sum_{j=1}^\infty \alpha_j(z) = 1\). \label{itm:partitionofunity_partitionofunity}
+    \end{enumerate}
+    This is called a \(C^\infty\) partition of unity \textsc{subordinate to} \(\{ \Omega_k \}_{k \in \mathbb{N}}\).
 \end{theorem}
+
 \begin{proof}
-    By the openness of \(\Omega_k\), \(\forall z\in\Omega\), \(\exists r_z>0\) such that \(\overline{D\paren{z,r_z}}\subset\Omega_{k_z}\) for some \(k_z\in\mathbb{Z}_{\ge0}\).
+    For each \(z \in \Omega\), there exists \(r_z > 0\) and \(k_z \in \mathbb{N}\) such that \(\overline{D(z, r_z)} \subset \Omega_{k_z}\). The collection \(\{ D(z, r) \mid z \in \Omega, \, 0 < r < r_z \}\) is an open basis for \(\Omega\). By \cref{lem:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\{ D(z_j, r_{z_j}) \}_{j \in \mathbb{N}} \subseteq \mathfrak{B}\) of \(\Omega\) with
+    \[
+    D(z_j, r_{z_j}) \subset \overline{D(z_j, r_{z_j})} \subset \Omega_{k_{z_j}}, \quad \forall j \in \mathbb{N}.
+    \]
 
-    Then, \(\cbraces{D\paren{z,r}}{z\in\Omega, 0<r<r_z}\) forms an open basis of \(\Omega\). By \cref{lem:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\cbraces{D\paren{z_j,r_{z_j}}}\) of \(\Omega\), and since it is a subcollection of the basis, \[D\paren{z_j,r_{z_j}}\subset\overline{D\paren{z_j,r_{z_j}}}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.\] The most trivial bump function has the form \[\theta(z)=
-        \begin{cases}
-            \exp\paren{\frac{1}{\abs{z}^2-1}} &\qif* \abs{z}<1   \\
-            0                                 &\qif* \abs{z}\ge1
-    \end{cases},\] which has the support \(\overline{D(0,1)}\). Define the function \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta\qty(\frac{z}{\varepsilon})\) with the support \(\overline{D(0,\varepsilon)}\), which satisfies that \(\forall\varepsilon>0\), \[\int_{\mathbb{C}}\theta_\varepsilon(z)\ddx\wedge\ddy=1.\]
-    Define a set of functions \(\cbraces{\beta_j(z)}_{j\in\mathbb{N}}\) with \(\beta_j(z)=\theta_{r_{z_j}}\paren{z-z_j}\), which is a bump function with \(\supp\qty(\beta_j)=\overline{D\paren{z_j, r_{z_j}}}\subset\Omega_{k_{z_j}}\).
+    Define the standard bump function
+    \[
+    \theta(z) =
+    \begin{cases}
+        \exp\left( \frac{1}{|z|^2 - 1} \right) & \text{if } |z| < 1, \\
+        0 & \text{if } |z| \geq 1.
+    \end{cases}
+    \]
+    For \(\varepsilon > 0\), let \(\theta_\varepsilon(z) = \varepsilon^{-2} \theta(z / \varepsilon)\), which has support \(\overline{D(0, \varepsilon)}\) and satisfies \(\int_{\mathbb{C}} \theta_\varepsilon(z) \, \dd x \wedge \dd y = 1\). Define \(\beta_j(z) = \theta_{r_{z_j}}(z - z_j)\), so \(\supp(\beta_j) = \overline{D(z_j, r_{z_j})} \subset \Omega_{k_{z_j}}\).
 
-    By the local finiteness of \(\qty{D\qty(z_j,r_{z_j})}\), there exists an open neighborhood \(V_z\) of each point \(z\in\Omega\) such that the set \(\cbraces{j}{V_z\cap D\qty(z_j,r_{z_j})\neq\emptyset}\) is finite. Since every open neighborhood of each point in \(\overline{D\qty(z_j,r_{z_j})}\) intersects \(D\qty(z_j,r_{z_j})\), it follows that every open set disjoint from \(D\qty(z_j,r_{z_j})\) is also disjoint from its closure. Since \(\overline{D\qty(z_j,r_{z_j})}\supset D\qty(z_j,r_{z_j})\), any open set intersecting \(D\qty(z_j,r_{z_j})\) will intersect \(\overline{D\qty(z_j,r_{z_j})}\). Therefore, \(\cbraces{j}{V_z\cap\overline{D\qty(z_j,r_{z_j})}\neq\emptyset}\) is finite. Equivalently, \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\) is locally finite on \(\Omega\).
+    By local finiteness of \(\{ D(z_j, r_{z_j}) \}_{j \in \mathbb{N}}\), for each \(z_0 \in \Omega\) there exists an open neighborhood \(V \ni z_0\) intersecting only finitely many \(\overline{D(z_j, r_{z_j})}\). Thus, \(\{ \supp(\beta_j) \}_{j \in \mathbb{N}}\) is locally finite on \(\Omega\).
 
-    Consequently, \(\forall z_0\in\Omega\), there exists an open neighborhood \(V\ni z_0\) that intersects a finite number of sets in \(\cbraces{\supp\paren{\beta_j}}_{j\in\mathbb{N}}\). Then \(\forall z\in V\), the sum \[S(z)=\sum_{j=1}^\infty\beta_j(z)\] is a sum of finitely many terms and is therefore \(C^\infty\) at \(z_0\). Since the collection of supports exhausts \(\Omega\), \(S(z)\) is positive. Therefore, the sequence defined by \[\alpha_j(z)={\frac{\beta_j(z)}{S(z)}}\] is also \(C^\infty\) and is compactly supported in \(\Omega\). Furthermore, we have \[\sum_{j=1}^\infty\alpha_j(z)=1,\] as desired.
+    For each \(z \in \Omega\), the sum \(S(z) = \sum_{j=1}^\infty \beta_j(z)\) involves only finitely many nonzero terms (by local finiteness), so \(S \in C^\infty(\Omega)\) and \(S(z) > 0\) (since the \(D(z_j, r_{z_j})\) cover \(\Omega\)). Define
+    \[
+    \alpha_j(z) = \frac{\beta_j(z)}{S(z)}, \quad j \in \mathbb{N}.
+    \]
+    Each \(\alpha_j \in C^\infty(\mathbb{C})\) has compact support in \(\Omega\), \(0 \leq \alpha_j \leq 1\), the supports are locally finite, and \(\sum_{j=1}^\infty \alpha_j(z) = 1\) for all \(z \in \Omega\). Moreover, each \(\supp(\alpha_j) \subseteq \Omega_{k_{z_j}}\), proving subordination.
 \end{proof}
-\begin{theorem}[Existence of Bump Functions]\label{thm:bumpfunctionexistence}
-    Let \(\Omega\subset\mathbb{C}\) be open, \(K\subset\Omega\) be compact, and \(V\subseteq\Omega\) be an open neighborhood of \(K\). Then there exists a bump function \(\varphi\in C^\infty\paren{\mathbb{C}}\) with compact support contained in \(V\) such that \(\forall z\in\mathbb{C}\), \(0\leq\varphi(z)\leq 1\), and there exists an open neighborhood of \(K\) over which \(\varphi\equiv1\).
-\end{theorem}
-\begin{proof}
-    Let \(V(K,\varepsilon)=\cbraces{z\in\mathbb{C}}{\inf_{\zeta\in K}\abs{\zeta-z}<\varepsilon}\), an \(\varepsilon\)-neighborhood of \(K\).
 
-    Then \(\exists\varepsilon>0\) such that \(K\subset V(K,\varepsilon)\subset V(K,2\varepsilon)\subseteq V\). Let \(\Omega_1=V(K,2\varepsilon)\) and \(\Omega_2=\Omega\setminus V(K,\varepsilon)\). Then there exists a \(C^\infty\) partition of unity \(\cbraces{\alpha_j(z)}_{j\in\mathbb{N}}\) of \(\Omega\) subordinate to the open cover \(\cbraces{\Omega_1,\Omega_2}\). Define a new function
-    \[\varphi(z)=\sum_{\substack{j\in\mathbb{N}\\\supp{\alpha_j}\subseteq\Omega_1}}\alpha_j(z).\]
-    It follows that \(\varphi\in C^\infty(\mathbb{C})\) with compact support in \(\Omega_1\). Since the support of every \(\alpha_j\) where \(j\in\mathbb{N}\) lies entirely either in \(\Omega_1\) or \(\Omega_2\), \[1=\sum_{\substack{j\in\mathbb{N}\\\supp{\alpha_j}\subseteq\Omega_2}}\alpha_j(z)+\varphi(z).\]
-    When \(z\in\Omega_1\setminus\Omega_2=V(K,\varepsilon)\), the first summation vanishes, meaning that \(\varphi(z)\equiv1\) on the neighborhood \(V(K,\varepsilon)\) of \(K\). When \(z\in\Omega_2\setminus\Omega_1=\Omega\setminus V(K,2\varepsilon)\), \(\varphi(z)\) vanishes.
+\begin{theorem}[Existence of Bump Functions]\label{thm:bumpfunctionexistence}
+    Let \(K \subset \mathbb{C}\) be compact and \(V \subset \mathbb{C}\) an open neighborhood of \(K\). Then there exists \(\varphi \in C^\infty(\mathbb{C})\) with compact support in \(V\) such that \(0 \leq \varphi(z) \leq 1\) for all \(z \in \mathbb{C}\) and \(\varphi \equiv 1\) on some open neighborhood of \(K\).
+\end{theorem}
+
+\begin{proof}
+    Let \(\Omega = \mathbb{C}\). Let \(V(K, \varepsilon) = \{ z \in \mathbb{C} \mid \inf_{\zeta \in K} |z - \zeta| < \varepsilon \}\) denote the \(\varepsilon\)-neighborhood of \(K\). There exists \(\varepsilon > 0\) such that \(K \subset V(K, \varepsilon) \subset V(K, 2\varepsilon) \subseteq V\). Let \(\Omega_1 = V(K, 2\varepsilon)\) and \(\Omega_2 = \mathbb{C} \setminus V(K, \varepsilon)\). By \cref{thm:partitionofunity}, there exists a \(C^\infty\) partition of unity \(\{ \alpha_j \}_{j \in \mathbb{N}}\) subordinate to the open cover \(\{ \Omega_1, \Omega_2 \}\) of \(\Omega\).
+
+    Define
+    \[
+    \varphi(z) = \sum_{\substack{j \in \mathbb{N} \\ \supp(\alpha_j) \subseteq \Omega_1}} \alpha_j(z).
+    \]
+    Then \(\varphi \in C^\infty(\mathbb{C})\) has compact support in \(\Omega_1 \subset V\). For \(z \in V(K, \varepsilon) = \Omega_1 \setminus \Omega_2\), the terms with support in \(\Omega_2\) vanish, so \(\varphi(z) = 1\). For \(z \in \mathbb{C} \setminus V(K, 2\varepsilon) = \Omega_2 \setminus \Omega_1\), \(\varphi(z) = 0\).
 \end{proof}
 \subsection{Zeros of a Holomorphic Function}
 For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textscsl{zero} of \(f\) iff \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
