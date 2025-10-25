@@ -176,17 +176,17 @@ The following definitions are subject to the assumption where the topological sp
     There then exists a finite subcover \(\mathcal{C}=\cbraces{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k_j})}}{j\in\mathbb{N}_{\leq m}}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{\max\qty{k_1,\ldots,k_m}})},\]
     and that \(X\cap\overline{B^n\qty(z_0,\frac{1}{\max\qty{k_1,\ldots,k_m}})}=\emptyset\). However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect \(X\). Therefore, by contradiction, \(X\) is closed.
 
-    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the \(X\) is contained within the closed cube \[Q=\cbraces{z\in\mathbb{C}^n}{\max_{j\in\mathbb{N}_{\leq n}}\abs{\Re(z_j)}\le R,\max_{j\in\mathbb{N}_{\leq n}}\abs{\Im(z_j)}\le R}.\]
+    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the \(X\) is contained within the closed cube \[Q=\cbraces{z\in\mathbb{C}^n}{\max_{j\in\mathbb{N}_{\leq n}}\abs{\Re(z_j)}\le R\wedge\max_{j\in\mathbb{N}_{\leq n}}\abs{\Im(z_j)}\le R}.\]
 
-    Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect \(Q_0=Q\) into \(2^{2n}\) sub-cubes (for real and complex parts). Choose \(Q_1\) such that \(Q_1\cup X\) has no finite subcover of \(\mathcal{U}\). Under the previous assumptions, this is possible since if every \(\text{sub-cube}\cap X\) had finite subcovering, then \(Q_0\cap X=X\) would have finite subcovering. Similarly, choose \(Q_2\) by bisecting \(Q_1\) in a similar way, and recursively obtain a sequence of cubes:
-    \[Q_0\supset Q_1\supset Q_2\supset\ldots\]
+    Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect \(Q_0=Q\) into \(2^{2n}\) sub-cubes (for real and complex parts). Choose \(Q_1\) such that \(Q_1\cup X\) has no finite subcover of \(\mathcal{U}\). Under the previous assumptions, this is possible since if every \(\text{sub-cube}\cap X\) had finite subcovering, then \(Q_0\cap X=X\) would have finite subcovering. Similarly, choose \(Q_2\) by bisecting \(Q_1\) similarly, and recursively obtain a sequence of cubes:
+    \[Q_0\supset Q_1\supset Q_2\supset\cdots\]
     Since the side length of each cube tends to 0, \(\bigcap_{j=0}^\infty Q_j\) consists of a single point \(z_{\infty}\in\mathbb{C}^n\). By the Bolzano-Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), because \(\forall j\in\mathbb{N}\), \(Q_j\cap X\neq\emptyset\), select a point \(z_{j}\in Q_j\cap X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\) as \(X\) is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in U\). Since \(U\) is open, \(\exists\varepsilon>0\) such that \(B^n(z_\infty,\varepsilon)\subset U\).\ \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq B^n(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every \(k\), \(Q_k\cap X\) has no finite subcovering. However, \(U\) covers \(Q_k\cap X\), which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
 \end{proof}
 \begin{definition}[Support of a Function]\label{def:support}
     For a set \(X\) and a function \(f:X\to\mathbb{C}\), the \textscsl{support}, denoted by \(\supp(f)=\overline{\cbraces{z\in X}{f(z)\neq 0}}\), is the closure of the set for which \(f\) is nonzero.
 \end{definition}
 \begin{remark}
-    We are primarily concerned when the support of a function is compact, or if the support is bounded. Functions that are compactly supported and \(C^\infty\) are also called \textscsl{bump functions}.
+    A notable classification of functions comes from the compactness of support---more specifically, its boundedness. Compactly supported functions in \(C^\infty\) are commonly referred to as \textscsl{bump functions} (see \cref{sec:partitionsofunity}).
 \end{remark}
 \subsection{Calculus}
 Since traditional complex analysis is the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for complex functions.
@@ -1416,7 +1416,7 @@ The concept of analytic continuation and its consequent problems and properties 
     \[\lim_{z\to z_0}\frac{\varphi(z)-\varphi\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2f(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}f(z)=0,\] meaning that \(\dv{\varphi}{z}\paren{z_0}=0\). For \(z\in D^*\paren{z_0,r}\), \[\varphi'(z)=2\paren{z-z_0}f(z)+\paren{z-z_0}^2f'(z).\] As \(z\to z_0\), \(\varphi(z)\to0\), meaning that \(\varphi\) is holomorphic over \(D\paren{z_0,r}\). By \cref{thm:cauchydifferentiationformula}, \[\varphi(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
     which is convergent over \(D\paren{z_0,r}\). Then we can define \[\widetilde{f}(z)=\frac{\varphi(z)}{\paren{z-z_0}^2}=\sum_{j=0}^\infty a_{j+2}\paren{z-z_0}^j\] over the same disk of convergence. Over the punctured disk, \(\widetilde{f}(z)=f(z)\), and therefore \(\widetilde{f}\) is an analytic continuation of \(f\).
 \end{proof}
-\subsubsection{Partitions of Unity and the Existence of Bump Functions}
+\subsubsection{Partitions of Unity and the Existence of Bump Functions}\label{sec:partitionsofunity}
 \begin{definition}[Topological Space]
     A \textscsl{topological space} is a pair \((X, \tau)\), where \(X\) is a set and \(\tau\) is a collection of subsets of \(X\) satisfying the following properties:
     \begin{enumerate}
@@ -4051,7 +4051,7 @@ For \(r>0\), define
 \subsection{Analytic Capacity}
 The theory of rational approximation is essentially built upon the concept of \textscsl{analytic capacity}, which was introduced in 1940 by Finnish mathematician Lars Ahlfors. Our purpose here is to give a brief and elementary introduction. Despite its importance, still many trivially simple results remain conjecture.
 \begin{definition}[Analytic Capacity]\label{def:analyticcapacity}
-    Let \(K\subset\mathbb{C}\) be compact. The \textscsl{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\qty{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}
+    Let \(K\subset\mathbb{C}\) be compact. The \textscsl{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\qty{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}.
 \end{definition}
 \section{Differential Geometry}\label{sec:differentialgeometry}
 \subsection{A Note on Curvature}
