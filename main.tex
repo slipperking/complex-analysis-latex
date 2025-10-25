@@ -1554,41 +1554,39 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 
     This is equivalent to \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lem:locallyfiniteopencoverexistence}. Indeed, if every point has such a neighborhood, then any compact \(K \subset \Omega\) admits a finite subcover of these neighborhoods by Heine--Borel, so \(K\) intersects finitely many sets in \(S\). Conversely, for any \(z \in \Omega\), take an open neighborhood \(V \ni z\) with relatively compact closure in \(\Omega\); then \(\overline{V}\) intersects finitely many sets in \(S\), and so does \(V\).
 \end{remark}
-
 \begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
-    Let \(\Omega \subseteq \mathbb{C}\) be a nonempty open set and let \(\{ \Omega_k \}_{k \in \mathbb{N}}\) be an open cover of \(\Omega\). Then there exists a collection of bump functions \(\{ \alpha_j \}_{j \in \mathbb{N}} \subset C^\infty(\mathbb{C})\), each with compact support in \(\Omega\), satisfying:
+    Let \(\Omega\subseteq\mathbb{C}\) be a nonempty open set and let \(\cbraces{\Omega_k}_{k\in\mathbb{N}}\) be an open cover of \(\Omega\). Then there exists a collection of bump functions \(\cbraces{\alpha_j}_{j\in\mathbb{N}}\subset C^\infty(\mathbb{C})\), each with compact support in \(\Omega\), satisfying:
     \begin{enumerate}
-        \item For each \(j \in \mathbb{N}\), there exists \(k \in \mathbb{N}\) such that \(\supp(\alpha_j) \subseteq \Omega_k\). \label{itm:partitionofunity_subordinate}
-        \item The collection \(\{ \supp(\alpha_j) \}_{j \in \mathbb{N}}\) is locally finite. \label{itm:partitionofunity_localfiniteness}
-        \item For each \(j \in \mathbb{N}\), \(0 \leq \alpha_j \leq 1\). \label{itm:partitionofunity_nonnegativity}
-        \item For all \(z \in \Omega\), \(\sum_{j=1}^\infty \alpha_j(z) = 1\). \label{itm:partitionofunity_partitionofunity}
+        \item For each \(j\in\mathbb{N}\), there exists \(k\in\mathbb{N}\) such that \(\supp(\alpha_j)\subseteq\Omega_k\).\label{itm:partitionofunity_subordinate}
+        \item The collection \(\cbraces{\supp(\alpha_j)}_{j\in\mathbb{N}}\) is locally finite.\label{itm:partitionofunity_localfiniteness}
+        \item For each \(j\in\mathbb{N}\), \(0\le\alpha_j\le1\). \label{itm:partitionofunity_nonnegativity}
+        \item \(\sum_{j=1}^\infty\alpha_j\equiv1\) on \(\Omega\).\label{itm:partitionofunity_partitionofunity}
     \end{enumerate}
-    This is called a \(C^\infty\) partition of unity \textsc{subordinate to} \(\{ \Omega_k \}_{k \in \mathbb{N}}\).
+    This is called a \(C^\infty\) partition of unity \textsc{subordinate to}\(\cbraces{\Omega_k}_{k\in\mathbb{N}}\).
 \end{theorem}
-
 \begin{proof}
-    For each \(z \in \Omega\), there exists \(r_z > 0\) and \(k_z \in \mathbb{N}\) such that \(\overline{D(z, r_z)} \subset \Omega_{k_z}\). The collection \(\{ D(z, r) \mid z \in \Omega, \, 0 < r < r_z \}\) is an open basis for \(\Omega\). By \cref{lem:locallyfiniteopencoverexistence}, there exists a locally finite open cover \(\{ D(z_j, r_{z_j}) \}_{j \in \mathbb{N}} \subseteq \mathfrak{B}\) of \(\Omega\) with
+    For each \(z\in\Omega\) there exists \(r_z>0\) and \(k_z\in\mathbb{N}\) such that \(\overline{D(z,r_z)}\subset\Omega_{k_z}\). The collection \(\cbraces{D(z,r)\mid z\in\Omega,\ 0<r<r_z}\) is an open basis for \(\Omega\). By \cref{lem:locallyfiniteopencoverexistence} there exists a locally finite open cover \(\cbraces{D(z_j,r_{z_j})}_{j\in\mathbb{N}}\subseteq\mathfrak{B}\) of \(\Omega\) with
     \[
-    D(z_j, r_{z_j}) \subset \overline{D(z_j, r_{z_j})} \subset \Omega_{k_{z_j}}, \quad \forall j \in \mathbb{N}.
+    D(z_j,r_{z_j})\subset\overline{D(z_j,r_{z_j})}\subset\Omega_{k_{z_j}},\quad\forall j\in\mathbb{N}.
     \]
 
     Define the standard bump function
     \[
-    \theta(z) =
+    \theta(z)=
     \begin{cases}
-        \exp\left( \frac{1}{|z|^2 - 1} \right) & \text{if } |z| < 1, \\
-        0 & \text{if } |z| \geq 1.
+        \exp\!\big(\tfrac{1}{|z|^2-1}\big) &\text{if }|z|<1,\\
+        0 &\text{if }|z|\ge1.
     \end{cases}
     \]
-    For \(\varepsilon > 0\), let \(\theta_\varepsilon(z) = \varepsilon^{-2} \theta(z / \varepsilon)\), which has support \(\overline{D(0, \varepsilon)}\) and satisfies \(\int_{\mathbb{C}} \theta_\varepsilon(z) \, \dd x \wedge \dd y = 1\). Define \(\beta_j(z) = \theta_{r_{z_j}}(z - z_j)\), so \(\supp(\beta_j) = \overline{D(z_j, r_{z_j})} \subset \Omega_{k_{z_j}}\).
+    For \(\varepsilon>0\) let \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta(z/\varepsilon)\), which has support \(\overline{D(0,\varepsilon)}\) and satisfies \(\int_{\mathbb{C}}\theta_\varepsilon(z)\,\dd x\wedge\dd y=1.\) Define \(\beta_j(z)=\theta_{r_{z_j}}(z-z_j)\), so \(\supp(\beta_j)=\overline{D(z_j,r_{z_j})}\subset\Omega_{k_{z_j}}.\)
 
-    By local finiteness of \(\{ D(z_j, r_{z_j}) \}_{j \in \mathbb{N}}\), for each \(z_0 \in \Omega\) there exists an open neighborhood \(V \ni z_0\) intersecting only finitely many \(\overline{D(z_j, r_{z_j})}\). Thus, \(\{ \supp(\beta_j) \}_{j \in \mathbb{N}}\) is locally finite on \(\Omega\).
+    By local finiteness of \(\cbraces{D(z_j,r_{z_j})}_{j\in\mathbb{N}}\), for each \(z_0\in\Omega\) there exists an open neighborhood \(V\ni z_0\) intersecting only finitely many \(\overline{D(z_j,r_{z_j})}\). Thus \(\cbraces{\supp(\beta_j)}_{j\in\mathbb{N}}\) is locally finite on \(\Omega\).
 
-    For each \(z \in \Omega\), the sum \(S(z) = \sum_{j=1}^\infty \beta_j(z)\) involves only finitely many nonzero terms (by local finiteness), so \(S \in C^\infty(\Omega)\) and \(S(z) > 0\) (since the \(D(z_j, r_{z_j})\) cover \(\Omega\)). Define
+    For each \(z\in\Omega\) the sum \(S(z)=\sum_{j=1}^\infty\beta_j(z)\) involves only finitely many nonzero terms (by local finiteness), so \(S\in C^\infty(\Omega)\) and \(S(z)>0\) (since \(\cbraces{D(z_j,r_{z_j})}_{j\in\mathbb{N}}\) covers \(\Omega\)). Define
     \[
-    \alpha_j(z) = \frac{\beta_j(z)}{S(z)}, \quad j \in \mathbb{N}.
+    \alpha_j(z)=\frac{\beta_j(z)}{S(z)},\quad j\in\mathbb{N}.
     \]
-    Each \(\alpha_j \in C^\infty(\mathbb{C})\) has compact support in \(\Omega\), \(0 \leq \alpha_j \leq 1\), the supports are locally finite, and \(\sum_{j=1}^\infty \alpha_j(z) = 1\) for all \(z \in \Omega\). Moreover, each \(\supp(\alpha_j) \subseteq \Omega_{k_{z_j}}\), proving subordination.
+    Each \(\alpha_j\in C^\infty(\mathbb{C})\) has compact support in \(\Omega\), \(0\le\alpha_j\le1\), the supports are locally finite, and \(\sum_{j=1}^\infty\alpha_j(z)=1\) for all \(z\in\Omega\). Moreover \(\supp(\alpha_j)\subseteq\Omega_{k_{z_j}}\), proving subordination.
 \end{proof}
 
 \begin{theorem}[Existence of Bump Functions]\label{thm:bumpfunctionexistence}
@@ -1596,7 +1594,7 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 \end{theorem}
 
 \begin{proof}
-    Let \(\Omega = \mathbb{C}\). Let \(V(K, \varepsilon) = \{ z \in \mathbb{C} \mid \inf_{\zeta \in K} |z - \zeta| < \varepsilon \}\) denote the \(\varepsilon\)-neighborhood of \(K\). There exists \(\varepsilon > 0\) such that \(K \subset V(K, \varepsilon) \subset V(K, 2\varepsilon) \subseteq V\). Let \(\Omega_1 = V(K, 2\varepsilon)\) and \(\Omega_2 = \mathbb{C} \setminus V(K, \varepsilon)\). By \cref{thm:partitionofunity}, there exists a \(C^\infty\) partition of unity \(\{ \alpha_j \}_{j \in \mathbb{N}}\) subordinate to the open cover \(\{ \Omega_1, \Omega_2 \}\) of \(\Omega\).
+    Let \(\Omega = \mathbb{C}\). Let \(V(K, \varepsilon) = \cbraces{ z \in \mathbb{C} \mid \inf_{\zeta \in K} |z - \zeta| < \varepsilon}\) denote the \(\varepsilon\)-neighborhood of \(K\). There exists \(\varepsilon > 0\) such that \(K \subset V(K, \varepsilon) \subset V(K, 2\varepsilon) \subseteq V\). Let \(\Omega_1 = V(K, 2\varepsilon)\) and \(\Omega_2 = \mathbb{C} \setminus V(K, \varepsilon)\). By \cref{thm:partitionofunity}, there exists a \(C^\infty\) partition of unity \(\{ \alpha_j \}_{j \in \mathbb{N}}\) subordinate to the open cover \(\{ \Omega_1, \Omega_2 \}\) of \(\Omega\).
 
     Define
     \[
