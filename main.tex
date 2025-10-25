@@ -1428,28 +1428,21 @@ The concept of analytic continuation and its consequent problems and properties 
 \end{definition}
 A topological space \(X\) is \textscsl{disconnected} if it can be written as the union of two nonempty disjoint open sets. Otherwise, it is \textscsl{connected}.
 
-A topology allows the definition and general conceptualization of continuity, convergence, and connectivity in a general setting, without necessarily relying on a notion of distance (a metric). For example, in a topological space, a function \(f: X \to Y\) between two topological spaces is said to be continuous if the preimage of every open set in \(Y\) is an open set in \(X\). This generalizes the familiar \(\varepsilon\)-\(\delta\) definition of continuity from calculus.
-
+A topology allows the definition and general conceptualization of continuity, convergence, and connectivity in a general setting, without necessarily relying on a notion of distance (a metric). For example, in a topological space, a function \(f:X\to Y\) between two topological spaces is said to be \textit{continuous} if the preimage of every open set in \(Y\) is an open set in \(X\). This generalizes the familiar \(\varepsilon\)--\(\delta\) definition of continuity.
 \begin{example}
-    Consider the function \(f: \mathbb{R} \to \mathbb{R}\) defined by
-    \[
-        f(x) =
+    Consider the function \(f:\mathbb{R}\to\mathbb{R}\) defined by
+    \[f(x)=
         \begin{cases}
-            1 & \text{if } x \geq 0, \\
-            0 & \text{if } x < 0.
-        \end{cases}
-    \]
-    We equip both the domain and codomain with the standard topology on \(\mathbb{R}\). Let \(V = (0.5, 1.5) \subseteq \mathbb{R}\). Then the preimage of \(V\) is
-    \[
-        f^{-1}(V) = \{ x \in \mathbb{R} \mid f(x) \in (0.5, 1.5) \} = [0, \infty),
-    \]
+            1& \qif*x\geq0, \\
+            0&\qif*x<0.
+    \end{cases}\]
+    We equip both the domain and codomain with the standard topology on \(\mathbb{R}\). Let \(V=(0.5,1.5)\subseteq\mathbb{R}\). Then the preimage of \(V\) is
+    \[f^{-1}(V)=\cbraces{x\in\mathbb{R}}{f(x)\in(0.5, 1.5)}=\mathbb{R}_{\geq0},\]
     which is not an open set in the standard topology on \(\mathbb{R}\). Thus, \(f\) is not continuous.
 \end{example}
-
 \begin{definition}[Basis of a Topology]
-    For a topological space \((X, \tau)\), a \textsc{basis} \(\mathfrak{B} \subseteq \tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of some subcollection of \(\mathfrak{B}\).
+    For a topological space \((X,\tau)\), a \textscsl{basis} \(\mathfrak{B}\subseteq\tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of some subcollection of \(\mathfrak{B}\).
 \end{definition}
-
 It is easy to see that \(\mathfrak{B}\) forms an open cover of \(X\). Moreover, for any two sets \(B_1, B_2 \in \mathfrak{B}\) and any \(x \in B_1 \cap B_2\), there exists \(B_3 \in \mathfrak{B}\) such that \(x \in B_3 \subseteq B_1 \cap B_2\).
 
 In a topological space \(X\), a subset can be open, closed (the complement of some open set), both (clopen), or neither. The only clopen sets that exist in any topological space \(X\) are \(\emptyset\) and \(X\) if \(X\) is connected. A technique used in many proofs in complex analysis relies on the following fact:
