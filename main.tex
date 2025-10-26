@@ -711,7 +711,7 @@ Lastly, the sufficient criteria to pass a limit through an integral:
     Let \(\gamma\) be a rectifiable curve on which the function sequence \(\cbraces{f_n}_{n\in\mathbb{N}}\) is continuous on. If \(\cbraces{f_n(z)}\) uniformly converges to \(f\), then \[\lim_{n\to\infty}\int_{\gamma}f_n(z)\ddz=\int_{\gamma}f(z)\ddz.\]
 \end{theorem}
 \begin{proof}
-    Since \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) on \(\gamma\), \(\forall\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that for all \(n > N\), \[\abs{f_n(z)-f(z)}<\frac{\varepsilon}{\operatorname{length}(\gamma)},\quad \forall z\in\gamma.\]
+    Since \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) on \(\gamma\), \(\forall\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that for all \(n>N\), \[\abs{f_n(z)-f(z)}<\frac{\varepsilon}{\operatorname{length}(\gamma)},\quad \forall z\in\gamma.\]
     Since each \(f_n\) is continuous and \(\gamma\) is rectifiable, each integral \(\int_\gamma f_n(z)\ddz\) is convergent and well-defined.
 
     Then \(\forall n>N\),
@@ -2011,7 +2011,7 @@ A fundamental problem in the theory of partial differential equations is to find
 \subsubsection{In Harmonic Analysis}
 Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho \ee^{\ii\theta}\) in \cref{eq:poissonintegralformula2}:
 \begin{gather}
-    u(z)=\frac{1}{2\piup}\int_0^{2\piup} u(\zeta)\frac{1-\abs{z}^2}{\abs{\zeta-z}^2}\dd{\tau} = \frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho \ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\rho \ee^{-\ii\theta})} \nonumber \\
+    u(z)=\frac{1}{2\piup}\int_0^{2\piup} u(\zeta)\frac{1-\abs{z}^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho \ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\rho\ee^{-\ii\theta})} \nonumber \\
     =\frac{1}{2\piup}\int_0^{2\piup} \frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
 \end{gather}
 Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(\ii\theta)\) is periodic with period \(2\piup\), it admits a Fourier series representation
@@ -2561,7 +2561,7 @@ Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has finit
                             0                     &\qif* z\in\qty{a_k}_{k\in\mathbb{N}}
                     \end{cases}.\]
                     Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the discussion proceeding \cref{thm:onedimensionalpartialconjugatesolution}, there exists a \(C^\infty\) function \(v(z)\) such that \(\pdv{v}{\overline{z}}=\phi(z)\) on \(\mathbb{C}\). Since \(\phi\) is \(C^\infty\), it follows that \(v\) is also \(C^\infty\). Define \(f(z)=u(z)-v(z)\). Then
-                    \[\pdv{f}{\overline{z}} = \pdv{u}{\overline{z}}-\pdv{v}{\overline{z}} = \phi(z)-\phi(z) = 0,\]
+                    \[\pdv{f}{\overline{z}}=\pdv{u}{\overline{z}}-\pdv{v}{\overline{z}}=\phi(z)-\phi(z)=0,\]
                     which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part \(\psi_n\) at each \(a_n\) and \(v\) is \(C^\infty\) (and hence removable at each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with principal parts \(\psi_n\) at each \(a_n\), as desired.
                 \item Let \(\qty{\varepsilon_n}_{n\in\mathbb{N}}\) be a positive sequence such that \(\sum_{n=1}^\infty\varepsilon_n\) is convergent. Without loss of generality, let \(a_1=0\) (if \(a_1\) is not a pole, set \(\psi_1=0\)). Choose \(p_1(z)=0\) (this can actually be any arbitrary polynomial). Fix \(n\geq 2\), \(\psi_n\) is a polynomial in terms of \(\frac{1}{z-a_n}\) and has its only pole at \(z=a_n\). Therefore, \(\psi_n(z)\) is holomorphic on \(D\qty(0,\abs{a_n})\) and can be written as \[\psi_n(z)=\sum_{k=0}^\infty \frac{\psi_n^{(k)}(0)}{k!}z^k.\]
 
@@ -3135,7 +3135,7 @@ In the case that there are indentations along the contour, we have
 \end{theorem}
 \begin{proof}
     Parameterize \(\gamma_\varepsilon\) with \(z=a+\varepsilon \ee^{\ii\theta}\), where \(\theta\in[\alpha,\beta]\) and \(\beta-\alpha=\vartheta\). Then,
-    \[\int_{\gamma_\varepsilon} f(z)\ddz = \int_\alpha^\beta f\qty(a+\varepsilon \ee^{\ii\theta}) \dv{z}{\theta}\dd{\theta}=\varepsilon \ii \int_\alpha^\beta f\qty(a+\varepsilon \ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}.\]
+    \[\int_{\gamma_\varepsilon}f(z)\ddz=\int_\alpha^\beta f\qty(a+\varepsilon\ee^{\ii\theta}) \dv{z}{\theta}\dd{\theta}=\varepsilon \ii \int_\alpha^\beta f\qty(a+\varepsilon \ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}.\]
     Since \(f\) has a simple pole at \(z=a\), we can write a Laurent expansion around \(a\) as
     \[f(z)=\frac{c_{-1}}{z-a}+\varphi(z),\]
     where \(\varphi(z)\) is holomorphic in a neighborhood of \(a\) and \(c_{-1}=\residue_{z=a}f(z)\).
@@ -3145,9 +3145,9 @@ In the case that there are indentations along the contour, we have
     So,
     \begin{align*}
         \int_{\gamma_\varepsilon}f(z)\ddz
-        & = \varepsilon \ii\int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon\ee^{\ii\theta}}+\varphi\qty(a+\varepsilon\ee^{\ii\theta}))\ee^{\ii\theta}\dd{\theta} \\
-        & = \ii c_{-1}\int_\alpha^\beta\dd{\theta}+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon \ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}          \\
-        & = \ii c_{-1}\vartheta+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}.
+        &=\varepsilon \ii\int_\alpha^\beta \qty(\frac{c_{-1}}{\varepsilon\ee^{\ii\theta}}+\varphi\qty(a+\varepsilon\ee^{\ii\theta}))\ee^{\ii\theta}\dd{\theta} \\
+        & =\ii c_{-1}\int_\alpha^\beta\dd{\theta}+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon \ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}          \\
+        & =\ii c_{-1}\vartheta+\varepsilon \ii\int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}.
     \end{align*}
     Let \(\varepsilon<\frac{\lambda}{2}\). Since \(\varphi\) is continuous on the disk \(\overline{D\qty(a,\frac{\lambda}{2})}\), it is bounded. Therefore, letting \(\varepsilon\to0\), we have
     \[\lim_{\varepsilon\to 0} \varepsilon \ii \int_\alpha^\beta\varphi\qty(a+\varepsilon\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\lim_{\varepsilon\to 0}\varepsilon \ii\int_\alpha^\beta\varphi(a)\ee^{\ii\theta}\dd{\theta}=0.\]
@@ -3487,7 +3487,7 @@ The following theorem is important in many areas of mathematical analysis and ha
 
     We will now assume that \(\mathcal{F}\) is not pointwise equicontinuous at some arbitrary point \(z_0\in K\). In other words, \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists f\in\mathcal{F}\), \(\exists z\in K\) such that \(\abs{z-z_0}<\delta\) satisfying \[\abs{f(z)-f(z_0)}>\varepsilon.\]
     Let us define sequences \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) and \(\qty{z_n}_{n\in\mathbb{N}}\subseteq K\) such that \(\abs{z_n-z_0}<\frac{1}{n}\) and
-    \[\abs{f_n(z_n) - f_n(z_0)} > \varepsilon.\]
+    \[\abs{f_n\qty(z_n)-f_n\qty(z_0)}>\varepsilon.\]
     Since \(\mathcal{F}\) is assumed to be normal, the sequence \(\qty{f_n}_{n\in\mathbb{N}}\) has a uniformly convergent subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converging to a continuous function \(f\). In particular, since uniform convergence preserves continuity (\cref{thm:uniformlimit}), the limit \(f\) is continuous at \(z_0\), and hence,
     \[f_{n_k}\qty(z_0)-f\qty(z_0)\to 0,\qquad f\qty(z_0)-f\qty(z_{n_k})\to 0,\qquad f_{n_k}\qty(z_{n_k})-f\qty(z_{n_k})\to 0,\] where the rightmost inequality is derived from the fact that \(f_{n_k}\rightrightarrows f\) on \(K\). Thus,
     \[\abs{f_{n_k}\qty(z_{n_k})-f_{n_k}\qty(z_0)}\to 0,\]
