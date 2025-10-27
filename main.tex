@@ -1321,7 +1321,7 @@ The differentiation formula above can be thought of as a generalization of \cref
     Prove the integral form \[P_n(z)=\frac{1}{2\piup\ii}\oint_\gamma\frac{{\qty(\zeta^2-1)}^n}{2^n{(\zeta-z)}^{n+1}}\ddzeta,\] where \(\gamma\) is a simple closed curve enclosing \(z\).
 \end{example}
 \begin{proof}
-    By applying Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}) on \cref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\piup \ii}\oint_{\gamma}\frac{{\qty(\zeta^2-1)}^n}{{(\zeta-z)}^{n+1}}\ddzeta,\] as desired.
+    By applying Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}) on \cref{eq:legendrepolynomialintegralformula_rodriguesformula}, we get that \[P_n(z)=\frac{1}{2^{n+1}\piup\ii}\oint_{\gamma}\frac{{\qty(\zeta^2-1)}^n}{{(\zeta-z)}^{n+1}}\ddzeta,\] as desired.
 \end{proof}
 \begin{theorem}[\textsc{Cauchy's Estimate}]\label{thm:cauchysestimate}
     For a function \(f:U\to\mathbb{C}\) holomorphic over \(U\subseteq\mathbb{C}\) and \(\forall z_0\in U\) and \(\forall R>0\) such that \(\overline{D\paren{z_0,R}}\subseteq{U}\), \(\forall n\in\mathbb{N}\), \[\abs{f^{(n)}\paren{z_0}}\leq\frac{n!M}{R^n},\]
@@ -1381,7 +1381,7 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
     We can differentiate within the integral as \(f(\zeta)\cdot\pdv{\varphi(\zeta)}{\overline{\zeta}}\) is \(C^\infty\) and bounded over \(K_1\), and thus the integrand is uniformly bounded by an integrable function independent of \(\zeta\):
     \[f^{(n)}(z)=\frac{n!}{2\piup\ii}\int_{K_1} f(\zeta)\cdot\pdv{\varphi(\zeta)}{\overline{\zeta}}\cdot\frac{\ddzeta\wedge\dd{\overline{\zeta}}}{\paren{\zeta-z}^{n+1}},\]
     and by the triangle inequality,
-    \[\abs{f^{(n)}(z)}\leq\frac{n!}{2\piup}\int_{K_1} \abs{f(\zeta)}\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{\abs{\ddzeta\wedge\dd{\overline{\zeta}}}}{\abs{\zeta-z}^{n+1}}.\]
+    \[\abs{f^{(n)}(z)}\leq\frac{n!}{2\piup}\int_{K_1}\abs{f(\zeta)}\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{\abs{\ddzeta\wedge\dd{\overline{\zeta}}}}{\abs{\zeta-z}^{n+1}}.\]
     Notice that over \(W\), \(\varphi=1\), \(\varphi'=0\), and is disjoint from \(K_1\) (or that \(W\cap K_1=\emptyset\)). Then, the distance between \(W\) and \(K\) is positive and the two are disjoint. Therefore, \(\exists M>0\) such that
     \[\frac{1}{\abs{\zeta-z}}\leq M,\] and thus, \[\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{1}{\abs{\zeta-z}^{n+1}}\] can be bounded by a sequence \(\cbraces{c'_n}\), independent of \(f\) and dependent only on \(n\) and the sets \(K\) and \(V\). Then, \[\abs{f^{(n)}(z)}\leq\frac{n!}{2\piup}\int_{K_1}c'_n\abs{f(\zeta)}{\abs{\ddzeta\wedge\dd{\overline{\zeta}}}}=\frac{n!}{\piup}\int_{K_1}c'_n\abs{f(\zeta)}{\abs{\ddx\wedge\ddy}}.\] Because \(K_1\) is compact, it has a finite area \(\mathrm{area}\qty(K_1)\), and we can define a new sequence \(c_n=\frac{n!}{\piup}c'_n\mathrm{area}\qty(K_1)\) to find that \[\abs{f^{(n)}(z)}\leq c_n\int_{K_1}\abs{f(\zeta)}{\abs{\ddx\wedge\ddy}}\leq c_n\int_{V}\abs{f(\zeta)}{\abs{\ddx\wedge\ddy}}.\]
 
@@ -1528,9 +1528,9 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
     \label{fig:locallyfiniteopencoverexistence}
 \end{figure}
 \begin{remark}
-    The property of local finiteness of an open collection \(S\) in \(\Omega\) is commonly stated as: for every \(z \in \Omega\), there exists an open neighborhood of \(z\) that intersects only finitely many sets in \(S\).
+    The property of local finiteness of an open collection \(S\) in \(\Omega\) is commonly stated as: for every \(z\in\Omega\), there exists an open neighborhood of \(z\) that intersects only finitely many sets in \(S\).
 
-    This is equivalent to \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lem:locallyfiniteopencoverexistence}. Indeed, if every point has such a neighborhood, then any compact \(K\subset\Omega\) admits a finite subcover of these neighborhoods by Heine--Borel (\cref{thm:heineborel}), so \(K\) intersects finitely many sets in \(S\). Conversely, for any \(z \in \Omega\), take an open neighborhood \(V \ni z\) with relatively compact closure in \(\Omega\); then \(\overline{V}\) intersects finitely many sets in \(S\), and so does \(V\).
+    This is equivalent to \ref{itm:locallyfiniteopencoverexistence_localfiniteness} in \cref{lem:locallyfiniteopencoverexistence}. Indeed, if every point has such a neighborhood, then any compact \(K\subset\Omega\) admits a finite subcover of these neighborhoods by Heine--Borel (\cref{thm:heineborel}), so \(K\) intersects finitely many sets in \(S\). Conversely, for any \(z\in\Omega\), take an open neighborhood \(V\ni z\) with relatively compact closure in \(\Omega\); then \(\overline{V}\) intersects finitely many sets in \(S\), and so does \(V\).
 \end{remark}
 \begin{theorem}[Partition of Unity]\label{thm:partitionofunity}
     Let \(\Omega\subseteq\mathbb{C}\) be a nonempty open set and let \(\cbraces{\Omega_k}_{k\in\mathbb{N}}\) be an open cover of \(\Omega\). Then there exists a collection of bump functions \(\cbraces{\alpha_j}_{j\in\mathbb{N}}\subset C^\infty(\mathbb{C})\), each with compact support in \(\Omega\), satisfying:
@@ -1566,10 +1566,10 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 \begin{proof}
     Let \(V(K,\varepsilon)=\cbraces{z\in\mathbb{C}}{\inf_{\zeta\in K}\abs{z-\zeta}<\varepsilon}\) denote the open \(\varepsilon\)-neighborhood of \(K\). Since \(V\) is an open neighborhood of \(K\), \(\exists\varepsilon>0\) such that
     \[K\subset V(K,\varepsilon)\subset V(K, 2\varepsilon)\subset V,\]
-    where \(A \subset\subset B\) means that the closure of \(A\) is compact and contained in \(B\).
+    where \(A\subset\subset B\) means that the closure of \(A\) is compact and contained in \(B\).
 
     Define the open sets
-    \[\Omega_1=V(K,2\varepsilon),\qquad\Omega_2=\mathbb{C}\setminus \overline{V(K,\varepsilon)}.\]
+    \[\Omega_1=V(K,2\varepsilon),\qquad\Omega_2=\mathbb{C}\setminus\overline{V(K,\varepsilon)}.\]
     Then \(\qty{\Omega_1,\Omega_2}\) is an open cover of \(\mathbb{C}\).
 
     By the Partition of Unity Theorem (\cref{thm:partitionofunity}), there exist compactly supported functions
@@ -1577,9 +1577,9 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
     forming a partition of unity subordinate to this cover. That is,
     \[0\leq\alpha_j\leq1,\quad\supp\qty(\alpha_j)\subset\Omega_{i_j}\text{ for some }i_j\in\qty{1,2},\quad\sum_{j=1}^\infty\alpha_j\equiv1\qq{on}\mathbb{C}.\]
     Define
-    \[\varphi(z)=\sum_{\substack{j\in\mathbb{N}\\\supp\qty(\alpha_j)\subset \Omega_1}}\alpha_j(z).\]
+    \[\varphi(z)=\sum_{\substack{j\in\mathbb{N}\\\supp\qty(\alpha_j)\subset\Omega_1}}\alpha_j(z).\]
     Then \(\varphi\in C^\infty(\mathbb{C})\) is compactly supported within \(\Omega_1\), and since only finitely many \(\alpha_j\) are nonzero on a neighborhood of each point, \(\varphi\in C^\infty(\mathbb{C})\).
-    Moreover, \(\supp(\varphi)\subset \Omega_1\subset V\).
+    Moreover, \(\supp(\varphi)\subset\Omega_1\subset V\).
 
     For \(z\in V(K,\varepsilon)\), all functions with support in \(\Omega_2\) vanish at \(z\), so
     \[\varphi(z)=\sum_{\supp\qty(\alpha_j)\subset\Omega_1}\alpha_j(z)=\sum_{j=1}^\infty\alpha_j(z)=1.\]
@@ -1613,7 +1613,7 @@ We will introduce a fundamental application of Liouville's Theorem (\cref{thm:li
     Letting \(n\to\infty\), \(z_n\to z_\infty\), and \(a_1=0\). Define \(f_2(z)=\frac{f_1(z)}{z-z_\infty}\). Then, \[f_2(z)=\sum_{n=0}^\infty a_{n+2}\paren{z-z_\infty}^n.\]
     Similarly, \(a_2=0\). Letting \(f_n(z)=\frac{f(z)}{\paren{z-z_\infty}^n}\), the sequence \(\cbraces{a_n}_{n\in\mathbb{Z}_{\geq0}}\) vanishes, and \(f\equiv 0\) on \(D\paren{z_\infty,\varepsilon}\).
 
-    Let \(\widetilde{S}=\cbraces{z\in U}{\forall n\in\mathbb{Z}_{\geq0}, f^{(n)}(z)=0}\).\ \(\forall z\in D\paren{z_\infty,\varepsilon}\), since \(f(z)\) locally vanishes (and has vanishing derivatives as a consequence), \(D\paren{z_\infty,\varepsilon}\subseteq \widetilde{S}\). Furthermore, \(\forall z'\in \widetilde{S}\), \(\exists\varepsilon'>0\) such that \(f(z)\) has a convergent Taylor series with vanishing coefficients on \(D(z',\varepsilon')\subseteq U\). Then \(f\equiv0\) on \(D\paren{z',\varepsilon'}\). Then \(\forall z\in D(z',\varepsilon')\), since \(f\) is constant at \(z\), it also has vanishing derivatives. It follows that \(D(z',\varepsilon')\subseteq \widetilde{S}\). Since every point in \(\widetilde{S}\) has an open neighborhood also in \(\widetilde{S}\), \(\widetilde{S}\) is open.
+    Let \(\widetilde{S}=\cbraces{z\in U}{\forall n\in\mathbb{Z}_{\geq0}, f^{(n)}(z)=0}\).\ \(\forall z\in D\paren{z_\infty,\varepsilon}\), since \(f(z)\) locally vanishes (and has vanishing derivatives as a consequence), \(D\paren{z_\infty,\varepsilon}\subseteq\widetilde{S}\). Furthermore, \(\forall z'\in\widetilde{S}\), \(\exists\varepsilon'>0\) such that \(f(z)\) has a convergent Taylor series with vanishing coefficients on \(D(z',\varepsilon')\subseteq U\). Then \(f\equiv0\) on \(D\paren{z',\varepsilon'}\). Then \(\forall z\in D(z',\varepsilon')\), since \(f\) is constant at \(z\), it also has vanishing derivatives. It follows that \(D(z',\varepsilon')\subseteq\widetilde{S}\). Since every point in \(\widetilde{S}\) has an open neighborhood also in \(\widetilde{S}\), \(\widetilde{S}\) is open.
 
     It is evident that \(\forall k\in\mathbb{Z}_{\geq0}\), \(f^{(k)}\) is continuous in \(U\) by the holomorphy of \(f\). Let \(S_k=\cbraces{z\in U}{f^{(k)}(z)=0}\). For any sequence \(\cbraces{\widetilde{z}_n}\in S_k\) converging to some \(\widetilde{z}_\infty\in U\), by the continuity of \(f\), \[\lim_{n\to\infty} f^{(k)}\paren{\widetilde{z}_n}=f^{(k)}\paren{\lim_{n\to\infty}\widetilde{z}_n}=f^{(k)}\paren{z'_\infty}=0,\] and therefore \(\widetilde{z}_\infty\in S_k\). Thus, \(S_k\) contains all of its accumulation points in \(U\) and is therefore closed in \(U\) (if \(\widetilde{z}_\infty\notin U\), then it is no longer relevant; we are concerned about it being closed within \(U\)). Since \(\widetilde{S}=\bigcap_{k\in\mathbb{Z}_{\geq0}} S_k\) and each of \(S_k\) is closed in \(U\), \(\widetilde{S}\) is the intersection of closed sets and consequently closed.
 
@@ -1635,7 +1635,7 @@ We will introduce a fundamental application of Liouville's Theorem (\cref{thm:li
 \end{theorem}
 \begin{proof}
     Let \(z_1,\ldots,z_n\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with the respective multiplicities \(k_1,\ldots,k_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) centered at each \(z_j\) with radii \(\varepsilon_j>0\), each contained in the interior of \(\gamma\) and avoiding \(\gamma\). The function \[\frac{f'(z)}{f(z)}\]
-    is holomorphic on the domain \[\mathrm{int}\paren{\gamma}\setminus\bigcup_{j=1}^n \overline{D\qty(z_j,\varepsilon_j)},\]
+    is holomorphic on the domain \[\mathrm{int}\paren{\gamma}\setminus\bigcup_{j=1}^n\overline{D\qty(z_j,\varepsilon_j)},\]
     where \(\mathrm{int}(\gamma)\) denotes the interior relative to \(\gamma\). The oriented boundary of this domain is \(\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-\). By Cauchy--Goursat (\cref{thm:cauchygoursattheorem}),
     \[\int_{\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-}\frac{f'(z)}{f(z)}\ddz=0,\]
     which rearranges to
@@ -1646,9 +1646,9 @@ We will introduce a fundamental application of Liouville's Theorem (\cref{thm:li
     Since \(h_j\) is holomorphic and non-vanishing on \(D\paren{z_j,\varepsilon_j}\), the function \(\frac{h_j'}{h_j}\) is holomorphic there. By the Cauchy--Goursat Theorem,
     \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{h_j'(z)}{h_j(z)}\ddz=0.\]
     The Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}) gives
-    \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{k_j}{z-z_j}\ddz=2\piup \ii k_j.\]
+    \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{k_j}{z-z_j}\ddz=2\piup\ii k_j.\]
     Combining results,
-    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\piup \ii k_j=2\piup \ii k.\]
+    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\piup\ii k_j=2\piup\ii k.\]
     Finally, parameterize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
     \[k=\frac{1}{2\piup\ii}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\piup\ii}\Delta_\Gamma\log(w)=\frac{1}{2\piup}\Delta_\Gamma\arg(w),\] which proves the result.
 \end{proof}
@@ -1686,7 +1686,7 @@ Thus, one defines the \textscsl{winding index} to quantify how many times a clos
         & =0.
     \end{align*}
     Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). By \cref{thm:limitintegralswitch}, we can pass the limit through the integral in \cref{eq:hurwitzsimplecase_argumentprinciple}. Then,
-    \[\lim_{n\to\infty}\oint_\gamma \frac{f'_n(z)}{f_n(z)}\ddz=\oint_\gamma \frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\cref{thm:argumentprincipleholomorphic}), \(f(z)\) has no zeros in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
+    \[\lim_{n\to\infty}\oint_\gamma\frac{f'_n(z)}{f_n(z)}\ddz=\oint_\gamma\frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\cref{thm:argumentprincipleholomorphic}), \(f(z)\) has no zeros in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
 \end{proof}
 \begin{theorem}[\textsc{Rouché}]\label{thm:rouche}
     Let \(U\subseteq\mathbb{C}\) be open and \(f,g\) be two holomorphic functions over \(U\). Let \(\gamma\subset U\) be a simple, closed, rectifiable curve, and \(\forall z\in\gamma\)
@@ -1712,7 +1712,7 @@ By the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}), 
     If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists\delta>0\) such that \(\forall\xi\in D\qty(w_0,\delta)\), \(f-\xi\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
 \end{theorem}
 \begin{proof}
-    The zero at \(z_0\) is isolated by \cref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). Hence, \(\forall \xi\in D\qty(w_0,\delta)\), we have \(\abs{\xi-w_0}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
+    The zero at \(z_0\) is isolated by \cref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). Hence, \(\forall\xi\in D\qty(w_0,\delta)\), we have \(\abs{\xi-w_0}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
 
     By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f(z)-\xi)}<\abs{f(z)-w_0}\), it follows that \(f-\xi\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
@@ -1723,7 +1723,7 @@ We also have the following generalization of \cref{thm:hurwitzsimplecase}, which
     If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(f_n-w_0\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
 \end{theorem}
 \begin{proof}
-    The zero at \(z_0\) is isolated by \cref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). By uniform convergence, \(\exists N\in \mathbb{N}\) such that \(\forall n>N\), we have \(\abs{f(z)-f_n\qty(z)}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
+    The zero at \(z_0\) is isolated by \cref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). By uniform convergence, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), we have \(\abs{f(z)-f_n\qty(z)}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
 
     By Rouché's Theorem (\cref{thm:rouche}), since \[\abs{\qty(f(z)-w_0)-\qty(f_n(z)-w_0)}<\abs{f(z)-w_0},\] it follows that \(f_n-w_0\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
 \end{proof}
@@ -1732,14 +1732,14 @@ A useful corollary of \cref{thm:cauchygoursatformula} is the Maximum Modulus Pri
 
 Before the theorem, we first introduce the mean-value property of holomorphic functions.
 \begin{lemma}\label{lem:holomorphicmeanvalueproperty}
-    Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall \varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
+    Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall\varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
 \end{lemma}
 \begin{proof}
-    By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}.\]
+    By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}.\]
     Observe that
     \begin{align*}
-        f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}} & =\frac{1}{2\piup\varepsilon}\int_{0}^{2\piup}f\paren{z+\varepsilon \ee^{\ii t}}\abs{\ii\varepsilon \ee^{\ii t}\dd{t}} \\
-        & =\frac{1}{2\piup}\int_{0}^{2\piup}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t},
+        f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}} & =\frac{1}{2\piup\varepsilon}\int_{0}^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\abs{\ii\varepsilon\ee^{\ii t}\dd{t}} \\
+        & =\frac{1}{2\piup}\int_{0}^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t},
     \end{align*}
     and the conclusion follows.
 \end{proof}
@@ -1755,15 +1755,15 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
 
     Since \(S\subseteq V\) and \(V\) are both open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \cref{lem:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
     \begin{align*}
-        |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}}\leq \frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon \ee^{\ii t}}}\dd{t} \\
+        |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}\leq\frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
         & \leq\frac{1}{2\piup}\int_0^{2\piup}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
     It follows that all inequalities above are equalities, or that
     \begin{align*}
-        |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon \ee^{\ii t}}\dd{t}}=\frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon \ee^{\ii t}}}\dd{t} \\
+        |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}=\frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
         & =\frac{1}{2\piup}\int_0^{2\piup}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
-    From the equality of the last two integrals, \(\int_{0}^{2\piup}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon \ee^{\ii t}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\cref{thm:identity}).
+    From the equality of the last two integrals, \(\int_{0}^{2\piup}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon\ee^{\ii t}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\cref{thm:identity}).
 \end{proof}
 \begin{remark}
     If \(f\) is holomorphic and non-constant on an open region \(U\subseteq\mathbb{C}\), then for any compact set \(K\subset U\), the maximum of \(f\) in \(K\) lies on \(\partial K\). Otherwise, \(f\) would attain a maximum at some \(z\in\interior{K}\), and contradict the statement of \cref{thm:maximummodulus} under the assumption of being non-constant.
@@ -1786,11 +1786,11 @@ The following important result can be directly obtained from the Maximum Modulus
             \frac{f(z)}{z} &\qif* z\neq0 \\
             f'(0)          &\qif* z=0
     \end{cases}.\]
-    Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \cref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in \partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in \mathbb{D}\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\).
+    Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \cref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in\partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in\mathbb{D}\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\).
 
     For the sake of the equality condition, assume \(|f(z)|=\abs{z}\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \cref{thm:maximummodulus}, \(g(z)=\exp(\ii\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(\ii\tau)\) on \(\mathbb{D}\).
 
-    Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in \mathbb{D}\), it follows from \cref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(\ii\tau)\).
+    Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in\mathbb{D}\), it follows from \cref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(\ii\tau)\).
 \end{proof}
 To discuss the main topic of this section, we will first introduce the concept of a \textscsl{group}.
 \begin{definition}[Group]\label{def:group}
@@ -1806,17 +1806,17 @@ To discuss the main topic of this section, we will first introduce the concept o
 
 If \(U\subseteq\mathbb{C}\) is connected and \(f:U\to U\) is holomorphic on \(U\) and bijective, \(f\) is a \textscsl{holomorphic automorphism} on \(U\). The \textscsl{group of holomorphic automorphisms} on \(U\) is denoted by \(\Aut(U)\), which is the set of all holomorphic automorphisms such as \(f\), with the operation of composition (\(f\circ g\)).
 
-First we will show that \(\forall a\in \mathbb{D}\),
+First we will show that \(\forall a\in\mathbb{D}\),
 \begin{equation}
     \varphi_a(z)=\frac{z-a}{1-\overline{a}z}\in\Aut(\mathbb{D}).\label{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}
 \end{equation}
 Firstly, the function is holomorphic on \(\mathbb{D}\) as \(\abs{z}\le1\), \(\abs{\overline{a}}<1\), the denominator never vanishes. Additionally, \(\varphi_a(a)=0\).
 
-First, we will observe the image of \(\partial \mathbb{D}\). Let \(\abs{z}=1\). Then,
+First, we will observe the image of \(\partial\mathbb{D}\). Let \(\abs{z}=1\). Then,
 \[\abs{\varphi_a(z)}=\abs{\frac{1}{z}}\abs{\frac{z-a}{\frac{1}{z}-\overline{a}}}=\abs{\frac{z-a}{\overline{z}-\overline{a}}}=1.\]
-Therefore, the image of \(\partial \mathbb{D}\) lies on \(\partial \mathbb{D}\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\cref{thm:maximummodulus}), for any \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(\mathbb{D}\) to \(\mathbb{D}\). We next aim to show that \(f:\mathbb{D}\to \mathbb{D}\) is bijective.
+Therefore, the image of \(\partial\mathbb{D}\) lies on \(\partial\mathbb{D}\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\cref{thm:maximummodulus}), for any \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(\mathbb{D}\) to \(\mathbb{D}\). We next aim to show that \(f:\mathbb{D}\to\mathbb{D}\) is bijective.
 
-Let us first confirm injectivity.\ \(\forall z_1,z_2\in \mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that
+Let us first confirm injectivity.\ \(\forall z_1,z_2\in\mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that
 \begin{gather*}
     \qty(z_1-a)\qty(1-\overline{a}z_2)=\qty(z_2-a)\qty(1-\overline{a}z_1),\\
     z_1-a-\overline{a}z_1z_2+\abs{a}^2z_2=z_2-a-\overline{a}z_1z_2+\abs{a}^2z_1.
@@ -1827,9 +1827,9 @@ Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac
 \begin{equation}
     z-\overline{a}zw=w-a\Longleftrightarrow w=\frac{z+a}{1+\overline{a}z}.\label{eq:inversemobiustransformation}
 \end{equation}
-It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in \mathbb{D}\)) are known as \textscsl{Möbius transformations}, and the group of all such transformations is known as the \textscsl{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textscsl{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
+It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in\mathbb{D}\)) are known as \textscsl{Möbius transformations}, and the group of all such transformations is known as the \textscsl{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textscsl{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
 \begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{D}\)]\label{thm:holomorphicautomorphismgrouponunitdisk}
-    \(\forall f\in \Aut(\mathbb{D})\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
+    \(\forall f\in\Aut(\mathbb{D})\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\]
 \end{theorem}
 \begin{proof}
     Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(z)\). It follows that \(\psi\in\Aut(\mathbb{D})\). Furthermore, \(\psi(0)=\varphi_{f(0)}\circ f(0)=0\).
@@ -1839,7 +1839,7 @@ It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is sur
 \end{proof}
 As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we have the following result:
 \begin{lemma}[\textsc{Schwarz--Pick}]\label{lem:schwarzpick}
-    Let \(f:\mathbb{D}\to \mathbb{D}\) be holomorphic.\ \(\forall z_1,z_2\in \mathbb{D}\), let \(w_1=f\qty(z_1)\) and \(w_2=f\qty(z_2)\). Then,
+    Let \(f:\mathbb{D}\to\mathbb{D}\) be holomorphic.\ \(\forall z_1,z_2\in\mathbb{D}\), let \(w_1=f\qty(z_1)\) and \(w_2=f\qty(z_2)\). Then,
     \begin{equation}
         \abs{\frac{w_1-w_2}{1-w_1\overline{w_2}}}\leq\abs{\frac{z_1-z_2}{1-z_1\overline{z_2}}},\label{eq:schwarzpick_statement1}
     \end{equation} and
@@ -1859,7 +1859,7 @@ As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we
     \begin{equation}
         \abs{\dv{w}{z}}\leq\frac{1-\overline{w}w}{1-\overline{z}z}\Longleftrightarrow\frac{\abs{\dd{w}}}{1-\overline{w}w}\leq\frac{\abs{\ddz}}{1-\overline{z}z}.\label{eq:schwarzpick_nonincreasingmetric}
     \end{equation}
-    By the Schwarz Lemma (\cref{lem:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ \ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\qedhere\]
+    By the Schwarz Lemma (\cref{lem:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ\ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\qedhere\]
 \end{proof}
 \begin{remark}
     In \cref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
@@ -1871,11 +1871,11 @@ As in the Cauchy Integral Formula (\cref{thm:cauchygoursatformula}), we can writ
 Then \cref{eq:cauchygoursatformula} can be written as:
 \[f(z)=\oint_{\partial U}f(\zeta)H(\zeta,z)\ddzeta.\] There also exist other integral formulas for functions, varying in the kernel of the expression.
 
-Let \(z\in \mathbb{D}\) and notice that \(\varphi_z(\zeta)=\frac{\zeta-z}{1-\overline{z}\zeta}\in\Aut(\mathbb{D})\) maps \(\partial\mathbb{D}\) to \(\partial\mathbb{D}\) bijectively. Let \(\Phi:\mathbb{D}\to\mathbb{R}\) be harmonic such that \(\Phi\) is continuous on \(\overline{\mathbb{D}}\). By the mean-value property introduced in \cref{lem:holomorphicmeanvalueproperty}, we have \[\Phi (0)=\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi},\]
-where \(0<\rho<1\). By the uniform continuity of \(\Phi\) on \(\overline{\mathbb{D}}\) (\cref{thm:heinecantor}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\rho\in\qty(\frac{1}{2},1)\) satisfying \(1-\rho<\delta\) and \(\forall\psi\in[0,2\piup]\), \[\abs{\Phi\qty(\ee^{\ii\psi})-\Phi\qty(\rho \ee^{\ii\psi})}<\varepsilon.\] It then follows that \[\abs{\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\ee^{\ii\psi})\dd{\psi}-\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi}}<\frac{\varepsilon}{\rho}<2\varepsilon.\]
+Let \(z\in\mathbb{D}\) and notice that \(\varphi_z(\zeta)=\frac{\zeta-z}{1-\overline{z}\zeta}\in\Aut(\mathbb{D})\) maps \(\partial\mathbb{D}\) to \(\partial\mathbb{D}\) bijectively. Let \(\Phi:\mathbb{D}\to\mathbb{R}\) be harmonic such that \(\Phi\) is continuous on \(\overline{\mathbb{D}}\). By the mean-value property introduced in \cref{lem:holomorphicmeanvalueproperty}, we have \[\Phi (0)=\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi},\]
+where \(0<\rho<1\). By the uniform continuity of \(\Phi\) on \(\overline{\mathbb{D}}\) (\cref{thm:heinecantor}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\rho\in\qty(\frac{1}{2},1)\) satisfying \(1-\rho<\delta\) and \(\forall\psi\in[0,2\piup]\), \[\abs{\Phi\qty(\ee^{\ii\psi})-\Phi\qty(\rho\ee^{\ii\psi})}<\varepsilon.\] It then follows that \[\abs{\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\ee^{\ii\psi})\dd{\psi}-\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi}}<\frac{\varepsilon}{\rho}<2\varepsilon.\]
 Hence,
 \begin{equation}
-    \lim_{\rho\to1^-}\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho \ee^{\ii\psi})\dd{\psi}=\frac{1}{2\piup}\int_0^{2\piup}\Phi\qty(\ee^{\ii\psi})\dd{\psi}=\Phi(0).\label{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}
+    \lim_{\rho\to1^-}\frac{1}{2\piup\rho}\int_0^{2\piup}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi}=\frac{1}{2\piup}\int_0^{2\piup}\Phi\qty(\ee^{\ii\psi})\dd{\psi}=\Phi(0).\label{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}
 \end{equation}
 Let \(u(\zeta)=\Phi\circ\varphi_z(\zeta)\), which is also harmonic on \(\mathbb{D}\). By the univalence of \(\varphi_z\), let \(\ee^{\ii\psi}=\varphi_z\qty(\ee^{\ii\tau})\). It follows that
 \begin{gather*}
@@ -1928,7 +1928,7 @@ The Poisson kernel is important in many branches of mathematics. We will introdu
 \subsubsection{Laplace's Equation under Dirichlet Boundary Conditions on a Disk}
 A fundamental problem in the theory of partial differential equations is to find a function \(u\) that is continuous on the closed disk \(\overline{D(0,R)}\), harmonic on the open disk \(D(0,R)\), and identically equal to a given boundary function on \(\partial D(0,R)\). This is known as the \textscsl{Dirichlet problem} for the Laplace equation on a disk.
 \begin{theorem}\label{thm:dirichletproblemwithlaplaceequationsolution}
-    For a continuous function \(\varphi\in C^0(\partial D(0,R))\), the unique real-valued solution \(u\in C^0\qty(\overline{D(0,R)})\) that solves \[\laplacian u(z)=0\quad\forall z\in D(0,R),\qquad u(z)=\varphi(z) \quad\forall z\in\partial D(0,R)\] is given by the Poisson integral formula:
+    For a continuous function \(\varphi\in C^0(\partial D(0,R))\), the unique real-valued solution \(u\in C^0\qty(\overline{D(0,R)})\) that solves \[\laplacian u(z)=0\quad\forall z\in D(0,R),\qquad u(z)=\varphi(z)\quad\forall z\in\partial D(0,R)\] is given by the Poisson integral formula:
     \begin{equation}
         u(z)=\int_0^{2\piup}\varphi(\zeta)P(\zeta,z)\dd{\tau},\label{eq:dirichletproblemwithlaplaceequationsolution}
     \end{equation}
@@ -1940,8 +1940,8 @@ A fundamental problem in the theory of partial differential equations is to find
     \begin{equation}
         \lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\label{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}
     \end{equation}
-    Let \(0<\rho<R\) and \(z=\rho \ee^{\ii\theta}\). Then,
-    \[\abs{\varphi(\xi)-u(z)}=\abs{\varphi\qty(R\ee^{\ii\vartheta})-u\qty(\rho \ee^{\ii\theta})}=\abs{\varphi\qty(R\ee^{\ii\vartheta})-\int_0^{2\piup}P(\zeta,z)\varphi\qty(\zeta)\dd{\tau}}.\]
+    Let \(0<\rho<R\) and \(z=\rho\ee^{\ii\theta}\). Then,
+    \[\abs{\varphi(\xi)-u(z)}=\abs{\varphi\qty(R\ee^{\ii\vartheta})-u\qty(\rho\ee^{\ii\theta})}=\abs{\varphi\qty(R\ee^{\ii\vartheta})-\int_0^{2\piup}P(\zeta,z)\varphi\qty(\zeta)\dd{\tau}}.\]
     For a constant harmonic function identically equal to 1, we get \(\int_0^{2\piup}P(\zeta,z)\dd{\tau}=1\) from \cref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\piup}P(\zeta,z)\qty(\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta))\dd{\tau}}.\]
     By the continuity of \(\varphi\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty|\vartheta-\tau|<\delta<\frac{\piup}{2}\), we have that \(\abs{\varphi(R\ee^{\ii\vartheta})-\varphi(\zeta)}<\varepsilon\). Therefore,
     \begin{align*}
@@ -1988,7 +1988,7 @@ A fundamental problem in the theory of partial differential equations is to find
         \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked. The use of \(+\) and \(-\) denote a value more or less (respectively) than the preceeding value.}
         \label{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}
     \end{figure}By continuity of \(\varphi\) compact set \(\partial D(0,R)\), by \cref{thm:heinecantor}, it is bounded and \(M=\sup_{\qty|\zeta|=R}\abs{\varphi(\zeta)}\) is finite. The Poisson kernel can be rewritten as \[P(\zeta,z)=\frac{R^2-\rho^2}{2\piup\qty|\zeta-z|^2},\]
-    where \(\zeta=R\ee^{\ii\tau}\) and \(z=\rho \ee^{\ii\theta}\), with \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that \(\forall z\) with \(|\xi-z|<\eta\),
+    where \(\zeta=R\ee^{\ii\tau}\) and \(z=\rho\ee^{\ii\theta}\), with \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that \(\forall z\) with \(|\xi-z|<\eta\),
     \begin{equation}
         \abs{\theta-\tau}>\frac{\delta}{2}\label{eq:dirichletproblemwithlaplaceequationsolution_constraint1},
     \end{equation} and
@@ -1996,7 +1996,7 @@ A fundamental problem in the theory of partial differential equations is to find
         \rho>\frac{R}{2}\Longrightarrow\eta\leq\frac{R}{2}\label{eq:dirichletproblemwithlaplaceequationsolution_constraint2}
     \end{equation} (these can be arbitrarily chosen for different resulting bounds) as in \cref{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}. Then, \[|\zeta-z|^2>4\rho^2\sin[2](\frac{\delta}{4})>\frac{1}{2}R^2\qty(1-\cos(\frac{\delta}{2})).\]
 
-    We aim to prove that \(\abs{I_2}<\varepsilon\). Since \(\abs{\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta)}<2M\), the condition is satisfied if \(\int_{\abs{\vartheta-\tau}>\delta}\frac{R^2-\rho^2}{\piup R^2\qty(1-\cos(\frac{\delta}{2}))}\dd{\tau}<2\frac{R^2-\rho^2}{R^2\qty(1-\cos(\frac{\delta}{2}))}< \frac{\varepsilon}{2M}\), and from rearrangement, we can tighten the constraint with:
+    We aim to prove that \(\abs{I_2}<\varepsilon\). Since \(\abs{\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta)}<2M\), the condition is satisfied if \(\int_{\abs{\vartheta-\tau}>\delta}\frac{R^2-\rho^2}{\piup R^2\qty(1-\cos(\frac{\delta}{2}))}\dd{\tau}<2\frac{R^2-\rho^2}{R^2\qty(1-\cos(\frac{\delta}{2}))}<\frac{\varepsilon}{2M}\), and from rearrangement, we can tighten the constraint with:
     \begin{equation}
         R^2-\rho^2<\frac{\varepsilon}{4M}R^2\paren{1-\cos(\frac{\delta}{2})}\Longleftarrow R-\rho<\frac{\varepsilon}{8M}R\paren{1-\cos(\frac{\delta}{2})}.\label{eq:dirichletproblemwithlaplaceequationsolution_constraint3}
     \end{equation}
@@ -2009,21 +2009,21 @@ A fundamental problem in the theory of partial differential equations is to find
     We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (\cref{eq:poissonintegralformula2}), \(u(z)-v(z)=\int_0^{2\piup}P(\zeta,z)\qty[u(\zeta)-v(\zeta)]\dd{\tau}=0\) for all \(z\in D(0,R)\). Since \(u-v\) vanishes, we have a contradiction.
 \end{proof}
 \subsubsection{In Harmonic Analysis}
-Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho \ee^{\ii\theta}\) in \cref{eq:poissonintegralformula2}:
+Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho\ee^{\ii\theta}\) in \cref{eq:poissonintegralformula2}:
 \begin{gather}
-    u(z)=\frac{1}{2\piup}\int_0^{2\piup} u(\zeta)\frac{1-\abs{z}^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho \ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\rho\ee^{-\ii\theta})} \nonumber \\
-    =\frac{1}{2\piup}\int_0^{2\piup} \frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
+    u(z)=\frac{1}{2\piup}\int_0^{2\piup} u(\zeta)\frac{1-\abs{z}^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho\ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\rho\ee^{-\ii\theta})}\nonumber \\
+    =\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
 \end{gather}
 Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(\ii\theta)\) is periodic with period \(2\piup\), it admits a Fourier series representation
 \begin{equation}
-    u\qty(\ee^{\ii\theta})\sim\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta},\qquad a_n=\frac{1}{2\piup}\int_0^{2\piup} u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
+    u\qty(\ee^{\ii\theta})\sim\sum_{n=-\infty}^\infty a_n\ee^{\ii n\theta},\qquad a_n=\frac{1}{2\piup}\int_0^{2\piup} u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
 \end{equation}
-This series may diverge. Observe that continuity of \(u\) on the compact set \(\partial\mathbb{D}\) implies uniform boundedness: \(\exists M>0\) such that \(\abs{u\qty(\ee^{\ii\theta})} \leq M\) for all \(\theta\) (\cref{thm:continuousfunctionboundedoncompact}). Consequently, \(\abs{a_n} \leq M\). Introducing factors \(\rho^{\abs{n}}\) with \(\abs{\rho}<1\) yields a convergent series:
-\[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}, \quad\abs{\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M \frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
+This series may diverge. Observe that continuity of \(u\) on the compact set \(\partial\mathbb{D}\) implies uniform boundedness: \(\exists M>0\) such that \(\abs{u\qty(\ee^{\ii\theta})}\leq M\) for all \(\theta\) (\cref{thm:continuousfunctionboundedoncompact}). Consequently, \(\abs{a_n}\leq M\). Introducing factors \(\rho^{\abs{n}}\) with \(\abs{\rho}<1\) yields a convergent series:
+\[\sum_{n=-\infty}^\infty a_n\ee^{\ii n\theta}\rho^{\abs{n}},\quad\abs{\sum_{n=-\infty}^\infty a_n\ee^{\ii n\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M\frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
 Substituting the coefficients gives
 \begin{align*}
-    \sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}} & =\sum_{n=-\infty}^\infty \qty(\frac{1}{2\piup}\int_0^{2\piup}u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau}) \ee^{\ii n\theta}\rho^{\abs{n}} \\
-    & =\frac{1}{2\piup} \sum_{n=-\infty}^\infty \int_0^{2\piup}\rho^{\abs{n}} u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)}\dd{\tau}.
+    \sum_{n=-\infty}^\infty a_n\ee^{\ii n\theta}\rho^{\abs{n}} & =\sum_{n=-\infty}^\infty\qty(\frac{1}{2\piup}\int_0^{2\piup}u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau})\ee^{\ii n\theta}\rho^{\abs{n}} \\
+    & =\frac{1}{2\piup}\sum_{n=-\infty}^\infty\int_0^{2\piup}\rho^{\abs{n}} u\qty(\ee^{\ii\tau})\ee^{\ii n(\theta-\tau)}\dd{\tau}.
 \end{align*}
 By \cref{thm:weierstrassmtest,thm:limitintegralswitch},
 \begin{equation}
@@ -2046,7 +2046,7 @@ Thus, for any continuous function \(u\) on \(\partial\mathbb{D}\), its Fourier s
 We now establish that real-valued continuous functions satisfying the mean-value property are harmonic.
 \begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
     Let \(U\subseteq\mathbb{C}\) be open and \(f:U\to\mathbb{R}\) continuous. Suppose for every \(z_0\in U\), there exists \(\lambda>0\) with \(\overline{D\qty(z_0,\lambda)}\subseteq U\) such that for all \(0<\varepsilon\leq\lambda\),
-    \[f(z_0)=\frac{1}{2\piup}\int_0^{2\piup} f\qty(z_0+\varepsilon \ee^{\ii t})\dd{t}.\]
+    \[f\qty(z_0)=\frac{1}{2\piup}\int_0^{2\piup} f\qty(z_0+\varepsilon \ee^{\ii t})\dd{t}.\]
     Then \(f\) is harmonic on \(U\).
 \end{theorem}
 \begin{proof}
@@ -2283,7 +2283,7 @@ Conversely, we have:
     \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\]
     which is meromorphic on \(\mathbb{C}\), with potential singularities only at \(z_1,\dots,z_n\) and \(\infty\).
 
-    We now show that each of these singularities is removable. First, fix \(j\in\qty{1,\ldots,n}\) arbitrarily. Since the poles are isolated, there exists \(\varepsilon_j>0\) such that the punctured disk \(D^*(z_j,\varepsilon_j)=\cbraces{z}{0<\abs{z-z_j}<\varepsilon_j}\) contains no other poles \(z_k\) for \(k\neq j\).
+    We now show that each of these singularities is removable. First, fix \(j\in\qty{1,\ldots,n}\) arbitrarily. Since the poles are isolated, there exists \(\varepsilon_j>0\) such that the punctured disk \(D^*\qty(z_j,\varepsilon_j)=\cbraces{z}{0<\abs{z-z_j}<\varepsilon_j}\) contains no other poles \(z_k\) for \(k\neq j\).
     \begin{enumerate}
         \item Since \(f(z)-\psi_j(z)\) is the holomorphic part of the Laurent expansion at \(z_j\), it is holomorphic on \(D\qty(z_j,\varepsilon_j)\) (including at \(z_j\)).
         \item \(\sum_{k\neq j}\psi_k(z)\) is holomorphic on \(D\qty(z_j,\varepsilon_j)\), as each \(\psi_k\) has its singularity elsewhere.
@@ -2291,7 +2291,7 @@ Conversely, we have:
     \end{enumerate}
     Thus,
     \[\Phi(z)=\qty[f(z)-\psi_j(z)]-\psi_\infty(z)-\sum_{k\neq j}\psi_k(z)\]
-    is holomorphic on \(D\qty(z_j,\varepsilon_j)\), including at \(z_j\). Therefore, we can define \(\Phi(z_j)\) to make \(\Phi\) holomorphic at \(z_j\).
+    is holomorphic on \(D\qty(z_j,\varepsilon_j)\), including at \(z_j\). Therefore, we can define \(\Phi\qty(z_j)\) to make \(\Phi\) holomorphic at \(z_j\).
 
     Since \(f(z)-\psi_\infty(z)\) is the holomorphic part of the expansion at \(\infty\), consisting of terms with non-positive powers of \(z\), \(\lim_{z\to\infty}f(z)-\psi_\infty(z)\) exists and is finite. Additionally, each \(\psi_k(z)\) consists of negative powers of \(z-z_k\), so \(\lim_{z\to\infty}\psi_k(z)=0\) for each \(k\), and thus \(\lim_{z\to\infty}\sum_{k=1}^n\psi_k(z)=0\).
     Therefore, \(\lim_{z\to\infty}\Phi(z)\) exists and is finite, so \(\infty\) is a removable singularity of \(\Phi\). Without the finite singularities at each \(z_k\), \(\Phi\) is entire. Since \(\Phi\) has a finite limit at \(\infty\), it is bounded on \(\mathbb{C}\). By Liouville's theorem, \(\Phi(z)\equiv c\) for some constant \(c\).
@@ -2307,14 +2307,14 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     \[\frac{1}{2\piup\ii}\oint_{\gamma}\frac{\psi(z)f'(z)}{f(z)}\dd z=\sum_{i=1}^k\alpha_i\psi\qty(a_i)-\sum_{j=1}^m\beta_j\psi\qty(b_j).\]
 \end{theorem}
 \begin{proof}
-    Choose disks \(D\qty(a_i,\varepsilon_i)\) (with pairwise disjoint closures) around each zero \(a_i\) and \(D(b_j,\varepsilon'_j)\) around each pole \(b_j\), with \(\varepsilon_i,\varepsilon'_j>0\) sufficiently small so that these disks are contained in \(\mathrm{int}(\gamma)\), disjoint from \(\gamma\), and contained in the neighborhood where \(\psi\) is holomorphic. The function
+    Choose disks \(D\qty(a_i,\varepsilon_i)\) (with pairwise disjoint closures) around each zero \(a_i\) and \(D\qty(b_j,\varepsilon'_j)\) around each pole \(b_j\), with \(\varepsilon_i,\varepsilon'_j>0\) sufficiently small so that these disks are contained in \(\mathrm{int}(\gamma)\), disjoint from \(\gamma\), and contained in the neighborhood where \(\psi\) is holomorphic. The function
     \[g(z)=\frac{\psi(z)f'(z)}{f(z)}\]
     is holomorphic on
     \[\operatorname{int}(\gamma)\setminus\qty(\bigcup_{i=1}^k D\qty(a_i,\varepsilon_i)\cup\bigcup_{j=1}^m D\qty(b_j,\varepsilon'_j)),\]
     since \(\psi\) is holomorphic there, \(f\) is meromorphic with no other singularities, and \(f\neq0\) on \(\gamma\). The oriented boundary of this punctured domain is \(\gamma^+\cup\bigcup_{i=1}^k\partial D\qty(a_i,\varepsilon_i)^-\cup\bigcup_{j=1}^m\partial D\qty(b_j,\varepsilon'_j)^-\). By Cauchy--Goursat (\cref{thm:cauchygoursattheorem}), \[\oint_{\gamma^+}g(z)\ddz+\sum_{i=1}^k\oint_{\partial D\qty(a_i,\varepsilon_i)^-}g(z)\ddz+\sum_{j=1}^m\oint_{\partial D\qty(b_j,\varepsilon'_j)^-}g(z)\ddz=0.\]
     Thus,
     \[-\oint_{\gamma}g(z)\ddz=\sum_{i=1}^k \oint_{\partial D\qty(a_i,\varepsilon_i)^+}g(z)\ddz+\sum_{j=1}^m\oint_{\partial D\qty(b_j,\varepsilon'_j)^+}g(z)\ddz.\]
-    Near each zero \(a_i\), write \(f(z)=\qty(z-a_i)^{\alpha_i}h(z)\) where \(h\) is holomorphic at \(a_i\) with \(h(a_i)\neq0\). Then
+    Near each zero \(a_i\), write \(f(z)=\qty(z-a_i)^{\alpha_i}h(z)\) where \(h\) is holomorphic at \(a_i\) with \(h\qty(a_i)\neq0\). Then
     \[\frac{f'(z)}{f(z)}=\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)},\]
     so
     \[g(z)=\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)}).\]
@@ -2333,7 +2333,7 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
     Combining these,
     \begin{align*}
         \oint_{\gamma}\frac{\psi(z)f'(z)}{f(z)}\ddz
-        &= \sum_{i=1}^k 2\piup\ii\alpha_i \psi\qty(a_i)-\sum_{j=1}^m-2\piup\ii\beta_j\psi(b_j) \\
+        &= \sum_{i=1}^k 2\piup\ii\alpha_i \psi\qty(a_i)-\sum_{j=1}^m-2\piup\ii\beta_j\psi\qty(b_j) \\
         &= 2\piup\ii\qty(\sum_{i=1}^k \alpha_i\psi\qty(a_i)-\sum_{j=1}^m \beta_j\psi\qty(b_j)).\qedhere
     \end{align*}
 \end{proof}
