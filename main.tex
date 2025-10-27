@@ -1335,7 +1335,7 @@ The differentiation formula above can be thought of as a generalization of \cref
 \end{proof}
 \cref{thm:nthderivativeboundedl1norm} will profoundly generalize this statement significantly. The relationship between the derivatives of a holomorphic function and the function itself is an important property of holomorphic functions.
 \begin{example}
-    Let \(f\) be entire and \(\forall z\in\mathbb{C}\), \(|f(z)|\leq M\ee^{\abs{z}}\). Prove that \(\forall n\in\mathbb{N}\), \(|f(0)|\leq M\) and \[\abs{f^{(n)}(0)}\leq Mn!\qty(\frac{\ee}{n})^n.\]
+    Let \(f\) be entire and \(\forall z\in\mathbb{C}\), \(\abs{f(z)}\leq M\ee^{\abs{z}}\). Prove that \(\forall n\in\mathbb{N}\), \(\abs{f(0)}\leq M\) and \[\abs{f^{(n)}(0)}\leq Mn!\qty(\frac{\ee}{n})^n.\]
 \end{example}
 \begin{proof}
     \(|f(0)|\leq M\) is obviously true by letting \(z=0\). Then \(\forall R>0\), by Cauchy's Estimate (\cref{thm:cauchysestimate}), \[\abs{f^{(n)}(0)}\leq Mn!\frac{\ee^{R}}{R^n}.\]
@@ -1752,7 +1752,7 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
     Assume that \(z_0\) exists. We will first prove that the set \[S=\cbraces{z}{f(z)=f\paren{z_0},z\in V}\]
     is all of \(V\). This is equivalent to proving that \(S\) is nonempty, open, and closed in \(V\).
 
-    Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=0,\] and \(z_\infty\in S\). Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with it being closed within \(V\)).
+    Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=0,\] and \(z_\infty\in S\). Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with its relative closedness in \(V\)).
 
     Since \(S\subseteq V\) and \(V\) are both open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \cref{lem:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
     \begin{align*}
@@ -1771,10 +1771,10 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
 \end{remark}
 A similar theorem exists for real-valued harmonic functions. The proof follows in the same way as the one for holomorphic functions. We will state it formally below.
 \begin{theorem}\label{thm:maximumprincipleforrealharmonicfunctions}
-    Let \(U\subseteq\mathbb{C}\) be open and connected and let \(f:U\to\mathbb{R}\) be harmonic. Suppose that \(\exists z_0\in U\) and a neighborhood \(V\subseteq U\) of \(z_0\) such that either \[f(z)\geq f\qty(z_0)\qquad\forall z\in V\] or \[f(z)\leq f\qty(z_0)\qquad\forall z\in V.\]
+    Let \(U\subseteq\mathbb{C}\) be open and connected and let \(f:U\to\mathbb{R}\) be harmonic. Suppose that \(\exists z_0\in U\) and a neighborhood \(V\subseteq U\) of \(z_0\) such that either \[f(z)\geq f\qty(z_0)\quad\forall z\in V\qq{or}f\qty(z_0)\quad\forall z\in V.\]
     Then \(f\) is constant on \(U\).
 \end{theorem}
-As a matter of fact, the theorem follows for any continuous function satisfying the mean-value property.
+By nature of the proof, the result holds for any continuous function satisfying the mean-value property.
 \subsection{The Group of Holomorphic Automorphisms on the Unit Disk}
 The following important result can be directly obtained from the Maximum Modulus Principle.
 \begin{lemma}[Schwarz]\label{lem:schwarz}
@@ -1789,19 +1789,19 @@ The following important result can be directly obtained from the Maximum Modulus
     \end{cases}.\]
     Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \cref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in\partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in\mathbb{D}\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\).
 
-    For the sake of the equality condition, assume \(|f(z)|=\abs{z}\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \cref{thm:maximummodulus}, \(g(z)=\exp(\ii\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(\ii\tau)\) on \(\mathbb{D}\).
+    For the sake of the equality condition, assume \(\abs{f(z)}=\abs{z}\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \cref{thm:maximummodulus}, \(g(z)=\exp(\ii\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(\ii\tau)\) on \(\mathbb{D}\).
 
     Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in\mathbb{D}\), it follows from \cref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(\ii\tau)\).
 \end{proof}
 To discuss the main topic of this section, we will first introduce the concept of a \textscsl{group}.
 \begin{definition}[Group]\label{def:group}
     A group is a nonempty set \(G\) and a binary operation (we will denote this as \(*\)) satisfying the four \textscsl{group axioms}:
-    \begin{itemize}
+    \begin{enumerate}
         \item Closure: \(\forall a,b\in G\), \(a*b\in G\).
         \item Associativity: \(\forall a,b,c\in G\), \((a*b)*c=a*(b*c)\).
         \item Identity Element: \(\exists e\in G\) such that \(\forall a\in G\), \(a*e=e*a=a\). Note that \(e\) is unique; if \(e,f\in G\) were both identity elements, then \(e*f=f*e=e=f\), and are equal.
         \item Inverse Element: \(\forall a\in G\), \(\exists a^{-1}\in G\) such that \(a*a^{-1}=e=a^{-1}*a\), where \(e\) is the identity element. Note that \(a^{-1}\) is unique. Assume \(b,c\) were both inverses of \(a\). Then, \(b=b*e=b*(a*c)=(b*a)*c=c\), and are equal.
-    \end{itemize}
+    \end{enumerate}
     A \textscsl{subgroup} \(H\) of \(G\) is a subset of \(G\) that is also a group under the same operation as \(G\). This relationship is denoted by \(H\leq G\) or \(H<G\) for \textscsl{proper subgroups}.
 \end{definition}
 
@@ -3891,4 +3891,1279 @@ Let \(z=f^{-1}(w)\). Then we have
     For brevity, assume \(a=0\).
 
     Let \(\widetilde{\varphi}\) be a conformal mapping from \(\extcomplex\setminus K\) to \(\mathbb{D}\), such that \(\widetilde{\varphi}(\infty)=0\) and \(\alpha=\widetilde{\varphi}'(\infty)\in\mathbb{R}_{>0}\). Let \(\varphi(z)=\frac{1}{\alpha}\widetilde{\varphi}(z)\). It follows that \(\varphi'(\infty)=1\), \(\varphi(\infty)=0\). By \cref{prop:complementbiholomorphismquarterestimate}, \[\abs{\alpha}\geq\frac{1}{4}\diam(K)\Longleftrightarrow\abs{\varphi(z)}\leq\frac{4\abs{\widetilde{\varphi}(z)}}{\diam(K)}.\] Consequently, we have the crucial estimate of \(\varphi\qty(\extcomplex\setminus K)\subseteq D\qty(0,\frac{4}{\diam(K)})\subseteq D\qty(0,\frac{8}{r})\). For fixed \(\zeta\in D(0,r)\), define \[\phi_\zeta(z)=\varphi(z)+(\zeta-\beta)\varphi^2(z),\qquad z\in\extcomplex\setminus K\] where \(\beta=\frac{\varphi''(\infty)}{2}\). Cauchy's Estimate (\cref{thm:cauchysestimate}) on \(\qty(z\mapsto\frac{1}{z})\qty(\extcomplex\setminus D(0,r))=D\qty(0,\frac{1}{r})\) gives: \[\abs{\beta}=\frac{1}{2}\abs{\eval{\dv[2]{z}(\varphi\qty(\frac{1}{z}))}_{z=0}}\leq\frac{\sup_{D\qty(0,\frac1r)}\abs{\varphi\qty(\frac{1}{z})}}{\operatorname{dist}\qty(0,\partial D\qty(0,\frac{1}{r}))^2}=8r.\]
-    Hence, \[\abs{\phi_\zeta(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is
+    Hence, \[\abs{\phi_\zeta(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is \cref{itm:complementbiholomorphism584r4767r2estimates_absolute584}. Suppose that \(\abs{z-\zeta}>2r\). It follows from \(\abs{\zeta}<r\) that \(\abs{z}>r\) (from the reverse triangle inequality) and hence disjoint from \(K\) and \(\zeta\). On this infinite annulus, we have the Laurent expansion (from \cref{thm:laurentexpansionofholomorphicfunction}) that \[\varphi(z)=\sum_{k=1}^\infty\frac{\mu_k}{\qty(z-\zeta)^k}=\frac{1}{z-\zeta}+\frac{\mu}{(z-\zeta)^2}+\order{\frac1{\qty(z-\zeta)^3}}\] where \(\mu_1=1\) because \(\varphi\sim\frac{1}{z}\) as \(z\to\infty\). Since \(\abs{z}>r\), we have the global Laurent expansion \[\varphi(z)=\frac1z+\frac\beta{z^2}+\order{\frac1{z^3}}.\]
+    Hence,
+    \begin{align*}
+        \frac1{z-\zeta}+\frac\mu{\qty(z-\zeta)^2}&=\frac1z+\frac\beta{z^2}+\order{\frac1{z^3}}\\
+        z+\zeta+\mu&=z+\frac{\zeta^2}z+\beta+\frac{\beta\zeta^2}{z^2}-\frac{2\beta\zeta}{z}+\order{\frac1z}=z+\beta+\order{\frac1z}\\
+        \mu&=\beta-\zeta
+    \end{align*} by letting \(z\to\infty\). Since \[\varphi^2(z)=\qty(\frac{1}{z-\zeta}+\order{\frac1{\qty(z-\zeta)^2}})^2=\frac{1}{\qty(z-\zeta)^2}+\order{\frac{1}{\qty(z-\zeta)^3}},\] from the definition of \(\phi_\zeta\), we have
+    \begin{align*}
+        \phi_\zeta(z)-\frac{1}{z-\zeta}=\varphi-\mu\varphi^2-\frac{1}{z-\zeta}&=\frac{\mu}{\qty(z-\zeta)^2}+\order{\frac1{(z-\zeta)^3}}-\frac{\mu}{\qty(z-\zeta)^2}-\order{\frac{\mu}{\qty(z-\zeta)^3}}\\
+        &=\order{\frac1{\qty(z-\zeta)^3}}.
+    \end{align*}
+    Hence, there exists some \(M>0\) such that \[\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}<\frac{M}{\abs{z-\zeta}^3}\Longleftrightarrow\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\abs{z-\zeta}^3<M\] for all \(z\) satisfying \(\abs{z-\zeta}>2r\). By \cref{thm:riemannremovablesingularities}, \(\qty(\phi_\zeta(z)-\frac{1}{z-\zeta})\qty(z-\zeta)^3\) has a removable singularity at \(\infty\). On the other hand, for \(\abs{z-\zeta}\leq 2r\) such that \(z\in\extcomplex\setminus\qty(K\cup\qty{\zeta})\), we have \[\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\abs{z-\zeta}^3\leq\abs{\phi_\zeta(z)}\abs{z-\zeta}^3+\abs{z-\zeta}^2\leq\frac{584}{r}(2r)^3+(2r)^2=4676r^2\] from \cref{itm:complementbiholomorphism584r4767r2estimates_absolute584}. The Maximum Modulus Principle (\cref{thm:maximummodulus}) implies that \[\sup_{\abs{z-\zeta}>2r}\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\abs{z-\zeta}^3\leq\sup_{\abs{z-\zeta}=2r}\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\abs{z-\zeta}^3\leq 4676r^2\] and thus \cref{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676} follows. The joint continuity of \(\phi_\zeta\) is immediate from the definition.
+
+    Lastly, if \(a\neq 0\), we may define \(\phi_\zeta(z)=\widetilde{\phi}_{\zeta-a}(z-a)\) where \(\qty{\widetilde{\phi}_{\zeta-a}}\) is the family constructed above for the set \(\cbraces{z-a}{z\in K}\subset D(0,r)\).
+\end{proof}
+\begin{proposition}\label{prop:diracdeltaapproximation}
+    Suppose
+    \begin{equation}
+        \lambda(z)=
+        \begin{cases}
+            \qty(1-\abs{z}^2)^2&\qif*\abs{z}<1\\
+            0&\qif*\abs{z}\ge1,
+        \end{cases}\qquad\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\quad\forall r>0\label{eq:diracdeltaapproximation_lambdadefinition}
+    \end{equation}
+    For fixed \(r\), the function \(\lambda_r\) satisfies:
+    \begin{enumerate}
+        \item \(\int_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}=1\), where \(\zeta=\xi+\ii\eta\).\label{itm:diracdeltaapproximation_integralto1}
+        \item \(\lambda_r\in C^1(\mathbb{C})\) and is compactly supported.\label{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}
+        \item \(\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}=0\).\label{itm:diracdeltaapproximation_antiholomorphicderivativeintegral}
+        \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\wedge\dd{\eta}\leq\frac{2\piup}{r}\).\label{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}
+        \item \(\abs{\grad{\lambda_r(z)}}\leq\frac4{r^3}\) for all \(z\), where \(\grad=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.\label{itm:diracdeltaapproximation_gradientstatement}
+        \item\label{itm:diracdeltaapproximation_integralformula} For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula
+            \begin{equation}
+                f(z)=\int_{D(0,r)}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}.\label{eq:diracdeltaapproximation_integralformula}
+            \end{equation}
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Let \(\zeta=\rho\ee^{\ii\theta}\). Then we have
+    \begin{align*}
+        \iint_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_{0}^{2\piup}\int_0^r\lambda_r\qty(\rho\ee^{\ii\theta})\rho\dd{\rho}\dd{\theta}=\int_{0}^{2\piup}\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}\dd{\theta}\\
+        &=\frac{6}{r^2}\int_0^r\qty(\rho+\frac{\rho^5}{r^4}-2\frac{\rho^3}{r^2})\dd{\rho}=\frac{6}{r^2}\qty(\frac{r^2}{2}+\frac{r^6}{6r^4}-\frac{r^4}{2r^2})=1,
+    \end{align*}
+    which confirms \cref{itm:diracdeltaapproximation_integralto1}. Let \(z\in\mathbb{C}\) be arbitrary. The integral in \cref{eq:diracdeltaapproximation_integralformula} is equal to
+    \begin{align*}
+        \iint_{D(0,R)}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\dd{\eta}&=\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\int_0^{2\piup}f\qty(z-\rho\ee^{\ii\theta})\dd{\theta}\dd{\rho}\\
+        &=2\piup f(z)\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}=f(z)
+    \end{align*} by the mean-value property (\cref{lem:holomorphicmeanvalueproperty}), proving \cref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\abs{\grad{\lambda(z)}}=
+    2\qty(1-\abs{z}^2)\abs{\grad(\abs{z}^2)}=2\qty(1-\abs{z}^2)2\abs{z}\abs{\grad\sqrt{x^2+y^2}}=4\qty(1-\abs{z}^2)\abs{z}.\]
+    Hence, \(\abs{\grad\lambda_r(z)}=\frac{3}{\piup r^2}\abs{\grad\qty[\lambda\qty(\frac{z}{r})]}=\frac{3}{\piup r^2}\abs{(\grad\lambda)\qty(\frac{z}{r})}\frac{1}{r}=\frac{12}{\piup r^3}\qty(1-\abs{z}^2)\abs{z}<\frac{4}{r^3}\), which confirms \cref{itm:diracdeltaapproximation_gradientstatement}.
+
+    Since \(\abs{\pdv{\lambda_r}{\overline{\zeta}}}=\abs{\frac{1}{2}\qty(\pdv{\lambda_r}{\xi}+\ii\pdv{\lambda_r}{\eta})}=\frac{1}{2}\abs{\grad\lambda_r(\zeta)}<\frac{2}{r^3}\), we have \[\iint_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}=\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}<\piup r^2\frac{2}{r^3}=\frac{2\piup}{r}\] since \(\supp\qty(\lambda_r)=\overline{D(0,r)}\) which verifies the inequality in \cref{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}.
+
+    The \cref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} is also true since
+    \begin{align*}
+        \iint_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\dd{\eta}&=\frac{1}{2}\int_{-r}^r\int_{-r}^{r}\pdv{\lambda_r}{\xi}\dd{\xi}\dd{\eta}+\frac{\ii}{2}\int_{-r}^r\int_{-r}^{r}\pdv{\lambda_r}{\eta}\dd{\eta}\dd{\xi}\\
+        &=\frac{1}{2}\int_{-r}^r\qty[\lambda_r\qty(r+\ii\eta)-\lambda\qty(-r+\ii\eta)]\dd{\eta}\\
+        &\quad+\frac{\ii}{2}\int_{-r}^r\qty[\lambda_r(\xi+\ii r)-\lambda_r(\xi-\ii r)]\dd{\xi}=0.
+    \end{align*}
+    Trivially, \(\lambda_r\) is continuous on \(D\qty(0,r)\) and \(\mathbb{C}\setminus\overline{D(0,r)}\). Thus, we only need to prove the joint continuity of \(\lambda\) (the continuity of \(\lambda_r\) implies that of \(\lambda\)) on an open neighborhood of \(\partial D(0,r)\).
+
+    Let \(\lambda(x,y)=\qty(1-x^2-y^2)^2\). By simple calculation, we have \[\pdv{\lambda}{x}=-4\qty(1-x^2-y^2)x,\qquad\pdv{\lambda}{y}=-4\qty(1-x^2-y^2)y.\] At \(x^2+y^2=1\), both partial derivatives vanish, and hence, they match the vanishing derivative on the complement of \(\supp(\lambda)\), completing the proof of \cref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}.
+\end{proof}
+\begin{theorem}[\textsc{Tietze--Urysohn--Brouwer}]\label{thm:tietzeextension}
+    Let \(K\subset\mathbb{C}\) be compact and \(f:K\to\mathbb{R}\) be continuous. Then \(\exists g\in C^0(\mathbb{C})\) such that \(g\equiv f\) on \(K\).
+\end{theorem}
+\begin{proof}
+    For any two disjoint closed \(A,B\subseteq\mathbb{C}\), consider the continuous separation function \[\eta_{A,B}(z)=\frac{\operatorname{dist}(z,A)-\operatorname{dist}(z,B)}{\operatorname{dist}(z,A)+\operatorname{dist}(z,B)}\] so that \(\eta_{A,B}(A)=\qty{-1}\) and \(\eta_{A,B}(B)=\qty{1}\).
+
+    For simplicity, by the boundedness of \(f\), we may assume that \(f(K)=[-1,1]\) (by a scaling and shift). We now aim to construct a sequence \(\qty{g_n}_{n\in\mathbb{N}_{\geq 0}}\) inductively such that \[\abs{g_n}\leq\frac{2^n}{3^{n+1}}\text{ on }\mathbb{C},\quad\abs{f-\sum_{k=0}^n g_k}\leq\qty(\frac23)^{n+1}\text{ on }K\quad\forall n\in\mathbb{N}.\]
+    In the case that \(n=0\), define the disjoint closed sets \[A_0=\cbraces{z\in K}{f(z)\leq-\frac13}\qand B_0=\cbraces{z\in K}{f(z)\geq\frac13}.\]
+    Let \(g_0(z)=\frac13\eta_{A_0,B_0}(z)\). It is clear that \(\abs{g_0}\leq\frac13\) on \(\mathbb{C}\). If \(z\in A_0\), then \(-1\leq f(z)\leq-\frac13\), \(g_0(z)=-\frac13\), and hence \(\abs{f-g_0}\leq\frac23\). If \(z\in B_0\), then \(\frac13\leq f(z)\leq1\), \(g_0(z)=\frac13\), and thus \(\abs{f-g_0}\leq\frac23\). If \(z\notin A_0\cup B_0\), then \(-\frac13<f(z)<\frac13\) and \(\abs{f-g_0}\leq\abs{f}+\abs{g_0}<\frac13+\frac13=\frac23\). Hence \(\forall z\in K\), \[\abs{f(z)-g_0(z)}\leq\frac23.\]
+    This proves the base case. For the inductive step, assume the claim holds for each \(g_0,g_1,\dots,g_{n-1}\). Define \[h_n(z)=f(z)-\sum_{k=0}^{n-1}g_k(z)\] for \(z\in K\). By the inductive hypothesis, we have \(\abs{h_n}\leq\qty(\frac23)^n\) on \(K\). Define the disjoint closed sets \[A_n=\cbraces{z\in K}{-\frac{2^n}{3^n}\leq h_n(z)\leq-\frac{2^n}{3^{n+1}}}\qand B_n=\cbraces{z\in K}{\frac{2^n}{3^n}\geq h_n(z)\geq\frac{2^n}{3^{n+1}}}.\]
+    Let \(g_n(z)=\frac{2^n}{3^{n+1}}\eta_{A_n,B_n}(z)\), so that \(\abs{g_n}\leq\frac{2^n}{3^{n+1}}\) on \(\mathbb{C}\), and \[\abs{h_n(z)-g_n(z)}\leq\frac{2^{n+1}}{3^{n+1}}\] for all \(z\in K\) by the same argument as in the base case. Hence, \[\abs{f(z)-\sum_{k=0}^n g_k(z)}=\abs{h_n(z)-g_n(z)}\leq\qty(\frac23)^{n+1}\] for all \(z\in K\), completing the induction. Because \[\abs{g(z)}\leq\sum_{n=0}^\infty\abs{g_n(z)}\leq\frac13\sum_{n=0}^\infty\frac{2^n}{3^n}=1\qquad\forall z\in\mathbb{C},\] the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}) implies that the series \(\sum_{n=0}^\infty g_n(z)\) converges uniformly on \(\mathbb{C}\) to \(g\). Since each \(g_n\) is continuous, \cref{thm:uniformlimit} gives the continuity of \(g\) on \(\mathbb{C}\). Finally, for any \(z\in K\), we have \[\abs{f(z)-g(z)}\leq\lim_{n\to\infty}\frac{2^{n+1}}{3^{n+1}}=0.\qedhere\]
+\end{proof}
+\begin{corollary}\label{cor:tietzeextensioncomplexcompactsupport}
+    If \(K\subset\mathbb{C}\) is compact and \(f:K\to\mathbb{C}\) is continuous, then \(\exists g\in C^0(\mathbb{C})\) such that \(g\equiv f\) on \(K\) and has compact support.
+\end{corollary}
+\begin{proof}
+    Let \(f=u+\ii v\) where \(u,v:K\to\mathbb{R}\) are continuous. By Tietze--Urysohn--Brouwer (\cref{thm:tietzeextension}), \(\exists\widetilde{u},\widetilde{v}\in C^0(\mathbb{C})\) such that \(\widetilde{u}\equiv u\) and \(\widetilde{v}\equiv v\) on \(K\). Let \(R>0\) be such that \(K\subset D(0,R)\), provided by compactness. Define the piecewise-linear function \[\psi(z)=
+        \begin{cases}
+            1&\qif*\abs{z}\leq R\\
+            2-\frac{\abs{z}}{R}&\qif*R<\abs{z}<2R\\
+            0&\qif*\abs{z}\geq 2R
+    \end{cases}\] such that \(\psi\in C^0(\mathbb{C})\) and is compactly supported. Let \(g(z)=\qty(\widetilde{u}(z)+\ii\widetilde{v}(z))\psi(z)\), and the assertion follows.
+\end{proof}
+Let \(f\in C^0(K)\) be holomorphic on \(\interior{K}\). Then \(f\) has a continuous extension to all of \(\mathbb{C}\) by virtue of \cref{cor:tietzeextensioncomplexcompactsupport}. Define the \textscsl{modulus of continuity} of \(f\) to be the function \(\omega_f:\mathbb{R}_{\geq0}\to\mathbb{R}_{\geq0}\) with \[\omega_f(\delta)=\sup_{\substack{z,\zeta\in\mathbb{C}\\\abs{z-\zeta}\leq\delta}}\abs{f(z)-f(\zeta)}.\]
+Because \(f\) has compact support, it must be uniformly continuous; hence we have \(\lim_{\delta\to0^+}\omega_f(\delta)=0\).
+
+For \(r>0\), define
+\begin{equation}
+    \Phi(z)=\iint_\mathbb{C}\lambda_r(z-\zeta)f(\zeta)\dd{\xi}\dd{\eta}\qq{where}\zeta=\xi+\ii\eta,\label{eq:integralofcontinuousextensionofholomorphic}
+\end{equation} where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproximation_lambdadefinition}.
+\begin{proposition}\label{prop:integralofcontinuousextensionofholomorphicproperties}
+    The function \(\Phi\) as in \cref{eq:integralofcontinuousextensionofholomorphic} satisfies:
+    \begin{enumerate}
+        \item \(\Phi\in\mathbb{C}^1(\mathbb{C})\) and has compact support.\label{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}
+        \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}\qty(z,\mathbb{C}\setminus K)>r}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_equivalenceonU}
+        \item \(\abs{f(z)-\Phi(z)}\leq\omega_f(r)\) for all \(z\in\mathbb{C}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_differbymodulusofcontinuity}
+        \item For all \(z\in\mathbb{C}\), \(\abs{\pdv{\Phi}{\overline{z}}(z)}\leq\frac{4\piup\omega_f(r)}{r}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}
+        \item \(\Phi(z)=-\frac1\piup\iint_H\pdv{\Phi}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\), where \(H=\supp(\Phi)\setminus U\).\label{itm:integralofcontinuousextensionofholomorphicproperties_integralformula}
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Because \(\supp\qty(\lambda_r(z-\zeta))=\overline{D(z,r)}\) and \(\supp f\) is compact, for sufficiently large \(z\), the two supports will be disjoint and hence the integrand vanishes for all \(\zeta\). We can explicitly find that \[\pdv{\Phi}{x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\frac{\Phi(z+\Delta x)-\Phi(\Delta x)}{\Delta x}=\lim_{\substack{\Delta x\to 0\\\Delta x\in\mathbb{R}}}\int_{\mathbb{C}}\frac{\lambda_r(z+\Delta x-\zeta)-\lambda_r(z-\zeta)}{\Delta x}f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Because \(f\) is continuous and vanishes on a compact set, it is bounded. Similarly, \cref{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability} of \cref{prop:diracdeltaapproximation} implies that \(\pdv{\lambda_r}{x}\) is bounded. Hence, by Lebesgue's Dominated Convergence Theorem, we have \[\pdv{\Phi}{x}=\int_{\mathbb{C}}{\pdv{\lambda_r}{x}}(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta},\] and similarly, \[\pdv{\Phi}{y}=\int_{\mathbb{C}}{\pdv{\lambda_r}{y}}(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta}.\] Hence, \(\Phi\in C^1(\mathbb{C})\) and this is \cref{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}. Because \[\Phi(z)=\iint_{\mathbb{C}}\lambda_r(z-\zeta)f(\zeta)\dd{\xi}\dd{\eta}=\iint_{\mathbb{C}}\lambda_r(\zeta)f(z-\zeta)\dd{\xi}\dd{\eta},\] by \cref{itm:diracdeltaapproximation_integralto1} of \cref{prop:diracdeltaapproximation}, we have
+    \begin{align}
+        \abs{f(z)-\Phi(z)}&\leq\abs{\int_{\mathbb{C}}f(z)\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}-\int_{\mathbb{C}}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}}\nonumber\\
+        &=\abs{\int_{\mathbb{C}}\lambda_r(\zeta)\qty(f(z)-f(z-\zeta))\dd{\xi}\wedge\dd{\eta}}\label{eq:integralofcontinuousextensionofholomorphicproperties_differencebound}\\
+        &\leq\int_{D(0,r)}\lambda_r(\zeta)\abs{f(z)-f(z-\zeta)}\dd{\xi}\wedge\dd{\eta}\leq\omega_f(r),\nonumber
+    \end{align}
+    which implies \cref{itm:integralofcontinuousextensionofholomorphicproperties_differbymodulusofcontinuity}. For \(z\in U\), \(\zeta\in D(0,r)\) now implies that \(z-\zeta\in\interior{K}\) and hence \(f(z)-f(z-\zeta)\) is holomorphic in \(\zeta\) on \(D(z,r)\). By \cref{itm:diracdeltaapproximation_integralformula} of \cref{prop:diracdeltaapproximation}, \cref{eq:integralofcontinuousextensionofholomorphicproperties_differencebound} becomes \[\abs{\int_{\mathbb{C}}\lambda_r(\zeta)\qty(f(z)-f(z-\zeta))\dd{\xi}\wedge\dd{\eta}}=\abs{f(z)-f(z-0)}=0,\] which proves \cref{itm:integralofcontinuousextensionofholomorphicproperties_equivalenceonU}. Because \(\forall z\in\mathbb{C}\),
+    \begin{align*}
+        \pdv{\Phi}{\overline{z}}\qty(z)&=\frac12\qty(\pdv{\Phi}{x}+\ii\pdv{\Phi}{y})=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{z}}\qty(z-\zeta)f(\zeta)\dd{\xi}\wedge\dd{\eta}\\
+        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)f(z-\zeta)\dd{\xi}\wedge\dd{\eta}\\
+        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)f(z-\zeta)\dd{\xi}\wedge\dd{\eta}-f(z)\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}\\
+        &=\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\qty(\zeta)\qty(f(z-\zeta)-f(z))\dd{\xi}\wedge\dd{\eta}
+    \end{align*}
+    by \cref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} of \cref{prop:diracdeltaapproximation}. Hence,
+    \begin{align*}
+        \abs{\pdv{\Phi}{\overline{z}}}&\leq\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\abs{f(z-\zeta)-f(z)}\dd{\xi}\dd{\eta}\leq\omega_f(r)\iint_{D(0,r)}\abs{\grad{\lambda_r}}\dd{\xi}\dd{\eta}\\
+        &\leq\frac{4\omega_f(r)}{r^3}\iint_{D(0,r)}\dd{\xi}\dd{\eta}\leq\frac{4\omega_f(r)}{r^3}\cdot\piup r^2=\frac{4\piup\omega_f(r)}{r},
+    \end{align*}
+    by \cref{itm:diracdeltaapproximation_gradientstatement} of \cref{prop:diracdeltaapproximation}, confirming \cref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}. Finally, \cref{itm:integralofcontinuousextensionofholomorphicproperties_integralformula} follows from \cref{cor:pompeiuwithoutcauchyterm} (since outside the support the integral trivially vanishes and within \(U\), \(\pdv{\Phi}{\overline{\zeta}}\) vanishes as a consequence of holomorphy).
+\end{proof}
+\begin{theorem}[Mergelyan]\label{thm:mergelyan}
+    Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) has finitely many connected components. Let \(E=\qty{p_k}_{1\leq k\leq n}\cup\qty{\infty}\subset\extcomplex\setminus K\) contain exactly one point from each of the connected components of \(\extcomplex\setminus K\). Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a rational function \(\psi(z)\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\]
+\end{theorem}
+\begin{proof}
+    Suppose that \(r\) is chosen such that \(0<\frac34 r<\operatorname{dist}\qty(K, E)\) so that for each \(p_k\in E\), \[\overline{D\qty(p_k,\frac34r)}\subset\extcomplex\setminus K.\]
+    Define the extension of \(f\), \(\Phi\), \(U\), and \(H\) as in the previous results. Hence,
+    \[\cbraces{D\qty(\zeta_k,\frac54r)}{\zeta_k\in\extcomplex\setminus\qty(K\cup\overline{D\qty(p_k,\frac34r)}),1\leq k\leq n}\]
+    covers a (compact) \(r\)-neighborhood of \(\extcomplex\setminus K\) (so that each \(\zeta_k\notin K\), and is labeled so that each \(\zeta_k\) is in the same connected component as \(p_k\)). Thus, the collection also covers \(H\). A finite subcover \(\cbraces{D\qty(\zeta^{(j)}_k,\frac54r)}{1\leq j\leq m_k,1\leq k\leq n}\) covering \(H\) exists by the Heine--Borel Theorem (\cref{thm:heineborel}).
+
+    By the connectedness of each component of \(\extcomplex\setminus K\), for every there exists a piecewise-linear simple curve \(\gamma_k^{(j)}\) for all \(1\leq k\leq n\), \(1\leq j\leq m_k\), joining \(\zeta_k^{(j)}\) and \(p_k\) which lies entirely within \(\extcomplex\setminus K\). The compact disks \(D\qty(\zeta_k^{(j)},\frac34r)\) are all disjoint from their corresponding \(p_k\) since each \(\zeta_k^{(j)}\notin\overline{D\qty(p_k,\frac34r)}\) by definition.
+
+    Hence, the intersection \(\overline{D\qty(\zeta_k^{(j)},\frac34r)}\cap\gamma_{k}^{(j)}\) consists of at least one connected component joining \(\zeta_k^{(j)}\) to a point on \(\partial D\qty(\zeta_k^{(j)},\frac34 r)\). Denote this intersection by \(E_k^{(j)}\), satisfying \(\diam E_k^{(j)}\geq\frac34r\) and \(E_k^{(j)}\cap K=\emptyset\).
+
+    Now for each \(j\) and \(k\), \cref{prop:complementbiholomorphism584r4767r2estimates} now provides the existence of a family of holomorphic functions \(\phi_{\zeta,k}^{(j)}:\extcomplex\setminus E_k^{(j)}\to\mathbb{C}\) given with \(\zeta\in D\qty(\zeta_k^{(j)},\frac54r)\) such that
+    \begin{equation}
+        \abs{\phi_{\zeta,k}^{(j)}(z)}\leq\frac{584}r,\quad\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\leq\frac{4676}{\abs{z-\zeta}^3},\qquad\forall z\in\extcomplex\setminus E_k^{(j)}.\label{eq:mergelyan_familybounds}
+    \end{equation}
+    Let \(\widetilde{H}_k^{(j)}=H\cap D\qty(\zeta_k^{(j)},\frac54r)\), for each \(j,k\) and construct the disjoint sets \[H_k^{(j)}=\widetilde{H}_k^{(j)}\setminus\widetilde{H}_k^{(j-1)}\text{ if }j\neq 1,\qquad H_k^{1}=\widetilde{H}_k^{1}\setminus\widetilde{H}_{k-1}^{m_{k-1}}\quad\forall k>1,\qquad H_1^{(1)}=\widetilde{H}_1^{(1)}.\]
+    Thus the union \[\bigcup_{k=1}^n\bigcup_{j=1}^{m_k}H_k^{(j)}=H\cap\qty(\bigcup D\qty(\zeta_k^{(j)},\frac54r))=H\] since the set of all \(D\qty(\zeta_k^{(j)},\frac54r)\) covers \(H\). Let \[\Psi(z)=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\wedge\dd{\eta}\qq{where}\zeta=\xi+\ii\eta,\quad\forall z\notin\bigcup E_k^{(j)}.\]
+    Because \[\frac{\Psi(z+\Delta x)-\Psi(z)}{\Delta x}=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\frac{\phi_{\zeta,k}^{(j)}(z+\Delta x)-\phi_{\zeta,k}^{(j)}(z)}{\Delta x}\dd{\xi}\wedge\dd{\eta},\]
+    and both \(\pdv{\Phi}{\overline{\zeta}}\) and the integrand is continuous on a set (we only need to consider the term involving \(\phi_{\zeta,k}^{(j)}\) since \(\pdv{\Phi}{\overline{\zeta}}\) is independent from \(z\)) by Cauchy's Estimates and the first bound of \cref{eq:mergelyan_familybounds}, Lebesgue's Dominate Convergence gives that
+    \[\pdv{\Psi}{x}=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{x}\qty(z)\dd{\xi}\wedge\dd{\eta},\] and in analogous fashion, \[\pdv{\Psi}{y}=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{y}\qty(z)\dd{\xi}\wedge\dd{\eta}.\]
+    Hence, \(\Psi\) is holomorphic on \(\extcomplex\setminus\bigcup_{k=1}^n\bigcup_{j=1}^{m_k} E_{k}^{(j)}\), a neighborhood of \(K\). Since \(\forall z\in\extcomplex\setminus\bigcup E_k^{(j)}\), by \cref{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676} of \cref{prop:complementbiholomorphism584r4767r2estimates},
+    \begin{align*}
+        \abs{\Psi(z)-\Phi(z)}&=\abs{\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\dd{\eta}-\frac1\piup\iint_H\pdv{\Phi}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{z-\zeta}}\\
+        &=\frac1{\piup}\abs{\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\qty(\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta})\dd{\xi}\dd{\eta}}\\
+        &\leq\frac1{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\abs{\pdv{\Phi}{\overline{\zeta}}}\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\dd{\xi}\dd{\eta}\\
+        &\leq\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\qty(\iint_{H_k^{(j)}\cap D(z,2r)}+\iint_{H_k^{(j)}\setminus D(z,2r)})\abs{\pdv{\Phi}{\overline{\zeta}}}\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\dd{\xi}\dd{\eta}
+    \end{align*}
+    The estimates in \cref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound} of \cref{prop:integralofcontinuousextensionofholomorphicproperties}, in tandem with those from \cref{eq:mergelyan_familybounds} now give that
+    \begin{align*}
+        \abs{\Psi(z)-\Phi(z)}&\leq 18704r\omega_f(r)\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}\setminus D(z,2r)}\frac{1}{\abs{z-\zeta}^3}\dd{\xi}\dd{\eta}\\
+        &\quad+\frac{4\omega_f(r)}{r}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}\cap D(z,2r)}\qty(\frac{584}r+\frac{1}{\abs{z-\zeta}})\dd{\xi}\dd{\eta}\\
+        &\leq 18704r\omega_f(r)\iint_{\abs{\zeta}>2r}\frac{\dd{\xi}\dd{\eta}}{\abs{\zeta}^3}+\frac{4\omega_f(r)}{r}\iint_{\abs{\zeta}<2r}\qty(\frac{584}r+\frac{1}{\abs{\zeta}})\dd{\xi}\dd{\eta}
+    \end{align*}
+    through a linear change of variables. Now evaluation via polar coordinates (with \(\rho\ee^{\ii\theta}=\xi+\ii\eta\), \(\dd{\xi}\wedge\dd{\eta}=\rho\dd{\rho}\wedge\dd{\theta}\)) yields a revised upper bound of
+    \begin{multline*}
+        18704r\omega_f(r)\int_0^{2\piup}\int_{2r}^\infty\frac{\dd{\rho}\dd{\theta}}{\rho^2}+\frac{4\omega_f(r)}{r}\qty(\frac{584}{r}\operatorname{area}D(0,2r)+\int_0^{2\piup}\int_0^{2r}\dd{\rho}\dd{\theta})\\
+        =18704r\omega_f(r)2\piup\eval{\frac{1}{\rho}}_{\infty}^{2r}+\frac{9344\piup\omega_f(r)r^2}{r^2}+\frac{4\omega_f(r)}{r}4r\piup\\
+        =18704\piup\omega_f(r)+9344\piup\omega_f(r)+16\piup\omega_f(r)=28064\piup\omega_f(r).
+    \end{multline*}
+    Now Runge's Theorem (\cref{thm:runge}) provides the existence of some rational function \(\psi\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-\Psi(z)}\leq\piup\omega_f(r)\] since \(\Psi\) is holomorphic on a neighborhood of \(K\) (to assure this bound is positive, we assume \(f\) is not identically zero, otherwise the assertion is trivial). Therefore, for all \(z\in K\), we have \[\sup_{z\in K}\abs{\psi(z)-\Phi(z)}\leq\sup_{z\in K}\abs{\psi(z)-\Psi(z)}+\abs{\Psi(z)-\Phi(z)}\leq 28065\piup\omega_f(r).\] Because \(\lim_{r\to0^+}\omega_f(r)=0\), for any \(\varepsilon>0\), there exists a \(r>0\) such that \[\omega_f(r)<\frac{\varepsilon}{28065\piup}.\]
+    Hence for any such \(\varepsilon\), we now construct \(\psi\) in accordance with an \(r\) satisfying \(28065\piup\omega_f(r)<\varepsilon\).
+\end{proof}
+\subsection{Analytic Capacity}
+The theory of rational approximation is essentially built upon the concept of \textscsl{analytic capacity}, which was introduced in 1940 by Finnish mathematician Lars Ahlfors. Our purpose here is to give a brief and elementary introduction. Despite its importance, still many trivially simple results remain conjecture.
+\begin{definition}[Analytic Capacity]\label{def:analyticcapacity}
+    Let \(K\subset\mathbb{C}\) be compact. The \textscsl{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\qty{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}.
+\end{definition}
+Intuitively, 
+\section{Differential Geometry}\label{sec:differentialgeometry}
+\subsection{A Note on Curvature}
+We will give a brief introduction to the curvature of a surface for convenience.
+
+Suppose \(U\subseteq\mathbb{R}^2\) is a region, and let \(\qty(u,v)\in U\). Consider a surface parameterized via \[\va{r}(u,v)=\qty(x(u,v),y(u,v),z(u,v))\in\mathbb{R}^3,\] where \(x,y,z\in C^2\qty(U)\). If \(\va{r}'_u\times\va{r}'_v\) never vanishes for \(\qty(u,v)\in U\), then \(\va{r}(U)\) defines a smooth surface \(\Sigma\). For a fixed \(\qty(u,v)\in U\), the vectors \(\va{r}'_u\) and \(\va{r}'_v\) form the basis of the tangent space (a plane) of \(\Sigma\) at \(P=\va{r}\qty(u,v)\), denoted by \(T_P\Sigma=\mathrm{span}\qty(\va{r}'_u(P),\va{r}'_v(P))\).
+
+The square of the length of the vector infinitesimal \(\dd{\va{r}}=\va{r}'_u\dd{u}+\va{r}'_v\dd{v}\), or
+\begin{equation}
+    \mathrm{I}(u,v)=\dd{s}^2=E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2,\label{eq:firstfundamentalform}
+\end{equation} is known as the \textscsl{first fundamental form} of \(\Sigma\), where \(E=\va{r}'_u\cdot\va{r}'_u\), \(F=\va{r}'_u\cdot\va{r}'_v\), and \(G=\va{r}'_v\cdot\va{r}'_v\).
+
+Let \(Q=\va{r}\qty(u+\Delta u,v+\Delta v)\) be near \(P\). It follows that \(\overrightarrow{PQ}=\va{r}\qty(u+\Delta u,v+\Delta v)-\va{r}\qty(u,v)\). The distance between \(Q\) and \(T_P\Sigma\) is \(\overrightarrow{PQ}\cdot\vu{n}\),
+where \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\). By application of the multivariate Taylor's Theorem, we have
+\begin{align*}
+    \overrightarrow{PQ}&=\va{r}'_u\Delta u+\va{r}'_v\Delta v+\frac{1}{2}\qty(\va{r}''_{uu}\Delta u^2+2\va{r}''_{uv}\Delta u\Delta v+\va{r}''_{vv}\Delta v^2)+\order{\Delta u^3+\Delta v^3},
+\end{align*}
+and therefore, \[\overrightarrow{PQ}\cdot\vu{n}=\frac{1}{2}\qty(\va{r}''_{uu}\cdot\vu{n}\Delta u^2+2\va{r}''_{uv}\cdot\vu{n}\Delta u\Delta v+\va{r}''_{vv}\cdot\vu{n}\Delta v^2)+\order{3}\cdot\vu{n}.\]
+The first two linear terms vanish by properties of the triple scalar product. The \textscsl{second fundamental form} of \(\Sigma\) is defined as
+\begin{equation}
+    \mathrm{I\!I}(u,v)=L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2,\label{eq:secondfundamentalform}
+\end{equation} where \(L=\va{r}''_{uu}\cdot\vu{n}\), \(M=\va{r}''_{uv}\cdot\vu{n}\), and \(N=\va{r}''_{vv}\cdot\vu{n}\). Since \(\va{r}'_u\cdot\vu{n}=0\) and \(\va{r}'_v\cdot\vu{n}=0\), by differentiation, we have
+\begin{align*}
+    \va{r}''_{uu}\cdot\vu{n}+\va{r}'_u\cdot\vu{n}'_u&=0,&\va{r}''_{uv}\cdot\vu{n}+\va{r}'_u\cdot\vu{n}'_v&=0,\\
+    \va{r}''_{uv}\cdot\vu{n}+\va{r}'_v\cdot\vu{n}'_u&=0,&\va{r}''_{vv}\cdot\vu{n}+\va{r}'_v\cdot\vu{n}'_v&=0.
+\end{align*}
+It follows that \(L=-\va{r}'_u\cdot\vu{n}'_u\), \(M=-\va{r}'_u\cdot\vu{n}'_v=-\va{r}'_v\cdot\vu{n}'_u\), and \(N=-\va{r}'_v\cdot\vu{n}'_v\). Because \(\dd{\vu{n}}=\vu{n}'_u\dd{u}+\vu{n}'_v\dd{v}\), \[\mathrm{I\!I}=-\dd{\va{r}}\cdot\dd{\vu{n}}.\]
+\begin{figure}
+    \centerline{\includesvg[width=0.7\linewidth]{secondfundamentalform.svg}}
+    \caption{\(Q\) has a greater heuristic distance to \(T_P\Sigma\) for a more curved surface.}\label{fig:secondfundamentalform}
+\end{figure}The second fundamental form, in a rough sense, measures the curvature of the surface \(\Sigma\) at \(P\) (refer to \cref{fig:secondfundamentalform}). Both the first and second fundamental forms are geometric invariants; they are independent of the parameterization \(\va{r}\) of \(\Sigma\). The first fundamental form is also referred to as the \textscsl{intrinsic metric} (we will not delve into the metric tensor here) of \(\Sigma\), and the second fundamental form is an \textscsl{extrinsic} property of \(\Sigma\) as it is invariant up to the orientation of the surface (consequent direction of the normal vector).
+
+Let \(\gamma\subset\Sigma\) be a curve parameterized by arc length, \(\va{r}(s)=\va{r}\qty(u(s),v(s))\). Then the unit tangent vector at \(P=\va{r}(s)\) is \[\va{T}(s)=\dv{\va{r}}{s}=\va{r}'_u\dv{u}{s}+\va{r}'_v\dv{v}{s}.\]
+Consequently, \[\va{T}'(s)=\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2+\va{r}'_u\dv[2]{u}{s}+\va{r}'_v\dv[2]{v}{s},\]
+where the last two terms are in \(T_P\Sigma\). Because \(\norm{\va{T}(s)}=1\) for all \(s\) by the arc-length parameterization, we have \[0=\dv{s}(\norm{\va{T}(s)}^2)=\dv{s}(\va{T}(s)\cdot\va{T}(s))=2\va{T}(s)\cdot\va{T}'(s).\]
+Hence, \(\va{T}(s)\) and \(\va{T}'(s)\) are orthogonal and \(\va{T}'(s)\) is a normal to the curve \(\gamma\). Let \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\) be the unit normal to \(\Sigma\) at \(P\). The \textscsl{normal curvature} of \(\gamma\) at \(P\) in \(\Sigma\) is defined as \[\kappa_n=\va{T}'(s)\cdot\vu{n}=\qty[\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2]\cdot\vu{n}.\]
+The quotient \[\kappa_n=\frac{\mathrm{I\!I}}{\mathrm{I}}=\frac{L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2}{E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2},\] varies depending on the curve traversing \(\Sigma\) (and ultimately, depending on the direction induced by \(\dd{u}\) and \(\dd{v}\)). On \(\gamma\), the two representations are equivalent since \(\mathrm{I}=\dd{s}^2\). The maximum and minimum values of \(\kappa_n\) are known as the \textscsl{principal curvatures} \(\kappa_1\) and \(\kappa_2\) of \(\Sigma\) at \(P\), achieved along the \textscsl{principle directions} of the (unit) tangent vectors at \(P\).
+
+The \textscsl{mean curvature} of \(\Sigma\) at \(P\) is defined to be \(H=\frac{\kappa_1+\kappa_2}{2}\). Let \(r_1,r_2\) be the radii of curvature corresponding to \(\kappa_1\) and \(\kappa_2\). Hence, we have \[H=\frac{\frac{1}{r_1}+\frac{1}{r_2}}{2}=\frac{r_1+r_2}{2r_1r_2}=\kappa_1\kappa_2\frac{r_1+r_2}{2}.\] The product of the two principle curvatures is known as the \textscsl{Gaussian curvature} of \(\Sigma\) at \(P\), denoted by \(K=\kappa_1\kappa_2\). We will now derive the explicit formulas for \(H\) and \(K\) in terms of \(E,F,G,L,M,N\).
+
+Obviously, the matrix \(\mqty(E&F\\F&G)\) is symmetric and positive definite. Indeed, by Sylvester's Criterion, the assertion follows from the fact that \[\det\mqty(E&F\\F&G)=EG-F^2=\norm{\va{r}'_u}^2\norm{\va{r}'_v}^2-\qty(\va{r}'_u\cdot\va{r}'_v)^2=\norm{\va{r}'_u\times\va{r}'_v}^2>0\] and \(E=\norm{\va{r}_u}^2>0\).
+\subsection{Metrics and Curvature}
+Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(\rho\in C^2(\Omega)\) be a nonnegative function. The \textscsl{conformal metric} (or just \textscsl{metric}) induced by \(\rho\) is given by \[\dd{s}=\rho(z)\abs{\dd{z}}\qor\dd{s}^2=\rho^2(z)\abs{\dd{z}}^2.\] Note here that the term ``conformal'' here refers not to the holomorphy of \(\rho\), but rather, the geometric emphasis that only lengths are not preserved, and the scaling factor by \(\rho\) vanishes in the calculation of angles. The distance between two points \(z_1,z_2\in\Omega\) is defined as \[d\qty(z_1,z_2)=\inf_{\gamma\subset\Omega}\int_\gamma\rho(z)\abs{\dd{z}},\] where the infimum is taken over all piecewise smooth curves \(\gamma\) in \(\Omega\) joining \(z_1\) and \(z_2\).
+
+The (Gaussian) \textscsl{curvature} of the metric \(\rho\) at \(z\in\Omega\) is defined as
+\begin{equation}
+    K_\rho(z)=-\frac{\laplacian(\log\rho)(z)}{\rho(z)^2},\label{eq:curvatureofmetric}
+\end{equation} where \(\laplacian=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in TO BE CONTINUED.
+
+The three following metrics are of particular interest in complex differential geometry:
+\begin{enumerate}
+    \item Perhaps the most trivial metric is the \textscsl{Euclidean metric} (also known as the \textscsl{parabolic metric}) on \(\mathbb{C}\), and is given by \[\rho=1,\qquad\dd{s}^2=\abs{\ddz}^2.\] The \textscsl{Euclidean distance} between two points \(z_1,z_2\in\mathbb{C}\) is \[\inf_{\gamma}\int_\gamma\abs{\ddz}=\abs{z_2-z_1}\] is the length of the straight line segment connecting \(z_1\) and \(z_2\). The group formed by all transformations in the form of \(z\mapsto\ee^{\ii\theta}z+a\) (where \(a\in\mathbb{C}\) and \(\theta\in\mathbb{R}\)) is known as \textscsl{the group of rigid motions}, or more abstractly, the \textscsl{special Euclidean group} of order 2, denoted by \(\mathrm{SE}(2)<\Aut(\mathbb{C})\), intuitively consists of all rotations and translations and their compositions, while the \textscsl{Euclidean} group \(\mathrm{E}(2)>\mathrm{SE}(2)\) consists of reflections in the form of \(z\mapsto\ee^{\ii\theta}\overline{z}+a\). Obviously, the Euclidean metric is invariant under both groups.
+
+        From \cref{eq:curvatureofmetric}, we find that Euclidean metric has curvature \(K=0\).
+    \item The \textscsl{Poincaré metric} (also referred to as the \textscsl{hyperbolic metric}) on \(\mathbb{D}\) is given by
+        \begin{equation}
+            \rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\label{eq:poincaremetricdefinition}
+        \end{equation}
+        In \cref{lem:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\).
+
+        We will now calculate the Poincaré distance between two points \(z_1,z_2\in\mathbb{C}\). First assume the case where \(z_1=0\) and \(z_2=R\in (0,1)\). Consider a piecewise smooth curve \(\gamma\subset\mathbb{D}\) parameterized by \(z(t)\) connecting \(z_1\) and \(z_2\); or in other words \[z(t)=x(t)+\ii y(t),\qquad z(0)=z_1=0,\quad z(1)=z_2=R,\] where \(x\in C^1([0,1])\) and \(y\in C^1([0,1])\) are real-valued functions. Then
+        \begin{align*}
+            \int_\gamma\dd{s}&=\int_0^1\frac{2\sqrt{x'(t)^2+y'(t)^2}}{1-x(t)^2-y(t)^2}\dd{t}\geq\int_0^1\frac{2\abs{x'(t)}}{1-x(t)^2}\ddt\geq\abs{\int_0^1\frac{2x'(t)}{1-x(t)^2}\dd{t}}\\
+            &=\abs{\int_0^R\frac{2}{1-x^2}\ddx}=\log(\frac{1+R}{1-R}).
+        \end{align*} Assuming that \(\gamma\) is in the form of \(z(t)=Rt, z'(t)=R\) where \(t\in[0,1]\), we have \[\int_\gamma\dd{s}=\int_0^1\frac{2R\ddt}{1-R^2t^2}=\log(\frac{1+R}{1-R}).\] Hence, the Poincaré distance between \(0\) and \(R\) is given by \[d\qty(0,R)=\log(\frac{1+R}{1-R})\] and the straight line segment connecting the two points is a \textscsl{geodesic}. For fixed \(\theta\in\mathbb{R}\) since \(z\mapsto z\ee^{\ii\theta}\in\Aut(\mathbb{D})\), by the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), we have \[d\qty(0,R)=d\qty(0,R\ee^{\ii\theta})=\log(\frac{1+R}{1-R})\] by the invariance under \(\Aut(\mathbb{D})\). Now let \(z_1\) and \(z_2\) be arbitrary points in \(\mathbb{D}\). The Möbius transformation \[\varphi_{z_1}(z)=\frac{z-z_1}{1-\overline{z_1}z}\]
+        maps \(z_1\) to \(0\) and maps \(z_2\) to \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\). Hence, we have \[d\qty(z_1,z_2)=d\qty(0,\frac{z_2-z_1}{1-\overline{z_1}z_2})=\log\qty[\frac{1+\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}{1-\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}]=\inf_{\gamma}\int_\gamma\dd{s},\] which is the Poincaré distance (or \textscsl{hyperbolic distance}) between \(z_1\) and \(z_2\). The infimum is attained along the geodesic curve \(\gamma\) parameterized by
+        \[z(t)=\qty(\varphi_{z_1})^{-1}\qty(\frac{z_2-z_1}{1-\overline{z_1}z_2}t)\]
+        for \(t\in[0,1]\). By \cref{thm:linearfractionaltransformationmapscirclestocircles}, the geodesic is either an arc or a straight line segment passing through \(z_1\) and \(z_2\). Since \(\partial\mathbb{D}\) is orthogonal to the straight line passing through \(0\) and \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\), by the conformality of \(\varphi_{z_1}^{-1}\), \(\varphi_{z_1}^{-1}\qty(\partial\mathbb{D})=\partial\mathbb{D}\) is orthogonal to the circular (or straight line) extension of the geodesic curve.
+
+        As a consequence of the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), for any \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained iff \(f\in\Aut(\mathbb{D})\). The Poincaré metric has constant negative curvature \(-1\) since
+        \begin{align*}
+            K_\lambda&=-\frac{4}{\lambda^2}\pdv[2]{}{\overline{z}}{z}\qty(\log\circ\lambda)=-\frac{4}{\lambda^2}\pdv{\overline{z}}(\frac{\lambda'_z}{\lambda})=-\frac{2}{\lambda^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1-\abs{z}^2})\\
+            &=-\frac{2}{\lambda^2}\qty(\lambda+\overline{z}\lambda'_{\overline{z}})=-\frac{\qty(1-\abs{z}^2)^2}{2}\qty(\lambda+\overline{z}\qty(\frac{2z}{\qty(1-\abs{z}^2)^2}))\\
+            &=-\qty(1-\abs{z}^2)-\abs{z}^2=-1,
+        \end{align*} where \(\lambda'_z=\pdv{\lambda}{z}\) and \(\lambda'_{\overline{z}}=\pdv{\lambda}{\overline{z}}\).
+    \item The \textscsl{spherical metric} (also referred to as the \textscsl{elliptic metric}) on \(\extcomplex\) is given by
+        \begin{equation}
+            \rho=\sigma(z)=\frac{2}{1+\abs{z}^2},\qquad\dd{s}^2_\sigma=\frac{4\abs{\ddz}^2}{\qty(1+\abs{z}^2)^2}.\label{eq:sphericalmetricdefinition}
+        \end{equation}
+        Under the inverse stereographic projection of \(S^2\to\extcomplex\), for a given \(z\in\extcomplex\), the corresponding point in \(S^2\) is \[\qty(x_1,x_2,x_3)=\qty(\frac{z+\overline{z}}{\abs{z}^2+1},\frac{z-\overline{z}}{\ii\abs{z}^2+\ii},\frac{\abs{z}^2-1}{\abs{z}^2+1}).\] If we let \(P=\qty(x_1,x_2,x_3)\) and \(Q=\qty(\widetilde{x_1},\widetilde{x_2},\widetilde{x_3})\) be two points in \(S^2\), the distance between the two points is the length of the shortest arc \(\widearc{PQ}\) (a subset of great circle passing the two points). By considering \(P\) and \(Q\) as vectors from \(\qty(0,0,0)\), this distance is equal to
+        \begin{align*}
+            \arccos(P\cdot Q)&=2\arctan\sqrt{\frac{1-x_1\widetilde{x_1}-x_2\widetilde{x_2}-x_3\widetilde{x_3}}{1+x_1\widetilde{x_1}+x_2\widetilde{x_2}+x_3\widetilde{x_3}}}\\
+            &=2\arctan\sqrt{\frac{1-\frac{\qty(z+\overline{z})\qty(\widetilde{z}+\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}+\frac{\qty(z-\overline{z})\qty(\widetilde{z}-\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}-\frac{\qty(\abs{z}^2-1)\qty(\abs{\widetilde{z}}^2-1)}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}}{1+\frac{\qty(z+\overline{z})\qty(\widetilde{z}+\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}-\frac{\qty(z-\overline{z})\qty(\widetilde{z}-\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}+\frac{\qty(\abs{z}^2-1)\qty(\abs{\widetilde{z}}^2-1)}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}}}\\
+            &=2\arctan\sqrt{\frac{-z\overline{\widetilde{z}}-\overline{z}\widetilde{z}+\abs{z}^2+\abs{\widetilde{z}}^2}{z\overline{\widetilde{z}}+\overline{z}\widetilde{z}+\abs{z}^2\abs{\widetilde{z}}^2+1}}=2\arctan\sqrt{\frac{\qty(z-\widetilde{z})\qty(\overline{z}-\overline{\widetilde{z}})}{\qty(z\overline{\widetilde{z}}+1)\qty(\overline{z}\widetilde{z}+1)}}.
+        \end{align*}
+        Notice that the fraction within the square root is a product between a complex number and its conjugate. Thus, this distance is equal to \[d\qty(z,\widetilde{z})=2\arctan\abs{\frac{z-\widetilde{z}}{z\overline{\widetilde{z}}+1}}\] in the extended complex plane. Let \(\widetilde{z}=z+\Delta z\). It follows that
+        \begin{align*}
+            d(z,z+\Delta z)&=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+z\overline{\Delta z}+1}}=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\frac{1}{1+\frac{z\overline{\Delta z}}{\abs{z}^2+1}}}\\
+            &=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\qty(1+\order{\Delta z})}=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}\\
+            &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}+\order{\Delta z^3\qty[\frac{1}{\abs{z}^2+1}+\order{\Delta z}]^3}]\\
+            &=2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+o\qty(\Delta z^2)}],
+        \end{align*}
+        where we have taken the liberty to coalesce orders for simplification. Since \[\lim_{\Delta z\to 0}\abs{\frac{d\qty(z,z+\Delta z)}{\Delta z}}=\frac{2}{\abs{z}^2+1},\] the metric as defined in \cref{eq:sphericalmetricdefinition} has a clear geometric meaning: the distance between two points \(z\) and \(\widetilde{z}\) under the metric in \cref{eq:sphericalmetricdefinition} is the shortest distance between the corresponding points in \(S^2\), or their spherical distance.
+
+        Thus, if curve \(\gamma\) joins \(z\) and \(\widetilde{z}\), we have \[d\qty(z,\widetilde{z})=\inf_{\gamma}\int_\gamma\sigma(z)\abs{\ddz},\] which attains its infimum when the inverse stereographic projection of \(\gamma\) is a great circle of \(S^2\). Thus, \(\sigma\) is known as the spherical metric.
+
+        The corresponding curvature is given by
+        \begin{align*}
+            K_\sigma&=-\frac{4}{\sigma^2}\pdv[2]{}{\overline{z}}{z}\qty(\log(\sigma))=-\frac{4}{\sigma^2}\pdv{\overline{z}}(\frac{\sigma'_z}{\sigma})=\frac{2}{\sigma^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1+\abs{z}^2})\\
+            &=\frac{2}{\sigma^2}\qty(\sigma+\overline{z}\sigma'_{\overline{z}})=\frac{\qty(1+\abs{z}^2)^2}{2}\qty(\frac{2}{1+\abs{z}^2}-\frac{2\abs{z}^2}{\qty(1+\abs{z}^2)^2})\\
+            &=\qty(1+\abs{z}^2)-\abs{z}^2=1,
+        \end{align*} where \(\sigma'_z=\pdv{\sigma}{z}\) and \(\sigma'_{\overline{z}}=\pdv{\sigma}{\overline{z}}\).
+\end{enumerate}
+The importance of the selected regions lies in the uniformization as mentioned in \cref{sec:riemannsurfaces}.
+
+Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by \cref{lem:univalentnonvanishingderivative}). If \(\rho\) is a metric on \(\Omega_2\), then
+\begin{equation}
+    f^*\rho=(\rho\circ f)\abs{f'}\label{eq:pullbackmetric}
+\end{equation} defines a metric on \(\Omega_1\), referred to as the \textscsl{metric pullback of} \(\rho\) \textscsl{by} \(f\).
+
+Curvature as defined in \cref{eq:curvatureofmetric} is invariant under pullbacks of conformal mappings, or in the case above, we now aim to show that
+\begin{equation}
+    K_\rho(f(z))=K_{f^*\rho}(z).\label{eq:curvatureinvarianceunderholomorphicpullback}
+\end{equation}
+By explicit definition, \[K_{f^*\rho}(z)=-\frac{\laplacian(\log\circ f^*\rho)(z)}{(f^*\rho)(z)^2}=-\frac{\qty(\laplacian\log\circ\rho\qty(f))(z)+\laplacian\log\abs{f'(z)}}{\qty(f^*\rho)^2(z)}.\] Since \(f'(z)\neq 0\), \(\log\circ\abs{f'}=\Re\log(f')\) is harmonic on \(\Omega_1\) with a vanishing Laplacian. Hence,
+\begin{align*}
+    K_{f^*\rho}(z)&=-\frac{\qty(\laplacian\log\circ\rho\qty(f))(z)}{\qty(\rho\circ f)^2\abs{f'}^2}=-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{\overline{z}}(\pdv{z}(\log\circ\rho\circ f(z)))\\
+    &=-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{\overline{z}}(\pdv{\log\circ\rho}{f}\pdv{f}{z}+\pdv{\log\circ\rho}{\overline{f}}\overline{\qty(\pdv{f}{\overline{z}})})\\
+    &=-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{f}{z}\pdv{\overline{z}}(\pdv{\log\circ\rho}{f})\\
+    &=-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{f}{z}\qty(\pdv[2]{\log\circ\rho}{f}\pdv{f}{\overline{z}}+\pdv[2]{\log\circ\rho}{\overline{f}}{f}\overline{\qty(\pdv{f}{z})})\\
+    &=-\frac{4}{\qty(\rho\circ f)^2}\pdv[2]{}{\overline{f}}{f}\qty(\log\circ\rho)=-\frac{\laplacian_f\qty(\log\circ\rho)}{\qty(\rho\circ f)^2}=K_\rho\qty(f(z)).
+\end{align*}
+\subsection{From Schwarz--Pick to Ahlfors and Value Distribution of Entire Functions}
+While Schwarz Lemma in \cref{lem:schwarz} concerns self-maps of \(\mathbb{D}\) with a fixed point at the origin, the Schwarz--Pick Lemma in \cref{lem:schwarzpick} generalizes this to arbitrary points in \(\mathbb{D}\) as well as the hyperbolic contraction property of holomorphic maps.
+
+In 1938, Lars Ahlfors provided a further generalization by curvature, prompting the study of complex functions from a differential-geometric approach.
+
+The hyperbolic metric \(\lambda\) in \cref{eq:poincaremetricdefinition} does not increase under any holomorphic \(f:\mathbb{D}\to\mathbb{D}\). It was realized that this was a consequence of the constant negative curvature \(-1\) of \(\lambda\).
+\begin{theorem}[\textsc{Schwarz--Ahlfors--Pick}]\label{thm:schwarzahlforspick}
+    Let \(f\) be holomorphic on \(\mathbb{D}\). Suppose that \(\rho\) is a conformal metric defined on an open neighborhood \(U\supseteq f(\mathbb{D})\), where \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) and \(K_\rho(z)\leq -1\) for all \(z\in U\). Then \[f^*\rho(z)\leq\lambda(z)\quad\forall z\in\mathbb{D},\]
+    where \(\lambda\) is the Poincaré metric, and equivalently, \[\dd{s}^2_{f^*\rho}\leq\dd{s}^2_\lambda,\] or that the metric \(\rho\) does not exceed the hyperbolic metric under the map \(f\).
+\end{theorem}
+\begin{proof}
+    Define
+    \begin{equation}
+        \lambda_r(z)=\qty(z\mapsto\frac{z}{r})^*\lambda(z)=\frac{2r}{r^2-\abs{z}^2},\qquad 0<r<1\label{eq:poincaremetriconscaleddisks}
+    \end{equation} to generalize the Poincaré metric to \(D(0,r)\). \Cref{eq:curvatureinvarianceunderholomorphicpullback} gives that \(K_{\lambda_r}(z)=K_\lambda\qty(\frac{z}{r})=-1\) for any \(z\in D(0,r)\). Define the real-valued function \[u_r(z)=\frac{f^*\rho\qty(z)}{\lambda_r(z)}\qfor z\in D(0,r),\] which is nonnegative and continuous on \(D(0,r)\). The pullback metric \(f^*\rho=\qty(\rho\circ f)\abs{f'}\) is continuous on \(\mathbb{D}\) and thus bounded on \(\overline{D(0,r)}\) (as a consequence of \cref{thm:continuousfunctionboundedoncompact}). As \(\abs{z}\to r^-\), \(\lambda_r(z)\to\infty\), and hence \(\lim_{\abs{z}\to r^{-}}u_r(z)=0\). Thus, \[M_r=\max_{z\in\overline{D(0,r)}}u_r(z)\] must be attained at some \(z=\tau_r\in D(0,r)\) (within the interior).
+
+    If \(M_r=0\), then \(\forall z\in D(0,r)\), \(\frac{f^*\rho(z)}{\lambda_r(z)}=0\Rightarrow M_r=0\leq 1\) by maximality. On the contrary, if \(M_r>0\), \(f^*\rho\) has well-defined Gaussian curvature at \(\tau_r\). Since
+    \begin{align*}
+        \qty(\laplacian{\log(u_r)})\qty(\tau_r)&=\qty(\laplacian{\log\qty(f^*\rho)})\qty(\tau_r)-\qty(\laplacian{\log\qty(\lambda_r)})\qty(\tau_r)\\
+        &=-K_{f^*\rho}\qty(\tau_r)f^*\rho\qty(\tau_r)^2+K_{\lambda_r}\qty(\tau_r)\lambda_r\qty(\tau_r)^2\\
+        &=-K_{f^*\rho}(\tau_r)f^*\rho\qty(\tau_r)^2-\lambda_r(\tau_r)^2.
+    \end{align*}
+    By assumption, we have \(-K_{f^*\rho}\qty(\tau_r)\geq 1\). Hence, \(\qty(\laplacian{\log(u_r)})\qty(\tau_r)\geq f^*\rho\qty(\tau_r)^2-\lambda_r\qty(\tau_r)^2\). Since \(\log\) is increasing in \(\mathbb{R}\), \(\tau_r\) is a local maximum of \(\log\circ u_r\) and hence \(\qty(\laplacian{\log(u_r)})\qty(\tau_r)\leq 0\). Thus, we have \[f^*\rho\qty(\tau_r)^2-\lambda_r\qty(\tau_r)^2\leq 0\Longleftrightarrow M_r\leq 1.\] Now let \(r\to 1^-\), and it follows that \(M_r\to\sup_{z\in\mathbb{D}}\frac{f^*\rho(z)}{\lambda(z)}\leq 1\).
+\end{proof}
+The result above indeed generalizes the Schwarz--Pick Theorem when \(\rho\) is chosen to be \(\lambda\) and \(f\) is chosen such that \(f(\mathbb{D})\subseteq\mathbb{D}\).
+
+For the purpose of the proceeding generalization, we define the conformal metric
+\begin{equation}
+    \lambda_r^\alpha(z)=\frac{1}{\sqrt{\alpha}}\qty(z\mapsto\frac{z}{r})^*\lambda(z)=\frac{2r}{\sqrt{\alpha}\qty(r^2-\abs{z}^2)},\qquad r>0,z\in D(0,r).\label{eq:poincaremetricscaledcurvature}
+\end{equation}
+Its Gaussian curvature is
+\begin{align*}
+    K_{\lambda_r^\alpha}(z)&=-4\pdv[2]{}{\overline{z}}{z}\qty[\log(\frac{2r}{\sqrt{\alpha}\qty(r^2-\abs{z}^2)})]\qty(\frac{\sqrt{\alpha}\qty(r^2-\abs{z}^2)}{2r})^2\\
+    &=-4\alpha\pdv[2]{}{\overline{z}}{z}\qty[\log(\frac{2r}{r^2-\abs{z}^2})]\qty(\frac{r^2-\abs{z}^2}{2r})^2=\alpha K_{\lambda_r}(z)=-\alpha,
+\end{align*} via the results and definitions in \cref{eq:poincaremetriconscaleddisks}.
+\begin{corollary}\label{cor:generalizedahlfors}
+    Let \(r>0\) and suppose \(f:D(0,r)\to U\) is holomorphic, where \(U\subseteq\mathbb{C}\) is a region. For any \(\beta>0\), define \(\rho\) to be a conformal metric on \(U\) with \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho\qty(z)\leq-\beta,\qquad\forall z\in U.\] Then \(\forall\alpha>0\), \[f^*\rho(z)\leq\sqrt{\frac{\alpha}{\beta}}\lambda_r^\alpha(z)\] for any \(z\in D(0,r)\), where \(f^*\rho(z)=(\rho\circ f)\abs{f'}\) is the metric pullback.
+\end{corollary}
+\begin{proof}
+    Consider the \(\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})\), a conformal metric pullback of \(\rho\sqrt{\beta}\) to \(\mathbb{D}\), which satisfies \[K_{\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})}\leq -1.\] By Schwarz--Ahlfors--Pick (\cref{thm:schwarzahlforspick}), we have \[\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})(z)\leq\lambda(z)=\sqrt{\alpha}\qty(z\mapsto rz)^*\lambda_r^\alpha(z)\qfor z\in\mathbb{D}.\]
+    Since \(r\neq 0\), this implies that \[f^*\qty(\rho\sqrt{\beta})(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z)\qfor z\in D(0,r).\] Since \(\sqrt{\beta}\) is a constant, \[\sqrt{\beta}f^*\rho(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z),\qquad\forall z\in D(0,r).\qedhere\]
+\end{proof}
+\begin{corollary}[\textsc{Generalized Liouville}]\label{cor:generalizedliouville}
+    If \(f:\mathbb{C}\to U\) is entire and \(U\) admits a conformal metric of curvature bounded above by a negative constant, then \(f\) must be constant.
+\end{corollary}
+\begin{proof}
+    By assumption, \(\exists\beta>0\) such that \(\sup_{z\in U}\qty(K_\rho(z))\leq-\beta\). Then \cref{cor:generalizedahlfors} gives that \[f^*\rho(z)\leq\frac{1}{\sqrt{\beta}}\lambda_r(z)\qquad\forall z\in D(0,r)\] for any \(r>0\). As \(r\to\infty\), \(\lambda_r\to 0\). Hence, \(f^*\rho(z)=0\), implying that \(\qty(\rho\circ f)(z)\abs{f'}=0\). Hence, \(f\) is constant.
+\end{proof}
+\begin{remark}
+    \Cref{cor:generalizedliouville} implies Liouville's Theorem (\cref{thm:liouville}). To justify this differential-geometric generalization, suppose \(f:\mathbb{C}\to U\) is entire such that \(U\) is bounded. There then exists some \(R>0\) such that \(U\subseteq D(0,R)\). The metric \(\lambda_R\) has constant negative curvature \(K=-1\) on \(D(0,R)\), and hence, under \(\beta=1\), \cref{cor:generalizedliouville} implies that \(f\) is constant.
+\end{remark}
+It is understood that a entire function is guaranteed to be constant if it is bounded. This is a statement of sufficiency, but it begs the question of the capacity for possible generalization of boundedness under which constancy is still always satisfied.
+
+Consider an entire function \(f:\mathbb{C}\to U\), where \(U\) is an unbounded region such that \(\mathbb{C}\setminus U\) has positive area. Fix \(\zeta\in\operatorname{int}\qty(\mathbb{C}\setminus U)\). Then the map \(z\mapsto\frac{1}{z-\zeta}\) maps \(U\) to a bounded region and hence \(z\mapsto\frac{1}{f(z)-\zeta}\) is constant by Liouville's Theorem (\cref{thm:liouville}), implying the constancy of \(f\) (the essential proof of \cref{thm:casoratiweierstrassentire}).
+
+In contrast, if \(f:\mathbb{C}\to U\) is entire and \(\mathbb{C}\setminus U\) has zero area (one readily considers sets consisting of curves or isolated points), we must be more specific in determining sufficient conditions that still imply constancy of \(f\).
+
+Similar to in the proof of the Riemann Mapping Theorem (\cref{thm:riemannmapping}), one may use holomorphic square roots or other transformations to reduce to the bounded setting.
+\begin{example}
+    If \(f:\mathbb{C}\to\mathbb{C}\setminus\cbraces{x\in\mathbb{R}}{0\leq x\leq 1}\) is entire, then \(f\) must be constant.
+\end{example}
+\begin{proof}
+    Consider the biholomorphism \(\varphi(z)=\frac{1}{z}\), mapping \(\mathbb{C}\setminus\cbraces{x\in\mathbb{R}}{0\leq x\leq 1}\) to \(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1}\). By simple connectivity of \(\mathbb{C}\setminus\mathbb{R}_{\geq 1}\), there exists a univalent branch \(\psi\) of \(z\mapsto\sqrt{z-1}\) on \(\mathbb{C}\setminus\mathbb{R}_{\geq 1}\). Now omitting the origin, it is trivially realized that \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\cap-\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})=\emptyset\). If otherwise, then \(\exists\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\) such that \(-\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\), implying that \(\exists z_1,z_2\in\mathbb{C}^*\setminus\mathbb{R}_{\geq 1}\) such that \(\phi\qty(z_1)=\xi\) and \(\phi\qty(z_2)=-\xi\), implying that \(z_1=z_2\) and \(\xi=0\Rightarrow z_1=z_2=1\), which does not lie in \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\).
+
+    Now fix \(\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\). By the Open Mapping Theorem (\cref{thm:openmapping}), \(\exists\varepsilon>0\) such that \(D(\xi,\varepsilon)\subseteq\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\). Consequently, \(D(-\xi,\varepsilon)\cap\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})=\emptyset\). Lastly, the function \(\phi(z)=\frac{\varepsilon}{z+\xi}\) maps \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\) to \(\mathbb{D}\). By Liouville (\cref{thm:liouville}), \(\phi\circ\psi\circ\varphi\circ f\) is constant, which implies \(f\) is constant by the injectivity of \(\phi\), \(\psi\), and \(\varphi\).
+\end{proof}
+The preceding examples show that if the omitted set is sufficiently ``large'' (in the sense of having positive area or disconnecting the plane in certain ways), then any entire function avoiding it must reduce to a constant. However, there are natural limits to the smallness of the omitted set. For instance, the exponential function \(\exp\) is an entire nonconstant function whose image is \(\mathbb{C}^*\), omitting only a single point. Thus, the property that \emph{an entire function omits a set} is not by itself sufficient to guarantee constancy unless that set is suitably substantial. This observation is formalized by Picard's Little Theorem (\cref{thm:littlepicard}), which as preluded to before, asserts that any nonconstant entire function can omit at most one complex value.
+\begin{proposition}\label{prop:conformalmetricnegativecurvatureexistencewhenomits2points}
+    Let \(U\subset\mathbb{C}\) be an open set such that \(\mathbb{C}\setminus U\) contains at least two points. Then \(U\) admits a conformal metric \(\rho\in C^2(U)\), \(\dd{s}_\rho^2=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho(z)\leq -\beta<0\qquad\forall z\in U\] for some \(\beta>0\).
+\end{proposition}
+\begin{proof}
+    Without loss of generality, we may assume that \(\qty{0,1}\subseteq\mathbb{C}\setminus U\) (if not, a linear transformation \(z\mapsto\frac{z-\xi_1}{\xi_2-\xi_1}\) where \(\xi_1,\xi_2\in\mathbb{C}\setminus U\) are distinct will suffice to transform \(U\) to such a region).
+
+    Define a conformal metric with
+    \begin{equation}
+        \rho(z)=\frac{\sqrt{1+\abs{z}^{\frac{1}{3}}}\sqrt{1+\abs{z-1}^{\frac{1}{3}}}}{\abs{z}^{\frac{5}{6}}\abs{z-1}^{\frac{5}{6}}},\qquad\dd{s}_{\rho}^2=\rho^2(z)\abs{\dd{z}}^2\label{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric}
+    \end{equation} on \(\mathbb{C}\setminus\qty{0,1}\).
+
+    Since \(\laplacian(\log\abs{z}^{\frac{5}{6}})=\frac{5}{6}\laplacian(\log\abs{z})=\frac5{6}\laplacian(\Re\log(z))\),
+    \begin{align*}
+        \laplacian{\log(\frac{\sqrt{1+\abs{z}^{\frac13}}}{\abs{z}^{\frac56}})}&=2\pdv{\overline{z}}\pdv{z}(\log\qty(1+\abs{z}^{\frac13}))=\frac{z^{-\frac{5}{6}}}{3}\pdv{\overline{z}}(\frac{\overline{z}^{\frac{1}{6}}}{1+\abs{z}^{\frac{1}{3}}})\\
+        &=\frac{z^{-\frac{5}{6}}}{3}\pdv{\overline{z}}(\frac{\overline{z}^{\frac{1}{6}}}{1+\abs{z}^{\frac{1}{3}}})=\frac{z^{-\frac{5}{6}}\overline{z}^{-\frac56}\qty(1+\abs{z}^{\frac13})-z^{-\frac56}\overline{z}^{\frac16}z^{\frac16}\overline{z}^{-\frac56}}{18\qty(1+\abs{z}^{\frac13})^2}\\
+        &=\frac{1}{18\abs{z}^{\frac53}\qty(1+\abs{z}^{\frac13})^2},
+    \end{align*} and a similar calculation yields \[\laplacian{\log(\frac{\sqrt{1+\abs{z-1}^{\frac13}}}{\abs{z-1}^{\frac56}})}=\frac{1}{18\abs{z-1}^{\frac53}\qty(1+\abs{z-1}^{\frac13})^2}.\]
+    Hence, \[K_\rho(z)=-\frac{1}{18}\qty[\frac{\abs{z-1}^\frac53}{\qty(1+\abs{z}^{\frac13})^3\qty(1+\abs{z-1}^{\frac13})}+\frac{\abs{z}^{\frac53}}{\qty(1+\abs{z-1}^{\frac13})^3\qty(1+\abs{z}^{\frac13})}],\]
+    and that
+    \begin{enumerate}
+        \item \(K_\rho\in C^0\qty(\mathbb{C}\setminus\qty{0,1})\).
+        \item \(\forall z\in\mathbb{C}\setminus\qty{0,1}\), \(K_\rho(z)<0\).
+        \item \(\lim_{z\to 0}K_\rho(z)=-\frac1{36}\).
+        \item \(\lim_{z\to 1}K_\rho(z)=-\frac1{36}\).
+        \item \(\lim_{z\to\infty}K_\rho(z)=-\infty\) in any direction (as in the one-point compactification).
+    \end{enumerate}
+    Hence, \(\exists\delta>0\) such that \(\abs{K_\rho(z)+\frac{1}{36}}<\frac{1}{72}\) for any \(z\in D^*(0,\delta)\cup D^*(1,\delta)\) and \(\exists R>0\) such that \(K_\rho(z)<-1\) for any \(z\) satisfying \(\abs{z}>R\). By compactness of \(\overline{D(0,R)}\setminus\qty(D(0,\delta)\cup D(1,\delta))\) and continuity, it attains its supremum of some value \(-M<0\) by \cref{thm:extremevalue}. Let \(-\beta=\max\qty{-\frac{1}{72},-M}<0\).
+    \[\therefore\quad K_\rho(z)\leq-\beta<0\quad\forall z\in\mathbb{C}\setminus\qty{0,1}.\qedhere\]
+\end{proof}
+And we have the final implication:
+\begin{theorem}[name=\textsc{Picard's Little Theorem},store=thm:littlepicard]\label{thm:littlepicard}
+    Let \(f:\mathbb{C}\to U\) be entire such that \(\mathbb{C}\setminus U\) contains two or more points. Then \(f\) is constant.
+\end{theorem}
+\begin{proof}
+    By the result of \cref{prop:conformalmetricnegativecurvatureexistencewhenomits2points}, we may find a conformal metric \(\rho\) on \(U\) such that \(\exists\beta>0\) satisfying \(K_\rho(U)\subseteq\mathbb{R}_{\leq-\beta}\). Then by the aforementioned generalization of Liouville (\cref{cor:generalizedliouville}), \(f\) exhibits constancy on \(\mathbb{C}\) and the assertion follows.
+\end{proof}
+\begin{remark}
+    This is commonly stated in its contrapositive: the image of any non-constant entire function omits at most one value.
+\end{remark}
+\subsection{A Spherical Generalization of Normal Families}\label{sec:sphericalgeneralizationofnormalfamilies}
+Picard's Great Theorem requires a more profound concept by generalizing normal families in the one-point compactification of \(\mathbb{C}\).
+\begin{definition}
+    Let \(\qty{f_n(z)}\) be a (not necessarily analytic) complex function sequence on a connected set \(\Omega\subseteq\mathbb{C}\). If \(\forall K\subset\Omega\) compact, \(\forall R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in K\), \(\abs{f_n(z)}>R\), then \textscsl{\(f_n\to\infty\) locally uniformly spherically on \(\Omega\)}.
+\end{definition}
+When the ``locally uniform limit'' is taken to be \(\infty\), the condition of \(\varepsilon\)-closeness is instead replaced by the requirement that the values eventually leave every fixed compact subset of \(\mathbb{C}\) (the given definition is equivalent to: \(\forall K\subset\Omega\) compact, \(\forall L\subset\mathbb{C}\) compact, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in K\), \(f_n(z)\notin L\)). In this way, convergence to infinity is treated symmetrically with convergence to finite values by working in the Riemann sphere \(\extcomplex\), where \(\infty\) is simply another accumulation point.
+
+By equipping the extended complex plane \(\extcomplex\) with the spherical metric instead of the Euclidean metric, convergence to \(\infty\) can be treated like convergence to any finite point. In this setting, \(\infty\) is simply another accumulation point, so there is no need to handle it differently from other values.
+
+Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\extcomplex\) be a sequence. Then we say \(a_n\to a_\infty\) \emph{spherically} iff \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(d_\sigma\qty(a_n,a_\infty)<\varepsilon\), where \(d_\sigma\) is the spherical distance.
+\begin{definition}
+    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is said to be \textscsl{spherically normal} iff every sequence has a locally uniformly spherically convergent subsequence on \(\Omega\).
+\end{definition}
+Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be generalized via the spherical metric by the statement of Marty's Criterion (\cref{thm:marty}).
+\begin{definition}[Spherical Derivative]
+    Let \(\Omega\subseteq\mathbb{C}\) be an open region or domain. Suppose \(f:\Omega\to\extcomplex\) is meromorphic. Then the \textscsl{spherical derivative} of \(f\) is given by \[f^\sharp(z)=f^*\sigma(z)=\frac{2\abs{f'(z)}}{1+\abs{f(z)}^2}\] for \(f(z)\neq\infty\) and \[f^\sharp(z)=\lim_{\zeta\to z}f^\sharp(\zeta)\] otherwise.
+\end{definition}
+\begin{proposition}\label{prop:linearfractionaltransformationuniformlysphericallycontinuous}
+    Any linear fractional transformation is spherically uniformly continuous on \(\mathbb{C}\).
+\end{proposition}
+\begin{proof}
+    Let \(\psi(z)=\frac{az+b}{cz+d}\), where \(ad-bc\neq 0\). Then, \[\psi'(z)=\frac{ad-bc}{(cz+d)^2}.\]
+    The spherical distance between two points \(w_1=\psi\qty(z_1),w_2=\psi\qty(z_2)\) is given by \[d_\sigma\qty(w_1,w_2)=\inf_{\gamma}\int_\gamma\psi^\sharp(z)\abs{\ddz}=\inf_{\gamma}\int_\gamma\frac{2\abs{\frac{ad-bc}{(cz+d)^2}}}{1+\abs{\frac{az+b}{cz+d}}^2}\abs{\ddz}\] where \(\gamma\) joins \(z_1\) and \(z_2\). The spherical distance is bounded by the integral over the Euclidean straight line \(\gamma'\) joining \(z_1\) and \(z_2\):
+    \[d_\sigma\qty(w_1,w_2)\leq\int_{\gamma'}\frac{2\abs{ad-bc}}{\abs{cz+d}^2+\abs{az+b}^2}\abs{\ddz}.\] Since \(\frac{2\abs{ad-bc}}{\abs{cz+d}^2+\abs{az+b}^2}\to 0\) as \(z\to\infty\) and \(z\mapsto\frac{2\abs{ad-bc}}{\abs{cz+d}^2+\abs{az+b}^2}\in C^0(\mathbb{C})\), it is bounded by some constant \(M\) on \(\mathbb{C}\). Hence, we have \[d_\sigma\qty(w_1,w_2)\leq M\abs{z_1-z_2}.\] Hence, \(\forall\varepsilon>0\), \(\forall\abs{z_1-z_2}<\frac{\varepsilon}{M}\), \[d_\sigma\qty(\psi\qty(z_1),\psi\qty(z_2))<\varepsilon.\qedhere\]
+\end{proof}
+\begin{proposition}\label{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit}
+    Let \(\qty{f_n}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on a domain \(\Omega\subseteq\mathbb{C}\). If \(f_n\to f\) locally uniformly spherically, then \(f\) is either holomorphic on \(\Omega\) or identically \(\infty\).
+\end{proposition}
+\begin{proof}
+    A result analogous to \cref{thm:uniformlimit} can be used to show that \(f\) is spherically continuous. Let \(z\in\Omega\) be arbitrary.
+    \begin{enumerate}
+        \item If \(f(z)\neq\infty\), then by spherical continuity, \(\exists\delta>0\) such that \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_{n}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
+            Hence, we have \[d_\sigma\qty(\infty,f(z))-d_\sigma\qty(f(z),f_{n}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(\infty,f_{n}(\zeta))>0.\]
+            By Weierstrass (\cref{thm:weierstrassconvergence}), \(f\) is holomorphic on \(D(z,\delta)\).
+        \item Consider \(f(z)=\infty\). Assume, for the sake of contradiction, \(z\) is an isolated pole of \(f\). Hence, \(\exists\delta\) such that \(f\) is holomorphic on \(D^*(z,\delta)\).
+
+            Because each \(f_n\) is holomorphic on \(D(z,\delta)\), by the Maximum Modulus Principle (\cref{thm:maximummodulus}), \(\forall n\in\mathbb{N}\), \[\abs{f_n(\zeta)}\leq\sup_{\xi\in\partial D(z,\delta)}\abs{f_n(\xi)}\qquad\forall\zeta\in D(z,\delta).\]
+            By letting \(n\to\infty\), we have \[\abs{f(\zeta)}\leq\sup_{\xi\in\partial D(z,\delta)}\abs{f(\xi)}<\infty\qquad\forall\zeta\in D(z,\delta),\] contradicting the assumption that \(f(z)=\infty\) is an isolated pole. Hence, \(z\) must be an accumulation of values evaluating to \(\infty\). By spherical continuity, \(\exists\delta>0\) such that \[d_\sigma\qty(f(\zeta),\infty)<\frac\piup2\qquad\forall\zeta\in D(z,\delta).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_n(\zeta))<\frac\piup2.\]
+            Hence, we have \[\piup-d_\sigma\qty(\infty,f_n(\zeta))=d_\sigma(\infty,0)-d_\sigma\qty(\infty,f_n(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(0,f_n(\zeta))>0.\]
+            Hence each \(\frac{1}{f_n}\) is holomorphic on \(D(z,\delta)\) and converges locally uniformly spherically to \(\frac{1}{f}\) on \(D(z,\delta)\). By Weierstrass (\cref{thm:weierstrassconvergence}), \(\frac1f\) is holomorphic on \(D(z,\delta)\) and has zeros that accumulate at \(z\). By the Identity Theorem, \(\frac1f\equiv0\Rightarrow f\equiv\infty\) on \(D(z,\delta)\).
+    \end{enumerate}
+    Let \(S\) be the set of all \(z\in\Omega\) such that \(f(z)\) is finite. By the argument above, \(S\) is open. The complement \(\Omega\setminus S\) then consists of all points where \(f(z)=\infty\). By the argument above, \(\Omega\setminus S\) is also open. Since \(\Omega\) is connected, by \cref{thm:connectedtopologicalspaceclopensets}, either \(S=\emptyset\) or \(S=\Omega\). In the former case, \(f\equiv\infty\) on \(\Omega\), and in the latter case, \(f\) is holomorphic on \(\Omega\).
+\end{proof}
+\begin{theorem}[\textsc{Marty's Criterion}]\label{thm:marty}
+    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal iff \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in \(\Omega\).
+\end{theorem}
+\begin{proof}
+    The condition is equivalent to that of \[\frac{2\abs{f'(z)}}{1+\abs{f(z)}^2}\leq M\qquad\forall f\in\mathcal{F}\] for all compact \(K\subset\Omega\), \(\forall z\in K\), where \(M\) depends only on \(K\). Under the assumption that this holds, then \[d_\sigma\qty(f\qty(z_1),f\qty(z_2))=\inf_\gamma\int_{\gamma}\dd{s}_{\sigma}\leq M\abs{z_2-z_1}\qquad\forall f\in\mathcal{F}\] where \(\gamma\) joins \(f\qty(z_1)\) and \(f\qty(z_2)\) where \(z_1,z_2\in K\). Hence, \(\forall\varepsilon>0\), \(\forall z_1,z_2\in K\) such that \(\abs{z_1-z_2}<\frac{\varepsilon}{M}\), \(d_\sigma\qty(f\qty(z_1),f\qty(z_2))<\varepsilon\), and hence \(\mathcal{F}\) is \textscsl{uniformly spherically equicontinuous}. Since \(d_\sigma\leq\piup\) for any two points by geometry of \(S^2\), \(\mathcal{F}\) is also \emph{uniformly spherically bounded} (the compactness of \(S^2\)). Then the Arzelà--Ascoli Theorem (\cref{thm:arzelaascoli}) under the spherical metric gives that \(\mathcal{F}\) is a normal family.
+
+    Conversely, assume for the sake of contradiction that \(\mathcal{F}\) is a normal family such that conclusion is not satisfied. Then, \(\exists K\subset\Omega\) compact and a sequence \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that the sequence \[\qty{\sup_{z\in K}f^\sharp_n(z)}_{n\in\mathbb{N}}\] tends to \(\infty\) (specifically, suppose that \(\forall n\in\mathbb{N}\), \(\sup_{z\in K}f_n^\sharp(z)>n\)). By normality, we may extract a locally uniformly spherically convergent subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\subseteq\qty{f_n}_{n\in\mathbb{N}}\). By \cref{thm:uniformlimit} under the spherical metric, the uniform spherical limit of \(\qty{f_{n_k}}_{k\in\mathbb{N}}\), \(f\), is spherically continuous on \(\Omega\). For every point \(z\in\Omega\), there are two possibilities:
+    \begin{enumerate}
+        \item If \(f(z)\neq\infty\), then by continuity, \(\exists\delta>0\) such that \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[d_\sigma\qty(f(\zeta),f_{n_k}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
+            Hence, we have \[d_\sigma\qty(\infty,f(z))-d_\sigma\qty(f(z),f_{n_k}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(\infty,f_{n_k}(\zeta))>0.\]
+            Hence, the meromorphy of each \(f_{n_k}\) is actually holomorphy. By continuity, \(f\) is locally uniformly bounded on \(D(z,\delta)\). Hence, \(\qty{f_{n_k}}_{k>N}\) locally uniformly converges on \(D(z,\delta)\). By a result of Weierstrass (\cref{thm:weierstrassconvergence}), \(f\) is holomorphic on \(D(z,\delta)\) and the sequence \(\qty{f'_{n_k}}_{k>N}\) locally uniformly converges to \(f'\) on \(D(z,\delta)\).
+
+            By holomorphy of \(f'\) on \(\overline{D\qty(z,\frac\delta2)}\), \(\exists M'>0\) such that \(\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f'(\zeta)}<M'\). Uniform convergence of \(\qty{f'_{n_k}}_{k>N}\) gives the existence of some \(N'>N\) such that \(\forall k>N'\), \[\abs{f'_{n_k}(\zeta)-f'(\zeta)}<1\implies\abs{f'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\qty{f'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\qty{M'+1}\cup\qty{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{f_{n_k}'(\zeta)}}{1+\abs{f_{n_k}(\zeta)}^2}\leq 2\abs{f'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2)\subset\overline{D\qty(z,\frac\delta2)}.\]
+        \item \(f\qty(z)=\infty\), then by continuity, \(\exists\delta>0\) such that \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),\infty)<\frac\piup2.\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[d_\sigma\qty(f(\zeta),f_{n_k}(\zeta))<\frac\piup2.\]
+            Hence, we have \[\piup-d_\sigma\qty(\infty,f_{n_k}(\zeta))=d_\sigma(\infty,0)-d_\sigma\qty(\infty,f_{n_k}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(0,f_{n_k}(\zeta))>0.\]
+            Hence, each \(g_{n_k}=\frac1{f_{n_k}}\) is holomorphic on \(D(z,\delta)\). By continuity, \(g=\frac1f\) is locally uniformly bounded on \(D(z,\delta)\). It can also be realized that \(\qty{g_{n_k}}_{k>N}\) locally uniformly converges on \(D(z,\delta)\). By a result of Weierstrass (\cref{thm:weierstrassconvergence}), \(g\) is holomorphic on \(D(z,\delta)\) and the sequence \(\qty{g_{n_k}'}_{k>N}\) locally uniformly converges to \(g'\) on \(D(z,\delta)\).
+
+            By holomorphy of \(g'\) on \(\overline{D\qty(z,\frac\delta2)}\), \(\exists M'>0\) such that \(\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g'(\zeta)}<M'\). Uniform convergence of \(\qty{g'_{n_k}}_{k>N}\) gives the existence of some \(N'>N\) such that \(\forall k>N'\), \[\abs{g'_{n_k}(\zeta)-g'(\zeta)}<1\implies\abs{g'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\qty{g'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\qty{M'+1}\cup\qty{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{-\frac{g_{n_k}'(\zeta)}{g_{n_k}(\zeta)^2}}}{1+\abs{g_{n_k}(\zeta)}^{-2}}=\frac{2\abs{g_{n_k}'(\zeta)}}{\abs{g_{n_k}(\zeta)}^2+1}\leq 2\abs{g'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2).\]
+    \end{enumerate}
+    In essence, for any point \(z\), there exists an open disk \(D_z\) centered at \(z\) on which the spherical derivatives \(f^\sharp_{n_k}\) are bounded by some constant \(M_z\) for \(k>N_z\). By Heine--Borel (\cref{thm:heineborel}), there exists a finite collection of disks \(\qty{D_{z_j}}_{1\leq j\leq n}\) that cover \(K\). Thus, \(\qty{f_{n_k}^\sharp(z)}_{k>N}\) is uniformly bounded on \(K\) by \(\max_{1\leq j\leq n}M_{z_j}\), where \(N=\max_{1\leq j\leq n} N_{z_j}\), contradicting the assumption that \(\sup_{z\in K}f^\sharp_n(z)>n\) for all \(n\in\mathbb{N}\).
+\end{proof}
+\begin{theorem}[\textsc{Fundamental Normality Test}]\label{thm:fundamentalnormalitytest}
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of holomorphic functions on \(\Omega\). If there exist two different points \(\alpha,\beta\in\mathbb{C}\) such that \(\qty{\alpha,\beta}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
+\end{theorem}
+\begin{proof}
+    Map \(\alpha\) and \(\beta\) to \(0,1\) by a linear function \(\varphi(z)=\frac{z-\alpha}{\beta-\alpha}\). Then the family of holomorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\) and \(1\) for all \(z\in\Omega\).
+
+    By \cref{prop:conformalmetricnegativecurvatureexistencewhenomits2points}, \(\exists\beta>0\) such that for \[\rho(z)=\frac{\sqrt{1+\abs{z}^{\frac13}}\sqrt{1+\abs{z-1}^{\frac13}}}{\abs{z}^{\frac56}\abs{z-1}^{\frac56}},\qquad\dd{s}^2_{\rho}=\rho(z)^2\abs{\ddz}^2\] as in \cref{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric},
+    \[K_\rho(z)\leq-\beta\qquad\forall z\in\mathbb{C}\setminus\qty{0,1}.\]
+    Therefore, if we let \(\mu=\rho\sqrt{\beta}\), then
+    \begin{equation}
+        K_\mu=-\frac{\laplacian(\log\circ\mu)}{\mu^2}=-\frac{\laplacian(\log\circ\rho)}{\rho^2\beta}=\frac{K_\rho}{\beta}\leq-1\qq{on}\mathbb{C}\setminus\qty{0,1}.\label{eq:fundamentalnormalitytest_f_mu_pullback_inequality}
+    \end{equation}
+    Let \(\zeta\in\Omega\) be arbitrary and let \(r_\zeta>0\) satisfy \(D\qty(\zeta,r_\zeta)\subseteq\Omega\). By \cref{cor:generalizedahlfors}, the pullback of \(\mu\) from \(\mathbb{C}\setminus\qty{0,1}\) to \(D\qty(\zeta,r_\zeta)\subseteq\Omega\) satisfies \[f^*\mu(z)\leq\lambda_{r_\zeta}(z-\zeta)\implies\mu\qty(f(z))\abs{f'(z)}\leq\frac{2r_\zeta}{r_\zeta^2-\abs{z-\zeta}^2}\qquad\forall z\in D\qty(\zeta,r_\zeta),f\in\widetilde{\mathcal{F}}.\]
+    Since \(\forall w\in\mathbb{C}\setminus\qty{0,1}\), \[\frac{\sigma(w)}{\mu(w)}=\frac{\frac{2}{1+\abs{w}^2}}{\frac{\sqrt{1+\abs{w}^{\frac13}}\sqrt{1+\abs{w-1}^{\frac13}}}{\abs{w}^{\frac56}\abs{w-1}^{\frac56}}}\to
+        \begin{cases}
+            0&\qq*{as}w\to 0\\
+            0&\qq*{as}w\to 1\\
+            \frac{2\abs{w}^{-2}}{\abs{w}^{-\frac43}}\to0&\qq*{as}w\to\infty
+    \end{cases}.\]
+    Hence, there exist open neighborhoods \(U_0,U_1,U_\infty\) of \(0,1,\infty\) respectively on which \(\frac\sigma\mu<1\). Since \(\frac{\sigma}{\mu}\in C^0(\mathbb{C})\),
+    by \cref{thm:continuousfunctionboundedoncompact}, \(\exists M'>0\) such that \(\frac{\sigma}{\mu}<M'\) on \(\mathbb{C}\setminus\qty(U_0\cup U_1\cup U_\infty)\). Let \(M=\max\qty{M',1}\), and \[\therefore\sigma\leq M\mu\qq{on}\mathbb{C}\setminus\qty{0,1}.\]
+    Hence, \(\forall f\in\widetilde{\mathcal{F}}\), we have by virtue of \cref{eq:fundamentalnormalitytest_f_mu_pullback_inequality}, \[f^\sharp(z)=\sigma\circ f(z)\abs{f'(z)}\leq M\mu\circ f(z)\abs{f'(z)}\leq\frac{2rM}{r_\zeta^2-\abs{z-\zeta}^2}\] for any \(z\in D\qty(\zeta,r_\zeta)\). Now restricting \(z\) to \(D\qty(\zeta,\frac{r_\zeta}{2})\), we have \[\abs{z-\zeta}^2<\frac{r_\zeta^2}4\implies r_\zeta^2-\abs{z-\zeta}^2>\frac{3r_\zeta^2}4\implies\abs{f^\sharp(z)}<\frac{8r_\zeta M}{3r_\zeta^2}=\frac{8M}{3r_\zeta}.\]
+    For any compact \(K\subset\Omega\), the collection of open disks \[\cbraces{D\qty(\zeta,\frac{r_\zeta}{2})}{\zeta\in K}\] forms an open cover of \(K\). Hence, by Heine--Borel (\cref{thm:heineborel}), it admits a finite subcover \[\cbraces{D\qty(\zeta_k,\frac{r_{\zeta_k}}{2})}{1\leq k\leq n}\] for some \(n\in\mathbb{N}\). Then \(\cbraces{f^\sharp}{f\in\widetilde{\mathcal{F}}}\) is uniformly bounded on \(K\) by \[M_K=\max\cbraces{\frac{8M}{3r_{\zeta_k}}}{1\leq k\leq n}\] and is thus locally uniformly bounded on \(\Omega\). Marty's Criterion (\cref{thm:marty}) gives the normality of \(\widetilde{\mathcal{F}}\); since \(\varphi\) is linear, it follows that \(\mathcal{F}\) is also normal on \(\Omega\).
+\end{proof}
+\begin{corollary}[name=\textsc{Montel--Carathéodory}]\label{cor:montelcaratheodory}
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions on \(\Omega\). If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\qty{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
+\end{corollary}
+\begin{proof}
+    Let \(\varphi(z)=\frac{(z-\alpha)(\beta-\gamma)}{(z-\gamma)(\beta-\alpha)}\) be a Möbius transformation mapping \(\alpha,\beta,\gamma\) to \(0,1,\infty\), respectively.
+    Hence, the family of meromorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\), \(1\), and \(\infty\) (and hence each function is holomorphic). By the Fundamental Holomorphic Normality Test (\cref{thm:fundamentalnormalitytest}), \(\widetilde{\mathcal{F}}\) is normal.
+
+    By \cref{prop:linearfractionaltransformationuniformlysphericallycontinuous}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\abs{w_1-w_2}<\delta\) in \(\mathbb{C}\), \[d_\sigma\qty(\varphi^{-1}\qty(w_1),\varphi^{-1}\qty(w_2))<\varepsilon.\]
+    Let \(\qty{\widetilde{f}_n}_{n\in\mathbb{N}}\) be any function sequence in \(\mathcal{F}\) and let \(\qty{\widetilde{f}_{n_k}}_{k\in\mathbb{N}}\) be locally uniformly convergent to \(\widetilde{f}\) on a compact set \(K\subset\Omega\). Then \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[\abs{\widetilde{f}_{n_k}(z)-\widetilde{f}(z)}<\delta\qquad\forall z\in K.\]
+    Therefore, \(\forall z\in K\), \(k>N\), we have \[d_\sigma\qty(\varphi^{-1}\circ\widetilde{f}_{n_k}(z),\varphi^{-1}\circ\widetilde{f}(z))=d_\sigma\qty(f_{n_k}(z),f(z))<\varepsilon.\] Hence, every sequence \(f_n\) has a locally uniformly spherically convergent subsequence, and the normality of \(\mathcal{F}\) follows.
+\end{proof}
+\subsection{The Great Picard, Bloch, Landau, and Schottky Theorems}
+Recall the Casorati--Weierstrass Theorem, one of the earliest results on the value distribution near essential singularities:
+\getkeytheorem{thm:casoratiweierstrass}
+We will now prove a more advanced characterization of this distribution by methods of differential geometry.
+\begin{theorem}[name=\textsc{Picard's Great Theorem},store=thm:greatpicard]\label{thm:greatpicard}
+    Suppose \(f\) is holomorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(z_0\) is an essential singularity of \(f\), then \(f\qty(D^*\qty(z_0,\delta))\) omits at most one value of \(\mathbb{C}\).
+\end{theorem}
+\begin{proof}
+    Without loss of generality, assume \(z_0=0\) and that \(f\) omits the values \(0\) and \(1\) (otherwise, consider \(z\mapsto\frac1{\beta-\alpha}(f\qty(z+z_0)-\alpha)\), where \(\alpha\) and \(\beta\) are the omitted values). Define the family
+    \[\mathcal{F}=\cbraces{z\mapsto f\qty(\frac zn)}{n\in\mathbb{N}}\]
+    of holomorphic functions on \(D^*\qty(0,\delta)\). Since \(f\) omits \(0\) and \(1\), each element of \(\mathcal{F}\) does as well. By the Fundamental Normality Test (\cref{thm:fundamentalnormalitytest}), \(\mathcal{F}\) is spherically normal. Thus, there exists a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\subseteq\mathcal{F}\) that converges locally uniformly on \(D^*\qty(0,\delta)\) in the spherical metric. By \cref{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit}, this subsequence converges locally uniformly either to a holomorphic function on \(D^*\qty(0,\delta)\) or to \(\infty\) thereon.
+    \begin{enumerate}
+        \item Suppose \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to a holomorphic function on \(D^*\qty(0,\delta)\). Then \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) is uniformly bounded on \(\partial D\qty(0,\frac\delta2)\). Hence, there exists \(M>0\) such that
+            \[\abs{f\qty(\frac z{n_k})}=\abs{f_{n_k}(z)}<M\qquad\forall z\in\partial D\qty(0,\frac\delta2),\ k\in\mathbb{N}.\]
+            In other words, \(f\) is bounded by \(M\) on every circle \(\partial D\qty(0,\frac{\delta}{2n_k})\) for \(k\in\mathbb{N}\). By the Maximum Modulus Principle (\cref{thm:maximummodulus}), \(f\) is then bounded by \(M\) on each annulus \(\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})\) for \(k\in\mathbb{N}\). As
+            \[\bigcup_{k\in\mathbb{N}}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})=\overline{D\qty(0,\frac\delta{2n_1})}\setminus\qty{0},\]
+            it follows that \(f\) is bounded on \(D^*\qty(0,\frac\delta2)\). By Riemann's Removable Singularity Theorem (\cref{thm:riemannremovablesingularities}), \(f\) therefore extends holomorphically to \(0\).
+
+        \item Suppose \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to \(\infty\) on \(D^*\qty(0,\delta)\). Then, for every \(\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that, for all \(k>N\),
+            \[\abs{\frac{1}{f\qty(\frac{z}{n_k})}}=\abs{\frac1{f_{n_k}(z)}}<\varepsilon\qquad\forall z\in\partial D\qty(0,\frac\delta2).\]
+            By the same reasoning as in the previous case, \(\abs{\frac1f}<\varepsilon\) on
+            \[\bigcup_{k>N}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})\supset D^*\qty(0,\frac{\delta}{2n_{N+1}}).\]
+            Thus, by the definition of the limit, \(\lim_{z\to 0}1/f(z)=0\), so \(f\) has a pole at \(0\).
+    \end{enumerate}
+    In either case, we have derived a meromorphic continuation of \(f\) to \(0\), contradicting the assumption that \(0\) is an essential singularity of \(f\).
+\end{proof}
+\begin{corollary}[store=cor:greatpicardmeromorphic]\label{cor:greatpicardmeromorphic}
+    Suppose that \(f\) is meromorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(f\qty(D^*\qty(z_0,\delta))\) omits at least three different values of \(\extcomplex\), then \(f\) has a meromorphic continuation to \(z_0\).
+\end{corollary}
+\begin{proof}
+    A linear fractional transformation maps the omitted values to \(0,1,\infty\), mapping \(f\) so that it exhibits holomorphy. Similar to \cref{cor:montelcaratheodory}, the preceeding result is preserved under the inverse linear fractional transformation.
+\end{proof}
+\begin{remark}
+    An accumulation point of poles is an essential singularity on the Riemann sphere.
+\end{remark}
+Picard's Great Theorem is also a generalization of Picard's Little Theorem (\cref{thm:littlepicard}):
+\getkeytheorem{thm:littlepicard}
+\begin{proof}
+    Let \(g(z)=f\qty(\frac 1z)\) with an isolated singularity at 0 and a removable singularity at \(\infty\). By Picard's Great Theorem (\cref{thm:greatpicard}), \(g(z)\) has a meromorphic extension to \(z=0\). If \(z=0\) is removable, by virtue of \cref{prop:removablesingularityatinftyentireconstant,thm:liouville}, the constancy of \(g\) and \(f\) follows.
+
+    If instead \(z=0\) is a pole of \(g\), then \(z=\infty\) is a pole of \(f\), and hence \(f\) is a polynomial. Assume, for the sake of contradiction that \(f\) is constant. Then \(\forall w\in\mathbb{C}\), the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}) gives the existence of some \(z\in\mathbb{C}\) such that \(f(z)=w\). Hence, \(f\) attains every value \(w\in\mathbb{C}\). This contradicts the statement and hence \(f\) is constant.
+\end{proof}
+The efforts of many mathematicians resulted in several alternative proofs following that of Picard; the geometric realization of Ahlfors (\cref{thm:schwarzahlforspick}) was followed by results discovered by R. M. Robinson. Other approaches from Nevanlinna theory appeared later in the 20th century.
+
+Picard's original proof, providing an advanced characterization of the value distribution at essential singularities, relied primarily on the properties of the elliptic modular function (as a ``covering map''). From this, Picard deduced that the function would necessarily extend holomorphically across the singularity, contradicting its essential nature. Thus, his proof established that near an essential singularity, a holomorphic function attains every complex value, with at most one exception, infinitely often.
+
+More importantly, we have shown the utility of even seemingly fundamental differential geometry, which can also be used in the proof of many other important results.
+\begin{theorem}[name=\textsc{Bloch}]\label{thm:bloch}
+    Let \(f:\mathbb{D}\to\mathbb{C}\) be holomorphic such that \(f'(0)=1\). Then \(f(\mathbb{D})\) contains a disk with a radius of at least \(\frac{1}{72}\).
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{remark}
+    The estimate \(\frac{1}{72}\) is far from optimal. Bloch's constant \(B\) is defined as the supremum of the radii of such disks that can be contained in \(f(\mathbb{D})\) for any holomorphic function \(f:\mathbb{D}\to\mathbb{C}\) satisfying \(f'(0)=1\).
+
+    The precise value of \(B\) remains unknown to this day. In 1937, H. Grunsky and L. Ahlfors established the bounds
+    \[\frac{\sqrt{3}}{4}\leq B\leq\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}},\]
+    where \(\Gamma\) denotes the Gamma function (as in \cref{eq:gammafunction}). M. Bonk later refined the lower bound to \(B\geq\frac{\sqrt{3}}{4}+\frac{10^{-12}}{13}\). This was further improved in 1996 by H. Chen and P. M. Gauthier to \(B\geq\frac{\sqrt{3}}{4}+\frac{1}{5000}\).
+
+    Grunsky and Ahlfors actually conjectured that the upper bound in their inequality is exact---that is, \(B=\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}}\).
+\end{remark}
+\begin{theorem}[\textsc{Landau}]
+    Let \(f(z)=\sum_{n=0}^\infty a_n z^n\) such that \(a_1\neq0\).
+\end{theorem}
+\begin{theorem}[\textsc{Schottky}]
+    Suppose that \(f(z)=\sum_{n=0}^\infty a_n z^n\) is a function sequence.
+\end{theorem}
+\section{A Glimpse into the Function Theory of Multiple Complex Variables}\label{sec:multivariatecomplexanalysis}
+As in the single-variable case, there exist natural extensions of the definitions of holomorphy and of derivatives, as well as direct analogs of integral theorems.
+
+Many other results, however, have to be separately derived.
+
+Throughout mathematical history, many efforts were made to study the nature of complex functions in a multivariate setting. In the 20th century, Poincaré proved that the unit ball \(B^n=\cbraces{\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\sum_{k=1}^n\abs{z_k}^2<1}\) and the polydisk \(\mathbb{D}^n=\mathbb{D}\times\cdots\times\mathbb{D}\) are not biholomorphically equivalent by comparison of their automorphism groups, under certain assumptions of the automorphisms on their respective boundaries; the proof was later formalized by Cartan, but is nonetheless largely attributed to Poincaré. As one of the first of many deviations, the miracle of the Riemann Mapping Theorem (\cref{thm:riemannmapping}) fails in higher dimensions. Hartogs later also showed that poles and essential singularities cannot exist as isolated singularities of multivariate holomorphic functions. Perhaps these are the results of an unsatisfactory generalization.
+
+Whereas the efforts of mathematicians of over two centuries give rise to the development of function theory of one complex variable, the theory of multivariate complex functions is still largely rudimentary. Many seemingly fundamental problems still largely remain as conjecture.
+\subsection{Consequences of Holomorphy}
+Obviously, we will first formally define the concept of holomorphy in higher dimensions.
+\begin{definition}
+    A function \(f:\Omega\subseteq\mathbb{C}^n\to\mathbb{C}\) is \textscsl{holomorphic} if it is holomorphic in each variable when the others are held constant.
+\end{definition}
+If we consider \(f\) to be a function of \(z_1,\overline{z_1},z_2,\overline{z_2},\ldots,z_n,\overline{z_n}\), then \(f\) is holomorphic iff \(\pdv{f}{\overline{z_k}}\equiv 0\) for all \(1\leq k\leq n\) and \(f\) has all continuous partial derivatives.
+\begin{theorem}[Cauchy's Integral Formula on Polydisks]\label{thm:cauchyintegralformulapolydisks}
+    Fix \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) arbitrarily and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
+    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(k_1, k_2,\ldots, k_n\in\mathbb{Z}_{\geq 0}\), we have that \[\qty(\prod_{j=1}^n\frac{\partial^{k_j}}{\partial z_j^{k_j}})f(z)=\frac{\prod_{j=1}^n k_j!}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f\qty(\zeta_1,\ldots,\zeta_n)}{\prod_{j=1}^n\qty(\zeta_j-z_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1}\] for any \(z=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
+\end{theorem}
+\begin{proof}
+    By Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}), we have \[\frac{\partial^{k_1}}{\partial z_1^{k_1}}f(z)=\frac{k_1!}{2\piup\ii}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,z_2\ldots,z_n)}{\qty(\zeta_1-z_1)^{k_1+1}}\dd{\zeta_1}\] for \(z\in\Omega\), which is holomorphic. Thus, by the same application on \(\frac{\partial^{k_1}}{\partial z_1^{k_1}}f(z)\), we have
+    \[\frac{\partial^{k_{2}}}{\partial z_{2}^{k_{2}}}\frac{\partial^{k_1}}{\partial z_1^{k_1}}f(z)=\frac{k_{2}!k_1!}{\qty(2\piup\ii)^2}\oint_{\partial D\qty(a_{2},r_{2})}\oint_{\partial D\qty(a_1,r_1)}\frac{f\qty(\zeta_1,\zeta_2,z_3,\ldots,z_n)}{\qty(\zeta_1-z_1)^{k_1+1}\qty(\zeta_{2}-z_{2})^{k_{2}+1}}\dd{\zeta_1}\dd{\zeta_2}.\]
+    By reiterating \(n\) times and reversing the order of differentiation and integration, the conclusion follows.
+\end{proof}
+By the boundedness assumption for \(f\), we have:
+\begin{corollary}[Cauchy's Estimate on Polydisks]\label{cor:cauchysestimatepolydisks}
+    Let \(\vb{a}=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\) be fixed and suppose \(r_1, r_2,\ldots, r_n>0\) are the radii of the polydisk defined by \(\Omega=\prod_{k=1}^n D\qty(a_k, r_k)\) (where the product here is the Cartesian product).
+    Suppose \(f:\overline{\Omega}\to\mathbb{C}\) is holomorphic. For fixed \(k_1, k_2,\ldots, k_n\in\mathbb{Z}_{\geq 0}\), we have that \[\abs{\qty(\prod_{j=1}^n\frac{\partial^{k_j}}{\partial z_j^{k_j}})f(\vb{z})}\leq\prod_{j=1}^n\qty(\frac{k_j!}{r_j^{k_j}})\sup_{\zeta\in\prod_{j=1}^n\partial D\qty(a_j,r_j)}\abs{f(\zeta)}\] for any \(\vb{z}=\qty(z_1,z_2,\ldots, z_n)\in\Omega\).
+\end{corollary}
+\begin{proof}
+    For each \(j\), let \(\varepsilon_j\) satisfy \(D\qty(z_j,\varepsilon_j)\subseteq D\qty(a_j,r_j)\). By Cauchy's Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\abs{\qty(\prod_{j=1}^n\frac{\partial^{k_j}}{\partial z_j^{k_j}})f(\vb{z})}\leq\frac{\prod_{j=1}^n k_j!}{(2\piup)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{j=1}^n\qty(\zeta_j-z_j)^{k_j+1}}}\abs{\dd{\zeta_n}}\cdots\abs{\dd{\zeta_1}}.\]
+    For each \(j\), let \(\zeta_j=a_j+r_j\ee^{\ii t_j}\), and it follows that \(\dd{\zeta_j}=\ii r_j\ee^{\ii t_j}\dd{t_j}\). Because \(\abs{\zeta_j-z_j}>\varepsilon_j\), we have, after substition,
+    \begin{align*}
+        \abs{\qty(\prod_{j=1}^n\frac{\partial^{k_j}}{\partial z_j^{k_j}})f(\vb{z})}&\leq\frac{\prod_{j=1}^n\qty(r_j k_j!)}{(2\piup)^n}\int_0^{2\piup}\cdots\int_0^{2\piup}\abs{\frac{f(\zeta_1,\ldots,\zeta_n)}{\prod_{j=1}^n\varepsilon_j^{k_j+1}}}\dd{t_n}\cdots\dd{t_1}\\
+        &\leq\prod_{j=1}^n\qty(\frac{r_j k_j!}{2\piup\varepsilon_j^{k_j+1}})\sup_{\zeta\in\prod_{j=1}^n\partial D\qty(a_j,r_j)}\abs{f(\zeta)}\idotsint_{[0,2\piup]^n}\dd{t_n}\cdots\dd{t_1}.\\
+        &\leq\prod_{j=1}^n\qty(\frac{k_j!}{r_j^{k_j}})\sup_{\zeta\in\prod_{j=1}^n\partial D\qty(a_j,r_j)}\abs{f(\zeta)},
+    \end{align*} since \(\varepsilon_j\leq r_j\) for all \(j\).
+\end{proof}
+Similar to the univariate case, there are Taylor expansions of holomorphic functions in several complex variables.
+\begin{theorem}\label{thm:taylorexpansionmultivariable}
+    Let \(f:\mathbb{C}^n\to\mathbb{C}\) be holomorphic on (a neighborhood of) the closure \(\overline{\Omega}\) of a polydisk \(\Omega=\prod_{k=1}^n D\qty(a_k,r_k)\) centered at \(\vb{a}=(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\). Then, for any \(\vb{z}=(z_1,z_2,\ldots,z_n)\in\Omega\), we have the expansion
+    \begin{equation}
+        f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\qty(z_1-a_1)^{k_1}\cdots\qty(z_n-a_n)^{k_n},\label{eq:taylorexpansionmultivariable_series}
+    \end{equation}
+    where \(\forall k_1,\ldots,k_n\in\mathbb{Z}_{\ge0}\),
+    \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a}).\]
+    The series converges absolutely and uniformly on \(\Omega\).
+\end{theorem}
+\begin{proof}
+    By \cref{thm:cauchyintegralformulapolydisks} we have
+    \[f(\vb{z})=\frac{1}{(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta)}{(\zeta_1-z_1)\cdots(\zeta_n-z_n)}\dd{\zeta_n}\cdots\dd{\zeta_1}.\]
+
+    For each \(j\), since \(\abs{z_j-a_j}<r_j=\abs{\zeta_j-a_j}\) on \(\partial D\qty(a_j,r_j)\), the geometric series expansion holds:
+    \[\frac{1}{\zeta_j-z_j}=\frac{1}{\zeta_j-a_j}\cdot\frac{1}{1-\frac{z_j-a_j}{\zeta_j-a_j}}=\sum_{k_j=0}^\infty\frac{(z_j-a_j)^{k_j}}{(\zeta_j-a_j)^{k_j+1}},\]
+    which converges uniformly in \(\zeta_j\) on \(\partial D\qty(a_j,r_j)\).
+    Hence, we have \[f(\vb{z})=\frac{1}{\qty(2\piup\ii)^n}\sum_{k_1=0}^\infty\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta)\qty(z_1-a_1)^{k_1}\dd{\zeta_n}\cdots\dd{\zeta_1}}{\qty(\zeta_1-a_1)^{k_1+1}\qty(\zeta_2-z_2)\cdots\qty(\zeta_n-z_n)}\] where uniform convergence has allowed the interchange of summation and integration. Reiteration of this process gives \[f(\vb{z})=\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\frac{\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}{\qty(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta)\dd{\zeta_n}\cdots\dd{\zeta_1}}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}.\]
+    By the Cauchy Integral Formula (\cref{thm:cauchyintegralformulapolydisks}), we have \[\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a})=\frac{\prod_{j=1}^nk_j!}{\qty(2\piup\ii)^n}\oint_{\partial D\qty(a_1,r_1)}\cdots\oint_{\partial D\qty(a_n,r_n)}\frac{f(\zeta)}{\prod_{j=1}^n\qty(\zeta_j-a_j)^{k_j+1}}\dd{\zeta_n}\cdots\dd{\zeta_1},\] and hence if we let \[a_{k_1,\ldots,k_n}=\frac{1}{\prod_{j=1}^n k_j!}\qty(\prod_{j=1}^n\pdv[k_j]{z_j})f\qty(\vb{a}),\] then \cref{eq:taylorexpansionmultivariable_series} follows.
+
+    Cauchy's Estimate (\cref{cor:cauchysestimatepolydisks}) gives that \[\abs{a_{k_1,\ldots,k_n}}\leq M\prod_{j=1}^n\qty(\frac{1}{\rho_j^{k_j}}),\] where \(M=\sup_{\zeta\in\prod_{j=1}^n\partial D\qty(a_j,r_j)}\abs{f(\zeta)}\) for some \(\rho_j>r_j\) for all \(j\). Hence,
+    \begin{align*}
+        \abs{\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty a_{k_1,\ldots,k_n}\prod_{j=1}^n\qty(z_j-a_j)^{k_j}}&\leq\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\abs{a_{k_1,\ldots,k_n}}\prod_{j=1}^n\abs{z_j-a_j}^{k_j}\\
+        &\leq M\sum_{k_1=0}^\infty\cdots\sum_{k_n=0}^\infty\prod_{j=1}^n\abs{\frac{r_j}{\rho_j}}^{k_j}\\
+        &=M\prod_{j=1}^n\sum_{k_j=0}^\infty\abs{\frac{r_j}{\rho_j}}^{k_j}<\infty.
+    \end{align*}
+    By the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), the series converges absolutely and uniformly on \(\Omega\).
+\end{proof}
+\begin{theorem}[\textsc{Identity}]\label{thm:identitymultivar}
+    Let \(f\) be a holomorphic function on \(\Omega\subseteq\mathbb{C}^n\). If the set \(\cbraces{z\in\Omega}{f(z)=0}\) has an accumulation point in \(\Omega\), then \(f\equiv 0\) on \(\Omega\).
+\end{theorem}
+\begin{theorem}[\textsc{Maximum Modulus Principle}]
+    Let \(\Omega\subset\mathbb{C}^n\) be a open bounded region, and suppose that \(f:\Omega\to\mathbb{C}\) is holomorphic. If \[M=\sup_{\zeta\in\partial\Omega}\lim_{\substack{z\to\zeta\\z\in\Omega}}\abs{f(z)},\] then \(\abs{f(z)}<M\) for all \(z\in\Omega\), unless \(f\) is constant.
+\end{theorem}
+\begin{theorem}[Weierstrass]\label{thm:weierstrassconvergencemultivar}
+    Suppose that \(\Omega\subseteq\mathbb{C}^n\) is a region and that \(\qty{f_k}_{k\in\mathbb{N}}\) is a sequence of holomorphic functions on \(\Omega\). If \(\qty{f_k}_{k\in\mathbb{N}}\) converges locally uniformly to \(f\) on \(\Omega\), then \(f\) is holomorphic on \(\Omega\). Moreover, \(\forall k_1,\ldots,k_n\in\mathbb{Z}_{\ge0}\),
+    \[\qty(\prod_{j=1}^n\pdv[k_j]{}{z_j})f_k\rightrightarrows\qty(\prod_{j=1}^n\pdv[k_j]{}{z_j})f\] on compact subsets of \(\Omega\).
+\end{theorem}
+\begin{theorem}[Montel]\label{thm:montelmultivar}
+    A family \(\mathcal{F}\) of holomorphic functions on some region \(\Omega\subseteq\mathbb{C}^n\) is normal iff it is locally uniformly bounded on \(\Omega\).
+\end{theorem}
+\subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{D}^n\)}{the Unit Polydisk} and \texorpdfstring{\(B^n\)}{the Unit Ball}}
+A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms on complex domains in higher dimensions.
+
+For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is equivalent to several results of Cartan.
+
+In preparation, we will introduce several relevant concepts.
+\begin{definition}[Multi-Index Notation]\label{def:multiindex}
+    A \textscsl{multi-index} is an \(n\)-tuple of nonnegative integers \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\geq0}^n\).
+    We define
+    \[\abs{\vb{k}}=\sum_{j=1}^n k_j,\qquad\vb{z}^{\vb{k}}=\prod_{j=1}^n z_j^{k_j},\qquad\partial^{\vb{k}}=\pdv[\vb{k}]{}{\vb{z}}=\prod_{j=1}^n\pdv[k_j]{z_j},\qquad\vb{z}=\qty(z_1,\dots,z_n)\in\mathbb{C}^n.\]
+\end{definition}
+\begin{definition}\label{def:homogeneouspolynomial}
+    A polynomial \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
+    \[\vb*{\psi}(\lambda\vb{z})=\lambda^d\vb*{\psi}(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n,\]
+    or equivalently, iff \(\vb*{\psi}\) can be written as
+    \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\] where \(\vb{k}\in\mathbb{N}_{\ge0}^n\) is a multi-index.
+\end{definition}
+\begin{proposition}\label{prop:homogeneouspolynomialderivatives}
+    Let \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) be a homogeneous polynomial of degree \(d\).
+    \begin{enumerate}
+        \item For any multi-index \(\vb*{\alpha}=(\alpha_1,\ldots,\alpha_n)\) with \(\abs{\vb*{\alpha}}=r\leq d\), \[\partial^{\vb{\alpha}}\vb*{\psi}(\vb{z})=\frac{\partial^r\vb*{\psi}}{\partial z_1^{\alpha_1}\cdots\partial z_n^{\alpha_n}}(\vb{z})\] is a homogeneous polynomial of degree \(d-r\).\label{itm:homogeneouspolynomialderivatives_less}
+        \item If \(r=d\neq 0\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\) is constant (and there exists a multi-index \(\vb*{\alpha}\) with \(\abs{\vb*{\alpha}}=d\) such that \(\partial^{\vb{\alpha}}\vb*{\psi}\) is nonzero).\label{itm:homogeneouspolynomialderivatives_equality}
+        \item If \(r>d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\equiv 0\).\label{itm:homogeneouspolynomialderivatives_greater}
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Writing \(\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\) with coefficients \(\vb{a}_{\vb{k}}\in\mathbb{C}^m\), we compute
+    \[\partial^{\vb*{\alpha}}\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\prod_{j=1}^n\frac{k_j!}{(k_j-\alpha_j)!}z_j^{k_j-\alpha_j},\qquad\vb{k}=\qty(k_1,\dots,k_n),\]
+    where terms with \(k_j<\alpha_j\) vanish. For each remaining term, the total degree is
+    \[(k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-\abs{\vb*{\alpha}}.\]
+    Hence, \(\partial^{\vb*{\alpha}}\vb*{\psi}\) is a homogeneous polynomial of degree \(d-\abs{\vb*{\alpha}}\), establishing \cref{itm:homogeneouspolynomialderivatives_less}.
+
+    If \(r=d\), every surviving monomial has degree \(0\), so \(\partial^{\vb*{\alpha}}\vb*{\psi}\) is constant.
+    Moreover, since \(\vb*{\psi}\) has degree exactly \(d\), there exists some multi-index \(\vb{k}\) with \(\abs{\vb{k}}=d\) and \(\vb{a}_{\vb{k}}\neq\vb{0}\); choosing \(\vb*{\alpha}=\vb{k}\) yields a nonzero constant derivative. This proves \cref{itm:homogeneouspolynomialderivatives_equality}.
+
+    Finally, if \(r>d\), then for every term in the expansion, at least one \(k_j<\alpha_j\), so all summands vanish identically. Thus \(\partial^{\vb*{\alpha}}\vb*{\psi}\equiv 0\), verifying \cref{itm:homogeneouspolynomialderivatives_greater}.
+\end{proof}
+\begin{lemma}[Cartan]\label{lem:multivarcartan1}
+    Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is holomorphic. If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if
+    \begin{equation}
+        \vb{J}_{\vb{f}}\qty(\vb{a})=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\vb{a})=\vb{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\label{eq:multivarcartan1_jacobian}
+    \end{equation} then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
+\end{lemma}
+\begin{proof}
+    By \cref{thm:taylorexpansionmultivariable}, we have the expansion
+    \begin{equation}
+        \vb{f}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}(\vb{z}-\vb{a})^{\vb{k}}=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\label{eq:multivarcartan1_taylorseries}
+    \end{equation} which is absolutely convergent on some polydisk centered at \(\vb{a}\), where \(\vb{a}_{\vb{k}}=\frac{\partial^{\vb{k}}\vb{f}(\vb{a})}{\prod_{j=1}^n k_j!}\) and \(\vb{k}=\qty(k_1,\dots,k_n)\). The terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
+
+    Trivially, \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by \cref{eq:multivarcartan1_jacobian}. Similarly, \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\). Hence, the linear homogeneous polynomial of \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
+    Define a sequence of holomorphic functions \(\qty{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ\vb{f}\qquad\forall k\in\mathbb{N}.\]
+    Assume the existence of some \(m\in\mathbb{N}\), the smallest \(j\geq 2\) such that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1(z)=\vb{z}+\vb*{\psi}_m\qty(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j\qty(\vb{z}-\vb{a}),\] it then follows that
+    \begin{align*}
+        \vb{f}_2(\vb{z})&=\vb{z}+\vb*{\psi}_m(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j(\vb{z}-\vb{a})+\vb*{\psi}_m\qty(\vb{z}-\vb{a}+\sum_{j\geq m}\vb*{\psi}_j(\vb{z}-\vb{a}))+\sum_{j>m}\vb*{\psi}_j(\vb{f}(\vb{z})-\vb{a})\\
+        &=\vb{z}+2\vb*{\psi}_m(\vb{z}-\vb{a})+(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a}).
+    \end{align*}
+    Assume, for induction, that \[\vb{f}_k(\vb{z})=\vb{z}+k\vb*{\psi}_m(\vb{z}-\vb{a})+\qty(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a}).\]
+    Then we have
+    \begin{align*}
+        \vb{f}_{k+1}(\vb{z})&=\vb{z}+\sum_{j\geq m}\vb*{\psi}_j(\vb{z}-\vb{a})+k\vb*{\psi}_m\qty(\vb{z}-\vb{a}+\sum_{j\geq m}\qty(\text{degree \(j\) hom. polynomial})(\vb{z}-\vb{a}))\\
+        &\quad+\sum_{j>m}\qty(\text{homogeneous polynomial of degree \(j\)})\qty(\vb{f}(\vb{z})-\vb{a})\\
+        &=\vb{z}+(k+1)\vb*{\psi}_m(\vb{z}-\vb{a})+\qty(\text{degree \(>m\) homogeneous polynomials})(\vb{z}-\vb{a}).
+    \end{align*}
+    Since \(\vb{f}_k(\Omega)\subseteq\Omega\) for any \(k\), the sequence \(\qty{\vb{f}_k}_{k\in\mathbb{N}}\) is uniformly bounded on \(\Omega\). By Montel's Theorem (\cref{thm:montelmultivar}), there exists a subsequence \(\qty{\vb{f}_{k_l}}_{l\in\mathbb{N}}\) that converges locally uniformly to some holomorphic function \(\widetilde{\vb{f}}\) by virtue of Weierstrass (\cref{thm:weierstrassconvergencemultivar}).
+
+    Since \(\vb*{\psi}_m\not\equiv 0\), there exists \(\vb*{\alpha}\) satisfying \(\abs{\vb*{\alpha}}=m\) such that \[\partial^{\vb*{\alpha}}\vb*{\psi}_m\equiv\vb{c}\neq\vb{0}\] is a nonzero constant by \cref{prop:homogeneouspolynomialderivatives}. Consequently, \[\partial^{\vb*{\alpha}}\qty(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a})\] is a homogeneous polynomial with degree \(\geq 1\) and thus vanishes as \(\vb{z}\to\vb{a}\). Similarly, \(\vb{z}\mapsto\vb{z}\) is homogeneous with degree \(1<m\) and thus \(\partial^{\vb*{\alpha}}z\) vanishes. Therefore, \[\partial^{\vb*{\alpha}}\vb{f}_k(\vb{a})=k\vb{c},\] which diverges as \(k\to\infty\). Weierstrass' Convergence Theorem (\cref{thm:weierstrassconvergencemultivar}) gives that \(\partial^{\vb*{\alpha}}\vb{f}_{k_l}(\vb{a})\to\partial^{\vb*{\alpha}}\widetilde{\vb{f}}(\vb{a})\) which must be finite by holomorphy, contradicting the divergence. Hence, the assumed value for \(m\) cannot exist and hence \(\vb*{\psi}_j\equiv 0\) for all \(j\geq 2\). Thus, \(\vb{f}(\vb{z})\equiv\vb{z}\) on some polydisk centered at \(\vb{a}\). By the Identity Theorem (\cref{thm:identitymultivar}), \(\vb{f}(\vb{z})\equiv\vb{z}\) on \(\Omega\).
+\end{proof}
+\begin{definition}[Reinhardt Domain]\label{def:reinhardtdomain}
+    An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{Reinhardt domain} centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), \[\cbraces{\qty(z_1,\ldots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}=\abs{\zeta_k-a_k},1\leq k\leq n}\] is fully contained in \(\Omega\). In other words, \(\Omega\) is invariant under all rotations about the center \(\vb{a}\) in each coordinate.
+\end{definition}
+\begin{definition}\label{def:completereinhardtdomain}
+    A Reinhardt domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textscsl{complete} iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), the polydisk \[\cbraces{\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}\leq\abs{\zeta_k-a_k},1\leq k\leq n}\] is contained in \(\Omega\).
+\end{definition}
+\begin{definition}[Circular Domain]\label{def:circulardomain}
+    An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{circular domain} centered at \(\vb{a}\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\ee^{\ii\theta}\qty(\vb*{\zeta}-\vb{a})}{0\leq\theta<2\piup}\] is fully contained in \(\Omega\).
+\end{definition}
+\begin{definition}\label{def:completecirculardomain}
+    A circular domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textscsl{complete} iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\mu\qty(\vb*{\zeta}-\vb{a})}{\forall\mu\in\overline{\mathbb{D}}}\] is contained in \(\Omega\).
+\end{definition}
+\begin{proposition}\label{prop:jacobianchainrule}
+    Let \(U_0\subseteq\mathbb{C}^{n_0}, U_1\subseteq\mathbb{C}^{n_1}, U_2\subseteq\mathbb{C}^{n_2}\) be open domains with \(n_i\geq 1\) for each \(i\), and let \(\vb{f}:U_1\to U_2\) and \(\vb{g}:U_0\to U_1\) be holomorphic maps. Define the composition \(\vb{h}:U_0\to U_2\) by \(\vb{h}(\vb{z})=\vb{f}(\vb{g}(\vb{z}))\). Then for every \(\vb{z}\in U_0\), the complex Jacobian matrix of \(\vb{h}\) at \(\vb{z}\) is
+    \[\vb{J}_{\vb{h}}(\vb{z})=\vb{J}_{\vb{f}}(\vb{g}(\vb{z}))\cdot\vb{J}_{\vb{g}}(\vb{z}).\]
+\end{proposition}
+\begin{proof}
+    Fix \(\vb{z}\in U_0\) and let \(\vb{w}=\vb{g}(\vb{z})\in U_1\). Write \[\vb{h}(\vb{z})=(h_1(\vb{z}),\dots,h_{n_2}(\vb{z})),\] where each \(h_l:U_0\to\mathbb{C}\) is holomorphic for \(l=1,\dots,n_2\). Similarly, write \[\vb{g}(\vb{z})=(g_1(\vb{z}),\dots,g_{n_1}(\vb{z})),\qquad\vb{f}(\vb{z})=(f_1(\vb{z}),\dots,f_{n_2}(\vb{z})),\] where each \(g_p:U_0\to\mathbb{C}\) and each \(f_l:U_1\to\mathbb{C}\) is holomorphic for \(p=1,\dots,n_1\) and \(l=1,\dots,n_2\). Then \(h_l(\vb{z})=f_l(\vb{g}(\vb{z}))\) for each \(l\). By the chain multivariable rule, the complex Jacobian of \(\vb{h}\) at \(\vb{z}\) is the \(n_2\times n_0\) matrix
+    \begin{align*}
+        \vb{J}_{\vb{h}}&=\mqty(\pdv{h_1}{z_1}&\cdots&\pdv{h_1}{z_{n_0}}\\\vdots&\ddots&\vdots\\\pdv{h_{n_2}}{z_1}&\cdots&\pdv{h_{n_2}}{z_{n_0}})=\mqty(\sum_{p=1}^{n_1}\pdv{f_1}{g_p}\qty(\vb{g})\pdv{g_p}{z_1}&\cdots&\sum_{p=1}^{n_1}\pdv{f_1}{g_p}\qty(\vb{g})\pdv{g_p}{z_{n_0}}\\\vdots&\ddots&\vdots\\\sum_{p=1}^{n_1}\pdv{f_{n_2}}{g_p}\qty(\vb{g})\pdv{g_p}{z_1}&\cdots&\sum_{p=1}^{n_1}\pdv{f_{n_2}}{g_p}\qty(\vb{g})\pdv{g_p}{z_{n_0}})\\
+        &=\mqty(\pdv{f_1}{g_1}\qty(\vb{g})&\cdots&\pdv{f_1}{g_{n_1}}\qty(\vb{g})\\\vdots&\ddots&\vdots\\\pdv{f_{n_2}}{g_1}\qty(\vb{g})&\cdots&\pdv{f_{n_2}}{g_{n_1}}\qty(\vb{g}))
+        \mqty(\pdv{g_1}{z_1}&\cdots&\pdv{g_1}{z_{n_0}}\\\vdots&\ddots&\vdots\\\pdv{g_{n_1}}{z_1}&\cdots&\pdv{g_{n_1}}{z_{n_0}})=\vb{J}_{\vb{f}}(\vb{g})\cdot\vb{J}_{\vb{g}}.\qedhere
+    \end{align*}
+\end{proof}
+\begin{lemma}[Cartan]\label{lem:multivarcartan2}
+    Let \(\Omega\subset\mathbb{C}^n\) be a bounded complete circular domain centered at \(\vb{0}\), and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is a biholomorphism. If \(\vb{f}(\vb{0})=\vb{0}\), then \(\vb{f}\) is linear.
+\end{lemma}
+\begin{proof}
+    Let \(\vb*{\rho}_\theta(\vb{z})=\ee^{\ii\theta}\vb{z}\) for all \(\theta\in\mathbb{R}\) and suppose that \(\vb*{\varphi}=\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}\). By \cref{prop:jacobianchainrule}, we must have that
+    \begin{align*}
+        \vb{J}_{\vb*{\varphi}}(\vb{z})&=\vb{J}_{\vb*{\rho}_{-\theta}}\qty(\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}}\qty(\vb*{\rho}_\theta\circ\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta}\qty(\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}}\qty(\vb{z})\\
+        \vb{J}_{\vb*{\varphi}}(\vb{0})&=\mqty(\ee^{-\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{-\ii\theta})\cdot\vb{J}_{\vb{f}^{-1}}(\vb{0})\cdot\mqty(\ee^{\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{\ii\theta})\cdot\vb{J}_{\vb{f}}(\vb{0})=\ee^{-\ii\theta}\ee^{\ii\theta}\qty(\vb{J}_{\vb{f}^{-1}}\cdot\vb{J}_{\vb{f}})(\vb{0})=\vb{I}.
+    \end{align*}
+    By \cref{lem:multivarcartan1}, \(\vb*{\varphi}(\vb{z})\equiv\vb{z}\) on \(\Omega\). Hence, \(\vb{f}\circ\vb*{\rho}_\theta=\vb*{\rho}_\theta\circ\vb{f}\) for all \(\theta\in\mathbb{R}\). Together with \cref{thm:taylorexpansionmultivariable}, write
+    \begin{equation}
+        \vb{f}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\label{eq:multivarcartan2_taylorseries}
+    \end{equation} on a polydisk centered at \(\vb{0}\). Thus,
+    \begin{equation*}
+        \vb{f}\circ\vb*{\rho}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\qty(\ee^{\ii\theta}\vb{z})^{\vb{k}}=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta\abs{\vb{k}}}\vb{z}^{\vb{k}}.
+    \end{equation*}
+    On the other hand, composing with \(\vb*{\rho}_\theta\) with \cref{eq:multivarcartan2_taylorseries} gives
+    \begin{equation*}
+        \vb*{\rho}_\theta\circ\vb{f}(\vb{z})=\ee^{\ii\theta}\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta}\vb{z}^{\vb{k}}.
+    \end{equation*}
+    Hence, by the uniqueness of power series expansions, we must either have that \(\vb{a}_{\vb{k}}=\vb{0}\), \(\ee^{\ii\theta}\equiv\ee^{\ii\theta\abs{\vb{k}}}\), or equivalently, that \[\abs{\vb{k}}\equiv 1\pmod{2\piup}.\] This is only possible when \(\abs{\vb{k}}=1\) by irrationality, and thus \(\vb{a}_{\vb{k}}=\vb{0}\) for all \(\abs{\vb{k}}\neq 1\). Therefore, \(\vb{f}\) must be linear.
+\end{proof}
+\begin{remark}
+    If \(n=1\), then \(\Omega=D(0,R)\) for some \(R>0\) and any automorphism \(f\) with a fixed point \(0\) is a rotation in the form of \(z\mapsto\ee^{\ii\theta}z\), hence linear, the effective statement of the Schwarz Lemma (\cref{lem:schwarz}).
+\end{remark}
+\begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{D}^n\)]\label{thm:holomorphicautomorphismgrouponpolydisk}
+    The holomorphic automorphism group of the polydisk \(\mathbb{D}^n\) consists solely of biholomorphisms in the form of
+    \begin{equation}
+        \vb{z}=\qty(z_1,\ldots,z_n)\mapsto\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\label{eq:holomorphicautomorphismgrouponpolydisk_statement}
+    \end{equation} where \(\vb{P}\) is a \(n\times n\) permutation matrix (for coordinate permutations), \(\qty(\theta_1,\dots,\theta_n)\in\mathbb{R}^n\), and \(\qty(a_1,\ldots,a_n)\in\mathbb{D}^n\).
+\end{theorem}
+\begin{proof}
+    Let \(\vb{f}\in\Aut\qty(\mathbb{D}^n)\) be arbitrary, and set \(\vb*{\alpha}=\qty(\alpha_1,\ldots,\alpha_n)=\vb{f}(\vb{0})\). Define the Möbius transformation \(\vb*{\varphi}\qty(z_1,\ldots,z_n)=\qty(\frac{z_1-\alpha_1}{1-\overline{\alpha_1}z_1},\ldots,\frac{z_n-\alpha_n}{1-\overline{\alpha_n}z_n})\in\Aut\qty(\mathbb{D}^n)\). It follows that \(\vb*{\varphi}\circ\vb{f}(\vb{0})=\vb{0}\) and \(\vb*{\varphi}\circ\vb{f}\in\Aut\qty(\mathbb{D}^n)\).
+
+    By \cref{lem:multivarcartan2}, the map \(\vb*{\varphi}\circ\vb{f}\) is linear, so \(\vb*{\varphi}\circ\vb{f}\qty(\vb{z})=\vb{A}\vb{z}\) for some invertible constant matrix \(\vb{A}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n})\). Thus,
+    \[\abs{\sum_{j=1}^n\zeta_{k,j}z_j}<1\qquad\forall\vb{z}\in\mathbb{D}^n,\ \forall k\in\qty{1,\ldots,n},\]
+    which implies \(\abs{\zeta_{k,j}}\leq1\) for all \(j,k\in\qty{1,\ldots,n}\) (for if \(\abs{\zeta_{k,j}}>1\), then choosing \(z_j=\frac1{\abs{\zeta_{k,j}}}+\varepsilon\) with \(0<\varepsilon<1-\frac1{\abs{\zeta_{k,j}}}\) and \(z_l=0\) for \(l\neq j\) yields a contradiction).
+
+    For each \(j\in\qty{1,\ldots,n}\), define the sequence \(\qty{\vb{z}_{j,k}}_{k\in\mathbb{N}}\) by
+    \[\vb{z}_{j,k}=\qty(z_{j,k,1},\dots,z_{j,k,n})=\qty(\qty(1-\frac{1}{k})\frac{\abs{\zeta_{j,1}}}{\zeta_{j,1}},\dots,\qty(1-\frac{1}{k})\frac{\abs{\zeta_{j,n}}}{\zeta_{j,n}})\in\mathbb{D}^n\qquad\forall k\in\mathbb{N},\]
+    where we informally let \(\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}=0\) if \(\zeta_{j,i}=0\). Then, for all \(j\in\qty{1,\ldots,n}\) and \(k\in\mathbb{N}\),
+    \[\qty(\vb*{\varphi}\circ\vb{f})\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{1,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{j,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{n,i})\in\mathbb{D}^n.\]
+    In particular, the \(j\)-th component is
+    \[\qty(1-\frac{1}{k})\sum_{i=1}^n\abs{\zeta_{j,i}}\in\mathbb{D}.\]
+    As \(k\to\infty\),
+    \begin{equation}
+        \sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\qty{1,\ldots,n}.\label{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}
+    \end{equation}
+    Now consider, for each \(j\in\qty{1,\ldots,n}\), the sequence \(\vb{z}_{j,k}=\qty(0,\ldots,0,1-\frac{1}{k},0,\ldots,0)\), where \(1-\frac{1}{k}\) is in the \(j\)-th position. Then
+    \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\zeta_{1,j},\ldots,\zeta_{n,j}).\]
+    As \(k\to\infty\), \(\vb{z}_{j,k}\to\vb{e}_j\in\partial\qty(\mathbb{D}^n)\) (the \(j\)-th unit basis vector), so the limit
+    \[\qty(\zeta_{1,j},\ldots,\zeta_{n,j})\in\partial\qty(\mathbb{D}^n)\]
+    holds by continuity (extending across the boundary in this direction). Thus, \(\max_{i\in\qty{1,\ldots,n}}\abs{\zeta_{i,j}}=1\). Combined with \cref{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}, this forces exactly one entry in the \(j\)-th column of \(\vb{A}\) to have absolute value \(1\) (of the form \(\ee^{\ii\theta_j}\)), with all others zero.
+
+    Invertibility of \(\vb{A}\) ensures each column has at least one nonzero entry, so \(\vb{A}\) is a monomial matrix, which factors to
+    \[\vb{A}=\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\]
+    for some permutation matrix \(\vb{P}\). Therefore,
+    \[\vb{f}\qty(\vb{z})=\vb*{\varphi}^{-1}\circ\qty(\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{z}).\]
+    Let \(\sigma:\mathbb{N}_{\leq n}\to\mathbb{N}_{\leq n}\) be the permutation induced by \(\vb{P}\). The map \(\vb{A}\) multiplies the \(m\)-th input coordinate \(z_m\) by \(\ee^{\ii\theta_m}\) and permutes to place it in the \(\sigma(m)\)-th output position, so the \(\sigma(m)\)-th coordinate of \(\vb{A}\vb{z}\) is \(\ee^{\ii\theta_m}z_m\). Applying \(\vb*{\varphi}^{-1}\) componentwise then gives, for the \(k\)-th output coordinate,
+    \[\vb{f}\qty(\vb{z})_k=\varphi_{\alpha_k}^{-1}\qty(\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)})=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}.\]
+    Set \(a_k=-\alpha_k\ee^{-\ii\theta_{\sigma^{-1}(k)}}\in\mathbb{D}\). Then
+    \[\vb{f}\qty(\vb{z})_k=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}=\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_k}{1-\overline{a_k}z_{\sigma^{-1}(k)}}.\] Hence, \[\vb{f}\qty(\vb{z})_{\sigma(k)}=\ee^{\ii\theta_{k}}\frac{z_{k}-a_k}{1-\overline{a_k}z_{k}}\Longleftrightarrow\vb{f}(\vb{z})=\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\]
+    as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, each automorphism of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
+\end{proof}
+\begin{definition}
+    The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{U}\) is defined as \(\vb{U}^\dagger=\overline{\vb{U}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
+\end{definition}
+\begin{definition}
+    A matrix \(\vb{U}\) is said to be \textscsl{unitary} iff its inverse is its conjugate transpose, or iff \(\vb{U}^\dagger\vb{U}=\vb{U}\vb{U}^\dagger=\vb{I}\).
+\end{definition}
+A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U}\vb{z}\), where \(\vb{U}\) is a unitary matrix.
+\begin{proposition}\label{prop:unitballsimpleautomorphism}
+    For any \(a\in\mathbb{D}\),
+    \begin{equation}
+        \vb{w}=\qty(w_1,\dots,w_n)=\vb*{\varphi}_{a}(\vb{z})=\qty(\frac{z_1-a}{1-\overline{a}z_1},z_2\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},z_3\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},\ldots,z_n\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1})\label{eq:unitballsimpleautomorphism_statement}
+    \end{equation} lies in \(\Aut\qty(B^n)\), where \(\vb{z}=\qty(z_1,\dots,z_n)\). Moreover, \(\vb*{\varphi}_a^{-1}=\vb*{\varphi}_{-a}\).
+\end{proposition}
+\begin{proof}
+    For \(\vb{z}=\qty(z_1,\dots,z_n)\in B^n\), because \(\sum_{k=2}^n\abs{z_k}^2<1-\abs{z_1}^2\),
+    \begin{align*}
+        \norm{\vb*{\varphi}_a(\vb{z})}^2&=\frac{1}{\abs{1-\overline{a}z_1}^2}\qty[\abs{z_1-a}^2+\sum_{k=2}^n\qty(1-\abs{a}^2)\abs{z_k}^2]\\
+        &<\frac{1}{\qty(1-\overline{a}z_1)\qty(1-a\overline{z_1})}\qty[\qty(z_1-a)\qty(\overline{z_1}-\overline{a})+\qty(1-\abs{z_1}^2)\qty(1-\abs{a}^2)]\\
+        &=\frac{\abs{z_1}^2+\abs{a}^2-2\Re\qty(\overline{a}z_1)+1+\abs{az_1}^2-\abs{a}^2-\abs{z_1}^2}{1+\abs{az_1}^2-2\Re\qty(\overline{a}z_1)}=1.
+    \end{align*}
+    Hence, \(\vb*{\varphi}_a\) maps \(B^n\) to \(B^n\). A simple calculation shows that \[w_1=\frac{z_1-a}{1-\overline{a}z_1}\implies z_1=\frac{w_1+a}{1+\overline{a}w_1},\quad z_k=w_k\frac{1-\overline{a}z_1}{\sqrt{1-\abs{a}^2}}=w_k\frac{\sqrt{1-\abs{a}^2}}{1+\overline{a}w_1},\] and hence \(\vb*{\varphi}_a\) is bijective, admitting the inverse \(\vb*{\varphi}_{-a}\). Therefore, \(\vb*{\varphi}_a\in\Aut\qty(B^n)\).
+\end{proof}
+\begin{proposition}
+    If \(\vb{f}\in\Aut\qty(B^n)\) satisfies \(\vb{f}(\vb{0})=\vb{0}\), then \(\vb{f}\) is a unitary transformation.
+\end{proposition}
+\begin{proof}
+    Because \(B^n\) is a bounded complete circular domain centered at \(\vb{0}\), from \cref{lem:multivarcartan2} we have that \(\vb{f}\equiv\vb{U}\vb{z}\) for some constant invertible matrix \[\vb{U}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n}).\]
+\end{proof}
+\subsection{Topological Equivalence and Biholomorphic Equivalence}
+\begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
+    For any \(n>2\), the \(n\)-dimensional unit ball \(B^n\) and the \(n\)-dimensional polydisk \(\mathbb{D}^n\) are not biholomorphically equivalent.
+\end{theorem}
+\subsection{Hartogs' Phenomenon}
+\section{Special Classes of Holomorphic Functions}
+\subsection{Elliptic Functions}
+The theory of elliptic functions is an elaborate chapter of complex analysis, with origins in seemingly trivial problems of calculus. In the 18th century, mathematicians studying the rectification (arc length calculation) of curves such as the ellipse and the lemniscate discovered that these could not be expressed in terms of elementary functions, leading to the introduction of elliptic integrals. Inverting these integrals gave rise to elliptic functions, which extend the idea of trigonometric functions by being \textscsl{doubly periodic} in the complex plane. Closely related ideas also appeared in conformal mapping, such as the Schwarz--Christoffel transformation (\cref{sec:schwarzchristoffeltransformation}) between the upper half-plane and rectangles. Henceforth, elliptic functions became a central subject related to calculus, geometry, and complex analysis.
+
+It is well-known in real analysis that a periodic function can be expressed as a Fourier series, with terms involving the most trivial periodic functions \(\sin,\cos,\ldots,\sin(nx),\cos(nx)\). Such functions are called \textscsl{singly periodic}.
+
+If \(f:\mathbb{C}\to\extcomplex\) is meromorphic with period \(\omega\in\mathbb{C}^*\), then it has the Fourier expansion \[f(z)=\sum_{n=-\infty}^\infty c_n\exp\qty(\frac{2\piup\ii nz}{\omega}),\quad c_n=\frac1\omega\int_a^{a+\omega}f(z)\exp(-\frac{2\piup\ii nz}{\omega})\ddz\quad\forall n\in\mathbb{Z},\]
+TO BE CONTINUED
+
+The term ``elliptic function'' itself refers to a \emph{doubly periodic} meromorphic function. More precisely, a meromorphic function \(f:\mathbb{C}\to\extcomplex\) is called an \textscsl{elliptic function} if there exist two \(\mathbb{C}\)-linearly independent periods \(\omega_1,\omega_2\in\mathbb{C}^*\) such that \(f(z+\omega_1)=f(z+\omega_2)=f(z)\) for all \(z\in\mathbb{C}\). Without loss of generalization, we will assume that \(\Im{\frac{\omega_2}{\omega_1}}>0\) (linear independence guarantees that this is non-vanishing, while we may consider periods \(\omega_1,-\omega_2\) or \(-\omega_1,\omega_2\) to achieve the same result). Any period of \(f\) is in the form of \[\omega=m\omega_1+n\omega_2\qquad m,n\in\mathbb{Z}.\] The set of all periods of \(f\) forms a \textscsl{period lattice} \[\Lambda=\Lambda\qty(\omega_1,\omega_2)=\omega_1\mathbb{Z}+\omega_2\mathbb{Z}=\cbraces{m\omega_1+n\omega_2}{m,n\in\mathbb{Z}}.\] The set formed by \(\Lambda\) is a discrete additive (any sum of two points in the lattice remain in the lattice) subgroup of \(\mathbb{C}\), a free \(\mathbb{Z}\)-module of rank 2 (generated by the basis \(\qty{\omega_1,\omega_2}\)).
+
+For any point \(\alpha\in\mathbb{C}\), the complex parallelogram generated by \[P=\cbraces{\alpha+t_1\omega_1+t_2\omega_2}{t_1,t_2\in[0,1)},\] is known as a \textscsl{fundamental parallelogram of} \(\Lambda\).
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{scope}
+            \draw[thick] (0,0) rectangle (1.5,1.2);
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]},thick, dashed] (0.1,0.2)--(0.1,1.0);
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]},thick, dashed] (1.4,0.2)--(1.4,1.0);
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]},thick] (0.2,0.1)--(1.3,0.1);
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]},thick] (0.2,1.1) -- (1.3,1.1);
+        \end{scope}
+        \begin{scope}[xshift=2.7cm, yshift=0.6cm]
+            \pgfmathsetmacro{\smallradius}{0.25}
+            \pgfmathsetmacro{\largeradius}{0.3}
+            \pgfmathsetmacro{\cylinderlength}{1.5}
+            \pgfmathsetmacro{\arrowthreshold}{0.3}
+            \draw[thick] (0,0) ellipse ({\smallradius} and {\largeradius});
+
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]}, thick, dashed] ({\smallradius*(1-\arrowthreshold)},0) arc (360:20:{\smallradius*(1-\arrowthreshold)} and {\largeradius*(1-\arrowthreshold)});
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]}, dashed] ({\smallradius*(1-\arrowthreshold)+\cylinderlength},0) arc (360:20:{\smallradius*(1-\arrowthreshold)} and {\largeradius*(1-\arrowthreshold)});
+
+            \draw[thick] (0,-\largeradius) -- (\cylinderlength,-\largeradius);
+            \draw[thick] (0,\largeradius) -- (\cylinderlength,\largeradius);
+            \draw[thick] (\smallradius,0) -- (\smallradius + \cylinderlength,0);
+
+            \draw (\cylinderlength,-\largeradius) arc (270:90:{\smallradius} and {\largeradius});
+            \draw[thick] (\cylinderlength,\largeradius) arc (90:-90:{\smallradius} and {\largeradius});
+
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]}] (\smallradius+\arrowthreshold, 0)--(\cylinderlength+\smallradius-\arrowthreshold, 0);
+        \end{scope}
+        \begin{scope}[xshift=6.2cm, yshift=0.3cm]
+            \pgfmathsetmacro{\smallradius}{0.25}
+            \pgfmathsetmacro{\largeradius}{0.3}
+            \pgfmathsetmacro{\halfcenterdistance}{0.65}
+            \pgfmathsetmacro{\arrowthreshold}{0.3}
+
+            \draw[thick] (-\halfcenterdistance,0) ellipse ({\largeradius} and {\smallradius});
+            \draw[thick] (\halfcenterdistance,0) ellipse ({\largeradius} and {\smallradius});
+
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]}, thick, dashed] ({-\halfcenterdistance+\largeradius*(1-\arrowthreshold)},0) arc (360:20:{\largeradius*(1-\arrowthreshold)} and {\smallradius*(1-\arrowthreshold)});
+
+            \draw[-{Stealth[length=1.5mm, width=1.5mm]}, thick, dashed] ({\halfcenterdistance-\largeradius*(1-\arrowthreshold)},0) arc (-180:160:{\largeradius*(1-\arrowthreshold)} and {\smallradius*(1-\arrowthreshold)});
+
+            \draw[thick] (\halfcenterdistance-\largeradius,0) arc (0:180:{\halfcenterdistance-\largeradius} and {(\halfcenterdistance-\largeradius)*\smallradius/\largeradius});
+            \draw[thick] (\halfcenterdistance+\largeradius,0) arc (0:180:{\halfcenterdistance+\largeradius} and {(\halfcenterdistance+\largeradius)*\smallradius/\largeradius});
+        \end{scope}
+        \begin{scope}[xshift=9cm, yshift=0.6cm]
+            \pgfmathsetmacro{\smallradius}{0.25}
+            \pgfmathsetmacro{\largeradius}{0.3}
+
+            \draw[thick] (0,0) ellipse (1 and 0.7);
+            \begin{scope}
+                \clip (-0.6,0) rectangle (0.6,0.4);
+                \draw[thick] (-0.5,-0.2) arc (180:0:{0.5} and {0.5*0.7});
+            \end{scope}
+            \begin{scope}
+                \clip (-0.6,0.1) rectangle (0.6,-0.3);
+                \draw[thick] (-0.5,0.2) arc (180:360:{0.5} and {0.5*0.7});
+            \end{scope}
+        \end{scope}
+        \draw[-{Stealth[length=1.5mm, width=1.5mm]}, thick] (1.7,0.6) -- (2.3,0.6);
+        \draw[-{Stealth[length=1.5mm, width=1.5mm]}, thick] (4.65,0.6) -- (5.1,0.6);
+        \draw[-{Stealth[length=1.5mm, width=1.5mm]}, thick] (7.3,0.6) -- (7.8,0.6);
+    \end{tikzpicture}
+    \caption{Illustration of the deformation of a homeomorphism between a rectangle with opposite sides \emph{identified} and a torus.}\label{fig:identifiedrectagletotorushomeomorphism}
+\end{figure}The properties of an elliptic function can be more easily observed on its fundamental parallelogram, since the values of \(f\) on \(\mathbb{C}\) are fully represented by its values on \(P\). Because the opposite sides of the parallelogram are \textscsl{identified} (treated to be the same, or topologically ``glued together'') by the periodicity of \(f\), the fundamental parallelogram is homeomorphic to a torus, as visualized in \cref{fig:identifiedrectagletotorushomeomorphism}.
+
+Let \(\mathbb{C}\) be closed under addition and let \(\Lambda\) be the subgroup of \(\mathbb{C}\). Then, the quotient group \(\mathbb{C}/\Lambda\) is compact as it is homeomorphic to a torus, which is endowed with a compact topology. Hence, Liouville (\cref{thm:liouville}) implies that if \(f\) does not have poles, then it must be constant:
+\begin{theorem}[Liouville]\label{thm:liouvilleelliptic}
+    Any elliptic function \(f\) with period lattice \(\Lambda\) that is holomorphic on \(\mathbb{C}\) is constant.
+\end{theorem}
+\begin{proposition}
+    The number of zeros and poles (counting multiplicities and orders) of a non-constant elliptic function \(f\) in \(\mathbb{C}/\Lambda\) is finite, where \(\Lambda\) is the period lattice of \(f\).
+\end{proposition}
+\begin{proof}
+    Let \(P\) be a fundamental parallelogram of \(\Lambda\). It suffices to show that \(f\) has finitely many zeros and poles in \(\overline{P}\). If there are infinitely many poles in \(\overline{P}\), then by the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), there exists an accumulation point \(z_0\in\overline{P}\) of poles. Hence, \(z_0\) cannot be an isolated singularity, contradicting meromorphy (more succinctly, \(z_0\) is then an essential singularity on the Riemann sphere).
+
+    Under the assumption that \(f\not\equiv 0\), the same argument shows that \(\frac{1}{f}\) has finitely many poles in \(\overline{P}\), or equivalently, that \(f\) has finitely many zeros in \(\overline{P}\).
+\end{proof}
+\begin{proposition}\label{prop:ellipticfunctionresiduesum}
+    For any elliptic function \(f\) with period lattice \(\Lambda\), the sum of the residues of \(f\) in \(\mathbb{C}/\Lambda\) is zero.
+\end{proposition}
+\begin{proof}
+    Let \(\alpha\), \(\alpha+\omega_1\), \(\alpha+\omega_2\), and \(\alpha+\omega_1+\omega_2\) be the vertices of a fundamental parallelogram \(P\) of \(\Lambda\) such that \(\partial P\) does not pass through the poles \(f\). By the Residue Theorem (\cref{thm:residuethm}), we have \[2\piup\ii\sum_{z_k\in P}\residue_{z=z_k}f(z)=\oint_{\partial P}f(z)\ddz,\] where the sum is over all poles \(z_k\) of \(f\) in \(\mathbb{C}/\Lambda\) (effectively \(P\)). The integral is equivalent to
+    \begin{align*}
+        \oint_{\partial P}f(z)\ddz&=\pm\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_1}^{\alpha+\omega_1+\omega_2}+\int_{\alpha+\omega_1+\omega_2}^{\alpha+\omega_2}+\int_{\alpha+\omega_2}^\alpha)f(z)\ddz\\
+        &=\pm\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha}^{\alpha+\omega_2}+\int_{\alpha+\omega_1}^{\alpha}+\int_{\alpha+\omega_2}^\alpha)f(z)\ddz=0
+    \end{align*} by the periodicity of \(f\).
+\end{proof}
+\begin{theorem}\label{thm:ellipticfunctionnumberofzerosandpoles}
+    For any non-constant elliptic function \(f\) with period lattice \(\Lambda\), the number of zeros and poles (counting multiplicities and orders, respectively) in \(\mathbb{C}/\Lambda\) are equal.
+\end{theorem}
+\begin{proof}
+    Let \(P\) be a fundamental parallelogram of \(\Lambda\) such that \(\partial P\) \(f\) has no poles or zeros thereon. By the Argument Principle (\cref{thm:argumentprinciplemeromorphic}), we have \[\frac{1}{2\piup\ii}\oint_{\partial P}\frac{f'(z)}{f(z)}\ddz=\text{\# of zeros in \(P\)}-\text{\# of poles in \(P\)}\] where the sums are over all zeros and poles of \(f\) in \(\mathbb{C}/\Lambda\) (effectively \(P\)) counted with multiplicities and orders, respectively. By assumption, \(f'\not\equiv 0\), and hence \(\frac{f'}{f}\) is non-constant and elliptic with period lattice \(\Lambda\). By \cref{prop:ellipticfunctionresiduesum}, the integral vanishes and hence the assertion follows.
+\end{proof}
+\begin{proposition}
+    Suppose \(f\) is a non-constant elliptic function with period lattice \(\Lambda\). Then \(f\) attains every value in \(\extcomplex\) the same number of times (counting multiplicities) in \(\mathbb{C}/\Lambda\).
+\end{proposition}
+\begin{proof}
+    Assume that \(z\neq\infty\) and suppose \(P\) is a fundamental parallelogram that does not pass through a pole. Then the number of times \(\zeta\mapsto f(\zeta)-z\) attains \(0\) and \(\infty\) in \(\mathbb{C}/\Lambda\) are equal by \cref{thm:ellipticfunctionnumberofzerosandpoles}. In other words, \(f\) has the same number of poles as the number of times it attains any finite complex number.
+\end{proof}
+Hence, it is only natural to quantify this number:
+\begin{definition}
+    An elliptic function \(f\) is said to be of \textscsl{order} \(n\) iff it attains every value in \(\extcomplex\) exactly \(n\) times (counting multiplicities) in \(\mathbb{C}/\Lambda\), where \(\Lambda\) is the period lattice of \(f\) (in other words, the number of poles of \(f\) in a fundamental parallelogram, counted according to order, is \(n\)).
+\end{definition}
+\begin{proposition}
+    A non-constant elliptic function \(f\) is of order \(\geq 2\).
+\end{proposition}
+\begin{proof}
+    If \(f\) is of order 1, then \(f\) has a simple pole at some \(z_0\) in a fundamental parallelogram of its period lattice \(\Lambda\). By the simplicity of the pole, it must have a nonzero residue there. By \cref{prop:ellipticfunctionresiduesum}, this is an impossibility.
+\end{proof}
+\begin{theorem}
+    Suppose that \(f\) is a non-constant elliptic function with period lattice \(\Lambda\). Let \(a_1,\ldots,a_n\) and \(b_1,\ldots,b_n\) be the zeros and poles (counting multiplicities and orders, respectively) in a fundamental parallelogram \(P\) (whose boundary intersects neither zeros or poles) of \(\Lambda\). Then \[\sum_{j=1}^n a_j-\sum_{j=1}^n b_j\in\Lambda,\] or in other words, this difference is also a period of \(f\).
+\end{theorem}
+\begin{proof}
+    By \cref{thm:generalizedargumentprinciple}, the quantity in question is equal to
+    \begin{align*}
+        \sum_{j=1}^n a_j-\sum_{j=1}^n b_j&=\frac1{2\piup\ii}\oint_{\partial P}\frac{zf'(z)}{f(z)}\ddz\\
+        &=\pm\frac1{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_1}^{\alpha+\omega_1+\omega_2}+\int_{\alpha+\omega_1+\omega_2}^{\alpha+\omega_2}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz\\
+        &=\pm\frac1{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz\\
+        &\quad\pm\frac{1}{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_2}\frac{\qty(z+\omega_1)f'(z)}{f(z)}\ddz+\int_{\alpha+\omega_1}^\alpha\frac{\qty(z+\omega_2)f'(z)}{f(z)}\ddz)\\
+        &=\pm\frac1{2\piup\ii}\qty(\int_{\alpha+\omega_1}^\alpha\frac{\omega_2f'(z)}{f(z)}\ddz+\int_\alpha^{\alpha+\omega_2}\frac{\omega_1f'(z)}{f(z)}\ddz)c\\
+        &=\pm\frac{\omega_2}{2\piup\ii}\qty(\log{f(\alpha)}-\log{f\qty(\alpha+\omega_1)})\pm\frac{\omega_1}{2\piup\ii}\qty(\log{f\qty(\alpha+\omega_2)}-\log{f\qty(\alpha)})\\
+        &=\pm\frac{\omega_2}{2\piup\ii}\log(1)\pm\frac{\omega_1}{2\piup\ii}\log(1).
+    \end{align*}
+    Since the branches of the multi-valued logarithm differ by integer multiples of \(2\piup\ii\), the assertion follows.
+\end{proof}
+\subsubsection{Weierstrass Elliptic Functions}
+Since any non-constant elliptic function has order greater than one, it is natural to next consider elliptic functions of order two.
+
+Within a fundamental parallelogram, by \cref{thm:ellipticfunctionnumberofzerosandpoles}, such a function either has two simple poles or a single double pole. This distinction is the key difference between the Weierstrass theory of elliptic functions (the former case) and the Jacobi theory (the latter case).
+
+In practice, elliptic functions derived from the Jacobi formulation often have more practical use cases, whereas the Weierstrass theory tends to be more convenient in theoretical analysis.
+\begin{proposition}\label{prop:weierstrasspfunctionintermediateseriesconvergence}
+    Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series
+    \begin{equation}
+        \sum_{\omega\in\Lambda\setminus\qty{0}}\frac{1}{\abs{\omega}^\alpha}\label{eq:weierstrasspfunctionintermediateseriesconvergence_statement}
+    \end{equation} is (absolutely) convergent for \(\alpha>2\).
+\end{proposition}
+\begin{proof}
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\n}{4}
+            \pgfmathsetmacro{\ax}{1.5}
+            \pgfmathsetmacro{\ay}{0.3}
+            \pgfmathsetmacro{\bx}{0.5}
+            \pgfmathsetmacro{\by}{1.0}
+            \pgfmathsetmacro{\over}{0.3}
+            \foreach \j in {0,...,\n} {
+                \draw[thin]
+                ({-\over*\ax+\j*\bx},{-\over*\ay+\j*\by})
+                -- ({(\n+\over)*\ax+\j*\bx},{(\n+\over)*\ay+\j*\by});
+            }
+            \foreach \i in {0,...,\n} {
+                \draw[thin]
+                ({-\over*\bx+\i*\ax},{-\over*\by+\i*\ay}) -- ({\i*\ax+(\n+\over)*\bx},{\i*\ay+(\n+\over)*\by});
+            }
+            \foreach \i in {-1,1} {
+                \draw[thick] ({\ax*(\n/2+\i)+\bx*(\n/2-1)},{\ay*(\n/2+\i)+\by*(\n/2-1)}) -- ({\ax*(\n/2+\i)+\bx*(\n/2+1)},{\ay*(\n/2+\i)+\by*(\n/2+1)});
+                \draw[thick] ({\ax*(\n/2-1)+\bx*(\n/2+\i)},{\ay*(\n/2-1)+\by*(\n/2+\i)}) -- ({\ax*(\n/2+1)+\bx*(\n/2+\i)},{\ay*(\n/2+1)+\by*(\n/2+\i)});
+            }
+            \node[shift={(5pt,-5pt)}] at ({\ax*(\n/2)+\bx*(\n/2)},{\ay*(\n/2)+\by*(\n/2)}) {\(0\)};
+            \node[shift={(5pt,-5pt)}] at ({\ax*(\n/2+1)+\bx*(\n/2)},{\ay*(\n/2+1)+\by*(\n/2)}) {\(\omega_1\)};
+            \node[shift={(9pt,-5pt)}] at ({\ax*(\n/2-1)+\bx*(\n/2)},{\ay*(\n/2-1)+\by*(\n/2)}) {\(-\omega_1\)};
+            \node[shift={(5pt,-5pt)}] at ({\ax*(\n/2)+\bx*(\n/2+1)},{\ay*(\n/2)+\by*(\n/2+1)}) {\(\omega_2\)};
+            \node[shift={(9pt,-5pt)}] at ({\ax*(\n/2)+\bx*(\n/2-1)},{\ay*(\n/2)+\by*(\n/2-1)}) {\(-\omega_2\)};
+            \node[shift={(16pt,-5pt)}] at ({\ax*(\n/2+1)+\bx*(\n/2+1)},{\ay*(\n/2+1)+\by*(\n/2+1)}) {\(\omega_1+\omega_2\)};
+            \node[shift={(16pt,-5pt)}] at ({\ax*(\n/2-1)+\bx*(\n/2-1)},{\ay*(\n/2-1)+\by*(\n/2-1)}) {\(-\omega_1-\omega_2\)};
+            \node[shift={(16pt,-5pt)}] at ({\ax*(\n/2-1)+\bx*(\n/2+1)},{\ay*(\n/2-1)+\by*(\n/2+1)}) {\(\omega_2-\omega_1\)};
+            \node[shift={(16pt,-5pt)}] at ({\ax*(\n/2+1)+\bx*(\n/2-1)},{\ay*(\n/2+1)+\by*(\n/2-1)}) {\(\omega_1-\omega_2\)};
+            \coordinate (O) at ({\ax*(\n/2)+\bx*(\n/2)},{\ay*(\n/2)+\by*(\n/2)});
+
+            \pgfmathsetmacro{\lengtha}{sqrt(\ax*\ax+\ay*\ay)}
+            \pgfmathsetmacro{\lengthb}{sqrt(\bx*\bx+\by*\by)}
+            \pgfmathsetmacro{\sineanglebetween}{sqrt(1-((\ax*\bx+\ay*\by)/(\lengtha*\lengthb))^2)}
+            \coordinate (H) at ([shift={(\ay*\lengthb*\sineanglebetween/\lengtha,-\ax*\lengthb*\sineanglebetween/\lengtha)}] O);
+            \draw[dotted, thick] (O) -- (H);
+            \node[xshift=-4, yshift=-2] at ($(O)!0.5!(H)$) {\(\delta\)};
+        \end{tikzpicture}
+        \caption{The parallelogram \(P_1\) with 8 periods on its boundary with lattice \(\Lambda\).}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
+    \end{figure}Let \(P_n\) be a parallelogram whose center is 0 and has \(n\qty(\omega_1+\omega_2)\) as a vertex (the specific case of \(n=1\) is illustrated in \cref{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}). For each \(n\in\mathbb{N}\), there exist \(8n\) periods (points in \(\Lambda\)) on \(\partial P_n\).
+
+    Let \(\delta\) be the distance from 0 to \(\partial P_1\). Hence, the distance from 0 to \(\partial P_n\) is \(n\delta\). Since each \(\omega\in\Lambda^*=\Lambda\setminus\qty{0}\) lies in a unique \(\partial P_n\), it follows that \(\abs{\omega}^\alpha\geq n^\alpha \delta^\alpha\) for all \(\alpha>0\). Hence, \[\sum_{\omega\in\Lambda^*}\frac{1}{\abs{\omega}^\alpha}\leq\sum_{n=1}^\infty\frac{8n}{n^\alpha\delta^\alpha}=\frac{8}{\delta^\alpha}\sum_{n=1}^\infty\frac{1}{n^{\alpha-1}},\] which is a \(p\)-series that converges for \(\alpha>2\).
+\end{proof}
+\begin{proposition}\label{prop:weierstrasspfunctionconvergence}
+    Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series
+    \begin{equation}
+        \sum_{\omega\in\Lambda\setminus\qty{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]\label{eq:weierstrasspfunctionconvergence_statement}
+    \end{equation}
+    locally uniformly converges on \(\mathbb{C}\setminus\Lambda\).
+\end{proposition}
+\begin{proof}
+    Let \(R>0\) be arbitrary. Then \(\forall z\in D(0,R)\), and for \(\abs{\omega}>2R\), we have \[\frac{\abs{z}}{\abs{\omega}}<\frac12,\quad\abs{2-\frac{z}{\omega}}\leq 2+\frac{\abs{z}}{\abs{\omega}}<\frac52,\quad\abs{1-\frac{z}{\omega}}^2\geq\qty(1-\abs{\frac{z}{\omega}})^2>\frac14.\]
+    It follows that
+    \[\abs{\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}}=\abs{\frac{2\omega z-z^2}{\omega^2(z-\omega)^2}}=\abs{\frac{z\qty(2-\frac{z}{\omega})}{\omega^3\qty(\frac{z}{\omega}-1)^2}}<\frac{\frac52z}{\frac14\omega^3}\leq\frac{10R}{\omega^3}.\]
+    Hence, by \cref{prop:weierstrasspfunctionintermediateseriesconvergence},
+    \begin{equation}
+        \sum_{\substack{\omega\in\Lambda\\
+        \omega\notin\overline{D\qty(0,2R)}}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]\label{eq:weierstrasspfunctionconvergence_intermediateseries}
+    \end{equation} is termwise bounded by a series \(\sum_{\substack{\omega\in\Lambda\\
+    \omega\notin\overline{D\qty(0,2R)}}}\frac{10R}{\omega^3}\), which is convergent by \cref{prop:weierstrasspfunctionintermediateseriesconvergence}. Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}) gives the uniform convergence of \cref{eq:weierstrasspfunctionconvergence_intermediateseries} on \(D(0,R)\). Since we have omitted only finitely many terms, \cref{eq:weierstrasspfunctionintermediateseriesconvergence_statement} converges uniformly on \(D(0,R)\setminus\Lambda\).
+
+    Let \(K\subset\mathbb{C}\setminus\Lambda\) be compact and arbitrary. By boundedness, \(\exists R>0\) such that \(K\subset D(0,R)\setminus\Lambda\), on which it uniformly converges.
+\end{proof}
+\begin{definition}[Weierstrass \texorpdfstring{\(\wp\)}{p}-Function]\label{def:weierstrasspfunction}
+    Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). The Weierstrass \(\wp\)-function with period lattice \(\Lambda\) is defined by
+    \begin{equation}
+        \wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\qty{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}],\qquad z\in\mathbb{C}\setminus\Lambda.\label{eq:weierstrasspfunction}
+    \end{equation}
+\end{definition}
+By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp\) is well-defined and meromorphic on \(\mathbb{C}\). By \cref{thm:weierstrassconvergence}, we can use termwise differentiation to get \[\wp'(z)=-\frac{2}{z^3}-\sum_{\omega\in\Lambda\setminus\qty{0}}\frac{2}{\qty(z-\omega)^3}=-2\sum_{\omega\in\Lambda}\frac1{\qty(z-\omega)^3},\] which is absolutely convergent for \(z\notin\Lambda\). It follows that \(\wp'\) is also meromorphic on \(\mathbb{C}\). Hence, the series expression for \(\wp'(z)\) may be rearranged to \(\wp'(z+\omega_1)\), and hence, \[\wp'(z)=\wp'(z+\omega_1)=\wp'(z+\omega_2).\] Hence, \(\wp'\) is also an elliptic function with period lattice \(\Lambda\). Hence, we must have \[\wp(z)+c_1=\wp\qty(z+\omega_1),\qquad\wp(z)+c_2=\wp\qty(z+\omega_2).\] At \(z=-\frac{\omega_1}{2},-\frac{\omega_2}{2}\), we have \[\wp\qty(-\frac{\omega_1}{2})+c_1=\wp\qty(\frac{\omega_1}{2}),\qquad\wp\qty(-\frac{\omega_2}{2})+c_2=\wp\qty(\frac{\omega_2}{2})\] By evenness of \(\wp\), we must have \(c_1=c_2=0\). Therefore, \(\wp\) is also an elliptic function with period lattice \(\Lambda\). Moreover, each isolated singularity \(\omega\in\Lambda\) is a pole of order two with residue 0 (by \cref{prop:ellipticfunctionresiduesum}). The quotient group \(\mathbb{C}/\Lambda\), may be represented by a fundamental parallelogram \(P\) of \(\Lambda\) with vertices at \(0\), \(\omega_1\), \(\omega_2\), and \(\omega_1+\omega_2\), which by identification, are homeomorphic to a single point on the torus.
+
+
+\begin{definition}[Weierstrass \(\zeta\)-Function]
+
+\end{definition}
+\begin{definition}[Weierstrass \(\sigma\)-Function]
+
+\end{definition}
+\subsubsection{Jacobi Elliptic Functions}
+\newcommand{\sn}{\operatorname{sn}}
+\newcommand{\cn}{\operatorname{cn}}
+\newcommand{\dn}{\operatorname{dn}}
+\subsubsection{The Modular Group}
+Any two bases of
+\subsection{Schlicht Functions}
+\begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
+
+\end{theorem}
+\subsubsection{The Bieberbach Conjecture}
+\subsection{Boundary Continuity of Biholomorphisms}
+Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in the complex plane such that there is a biholomorphism \(\varphi\) from \(\Omega_1\) to \(\Omega_2\). Naturally, we are concerned about the existence of a continuous extension of \(\varphi\) to \(\overline{\Omega_1}\).
+
+As a matter of fact, it is almost always true that such an extension exists. We will give three dominant scenarios:
+\begin{enumerate}
+    \item If \(\partial\Omega_1\) and \(\partial\Omega_2\) are two Jordan curves, then \(\varphi\) (whose existence is given by the Riemann Mapping Theorem or \cref{thm:riemannmapping}) extends injectively and continuously to \(\partial\Omega_1\).
+    \item
+\end{enumerate}
+The first result is given by:
+\begin{theorem}[\textsc{Osgood--Taylor--Carathéodory}]\label{thm:osgoodtaylorcaratheodory}
+
+\end{theorem}
+\section{The Prime Number Theorem}
+The Riemann \(\zeta\)-function is one of the most important functions in analytic number theory due to its connection with the distribution of prime numbers. We will also introduce one of the most profound theorems in number theory on the distribution of prime numbers.
+\subsection{The \texorpdfstring{\(\Gamma\)}{Gamma} Function}\label{sec:gammafunction}
+\begin{definition}\label{def:gammafunction}
+    The Gamma function is defined by
+    \begin{equation}
+        \Gamma(z)=\int_0^\infty\ee^{-t}t^{z-1}\dd{t},\label{eq:gammafunction}
+    \end{equation} where \(z\in\mathbb{C}\).
+\end{definition}
+By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
+\begin{align*}
+    \abs{\Gamma(x)} & =\int_0^1\ee^{-t}t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt\\
+    & \leq\int_0^1 t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt      \\
+    & =\frac{1}{x}+\int_1^\infty\ee^{-t}t^{x-1}\ddt.
+\end{align*}
+Since \(\int_1^\infty\frac{\ddt}{t^2}\) is convergent and \(\lim_{t\to\infty}\frac{\ee^{-t}t^{z-1}}{t^{-2}}=0\), then by comparison, the second integral is convergent.
+
+Therefore, \(\Gamma(x)\) is convergent on \(\mathbb{R}_{>0}\). It follows that \(\Gamma(z)\) is absolutely convergent on the right half-plane \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). Furthermore, \(\Gamma(z)\) is well-defined and holomorphic on \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). From integration by parts, we get
+\begin{align*}
+    \Gamma(z+1) & =\int_0^\infty\ee^{-t}t^z\ddt                                   \\
+    & =-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt.\\
+    & =z\Gamma(z).
+\end{align*}
+Additionally, \[\Gamma(1)=\int_0^\infty\ee^{-t}\ddt=-\eval{\ee^{-t}}_0^\infty=1.\]
+Hence, we have \(\Gamma(z+1)=z!\), and the \(\Gamma\) function generalizes the factorial. We also have \[\Gamma(z+n)=\Gamma(z)\prod_{k=0}^{n-1}(z+k),\quad\Re(z)>0, n\in\mathbb{N}.\]
+Therefore, can derive its analytic continuation via
+\[\Gamma(z)=\frac{\Gamma(z+n)}{\prod_{k=0}^{n-1}(z+k)},\quad\Re(z)>-n.\]
+Since the numerator is holomorphic on \(\Re(z)>-n\) and \(n\) was arbitrary, the analytic continuation of \(\Gamma\) has simple poles at each of \(\mathbb{Z}_{\leq0}\). Hence, \(\Gamma(z)\) is meromorphic on \(\mathbb{C}\).
+
+By \cref{eq:residueatpole}, the residue at each pole is equal to
+\[\residue_{z=-n}\Gamma(z)=\lim_{z\to -n}\frac{\Gamma(z+n+1)}{\prod_{k=0}^{n-1}(z+k)}=\frac{1}{\prod_{k=1}^n(-k)}=\frac{{(-1)}^n}{n!}.\]
+We will now study two representations for the Gamma function.
+\begin{theorem}[Gauss]\label{thm:gammafunctiongaussformula}
+    The Gamma function satisfies
+    \begin{equation}
+        \Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n (z+k)}\label{eq:gammafunctiongaussformula}
+    \end{equation}
+    for \(\Re(z)>0\).
+\end{theorem}
+\begin{proof}
+    \[f_n(z)=\int_0^n{\qty(1-\frac{t}{n})}^n t^{z-1}\ddt=n^z\int_0^1{\qty(1-t)}^n t^{z-1}\ddt,\quad\Re(z)>0.\]
+    By integration by parts, we have
+    \begin{align}
+        f_n(z) & =n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z\ddt]                                     \nonumber\\
+        & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)}\nonumber\\
+        & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \nonumber\\
+        & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.\label{eq:gammafunctiongaussformulaprelimit}
+    \end{align}
+    Let us now analyze the difference
+    \begin{equation}
+        \lim_{n\to\infty}\qty[\int_0^n\ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n\ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\label{eq:gammafunction_gaussformulaintermediate1}
+    \end{equation}
+    Since \[\dv{t}(\ee^t{\qty(1-\frac{t}{n})}^n)=\ee^t
+    \qty(1-\frac{t}{n})^n-\ee^t\qty(1-\frac{t}{n})^{n-1}=-\ee^t\frac{t}{n}{\qty(1-\frac{t}{n})}^{n-1},\]
+    we have
+    \begin{equation}
+        1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunction_gaussformulaintermediate2}
+    \end{equation}
+    Additionally, since
+    \begin{align*}
+        \dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1}) & =\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2}\\
+        & =\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)
+    \end{align*} has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\]
+    which evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \[\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\] as \(u\to n^-\). Therefore, \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq\ee\). From \cref{eq:gammafunction_gaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
+    it follows that \(1-\ee^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By \cref{eq:gammafunction_gaussformulaintermediate1}, we have \[\abs{\int_0^n\ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{\ee}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From \cref{eq:gammafunctiongaussformulaprelimit}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), or \cref{eq:gammafunctiongaussformula}
+\end{proof}
+The \textscsl{Weierstrass formula} is a direct consequence of the Gauss formula.
+\begin{theorem}[Weierstrass]\label{thm:gammafunction_weierstrassformula}
+    The reciprocal Gamma function has the entire Weierstrass factorization of
+    \begin{equation}
+        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gamma).\label{eq:gammafunction_weierstrassformula}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Since the Gauss formula agrees with \cref{eq:gammafunction} on the right half-plane, the analytic continuation of \(\Gamma(z)\) is unique on the entire complex plane except for the poles at \(\mathbb{Z}_{\leq0}\) by the Identity Theorem (\cref{thm:identity}). Since
+    \begin{align*}
+        \frac{n^z n!}{\prod_{k=0}^n\qty(z+k)} & =\frac{\exp\qty[z\log(n)]}{z\prod_{k=1}^n\qty(1+\frac{z}{k})}                                                                                                 \\
+        & =\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n\qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]}\\
+        & =\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
+    \end{align*}
+    Therefore,
+    \begin{align*}
+        \frac{1}{\Gamma(z)} & =\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}                                                                                           \\
+        & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)]\\
+        & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gammaup).
+    \end{align*}
+    The constant \(\gammaup=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textscsl{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\piup^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
+\end{proof}
+We have two famous identities on the \(\Gamma\) function:
+\begin{theorem}[Euler's Reflection Formula]\label{thm:gammafunction_eulerreflection}
+    The analytic continuation of the \(\Gamma\) function can be analytically continued to the left half-plane with the functional equation of
+    \begin{equation}
+        \Gamma(z)\Gamma(1-z)=\piup\csc(\piup z)\label{eq:gammafunction_eulerreflection}
+    \end{equation} for \(z\in\mathbb{C}\setminus\mathbb{N}\).
+\end{theorem}
+\begin{proof}
+    By the Weierstrass Formula (\cref{thm:gammafunction_weierstrassformula}), we have
+    \begin{align*}
+        \frac{1}{\Gamma(z)} & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gammaup),\\\frac{1}{\Gamma(-z)}&=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\exp\qty(-z\gammaup).
+    \end{align*}
+    Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \cref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\piup z)}{\piup},\] which confirms \cref{eq:gammafunction_eulerreflection}.
+\end{proof}
+\begin{example}\label{ex:gammafunction_onehalf}
+    Evaluate \(\Gamma\qty(\frac{1}{2})\).
+\end{example}
+\begin{proof}
+    By the Reflection Formula (\cref{thm:gammafunction_eulerreflection}), we have that \[\Gamma\qty(\frac{1}{2})^2=\piup\csc(\frac{\piup}{2})=\piup,\]
+    and it follows that \(\Gamma\qty(\frac{1}{2})=\sqrt{\piup}\) as it is positive.
+\end{proof}
+\begin{theorem}[Legendre's Duplication Formula]\label{thm:gammafunction_legendreduplication}
+    For any \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{2})\), we have
+    \begin{equation}
+        \Gamma(z)\Gamma\qty(z+\frac{1}{2})=2^{1-2z}\sqrt{\piup}\Gamma(2z).\label{eq:gammafunction_legendreduplication}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    From \cref{thm:gammafunctiongaussformula}, we have \[\Gamma(z)\Gamma\qty(z+\frac{1}{2})=\lim_{n\to\infty}\frac{n^{2z+\frac{1}{2}}n!^2}{\prod_{k=0}^n(z+k)\qty(z+k+\frac{1}{2})}=\lim_{n\to\infty}\frac{2^{2n+2}n^{2z+\frac{1}{2}}n!^2}{\prod_{k=0}^{2n+1}(2z+k)}\]
+    where the left-hand side is defined since \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{2})\).
+    By expansion of the value, we have
+    \begin{align*}
+        \Gamma(z)\Gamma\qty(z+\frac{1}{2}) & =\lim_{n\to\infty}\frac{\qty(2n)^{2z}(2n)!}{\prod_{k=0}^{2n}(2z+k)}\cdot\frac{n^{\frac{1}{2}}n!^2 2^{2n+2-2z}}{\qty(2z+2n+1)(2n)!}\\
+        & =\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!^2 2^{2-2z}}{(2z+2n+1)\prod_{k=0}^{n-1}\qty(k+\frac{1}{2})\prod_{k=1}^n k}      \\
+        & =2^{2-2z}\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!}{\prod_{k=0}^n\qty(k+\frac{1}{2})}\cdot\frac{n}{2z+2n+1}               \\
+        & =2^{1-2z}\Gamma(2z)\Gamma\qty(\frac{1}{2})                                                                                         \\
+        & =2^{1-2z}\Gamma(2z)\sqrt{\piup},
+    \end{align*}
+    where the last step is derived from \cref{ex:gammafunction_onehalf}.
+\end{proof}
+The identity above is a special case of the following result:
+\begin{theorem}[Gauss Multiplication Theorem]
+    Suppose \(m\in\mathbb{N}_{\geq 2}\). Let \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{m})\). Then we have
+    \begin{equation}
+        \Gamma(z)\Gamma\qty(z+\frac{1}{m})\cdots\Gamma\qty(z+\frac{m-1}{m})=\qty(2\piup)^{\frac{m-1}{2}}m^{\frac{1}{2}-mz}\Gamma(mz).\label{eq:gammafunction_gaussmultiplication}
+    \end{equation}
+\end{theorem}
+The Gamma function as in \cref{eq:gammafunction} is commonly referred to as the \textscsl{Euler Integral of the Second Kind}. The \textscsl{Euler Integral of the First Kind} is also known as the \textscsl{Beta function}, and is defined by \[\operatorname{B}\qty(z_1,z_2)=\int_0^1 t^{z_1-1}(1-t)^{z_2-1}\ddt.\] By a change of variables (by letting \(\tau=1-t\)), we derive the symmetry of the Beta function: \[\operatorname{B}\qty(z_1,z_2)=\int_0^1\tau^{z_2-1}(1-\tau)^{z_1-1}\dd\tau=\operatorname{B}\qty(z_2,z_1).\]
+The Beta function is commonly treated as an auxiliary function in many cases of integral evaluation due to its connection with the Gamma function:
+\begin{theorem}\label{thm:betagammafunctionrelationship}
+    For any \(\Re\qty(z_1),\Re\qty(z_2)>0\), we have \[\operatorname{B}\qty(z_1,z_2)=\frac{\Gamma\qty(z_1)\Gamma\qty(z_2)}{\Gamma\qty(z_1+z_2)}.\]
+\end{theorem}
+\begin{proof}
+    Consider the product \(\Gamma\qty(z_1)\Gamma\qty(z_2)\). By letting \(s=ut\) and \(v=t(u+1)\), we have
+    \begin{align}
+        \Gamma\qty(z_1)\Gamma\qty(z_2) & =\int_0^\infty\ee^{-s}s^{z_2-1}\qty[\int_0^\infty\ee^{-t} t^{z_1-1}\ddt]\dd{s}\nonumber                                                                        \\
+        & =\int_0^\infty u^{z_2-1}\qty[\int_0^\infty\ee^{-v}\qty(\frac{v}{u+1})^{z_1+z_2-1}\dd(\frac{v}{u+1})]\dd{u}.\nonumber                                           \\
+        & =\int_0^\infty\frac{u^{z_2-1}}{\qty(u+1)^{z_1+z_2}}\qty[\int_0^\infty\ee^{-v}v^{z_1+z_2-1}\dd{v}]\dd{u}.\label{eq:betagammafunctionrelationship_intermediate}
+    \end{align}
+    Let \(r=\frac{u}{u+1}\), \(u=\frac{r}{1-r}\), and \(\dd{u}=\frac{1}{(1-r)^2}\). Then we have \[\Gamma\qty(z_1)\Gamma\qty(z_2)=\Gamma\qty(z_1+z_2)\int_0^1 r^{z_2-1}(1-r)^{z_1-1}\dd{r}=\Gamma\qty(z_1+z_2)\operatorname{B}\qty(z_1,z_2).\qedhere\]
+\end{proof}
+\begin{example}[MIT Integration Bee 2023 Finals \#1]
+    Evaluate \[\int_0^{\frac{\piup}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx.\]
+\end{example}
+\begin{proof}
+    By rewriting the integral, and letting \(u=\tan(x)\), we have
+    \begin{align*}
+        I=\int_0^{\frac{\piup}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx & =\int_0^\infty\frac{u^{\frac{1}{3}}\sec[2](x)\ddx}{(u+1)^2}\\
+        & =\int_0^\infty\frac{u^{\frac{1}{3}}\dd{u}}{(u+1)^2}         \\
+        & =\operatorname{B}\qty(\frac{4}{3},\frac{2}{3}),
+    \end{align*}
+    where the last step recognizes the form of \cref{eq:betagammafunctionrelationship_intermediate}. \Cref{thm:betagammafunctionrelationship} then gives \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] Lastly, the Reflection Formula (\cref{thm:gammafunction_eulerreflection}) gives that \[I=\frac{\piup}{3\sin(\frac{\piup}{3})}=\frac{2\piup\sqrt{3}}{9}.\qedhere\]
+\end{proof}
+\subsection{The Riemann \texorpdfstring{\(\zeta\)}{zeta}-Function}
+The \(\zeta\) function was first studied by Euler in the 18th century, who investigated its values at positive integers and informally discovered its connection to prime numbers through what is currently known as the \textscsl{Euler Product Formula}. In the 19th century, Bernhard Riemann extended the function to complex arguments. Riemann also primarily used the related \(\Pi(z)=\Gamma(z+1)\) and \(\xi(z)\) functions, to express the \(\zeta\) function's analytic continuation and functional equation more elegantly. While his original notations have largely been deprecated, his contributions are a fundamental part of analytic number theory.
+
+Following Riemann's personal convention, denote the primary variable with \(s=\sigma+\ii t\).
+\begin{definition}\label{def:riemannzetafunction}
+    For \(s=\sigma+\ii t\), define the Riemann \(\zeta\)-function by the series \[\zeta(s)=\sum_{n=1}^\infty\frac{1}{n^s}\] for \(\sigma>1\)
+\end{definition}
+Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\alpha)\) absolute converges by integral comparison. Therefore, \(\forall\sigma\geq\alpha\), \[\abs{\sum_{n=1}^\infty\frac{1}{n^s}}\leq\sum_{n=1}^\infty\frac{1}{n^\sigma}\leq\sum_{n=1}^\infty\frac{1}{n^\alpha}.\] Hence, \(\zeta(s)\) is uniformly and absolutely convergent on \(\cbraces{s\in\mathbb{C}}{\Re(s)\geq\alpha}\). We will now explain the simple connection between \(\zeta\) and the prime numbers. Let \(p_1=2,p_2=3,p_3=5,\ldots\) be the sequence of all prime numbers in increasing order.
+\begin{theorem}[Euler Product Formula]\label{thm:riemannzetafunctioninfiniteproduct}
+    For \(\Re(s)=\sigma>1\), we have
+    \begin{equation}
+        \zeta(z)=\prod_{n=1}^\infty\qty(1-\frac{1}{p_n^s})^{-1},
+    \end{equation} where \(p_n\) is the \(n\)-th prime number.
+\end{theorem}
+\begin{proof}
+    Since \(\sum_{n=1}^\infty\abs{p_n^{-s}}=\sum_{n=1}^\infty\frac{1}{p_n^\sigma}\) is an
+\end{proof}
+We will now derive the profound relationship between the \(\zeta\) and \(\Gamma\) functions.
+
+Start from the integral form of the \(\Gamma\) function, and perform a change of variables: \[\Gamma(s)=\int_0^\infty\ee^{-x}x^{s-1}\ddx=n^s\int_0^\infty\ee^{-xn}x^{s-1}\ddx.\quad\Re(s)>1\]
+By rearrangement and subsequent summation by \(n\), we have \[\Gamma(s)\zeta(s)=\sum_{n=1}^\infty\int_0^\infty\ee^{-xn}x^{s-1}\ddx.\]
+{
+    \sloppy
+    \printbibliography
+}
+\end{document}
