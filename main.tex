@@ -5189,16 +5189,18 @@ Now Tonelli's Theorem allows the interchange of the summation and integration by
         \draw[-{Stealth}, thick] ({0.2*sqrt(3)}, 0.2) arc (30:181:0.4);
         \draw[-{Stealth}, thick] (-0.4,0) arc (180:331:0.4);
         \draw[-{Stealth}, thick] ({0.2*sqrt(3)},-0.2) -- (3.3,-0.2);
-        \draw[-{Stealth}, thick] (3.3,0.2) ({0.2*sqrt(3)},0.2);
+        \draw[-{Stealth}, thick] (3.3,0.2) -- ({0.2*sqrt(3)},0.2);
         \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
         \node[anchor=east, yshift=-2pt] at (0, 1.5) {\(\Im(z)\)};
         \node[anchor=west] at (0.4,-0.7) {\(C_\varepsilon\)};
         \node[anchor=north] at (2,-0.3) {\(\Gamma_1\)};
         \node[anchor=south] at (2,0.3) {\(\Gamma_2\)};
+
+        \draw[thin, |-|, line cap=round, shorten >=1pt] (3.5,0.2) -- (3.5,-0.2) node[midway, anchor=west] {\(2\delta\)};
     \end{tikzpicture}
     \caption{A Hankel Contour.}\label{fig:hankelcontour}
 \end{figure}Now consider the \textscsl{Hankel contour}, which consists of an arc and two rays in oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
-\[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii t}}{\frac{\piup}6\leq t\leq\frac{11\piup}{6}},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm\frac{\ii\varepsilon}{2}\in\mathbb{R}}{\frac{\sqrt{3}}{2}\varepsilon\leq x<\infty}\]
+\[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii t}}{\asin(\frac{\delta}{\varepsilon})\leq t\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta\in\mathbb{R}}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}\]
 {
     \sloppy
     \printbibliography
