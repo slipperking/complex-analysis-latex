@@ -5177,21 +5177,24 @@ Now Tonelli's Theorem allows the interchange of the summation and integration by
 \begin{figure}
     \centering
     \begin{tikzpicture}[>=stealth,
-                arrow style/.style={
-                    postaction={decorate},
-                    decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
-            }]
+            arrow style/.style={
+                postaction={decorate},
+                decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+        }]
 
-            \draw[-{Stealth}, ultra thin] (0, 0) -- (4.5, 0);
-            \draw[-{Stealth}, ultra thin] (0, 0) -- (-0.4, 0);
-            \draw[-{Stealth}, thin] (0, 0) -- (0, 1.5);
-            \draw[-{Stealth}, thin] (0, 0) -- (0, -1.5);
-            \draw[arrow style, thick] (0.5, 0) arc (30:330:0.5);
-            \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
-            \node[anchor=east, yshift=-2pt] at (0, 1.5) {\(\Im(z)\)};
-            \node[anchor=west] at (0.4,0.25) {\(\tfrac{\piup}{4}\)};
-            \node[anchor=north] at (1.75,0) {\(\Gamma_1\)};
-            \node[anchor=south east] at (1.4,1.4) {\(\Gamma_2\)};
+        \draw[-{Stealth}, ultra thin] (0, 0) -- (4.5, 0);
+        \draw[-{Stealth}, ultra thin] (0, 0) -- (-1, 0);
+        \draw[-{Stealth}, thin] (0, 0) -- (0, 1.5);
+        \draw[-{Stealth}, thin] (0, 0) -- (0, -1.5);
+        \draw[-{Stealth}, thick] ({0.2*sqrt(3)}, 0.2) arc (30:181:0.4);
+        \draw[-{Stealth}, thick] (-0.4,0) arc (180:331:0.4);
+        \draw[-{Stealth}, thick] ({0.2*sqrt(3)},-0.2) -- (3.3,-0.2);
+        \draw[-{Stealth}, thick] (3.3,0.2) ({0.2*sqrt(3)},0.2);
+        \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
+        \node[anchor=east, yshift=-2pt] at (0, 1.5) {\(\Im(z)\)};
+        \node[anchor=west] at (0.4,-0.7) {\(C_\varepsilon\)};
+        \node[anchor=north] at (2,-0.3) {\(\Gamma_1\)};
+        \node[anchor=south] at (2,0.3) {\(\Gamma_2\)};
     \end{tikzpicture}
     \caption{A Hankel Contour.}\label{fig:hankelcontour}
 \end{figure}Now consider the \textscsl{Hankel contour}, which consists of an arc and two rays in oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
