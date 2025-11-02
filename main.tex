@@ -5177,14 +5177,13 @@ Now Tonelli's Theorem allows the interchange of the summation and integration by
 \end{equation}
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{minipage}{0.48\textwidth}
         \centering
         \begin{tikzpicture}[>=stealth,
                 arrow style/.style={
                     postaction={decorate},
                     decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
             }]
-    
             \draw[-{Stealth}, ultra thin] (0, 0) -- (4.5, 0);
             \draw[-{Stealth}, ultra thin] (0, 0) -- (-1, 0);
             \draw[-{Stealth}, thin] (0, 0) -- (0, 1.5);
@@ -5198,18 +5197,25 @@ Now Tonelli's Theorem allows the interchange of the summation and integration by
             \node[anchor=west] at (-0.8,-0.5) {\(C_\varepsilon\)};
             \node[anchor=north] at (2,-0.3) {\(\Gamma_1\)};
             \node[anchor=south] at (2,0.3) {\(\Gamma_2\)};
-    
             \draw[thin, |-|, line cap=round, shorten >=1pt] (3.5,0.2) -- (3.5,-0.2) node[midway, anchor=west] {\(2\delta\)};
         \end{tikzpicture}
-        \caption{A Hankel contour.}\label{fig:hankelcontour}
-    \end{subfigure}
+        \caption{A Hankel contour.}
+        \label{fig:hankelcontour}
+    \end{minipage}
     \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{minipage}{0.48\textwidth}
         \centering
-        \fbox{\parbox[c][5cm][c]{\linewidth}{\centering Keyhole contour illustration placeholder}}
-        \caption{A Keyhole contour.}\label{fig:keyholecontour}
-    \end{subfigure}
-    \caption*{}\label{fig:hankelkeyholecontours}
+        \draw[-{Stealth}, ultra thin] (0, 0) -- (2, 0);
+            \draw[-{Stealth}, ultra thin] (0, 0) -- (-2, 0);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, 2);
+            \draw[-{Stealth}, thin] (0, 0) -- (0, -2);
+            \draw[-{Stealth}, thick] ({0.2*sqrt(3)}, -0.2) arc (330:179:0.4);
+            \draw[-{Stealth}, thick] (-0.4,0) arc (180:29:0.4);
+            \node[anchor=north, xshift=-2pt] at (2, 0) {\(\Re(z)\)};
+            \node[anchor=east, yshift=-2pt] at (0, 1.5) {\(\Im(z)\)};
+        \caption{A keyhole contour.}
+        \label{fig:keyholecontour}
+    \end{minipage}
 \end{figure}Now consider the \textscsl{Hankel contour}, which consists of an arc and two rays oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
 \[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii t}}{\asin(\frac{\delta}{\varepsilon})\leq t\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta\in\mathbb{R}}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
 Define the auxiliary function \[F_\varepsilon(s)=F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{e^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz\] on the entire complex plane. It is important to note that \(F\) is indepndent of \(\varepsilon>0\). To see this, let \(0<\varepsilon_1<\varepsilon_2\) be arbitrary. Then we have \[F_{\varepsilon_2}(z)-F_{\varepsilon_1}(z)=\qty(\int_{C_{\varepsilon_2}}-\int_{C_{\varepsilon_1}}+\int_{\Gamma_{\varepsilon_2}^+}+\int_{\Gamma_{\varepsilon_2}^-}-\int_{\Gamma_{\varepsilon_1}^+}-\int_{\Gamma_{\varepsilon_1}^-})=\int_{\gamma}\frac{\qty(-z)^{s-1}}{\ee^z-1},\] where \(\gamma\) is a closed \textscsl{keyhole countour} around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy's Integral Theorem (\cref{thm:cauchyintegraltheorem}) implies that \(\int_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2}(s)=F_{\varepsilon_1}(s)\). Hence, we now adopt the use of \(F(s)=F_\varepsilon(s)\) for simplicity.
