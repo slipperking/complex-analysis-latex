@@ -938,93 +938,95 @@ When Cauchy formalized \cref{thm:cauchyintegralformula,thm:cauchyintegraltheorem
     \begin{equation}
         \int_{P}f(z)\ddz=0.\label{eq:cauchyintegraltheoremoversimplyconnectedset_chainvanishingstatement}
     \end{equation}
-    \begin{figure}
+    \begin{figure}[htbp]
         \centering
-        \begin{tikzpicture}
-            \coordinate (A) at (0, 2.0025);
-            \coordinate (B) at (2.4975, 0);
-            \coordinate (C) at (4.0, 1.5);
-            \coordinate (D) at (3.5025, 4.0);
-            \coordinate (E) at (1.5, 4.0);
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \begin{tikzpicture}
+                \coordinate (A) at (0, 2.0025);
+                \coordinate (B) at (2.4975, 0);
+                \coordinate (C) at (4.0, 1.5);
+                \coordinate (D) at (3.5025, 4.0);
+                \coordinate (E) at (1.5, 4.0);
 
-            \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
-            \draw[thick] (B) -- (E);
-            \draw[thick] (C) -- (E);
+                \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
+                \draw[thick] (B) -- (E);
+                \draw[thick] (C) -- (E);
 
-            \tikzhalflengtharrow{[xshift=-5.25pt]B}{[xshift=-5.25pt]E}
-            \tikzhalflengtharrow{[xshift=5.25pt]E}{[xshift=5.25pt]B}
-            \tikzhalflengtharrow{[yshift=-8.4pt]E}{[yshift=-8.4pt]A}
-            \tikzhalflengtharrow{[yshift=8.4pt]B}{[yshift=8.4pt]C}
-            \tikzhalflengtharrow{[yshift=7.125pt]A}{[yshift=7.125pt]B}
-            \tikzhalflengtharrow{[yshift=-7.05pt]C}{[yshift=-7.05pt]E}
-            \tikzhalflengtharrow{[xshift=7.05pt]E}{[xshift=7.05pt]C}
-            \tikzhalflengtharrow{[yshift=-5.25pt]D}{[yshift=-5.25pt]E}
-            \tikzhalflengtharrow{[xshift=-5.355pt]C}{[xshift=-5.355pt]D}
+                \tikzhalflengtharrow{[xshift=-5.25pt]B}{[xshift=-5.25pt]E}
+                \tikzhalflengtharrow{[xshift=5.25pt]E}{[xshift=5.25pt]B}
+                \tikzhalflengtharrow{[yshift=-8.4pt]E}{[yshift=-8.4pt]A}
+                \tikzhalflengtharrow{[yshift=8.4pt]B}{[yshift=8.4pt]C}
+                \tikzhalflengtharrow{[yshift=7.125pt]A}{[yshift=7.125pt]B}
+                \tikzhalflengtharrow{[yshift=-7.05pt]C}{[yshift=-7.05pt]E}
+                \tikzhalflengtharrow{[xshift=7.05pt]E}{[xshift=7.05pt]C}
+                \tikzhalflengtharrow{[yshift=-5.25pt]D}{[yshift=-5.25pt]E}
+                \tikzhalflengtharrow{[xshift=-5.355pt]C}{[xshift=-5.355pt]D}
 
-            \node[anchor=east] at (A) {\(A\)};
-            \node[anchor=north] at (B) {\(B\)};
-            \node[anchor=west] at (C) {\(C\)};
-            \node[anchor=south] at (D) {\(D\)};
-            \node[anchor=south] at (E) {\(E\)};
+                \node[anchor=east] at (A) {\(A\)};
+                \node[anchor=north] at (B) {\(B\)};
+                \node[anchor=west] at (C) {\(C\)};
+                \node[anchor=south] at (D) {\(D\)};
+                \node[anchor=south] at (E) {\(E\)};
+            \end{tikzpicture}
+            \caption{A closed triangulated polygonal chain.}\label{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \begin{tikzpicture}
+                \coordinate (A) at (0, 0);
+                \coordinate (D) at (4.875, 1.875);
+                \coordinate (F) at (1.875, 1.875);
+                \coordinate (C) at (6, 0);
+                \coordinate (B) at (3.75, 3.75);
+                \coordinate (E) at (3, 0);
 
-        \end{tikzpicture}
-        \caption{A closed polygonal, chain internally triangulated.}\label{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}
+                \draw[thick] (A) -- (F) -- (E) -- cycle;
+                \draw[thick] (B) -- (D) -- (F) -- cycle;
+                \draw[thick] (C) -- (D) -- (E) -- cycle;
+
+                \tikzhalflengtharrow{[yshift=-8.775pt]F}{[shift={(15pt, 6.15pt)}]A};
+                \tikzhalflengtharrow{[yshift=-8.775pt]B}{[shift={(15pt, 6.15pt)}]F};
+                \tikzhalflengtharrow{[yshift=-8.775pt]D}{[shift={(15pt, 6.15pt)}]E};
+                \tikzhalflengtharrow{[yshift=8.775pt]E}{[shift={(-15pt, -6.15pt)}]D};
+
+                \tikzhalflengtharrow{[shift={(-3.3075pt, -5.73pt)}]E}{[shift={(-3.3075pt, -5.73pt)}]F};
+                \tikzhalflengtharrow{[shift={(-3.3075pt, -5.73pt)}]D}{[shift={(-3.3075pt, -5.73pt)}]B};
+                \tikzhalflengtharrow{[shift={(-3.3075pt, -5.73pt)}]C}{[shift={(-3.3075pt, -5.73pt)}]D};
+                \tikzhalflengtharrow{[shift={(3.3075pt, 5.73pt)}]F}{[shift={(3.3075pt, 5.73pt)}]E};
+
+                \tikzhalflengtharrow{[yshift=5.73pt]A}{[yshift=5.73pt]E};
+                \tikzhalflengtharrow{[yshift=5.73pt]E}{[yshift=5.73pt]C};
+                \tikzhalflengtharrow{[yshift=5.73pt]F}{[yshift=5.73pt]D};
+                \tikzhalflengtharrow{[yshift=-5.73pt]D}{[yshift=-5.73pt]F};
+
+                \coordinate (AE) at ($(A)!0.5!(E)$);
+                \coordinate (AF) at ($(A)!0.5!(F)$);
+                \coordinate (FD) at ($(F)!0.5!(D)$);
+                \coordinate (BF) at ($(B)!0.5!(F)$);
+                \coordinate (EC) at ($(E)!0.5!(C)$);
+
+                \path let
+                \p1 = (FD),
+                \p2 = (BF),
+                \p3 = (AE),
+                \p4 = (AF),
+                \p5 = (EC)
+                in
+                node[shift={(3.75pt,-3.75pt)}] at (\x1, \y2) {\(\Delta_1\)}
+                node[shift={(3.75pt,-3.75pt)}] at (\x3, \y4) {\(\Delta_2\)}
+                node[shift={(3.75pt,-3.75pt)}] at (\x5, \y4) {\(\Delta_3\)}
+                node[shift={(-3.75pt, 3.75pt)}] at (\x1, \y4) {\(\Delta_4\)};
+            \end{tikzpicture}
+            \caption{Quadrisection of the triangle bounded by \(\Delta\).}\label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
+        \end{minipage}
     \end{figure}Since \(P\) is a closed polygonal chain, we can triangulate the interior. For example, consider \cref{fig:cauchyintegraltheoremoversimplyconnectedset_closedpolygonalchaintriangulation}. Then,
     \begin{align*}
         \int_{ABCDE}f(z)\ddz & =\qty(\int_{\overrightarrow{AB}}+\int_{\overrightarrow{BC}}+\int_{\overrightarrow{CD}}+\int_{\overrightarrow{DE}}+\int_{\overrightarrow{EA}})f(z)\ddz \\
         & \quad+\qty(\int_{\overrightarrow{BE}}+\int_{\overrightarrow{EB}}+\int_{\overrightarrow{CE}}+\int_{\overrightarrow{EC}})f(z)\ddz                       \\
         & =\int_{\Delta{ABE}}f(z)\ddz+\int_{\Delta{BCE}}f(z)\ddz+\int_{\Delta{CDE}}f(z)\ddz.
-    \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then \cref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle in \(U\) with boundary \(\Delta\).
-    \begin{figure}
-        \centering
-        \begin{tikzpicture}
-            \coordinate (A) at (0, 0);
-            \coordinate (D) at (4.875, 1.875);
-            \coordinate (F) at (1.875, 1.875);
-            \coordinate (C) at (6, 0);
-            \coordinate (B) at (3.75, 3.75);
-            \coordinate (E) at (3, 0);
-
-            \draw[thick] (A) -- (F) -- (E) -- cycle;
-            \draw[thick] (B) -- (D) -- (F) -- cycle;
-            \draw[thick] (C) -- (D) -- (E) -- cycle;
-
-            \tikzhalflengtharrow{[yshift=-8.775pt]F}{[shift={(15pt, 6.15pt)}]A};
-            \tikzhalflengtharrow{[yshift=-8.775pt]B}{[shift={(15pt, 6.15pt)}]F};
-            \tikzhalflengtharrow{[yshift=-8.775pt]D}{[shift={(15pt, 6.15pt)}]E};
-            \tikzhalflengtharrow{[yshift=8.775pt]E}{[shift={(-15pt, -6.15pt)}]D};
-
-            \tikzhalflengtharrow{[shift={(-3.3075pt, -5.73pt)}]E}{[shift={(-3.3075pt, -5.73pt)}]F};
-            \tikzhalflengtharrow{[shift={(-3.3075pt, -5.73pt)}]D}{[shift={(-3.3075pt, -5.73pt)}]B};
-            \tikzhalflengtharrow{[shift={(-3.3075pt, -5.73pt)}]C}{[shift={(-3.3075pt, -5.73pt)}]D};
-            \tikzhalflengtharrow{[shift={(3.3075pt, 5.73pt)}]F}{[shift={(3.3075pt, 5.73pt)}]E};
-
-            \tikzhalflengtharrow{[yshift=5.73pt]A}{[yshift=5.73pt]E};
-            \tikzhalflengtharrow{[yshift=5.73pt]E}{[yshift=5.73pt]C};
-            \tikzhalflengtharrow{[yshift=5.73pt]F}{[yshift=5.73pt]D};
-            \tikzhalflengtharrow{[yshift=-5.73pt]D}{[yshift=-5.73pt]F};
-
-            \coordinate (AE) at ($(A)!0.5!(E)$);
-            \coordinate (AF) at ($(A)!0.5!(F)$);
-            \coordinate (FD) at ($(F)!0.5!(D)$);
-            \coordinate (BF) at ($(B)!0.5!(F)$);
-            \coordinate (EC) at ($(E)!0.5!(C)$);
-
-            \path let
-            \p1 = (FD),
-            \p2 = (BF),
-            \p3 = (AE),
-            \p4 = (AF),
-            \p5 = (EC)
-            in
-            node[shift={(3.75pt,-3.75pt)}] at (\x1, \y2) {\(\Delta_1\)}
-            node[shift={(3.75pt,-3.75pt)}] at (\x3, \y4) {\(\Delta_2\)}
-            node[shift={(3.75pt,-3.75pt)}] at (\x5, \y4) {\(\Delta_3\)}
-            node[shift={(-3.75pt, 3.75pt)}] at (\x1, \y4) {\(\Delta_4\)};
-
-        \end{tikzpicture}
-        \caption{Quadrisection of the triangle bounded by \(\Delta\).}\label{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}
-    \end{figure} Then define \(M\) to be \[M=\abs{\int_{\Delta}f(z)\ddz}.\]
+    \end{align*} Thus, if the integral over every triangle in \(U\) vanishes, then \cref{eq:cauchyintegraltheoremoversimplyconnectedset_statement} follows. Consider a triangle in \(U\) with boundary \(\Delta\). Then define \(M\) to be \[M=\abs{\int_{\Delta}f(z)\ddz}.\]
     We can quadrisect the triangle bounded by \(\Delta\) into four triangles with boundaries \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\) as in \cref{fig:cauchyintegraltheoremoversimplyconnectedset_trianglequadrisection}. Then one of \(\Delta_1\), \(\Delta_2\), \(\Delta_3\), or \(\Delta_4\) (denote this to be \(\Delta^1\)) satisfy
     \[\abs{\int_{\Delta^1}f(z)\ddz}\geq\frac{M}{4},\]
     and recursively, choose
@@ -5220,7 +5222,7 @@ Now Tonelli's Theorem allows the interchange of the summation and integration by
             \draw[-{Stealth}, thick] (1.2,-0.2) -- ({0.2*sqrt(3)-0.05},-0.2);
             \draw[-{Stealth}, thick] (1.2, 0.2) arc ({atan(1/6)}:181:{0.2*sqrt(37)});
             \draw[-{Stealth}, thick] ({-0.2*sqrt(37)}, 0) arc (180:{360-atan(1/6)}:{0.2*sqrt(37)});
-            
+
             \node[anchor=north, xshift=-2pt] at (2,0) {\(\Re(z)\)};
             \node[anchor=east, yshift=-2pt] at (0,2) {\(\Im(z)\)};
         \end{tikzpicture}
