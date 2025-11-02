@@ -5218,7 +5218,8 @@ Now Tonelli's Theorem allows the interchange of the summation and integration by
             \draw[-{Stealth}, thick] (-0.4,0) arc (180:29:0.4);
             \draw[-{Stealth}, thick] ({0.2*sqrt(3)},0.2) -- (1.2,0.2);
             \draw[-{Stealth}, thick] (1.2,-0.2) -- ({0.2*sqrt(3)-0.05},-0.2);
-            \draw[-{Stealth}, thick] (1.2, 0.2) arc ({atan(1/6)}:181:1.2);
+            \draw[-{Stealth}, thick] (1.2, 0.2) arc ({atan(1/6)}:181:{0.2*sqrt(37)});
+            \draw[-{Stealth}, thick] ({-0.2*sqrt(37)}, 0) arc (180:{360-atan(1/6)}:{0.2*sqrt(37)});
             
             \node[anchor=north, xshift=-2pt] at (2,0) {\(\Re(z)\)};
             \node[anchor=east, yshift=-2pt] at (0,2) {\(\Im(z)\)};
@@ -5227,8 +5228,8 @@ Now Tonelli's Theorem allows the interchange of the summation and integration by
         \label{fig:keyholecontour}
     \end{minipage}
 \end{figure}Now consider the \textscsl{Hankel contour}, which consists of an arc and two rays oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
-\[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii t}}{\asin(\frac{\delta}{\varepsilon})\leq t\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta\in\mathbb{R}}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
-Define the auxiliary function \[F_\varepsilon(s)=F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{e^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz\] on the entire complex plane. It is important to note that \(F\) is indepndent of \(\varepsilon>0\). To see this, let \(0<\varepsilon_1<\varepsilon_2\) be arbitrary. Then we have \[F_{\varepsilon_2}(z)-F_{\varepsilon_1}(z)=\qty(\int_{C_{\varepsilon_2}}-\int_{C_{\varepsilon_1}}+\int_{\Gamma_{\varepsilon_2}^+}+\int_{\Gamma_{\varepsilon_2}^-}-\int_{\Gamma_{\varepsilon_1}^+}-\int_{\Gamma_{\varepsilon_1}^-})=\int_{\gamma}\frac{\qty(-z)^{s-1}}{\ee^z-1},\] where \(\gamma\) is a closed \textscsl{keyhole countour} around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy's Integral Theorem (\cref{thm:cauchyintegraltheorem}) implies that \(\int_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2}(s)=F_{\varepsilon_1}(s)\). Hence, we now adopt the use of \(F(s)=F_\varepsilon(s)\) for simplicity.
+\[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii t}}{\asin(\frac{\delta}{\varepsilon})\leq t\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
+Define the auxiliary function \[F_\varepsilon(s)=F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{e^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz\] on the entire complex plane. It is important to note that \(F\) is indepndent of \(\varepsilon>0\). To see this, let \(0<\varepsilon_1<\varepsilon_2\) be arbitrary. Then we have \[F_{\varepsilon_2}(z)-F_{\varepsilon_1}(z)=\qty(\int_{C_{\varepsilon_2}}-\int_{C_{\varepsilon_1}}+\int_{\Gamma_{\varepsilon_2}^+}+\int_{\Gamma_{\varepsilon_2}^-}-\int_{\Gamma_{\varepsilon_1}^+}-\int_{\Gamma_{\varepsilon_1}^-})=\int_{\gamma}\frac{\qty(-z)^{s-1}}{\ee^z-1},\] where \(\gamma\) is a closed \textscsl{keyhole countour} (\cref{fig:keyholecontour}) around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy's Integral Theorem (\cref{thm:cauchyintegraltheorem}) implies that \(\int_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2}(s)=F_{\varepsilon_1}(s)\). Hence, we now adopt the use of \(F(s)=F_\varepsilon(s)\) for simplicity.
 
 For brevity, let \(\vartheta=\asin(\frac\delta\varepsilon)\) and let \(\widetilde{\delta}=\sqrt{\varepsilon^2-\delta^2}\). Then \(F\) can be expanded as
 \begin{align*}
