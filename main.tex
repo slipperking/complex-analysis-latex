@@ -5240,27 +5240,27 @@ Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\al
         \label{fig:keyholecontour}
     \end{minipage}
 \end{figure}Now consider the \textscsl{Hankel contour}, which consists of an arc and two rays oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
-\[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii t}}{\asin(\frac{\delta}{\varepsilon})\leq t\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
+\[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii \theta}}{\asin(\frac{\delta}{\varepsilon})\leq \theta\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
 Define the auxiliary function \[F_\varepsilon(s)=F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{e^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz\] on the entire complex plane. It is important to note that \(F\) is indepndent of \(\varepsilon>0\). To see this, let \(0<\varepsilon_1<\varepsilon_2\) be arbitrary. Then we have \[F_{\varepsilon_2}(z)-F_{\varepsilon_1}(z)=\qty(\int_{C_{\varepsilon_2}}-\int_{C_{\varepsilon_1}}+\int_{\Gamma_{\varepsilon_2}^+}+\int_{\Gamma_{\varepsilon_2}^-}-\int_{\Gamma_{\varepsilon_1}^+}-\int_{\Gamma_{\varepsilon_1}^-})=\oint_{\gamma}\frac{\qty(-z)^{s-1}}{\ee^z-1}\ddz,\] where \(\gamma\) is a closed \textscsl{keyhole countour} (\cref{fig:keyholecontour}) around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy--Goursat (\cref{thm:cauchygoursattheorem}) implies that \(\oint_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2}(s)=F_{\varepsilon_1}(s)\). Hence, we now adopt the use of \(F(s)=F_\varepsilon(s)\) for simplicity.
 
 For brevity, let \(\vartheta=\asin(\frac\delta\varepsilon)\) and let \(\widetilde{\delta}=\sqrt{\varepsilon^2-\delta^2}\). Then \(F\) can be expanded as
 \begin{align*}
-    F(s)&=\int_{\vartheta}^{2\piup-\vartheta}\frac{\qty(-\varepsilon\ee^{\ii t})^{s-1}}{\ee^{\varepsilon\ee^{\ii t}}-1}\varepsilon\ii\ee^{\ii t}\ddt+\int_{\widetilde{\delta}}^\infty\frac{(\ii\delta-x)^{s-1}}{e^{-\ii\delta+x}-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{(-\ii\delta-x)^{s-1}}{e^{\ii\delta+x}-1}\ddx\\
+    F(s)&=\int_{\vartheta}^{2\piup-\vartheta}\frac{\qty(-\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}\varepsilon\ii\ee^{\ii \theta}\dd{\theta}+\int_{\widetilde{\delta}}^\infty\frac{(\ii\delta-x)^{s-1}}{e^{-\ii\delta+x}-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{(-\ii\delta-x)^{s-1}}{e^{\ii\delta+x}-1}\ddx\\
     &=\quad\mathrm{I}\quad+\quad\mathrm{I\!I}\quad+\quad\mathrm{I\!I\!I}.
 \end{align*}
-By the Maclaurin expansion with respect to \(\varepsilon\ee^{\ii t}\), we have \[\ee^{\varepsilon\ee^{\ii t}}-1=\varepsilon\ee^{\ii t}+\frac{\qty(\varepsilon\ee^{\ii t})^2}{2!}+\cdots=\varepsilon\ee^{\ii t}+R(\varepsilon,t)\] (where we have \(\abs{R(\varepsilon,t)}=\order{\varepsilon^2}< c\varepsilon^2\), where \(c>0\) is independent of \(t\)), which implies that for \(\varepsilon<\frac1{c}\) (so that \(\varepsilon-\abs{R(\varepsilon,t)}>0\)), \[\abs{\ee^{\varepsilon\ee^{\ii t}}-1}=\abs{\varepsilon\ee^{\ii t}+R(\varepsilon,t)}\geq\varepsilon-\abs{R(\varepsilon,t)}>\varepsilon-c\varepsilon^2>0.\]
-Then for \(\varepsilon<\frac{1}{2c}\), we have that \(c<\frac{1}{2\varepsilon}\), and thus \(\abs{\ee^{\varepsilon\ee^{\ii t}}-1}>\frac{\varepsilon}{2}\). Therefore,
+By the Maclaurin expansion with respect to \(\varepsilon\ee^{\ii \theta}\), we have \[\ee^{\varepsilon\ee^{\ii \theta}}-1=\varepsilon\ee^{\ii \theta}+\frac{\qty(\varepsilon\ee^{\ii \theta})^2}{2!}+\cdots=\varepsilon\ee^{\ii \theta}+R(\varepsilon,\theta)\] (where we have \(\abs{R(\varepsilon,\theta)}=\order{\varepsilon^2}< c\varepsilon^2\), where \(c>0\) is independent of \(\theta\)), which implies that for \(\varepsilon<\frac1{c}\) (so that \(\varepsilon-\abs{R(\varepsilon,\theta)}>0\)), \[\abs{\ee^{\varepsilon\ee^{\ii \theta}}-1}=\abs{\varepsilon\ee^{\ii \theta}+R(\varepsilon,\theta)}\geq\varepsilon-\abs{R(\varepsilon,\theta)}>\varepsilon-c\varepsilon^2>0.\]
+Then for \(\varepsilon<\frac{1}{2c}\), we have that \(c<\frac{1}{2\varepsilon}\), and thus \(\abs{\ee^{\varepsilon\ee^{\ii \theta}}-1}>\frac{\varepsilon}{2}\). Therefore,
 \begin{align*}
-    \abs{\mathrm{I}}&\leq\varepsilon\int_\vartheta^{2\piup-\vartheta}\abs{\frac{\qty(\varepsilon\ee^{\ii t})^{s-1}}{\ee^{\varepsilon\ee^{\ii t}}-1}}\ddt\leq2\piup\varepsilon^{\Re(s)}\sup_{\vartheta\leq t\leq2\piup-\vartheta}\frac{\abs{\ee^{\ii t(s-1)}}}{\frac{\varepsilon}2}\\
-    &=4\piup\varepsilon^{\Re(s)-1}\sup_t\abs{\ee^{t(\ii\qty(\Re(s)-1)-\Im(s))}}=4\piup\varepsilon^{\Re(s)-1}\sup_t\ee^{-t\Im(s)}\\
-    &\leq4\piup\varepsilon^{\Re(s)-1}\ee^{2\piup\abs{\Im(s)}}\underset{t}{\rightrightarrows} 0\qq{as}\varepsilon\to 0.
+    \abs{\mathrm{I}}&\leq\varepsilon\int_\vartheta^{2\piup-\vartheta}\abs{\frac{\qty(\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}}\dd{\theta}\leq2\piup\varepsilon^{\Re(s)}\sup_{\vartheta\leq \theta\leq2\piup-\vartheta}\frac{\abs{\ee^{\ii \theta(s-1)}}}{\frac{\varepsilon}2}\\
+    &=4\piup\varepsilon^{\Re(s)-1}\sup_\theta\abs{\ee^{\theta(\ii\qty(\Re(s)-1)-\Im(s))}}=4\piup\varepsilon^{\Re(s)-1}\sup_\theta\ee^{-\theta\Im(s)}\\
+    &\leq4\piup\varepsilon^{\Re(s)-1}\ee^{2\piup\abs{\Im(s)}}\underset{\theta}{\rightrightarrows} 0\qq{as}\varepsilon\to 0.
 \end{align*}
 On the contrary,
 \begin{align}
     \mathrm{I\!I}+\mathrm{I\!I\!I}&=\int_{\widetilde{\delta}}^\infty\frac{\ee^{\log(\ii\delta-x)\qty(s-1)}}{e^{-\ii\delta+x}-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{\ee^{\log(-\ii\delta-x)(s-1)}}{e^{\ii\delta+x}-1}\ddx\\
     \abs{\mathrm{I\!I}+\mathrm{I\!I\!I}}&\leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Re\qty[\log(\ii\delta-x)\qty(s-1)]}}{e^x-1}\ddx+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Re\qty[\log(-\ii\delta-x)(s-1)]}}{e^x-1}\ddx\\
     &\leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\log\sqrt{\delta^2+x^2}(\Re(s)-1)-\arg\qty(\ii\delta-x)\Im(s)}}{e^x-1}\ddx\\
-    &\leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\log\sqrt{\delta^2+x^2}(\Re(s)-1)-\arg\qty(-\ii\delta-x)\Im(s)}}{e^x-1}\ddx\\
+    &\quad+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\log\sqrt{\delta^2+x^2}(\Re(s)-1)-\arg\qty(-\ii\delta-x)\Im(s)}}{e^x-1}\ddx\\
 \end{align}
 {
     \sloppy
