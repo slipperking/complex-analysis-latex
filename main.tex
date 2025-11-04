@@ -5241,7 +5241,7 @@ Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\al
     \end{minipage}
 \end{figure}Now consider the \textscsl{Hankel contour}, which consists of an arc and two rays oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
 \[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii \theta}}{\asin(\frac{\delta}{\varepsilon})\leq \theta\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
-Define the auxiliary function \[F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{\ee^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz\] on the entire complex plane, where the branch cut lies on the negative real axis. It is important to note that \(F_{\varepsilon,\delta}\) is independent of \(\varepsilon\ge\delta\). To see this, let \(\delta\le\varepsilon_1<\varepsilon_2\) be arbitrary. Then we have \[F_{\varepsilon_2,\delta}(z)-F_{\varepsilon_1,\delta}(z)=\qty(\int_{C_{\varepsilon_2}}-\int_{C_{\varepsilon_1}}+\int_{\Gamma_{\varepsilon_2}^+}+\int_{\Gamma_{\varepsilon_2}^-}-\int_{\Gamma_{\varepsilon_1}^+}-\int_{\Gamma_{\varepsilon_1}^-})=\oint_{\gamma}\frac{\qty(-z)^{s-1}}{\ee^z-1}\ddz,\] where \(\gamma\) is a closed \textscsl{keyhole countour} (\cref{fig:keyholecontour}) around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy--Goursat (\cref{thm:cauchygoursattheorem}) implies that \(\oint_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2,\delta}(s)=F_{\varepsilon_1,\delta}(s)\). Now we define \(F_{\varepsilon}=\lim_{\delta\to0^+}F_{\varepsilon,\delta}\).
+Define the auxiliary function \[F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{\ee^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz\] on the entire complex plane, where the branch cut of the power function lies on the negative real axis. It is important to note that \(F_{\varepsilon,\delta}\) is independent of \(\varepsilon\ge\delta\). To see this, let \(\delta\le\varepsilon_1<\varepsilon_2\) be arbitrary. Then we have \[F_{\varepsilon_2,\delta}(z)-F_{\varepsilon_1,\delta}(z)=\qty(\int_{C_{\varepsilon_2}}-\int_{C_{\varepsilon_1}}+\int_{\Gamma_{\varepsilon_2}^+}+\int_{\Gamma_{\varepsilon_2}^-}-\int_{\Gamma_{\varepsilon_1}^+}-\int_{\Gamma_{\varepsilon_1}^-})=\oint_{\gamma}\frac{\qty(-z)^{s-1}}{\ee^z-1}\ddz,\] where \(\gamma\) is a closed \textscsl{keyhole countour} (\cref{fig:keyholecontour}) around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy--Goursat (\cref{thm:cauchygoursattheorem}) implies that \(\oint_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2,\delta}(s)=F_{\varepsilon_1,\delta}(s)\). Now we define \(F_{\varepsilon}=\lim_{\delta\to0^+}F_{\varepsilon,\delta}\).
 
 For brevity, let \(\vartheta=\asin(\frac\delta\varepsilon)\) and let \(\widetilde{\delta}=\sqrt{\varepsilon^2-\delta^2}\). Then \(F_{\varepsilon,\delta}\) can be expanded as
 \begin{align}
@@ -5253,7 +5253,7 @@ Then for \(\varepsilon<\frac{1}{2c}\), we have that \(c<\frac{1}{2\varepsilon}\)
 \begin{align*}
     \abs{\mathrm{I}}&\leq\varepsilon\int_\vartheta^{2\piup-\vartheta}\abs{\frac{\qty(\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}}\dd{\theta}\leq2\piup\varepsilon^{\Re(s)}\sup_{\vartheta\leq \theta\leq2\piup-\vartheta}\frac{\abs{\ee^{\ii \theta(s-1)}}}{\frac{\varepsilon}2}\\
     &=4\piup\varepsilon^{\Re(s)-1}\sup_\theta\abs{\ee^{\theta(\ii\qty(\Re(s)-1)-\Im(s))}}=4\piup\varepsilon^{\Re(s)-1}\sup_\theta\ee^{-\theta\Im(s)}\\
-    &\leq4\piup\varepsilon^{\Re(s)-1}\ee^{2\piup\abs{\Im(s)}}\underset{\text{unif. in }\theta}{\rightrightarrows}0\qq{as}\varepsilon\to 0.
+    &\leq4\piup\varepsilon^{\Re(s)-1}\ee^{2\piup\abs{\Im(s)}}\to0\qq{as}\varepsilon\to 0.
 \end{align*}
 On the contrary,
 \begin{align}
@@ -5264,11 +5264,11 @@ On the contrary,
     &\leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{1+x^2}(\Re(s)-1)+\piup\Im(s)}}{\ee^x-1}\ddx\nonumber\\
     &\quad+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{1+x^2}(\Re(s)-1)+\piup\Im(s)}}{\ee^x-1}\ddx\nonumber
 \end{align} where we choose the principal branch of the logarithm such that \(\arg(z)\in(-\piup,\piup]\) and take \(0<\delta\leq1\). It is trivial to see that the bounding integrals (now independent of \(\delta\)) are convergent for fixed \(s\). Then Lebesgue's Dominated Convergence Theorem applies to \cref{eq:riemannzetafunction_remainingtwointegralshankelcontour} as \(\delta\to 0^+\), resulting in 
-\begin{align*}
-    \mathrm{I\!I}+\mathrm{I\!I\!I}&\to\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log\qty(x)+\ii\piup]}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log(x)-\ii\piup]}}{\ee^x-1}\ddx\\
-    &=\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{\ii\piup(s-1)}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{-\ii\piup(s-1)}}{\ee^x-1}\ddx\\
-    &=\qty(\ee^{-\ii\piup s}-\ee^{\ii\piup s})\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}=-2\ii\sin\qty(\piup s)\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}.
-\end{align*}
+\begin{align}
+    \mathrm{I\!I}+\mathrm{I\!I\!I}&\to\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log\qty(x)+\ii\piup]}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log(x)-\ii\piup]}}{\ee^x-1}\ddx\nonumber\\
+    &=\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{\ii\piup(s-1)}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{-\ii\piup(s-1)}}{\ee^x-1}\ddx\nonumber\\
+    &=\qty(\ee^{-\ii\piup s}-\ee^{\ii\piup s})\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}=-2\ii\sin\qty(\piup s)\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}.\label{eq:riemannzetafunction_remainingtwointegralslimit}
+\end{align}
 Now under the limiting operations \(\delta\to 0^+\) and \(\varepsilon\to0^+\), we have 
 \begin{equation}
     F_\varepsilon(s)(\forall\varepsilon>0)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\piup s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
@@ -5280,6 +5280,8 @@ Thus \cref{eq:riemannzetafunctionthreeintegralslimit} defines an analytic contin
 \end{theorem}
 \begin{proof}
     Our previous characterizations of the removable singularities in \(\mathbb{Z}\setminus\qty{1}\) allow for its analytic continuation to \(\mathbb{C}\setminus\qty{1}\). Hence we are left to show the nature of the singularity at \(s=1\).
+
+    The \(I\) and \(\mathrm{I\!I}\) integrals vanish at \(s=1\) since \(\sin(\piup)=0\) (in \cref{eq:riemannzetafunction_remainingtwointegralslimit}).
 \end{proof}
 The functional equation as provided by Riemann in his original paper gives a more advanced characterization of the \(\zeta\)-function's continuation:
 \begin{theorem}[Riemann's Reflection Formula]
