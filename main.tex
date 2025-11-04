@@ -5182,7 +5182,7 @@ Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\al
     \[\Gamma(s)=n^s\int_0^\infty\ee^{-xn}x^{s-1}\ddx.\]
     Multiplying by \(n^{-s}\) and summing over \(n\ge1\) yields
     \[\Gamma(s)\zeta(s)=\sum_{n=1}^\infty\int_0^\infty \ee^{-xn}x^{s-1}\ddx.\]
-    By Tonelli's theorem (the integrand is nonnegative for \(\Re(s)>1\)), the sum and integral may be interchanged:
+    By Fubini's theorem, the summation and integral may be interchanged:
     \[\Gamma(s)\zeta(s)=\int_0^\infty x^{s-1}\sum_{n=1}^\infty\ee^{-xn}\ddx=\int_0^\infty x^{s-1}\frac{\ee^{-x}}{1-\ee^{-x}}\ddx=\int_0^\infty\frac{x^{s-1}}{\ee^{x}-1}\ddx.\qedhere\]
 \end{proof}
 \begin{figure}[!tbp]
@@ -5241,7 +5241,7 @@ Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\al
     \end{minipage}
 \end{figure}Now consider the \textscsl{Hankel contour}, which consists of an arc and two rays oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
 \[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii \theta}}{\asin(\frac{\delta}{\varepsilon})\leq \theta\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
-Define the auxiliary function \[F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{\ee^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz,\quad\Re(s)>1\] on the entire complex plane, where the branch cut of the power function lies on the negative real axis. It is important to note that \(F_{\varepsilon,\delta}\) is independent of \(\varepsilon\ge\delta\). To see this, let \(\delta\le\varepsilon_1<\varepsilon_2\) be arbitrary. Then we have \[F_{\varepsilon_2,\delta}(z)-F_{\varepsilon_1,\delta}(z)=\qty(\int_{C_{\varepsilon_2}}-\int_{C_{\varepsilon_1}}+\int_{\Gamma_{\varepsilon_2}^+}+\int_{\Gamma_{\varepsilon_2}^-}-\int_{\Gamma_{\varepsilon_1}^+}-\int_{\Gamma_{\varepsilon_1}^-})=\oint_{\gamma}\frac{\qty(-z)^{s-1}}{\ee^z-1}\ddz,\] where \(\gamma\) is a closed \textscsl{keyhole countour} (\cref{fig:keyholecontour}) around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy--Goursat (\cref{thm:cauchygoursattheorem}) implies that \(\oint_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2,\delta}(s)=F_{\varepsilon_1,\delta}(s)\). Now we define \(F_{\varepsilon}=\lim_{\delta\to0^+}F_{\varepsilon,\delta}\).
+Define the auxiliary function \[F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{\ee^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz,\quad\Re(s)>1\] where the branch cut of the power function lies on the negative real axis. It is important to note that \(F_{\varepsilon,\delta}\) is independent of \(\varepsilon\ge\delta\). To see this, let \(\delta\le\varepsilon_1<\varepsilon_2\) be arbitrary. Then we have \[F_{\varepsilon_2,\delta}(z)-F_{\varepsilon_1,\delta}(z)=\qty(\int_{C_{\varepsilon_2}}-\int_{C_{\varepsilon_1}}+\int_{\Gamma_{\varepsilon_2}^+}+\int_{\Gamma_{\varepsilon_2}^-}-\int_{\Gamma_{\varepsilon_1}^+}-\int_{\Gamma_{\varepsilon_1}^-})=\oint_{\gamma}\frac{\qty(-z)^{s-1}}{\ee^z-1}\ddz,\] where \(\gamma\) is a closed \textscsl{keyhole countour} (\cref{fig:keyholecontour}) around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy--Goursat (\cref{thm:cauchygoursattheorem}) implies that \(\oint_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2,\delta}(s)=F_{\varepsilon_1,\delta}(s)\). Now we define \(F_{\varepsilon}=\lim_{\delta\to0^+}F_{\varepsilon,\delta}\).
 
 For brevity, let \(\vartheta=\asin(\frac\delta\varepsilon)\) and let \(\widetilde{\delta}=\sqrt{\varepsilon^2-\delta^2}\). Then \(F_{\varepsilon,\delta}\) can be expanded as
 \begin{align}
@@ -5272,7 +5272,7 @@ On the contrary,
 Now under the limiting operations \(\delta\to 0^+\) and \(\varepsilon\to0^+\), we have 
 \begin{equation}
     F_\varepsilon(s)(\forall\varepsilon>0)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\piup s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
-\end{equation} by virtue of \cref{thm:riemannzetafunctiongammaintegral}. The integral \(I+\mathrm{I\!I}+\mathrm{I\!I\!I}\) for any \(\varepsilon\) and \(\delta\) defines an entire function of \(s\)---by expressing each integral in its parametric form as in \cref{eq:riemannzetafunction_remainingthreeintegralshankelcontour}, a simple calculation yields that \(\dv{F_\varepsilon(s)}{\overline{s}}\equiv 0\) (either through differentiation under the integral sign, or by Lebesgue's Dominated Convergence) and hence the entireness of each \(F_\varepsilon\) follows.
+\end{equation} by virtue of \cref{thm:riemannzetafunctiongammaintegral}. The integral \(\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}\) for any \(\varepsilon\) and \(\delta\) defines an entire function of \(s\)---by expressing each integral in its parametric form as in \cref{eq:riemannzetafunction_remainingthreeintegralshankelcontour}, a simple calculation yields that \(\dv{F_\varepsilon(s)}{\overline{s}}\equiv 0\) (either through differentiation under the integral sign, or by Lebesgue's Dominated Convergence) and hence the entireness of each \(F_\varepsilon\) follows.
 
 Thus \cref{eq:riemannzetafunctionthreeintegralslimit} defines an analytic continuation of \(\zeta(s)\) by \[\zeta(s)=\frac{\lim_{\varepsilon\to 0^+}F_\varepsilon(s)}{-2\ii\sin(\piup s)\Gamma(s)},\] whose singularities lie within \(\mathbb{Z}\) (the \(\Gamma\)-function never vanishes since \(\frac1\Gamma\) is entire by its Weierstrass factorization in \cref{thm:gammafunction_weierstrassformula}). By the series definition, the singularities at \(s\in\mathbb{N}_{\ge2}\) are removable and hence unimportant to our consideration, while the simple zeros of the \(\sin(\piup s)\) function at each \(s\in\mathbb{Z}_{\le0}\) cancel with the simple poles of the \(\Gamma\)-function and hence those are removable singularities of \(\zeta\) as well. Our final consideration is of the singularity at \(s=1\):
 \begin{theorem}
@@ -5282,7 +5282,7 @@ Thus \cref{eq:riemannzetafunctionthreeintegralslimit} defines an analytic contin
     Our previous characterizations of the removable singularities in \(\mathbb{Z}\setminus\qty{1}\) allow for its analytic continuation to \(\mathbb{C}\setminus\qty{1}\). Hence we are left to show the nature of the singularity at \(s=1\).
 
     The \(\mathrm{I\!I}\) and \(\mathrm{I\!I\!I}\) integrals vanish at \(s=1\) since \(\sin(\piup)=0\) (in \cref{eq:riemannzetafunction_remainingtwointegralslimit}). Now because \begin{align*}
-        \mathrm{I}=
+        \mathrm{I}\to\int
     \end{align*}
 \end{proof}
 The functional equation as provided by Riemann in his original paper gives a more advanced characterization of the \(\zeta\)-function's continuation:
