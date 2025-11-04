@@ -5171,7 +5171,7 @@ Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\al
     Consequently, \[\zeta(z)\qty(1-\frac{1}{2^s})\qty(1-\frac{1}{3^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2,3\nmid n}\frac{1}{n^s}.\]
     Repeating this process for up to the \(n\)-th (by the Sieve of Eratosthenes), we have \[\abs{\zeta(s)\prod_{k=1}^n\qty(1-\frac1{p_k^s})-1}\leq\sum_{p_1,\ldots,p_n\nmid n\geq2}\frac1{n^\sigma}\leq\sum_{k=p_n+1}^\infty\frac{1}{n^\sigma}<\int_{p_n}^\infty\frac{\ddx}{x^\sigma}=\frac{1}{\qty(\sigma-1)p_n^{\sigma-1}}\to 0\] as \(n\to\infty\). This completes the proof.
 \end{proof}
-\begin{theorem}\label{thm:riemannzetagammaintegral}
+\begin{theorem}\label{thm:riemannzetafunctiongammaintegral}
     Let \(s\in\mathbb{C}\) with \(\Re(s)>1\). Then
     \[\Gamma(s)\zeta(s)=\int_0^\infty\frac{x^{s-1}}{\ee^{x}-1}\ddx.\]
 \end{theorem}
@@ -5248,12 +5248,12 @@ For brevity, let \(\vartheta=\asin(\frac\delta\varepsilon)\) and let \(\widetild
     F(s)&=\int_{\vartheta}^{2\piup-\vartheta}\frac{\qty(-\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}\varepsilon\ii\ee^{\ii \theta}\dd{\theta}+\int_{\widetilde{\delta}}^\infty\frac{(\ii\delta-x)^{s-1}}{\ee^{-\ii\delta+x}-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{(-\ii\delta-x)^{s-1}}{\ee^{\ii\delta+x}-1}\ddx\\
     &=\quad\mathrm{I}\quad+\quad\mathrm{I\!I}\quad+\quad\mathrm{I\!I\!I}.
 \end{align*}
-By the Maclaurin expansion with respect to \(\varepsilon\ee^{\ii \theta}\), we have \[\ee^{\varepsilon\ee^{\ii \theta}}-1=\varepsilon\ee^{\ii \theta}+\frac{\qty(\varepsilon\ee^{\ii \theta})^2}{2!}+\cdots=\varepsilon\ee^{\ii \theta}+R(\varepsilon,\theta)\] (where we have \(\abs{R(\varepsilon,\theta)}=\order{\varepsilon^2}< c\varepsilon^2\), where \(c>0\) is independent of \(\theta\)), which implies that for \(\varepsilon<\frac1{c}\) (so that \(\varepsilon-\abs{R(\varepsilon,\theta)}>0\)), \[\abs{\ee^{\varepsilon\ee^{\ii \theta}}-1}=\abs{\varepsilon\ee^{\ii \theta}+R(\varepsilon,\theta)}\geq\varepsilon-\abs{R(\varepsilon,\theta)}>\varepsilon-c\varepsilon^2>0.\]
+By the Maclaurin expansion with respect to \(\varepsilon\ee^{\ii \theta}\), we have \[\ee^{\varepsilon\ee^{\ii \theta}}-1=\varepsilon\ee^{\ii \theta}+\frac{\qty(\varepsilon\ee^{\ii \theta})^2}{2!}+\cdots=\varepsilon\ee^{\ii \theta}+R(\varepsilon,\theta)\] (where we have \(\abs{R(\varepsilon,\theta)}=\order{\varepsilon^2}< c\varepsilon^2\), where \(c>0\) is independent of \(\theta\)) by absolute convergence, which implies that for \(\varepsilon<\frac1{c}\) (so that \(\varepsilon-\abs{R(\varepsilon,\theta)}>0\)), \[\abs{\ee^{\varepsilon\ee^{\ii \theta}}-1}=\abs{\varepsilon\ee^{\ii \theta}+R(\varepsilon,\theta)}\geq\varepsilon-\abs{R(\varepsilon,\theta)}>\varepsilon-c\varepsilon^2>0.\]
 Then for \(\varepsilon<\frac{1}{2c}\), we have that \(c<\frac{1}{2\varepsilon}\), and thus \(\abs{\ee^{\varepsilon\ee^{\ii \theta}}-1}>\frac{\varepsilon}{2}\). Therefore,
 \begin{align*}
     \abs{\mathrm{I}}&\leq\varepsilon\int_\vartheta^{2\piup-\vartheta}\abs{\frac{\qty(\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}}\dd{\theta}\leq2\piup\varepsilon^{\Re(s)}\sup_{\vartheta\leq \theta\leq2\piup-\vartheta}\frac{\abs{\ee^{\ii \theta(s-1)}}}{\frac{\varepsilon}2}\\
     &=4\piup\varepsilon^{\Re(s)-1}\sup_\theta\abs{\ee^{\theta(\ii\qty(\Re(s)-1)-\Im(s))}}=4\piup\varepsilon^{\Re(s)-1}\sup_\theta\ee^{-\theta\Im(s)}\\
-    &\leq4\piup\varepsilon^{\Re(s)-1}\ee^{2\piup\abs{\Im(s)}}\underset{\theta}{\rightrightarrows} 0\qq{as}\varepsilon\to 0.
+    &\leq4\piup\varepsilon^{\Re(s)-1}\ee^{2\piup\abs{\Im(s)}}\underset{\text{unif. in }\theta}{\rightrightarrows}0\qq{as}\varepsilon\to 0.
 \end{align*}
 On the contrary,
 \begin{align}
@@ -5267,8 +5267,9 @@ On the contrary,
 \begin{align*}
     \mathrm{I\!I}+\mathrm{I\!I\!I}&\to\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log\qty(x)+\ii\piup]}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log(x)-\ii\piup]}}{\ee^x-1}\ddx\\
     &=\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{\ii\piup(s-1)}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{-\ii\piup(s-1)}}{\ee^x-1}\ddx\\
-    &=\qty(\ee^{-\ii\piup s}-\ee^{\ii\piup s})\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}
+    &=\qty(\ee^{-\ii\piup s}-\ee^{\ii\piup s})\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}.
 \end{align*}
+Now as \(\varepsilon\to 0^+\), we have \(\widetilde{\delta}\to0^+\), and hence \[\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}\to-2\ii\sin\qty(\piup s)\int_0^\infty\frac{x^{s-1}}{\ee^x-1}\ddx=-2\ii\sin\qty(\piup s)\Gamma(s)\zeta(s)\] by virtue of \cref{thm:riemannzetafunctiongammaintegral}.
 {
     \sloppy
     \printbibliography
