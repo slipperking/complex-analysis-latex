@@ -5271,7 +5271,7 @@ On the contrary,
 \end{align}
 Now under the limiting operations \(\delta\to 0^+\) and \(\varepsilon\to0^+\), we have 
 \begin{equation}
-    F_\varepsilon(s)(\forall\varepsilon>0)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\piup s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
+    F(s)=F_\varepsilon(s)(\forall\varepsilon)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\piup s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
 \end{equation} by virtue of \cref{thm:riemannzetafunctiongammaintegral}. The integral \(\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}\) for any \(\varepsilon\) and \(\delta\) defines an entire function of \(s\)---by expressing each integral in its parametric form as in \cref{eq:riemannzetafunction_remainingthreeintegralshankelcontour}, a simple calculation yields that \(\dv{F_\varepsilon(s)}{\overline{s}}\equiv 0\) (either through differentiation under the integral sign, or by Lebesgue's Dominated Convergence) and hence the entireness of each \(F_\varepsilon\) follows.
 
 Thus \cref{eq:riemannzetafunctionthreeintegralslimit} defines an analytic continuation of \(\zeta(s)\) by \[\zeta(s)=\frac{\lim_{\varepsilon\to 0^+}F_\varepsilon(s)}{-2\ii\sin(\piup s)\Gamma(s)},\] whose singularities lie within \(\mathbb{Z}\) (the \(\Gamma\)-function never vanishes since \(\frac1\Gamma\) is entire by its Weierstrass factorization in \cref{thm:gammafunction_weierstrassformula}). By the series definition, the singularities at \(s\in\mathbb{N}_{\ge2}\) are removable and hence unimportant to our consideration, while the simple zeros of the \(\sin(\piup s)\) function at each \(s\in\mathbb{Z}_{\le0}\) cancel with the simple poles of the \(\Gamma\)-function and hence those are removable singularities of \(\zeta\) as well. Our final consideration is of the singularity at \(s=1\):
@@ -5281,9 +5281,8 @@ Thus \cref{eq:riemannzetafunctionthreeintegralslimit} defines an analytic contin
 \begin{proof}
     Our previous characterizations of the removable singularities in \(\mathbb{Z}\setminus\qty{1}\) allow for its analytic continuation to \(\mathbb{C}\setminus\qty{1}\). Hence we are left to show the nature of the singularity at \(s=1\).
 
-    The \(\mathrm{I\!I}\) and \(\mathrm{I\!I\!I}\) integrals vanish at \(s=1\) since \(\sin(\piup)=0\) (in \cref{eq:riemannzetafunction_remainingtwointegralslimit}). Now because \begin{align*}
-        \mathrm{I}\to\oint_{\partial D\qty(0,\varepsilon)}\frac{\ddz}{\ee^z-1}
-    \end{align*}
+    The \(\mathrm{I\!I}\) and \(\mathrm{I\!I\!I}\) integrals vanish at \(s=1\) since \(\sin(\piup)=0\) (in \cref{eq:riemannzetafunction_remainingtwointegralslimit}). Now because \[\mathrm{I}\to\oint_{\partial D\qty(0,\varepsilon)}\frac{\ddz}{\ee^z-1}=2\piup\ii\residue_{z=0}\qty(\frac1{\ee^z-1})\] as \(\delta\to 0^+\), the integrand has a simple pole at \(z=0\). Its residue, calculated via \cref{eq:residueatpole}, is equal to \[\residue_{z=0}\qty(\frac1{\ee^z-1})=\lim_{z\to 0}\frac{z}{\ee^z-1}=\lim_{z\to 0}\frac{1}{\ee^z}=1.\]
+    Hence, \(F(1)=2\piup\ii\). 
 \end{proof}
 The functional equation as provided by Riemann in his original paper gives a more advanced characterization of the \(\zeta\)-function's continuation:
 \begin{theorem}[Riemann's Reflection Formula]
