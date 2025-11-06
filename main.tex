@@ -5298,12 +5298,11 @@ The functional equation as provided by Riemann in his original paper gives a mor
 \begin{proof}
     We restrict our consideration to \(s\neq 0,-1,-2,\ldots\) (and the usage of limits suffices to extend the relation to all of \(\mathbb{C}^*\)). The integrand \(\frac{(-z)^{s-1}}{\ee^z-1}\) (as a function of \(z\)) has a branch cut singularity on \(\mathbb{R}_{\geq 0}\) (a region excluded by all Hankel contours and thus irrelevant to our interest). The denominator vanishes (simply) when \(\ee^z=1\) or when \(z\in2\piup\ii\mathbb{Z}\) and thus has simple poles at these points.
 
-    Now the Residue Theorem (\cref{thm:residuethm}) gives that \[F_{(2n+1)\piup}(s)-F_{\varepsilon}(s)=2\piup\ii\sum_{\mathclap{\substack{z\in2\piup\ii\mathbb{Z}\\z\in\text{ contour}}}}\residue_z\frac{(-z)^{s-1}}{\ee^z-1},\qquad\varepsilon<2\piup\] where the contour is the keyhole contour in \cref{fig:keyholecontour} with a larger radius of \((2n+1)\piup\) and a smaller one of \(\varepsilon\). Then we have 
+    Now the Residue Theorem (\cref{thm:residuethm}) gives that \[F_{(2n+1)\piup}(s)-F_{\varepsilon}(s)=2\piup\ii\sum_{\mathclap{\substack{z\in2\piup\ii\mathbb{Z}\\z\in\text{ contour}}}}\residue_z\frac{(-z)^{s-1}}{\ee^z-1},\qquad\varepsilon<2\piup\] where the contour is the keyhole contour in \cref{fig:keyholecontour} with a larger radius of \((2n+1)\piup\) and a smaller one of \(\varepsilon\). Then we have, by virtue of \cref{eq:residueatpole}: 
     \begin{align*}
-        F_{(2n+1)\piup}(s)-F_\varepsilon(s)&=2\piup\ii\sum_{\substack{k=-n\\k\neq 0}}^{n}\lim_{\zeta\to2\pi\ii k}\qty(\zeta-2\piup\ii k)\frac{(-\zeta)^{s-1}}{\ee^\zeta-1}\\
-        &=2\piup\ii\sum_{\substack{k=-n\\k\neq 0}}^n\lim_{\zeta\to 2\piup\ii k}\frac{2\piup\ii k(s-1)(-\zeta)^{s-2}+s(-\zeta)^{s-1}}{\ee^\zeta}\\
-        &=2\piup\ii\sum_{\substack{k=-n\\k\neq0}}^n\qty[2\piup\ii k(s-1)(-2\piup\ii k)^{s-2}+s(-2\piup\ii k)^{s-1}]\\
-        &=2\piup\ii\sum_{\substack{k=-n\\k\neq0}}^n(-2\piup\ii k)^{s-1}\\
+        \frac1{2\piup\ii}\qty(F_{(2n+1)\piup}(s)&-F_\varepsilon(s))=\sum_{\substack{k=-n\\k\neq 0}}^{n}\lim_{\zeta\to2\pi\ii k}\frac{\qty(\zeta-2\piup\ii k)(-\zeta)^{s-1}}{\ee^\zeta-1}\\
+        &=\sum_{\substack{k=-n\\k\neq 0}}^n\lim_{\zeta\to 2\piup\ii k}\frac{2\piup\ii k(s-1)(-\zeta)^{s-2}+s(-\zeta)^{s-1}}{\ee^\zeta}\\
+        &=\sum_{\substack{k=-n\\k\neq0}}^n\qty[2\piup\ii k(s-1)(-2\piup\ii k)^{s-2}+s(-2\piup\ii k)^{s-1}]=\sum_{\substack{k=-n\\k\neq0}}^n(-2\piup\ii k)^{s-1}\\
     \end{align*}
 \end{proof}
 {
