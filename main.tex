@@ -5159,7 +5159,7 @@ Following Riemann's personal convention, denote the primary variable with \(s=\s
 \begin{definition}\label{def:riemannzetafunction}
     For \(s=\sigma+\ii t\), define the Riemann \(\zeta\)-function by the series \[\zeta(s)=\sum_{n=1}^\infty\frac{1}{n^s}\] for \(\sigma>1\)
 \end{definition}
-Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\alpha)\) absolute converges by integral comparison. Therefore, \(\forall\sigma\geq\alpha\), \[\abs{\sum_{n=1}^\infty\frac{1}{n^s}}\leq\sum_{n=1}^\infty\frac{1}{n^\sigma}\leq\sum_{n=1}^\infty\frac{1}{n^\alpha}.\] Hence, \(\zeta(s)\) is uniformly and absolutely convergent on \(\cbraces{s\in\mathbb{C}}{\Re(s)\geq\alpha}\). We will now explain the simple connection between \(\zeta\) and the prime numbers. Let \(p_1=2,p_2=3,p_3=5,\ldots\) be the sequence of all prime numbers in increasing order.
+Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\alpha)\) absolute converges by integral comparison. Therefore, \(\forall\sigma\geq\alpha\), \[\abs{\sum_{n=1}^\infty\frac{1}{n^s}}\leq\sum_{n=1}^\infty\frac{1}{n^\sigma}\leq\sum_{n=1}^\infty\frac{1}{n^\alpha}.\] Hence, \(\zeta(s)\) is uniformly and absolutely convergent on \(\cbraces{s\in\mathbb{C}}{\Re(s)\geq\alpha}\) and the Weierstrass Theorem (\cref{thm:weierstrassconvergence}) results in the analyticity of \(\zeta\) thereon. We will now explain the simple connection between \(\zeta\) and the prime numbers. Let \(p_1=2,p_2=3,p_3=5,\ldots\) be the sequence of all prime numbers in increasing order.
 \begin{theorem}[Euler Product Formula]\label{thm:riemannzetafunctioninfiniteproduct}
     For \(\Re(s)=\sigma>1\), we have
     \begin{equation}
@@ -5241,7 +5241,7 @@ Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\al
     \end{minipage}
 \end{figure}Now consider the \textscsl{Hankel contour}, which consists of an arc and two rays oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
 \[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii \theta}}{\asin(\frac{\delta}{\varepsilon})\leq \theta\leq2\piup-\asin(\frac{\delta}{\varepsilon})},\quad\Gamma_\varepsilon^\pm=\cbraces{x\pm \ii\delta}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
-Define the auxiliary function \[F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{\ee^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz,\quad\Re(s)>1\] where the branch cut of the power function lies on the negative real axis. It is important to note that \(F_{\varepsilon,\delta}\) is independent of \(\varepsilon\ge\delta\). To see this, suppose that \(\delta\le\varepsilon_1<\varepsilon_2<2\piup\) is arbitrarily chosen. Then we have 
+Define the auxiliary function \[F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\Gamma_\varepsilon^{\pm}}\frac{(-z)^{s-1}}{\ee^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\Gamma_\varepsilon^+}+\int_{\Gamma_\varepsilon^-})\frac{(-z)^{s-1}}{\ee^z-1}\ddz,\quad\Re(s)>1\] where the branch cut of the power function lies on the negative real axis. It is important to note that \(F_{\varepsilon,\delta}\) is independent of \(\varepsilon\ge\delta\). To see this, suppose that \(\delta\le\varepsilon_1<\varepsilon_2<2\piup\) is arbitrarily chosen. Then we have
 \begin{align*}
     F_{\varepsilon_2,\delta}(s)-F_{\varepsilon_1,\delta}(s)&=\qty(\int_{\mathmakebox[0.5em][l]{C_{\varepsilon_2}}}-\int_{\mathmakebox[0.5em][l]{C_{\varepsilon_1}}}+\int_{\mathmakebox[0.5em][l]{\Gamma_{\varepsilon_2}^+}}+\int_{\mathmakebox[0.5em][l]{\Gamma_{\varepsilon_2}^-}}-\int_{\mathmakebox[0.5em][l]{\Gamma_{\varepsilon_1}^+}}-\int_{\Gamma_{\varepsilon_1}^-})\frac{(-z)^{s-1}\ddz}{\ee^{z}-1}=\oint_{\gamma}\frac{\qty(-z)^{s-1}\ddz}{\ee^z-1},
 \end{align*} where \(\gamma\) is a closed \textscsl{keyhole countour} (\cref{fig:keyholecontour}) around the positive real axis. Since \(\frac{(-z)^{s-1}}{\ee^z-1}\) is holomorphic on and inside \(\gamma\), Cauchy--Goursat (\cref{thm:cauchygoursattheorem}) implies that \(\oint_{\gamma}\frac{(-z)^{s-1}}{\ee^z-1}=0\). Therefore, \(F_{\varepsilon_2,\delta}(s)=F_{\varepsilon_1,\delta}(s)\). Now we define \(F_{\varepsilon}=\lim_{\delta\to0^+}F_{\varepsilon,\delta}\).
@@ -5266,13 +5266,13 @@ On the contrary,
     &\quad+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{\delta^2+x^2}(\Re(s)-1)-\Arg\qty(-\ii\delta-x)\Im(s)}}{\ee^x-1}\ddx\nonumber\\
     &\leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{1+x^2}(\Re(s)-1)+\piup\Im(s)}}{\ee^x-1}\ddx\nonumber\\
     &\quad+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{1+x^2}(\Re(s)-1)+\piup\Im(s)}}{\ee^x-1}\ddx\nonumber
-\end{align} where we choose the principal branch of the logarithm such that \(\arg(z)\in(-\piup,\piup]\) and take \(0<\delta\leq1\). It is trivial to see that the bounding integrals (now independent of \(\delta\)) are convergent for fixed \(s\). Then Lebesgue's Dominated Convergence Theorem applies to \cref{eq:riemannzetafunction_remainingtwointegralshankelcontour} as \(\delta\to 0^+\), resulting in 
+\end{align} where we choose the principal branch of the logarithm such that \(\arg(z)\in(-\piup,\piup]\) and take \(0<\delta\leq1\). It is trivial to see that the bounding integrals (now independent of \(\delta\)) are convergent for fixed \(s\). Then Lebesgue's Dominated Convergence Theorem applies to \cref{eq:riemannzetafunction_remainingtwointegralshankelcontour} as \(\delta\to 0^+\), resulting in
 \begin{align}
     \mathrm{I\!I}+\mathrm{I\!I\!I}&\to\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log\qty(x)+\ii\piup]}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log(x)-\ii\piup]}}{\ee^x-1}\ddx\nonumber\\
     &=\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{\ii\piup(s-1)}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{-\ii\piup(s-1)}}{\ee^x-1}\ddx\nonumber\\
     &=\qty(\ee^{-\ii\piup s}-\ee^{\ii\piup s})\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}=-2\ii\sin\qty(\piup s)\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}.\label{eq:riemannzetafunction_remainingtwointegralslimit}
 \end{align}
-Now under the limiting operations \(\delta\to 0^+\) and \(\varepsilon\to0^+\), we have 
+Now under the limiting operations \(\delta\to 0^+\) and \(\varepsilon\to0^+\), we have
 \begin{equation}
     F(s)=F_\varepsilon(s)(\forall\varepsilon)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\piup s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
 \end{equation} by virtue of \cref{thm:riemannzetafunctiongammaintegral}. The integral \(\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}\) for any \(\varepsilon\) and \(\delta\) defines an entire function of \(s\)---by expressing each integral in its parametric form as in \cref{eq:riemannzetafunction_remainingthreeintegralshankelcontour}, a simple calculation yields that \(\dv{F_\varepsilon(s)}{\overline{s}}\equiv 0\) (either through differentiation under the integral sign, or by Lebesgue's Dominated Convergence) and hence the entireness of each \(F_\varepsilon\) follows.
@@ -5285,7 +5285,7 @@ Thus \cref{eq:riemannzetafunctionthreeintegralslimit} defines an analytic contin
     Our previous characterizations of the removable singularities in \(\mathbb{Z}\setminus\qty{1}\) allow for its analytic continuation to \(\mathbb{C}\setminus\qty{1}\). Hence we are left to show the nature of the singularity at \(s=1\).
 
     The \(\mathrm{I\!I}\) and \(\mathrm{I\!I\!I}\) integrals vanish at \(s=1\) since \(\sin(\piup)=0\) (in \cref{eq:riemannzetafunction_remainingtwointegralslimit}). Now because \[\mathrm{I}\to\oint_{\partial D\qty(0,\varepsilon)}\frac{\ddz}{\ee^z-1}=2\piup\ii\residue_{z=0}\qty(\frac1{\ee^z-1})\] as \(\delta\to 0^+\), the integrand has a simple pole at \(z=0\). Its residue, calculated via \cref{eq:residueatpole}, is equal to \[\residue_{z=0}\qty(\frac1{\ee^z-1})=\lim_{z\to 0}\frac{z}{\ee^z-1}=\lim_{z\to 0}\frac{1}{\ee^z}=1.\]
-    Hence, \(F(1)=2\piup\ii\). Now the expression \(\zeta(1)=-\frac{\piup}{\sin(\piup)\Gamma(1)}\) shows that the singularity at \(s=1\) is a simple pole (contributed from the simple zero of \(\sin\)). By \cref{eq:residueatpole} once more, the residue at \(s=1\) is equal to 
+    Hence, \(F(1)=2\piup\ii\). Now the expression \(\zeta(1)=-\frac{\piup}{\sin(\piup)\Gamma(1)}\) shows that the singularity at \(s=1\) is a simple pole (contributed from the simple zero of \(\sin\)). By \cref{eq:residueatpole} once more, the residue at \(s=1\) is equal to
     \begin{align*}
         \residue_{s=1}\zeta(s)&=\lim_{s\to 1}(s-1)\zeta(s)=\lim_{s\to 1}(1-s)\qty(\frac{F_\varepsilon(s)}{2\ii\sin(\piup s)\Gamma(s)})\\
         &=\frac{2\piup\ii}{2\ii\Gamma(1)}\lim_{s\to 1}\frac{1-s}{\sin(\piup s)}=-\piup\lim_{s\to1}\frac{1}{\piup\cos(\piup s)}=1.\qedhere
@@ -5298,17 +5298,27 @@ The functional equation as provided by Riemann in his original paper gives a mor
 \begin{proof}
     We restrict our consideration to \(s\neq 0,-1,-2,\ldots\) (and the usage of limits suffices to extend the relation to all of \(\mathbb{C}^*\)). The integrand \(\frac{(-z)^{s-1}}{\ee^z-1}\) (as a function of \(z\)) has a branch cut singularity on \(\mathbb{R}_{\geq 0}\) (a region excluded by all Hankel contours and thus irrelevant to our interest). The denominator vanishes (simply) when \(\ee^z=1\) or when \(z\in2\piup\ii\mathbb{Z}\) and thus has simple poles at these points.
 
-    Now the Residue Theorem (\cref{thm:residuethm}) gives that \[F_{(2n+1)\piup}(s)-F_{\varepsilon}(s)=2\piup\ii\sum_{\mathclap{\substack{z\in2\piup\ii\mathbb{Z}\\z\in\text{ contour}}}}\residue_z\frac{(-z)^{s-1}}{\ee^z-1},\qquad\varepsilon<2\piup\] where the contour is the keyhole contour in \cref{fig:keyholecontour} with a larger radius of \((2n+1)\piup\) and a smaller one of \(\varepsilon\). Then we have, by virtue of \cref{eq:residueatpole}: 
+    Suppose that \(\Re s<0\). Now the Residue Theorem (\cref{thm:residuethm}) gives that \[F_{(2n+1)\piup}(s)-F_{\varepsilon}(s)=2\piup\ii\sum_{\mathclap{\substack{z\in2\piup\ii\mathbb{Z}\\z\in\text{ contour}}}}\residue_z\frac{(-z)^{s-1}}{\ee^z-1},\qquad\varepsilon<2\piup\] where the contour is the keyhole contour in \cref{fig:keyholecontour} with a larger radius of \((2n+1)\piup\) and a smaller one of \(\varepsilon\). Then we have, by virtue of \cref{eq:residueatpole}:
     \begin{multline*}
         \frac1{2\piup\ii}\qty(F_{(2n+1)\piup}(s)-F_\varepsilon(s))=\sum_{\substack{k=-n\\k\neq 0}}^{n}\lim_{\zeta\to2\pi\ii k}\frac{\qty(\zeta-2\piup\ii k)(-\zeta)^{s-1}}{\ee^\zeta-1}\\
         =\sum_{\substack{k=-n\\k\neq 0}}^n\lim_{\zeta\to 2\piup\ii k}\frac{2\piup\ii k(s-1)(-\zeta)^{s-2}+s(-\zeta)^{s-1}}{\ee^\zeta}\\
         =\sum_{\substack{k=-n\\k\neq0}}^n\qty[2\piup\ii k(s-1)(-2\piup\ii k)^{s-2}+s(-2\piup\ii k)^{s-1}]=\sum_{\substack{k=-n\\k\neq0}}^n(-2\piup\ii k)^{s-1},
     \end{multline*}
-    where we utilize the principal branch logarithm: 
+    where we utilize the principal branch logarithm:
     \begin{align*}
         F_{(2n+1)\piup}(s)-F_\varepsilon(s)&=2\piup\ii\sum_{k=1}^n\qty[\ee^{\Log(2\piup\ii k)\qty(s-1)}+\ee^{\Log(-2\piup\ii k)\qty(s-1)}]\\
         &=2\piup\ii\sum_{k=1}^n\qty[\ee^{\Log(2\piup k)\qty(s-1)}\ee^{\Log(\ii)(s-1)}+\ee^{\Log(2\piup k)\qty(s-1)}\ee^{\Log(-\ii)(s-1)}]\\
-        &=2\piup\ii
+        &=2\piup\ii\sum_{k=1}^n(2\piup k)^{s-1}\qty[\ee^{\ii\frac{\piup}{2}(s-1)}+\ee^{-\ii\frac{\piup}{2}(s-1)}]\\
+        &=4\piup\ii\cos\qty(\frac\piup2(s-1))\sum_{k=1}^n(2\piup k)^{s-1}.
+    \end{align*}
+    Now as \(n\to\infty\),
+    \begin{align*}
+        \abs{F_{(2n+1)\piup}(s)}&\le\abs{\oint_{\partial D(0,R)}\frac{\qty(-z)^{s-1}\ddz}{\ee^z-1}}+2\abs{\sin(\piup s)\int_{R}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}},\quad R=(2n+1)\piup\\
+        &\leq2\piup R^{\Re s}\sup_{\theta\in[0,2\piup]}\abs{\qty(-\ee^{\ii\theta})^{s-1}}\sup_{z\in\partial D(0,R)}\frac{1}{\abs{\ee^z-1}}+2\abs{\sin(\piup s)\int_{R}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}}.
+    \end{align*}
+    As \(n\to\infty\), the second integral vanishes by the definition of convergent improper integrals. Now observe that \(\qty(-\ee^{\ii\theta})^{s-1}\) depends only on \(s\) and \(\theta\) and is independent of \(n\), and hence are insignificant. We now aim to prove that \(\frac1{\abs{\ee^z-1}}\) is above by a positive constant for all \(z\in\bigcup\partial D(0,R)\). Observe that
+    \begin{align*}
+        \abs{\ee^z-1}^2&=\ee^{2R\cos\theta}-2\ee^{R\cos\theta}\cos(R\sin\theta)+1
     \end{align*}
 \end{proof}
 {
