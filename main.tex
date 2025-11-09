@@ -7317,7 +7317,7 @@ We will now study two representations for the Gamma function.
   evaluates to \[\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\] as \(u\to n^-\), \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its
   maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\),
   \(\ee\qty(\frac{n-1}{n})^{n-1}\leq\ee\). From
-  \cref{eq:gammafunction_gaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{et^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
+  \cref{eq:gammafunction_gaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{\ee t^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
   it follows that \(1-\ee^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By
   \cref{eq:gammafunction_gaussformulaintermediate1}, we have \[\abs{\int_0^n\ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{\ee}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From \cref{eq:gammafunctiongaussformulaprelimit}, we have
   \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), or
@@ -7439,12 +7439,12 @@ numbers in increasing order.
 \begin{theorem}[Euler Product Formula]\label{thm:riemannzetafunctioninfiniteproduct}
   For \(\Re(s)=\sigma>1\), we have
   \begin{equation}
-    \frac1{\zeta(z)}=\prod_{n=1}^\infty\qty(1-\frac{1}{p_n^s}),\label{eq:riemannzetafunctioninfiniteproduct}
+    \frac1{\zeta(s)}=\prod_{n=1}^\infty\qty(1-\frac{1}{p_n^s}),\label{eq:riemannzetafunctioninfiniteproduct}
   \end{equation} where \(p_n\) is the \(n\)-th prime number.
 \end{theorem}
 \begin{proof}
-  Since \(\sum_{n=1}^\infty\abs{p_n^{-s}}=\sum_{n=1}^\infty\frac{1}{p_n^\sigma}<\sum_{n=1}^\infty\frac{1}{n^\sigma}\) is an absolutely convergent sequence, it follows from \cref{sec:constructionofentireandmeromorphicfunctions} that the infinite product in \cref{eq:riemannzetafunctioninfiniteproduct} is absolutely convergent. Because \[\zeta(z)\qty(1-\frac{1}{2^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2\nmid n}\frac1{n^s}.\]
-  Consequently, \[\zeta(z)\qty(1-\frac{1}{2^s})\qty(1-\frac{1}{3^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2,3\nmid n}\frac{1}{n^s}.\]
+  Since \(\sum_{n=1}^\infty\abs{p_n^{-s}}=\sum_{n=1}^\infty\frac{1}{p_n^\sigma}<\sum_{n=1}^\infty\frac{1}{n^\sigma}\) is an absolutely convergent sequence, it follows from \cref{sec:constructionofentireandmeromorphicfunctions} that the infinite product in \cref{eq:riemannzetafunctioninfiniteproduct} is absolutely convergent. Because \[\zeta(s)\qty(1-\frac{1}{2^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2\nmid n}\frac1{n^s}.\]
+  Consequently, \[\zeta(s)\qty(1-\frac{1}{2^s})\qty(1-\frac{1}{3^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2,3\nmid n}\frac{1}{n^s}.\]
   Repeating this process for up to the \(n\)-th (by the Sieve of Eratosthenes),
   we have \[\abs{\zeta(s)\prod_{k=1}^n\qty(1-\frac1{p_k^s})-1}\leq\sum_{p_1,\ldots,p_n\nmid n\geq2}\frac1{n^\sigma}\leq\sum_{k=p_n+1}^\infty\frac{1}{n^\sigma}<\int_{p_n}^\infty\frac{\ddx}{x^\sigma}=\frac{1}{\qty(\sigma-1)p_n^{\sigma-1}}\to 0\] as \(n\to\infty\). This completes the proof.
 \end{proof}
@@ -7629,7 +7629,7 @@ The functional equation as provided by Riemann in his original paper gives a mor
       Since \(\abs{x}<2\), we have that \(0\leq\frac{x^2}{R^2}<\frac4{R^2}<1\), which
       implies that \[\sqrt{1-\frac{x^2}{R^2}}\geq 1-\frac{x^2}{R^2}\] (since concavity of \(\sqrt{1-t}\) for \(t\in(0,1)\) suffices to ensure that the tangent line at \(0\) is an over-approximation). Therefore, we have \[1-\sqrt{1-\frac{x^2}{R^2}}\leq\frac{x^2}{R^2}\implies\frac{R}{2}\qty(1-\sqrt{1-\frac{x^2}{R^2}})\leq\frac{x^2}{2R}\leq\frac{2}{R}\leq\frac{2}{\piup}\] since \(R\geq\piup\). On this range \(\cos\) is decreasing and we hence obtain \[\sin^2\frac y2=\cos^2\eta\geq\cos[2](\frac2\piup)\implies\abs{\ee^z-1}^2\geq\frac4{\ee^2}\cos[2](\frac2\piup).\]
   \end{enumerate}
-  We have thus shown that \(\abs{\ee^z-1}\) is bounded below by a positive constant \[\min\qty{1-\ee^{-2},\frac4{\ee^2}\cos[2](\frac2\piup)}>0\] for all \(z\in\bigcup_{n=1}^\infty\partial D\qty(0,(2n+1)\piup)\) (and hence
+  We have thus shown that \(\abs{\ee^z-1}\) is bounded below by a positive constant \[\min\qty{1-\ee^{-2},\frac2{\ee}\cos(\frac2\piup)}>0\] for all \(z\in\bigcup_{n=1}^\infty\partial D\qty(0,(2n+1)\piup)\) (and hence
   \(\frac1{\abs{\ee^z-1}}\) is bounded). Therefore, from
   \cref{eq:riemannzetafunction_functionalequation_contourintegralbound} we have
   that \(\abs{F_{(2n+1)\piup}(s)}\to 0\) as \(n\to\infty\) for \(\Re s<0\).
