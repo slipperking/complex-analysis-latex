@@ -7436,14 +7436,14 @@ Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\al
 thereon. We will now explain the simple connection between \(\zeta\) and the
 prime numbers. Let \(p_1=2,p_2=3,p_3=5,\ldots\) be the sequence of all prime
 numbers in increasing order.
-\begin{theorem}[Euler Product Formula]\label{thm:riemannzetafunctioninfiniteproduct}
+\begin{theorem}[Euler Product Formula]\label{thm:riemannzetafunction_infiniteproduct}
     For \(\Re(s)=\sigma>1\), we have
     \begin{equation}
-        \frac1{\zeta(s)}=\prod_{n=1}^\infty\qty(1-\frac{1}{p_n^s}),\label{eq:riemannzetafunctioninfiniteproduct}
+        \frac1{\zeta(s)}=\prod_{n=1}^\infty\qty(1-\frac{1}{p_n^s}),\label{eq:riemannzetafunction_infiniteproduct}
     \end{equation} where \(p_n\) is the \(n\)-th prime number.
 \end{theorem}
 \begin{proof}
-    Since \(\sum_{n=1}^\infty\abs{p_n^{-s}}=\sum_{n=1}^\infty\frac{1}{p_n^\sigma}<\sum_{n=1}^\infty\frac{1}{n^\sigma}\) is an absolutely convergent sequence, it follows from \cref{sec:constructionofentireandmeromorphicfunctions} that the infinite product in \cref{eq:riemannzetafunctioninfiniteproduct} is absolutely convergent. Because \[\zeta(s)\qty(1-\frac{1}{2^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2\nmid n}\frac1{n^s}.\]
+    Since \(\sum_{n=1}^\infty\abs{p_n^{-s}}=\sum_{n=1}^\infty\frac{1}{p_n^\sigma}<\sum_{n=1}^\infty\frac{1}{n^\sigma}\) is an absolutely convergent sequence, it follows from \cref{sec:constructionofentireandmeromorphicfunctions} that the infinite product in \cref{eq:riemannzetafunction_infiniteproduct} is absolutely convergent. Because \[\zeta(s)\qty(1-\frac{1}{2^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2\nmid n}\frac1{n^s}.\]
     Consequently, \[\zeta(s)\qty(1-\frac{1}{2^s})\qty(1-\frac{1}{3^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2,3\nmid n}\frac{1}{n^s}.\]
     Repeating this process for up to the \(n\)-th (by the Sieve of Eratosthenes),
     we have \[\abs{\zeta(s)\prod_{k=1}^n\qty(1-\frac1{p_k^s})-1}\leq\sum_{p_1,\ldots,p_n\nmid n\geq2}\frac1{n^\sigma}\leq\sum_{k=p_n+1}^\infty\frac{1}{n^\sigma}<\int_{p_n}^\infty\frac{\ddx}{x^\sigma}=\frac{1}{\qty(\sigma-1)p_n^{\sigma-1}}\to 0\] as \(n\to\infty\). This completes the proof.
@@ -7653,8 +7653,11 @@ The functional equation as provided by Riemann in his original paper gives a mor
     The only zeros of the Riemann \(\zeta\)-function not in the set defined by \(\cbraces{z\in\mathbb{C}}{0\leq\Re z\leq 1}\) occur at the negative even integers \(-2,-4,-6,\ldots\).
 \end{proposition}
 \begin{proof}
-    
+    By the Euler Product Formula (\cref{thm:riemannzetafunction_infiniteproduct}), \(\zeta\) has no zeros for \(\Re s>1\). Now by the functional equation
+    (\cref{thm:riemannzetafunction_functionalequation}), we have that
+    \[\zeta(1-s)=2\zeta(s)\Gamma(s)\cos\qty(\frac\piup2s)(2\piup)^{-s}.\] for \(\Re s>1\). On this range, \(\zeta\), \(\Gamma\), and \((2\piup)^{-s}\) are all nonzero. The \(\cos\) function vanishes only at odd multiples of \(\frac\piup2\), or when \(s=1+2n\) for \(n\in\mathbb{N}\). Therefore, the only zeros of \(\zeta(1-s)\) for \(\Re s>1\) occur at \(s=3,5,7,\ldots\), or when \(1-s=-2,-4,\ldots\).
 \end{proof}
+The 
 {
     \sloppy
     \printbibliography
