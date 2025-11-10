@@ -7327,8 +7327,8 @@ The \textscsl{Weierstrass formula} is a direct consequence of the Gauss formula.
 \begin{theorem}[Weierstrass]\label{thm:gammafunction_weierstrassformula}
     The reciprocal Gamma function has the entire Weierstrass factorization of
     \begin{equation}
-        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\ee^{z\gamma}.\label{eq:gammafunction_weierstrassformula}
-    \end{equation}
+        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\ee^{z\gamma},\label{eq:gammafunction_weierstrassformula}
+    \end{equation} where \(\gammaup=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\).
 \end{theorem}
 \begin{proof}
     Since the Gauss formula agrees with \cref{eq:gammafunction} on the right half-plane, the analytic continuation of \(\Gamma(z)\) is unique on the entire complex plane except for the poles at \(\mathbb{Z}_{\leq0}\) by the Identity Theorem (\cref{thm:identity}). Since
@@ -7587,8 +7587,11 @@ continuation of \(\zeta(s)\) by
     \end{align*}
 \end{proof}
 The functional equation as provided by Riemann in his original paper gives a more advanced characterization of the \(\zeta\)-function's continuation:
-\begin{theorem}[Riemann's Reflection Formula]
-    For any \(s\neq 0\), we have \[\zeta(1-s)=2\zeta(s)\Gamma(s)\cos(\frac\piup2s)(2\piup)^{-s}.\]
+\begin{theorem}[Riemann's Reflection Formula]\label{thm:riemannzetafunction_functionalequation}
+    For any \(s\neq 0\), we have 
+    \begin{equation}
+        \zeta(1-s)=2\zeta(s)\Gamma(s)\cos(\frac\piup2s)(2\piup)^{-s}.\label{eq:riemannzetafunction_functionalequation}
+    \end{equation}
 \end{theorem}
 \begin{proof}
     We restrict our consideration to \(s\neq 0,-1,-2,\ldots\) (and the usage of limits suffices to extend the relation to all of \(\mathbb{C}^*\)). The integrand \(\frac{(-z)^{s-1}}{\ee^z-1}\) (as a function of \(z\)) has a branch cut singularity on \(\mathbb{R}_{\geq 0}\) (a region excluded by all Hankel contours and thus irrelevant to our interest). The denominator vanishes (simply) when \(\ee^z=1\) or when \(z\in2\piup\ii\mathbb{Z}\) and thus has simple poles at these points.
@@ -7647,8 +7650,11 @@ The functional equation as provided by Riemann in his original paper gives a mor
     Then the functional equation can simply be rewritten as \(\xi(1-s)=\xi(s)\).
 \end{remark}
 \begin{proposition}
-    
+    The only zeros of the Riemann \(\zeta\)-function not in the set defined by \(\cbraces{z\in\mathbb{C}}{0\leq\Re z\leq 1}\) occur at the negative even integers \(-2,-4,-6,\ldots\).
 \end{proposition}
+\begin{proof}
+
+\end{proof}
 {
     \sloppy
     \printbibliography
