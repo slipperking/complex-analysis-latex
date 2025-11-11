@@ -7678,11 +7678,18 @@ Results have already shown that an infinite number of zeros lie on this line. Fo
     For \(\Re s>1\), \[\sum_{n=2}^\infty\Lambda(n)\ee^{-s\log n}=-\frac{\zeta'(s)}{\zeta(s)}.\]
 \end{proposition}
 \begin{proof}
+    By the logarithmic differentiation of the Euler Product Formula
+    (\cref{thm:riemannzetafunction_infiniteproduct}), we have that
+    \begin{align*}
+        -\frac{\zeta'(s)}{\zeta(s)} & =-\dv{s}\qty(\sum_{p\text{ prime}}\log\qty(1-\ee^{-s\log p}))=\sum_{p\text{ prime}}\frac{\ee^{-s\log p}\log p}{1-\ee^{-s\log p}}                                                                                   \\
+        & =\sum_{p\text{ prime}}\log p\sum_{k=1}^\infty\ee^{-s\log p^k}=\sum_{n=2}^\infty\Lambda(n)\ee^{-s\log n},
+    \end{align*}
+    where the interchange of the summation is justified by the absolute convergence of the series for \(\Re s>1\).
 \end{proof}
 \subsection{Prime Number Theorem}
 Prime numbers have been a central object of study in number theory since antiquity. From the times of Euclid, it was known that there were infinitely many primes. The \textscsl{prime counting function} \(\pi(n)\) is defined to be the number of primes not exceeding \(n\). The \textscsl{Prime Number Theorem} states that \[\pi(x)\sim\frac n{\log n}\] as \(n\to\infty\). This result was first conjectured by Gauss and Legendre in the late 18th century based on empirical evidence, while early results given by P. L. Tchebychef and J. J. Sylvester proved that the ratio \(\frac{\log(n)\pi(n)}{n}\) is bounded between two positive constants for large \(n\). The full asymtotic relation was finally proven independently by Hadamard and de la Vallée Poussin in 1896 using complex analysis and properties of the Riemann \(\zeta\)-function.
 
-The logarithmic integral function, defined by \[\operatorname{Li}(x)=\int_2^x\frac{\ddt}{\log(t)}\] is of considerable interest as it much better approximates the prime counting function \(\pi(x)\) than \(\frac x{\log x}\) does. It can be trivially shown that \(\operatorname{Li}(x)\sim\frac{x}{\log x}\) by the realization that 
+The logarithmic integral function, defined by \[\operatorname{Li}(x)=\int_2^x\frac{\ddt}{\log(t)}\] is of considerable interest as it much better approximates the prime counting function \(\pi(x)\) than \(\frac x{\log x}\) does. It can be trivially shown that \(\operatorname{Li}(x)\sim\frac{x}{\log x}\) by the realization that
 \begin{align*}
     \operatorname{Li}(x)&=\eval{\frac{t}{\log t}}_2^x+\int_2^x\frac{\ddt}{\log^2 t}=\frac{x}{\log x}+\int_2^x\frac{\ddt}{\log^2 t}+\order{1}\\
     &=\frac{x}{\log x}+\frac{x}{\log^2 x}+\frac{2x}{\log^3 x}+\frac{6x}{\log^4 x}+\cdots+\order{1}\\
