@@ -7355,9 +7355,9 @@ We have two famous identities on the \(\Gamma\)-function:
 \end{theorem}
 \begin{proof}
     By the Weierstrass Formula (\cref{thm:gammafunction_weierstrassformula}), we have
-    \begin{align*}
-        \frac{1}{\Gamma(z)} & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gammaup), \\\frac{1}{\Gamma(-z)}&=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\exp\qty(-z\gammaup).
-    \end{align*}
+    \begin{equation*}
+        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\ee^{z\gammaup},\quad\frac{1}{\Gamma(-z)}=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\ee{-z\gammaup}.
+    \end{equation*}
     Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \cref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\piup z)}{\piup},\] which confirms \cref{eq:gammafunction_eulerreflection}.
 \end{proof}
 \begin{example}\label{ex:gammafunction_onehalf}
@@ -7695,6 +7695,9 @@ Results have already shown that an infinite number of zeros lie on this line. Fo
 \begin{theorem}
     The Riemann \(\zeta\)-function has no zeros on the lines defined by \(\Re s=0\) and \(\Re s=1\).
 \end{theorem}
+\begin{proof}
+    Without loss of generality, we restrict our consideration to the line \(\Re s=1\) (the other line follows from the functional equation). Suppose that there exists some \(a=1+\ii t\) for \(t\in\mathbb{R}\setminus\qty{0}\) such that \(\zeta(a)=0\).
+\end{proof}
 \subsection{Prime Number Theorem}
 Prime numbers have been a central object of study in number theory since antiquity. From the times of Euclid, it was known that there were infinitely many primes. The \textscsl{prime counting function} \(\pi(n)\) is defined to be the number of primes not exceeding \(n\). The \textscsl{Prime Number Theorem} states that \[\pi(x)\sim\frac n{\log n}\] as \(n\to\infty\). This result was first conjectured by Gauss and Legendre in the late 18th century based on empirical evidence, while early results given by P. L. Tchebychef and J. J. Sylvester proved that the ratio \(\frac{\log(n)\pi(n)}{n}\) is bounded between two positive constants for large \(n\). The full asymtotic relation was finally proven independently by Hadamard and de la Vallée Poussin in 1896 using complex analysis and properties of the Riemann \(\zeta\)-function.
 
