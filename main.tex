@@ -7428,11 +7428,11 @@ The \(\zeta\)-function was first studied by Euler in the 18th century, who inves
 Following Riemann's personal convention, denote the primary variable with
 \(s=\sigma+\ii t\).
 \begin{definition}\label{def:riemannzetafunction}
-    For \(s=\sigma+\ii t\), define the Riemann \(\zeta\)-function by the series \[\zeta(s)=\sum_{n=1}^\infty\frac{1}{n^s}\] for \(\sigma>1\)
+    For \(s=\sigma+\ii t\), define the Riemann \(\zeta\)-function by the series \[\zeta(s)=\sum_{n=1}^\infty\frac{1}{n^s},\quad\sigma=\Re s>1.\]
 \end{definition}
 Let \(\alpha\in\mathbb{R}_{>1}\) be arbitrary. It is well known that \(\zeta(\alpha)\) absolute converges by integral comparison. Therefore, \(\forall\sigma\geq\alpha\), \[\abs{\sum_{n=1}^\infty\frac{1}{n^s}}\leq\sum_{n=1}^\infty\frac{1}{n^\sigma}\leq\sum_{n=1}^\infty\frac{1}{n^\alpha}.\] Hence, \(\zeta(s)\) is uniformly and absolutely convergent on
-\(\cbraces{s\in\mathbb{C}}{\Re(s)\geq\alpha}\) and the Weierstrass Theorem
-(\cref{thm:weierstrassconvergence}) results in the analyticity of \(\zeta\)
+\(\cbraces{s\in\mathbb{C}}{\Re(s)\geq\alpha}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). The Weierstrass Theorem
+(\cref{thm:weierstrassconvergence}) gives the analyticity of \(\zeta\)
 thereon. We will now explain the simple connection between \(\zeta\) and the
 prime numbers. Let \(p_1=2,p_2=3,p_3=5,\ldots\) be the sequence of all prime
 numbers in increasing order.
@@ -7445,7 +7445,7 @@ numbers in increasing order.
 \begin{proof}
     Since \(\sum_{n=1}^\infty\abs{p_n^{-s}}=\sum_{n=1}^\infty\frac{1}{p_n^\sigma}<\sum_{n=1}^\infty\frac{1}{n^\sigma}\) is an absolutely convergent sequence, it follows from \cref{sec:constructionofentireandmeromorphicfunctions} that the infinite product in \cref{eq:riemannzetafunction_infiniteproduct} is absolutely convergent. Because \[\zeta(s)\qty(1-\frac{1}{2^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2\nmid n}\frac1{n^s}.\]
     Consequently, \[\zeta(s)\qty(1-\frac{1}{2^s})\qty(1-\frac{1}{3^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2,3\nmid n}\frac{1}{n^s}.\]
-    Repeating this process for up to the \(n\)-th (by the Sieve of Eratosthenes),
+    Repeating this process for up to the \(n\)-th prime (by the Sieve of Eratosthenes),
     we have \[\abs{\zeta(s)\prod_{k=1}^n\qty(1-\frac1{p_k^s})-1}\leq\sum_{p_1,\ldots,p_n\nmid n\geq2}\frac1{n^\sigma}\leq\sum_{k=p_n+1}^\infty\frac{1}{n^\sigma}<\int_{p_n}^\infty\frac{\ddx}{x^\sigma}=\frac{1}{\qty(\sigma-1)p_n^{\sigma-1}}\to 0\] as \(n\to\infty\). This completes the proof.
 \end{proof}
 \begin{theorem}\label{thm:riemannzetafunctiongammaintegral}
@@ -7713,7 +7713,7 @@ Results have already shown that an infinite number of zeros lie on this line. Fo
         \Re\qty(\frac{\Phi'(\sigma)}{\Phi(\sigma)}) & =\sum_{n=2}^\infty\Lambda(n)\ee^{-\sigma\log n}\qty(-3-4\cos(t\log n)-\cos(2t\log n))\\
         &=-2\sum_{n=2}^\infty\Lambda(n)\ee^{-\sigma\log n}\qty(\cos(t\log n)+1)^2<0.
     \end{align*}
-    This is in direct contradiction with \cref{eq:riemannzetafunction_nolinesofzeros_reallinepositivity}
+    This is in direct contradiction with \cref{eq:riemannzetafunction_nolinesofzeros_reallinepositivity}.
 \end{proof}
 \subsection{Prime Number Theorem}
 Prime numbers have been a central object of study in number theory since antiquity. From the times of Euclid, it was known that there were infinitely many primes. The \textscsl{prime counting function} \(\pi(n)\) is defined to be the number of primes not exceeding \(n\). The \textscsl{Prime Number Theorem} states that \[\pi(n)\sim\frac n{\log n}\] as \(n\to\infty\). This result was first conjectured by Gauss and Legendre in the late 18th century based on empirical evidence, while early results given by P. L. Tchebychef and J. J. Sylvester proved that the ratio \(\frac{\log(n)\pi(n)}{n}\) is bounded between two positive constants for large \(n\). The full asymtotic relation was finally proven independently by Hadamard and de la Vallée Poussin in 1896 using complex analysis and properties of the Riemann \(\zeta\)-function.
