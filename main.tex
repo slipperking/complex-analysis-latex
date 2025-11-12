@@ -7706,12 +7706,14 @@ Results have already shown that an infinite number of zeros lie on this line. Fo
     Now a manual calculation of the quantity in \cref{eq:riemannzetafunction_nolinesofzeros_reallinepositivity} gives \begin{align*}
         \frac{\Phi'(\sigma)}{\Phi(\sigma)}&=\frac{3\zeta^2(\sigma)\zeta'(\sigma)}{\zeta^3(\sigma)}+\frac{4\zeta^3(\sigma+\ii t)\zeta'(\sigma+\ii t)}{\zeta^4(\sigma+\ii t)}+\frac{\zeta'(\sigma+2\ii t)}{\zeta(\sigma+2\ii t)}\\
         &=\frac{3\zeta'(\sigma)}{\zeta(\sigma)}+\frac{4\zeta'(\sigma+\ii t)}{\zeta(\sigma+\ii t)}+\frac{\zeta'(\sigma+2\ii t)}{\zeta(\sigma+2\ii t)}\\
-        &=\sum_{n=2}^\infty\Lambda(n)\qty(-3\ee^{-\sigma\Log(n)}-4\ee^{-(s+\ii t)\Log(n)}-\ee^{(\sigma+2\ii t)\Log(n)})
+        &=\sum_{n=2}^\infty\Lambda(n)\qty(-3\ee^{-\sigma\log n}-4\ee^{-(s+\ii t)\log n}-\ee^{(\sigma+2\ii t)\log n})
     \end{align*}
     where the last equality follows from \cref{prop:riemannzetafunction_logarithmicderivativezetavonmangoldt}. Taking the real part, we have
     \begin{align*}
-        \Re\qty(\frac{\Phi'(\sigma)}{\Phi(\sigma)}) & =\sum_{n=2}^\infty\Lambda(n)\ee^{-\sigma\Log(n)}\qty(-3-4\cos(t\Log(n))-\cos(2t\Log(n)))
+        \Re\qty(\frac{\Phi'(\sigma)}{\Phi(\sigma)}) & =\sum_{n=2}^\infty\Lambda(n)\ee^{-\sigma\log n}\qty(-3-4\cos(t\log n)-\cos(2t\log n))\\
+        &=-2\sum_{n=2}^\infty\Lambda(n)\ee^{-\sigma\log n}\qty(\cos(t\log n)+1)^2<0.
     \end{align*}
+    This is in direct contradiction with \cref{eq:riemannzetafunction_nolinesofzeros_reallinepositivity}
 \end{proof}
 \subsection{Prime Number Theorem}
 Prime numbers have been a central object of study in number theory since antiquity. From the times of Euclid, it was known that there were infinitely many primes. The \textscsl{prime counting function} \(\pi(n)\) is defined to be the number of primes not exceeding \(n\). The \textscsl{Prime Number Theorem} states that \[\pi(n)\sim\frac n{\log n}\] as \(n\to\infty\). This result was first conjectured by Gauss and Legendre in the late 18th century based on empirical evidence, while early results given by P. L. Tchebychef and J. J. Sylvester proved that the ratio \(\frac{\log(n)\pi(n)}{n}\) is bounded between two positive constants for large \(n\). The full asymtotic relation was finally proven independently by Hadamard and de la Vallée Poussin in 1896 using complex analysis and properties of the Riemann \(\zeta\)-function.
