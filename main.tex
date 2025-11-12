@@ -7444,9 +7444,9 @@ numbers in increasing order.
 \end{theorem}
 \begin{proof}
     Since \(\sum_{n=1}^\infty\abs{p_n^{-s}}=\sum_{n=1}^\infty\frac{1}{p_n^\sigma}<\sum_{n=1}^\infty\frac{1}{n^\sigma}\) is an absolutely convergent sequence, it follows from \cref{sec:constructionofentireandmeromorphicfunctions} that the infinite product in \cref{eq:riemannzetafunction_infiniteproduct} is absolutely convergent. Because \[\zeta(s)\qty(1-\frac{1}{2^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2\nmid n}\frac1{n^s}.\]
-    Consequently, \[\zeta(s)\qty(1-\frac{1}{2^s})\qty(1-\frac{1}{3^s})=\sum_{n=1}^\infty \frac{1}{n^s}-\sum_{n=1}^\infty\frac{1}{(2n)^s}=\sum_{2,3\nmid n}\frac{1}{n^s}.\]
+    Consequently, \[\zeta(s)\qty(1-\frac{1}{2^s})\qty(1-\frac{1}{3^s})=\sum_{2,3\nmid n}\frac{1}{n^s}.\]
     Repeating this process for up to the \(n\)-th prime (by the Sieve of Eratosthenes),
-    we have \[\abs{\zeta(s)\prod_{k=1}^n\qty(1-\frac1{p_k^s})-1}\leq\sum_{p_1,\ldots,p_n\nmid n\geq2}\frac1{n^\sigma}\leq\sum_{k=p_n+1}^\infty\frac{1}{n^\sigma}<\int_{p_n}^\infty\frac{\ddx}{x^\sigma}=\frac{1}{\qty(\sigma-1)p_n^{\sigma-1}}\to 0\] as \(n\to\infty\). This completes the proof.
+    we have \[\abs{\zeta(s)\prod_{k=1}^n\qty(1-\frac1{p_k^s})-1}\leq\sum_{\substack{p_1,\ldots,p_n\nmid n\\n\geq 2}}\frac1{n^\sigma}\leq\sum_{k=p_n+1}^\infty\frac{1}{n^\sigma}<\int_{p_n}^\infty\frac{\ddx}{x^\sigma}=\frac{1}{\qty(\sigma-1)p_n^{\sigma-1}}\to 0\] as \(n\to\infty\). This completes the proof.
 \end{proof}
 \begin{theorem}\label{thm:riemannzetafunctiongammaintegral}
     Let \(s\in\mathbb{C}\) with \(\Re(s)>1\). Then
@@ -7559,7 +7559,7 @@ On the contrary,
 \end{align}
 Now under the limiting operations \(\delta\to 0^+\) and \(\varepsilon\to0^+\), we have
 \begin{equation}
-    F(s)=F_\varepsilon(s)(\forall\varepsilon)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\piup s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
+    F(s)=F_\varepsilon(s)(\forall\varepsilon<2\piup)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\piup s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
 \end{equation} by virtue of \cref{thm:riemannzetafunctiongammaintegral}. The integral \(\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}\) for any \(\varepsilon\) and \(\delta\) defines an entire function of \(s\)---by expressing each integral in its parametric form as in \cref{eq:riemannzetafunction_remainingthreeintegralshankelcontour}, a simple calculation yields that \(\dv{F_\varepsilon(s)}{\overline{s}}\equiv 0\) (either through differentiation under the integral sign, or by Lebesgue's Dominated Convergence) and hence the entireness of each \(F_\varepsilon\) follows.
 
 Thus \cref{eq:riemannzetafunctionthreeintegralslimit} defines an analytic
