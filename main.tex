@@ -6804,14 +6804,14 @@ In preparation, we will introduce several relevant concepts.
     \end{align*}
     By \cref{lem:multivarcartan1}, \(\vb*{\varphi}(\vb{z})\equiv\vb{z}\) on \(\Omega\). Hence, \(\vb{f}\circ\vb*{\rho}_\theta=\vb*{\rho}_\theta\circ\vb{f}\) for all \(\theta\in\mathbb{R}\). Together with \cref{thm:taylorexpansionmultivariable}, write
     \begin{equation}
-        \vb{f}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\label{eq:multivarcartan2_taylorseries}
+        \vb{f}(\vb{z})=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\label{eq:multivarcartan2_taylorseries}
     \end{equation} on a polydisk centered at \(\vb{0}\). Thus,
     \begin{equation*}
-        \vb{f}\circ\vb*{\rho}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\qty(\ee^{\ii\theta}\vb{z})^{\vb{k}}=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta\abs{\vb{k}}}\vb{z}^{\vb{k}}.
+        \vb{f}\circ\vb*{\rho}(\vb{z})=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\qty(\ee^{\ii\theta}\vb{z})^{\vb{k}}=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta\abs{\vb{k}}}\vb{z}^{\vb{k}}.
     \end{equation*}
     On the other hand, composing with \(\vb*{\rho}_\theta\) with \cref{eq:multivarcartan2_taylorseries} gives
     \begin{equation*}
-        \vb*{\rho}_\theta\circ\vb{f}(\vb{z})=\ee^{\ii\theta}\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta}\vb{z}^{\vb{k}}.
+        \vb*{\rho}_\theta\circ\vb{f}(\vb{z})=\ee^{\ii\theta}\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta}\vb{z}^{\vb{k}}.
     \end{equation*}
     Hence, by the uniqueness of power series expansions, we must either have that \(\vb{a}_{\vb{k}}=\vb{0}\), \(\ee^{\ii\theta}\equiv\ee^{\ii\theta\abs{\vb{k}}}\), or equivalently, that \[\abs{\vb{k}}\equiv 1\pmod{2\piup}.\] This is only possible when \(\abs{\vb{k}}=1\) by irrationality, and thus
     \(\vb{a}_{\vb{k}}=\vb{0}\) for all \(\abs{\vb{k}}\neq 1\). Therefore,
@@ -6910,6 +6910,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 \end{proposition}
 \begin{proof}
     Because \(B^n\) is a bounded complete circular domain centered at \(\vb{0}\), from \cref{lem:multivarcartan2} we have that \(\vb{f}\equiv\vb{U}\vb{z}\) for some constant invertible matrix \[\vb{U}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n}).\]
+
 \end{proof}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
@@ -7724,6 +7725,8 @@ The logarithmic integral function, defined by \[\operatorname{Li}(x)=\int_2^x\fr
     &=\frac{x}{\log x}+\frac{x}{\log^2 x}+\frac{2x}{\log^3 x}+\frac{6x}{\log^4 x}+\cdots+\order{1}\\
     &=\frac{x}{\log x}+\order{\frac x{\log^2 x}}.
 \end{align*}
+By summing the von Mangoldt function over the integers, we define the first and second Chebyshev functions \(\vartheta(x),\psi(x)\) by \[\vartheta(x)=\sum_{\substack{p\leq x\\p\text{ prime}}}\log p,\qquad\psi(x)=\sum_{n\leq x}\Lambda(n)=\sum_{\substack{(p,k):p^k\leq x\\p\text{ prime}}}\log p.\]
+The Prime Number Theorem is then equivalent to the statement that \(\psi(x)\sim x\) as \(x\to\infty\).
 {
     \sloppy
     \printbibliography
