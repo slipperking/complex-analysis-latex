@@ -1724,7 +1724,7 @@ The differentiation formula above can be thought of as a generalization of \cref
     possible inequality. Consider \(\varphi(R)=Mn!\frac{\ee^R}{R^n}\) to be a
     function of \(R\). It attains its minimum as its derivative vanishes:
     \[\varphi'(R)=Mn!\frac{\ee^RR^n-n\ee^RR^{n-1}}{R^{2n}}=0\Longleftrightarrow R^n=nR^{n-1}\Longleftrightarrow R=n.\] To confirm it as a minimum, we calculate the second order derivative:
-    \[\varphi''(R)=Mn!\ee^R\qty(\frac{1}{R^n}-\frac{2n}{R^{n+1}}+\frac{n(n+1)}{R^{n+2}})\Longrightarrow\varphi''(n)=M(n-1)!\frac{\ee^n}{n^n},\]
+    \[\varphi''(R)=Mn!\ee^R\qty(\frac{1}{R^n}-\frac{2n}{R^{n+1}}+\frac{n(n+1)}{R^{n+2}})\implies\varphi''(n)=M(n-1)!\frac{\ee^n}{n^n},\]
     which is positive and convex.
 \end{proof}
 The following theorem, albeit originally proven by Cauchy in 1844, shows a fundamental difference between holomorphic functions on proper subsets of \(\mathbb{C}\) and entire functions.
@@ -6910,8 +6910,8 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 \end{proposition}
 \begin{proof}
     Because \(B^n\) is a bounded complete circular domain centered at \(\vb{0}\), from \cref{lem:multivarcartan2} we have that \(\vb{f}\equiv\vb{U}\) for some constant invertible matrix \[\vb{U}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n}).\]
-    Similarly, we have \(\vb{f}^{-1}=\vb{U}^{-1}\), so \(\norm{\vb{z}}=\norm{\vb{U}^{-1}\vb{U}\vb{z}}\). Observe that \[\norm{\frac1{\norm{\vb{z}}}\vb{f}\qty(\vb{z})}=\norm{\vb{f}\qty(\frac{\vb{z}}{\norm{\vb{z}}})}=1\implies\norm{\vb{U}\vb{z}}=\norm{\vb{z}}.\]
-    More explicitly, we have \[\vb{U}\vb{z}=\qty(\sum_{k=1}^n\zeta_{1,k}z_k,\ldots,\sum_{k=1}^n\zeta_{n,k}z_k)\]
+    Similarly, we have \(\vb{f}^{-1}=\vb{U}^{-1}\), so \(\norm{\vb{z}}=\norm{\vb{U}^{-1}\vb{U}\vb{z}}\). Observe that \[\norm{\frac1{\norm{\vb{z}}}\vb{f}\qty(\vb{z})}=\norm{\vb{f}\qty(\frac{\vb{z}}{\norm{\vb{z}}})}=1\implies\norm{\vb{Uz}}^2=\norm{\vb{z}}^2.\]
+    More explicitly, we have \[\vb{U}\vb{z}=\qty(\sum_{k=1}^n\zeta_{1,k}z_k,\ldots,\sum_{k=1}^n\zeta_{n,k}z_k)\implies\norm{\vb{Uz}}^2=\sum_{j=1}^n\abs{\sum_{k=1}^n\zeta_{j,k}z_k}^2\]
 \end{proof}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
