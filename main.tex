@@ -6912,11 +6912,11 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     Because \(B^n\) is a bounded complete circular domain centered at \(\vb{0}\), from \cref{lem:multivarcartan2} we have that \(\vb{f}\equiv\vb{U}\) for some constant invertible matrix \[\vb{U}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n}).\]
     Similarly, we have \(\vb{f}^{-1}=\vb{U}^{-1}\), so \(\norm{\vb{z}}=\norm{\vb{U}^{-1}\vb{U}\vb{z}}\). Observe that \[\norm{\frac1{\norm{\vb{z}}}\vb{f}\qty(\vb{z})}=\norm{\vb{f}\qty(\frac{\vb{z}}{\norm{\vb{z}}})}=1\implies\norm{\vb{Uz}}^2=\norm{\vb{z}}^2.\]
     More explicitly, we have \[\vb{U}\vb{z}=\qty(\sum_{k=1}^n\zeta_{1,k}z_k,\ldots,\sum_{k=1}^n\zeta_{n,k}z_k)\implies\norm{\vb{Uz}}^2=\sum_{j=1}^n\abs{\sum_{k=1}^n\zeta_{j,k}z_k}^2.\]
-    Letting \(\vb{z}=\vb{e}_i\) (\(1\leq i\leq n\)) be the \(i\)-th unit basis vector, we obtain 
+    Letting \(\vb{z}=\vb{e}_i\) (\(1\leq i\leq n\)) be the \(i\)-th unit basis vector, we obtain
     \begin{equation}
         \norm{\vb{Uz}}=1=\norm{\qty(\zeta_{1,i},\ldots,\zeta_{n,i})}^2=\sum_{k=1}^n\abs{\zeta_{k,i}}^2=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,i}}.\label{eq:unitballautomorphismfixedpointatzero_diagonalentries}
     \end{equation}
-    Letting \(\vb{z}=\frac{\sqrt{2}}{2}\qty(\vb{e}_i+\vb{e}_j)\) (\(\i\neq j\)), we have 
+    Letting \(\vb{z}=\frac{\sqrt{2}}{2}\qty(\vb{e}_i+\vb{e}_j)\) (\(\i\neq j\)), we have
     \begin{align*}
         \norm{\vb{Uz}}=1&=\frac12\norm{\qty(\zeta_{1,i}+\zeta_{1,j},\dots,\zeta_{n,i}+\zeta_{n,j})}^2=\frac12\sum_{k=1}^n\abs{\zeta_{k,i}+\zeta_{k,j}}^2\\
         &=\frac12\sum_{k=1}^n\qty(\abs{\zeta_{k,i}^2}+\abs{\zeta_{k,j}^2}+2\Re\qty(\zeta_{k,i}\overline{\zeta_{k,j}}))=1+\sum_{k=1}^n\Re\qty(\zeta_{k,i}\overline{\zeta_{k,j}}),
@@ -6930,8 +6930,14 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     \[\qty(\vb{U}^\dagger\vb{U})_{j,i}=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,j}}=\delta_{j,i},\] where \(\delta_{j,i}\) is the Kronecker delta. Hence, we have \(\vb{U}^\dagger\vb{U}=\vb{I}\), and hence \(\vb{U}\) is unitary.
 
     Conversely, if \(\vb{f}(\vb{z})=\vb{U}\vb{z}\) for some unitary matrix \(\vb{U}\), then for any \(\vb{z}\in B^n\), \[\norm{\vb{f}(\vb{z})}^2=\norm{\vb{Uz}}^2=\vb{z}^\dagger\vb{U}^\dagger\vb{U}\vb{z}=\vb{z}^\dagger\vb{z}=\norm{z}^2,\]
-    so \(\vb{f}\) maps \(B^n\) to \(B^n\). Since \(\vb{U}\) is invertible with inverse \(\vb{U}^\dagger\), the map \(\vb{f}\) is bijective with inverse \(\vb{f}^{-1}(\vb{w})=\vb{U}^\dagger\vb{w}\), which also maps \(B^n\) to \(B^n\). Therefore, \(\vb{f}\in\Aut\qty(B^n)\) and \(\vb{f}(\vb{0})=\vb{0}\).
+    so \(\vb{f}\) maps \(B^n\) to \(B^n\). Since \(\vb{U}\) is invertible with unitary inverse \(\vb{U}^\dagger\), the map \(\vb{f}\) is bijective with inverse \(\vb{f}^{-1}(\vb{w})=\vb{U}^\dagger\vb{w}\), which also maps \(B^n\) to \(B^n\). Therefore, \(\vb{f}\in\Aut\qty(B^n)\) and \(\vb{f}(\vb{0})=\vb{0}\).
 \end{proof}
+\begin{theorem}[The Holomorphic Automorphism Group on \(B^n\)]\label{thm:holomorphicautomorphismgrouponunitball}
+    The holomorphic automorphism group of the unit ball \(B^n\) consists solely of biholomorphisms in the form of
+    \begin{equation}
+        \vb{z}=\qty(z_1,\ldots,z_n)\mapsto\vb{U}\qty(\frac{z_1-a}{1-\overline{a}z_1},z_2\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},\ldots,z_n\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1}),\label{eq:holomorphicautomorphismgrouponunitball_statement}
+    \end{equation} where \(\vb{U}\) is a unitary matrix and \(a\in\mathbb{D}\).
+\end{theorem}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
     For any \(n>2\), the \(n\)-dimensional unit ball \(B^n\) and the \(n\)-dimensional polydisk \(\mathbb{D}^n\) are not biholomorphically equivalent.
@@ -7719,12 +7725,13 @@ Results have already shown that an infinite number of zeros lie on this line. Fo
 \begin{proof}
     Without loss of generality, we restrict our consideration to the line \(\Re s=1\) (the other line follows from the functional equation). Suppose that there exists some \(a=1+\ii t\) for \(t\in\mathbb{R}\setminus\qty{0}\) such that \(\zeta(a)=0\).
 
-    By \cref{prop:positivelogarithmicderivativerealpart}, \(\exists\varepsilon>0\) such that 
+    By \cref{prop:positivelogarithmicderivativerealpart}, \(\exists\varepsilon>0\) such that
     \begin{equation}
         \Re\qty(\frac{\Phi'(\sigma)}{\Phi(\sigma)})>0,\quad\forall 1<\sigma<1+\varepsilon,\label{eq:riemannzetafunction_nolinesofzeros_reallinepositivity}
     \end{equation} where we define \(\Phi(s)\) to be holomorphic on the real line (dependent on \(t\)) via \[\Phi(s)=\zeta^3(s)\zeta^4\qty(s+\ii t)\zeta(s+2\ii t),\] since the triple pole at \(s=1\) of \(\zeta^3\) is cancelled by the (at least) quadruple zero of \(\zeta^4(s+\ii t)\) at \(s=1\).
 
-    Now a manual calculation of the quantity in \cref{eq:riemannzetafunction_nolinesofzeros_reallinepositivity} gives \begin{align*}
+    Now a manual calculation of the quantity in \cref{eq:riemannzetafunction_nolinesofzeros_reallinepositivity} gives
+    \begin{align*}
         \frac{\Phi'(\sigma)}{\Phi(\sigma)}&=\frac{3\zeta^2(\sigma)\zeta'(\sigma)}{\zeta^3(\sigma)}+\frac{4\zeta^3(\sigma+\ii t)\zeta'(\sigma+\ii t)}{\zeta^4(\sigma+\ii t)}+\frac{\zeta'(\sigma+2\ii t)}{\zeta(\sigma+2\ii t)}\\
         &=\frac{3\zeta'(\sigma)}{\zeta(\sigma)}+\frac{4\zeta'(\sigma+\ii t)}{\zeta(\sigma+\ii t)}+\frac{\zeta'(\sigma+2\ii t)}{\zeta(\sigma+2\ii t)}\\
         &=\sum_{n=2}^\infty\Lambda(n)\qty(-3\ee^{-\sigma\log n}-4\ee^{-(s+\ii t)\log n}-\ee^{(\sigma+2\ii t)\log n})
