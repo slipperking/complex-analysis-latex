@@ -6955,15 +6955,13 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 \begin{theorem}[The Holomorphic Automorphism Group on \(B^n\)]\label{thm:holomorphicautomorphismgrouponunitball}
     The holomorphic automorphism group \(\Aut\qty(B^n)\) consists solely of biholomorphisms in the form of
     \begin{equation}
-        \vb{z}\mapsto\vb{U}\vb*{\varphi}_{a}\circ\vb{V}\vb{z},\label{eq:holomorphicautomorphismgrouponunitball_statement}
+        \vb{z}\mapsto\vb{U}^{-1}\vb*{\varphi}_{a}\circ\vb{V}\vb{z},\label{eq:holomorphicautomorphismgrouponunitball_statement}
     \end{equation} where \(\vb{U},\vb{V}\) are unitary matrices, \(a\in\mathbb{D}\), and \(\vb*{\varphi}_a\) is defined as in \cref{eq:unitballsimpleautomorphism_statement} (and every such function lies in \(\Aut\qty(B^n)\)).
 \end{theorem}
 \begin{proof}
     Let \(\vb{f}\in\Aut\qty(B^n)\) be arbitrary, and set \(\vb*{\alpha}=\vb{f}(\vb{0})\). Then there exists a unitary matrix \(\vb{U}\) such that \(\vb{U}\vb*{\alpha}=\qty(\abs{\alpha},0,\ldots,0)\).
     
-    By \cref{prop:unitballsimpleautomorphism}, the map \(\vb*{\varphi}_a\in\Aut\qty(B^n)\). Thus, \(\vb*{\varphi}_a\circ\vb{f}\in\Aut\qty(B^n)\) and \(\vb*{\varphi}_a\circ\vb{f}(\vb{0})=\vb{0}\). By \cref{prop:unitballautomorphismfixedpointatzero}, there exists a unitary matrix \(\vb{U}\) such that \(\vb*{\varphi}_a\circ\vb{f}(\vb{z})=\vb{U}\vb{z}\). Therefore,
-    \[\vb{f}(\vb{z})=\vb*{\varphi}_a^{-1}\circ\vb{U}\vb{z}=\vb*{\varphi}_{-a}\circ\vb{U}\vb{z}.\]
-    Finally, letting \(\vb{V}=\vb{I}\) (the identity matrix) gives the desired form in \cref{eq:holomorphicautomorphismgrouponunitball_statement}. Conversely, any map of this form lies in \(\Aut\qty(B^n)\) trivially.
+    Now let \(\vb*{\varphi}_{\abs{\alpha}}\) be as in \cref{prop:unitballsimpleautomorphism}, mapping \(\qty(\abs{\alpha},0,\ldots,0)\) to \(\vb{0}\). Then, the map \(\vb*{\varphi}_{\abs{\alpha}}\circ\vb{U}\vb{f}\in\Aut\qty(B^n)\) fixes \(\vb{0}\), so by \cref{prop:unitballautomorphismfixedpointatzero} it is a unitary transformation, say \(\vb{V}\). Therefore, \[\vb*{\varphi}_{\abs{\alpha}}\circ\vb{U}\vb{f}\equiv\vb{V}\implies\vb{f}\equiv\vb{U}^{-1}\vb*{\varphi}_{\abs{\alpha}}^{-1}\circ\vb{V}\]
 \end{proof}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
