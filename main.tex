@@ -6906,7 +6906,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     \(\vb*{\varphi}_{-a}\). Therefore, \(\vb*{\varphi}_a\in\Aut\qty(B^n)\).
 \end{proof}
 \begin{proposition}\label{prop:unitballautomorphismfixedpointatzero}
-    A function \(\vb{f}\in\Aut\qty(B^n)\) satisfies \(\vb{f}(\vb{0})=\vb{0}\) iff \(\vb{f}\) is a unitary transformation.
+    A function \(\vb{f}\) is a unitary transformation iff \(\vb{f}\in\Aut\qty(B^n)\) and \(\vb{f}(\vb{0})=\vb{0}\).
 \end{proposition}
 \begin{proof}
     Because \(B^n\) is a bounded complete circular domain centered at \(\vb{0}\), from \cref{lem:multivarcartan2} we have that \(\vb{f}\equiv\vb{U}\) for some constant invertible matrix \[\vb{U}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n}).\]
@@ -6928,6 +6928,8 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     \end{align*}
     which implies that \(\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}})=0\). Therefore, by \cref{eq:unitballautomorphismfixedpointatzero_diagonalentries}, for all \(i,j\in\qty{1,\ldots,n}\), observe that
     \[\qty(\vb{U}^\dagger\vb{U})_{j,i}=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,j}}=\delta_{j,i},\] where \(\delta_{j,i}\) is the Kronecker delta. Hence, we have \(\vb{U}^\dagger\vb{U}=\vb{I}\), and hence \(\vb{U}\) is unitary.
+
+    Conversely, if \(\vb{f}(\vb{z})=\vb{U}\vb{z}\) for some unitary matrix \(\vb{U}\), then for any \(\vb{z}\in B^n\), \(\norm{\vb{f}(\vb{z})}=\norm{\vb{U}\vb{z}}=\norm{\vb{z}}<1\), so \(\vb{f}\) maps \(B^n\) to \(B^n\). Since \(\vb{U}\) is invertible with inverse \(\vb{U}^\dagger\), the map \(\vb{f}\) is bijective with inverse \(\vb{f}^{-1}(\vb{w})=\vb{U}^\dagger\vb{w}\), which also maps \(B^n\) to \(B^n\). Therefore, \(\vb{f}\in\Aut\qty(B^n)\) and \(\vb{f}(\vb{0})=\vb{0}\).
 \end{proof}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
