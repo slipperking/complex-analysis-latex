@@ -6876,9 +6876,9 @@ In preparation, we will introduce several relevant concepts.
     \(\sigma(m)\)-th output position, so the \(\sigma(m)\)-th coordinate of
     \(\vb{A}\vb{z}\) is \(\ee^{\ii\theta_m}z_m\). Applying \(\vb*{\varphi}^{-1}\)
     componentwise then gives, for the \(k\)-th output coordinate,
-    \[\vb{f}\qty(\vb{z})_k=\varphi_{\alpha_k}^{-1}\qty(\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)})=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}.\]
+    \[\qty(\vb{f}\qty(\vb{z}))_k=\varphi_{\alpha_k}^{-1}\qty(\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)})=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}.\]
     Set \(a_k=-\alpha_k\ee^{-\ii\theta_{\sigma^{-1}(k)}}\in\mathbb{D}\). Then
-    \[\vb{f}\qty(\vb{z})_k=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}=\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_k}{1-\overline{a_k}z_{\sigma^{-1}(k)}}.\] Hence, \[\vb{f}\qty(\vb{z})_{\sigma(k)}=\ee^{\ii\theta_{k}}\frac{z_{k}-a_k}{1-\overline{a_k}z_{k}}\Longleftrightarrow\vb{f}(\vb{z})=\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\]
+    \[\qty(\vb{f}\qty(\vb{z}))_k=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}=\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_k}{1-\overline{a_k}z_{\sigma^{-1}(k)}}.\] Hence, \[\qty(\vb{f}\qty(\vb{z}))_{\sigma(k)}=\ee^{\ii\theta_{k}}\frac{z_{k}-a_k}{1-\overline{a_k}z_{k}}\Longleftrightarrow\vb{f}(\vb{z})=\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\]
     as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, each
     automorphism of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
 \end{proof}
@@ -6912,7 +6912,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     Because \(B^n\) is a bounded complete circular domain centered at \(\vb{0}\), from \cref{lem:multivarcartan2} we have that \(\vb{f}\equiv\vb{U}\) for some constant invertible matrix \[\vb{U}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n}).\]
     Similarly, we have \(\vb{f}^{-1}=\vb{U}^{-1}\), so \(\norm{\vb{z}}=\norm{\vb{U}^{-1}\vb{U}\vb{z}}\). Observe that \[\norm{\frac1{\norm{\vb{z}}}\vb{f}\qty(\vb{z})}=\norm{\vb{f}\qty(\frac{\vb{z}}{\norm{\vb{z}}})}=1\implies\norm{\vb{Uz}}^2=\norm{\vb{z}}^2.\]
     More explicitly, we have \[\vb{U}\vb{z}=\qty(\sum_{k=1}^n\zeta_{1,k}z_k,\ldots,\sum_{k=1}^n\zeta_{n,k}z_k)\implies\norm{\vb{Uz}}^2=\sum_{j=1}^n\abs{\sum_{k=1}^n\zeta_{j,k}z_k}^2.\]
-    Letting \(\vb{z}=\vb{e}_i\) (\(1\leq i\leq n\)) be the \(i\)-th unit basis vector, we obtain \[\norm{\vb{Uz}}=1=\norm{\qty(\zeta_{1,i},\ldots,\zeta_{n,i})}^2=\sum_{k=1}^n\abs{\zeta_{k,i}}^2.\]
+    Letting \(\vb{z}=\vb{e}_i\) (\(1\leq i\leq n\)) be the \(i\)-th unit basis vector, we obtain \[\norm{\vb{Uz}}=1=\norm{\qty(\zeta_{1,i},\ldots,\zeta_{n,i})}^2=\sum_{k=1}^n\abs{\zeta_{k,i}}^2=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,i}}.\]
     Letting \(\vb{z}=\frac{\sqrt{2}}{2}\qty(\vb{e}_i+\vb{e}_j)\) (\(\i\neq j\)), we have 
     \begin{align*}
         \norm{\vb{Uz}}=1&=\frac12\norm{\qty(\zeta_{1,i}+\zeta_{1,j},\dots,\zeta_{n,i}+\zeta_{n,j})}^2=\frac12\sum_{k=1}^n\abs{\zeta_{k,i}+\zeta_{k,j}}^2\\
@@ -6924,7 +6924,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
         &=\frac12\sum_{k=1}^n\qty(\abs{\zeta_{k,i}^2}+\abs{\zeta_{k,j}^2}+2\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}}))=1+\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}}),
     \end{align*}
     which implies that \(\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}})=0\). Therefore, for all \(i,j\in\qty{1,\ldots,n}\),
-    \[\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,j}}=\delta_{i,j},\] where \(\delta_{i,j}\) is the Kronecker delta. 
+    \[\qty(\vb{U}\vb{U}^\dagger)_{i,j}=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,j}}=\delta_{i,j},\] where \(\delta_{i,j}\) is the Kronecker delta. 
 \end{proof}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
