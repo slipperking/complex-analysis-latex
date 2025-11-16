@@ -3220,32 +3220,30 @@ theory.
 
 \begin{proof}
     We prove the two implications separately.
+    \begin{enumerate}
+        \item If $N\triangleleft G$ then $G/N$ is a group.
+            Assume $N$ is normal, $N\triangleleft G$, so $gNg^{-1}=N$ for every $g\in G$ (equivalently $g^{-1}Ng=N$). Define a product on $G/N$ by
+            \[
+                (gN)(hN):=(gh)N.
+            \]
+            We must check this product is well-defined: if $gN=g'N$ and $hN=h'N$ then we need $(gh)N=(g'h')N$. Since $gN=g'N$ there exists $n_1\in N$ with $g'=gn_1$, and since $hN=h'N$ there exists $n_2\in N$ with $h'=hn_2$. Then
+            \[
+                g'h'=(gn_1)(hn_2)=g\big(n_1 h\big)n_2 = g h \big(h^{-1} n_1 h\big) n_2.
+            \]
+            Because $N$ is normal we have $h^{-1}n_1 h\in N$, and $n_2\in N$, so $\big(h^{-1} n_1 h\big) n_2\in N$. Hence $g'h'\in (gh)N$, i.e. $(g'h')N=(gh)N$. Thus the product is well-defined.
 
-    \medskip\noindent\textbf{(If $N\triangleleft G$ then $G/N$ is a group.)}
-    Assume $N$ is normal, $N\triangleleft G$, so $gNg^{-1}=N$ for every $g\in G$ (equivalently $g^{-1}Ng=N$). Define a product on $G/N$ by
-    \[
-        (gN)(hN):=(gh)N.
-    \]
-    We must check this product is well-defined: if $gN=g'N$ and $hN=h'N$ then we need $(gh)N=(g'h')N$. Since $gN=g'N$ there exists $n_1\in N$ with $g'=gn_1$, and since $hN=h'N$ there exists $n_2\in N$ with $h'=hn_2$. Then
-    \[
-        g'h'=(gn_1)(hn_2)=g\big(n_1 h\big)n_2 = g h \big(h^{-1} n_1 h\big) n_2.
-    \]
-    Because $N$ is normal we have $h^{-1}n_1 h\in N$, and $n_2\in N$, so $\big(h^{-1} n_1 h\big) n_2\in N$. Hence $g'h'\in (gh)N$, i.e. $(g'h')N=(gh)N$. Thus the product is well-defined.
-
-    Associativity follows from associativity in $G$:
-    \[
-        \big((gN)(hN)\big)(kN)=(ghk)N=(gN)\big((hN)(kN)\big).
-    \]
-    The identity is $eN=N$, since $(eN)(gN)=(eg)N=gN$ and similarly on the other side. The inverse of $gN$ is $g^{-1}N$, because $(gN)(g^{-1}N)=(gg^{-1})N=N$. Thus $G/N$ is a group.
-
-    \medskip\noindent\textbf{(If $G/N$ can be given a group structure via coset multiplication then $N\triangleleft G$.)}
-    Suppose the set $G/N$ of left cosets carries a group structure for which the multiplication of cosets agrees with the rule $(gN)(hN)=(gh)N$ (in particular this implies the canonical projection $\pi:G\to G/N$, $\pi(g)=gN$, is a surjective map that respects multiplication). Let $\ker\pi=\{g\in G:\pi(g)=N\}$. By construction $\ker\pi$ is the set of elements whose coset equals the identity coset $N$, so $\ker\pi=N$. Because the kernel of any group homomorphism is a normal subgroup of the domain, $N$ is normal in $G$. (Concretely: for arbitrary $g\in G$ and $n\in N$,
-        \[
-            \pi(gng^{-1})=\pi(g)\pi(n)\pi(g)^{-1}=\pi(g)\,N\,\pi(g)^{-1}=N,
-        \]
-    so $gng^{-1}\in\ker\pi=N$, hence $gNg^{-1}\subseteq N$, and equality follows by taking inverses. Thus $N\triangleleft G$.)
-
-    \medskip\noindent Combining the two directions yields the stated equivalence.
+            Associativity follows from associativity in $G$:
+            \[
+                \big((gN)(hN)\big)(kN)=(ghk)N=(gN)\big((hN)(kN)\big).
+            \]
+            The identity is $eN=N$, since $(eN)(gN)=(eg)N=gN$ and similarly on the other side. The inverse of $gN$ is $g^{-1}N$, because $(gN)(g^{-1}N)=(gg^{-1})N=N$. Thus $G/N$ is a group.
+        \item If $G/N$ can be given a group structure via coset multiplication, then $N\triangleleft G$.
+            Suppose the set $G/N$ of left cosets carries a group structure for which the multiplication of cosets agrees with the rule $(gN)(hN)=(gh)N$ (in particular this implies the canonical projection $\pi:G\to G/N$, $\pi(g)=gN$, is a surjective map that respects multiplication). Let $\ker\pi=\{g\in G:\pi(g)=N\}$. By construction $\ker\pi$ is the set of elements whose coset equals the identity coset $N$, so $\ker\pi=N$. Because the kernel of any group homomorphism is a normal subgroup of the domain, $N$ is normal in $G$. (Concretely: for arbitrary $g\in G$ and $n\in N$,
+                \[
+                    \pi(gng^{-1})=\pi(g)\pi(n)\pi(g)^{-1}=\pi(g)\,N\,\pi(g)^{-1}=N,
+                \]
+            so $gng^{-1}\in\ker\pi=N$, hence $gNg^{-1}\subseteq N$, and equality follows by taking inverses. Thus $N\triangleleft G$.)
+    \end{enumerate}
 \end{proof}
 \begin{definition}[Group Homomorphism]
     Let \((G,\cdot)\) and \((H,*)\) be groups. A function \(\varphi:G\to H\) is said to be a \textscsl{group homomorphism} if
