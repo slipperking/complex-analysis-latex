@@ -6905,14 +6905,17 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     Hence, \(\vb*{\varphi}_a\) maps \(B^n\) to \(B^n\). A simple calculation shows that \[w_1=\frac{z_1-a}{1-\overline{a}z_1}\implies z_1=\frac{w_1+a}{1+\overline{a}w_1},\quad z_k=w_k\frac{1-\overline{a}z_1}{\sqrt{1-\abs{a}^2}}=w_k\frac{\sqrt{1-\abs{a}^2}}{1+\overline{a}w_1},\] and hence \(\vb*{\varphi}_a\) is bijective, admitting the inverse
     \(\vb*{\varphi}_{-a}\). Therefore, \(\vb*{\varphi}_a\in\Aut\qty(B^n)\).
 \end{proof}
-\begin{proposition}
+\begin{proposition}\label{prop:unitballautomorphismfixedpointatzero}
     If \(\vb{f}\in\Aut\qty(B^n)\) satisfies \(\vb{f}(\vb{0})=\vb{0}\), then \(\vb{f}\) is a unitary transformation.
 \end{proposition}
 \begin{proof}
     Because \(B^n\) is a bounded complete circular domain centered at \(\vb{0}\), from \cref{lem:multivarcartan2} we have that \(\vb{f}\equiv\vb{U}\) for some constant invertible matrix \[\vb{U}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n}).\]
     Similarly, we have \(\vb{f}^{-1}=\vb{U}^{-1}\), so \(\norm{\vb{z}}=\norm{\vb{U}^{-1}\vb{U}\vb{z}}\). Observe that \[\norm{\frac1{\norm{\vb{z}}}\vb{f}\qty(\vb{z})}=\norm{\vb{f}\qty(\frac{\vb{z}}{\norm{\vb{z}}})}=1\implies\norm{\vb{Uz}}^2=\norm{\vb{z}}^2.\]
     More explicitly, we have \[\vb{U}\vb{z}=\qty(\sum_{k=1}^n\zeta_{1,k}z_k,\ldots,\sum_{k=1}^n\zeta_{n,k}z_k)\implies\norm{\vb{Uz}}^2=\sum_{j=1}^n\abs{\sum_{k=1}^n\zeta_{j,k}z_k}^2.\]
-    Letting \(\vb{z}=\vb{e}_i\) (\(1\leq i\leq n\)) be the \(i\)-th unit basis vector, we obtain \[\norm{\vb{Uz}}=1=\norm{\qty(\zeta_{1,i},\ldots,\zeta_{n,i})}^2=\sum_{k=1}^n\abs{\zeta_{k,i}}^2=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,i}}.\]
+    Letting \(\vb{z}=\vb{e}_i\) (\(1\leq i\leq n\)) be the \(i\)-th unit basis vector, we obtain 
+    \begin{equation}
+        \norm{\vb{Uz}}=1=\norm{\qty(\zeta_{1,i},\ldots,\zeta_{n,i})}^2=\sum_{k=1}^n\abs{\zeta_{k,i}}^2=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,i}}.\label{eq:unitballautomorphismfixedpointatzero_diagonalentries}
+    \end{equation}
     Letting \(\vb{z}=\frac{\sqrt{2}}{2}\qty(\vb{e}_i+\vb{e}_j)\) (\(\i\neq j\)), we have 
     \begin{align*}
         \norm{\vb{Uz}}=1&=\frac12\norm{\qty(\zeta_{1,i}+\zeta_{1,j},\dots,\zeta_{n,i}+\zeta_{n,j})}^2=\frac12\sum_{k=1}^n\abs{\zeta_{k,i}+\zeta_{k,j}}^2\\
@@ -6923,7 +6926,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
         \norm{\vb{Uz}}=1&=\frac12\norm{\qty(\zeta_{1,i}+\ii\zeta_{1,j},\dots,\zeta_{n,i}+\ii\zeta_{n,j})}^2=\frac12\sum_{k=1}^n\abs{\zeta_{k,i}+\ii\zeta_{k,j}}^2\\
         &=\frac12\sum_{k=1}^n\qty(\abs{\zeta_{k,i}^2}+\abs{\zeta_{k,j}^2}+2\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}}))=1+\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}}),
     \end{align*}
-    which implies that \(\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}})=0\). Therefore, for all \(i,j\in\qty{1,\ldots,n}\),
+    which implies that \(\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}})=0\). Therefore, by \cref{eq:unitballautomorphismfixedpointatzero_diagonalentries}, for all \(i,j\in\qty{1,\ldots,n}\), observe that
     \[\qty(\vb{U}^\dagger\vb{U})_{j,i}=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,j}}=\delta_{j,i},\] where \(\delta_{j,i}\) is the Kronecker delta. Hence, we have \(\vb{U}^\dagger\vb{U}=\vb{I}\), and hence \(\vb{U}\) is unitary.
 \end{proof}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
