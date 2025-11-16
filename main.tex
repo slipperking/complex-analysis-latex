@@ -3212,20 +3212,41 @@ theory.
     equal. The notation \(H\trianglelefteq G\) is used to represent a normal
     subgroup. Cosets, like groups and sets, are unordered.
 \end{definition}
-\begin{definition}[Quotient Group]\label{def:quotientgroup}
-    Let \(G\) be a group, and let \(H\trianglelefteq G\) be a normal subgroup. Then the \textscsl{quotient group} of \(G\) by \(H\) is defined as \[G/H=\cbraces{gH}{g\in G}.\] The operation on the quotient group is defined as \((g_1H)(g_2H)=g_1g_2H\),
-    where \(g_1,g_2\in G\) and \(g_1H,g_2H\in G/H\).
-\end{definition}
-The normality of \(H\) implies the existence of the quotient group. To see why, let \(g_1,g_1'\in G\) form the same left coset (\(g_1H=g_1'H\)), and let \(g_2,g_2'\in G\) satisfy \(g_2H=g_2'H\). We must ensure that
-\begin{equation*}
-    (g_1H)(g_2H)=(g_1'H)(g_2'H)\Longleftrightarrow g_1g_2H=g_1'g_2'H.
-\end{equation*}
-Let \(e\) be the identity element of \(G\) and \(H\). In order for \(g_1H=g_1'H\) to be true, it follows that \(g_1e=g_1\) is mapped to a value in \(g_1'H\). Therefore, \(\exists h_1\in H\) such that \(g_1=g_1'h_1\). Similarly, for some \(h_2\in H\), \(g_2=g_2'h_2\). Hence, \[g_1g_2=g_1'h_1g_2'h_2=g_1'\qty(h_1g_2')h_2.\]
-We want to ensure that \(g_1g_2\in g_1'g_2'H\), or equivalently prove that
-\(g_1'\qty(h_1g_2')h_2\in g_1'g_2'H\). By the uniqueness of inverses, the
-condition above is equivalent to \(h_1g_2'\in g_2'H \qty(h_2^{-1})=g_2'H\).
-Equivalently, \(\exists h_3\in H\) such that \(h_1g_2'=g_2'h_3\). This is
-satisfied if \(H\) is normal.
+\begin{theorem}
+    Let \(G\) be a group and \(N\leq G\) a subgroup. The set of left cosets \(G/N=\cbraces{gN}{g\in G}\) admits a group structure with operation
+    \[(gN)(hN)=(gh)N\]
+    if and only if \(N\) is a normal subgroup of \(G\).
+\end{theorem}
+
+\begin{proof}
+    We prove the two implications separately.
+
+    \medskip\noindent\textbf{(If $N\triangleleft G$ then $G/N$ is a group.)}
+    Assume $N$ is normal, $N\triangleleft G$, so $gNg^{-1}=N$ for every $g\in G$ (equivalently $g^{-1}Ng=N$). Define a product on $G/N$ by
+    \[
+        (gN)(hN):=(gh)N.
+    \]
+    We must check this product is well-defined: if $gN=g'N$ and $hN=h'N$ then we need $(gh)N=(g'h')N$. Since $gN=g'N$ there exists $n_1\in N$ with $g'=gn_1$, and since $hN=h'N$ there exists $n_2\in N$ with $h'=hn_2$. Then
+    \[
+        g'h'=(gn_1)(hn_2)=g\big(n_1 h\big)n_2 = g h \big(h^{-1} n_1 h\big) n_2.
+    \]
+    Because $N$ is normal we have $h^{-1}n_1 h\in N$, and $n_2\in N$, so $\big(h^{-1} n_1 h\big) n_2\in N$. Hence $g'h'\in (gh)N$, i.e. $(g'h')N=(gh)N$. Thus the product is well-defined.
+
+    Associativity follows from associativity in $G$:
+    \[
+        \big((gN)(hN)\big)(kN)=(ghk)N=(gN)\big((hN)(kN)\big).
+    \]
+    The identity is $eN=N$, since $(eN)(gN)=(eg)N=gN$ and similarly on the other side. The inverse of $gN$ is $g^{-1}N$, because $(gN)(g^{-1}N)=(gg^{-1})N=N$. Thus $G/N$ is a group.
+
+    \medskip\noindent\textbf{(If $G/N$ can be given a group structure via coset multiplication then $N\triangleleft G$.)}
+    Suppose the set $G/N$ of left cosets carries a group structure for which the multiplication of cosets agrees with the rule $(gN)(hN)=(gh)N$ (in particular this implies the canonical projection $\pi:G\to G/N$, $\pi(g)=gN$, is a surjective map that respects multiplication). Let $\ker\pi=\{g\in G:\pi(g)=N\}$. By construction $\ker\pi$ is the set of elements whose coset equals the identity coset $N$, so $\ker\pi=N$. Because the kernel of any group homomorphism is a normal subgroup of the domain, $N$ is normal in $G$. (Concretely: for arbitrary $g\in G$ and $n\in N$,
+        \[
+            \pi(gng^{-1})=\pi(g)\pi(n)\pi(g)^{-1}=\pi(g)\,N\,\pi(g)^{-1}=N,
+        \]
+    so $gng^{-1}\in\ker\pi=N$, hence $gNg^{-1}\subseteq N$, and equality follows by taking inverses. Thus $N\triangleleft G$.)
+
+    \medskip\noindent Combining the two directions yields the stated equivalence.
+\end{proof}
 \begin{definition}[Group Homomorphism]
     Let \((G,\cdot)\) and \((H,*)\) be groups. A function \(\varphi:G\to H\) is said to be a \textscsl{group homomorphism} if
     \[\varphi(g_1\cdot g_2)=\varphi(g_1)*\varphi(g_2)\qquad\forall g_1,g_2\in G.\]
