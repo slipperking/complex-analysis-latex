@@ -3221,18 +3221,18 @@ theory.
     We prove the two implications separately.
     \begin{enumerate}
         \item \emph{If \(N\trianglelefteq G\) then \(G/N\) is a group.}
-        
+
             Assume \(N\) is normal, \(N\trianglelefteq G\), so \(gNg^{-1}=N\) for every \(g\in G\) (equivalently \(g^{-1}Ng=N\)). Define a product on \(G/N\) by
             \[(gN)(hN)=(gh)N.\]
-            We now verify that this product is well-defined: if \(gN=g'N\) and \(hN=h'N\) then we need \((gh)N=(g'h')N\). Since \(gN=g'N\), there exists \(n_1\in N\) with \(g'=gn_1\), and since \(hN=h'N\) there exists \(n_2\in N\) with \(h'=hn_2\). Then 
+            We now verify that this product is well-defined: if \(gN=g'N\) and \(hN=h'N\) then we need \((gh)N=(g'h')N\). Since \(gN=g'N\), there exists \(n_1\in N\) with \(g'=gn_1\), and since \(hN=h'N\) there exists \(n_2\in N\) with \(h'=hn_2\). Then
             \[g'h'=\qty(gn_1)\qty(hn_2)=g\qty(n_1h)n_2=gh\qty(h^{-1}n_1h)n_2.\]
             Because \(N\) is normal we have \(h^{-1}n_1h\in N\), and \(n_2\in N\), so \(\qty(h^{-1}n_1h)n_2\in N\). Hence \(g'h'\in(gh)N\), meaning that \(\qty(g'h')N=(gh)N\). Thus the product is well-defined.
 
-            Associativity follows from associativity in \(G\): 
+            Associativity follows from associativity in \(G\):
             \[\qty((gN)(hN))(kN)=(ghk)N=(gN)\qty((hN)(kN)).\]
             The identity is \(eN=N\), since \((eN)(gN)=(eg)N=gN\) and similarly on the other side. The inverse of \(gN\) is \(g^{-1}N\), because \((gN)\qty(g^{-1}N)=\qty(gg^{-1})N=N\). Thus \(G/N\) is a group.
         \item \emph{If \(G/N\) can be given a group structure via the coset multiplication, then \(N\trianglelefteq G\).}
-        
+
             Fix \(g\in G\) and \(n\in N\) arbitrarily. By assumption, we have \[(gN)(nN)\qty(g^{-1}N)=\qty(gng^{-1})N.\]
             Because \(nN=(e)N\), we also have \[\qty(gN)(nN)\qty(g^{-1}N)=\qty(gN)(eN)\qty(g^{-1}N)=\qty(gg^{-1})N=N,\] implying that \(\qty(gng^{-1})N=N\), and hence \(gng^{-1}\in N\) for any \(g\in G\), \(n\in N\). Hence, \(gNg^{-1}\subseteq N\). Now replacing \(g\) with \(g^{-1}\) and rearranging yields \(n\in gNg^{-1}\), or that \(N\subseteq gNg^{-1}\). Therefore, \(N\) is normal.
     \end{enumerate}
@@ -3744,7 +3744,7 @@ many interpolation points, or when \(n\to\infty\).
     \cref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
     Suppose \(f\) has additional zeros at each
     \(\qty{b_j=R\ee^{\ii\vartheta_j}}_{1\leq j\leq m}\subset\partial D(0,R)\), each
-    with multiplicity \(k_j\). Since the zeros here are discrete, we can pad them
+    with multiplicity \(k_j\). Since the zeros here are discrete, we can cover them
     with disks \(D\qty(b_j,\varepsilon_j)\) within the domain of holomorphy of
     \(f\) such that their closures are disjoint and do not intersect any \(a_k\).
     Notice that near each \(b_j\), \(f(z)=\qty(z-b_j)^{k_j}h_j(z)\), where \(h_j\)
@@ -3756,13 +3756,13 @@ many interpolation points, or when \(n\to\infty\).
     the angle subtended by the arc \(K_j=\partial
     D(0,R)\cap\overline{D\qty(b_j,\varepsilon_j)}\). By the previous result, we
     have \[\log\abs{f(0)}=\frac{1}{2\piup}\qty(\int_{R\ee^{\ii\theta}\notin\bigcup \interior{K_j}}+\sum_{j=1}^m\int_{\vartheta_j-\tau_j}^{\vartheta_j+\tau_j})\log\abs{f\qty(\rho\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\abs{\frac{a_k}{\rho}}.\]
-    It is easy to see that as \(\rho\to R^{-}\), the first integral approaches \[\int_{R\ee^{\ii\theta}\notin\bigcup \interior{K_j}}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\] Indeed, because \(\log\abs{f\qty(R\ee^{\ii\theta})}\) is \(C^1\) on all
-    connected compact components of
-    \(\cbraces{\theta\in[0,2\piup]}{R\ee^{\ii\theta}\notin\bigcup\interior{K_j}}\).
-    Hence, \(\pdv{\rho}(\log\abs{f\qty(\rho\ee^{\ii\theta})})\) is bounded on that
+    It is easy to see that as \(\rho\to R^{-}\), the first integral approaches \[\int_{R\ee^{\ii\theta}\notin\bigcup \interior{K_j}}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
+    Indeed, because \(\log\abs{f\qty(R\ee^{\ii\theta})}\) is \(C^1\) on every
+    connected compact component of
+    \(\cbraces{\theta\in[0,2\piup]}{R\ee^{\ii\theta}\notin\bigcup\interior{K_j}}\), \(\pdv{\rho}(\log\abs{f\qty(\rho\ee^{\ii\theta})})\) is bounded on that
     set by \(M\). Therefore,
     \(\log\abs{f\qty(\rho\ee^{\ii\theta})}\rightrightarrows\log\abs{f\qty(R\ee^{\ii\theta})}\)
-    as \(\rho\to R^{-}\) (uniformity in \(\theta\)), it follows that
+    as \(\rho\to R^{-}\) (uniformly in \(\theta\)), and it follows that
     \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall \max_{1\leq
     j\leq m}\qty(R-\varepsilon_j)<\rho<R\), \[\abs{\log\abs{f\qty(R\ee^{\ii\theta})}-\log\abs{f\qty(\rho\ee^{\ii\theta})}}<\varepsilon\] for all \(R\ee^{\ii\theta}\notin\bigcup\interior{K_j}\). It follows that
     \begin{equation}
@@ -6958,7 +6958,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 \end{theorem}
 \begin{proof}
     Let \(\vb{f}\in\Aut\qty(B^n)\) be arbitrary, and set \(\vb*{\alpha}=\vb{f}(\vb{0})\). Then there exists a unitary matrix \(\vb{U}\) such that \(\vb{U}\vb*{\alpha}=\qty(\abs{\alpha},0,\ldots,0)\).
-    
+
     Now let \(\vb*{\varphi}_{\abs{\vb*{\alpha}}}\) be as in \cref{prop:unitballsimpleautomorphism}, mapping \(\qty(\abs{\vb*{\alpha}},0,\ldots,0)\) to \(\vb{0}\). Then, the map \(\vb*{\varphi}_{\abs{\vb*{\alpha}}}\circ\vb{U}\vb{f}\in\Aut\qty(B^n)\) fixes \(\vb{0}\), so by \cref{prop:unitballautomorphismfixedpointatzero} it is a unitary transformation, say \(\vb{V}\). Therefore, \[\vb*{\varphi}_{\abs{\vb*{\alpha}}}\circ\vb{U}\vb{f}\equiv\vb{V}\implies\vb{f}(\vb{z})\equiv\vb{U}^{-1}\vb*{\varphi}_{\abs{\vb*{\alpha}}}^{-1}\circ\vb{Vz}.\] The converse is trivial.
 \end{proof}
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
@@ -6967,9 +6967,9 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 \end{theorem}
 \begin{proof}
     Suppose, for the sake of contradiction, that there exists a biholomorphism \(\vb*{\varphi}:\mathbb{D}^n\to B^n\). Let \(\vb*{\alpha}=\vb*{\varphi}(\vb{0})\in B^n\), and define \(\vb*{\Phi}=\vb*{\varphi}_{\abs{\vb*{\alpha}}}\circ\vb{U}\vb*{\varphi}\), where \(\vb{U}\) is a unitary matrix such that \(\vb{U}\vb*{\alpha}=\qty(\abs{\vb*{\alpha}},0,\ldots,0)\) and \(\vb*{\varphi}_{\abs{\vb*{\alpha}}}\) is as in \cref{prop:unitballsimpleautomorphism}.
-    
+
     The definition of \(\vb*{\Phi}\) ensures that \(\vb*{\Phi}:\mathbb{D}^n\to B^n\) and \(\vb*{\Phi}(\vb{0})=\vb{0}\). Then \(\vb*{\Phi}^{-1}\circ\Aut\qty(B^n)\circ\vb*{\Phi}\) consists of functions mapping \(\mathbb{D}^n\) to \(\mathbb{D}^n\), or that \[\vb*{\Phi}^{-1}\circ\Aut\qty(B^n)\circ\vb*{\Phi}\subseteq\Aut\qty(\mathbb{D}^n)\implies\Aut\qty(B^n)\subseteq\vb*{\Phi}\circ\Aut\qty(\mathbb{D}^n)\circ\vb*{\Phi}^{-1}.\]
-    Similarly, \(\vb*{\Phi}\circ\Aut\qty(\mathbb{D}^n)\circ\vb*{\Phi}^{-1}\subseteq\Aut\qty(B^n)\). Hence, \(\Aut\qty(B^n)=\vb*{\Phi}\circ\Aut\qty(\mathbb{D}^n)\circ\vb*{\Phi}^{-1}\), and 
+    Similarly, \(\vb*{\Phi}\circ\Aut\qty(\mathbb{D}^n)\circ\vb*{\Phi}^{-1}\subseteq\Aut\qty(B^n)\). Hence, \(\Aut\qty(B^n)=\vb*{\Phi}\circ\Aut\qty(\mathbb{D}^n)\circ\vb*{\Phi}^{-1}\), and
     \begin{equation}
         \vb*{\psi}\mapsto\vb*{\Phi}\circ\vb*{\psi}\circ\vb*{\Phi}^{-1}\label{eq:poincarepolydiskandunitball_isomorphism}
     \end{equation} defines a group isomorphism between \(\Aut\qty(\mathbb{D}^n)\) and \(\Aut\qty(B^n)\). Let \(\Aut'\qty(\mathbb{D}^n)<\Aut\qty(\mathbb{D}^n)\) and \(\Aut'\qty(B^n)<\Aut\qty(B^n)\) be subgroups fixing \(\vb{0}\). Therefore, \cref{eq:poincarepolydiskandunitball_isomorphism} induces a group isomorphism between \(\Aut'\qty(\mathbb{D}^n)\) and \(\Aut'\qty(B^n)\) as well.
