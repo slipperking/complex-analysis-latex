@@ -3276,7 +3276,7 @@ where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in
 the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix
 \(\mqty(a&b\\c&d)\) corresponds to the same transformation as
 \(\mqty(-a&-b\\-c&-d)\). This group, denoted by
-\(\mathrm{PSL}_2(\mathbb{C})=\left.\mathrm{SL}_2(\mathbb{C})\middle/\qty{\pm
+\(\mathrm{PSL}\qty(2,\mathbb{C})=\left.\mathrm{SL}(2,\mathbb{C})\middle/\qty{\pm
 \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the
 \textscsl{projective special linear group} of order 2, and is isomorphic to the \textscsl{group of Möbius transformations}, consisting of all complex linear
 fractional transformations.
@@ -5718,13 +5718,11 @@ Let \(z=f^{-1}(w)\). Then we have
         & =2\piup f(z)\int_0^r\frac{3\rho}{\piup r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}=f(z)
     \end{align*} by the mean-value property (\cref{lem:holomorphicmeanvalueproperty}), proving \cref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\norm{\grad{\lambda(z)}}=
     2\qty(1-\abs{z}^2)\norm{\grad(\abs{z}^2)}=2\qty(1-\abs{z}^2)2\abs{z}\norm{\grad\sqrt{x^2+y^2}}=4\qty(1-\abs{z}^2)\abs{z}.\]
-    Hence, \(\norm{\grad\lambda_r(z)}=\frac{3}{\piup
+    Hence, \[\norm{\grad\lambda_r(z)}=\frac{3}{\piup
         r^2}\norm{\grad\qty[\lambda\qty(\frac{z}{r})]}=\frac{3}{\piup
         r^2}\norm{(\grad\lambda)\qty(\frac{z}{r})}\frac{1}{r}=\frac{12}{\piup
-    r^3}\qty(1-\abs{z}^2)\abs{z}<\frac{4}{r^3}\), which confirms
-    \cref{itm:diracdeltaapproximation_gradientstatement}.
-
-    Since
+    r^3}\qty(1-\abs{z}^2)\abs{z}<\frac{4}{r^3},\] which confirms
+    \cref{itm:diracdeltaapproximation_gradientstatement}. Since
     \(\abs{\pdv{\lambda_r}{\overline{\zeta}}}=\abs{\frac{1}{2}\qty(\pdv{\lambda_r}{\xi}+\ii\pdv{\lambda_r}{\eta})}=\frac{1}{2}\norm{\grad\lambda_r(\zeta)}<\frac{2}{r^3}\),
     we have \[\iint_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}=\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}<\piup r^2\frac{2}{r^3}=\frac{2\piup}{r}\] since \(\supp\qty(\lambda_r)=\overline{D(0,r)}\) which verifies the inequality
     in
@@ -6977,6 +6975,8 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     \end{equation} defines a group isomorphism between \(\Aut\qty(\mathbb{D}^n)\) and \(\Aut\qty(B^n)\). Let \(\Aut'\qty(\mathbb{D}^n)<\Aut\qty(\mathbb{D}^n)\) and \(\Aut'\qty(B^n)<\Aut\qty(B^n)\) be subgroups fixing \(\vb{0}\). Therefore, \cref{eq:poincarepolydiskandunitball_isomorphism} induces a group isomorphism between \(\Aut'\qty(\mathbb{D}^n)\) and \(\Aut'\qty(B^n)\) as well.
 
     By \cref{thm:holomorphicautomorphismgrouponpolydisk}, every element of \(\Aut'\qty(\mathbb{D}^n)\) may be uniquely identified with a matrix in the form of \[\vb{P}\operatorname{diag}(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n}),\] where \(\vb{P}\) is a permutation matrix and \(\qty(\theta_1,\ldots,\theta_n)\in[0,2\piup)^n\). Hence \(\Aut'\qty(\mathbb{D}^n)\) is isomorphic to the group of unitary monomial matrices. The structure of \(\Aut'\qty(B^n)\) is given by \cref{prop:unitballautomorphismfixedpointatzero}, and each element corresponds uniquely to a unitary matrix. Thus there is a natural isomorphism \(\Aut'\qty(B^n)\cong\mathrm{U}(n)\), the \(n\times n\) \textscsl{unitary group}.
+
+    
 \end{proof}
 \subsection{Hartogs' Phenomenon}
 \section{Special Classes of Holomorphic Functions}
