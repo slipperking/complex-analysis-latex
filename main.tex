@@ -9,7 +9,7 @@
 \usepackage{csquotes}
 \usepackage{pifont}
 \usepackage{xparse}
-\usepackage{physics-patch}
+\usepackage{physics}
 \usepackage[labelfont=bf, textfont=it]{caption}
 \usepackage{subcaption}
 \usepackage{graphicx}
@@ -40,6 +40,7 @@
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\diam}{\operatorname{diam}}
 \newcommand{\Log}{\operatorname{Log}}
+\newcommand{\Arg}{\operatorname{Arg}}
 \newcommand{\Aut}{\operatorname{Aut}}
 
 \usepackage{keytheorems}
@@ -82,7 +83,7 @@
 \let\floordefault\floor%
 \renewcommand{\floor}{\floordefault*}
 
-\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\qty{#1\IfNoValueTF{#2}{}{:#2}}}}
+\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\cbraces{#1\IfNoValueTF{#2}{}{:#2}}}}
 
 \newcommand{\extcomplex}{\widehat{\mathbb{C}}}
 \newcommand{\ee}{\mathrm{e}}
@@ -134,7 +135,7 @@ space is defined to be \(X=\mathbb{C}^n\). This is satisfactory to the main
 purpose of our proceeding passage, but it is noteworthy that it can be
 generalized to more abstract sets.
 \begin{definition}[Accumulation Point]\label{def:accumulationpoint}
-    A point \(z\in\mathbb{C}^n\) is an \textscsl{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\qty{z})\cap X\neq\emptyset\)
+    A point \(z\in\mathbb{C}^n\) is an \textscsl{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\cbraces{z})\cap X\neq\emptyset\)
 \end{definition}
 \begin{definition}[Closure]\label{def:closure}
     For a set \(X\in\mathbb{C}^n\), define the \textscsl{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and its accumulation points.
@@ -190,15 +191,15 @@ generalized to more abstract sets.
     We will first show that any set satisfying the condition is compact.
 
     First we will show that \(X\) is bounded. Suppose that \(\forall R>0\),
-    \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\cbraces{B^n(0,k)}{k\in\mathbb{N}}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\qty{B^n(0,k_1),\ldots,B^n(0,k_m)}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB^n(0,k_i)=B^n\qty(0,\max\qty{k_1,\ldots k_m}).\] By contradiction, \(X\) must be bounded.
+    \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\cbraces{B^n(0,k)}{k\in\mathbb{N}}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\cbraces{B^n(0,k_1),\ldots,B^n(0,k_m)}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB^n(0,k_i)=B^n\qty(0,\max\cbraces{k_1,\ldots k_m}).\] By contradiction, \(X\) must be bounded.
 
     \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
     \[\mathcal{U}=\cbraces{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k})}}{\forall k\in\mathbb{N}}.\]
     There then exists a finite subcover
     \(\mathcal{C}=\cbraces{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k_j})}}{j\in\mathbb{N}_{\leq
-    m}}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{\max\qty{k_1,\ldots,k_m}})},\]
+    m}}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{\max\cbraces{k_1,\ldots,k_m}})},\]
     and that
-    \(X\cap\overline{B^n\qty(z_0,\frac{1}{\max\qty{k_1,\ldots,k_m}})}=\emptyset\).
+    \(X\cap\overline{B^n\qty(z_0,\frac{1}{\max\cbraces{k_1,\ldots,k_m}})}=\emptyset\).
     However, by the definition of the accumulation point, every open neighborhood
     of the accumulation point must intersect \(X\). Therefore, by contradiction,
     \(X\) is closed.
@@ -358,41 +359,41 @@ Real analysis is the subject dedicated to rigorously defining concepts such as l
 \end{definition}
 We also have the definition of the limit of a sequence:
 \begin{definition}[Epsilon--N]\label{def:epsilonn}
-    Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. If \(\exists a_\infty\in\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\qty{a_n}\) \textscsl{converges} to \(a_\infty\).
+    Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. If \(\exists a_\infty\in\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\cbraces{a_n}\) \textscsl{converges} to \(a_\infty\).
 \end{definition}
 \begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionsequenceconvergence}
-    Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. Then \(\qty{a_n}\) is convergent iff \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_m}<\varepsilon\).
+    Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. Then \(\cbraces{a_n}\) is convergent iff \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_m}<\varepsilon\).
 \end{theorem}
 \begin{proof}
-    Assume \(\qty{a_n}\) is convergent. Then \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_\infty}<\frac{\varepsilon}{2}\) and \(\abs{a_m-a_\infty}<\frac{\varepsilon}{2}\) for some \(a_\infty\in\mathbb{R}\). It follows that \[\abs{a_n-a_m}\leq\abs{a_n-a_\infty}+\abs{a_m-a_\infty}=\varepsilon.\]
+    Assume \(\cbraces{a_n}\) is convergent. Then \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_\infty}<\frac{\varepsilon}{2}\) and \(\abs{a_m-a_\infty}<\frac{\varepsilon}{2}\) for some \(a_\infty\in\mathbb{R}\). It follows that \[\abs{a_n-a_m}\leq\abs{a_n-a_\infty}+\abs{a_m-a_\infty}=\varepsilon.\]
 
-    Conversely, \(\qty{a_n}\) is bounded (fixing \(N\), \(\forall n>N\),
+    Conversely, \(\cbraces{a_n}\) is bounded (fixing \(N\), \(\forall n>N\),
     \(\abs{a_n-a_{N+1}}<\varepsilon\)). By the Bolzano--Weierstrass Theorem
-    (\cref{thm:bolzanoweierstrass}), \(\qty{a_n}_{n\in\mathbb{N}}\) has a
-    subsequence \(\qty{a_{n_k}}_{k\in\mathbb{N}}\) that converges to \(a_\infty\).
+    (\cref{thm:bolzanoweierstrass}), \(\cbraces{a_n}_{n\in\mathbb{N}}\) has a
+    subsequence \(\cbraces{a_{n_k}}_{k\in\mathbb{N}}\) that converges to \(a_\infty\).
     Therefore, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) and \(\exists
     M\in\mathbb{N}\) such that \(\forall k>M\), \(n_k>N\), and \(\forall n>N\),
     \(\abs{a_n-a_{n_k}}<\frac{\varepsilon}{2}\) and
-    \(\abs{a_{n_k}-a_\infty}<\frac{\varepsilon}{2}\). Then \[\abs{a_n-a_\infty}\leq\abs{a_n-a_{n_k}}+\abs{a_{n_k}-a_\infty}<\varepsilon.\] Hence, \(\qty{a_n}\) converges to \(a_\infty\).
+    \(\abs{a_{n_k}-a_\infty}<\frac{\varepsilon}{2}\). Then \[\abs{a_n-a_\infty}\leq\abs{a_n-a_{n_k}}+\abs{a_{n_k}-a_\infty}<\varepsilon.\] Hence, \(\cbraces{a_n}\) converges to \(a_\infty\).
 \end{proof}
 \begin{definition}[Limit Superior]\label{def:limsup}
-    For a number sequence \(\qty{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
+    For a number sequence \(\cbraces{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
     \begin{enumerate}
         \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n<a+\varepsilon\),
         \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n>a-\varepsilon\),
     \end{enumerate}
-    then the \textscsl{superior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varlimsup_{n\to\infty}a_n=\limsup_{n\to\infty}a_n=a\).
+    then the \textscsl{superior limit} of \(\cbraces{a_n}\) is \(a\), denoted by \(\varlimsup_{n\to\infty}a_n=\limsup_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{definition}[Limit Inferior]\label{def:liminf}
-    For a number sequence \(\qty{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
+    For a number sequence \(\cbraces{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
     \begin{enumerate}
         \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n>a-\varepsilon\),
         \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n<a+\varepsilon\),
     \end{enumerate}
-    then the \textscsl{inferior limit} of \(\qty{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
+    then the \textscsl{inferior limit} of \(\cbraces{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{lemma}
-    A number sequence \(\qty{a_n}\) is convergent iff if \(\varlimsup_{n\to\infty} a_n=\varliminf_{n\to\infty}a_n\).
+    A number sequence \(\cbraces{a_n}\) is convergent iff if \(\varlimsup_{n\to\infty} a_n=\varliminf_{n\to\infty}a_n\).
 \end{lemma}
 \begin{proof}
     We first prove that \(a=\lim_{n\to\infty}a_n\) implies \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n=a\).
@@ -406,7 +407,7 @@ We also have the definition of the limit of a sequence:
     \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n\). Since \(\exists
     N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\).\
     \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\),
-    \(a_n>a-\varepsilon\). Then \(\forall n>\max\qty{N_1,N_2}\),
+    \(a_n>a-\varepsilon\). Then \(\forall n>\max\cbraces{N_1,N_2}\),
     \(\abs{a_n-a}<\varepsilon\), as expected.
 \end{proof}
 \begin{definition}[Continuity]\label{def:continuity}
@@ -515,9 +516,9 @@ It is well known that any complex number also has the polar form
 \(r\ee^{\ii\theta}=r\paren{\cos\theta+\ii\sin\theta}\).
 
 The infinity point, \(\infty\), extends \(\mathbb{C}\) with
-\(\extcomplex=\mathbb{C}\cup\qty{\infty}\). The following arithmetic operations
+\(\extcomplex=\mathbb{C}\cup\cbraces{\infty}\). The following arithmetic operations
 are defined: \(\forall a\in\mathbb{C}\), \(a+\infty=\infty+a=\infty\), and
-\(\forall b\in\mathbb{C}\setminus\qty{0}\), \(b\cdot\infty=\infty\cdot
+\(\forall b\in\mathbb{C}\setminus\cbraces{0}\), \(b\cdot\infty=\infty\cdot
 b=\infty\) and \(\frac{a}{\infty}=0\).
 
 Let \(S^2=\cbraces{\qty(x_1,x_2,x_3)\in\mathbb{R}}{x_1^2+x_2^2+x_3^2=1}\).
@@ -527,7 +528,7 @@ corresponding complex number
 \begin{equation}\label{eq:extcomplexformula1}
     z=\frac{x_1+\ii x_2}{1-x_3}.
 \end{equation}
-This correspondence between \(\mathbb{C}\) and \(S^2\setminus\qty{(0,0,1)}\) is injective. In fact, the inverse can be solved for:
+This correspondence between \(\mathbb{C}\) and \(S^2\setminus\cbraces{(0,0,1)}\) is injective. In fact, the inverse can be solved for:
 \[\abs{z}^2=\frac{1-x_3^2}{\paren{1-x_3}^2}=\frac{1+x_3}{1-x_3},\]
 which results in \[x_3=\frac{\abs{z}^2-1}{\abs{z}^2+1},\]
 and consequently,
@@ -592,7 +593,7 @@ For the purpose of the following contents, a \textscsl{region} or \textscsl{doma
     The first part is to prove that any holomorphic function on \(U\) has continuous first-order partial derivatives in \(U\). This requires an argument that will be covered later (specifically in \cref{sec:analyticityandholomorphy}), which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
 
     For the second part, let \(f(z)=f(x,y)=u(x,y)+\ii v(x,y)\). Assume that
-    \(u,v\in C^1\qty(\qty{z_0})\) and satisfy the Cauchy--Riemann equations at
+    \(u,v\in C^1\qty(\cbraces{z_0})\) and satisfy the Cauchy--Riemann equations at
     \(z_0=x_0+\ii y_0\). Let \[\alpha=\pdv{u}{x}\paren{x_0,y_0}=\pdv{v}{y}\paren{x_0,y_0},\quad\beta=\pdv{v}{x}\paren{x_0,y_0}=-\pdv{u}{y}\paren{x_0,y_0}.\]
 
     Then because \(u,v\in C^1\paren{U}\) have continuous partial derivatives,
@@ -779,7 +780,7 @@ Next we examine the complex logarithm.
         \[\log(z)=\log\abs{z}+\ii\arg(z),\]
         where \(\arg(z)\) is the multi-valued argument function. We denote the
         \textscsl{principal branch} of the argument function by
-        \(\Arg:\mathbb{C}\setminus\qty{0}\to(-\piup,\piup]\). The principal branch of
+        \(\Arg:\mathbb{C}\setminus\cbraces{0}\to(-\piup,\piup]\). The principal branch of
         \(\log(z)\), or \(\Log(z)\), can be defined such that
         \(\Im\paren{\Log}\in(-\piup,\piup]\).
 \end{enumerate}
@@ -875,7 +876,7 @@ Function series are defined to be a sequence formed by the partial sums of funct
 \begin{theorem}[Weierstrass \(M\)--Test]\label{thm:weierstrassmtest}
     Let \(U\subseteq\mathbb{C}\) be a region and \(\cbraces{f_n}\) be a function sequence on \(U\)
 
-    If \(\exists\qty{M_n}\subset\mathbb{R}_{\geq 0}\) such that \(\forall
+    If \(\exists\cbraces{M_n}\subset\mathbb{R}_{\geq 0}\) such that \(\forall
     n\in\mathbb{N}\), \(\forall z\in U\), \(\qty|f_n(z)|\le M_n\) and the series
     \(\sum_{n=1}^\infty M_n\) converges, then the series \(\sum_{n=1}^\infty
     f_n(z)\) converges uniformly and absolutely on \(U\).
@@ -956,8 +957,8 @@ Of course, a convergence radius of \(0\) implies that the series is divergent ev
     series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\),
     \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
 
-    Finally, for a fixed \(n>\max\qty{N,N'}\), \(\exists\delta>0\) such that
-    \(\forall z\in D\qty(z_0,\delta)\setminus\qty{z_0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
+    Finally, for a fixed \(n>\max\cbraces{N,N'}\), \(\exists\delta>0\) such that
+    \(\forall z\in D\qty(z_0,\delta)\setminus\cbraces{z_0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
     From \cref{eq:abelradius_differentiationintermediate}, we get:
     \[\qty|\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}|<\varepsilon,\] confirming \cref{itm:abelradius_differentiation}.
 \end{proof}
@@ -1232,7 +1233,7 @@ When Cauchy formalized \cref{thm:cauchyintegralformula,thm:cauchyintegraltheorem
     Let \(f:G\to\mathbb{C}\) be a continuous function defined for a region \(G\subseteq\mathbb{C}\). Let \(\Gamma\subset G\) be a rectifiable piecewise smooth curve. Then \(\forall\varepsilon>0\), there exists a polygonal chain \(P\subset G\) inscribing \(\Gamma\) (each vertex lies on \(\Gamma\)) where \[\abs{\int_{\Gamma}f(z)\ddz-\int_{P}f(z)\ddz}<\varepsilon.\]
 \end{lemma}
 \begin{proof}
-    Because \(f\in C^0(G)\), there is a compact set \(D\subseteq G\) enclosing \(\Gamma\) and is the closure of some open set. By \cref{thm:heinecantor}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z',z''\in D\) satisfying \(\abs{z''-z'}<\delta\), \(\abs{f\paren{z''}-f\paren{z'}}<\varepsilon\). Partition \(\Gamma\) into \(n\in\mathbb{N}\) curves \(\gamma_0,\gamma_1,\ldots,\gamma_{n-1}\) between points \(z_0,z_1,\ldots z_n\) such that \(\forall k\in\qty{0,1,\ldots,n-1}\) the length of \(\gamma_k\) is less than \(\delta\).\ \(\forall k\in\qty{0,1,\ldots,n-1}\), let \(l_k\) denote the straight line segment connecting \(z_k\) and \(z_{k+1}\). The length of \(l_k\) is less than \(\delta\) as well. Then let \[P=\bigcup_{k=0}^{n-1}l_k.\] Over the partition formed with \(\gamma_k\), the integral
+    Because \(f\in C^0(G)\), there is a compact set \(D\subseteq G\) enclosing \(\Gamma\) and is the closure of some open set. By \cref{thm:heinecantor}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z',z''\in D\) satisfying \(\abs{z''-z'}<\delta\), \(\abs{f\paren{z''}-f\paren{z'}}<\varepsilon\). Partition \(\Gamma\) into \(n\in\mathbb{N}\) curves \(\gamma_0,\gamma_1,\ldots,\gamma_{n-1}\) between points \(z_0,z_1,\ldots z_n\) such that \(\forall k\in\cbraces{0,1,\ldots,n-1}\) the length of \(\gamma_k\) is less than \(\delta\).\ \(\forall k\in\cbraces{0,1,\ldots,n-1}\), let \(l_k\) denote the straight line segment connecting \(z_k\) and \(z_{k+1}\). The length of \(l_k\) is less than \(\delta\) as well. Then let \[P=\bigcup_{k=0}^{n-1}l_k.\] Over the partition formed with \(\gamma_k\), the integral
     \begin{equation*}
         \int_{\Gamma}f(z)\ddz
     \end{equation*} can be approximated with the Riemann sum \[S=\sum_{k=0}^{n-1}f\paren{z_k}\Delta z_k\] where \[\Delta z_k=z_{k+1}-z_k=\int_{\gamma_k}\ddz=\int_{l_k}\ddz.\]
@@ -1479,8 +1480,8 @@ When Cauchy formalized \cref{thm:cauchyintegralformula,thm:cauchyintegraltheorem
     We are left to show the subsequent limits of the results from
     \cref{eq:cauchygoursattheorem_innerinnerverticaltoouterinnervertical}. For the
     left integral, let
-    \(y_{\varphi}=\max\qty{\varphi(a),\varphi\paren{a+\varepsilon}}\) and
-    \(y_{\psi}=\max\qty{\psi(a),\psi\paren{a+\varepsilon}}\).
+    \(y_{\varphi}=\max\cbraces{\varphi(a),\varphi\paren{a+\varepsilon}}\) and
+    \(y_{\psi}=\max\cbraces{\psi(a),\psi\paren{a+\varepsilon}}\).
 
     Then, \[\int_{\overrightarrow{PM}}f(z)\ddz=\ii\int_{\psi(a)}^{\varphi(a)}f\paren{a+\ii y}\ddy=\ii\paren{\int_{\psi(a)}^{y_\varphi}+\int_{y_\varphi}^{y_\psi}+\int_{y_\psi}^{\varphi(a)}}f(a+\ii y)\ddy.\]
     Similarly, \[\int_{\overrightarrow{P_1M_1}}f(z)\ddz=\ii\paren{\int_{\psi(a+\varepsilon)}^{y_\varphi}+\int_{y_\varphi}^{y_\psi}+\int_{y_\psi}^{\varphi(a+\varepsilon)}}f(a+\varepsilon+\ii y)\ddy.\]
@@ -1894,19 +1895,19 @@ fact:
     set in \(\tau\) is clopen.
 \end{example}
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
-    For a topological space \(X\), an \textscsl{exhaustion by compact sets} is a nested sequence of compact sets \(\qty{K_n}_{n\in\mathbb{N}}\subseteq X\) such that \(K_n\subset\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\) and \(X=\bigcup_{n\in\mathbb{N}}K_n\).
+    For a topological space \(X\), an \textscsl{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\) such that \(K_n\subset\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\) and \(X=\bigcup_{n\in\mathbb{N}}K_n\).
 \end{definition}
 \begin{lemma}\label{lem:locallyfiniteopencoverexistence}
-    Let \(\Omega\subseteq\mathbb{C}\) be an open set and let \(\mathfrak{B}\) be a basis for the standard topology on \(\Omega\). Then there exists a collection of sets \(\qty{U_n}_{n\in\mathbb{N}}\subseteq\mathfrak{B}\) such that
+    Let \(\Omega\subseteq\mathbb{C}\) be an open set and let \(\mathfrak{B}\) be a basis for the standard topology on \(\Omega\). Then there exists a collection of sets \(\cbraces{U_n}_{n\in\mathbb{N}}\subseteq\mathfrak{B}\) such that
     \begin{enumerate}
         \item \(\bigcup_{n\in\mathbb{N}}U_n=\Omega\). \label{itm:locallyfiniteopencoverexistence_cover}
         \item For every compact \(K\subset\Omega\), \(K\) intersects only finitely many sets
-            in \(\qty{U_n}_{n\in\mathbb{N}}\).
+            in \(\cbraces{U_n}_{n\in\mathbb{N}}\).
             \label{itm:locallyfiniteopencoverexistence_localfiniteness}
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Let \(\qty{K_n}_{n\in\mathbb{N}}\subset\Omega\) be an exhaustion by compact sets with \(K_0=\emptyset\) and \(K_n\subseteq\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\). For each \(n\in\mathbb{N}\), define \[W_n=\interior{K_{n+1}}\setminus K_{n-1},\quad V_n=K_n\setminus\interior{K_{n-1}},\]
+    Let \(\cbraces{K_n}_{n\in\mathbb{N}}\subset\Omega\) be an exhaustion by compact sets with \(K_0=\emptyset\) and \(K_n\subseteq\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\). For each \(n\in\mathbb{N}\), define \[W_n=\interior{K_{n+1}}\setminus K_{n-1},\quad V_n=K_n\setminus\interior{K_{n-1}},\]
     where \(K_{-1}=\emptyset\). Each \(W_n\) is open and each \(V_n\) is compact,
     with \(V_n\subseteq W_n\) and \(\bigsqcup_{n\in\mathbb{N}}V_n=\Omega\).
 
@@ -1918,7 +1919,7 @@ fact:
     points \(z_{n,1},\dots,z_{n,k_n}\in V_n\) such that \[V_n\subset\bigcup_{i=1}^{k_n}U_{z_{n,i},n}\subseteq W_n.\]
     Enumerate all such \(U_{z_{n,i},n}\) over \(n\in\mathbb{N}\) and
     \(i=1,\dots,k_n\) to obtain a countable collection
-    \(\qty{U_j}_{j\in\mathbb{N}}\subseteq\mathfrak{B}\). Then
+    \(\cbraces{U_j}_{j\in\mathbb{N}}\subseteq\mathfrak{B}\). Then
     \(\bigcup_{j\in\mathbb{N}}U_j=\Omega\), proving
     \cref{itm:locallyfiniteopencoverexistence_cover}.
 
@@ -2025,7 +2026,7 @@ fact:
     Then the sum \(S(z)=\sum_{j=1}^\infty\beta_j(z)\) defined for \(z\in\Omega\)
     involves only finitely many nonzero terms (by local finiteness) on a
     neighborhood of every point \(z\). Hence \(S\in C^\infty(\Omega)\) and
-    \(S(z)>0\) (since \(\qty{D\qty(z_j,r_{z_j})}_{j\in\mathbb{N}}\) covers
+    \(S(z)>0\) (since \(\cbraces{D\qty(z_j,r_{z_j})}_{j\in\mathbb{N}}\) covers
     \(\Omega\)). Define
     \[\alpha_j(z)=\frac{\beta_j(z)}{S(z)},\quad\forall j\in\mathbb{N}.\]
     Each \(\alpha_j\in C^\infty(\mathbb{C})\) has compact support in \(\Omega\),
@@ -2046,13 +2047,13 @@ fact:
 
     Define the open sets
     \[\Omega_1=V(K,2\varepsilon),\qquad\Omega_2=\mathbb{C}\setminus\overline{V(K,\varepsilon)}.\]
-    Then \(\qty{\Omega_1,\Omega_2}\) is an open cover of \(\mathbb{C}\).
+    Then \(\cbraces{\Omega_1,\Omega_2}\) is an open cover of \(\mathbb{C}\).
 
     By the Partition of Unity Theorem (\cref{thm:partitionofunity}), there exist
-    compactly supported functions \(\qty{\alpha_j}_{j\in\mathbb{N}}\subset
+    compactly supported functions \(\cbraces{\alpha_j}_{j\in\mathbb{N}}\subset
     C^\infty(\mathbb{C})\) forming a partition of unity subordinate to this cover.
     That is,
-    \[0\leq\alpha_j\leq1,\quad\supp\qty(\alpha_j)\subset\Omega_{i_j}\text{ for some }i_j\in\qty{1,2},\quad\sum_{j=1}^\infty\alpha_j\equiv1\qq{on}\mathbb{C}.\]
+    \[0\leq\alpha_j\leq1,\quad\supp\qty(\alpha_j)\subset\Omega_{i_j}\text{ for some }i_j\in\cbraces{1,2},\quad\sum_{j=1}^\infty\alpha_j\equiv1\qq{on}\mathbb{C}.\]
     Define
     \[\varphi(z)=\sum_{\substack{j\in\mathbb{N}\\\supp\qty(\alpha_j)\subset\Omega_1}}\alpha_j(z).\]
     Then \(\varphi\in C^\infty(\mathbb{C})\) is compactly supported within
@@ -2206,7 +2207,7 @@ Thus, one defines the \textscsl{winding index} to quantify how many times a clos
     \begin{equation}
         \lim_{n\to\infty}\oint_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\label{eq:hurwitzsimplecase_argumentprinciple}
     \end{equation}
-    Since \(f\) and \(f'\) are holomorphic over \(\gamma\), by \cref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\qty{\abs{f(z)},\abs{f'(z)}}<M\).
+    Since \(f\) and \(f'\) are holomorphic over \(\gamma\), by \cref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\cbraces{\abs{f(z)},\abs{f'(z)}}<M\).
 
     Since \(\gamma\) does not pass through the zeros of \(f\), \(\exists\lambda>0\)
     such that \(\forall z\in\gamma\), \(\abs{f(z)}>\lambda\). By the uniform
@@ -2256,7 +2257,7 @@ By the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}), 
 
     If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at
     \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is
-    non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\),
+    non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\cbraces{z_0}\),
     \(\exists\delta>0\) such that \(\forall\xi\in D\qty(w_0,\delta)\), \(f-\xi\)
     has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
 \end{theorem}
@@ -2269,11 +2270,11 @@ By the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}), 
 \end{proof}
 We also have the following generalization of \cref{thm:hurwitzsimplecase}, which is a heuristic restatement of \cref{thm:hurwitzshifts}:
 \begin{theorem}[\textsc{Hurwitz}]\label{thm:hurwitz}
-    Let \(U\subseteq\mathbb{C}\) be an open and connected set, and suppose \(\qty{f_n(z)}_{n\in\mathbb{N}}\) is a holomorphic function sequence that uniformly converges to a non-constant function \(f(z)\) on all compact sets of \(U\).
+    Let \(U\subseteq\mathbb{C}\) be an open and connected set, and suppose \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) is a holomorphic function sequence that uniformly converges to a non-constant function \(f(z)\) on all compact sets of \(U\).
 
     If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at
     \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is
-    non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\qty{z_0}\), \(\exists
+    non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\cbraces{z_0}\), \(\exists
     N\in\mathbb{N}\) such that \(\forall n>N\), \(f_n-w_0\) has \(m\) zeros in
     \(D\qty(z_0,\rho)\), counting multiplicity.
 \end{theorem}
@@ -2774,19 +2775,19 @@ derivatives (its statement was used in the proof of
     Let \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on an open region \(U\subseteq\mathbb{C}\) that converges uniformly to \(f(z)\) on every compact subset of \(U\). Then \(f(z)\) is holomorphic on \(U\), and \(\forall k\in\mathbb{N}\), the sequence \(\cbraces{f^{(k)}_n(z)}_{n\in\mathbb{N}}\) uniformly converges to \(f^{(k)}(z)\) on all compact subsets of \(U\).
 \end{theorem}
 \begin{proof}
-    By Morera's Theorem (\cref{thm:morera}) and the uniform convergence of \(\qty{f_n(z)}\), the holomorphy of \(f(z)\) follows (refer to \cref{eq:hurwitzsimplecase_integrallimitswitchforholomorphy} and preceding explanations).
+    By Morera's Theorem (\cref{thm:morera}) and the uniform convergence of \(\cbraces{f_n(z)}\), the holomorphy of \(f(z)\) follows (refer to \cref{eq:hurwitzsimplecase_integrallimitswitchforholomorphy} and preceding explanations).
 
     Following the same logic, by \cref{cor:nthderivativeboundedsupremum}, \(\forall
     k\in\mathbb{N}\) and for all compact \(K\subset U\) and open \(V\supset K\)
     relatively compact in \(U\) there exists a finite constant \(c_k>0\) such that
     \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)-f^{(k)}(z)}\leq c_k\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)-f(z)}.\] Since \(\cbraces{f_n(z)}\) is uniformly convergent, the limit on the right-hand
     side vanishes. Then,
-    \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)-f^{(k)}(z)}=0,\] and therefore \(\qty{f^{(k)}_n(z)}\) uniformly converges on all compact subsets
+    \[\lim_{n\to\infty}\sup_{z\in K}\abs{f_n^{(k)}(z)-f^{(k)}(z)}=0,\] and therefore \(\cbraces{f^{(k)}_n(z)}\) uniformly converges on all compact subsets
     of \(U\).
 \end{proof}
 The condition of uniform convergence on every compact subset can also be significantly loosened, by the fact demonstrated below:
 \begin{proposition}
-    Let \(U\subseteq\mathbb{C}\) be an open bounded region, and let \(\qty{f_n(z)}\) be holomorphic on \(U\). Let \(K\subset U\) be compact. If \(f_n\rightrightarrows f\) on \(\partial K\), then \(f_n\rightrightarrows f\) on \(K\).
+    Let \(U\subseteq\mathbb{C}\) be an open bounded region, and let \(\cbraces{f_n(z)}\) be holomorphic on \(U\). Let \(K\subset U\) be compact. If \(f_n\rightrightarrows f\) on \(\partial K\), then \(f_n\rightrightarrows f\) on \(K\).
 \end{proposition}
 \begin{proof}
     By the converse statement of the Cauchy Criterion (\cref{thm:cauchycriterionuniformconvergence}), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \[\sup_{z\in\partial K}\qty|f_n(z)-f_m(z)|<\varepsilon.\]
@@ -2797,7 +2798,7 @@ The condition of uniform convergence on every compact subset can also be signifi
 \begin{remark}
     From the above result, the uniform convergence on every compact subset in \cref{thm:weierstrassconvergence} can therefore be loosened to the uniform convergence on every simple closed curve.
 \end{remark}
-We will now study Laurent series. Let \(a\in\mathbb{C}\) and \(\qty{c_n}_{n\in\mathbb{Z}}\subset\mathbb{C}\) be constants. A series in the form of
+We will now study Laurent series. Let \(a\in\mathbb{C}\) and \(\cbraces{c_n}_{n\in\mathbb{Z}}\subset\mathbb{C}\) be constants. A series in the form of
 \begin{equation}\label{eq:laurentseries}
     f(z)=\sum_{n=-\infty}^\infty c_n(z-a)^n
 \end{equation}
@@ -2818,7 +2819,7 @@ example, \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n^2}\), where
 \(R=r=1\), converges (absolutely) on \(\partial\mathbb{D}\), whereas
 \(\sum_{n=-\infty}^\infty z^n\) diverges on all of \(\partial\mathbb{D}\),
 while \(\sum_{\substack{n=-\infty\\n\neq0}}^\infty\frac{z^n}{n}\) converges
-(conditionally) on all of \(\partial\mathbb{D}\setminus\qty{1}\) and diverges
+(conditionally) on all of \(\partial\mathbb{D}\setminus\cbraces{1}\) and diverges
 at \(z=1\). If \(r>R\), then the series is divergent on all of \(\mathbb{C}\).
 The region \(D(a,R)\setminus\overline{D(a,r)}\) is known as the
 \textscsl{annulus of convergence}.\ \(f(z)\) in \cref{eq:laurentseries} is
@@ -2868,9 +2869,9 @@ annulus and is uniformly convergent on every compact subset of it.
     In other words, the integrals in
     \cref{eq:laurentexpansionofholomorphicfunction_finalstep} are the same as on
     \(\gamma\). Hence, we get that \[f(z)=\sum_{n=0}^\infty c_n(z-a)^n+\sum_{n=1}^\infty c_{-n}(z-a)^{-n}=\sum_{n=-\infty}^\infty c_n(z-a)^n.\]
-    The constants \(\qty{c_n}_{n\in\mathbb{Z}}\) are also unique in the expansion.
+    The constants \(\cbraces{c_n}_{n\in\mathbb{Z}}\) are also unique in the expansion.
     For the sake of contradiction, assume there exists another set of constants
-    \(\qty{c'_n}_{n\in\mathbb{Z}}\) such that
+    \(\cbraces{c'_n}_{n\in\mathbb{Z}}\) such that
     \begin{equation}
         f(z)=\sum_{n=-\infty}^\infty c'_n{(z-a)}^n,\label{eq:laurentexpansionofholomorphicfunction_uniquenessstatement}
     \end{equation}
@@ -2937,7 +2938,7 @@ of \(f\) at the point \(a\). Specifically, we can analyze the behavior of
 \end{enumerate}
 A function with an essential singularity exhibits striking behavior. We will first introduce the following famous result.
 \begin{theorem}[name=\textsc{Casorati--Sokhotski--Weierstrass},store=thm:casoratiweierstrass]\label{thm:casoratiweierstrass}
-    Let \(a\in\mathbb{C}\) and \(U\subseteq\mathbb{C}\) be an open region. Suppose \(f:U\setminus\qty{a}\to\mathbb{C}\) is holomorphic with an essential singularity at \(a\). Then the set of values that \(f\) attains on any open punctured neighborhood of \(a\) is dense. In other words, \(\forall\varepsilon,\delta>0\), \(\forall w\in\mathbb{C}\), \(\exists z\in D^*(a,\delta)\) such that \(|f(z)-w|<\varepsilon\).
+    Let \(a\in\mathbb{C}\) and \(U\subseteq\mathbb{C}\) be an open region. Suppose \(f:U\setminus\cbraces{a}\to\mathbb{C}\) is holomorphic with an essential singularity at \(a\). Then the set of values that \(f\) attains on any open punctured neighborhood of \(a\) is dense. In other words, \(\forall\varepsilon,\delta>0\), \(\forall w\in\mathbb{C}\), \(\exists z\in D^*(a,\delta)\) such that \(|f(z)-w|<\varepsilon\).
 \end{theorem}
 \begin{proof}
     Assume for the sake of contradiction that \(\exists\varepsilon,\delta>0\), and \(\exists w\in\mathbb{C}\) such that \(\forall z\in D^*(a,\delta)\), \(|f(z)-w|>\varepsilon\). Define the auxiliary function \(g(z)=\frac{f(z)-w}{z-a}\), which is holomorphic and non-vanishing on the punctured neighborhood of \(a\). Since as \(z\to a\), \(g(z)\to\infty\), it follows that \(g(z)\) has a pole at \(a\). Let the order of the pole be \(m\in\mathbb{N}\). By \cref{thm:isolatedsingularities_pole_laurentexpansion}, \(g(z)\) has the Laurent expansion of \[\frac{c_{-m}}{(z-a)^m}+\cdots c_0+c_1(z-a)+\cdots\]
@@ -3021,7 +3022,7 @@ the implications on the entire function \(f\) given an isolated singularity.
     The entire functions \(\sin(z)\), \(\cos(z)\), \(\sinh(z)\), \(\cosh(z)\), and \(\exp(z)\) are transcendental.
 \end{example}
 \begin{definition}[Meromorphy]\label{def:meromorphicfunction}
-    Let \(U\subseteq\mathbb{C}\) be open, and let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a set of isolated points. Suppose \(f:U\setminus\cbraces{a_n}_{n\in\mathbb{N}}\to\mathbb{C}\) is holomorphic and has a pole at each of \(z\in\qty{a_n}\). Then \(f\) is \textscsl{meromorphic} in \(U\).
+    Let \(U\subseteq\mathbb{C}\) be open, and let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a set of isolated points. Suppose \(f:U\setminus\cbraces{a_n}_{n\in\mathbb{N}}\to\mathbb{C}\) is holomorphic and has a pole at each of \(z\in\cbraces{a_n}\). Then \(f\) is \textscsl{meromorphic} in \(U\).
 \end{definition}
 Similar to holomorphy, meromorphy on a compact set can be defined as meromorphy on a neighborhood of the set. In general, we imply for the set to be open unless stated otherwise. If the set is not implicitly specified, we assume meromorphy on \(\mathbb{C}\).
 
@@ -3079,7 +3080,7 @@ Conversely, we have:
     \(z_1,\dots,z_n\) and \(\infty\).
 
     We now show that each of these singularities is removable. First, fix
-    \(j\in\qty{1,\ldots,n}\) arbitrarily. Since the poles are isolated, there
+    \(j\in\cbraces{1,\ldots,n}\) arbitrarily. Since the poles are isolated, there
     exists \(\varepsilon_j>0\) such that the punctured disk
     \(D^*\qty(z_j,\varepsilon_j)=\cbraces{z}{0<\abs{z-z_j}<\varepsilon_j}\)
     contains no other poles \(z_k\) for \(k\neq j\).
@@ -3174,7 +3175,7 @@ If \(z=\infty\) is not a pole or removable singularity of a meromorphic function
 \subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
 In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C}\), and \(\extcomplex\). We will now find \(\Aut(\mathbb{C})\).
 \begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{C}\)]\label{thm:holomorphicautomorphismgrouponcomplexplane}
-    \(\forall f\in \Aut(\mathbb{C})\), \(f\) is linear and non-constant. In other words, \(\exists a\in\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) and \(\exists b\in\mathbb{C}\) such that \[f(z)=az+b.\]
+    \(\forall f\in \Aut(\mathbb{C})\), \(f\) is linear and non-constant. In other words, \(\exists a\in\mathbb{C}^*=\mathbb{C}\setminus\cbraces{0}\) and \(\exists b\in\mathbb{C}\) such that \[f(z)=az+b.\]
 \end{theorem}
 \begin{proof}
     First, assume that \(\infty\) is not an essential singularity of \(f(z)\) (we will prove this later). Then \(\infty\) must be a pole by trichotomy, as a removable singularity implies boundedness (\cref{prop:removablesingularityatinftyentireconstant}). Therefore, \(f(z)\) is a polynomial of degree \(m\), where \(m\in\mathbb{N}\).
@@ -3256,7 +3257,7 @@ Let us now examine \(\Aut\qty(\extcomplex)\). Let \(f(z)\in
 \Aut\qty(\extcomplex)\) such that \(f(\infty)=\infty\). It follows that \(f\)
 maps \(\mathbb{C}\) to \(\mathbb{C}\) bijectively and
 \(f\in\Aut(\mathbb{C})<\Aut\qty(\extcomplex)\). Therefore, \(f(z)\) has the
-form of \(az+b\), where \(a\in\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) and
+form of \(az+b\), where \(a\in\mathbb{C}^*=\mathbb{C}\setminus\cbraces{0}\) and
 \(b\in\mathbb{C}\) are constants.
 
 Let \(f(z)\in\Aut\qty(\extcomplex)\) such that \(f(\infty)\neq\infty\). Then,
@@ -3270,12 +3271,12 @@ correspond to this transformation, where for any nonzero scalar \(k\),
 arbitrarily pick \(ad-bc\) to be \(1\).
 
 Therefore, there exists a one-to-one correspondence between
-\(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\qty{\pm\vb{I}},\right.\]
+\(\Aut\qty(\extcomplex)\) and the group (under matrix multiplication) of \[\left.\cbraces{\mqty(a&b\\c&d)}{\det\mqty(a&b\\c&d)=1}\middle/\cbraces{\pm\vb{I}},\right.\]
 where \(\vb{I}=\mqty(\imat{2})\). The quotient group (a group of elements in
-the form \(\qty{\vb{A},-\vb{A}}\)) is taken because the matrix
+the form \(\cbraces{\vb{A},-\vb{A}}\)) is taken because the matrix
 \(\mqty(a&b\\c&d)\) corresponds to the same transformation as
 \(\mqty(-a&-b\\-c&-d)\). This group, denoted by
-\(\mathrm{PSL}\qty(2,\mathbb{C})=\left.\mathrm{SL}(2,\mathbb{C})\middle/\qty{\pm
+\(\mathrm{PSL}\qty(2,\mathbb{C})=\left.\mathrm{SL}(2,\mathbb{C})\middle/\cbraces{\pm
 \vb{I}}\right.\cong\Aut\qty(\extcomplex)\), is known as the
 \textscsl{projective special linear group} of order 2, and is isomorphic to the \textscsl{group of Möbius transformations}, consisting of all complex linear
 fractional transformations.
@@ -3310,7 +3311,7 @@ For \(x\in\mathbb{R}_{\geq0}\), since \(\ee^x\geq x\) and \(\ee^0=1\), we can
 integrate over \([0,x]\) to get that \(\ee^x\geq x+1\). Therefore,
 \begin{align*}
     \exp(\sum_{k=1}^n\abs{u_k}) & \geq\prod_{k=1}^n \qty(1+\abs{u_k})=1+\sum_{k=1}^n\abs{u_k} \\
-    & \quad+\sum_{\substack{j,k\in\qty{1,\ldots,n}                \\j<k}}\abs{u_j u_k}+\cdots+\prod_{k=1}^n\abs{u_k}>\sum_{k=1}^n\abs{u_k}.
+    & \quad+\sum_{\substack{j,k\in\cbraces{1,\ldots,n}                \\j<k}}\abs{u_j u_k}+\cdots+\prod_{k=1}^n\abs{u_k}>\sum_{k=1}^n\abs{u_k}.
 \end{align*}
 Since the convergence of \(\sum_{k=1}^\infty\abs{u_k}\) is the same as that of \(\exp(\sum_{k=1}^\infty\abs{u_k})\), it follows that the convergence of \(\sum_{k=1}^\infty\abs{u_k}\) is equivalent to that of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\). If \(\sum_{k=1}^\infty\abs{u_k}\) is convergent, then \(\prod_{k=1}^\infty\qty(1+u_k)\) is \textscsl{absolutely convergent}. As with the order of summing an absolutely convergent series is unimportant, we may also rearrange terms in an absolutely convergent infinite product.
 
@@ -3320,7 +3321,7 @@ convergence:
     An absolutely convergent infinite product is convergent.
 \end{lemma}
 \begin{proof}
-    Let \(\qty{u_k}_{k\in\mathbb{N}}\) be a complex sequence such that \(\sum_{k=1}^\infty\qty|u_k|\) is convergent. Then \(\prod_{k=1}^\infty\qty(1+u_k)\) is absolutely convergent. Let \(Q_n(z)\) denote the partial products of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\) and let \(P_n(z)\) denote the partial products of \(\prod_{k=1}^n\qty(1+u_k)\). By the Cauchy Criterion (\cref{thm:cauchycriterionsequenceconvergence}), we have that \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{Q_m(z)-Q_n(z)}<\varepsilon\). Let us now analyze the absolute difference between the \(P_n\) and \(P_m\):
+    Let \(\cbraces{u_k}_{k\in\mathbb{N}}\) be a complex sequence such that \(\sum_{k=1}^\infty\qty|u_k|\) is convergent. Then \(\prod_{k=1}^\infty\qty(1+u_k)\) is absolutely convergent. Let \(Q_n(z)\) denote the partial products of \(\prod_{k=1}^\infty\qty(1+\abs{u_k})\) and let \(P_n(z)\) denote the partial products of \(\prod_{k=1}^n\qty(1+u_k)\). By the Cauchy Criterion (\cref{thm:cauchycriterionsequenceconvergence}), we have that \(\forall \varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{Q_m(z)-Q_n(z)}<\varepsilon\). Let us now analyze the absolute difference between the \(P_n\) and \(P_m\):
     \begin{align*}
         \abs{P_n-P_m} & =\abs{\prod_{k=1}^n\qty(1+u_k)-\prod_{k=1}^m\qty(1+u_k)}                                 \\
         & =\abs{\prod_{k=1}^{m}\qty(1+u_k)\prod_{k=m+1}^{n}\qty(1+u_k)-\prod_{k=1}^{m}\qty(1+u_k)} \\
@@ -3350,7 +3351,7 @@ We also have:
     Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty \abs{f_k(z)}\) is uniformly convergent on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on compact subsets of \(U\) to a holomorphic function, which vanishes only at a point \(z\) iff \(f_k(z)=-1\) for some \(k\in\mathbb{N}\). The multiplicity at each such zero \(z\) is the sum of the multiplicities of \(1+f_k\) at \(z\) for all \(k\) satisfying \(f_k(z)=-1\).
 \end{lemma}
 \begin{proof}
-    Let \(K\subset U\) be an arbitrary compact set. By the uniform convergence of \(\sum_{k=1}^\infty \abs{f_k(z)}\) on \(K\), it follows that the uniform limit is continuous by the Uniform Limit Theorem (\cref{thm:uniformlimit}). By continuity on a compact set, it follows that the limit is bounded by some constant \(M'\). Additionally, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sum_{k=1}^n \abs{f_k(z)}<M'+\varepsilon\). It follows that the partial sums are uniformly bounded in \(K\) by \(M=\max\qty{\max_{k=1}^N\qty(\max_{z\in K}f_k(z)), M'+\varepsilon}\). Similarly, by earlier discussion of infinite products, we have \[F_n(z)=\prod_{k=1}^n\qty(1+\abs{f_k(z)})\leq\exp\qty(\sum_{k=1}^n\abs{f_k(z)})\leq \ee^{M},\]
+    Let \(K\subset U\) be an arbitrary compact set. By the uniform convergence of \(\sum_{k=1}^\infty \abs{f_k(z)}\) on \(K\), it follows that the uniform limit is continuous by the Uniform Limit Theorem (\cref{thm:uniformlimit}). By continuity on a compact set, it follows that the limit is bounded by some constant \(M'\). Additionally, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sum_{k=1}^n \abs{f_k(z)}<M'+\varepsilon\). It follows that the partial sums are uniformly bounded in \(K\) by \(M=\max\cbraces{\max_{k=1}^N\qty(\max_{z\in K}f_k(z)), M'+\varepsilon}\). Similarly, by earlier discussion of infinite products, we have \[F_n(z)=\prod_{k=1}^n\qty(1+\abs{f_k(z)})\leq\exp\qty(\sum_{k=1}^n\abs{f_k(z)})\leq \ee^{M},\]
     or in other words, the partial products are uniformly bounded on \(K\). Let
     \(0<\varepsilon<1\) be arbitrary. By definition, there exists
     \(N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{\sum_{k=m+1}^n
@@ -3433,7 +3434,7 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
             \abs{Q_{p_n}\qty(\frac{z}{a_n})} & =\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber                                      \\
             & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\frac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
         \end{align}
-        By the definition of \(\qty{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\), and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \cref{lem:infiniteproductlocallyuniformconvergencecriterion}, \cref{thm:weierstrassconvergence}, and \cref{thm:hurwitzsimplecase}.
+        By the definition of \(\cbraces{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\), and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \cref{lem:infiniteproductlocallyuniformconvergencecriterion}, \cref{thm:weierstrassconvergence}, and \cref{thm:hurwitzsimplecase}.
 
         The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the
         absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on
@@ -3451,19 +3452,19 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
         \end{align*}
         which has a convergent series by definition. Therefore, \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) is absolutely convergent on \(\overline{D(0,R)}\).
 
-        Letting \(R\to\infty\), for any such sequence \(\qty{a_n}_{n\in\mathbb{N}}\),
+        Letting \(R\to\infty\), for any such sequence \(\cbraces{a_n}_{n\in\mathbb{N}}\),
         we can define the entire function
         \begin{equation}
             f(z)=\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:entirefunctionconstructedfrominfinitelymanyzeros}
         \end{equation} to have zeros at each element of the sequence, and for any compact disk \(\overline{D(0,R)}\), the product above is uniformly convergent. We can then formulate:
         \begin{theorem}[\textsc{Weierstrass Factorization Theorem}]\label{thm:weierstrassfactorization}
-            Suppose \(f(z)\) is an entire function. Let \(\qty{a_n}_{n\in\mathbb{N}}\) be the sequence of all nonzero zeros of \(f\) satisfying \(a_n\to\infty\) as \(n\to\infty\) and \(0<\qty|a_n|\leq\qty|a_{n+1}|\) (equality of \(a_n\) and \(a_{n+1}\) treated as multiplicities) for all \(n\). Let \(m\) be the multiplicity of \(f(z)\) at \(z=0\) (let \(m=0\) if there is no zero at \(0\)). Then there exists a sequence \(\qty{p_n}_{n\in\mathbb{N}}\) such that \(\forall R>0\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. Then, we can write
+            Suppose \(f(z)\) is an entire function. Let \(\cbraces{a_n}_{n\in\mathbb{N}}\) be the sequence of all nonzero zeros of \(f\) satisfying \(a_n\to\infty\) as \(n\to\infty\) and \(0<\qty|a_n|\leq\qty|a_{n+1}|\) (equality of \(a_n\) and \(a_{n+1}\) treated as multiplicities) for all \(n\). Let \(m\) be the multiplicity of \(f(z)\) at \(z=0\) (let \(m=0\) if there is no zero at \(0\)). Then there exists a sequence \(\cbraces{p_n}_{n\in\mathbb{N}}\) such that \(\forall R>0\), \(\sum_{n=1}^\infty{\qty|\frac{R}{a_n}|}^{p_n+1}\) converges. Then, we can write
             \begin{equation}
                 f(z)=z^m\ee^{\varphi(z)}\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\label{eq:weierstrassfactorization_statement}
             \end{equation} on \(D(0,R)\), where \(E_p(z)\) is the \(p\)-th Weierstrass elementary factor defined in \cref{eq:weierstrasselementaryfactor} and \(\varphi(z)\) is an entire function. The infinite product converges uniformly on \(\overline{D(0,R)}\) and converges absolutely on \(\mathbb{C}\). If we let \(p_n=n\), we can write \[f(z)=z^m\ee^{\varphi(z)}\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}+\frac{1}{2}\qty(\frac{z}{a_n})^2+\cdots+\frac{1}{n}\qty(\frac{z}{a_n})^n].\]
         \end{theorem}
         \begin{proof}
-            By the argument of \cref{eq:entirefunctionconstructedfrominfinitelymanyzeros}, construct \(\psi(z)\) to be entire and have zeros at \(\qty{a_n}_{n\in\mathbb{N}}\). Thus, \(z^m\psi(z)\) and \(f(z)\) have the same zeros and corresponding multiplicities. Then the function \(z^m\frac{\psi(z)}{f(z)}\) has removable singularities on all of \(\qty{a_n}_{n\in\mathbb{N}}\cup\qty{0}\) and has an analytic continuation (\cref{thm:riemannremovablesingularities}) to an entire and non-vanishing function. Therefore, it can be written as \(z^m\frac{\psi(z)}{f(z)}=\ee^{\phi(z)}\), where \(\phi\). Let \(\varphi=-\phi\), and from rearrangement, we obtain \cref{eq:weierstrassfactorization_statement}
+            By the argument of \cref{eq:entirefunctionconstructedfrominfinitelymanyzeros}, construct \(\psi(z)\) to be entire and have zeros at \(\cbraces{a_n}_{n\in\mathbb{N}}\). Thus, \(z^m\psi(z)\) and \(f(z)\) have the same zeros and corresponding multiplicities. Then the function \(z^m\frac{\psi(z)}{f(z)}\) has removable singularities on all of \(\cbraces{a_n}_{n\in\mathbb{N}}\cup\cbraces{0}\) and has an analytic continuation (\cref{thm:riemannremovablesingularities}) to an entire and non-vanishing function. Therefore, it can be written as \(z^m\frac{\psi(z)}{f(z)}=\ee^{\phi(z)}\), where \(\phi\). Let \(\varphi=-\phi\), and from rearrangement, we obtain \cref{eq:weierstrassfactorization_statement}
         \end{proof}
 \end{enumerate}
 By the construction above, we have:
@@ -3479,12 +3480,12 @@ Therefore, any meromorphic function on \(\mathbb{C}\) can be expressed as the qu
 We will now study the construction of meromorphic functions from their poles
 and the principal parts of their Laurent expansions at each pole.
 
-Suppose \(n\in\mathbb{N}\) and \(\qty{a_k}_{k=1}^n\subset\mathbb{C}\) is a
-sequence of distinct values. Let \(\qty{\psi_k(z)}_{k=1}^n\) be a collection of
+Suppose \(n\in\mathbb{N}\) and \(\cbraces{a_k}_{k=1}^n\subset\mathbb{C}\) is a
+sequence of distinct values. Let \(\cbraces{\psi_k(z)}_{k=1}^n\) be a collection of
 functions in the form of
 \begin{equation}
     \psi_k(z)=\sum_{j=m_k}^{p_k}\frac{c_{k,j}}{{\qty(z-a_k)}^j},\label{eq:meromorphicfunctionconstructionprincipalparts}
-\end{equation} where \(p_k\geq m_k\) are finite integer constants and \(\qty{c_{k,j}}\) are complex constants.
+\end{equation} where \(p_k\geq m_k\) are finite integer constants and \(\cbraces{c_{k,j}}\) are complex constants.
 
 Suppose that \(f(z)\) is meromorphic on \(\mathbb{C}\) such that \(f\) has
 finitely many poles. Therefore, \(f\) has an isolated singularity at
@@ -3492,13 +3493,13 @@ finitely many poles. Therefore, \(f\) has an isolated singularity at
 \begin{enumerate}
     \item If \(z=\infty\) is a removable singularity or a pole, by the given proof of
         \cref{thm:rationalmeromorphicfunctions}, we may construct \(f(z)\) to have
-        poles at each of \(\qty{a_k}_{k=1}^n\) such that the principal parts of \(f\)
-        at each of \(\qty{a_k}_{k=1}^n\) are \(\qty{\psi_k(z)}_{k=1}^n\). It can be
+        poles at each of \(\cbraces{a_k}_{k=1}^n\) such that the principal parts of \(f\)
+        at each of \(\cbraces{a_k}_{k=1}^n\) are \(\cbraces{\psi_k(z)}_{k=1}^n\). It can be
         explicitly written as \[f(z)=p(z)+\sum_{k=1}^n\psi_k(z)\] (we can absorb the constant \(c\) into the polynomial \(\psi_\infty\) as used in the proof).
     \item In the case that \(f(z)\) is a transcendental meromorphic function with an
         isolated essential singularity at \(z=\infty\), notice that the function
         defined by \(\varphi(z)=f(z)-\sum_{k=1}^n\psi_k(z)\) has removable
-        singularities at each of \(\qty{a_k}_{k=1}^n\). Indeed, since the singularities
+        singularities at each of \(\cbraces{a_k}_{k=1}^n\). Indeed, since the singularities
         are isolated, for a fixed \(k\), \(\exists\varepsilon_k>0\) such that for any
         \(j\neq k\), \(a_j\notin D\qty(a_k,\varepsilon_k)\). It follows that \(\psi_j\)
         is holomorphic on \(D\qty(a_k,\varepsilon_k)\). Notice that \(f(z)-\psi_k\) is
@@ -3513,7 +3514,7 @@ finitely many poles. Therefore, \(f\) has an isolated singularity at
     \item The existence of a transcendental meromorphic function \(f\) whose poles have
         an accumulation point at \(z=\infty\) is the concern of the following theorem:
         \begin{theorem}[\textsc{Mittag--Leffler}]\label{thm:mittagleffler}
-            Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\mathbb{C}\) be a sequence of distinct complex numbers such that \(\forall n\in\mathbb{N}\), \(\abs{a_n}\leq\abs{a_{n+1}}\) and \(\lim_{n\to\infty}a_n=\infty\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a function sequence, each in the form of \cref{eq:meromorphicfunctionconstructionprincipalparts}. Then,
+            Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\mathbb{C}\) be a sequence of distinct complex numbers such that \(\forall n\in\mathbb{N}\), \(\abs{a_n}\leq\abs{a_{n+1}}\) and \(\lim_{n\to\infty}a_n=\infty\). Let \(\cbraces{\psi_n}_{n\in\mathbb{N}}\) be a function sequence, each in the form of \cref{eq:meromorphicfunctionconstructionprincipalparts}. Then,
             \begin{enumerate}[label=(\alph*)]
                 \item A meromorphic function \(f(z)\) on \(\mathbb{C}\) can be constructed such that
                     \(\forall n\in\mathbb{N}\), \(f\) has a pole at \(a_n\) with a principal part
@@ -3522,7 +3523,7 @@ finitely many poles. Therefore, \(f\) has an isolated singularity at
                     represented as
                     \begin{equation}
                         f(z)=\varphi(z)+\sum_{n=1}^\infty\qty[\psi_n(z)-p_n(z)]\label{eq:mittagleffler_construction_statement}
-                    \end{equation} for some sequence of polynomials \(\qty{p_n(z)}\) and an arbitrary entire function \(\varphi(z)\).\label{itm:mittagleffler_construction}
+                    \end{equation} for some sequence of polynomials \(\cbraces{p_n(z)}\) and an arbitrary entire function \(\varphi(z)\).\label{itm:mittagleffler_construction}
             \end{enumerate}
         \end{theorem}
         \begin{proof}
@@ -3538,17 +3539,17 @@ finitely many poles. Therefore, \(f\) has an isolated singularity at
                             \varphi_n(z)\equiv 0 & \qif* z\in\mathbb{C}\setminus U_n
                     \end{cases}.\]
                     Let \(u(z)=\sum_{k=1}^\infty\varphi_k(z)\psi_k(z)\), which is an element of
-                    \(C^\infty\qty(\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}})\). For a fixed
+                    \(C^\infty\qty(\mathbb{C}\setminus\cbraces{a_k}_{k\in\mathbb{N}})\). For a fixed
                     \(n\in\mathbb{N}\), it is true that \(u\equiv\psi_n\) on
-                    \(\overline{V_n}\setminus\qty{a_n}\). Hence, although \(u\) is not meromorphic,
+                    \(\overline{V_n}\setminus\cbraces{a_n}\). Hence, although \(u\) is not meromorphic,
                     it does have the required principal part near each \(a_k\). Let \[\phi(z)=
                         \begin{cases}
-                            \pdv{u}{\overline{z}} & \qif* z\in\mathbb{C}\setminus\qty{a_k}_{k\in\mathbb{N}} \\
-                            0                     & \qif* z\in\qty{a_k}_{k\in\mathbb{N}}
+                            \pdv{u}{\overline{z}} & \qif* z\in\mathbb{C}\setminus\cbraces{a_k}_{k\in\mathbb{N}} \\
+                            0                     & \qif* z\in\cbraces{a_k}_{k\in\mathbb{N}}
                     \end{cases}.\]
                     Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is
-                    \(C^\infty\) on \(\overline{V_n}\setminus\qty{a_n}\) and \(\phi\) vanishes on
-                    \(\qty{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the
+                    \(C^\infty\) on \(\overline{V_n}\setminus\cbraces{a_n}\) and \(\phi\) vanishes on
+                    \(\cbraces{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the
                     discussion proceeding \cref{thm:onedimensionalpartialconjugatesolution}, there
                     exists a \(C^\infty\) function \(v(z)\) such that
                     \(\pdv{v}{\overline{z}}=\phi(z)\) on \(\mathbb{C}\). Since \(\phi\) is
@@ -3556,11 +3557,11 @@ finitely many poles. Therefore, \(f\) has an isolated singularity at
                     \(f(z)=u(z)-v(z)\). Then
                     \[\pdv{f}{\overline{z}}=\pdv{u}{\overline{z}}-\pdv{v}{\overline{z}}=\phi(z)-\phi(z)=0,\]
                     which implies that \(f\) is holomorphic on \(\mathbb{C} \setminus
-                    \qty{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part
+                    \cbraces{a_k}_{k\in\mathbb{N}}\). Since \(u\) has the desired principal part
                     \(\psi_n\) at each \(a_n\) and \(v\) is \(C^\infty\) (and hence removable at
                     each singularity), it follows that \(f\) is meromorphic on \(\mathbb{C}\) with
                     principal parts \(\psi_n\) at each \(a_n\), as desired.
-                \item Let \(\qty{\varepsilon_n}_{n\in\mathbb{N}}\) be a positive sequence such that
+                \item Let \(\cbraces{\varepsilon_n}_{n\in\mathbb{N}}\) be a positive sequence such that
                     \(\sum_{n=1}^\infty\varepsilon_n\) is convergent. Without loss of generality,
                     let \(a_1=0\) (if \(a_1\) is not a pole, set \(\psi_1=0\)). Choose \(p_1(z)=0\)
                     (this can actually be any arbitrary polynomial). Fix \(n\geq 2\), \(\psi_n\) is
@@ -3585,52 +3586,52 @@ finitely many poles. Therefore, \(f\) has an isolated singularity at
                     D(0,R)\). Since \(R\) was arbitrarily chosen, \(\Psi\) has poles at each
                     \(a_n\) with the corresponding principal part \(\psi_n(z)\) on \(\mathbb{C}\).
                     Let \(\varphi(z)=f(z)-\Psi(z)\) be analytically continued onto each of
-                    \(\qty{a_n}_{n\in\mathbb{N}}\). Then \(\varphi(z)\) is an entire function
+                    \(\cbraces{a_n}_{n\in\mathbb{N}}\). Then \(\varphi(z)\) is an entire function
                     (since the Laurent expansions of \(\varphi\) at each of
-                    \(\qty{a_n}_{n\in\mathbb{N}}\) vanish). By rearrangement, we obtain our desired
+                    \(\cbraces{a_n}_{n\in\mathbb{N}}\) vanish). By rearrangement, we obtain our desired
                     result.\qedhere
             \end{enumerate}
         \end{proof}
 \end{enumerate}
 The Mittag--Leffler Theorem (\cref{thm:mittagleffler}) can also be generalized as follows:
 \begin{theorem}\label{thm:mittaglefflerboundary}
-    Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\) and let \(E=\qty{a_n}_{n\in\mathbb{N}}\subset U\) be a sequence of distinct complex numbers whose accumulation points lie on \(\partial U\). Let \(\qty{\psi_n}_{n\in\mathbb{N}}\) be a sequence of functions in the form of \cref{eq:meromorphicfunctionconstructionprincipalparts}. Then there exists a meromorphic function \(f:U\to\mathbb{C}\) with poles at each \(a_n\) with principal parts \(\psi_n\) at each \(a_n\).
+    Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\) and let \(E=\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a sequence of distinct complex numbers whose accumulation points lie on \(\partial U\). Let \(\cbraces{\psi_n}_{n\in\mathbb{N}}\) be a sequence of functions in the form of \cref{eq:meromorphicfunctionconstructionprincipalparts}. Then there exists a meromorphic function \(f:U\to\mathbb{C}\) with poles at each \(a_n\) with principal parts \(\psi_n\) at each \(a_n\).
 \end{theorem}
 Indeed, since \(\partial U\cap U=\emptyset\), each \(a_n\) is not an accumulation of \(E\). In other words, for each \(n\in\mathbb{N}\), there exist neighborhoods \(U_n\) of \(a_n\) that are relatively compact in \(U\) with disjoint closures. The proceeding proof is analogous to that of \cref{itm:mittagleffler_existence} in \cref{thm:mittagleffler}.
 
 Finally, we will examine the construction of entire functions interpolating
 prescribed values and derivatives at given points.
 
-Let \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of distinct complex
-numbers and let \(\qty{w_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of complex
+Let \(\cbraces{z_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of distinct complex
+numbers and let \(\cbraces{w_j}_{j=1}^n\subset\mathbb{C}\) be a sequence of complex
 numbers. We can then construct a polynomial \(f(z)\) such that \(\forall
-j\in\qty{1,\ldots,n}\), \(f\qty(z_j)=w_j\). One such explicit formula is given
+j\in\cbraces{1,\ldots,n}\), \(f\qty(z_j)=w_j\). One such explicit formula is given
 by the \textscsl{Lagrange interpolation formula}:
 \[f(z)=\sum_{j=1}^n\qty[w_j\prod_{\substack{k=1\\k\neq j}}^n\frac{z-z_k}{z_j-z_k}].\]
-Then, following the assumption that \(\qty{z_j}_{j=1}^n\subset\mathbb{C}\) is a
+Then, following the assumption that \(\cbraces{z_j}_{j=1}^n\subset\mathbb{C}\) is a
 sequence of distinct complex numbers, let
-\(\qty{w_{j,k}}_{\substack{j\in\qty{1,\ldots,n}\\ k\in \qty{0,\ldots,n_j}}}\)
-be a sequence where \(\qty{n_j}_{j=1}^n\subset\mathbb{N}\). Then we can find a
-polynomial \(f(z)\) such that \(\forall j\in\qty{1,\ldots,n}\), \(\forall
-k\in\qty{0,\ldots,n_j}\), \(f^{(k)}\qty(z_j)=k!w_{j,k}\) (for clarity's sake,
+\(\cbraces{w_{j,k}}_{\substack{j\in\cbraces{1,\ldots,n}\\ k\in \cbraces{0,\ldots,n_j}}}\)
+be a sequence where \(\cbraces{n_j}_{j=1}^n\subset\mathbb{N}\). Then we can find a
+polynomial \(f(z)\) such that \(\forall j\in\cbraces{1,\ldots,n}\), \(\forall
+k\in\cbraces{0,\ldots,n_j}\), \(f^{(k)}\qty(z_j)=k!w_{j,k}\) (for clarity's sake,
     \(j\) selects the pair and \(k\) selects the order of the derivative, whose
 upper bound varies for each \(j\)). Oftentimes, the factorial coefficient is
-absorbed into \(\qty{w_{j,k}}\).
+absorbed into \(\cbraces{w_{j,k}}\).
 
 As it turns out, an entire function can in fact be constructed for infinitely
 many interpolation points, or when \(n\to\infty\).
 \begin{theorem}\label{thm:generalinterpolationexistence}
-    Let \(\qty{z_k}_{k\in\mathbb{N}}\subset\mathbb{C}\) be a discrete set and let \(\qty{w_{k,n}}_{\substack{k\in\mathbb{N}\\n\in\qty{0,\ldots,n_k}}}\) be a sequence where \(\qty{n_k}_{k\in\mathbb{N}}\subset\mathbb{N}\). Then there exists an entire function such that \(\forall k\in\mathbb{N}\), \(\forall n\in\qty{0,\ldots,n_k}\),
+    Let \(\cbraces{z_k}_{k\in\mathbb{N}}\subset\mathbb{C}\) be a discrete set and let \(\cbraces{w_{k,n}}_{\substack{k\in\mathbb{N}\\n\in\cbraces{0,\ldots,n_k}}}\) be a sequence where \(\cbraces{n_k}_{k\in\mathbb{N}}\subset\mathbb{N}\). Then there exists an entire function such that \(\forall k\in\mathbb{N}\), \(\forall n\in\cbraces{0,\ldots,n_k}\),
     \begin{equation}
         f^{(n)}\qty(z_k)=n!w_{k,n}.\label{eq:generalinterpolationexistence_statement}
     \end{equation}
     In other words, an entire function can be constructed by the given first \(n_k\) coefficients of the Taylor expansion at each each \(z_k\).
 \end{theorem}
 \begin{proof}
-    According to the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), we can construct an entire function \(\Phi(z)\) with zeros at each of \(\qty{z_k}_{k\in\mathbb{N}}\) with corresponding multiplicities of \(\qty{n_k}_{k\in\mathbb{N}}\). By the discreteness of \(\qty{z_k}_{k\in\mathbb{N}}\), there exists a corresponding sequence of radii \(\qty{\varepsilon_k}_{k\in\mathbb{N}}\) such that each \(\overline{D\qty(z_k,2\varepsilon_k)}\) are disjoint.
+    According to the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), we can construct an entire function \(\Phi(z)\) with zeros at each of \(\cbraces{z_k}_{k\in\mathbb{N}}\) with corresponding multiplicities of \(\cbraces{n_k}_{k\in\mathbb{N}}\). By the discreteness of \(\cbraces{z_k}_{k\in\mathbb{N}}\), there exists a corresponding sequence of radii \(\cbraces{\varepsilon_k}_{k\in\mathbb{N}}\) such that each \(\overline{D\qty(z_k,2\varepsilon_k)}\) are disjoint.
 
-    Define a complex function sequence \(\qty{\phi_k(z)}_{k\in\mathbb{N}}\) with \[\phi_k(z)=\sum_{n=0}^{n_k-1}w_{k,n}\qty(z-z_k)^n,\] where \(k\in\mathbb{N}\). By \cref{thm:bumpfunctionexistence}, we can construct
-    a \(C^\infty\) sequence of functions \(\qty{\varphi_k(z)}_{k\in\mathbb{N}}\)
+    Define a complex function sequence \(\cbraces{\phi_k(z)}_{k\in\mathbb{N}}\) with \[\phi_k(z)=\sum_{n=0}^{n_k-1}w_{k,n}\qty(z-z_k)^n,\] where \(k\in\mathbb{N}\). By \cref{thm:bumpfunctionexistence}, we can construct
+    a \(C^\infty\) sequence of functions \(\cbraces{\varphi_k(z)}_{k\in\mathbb{N}}\)
     such that \(\forall k\in\mathbb{N}\), \(\supp\varphi_k\subset D\qty(z_k,
     2\varepsilon_k)\), \(\varphi_k\equiv 1\) on
     \(\overline{D\qty(z_k,\varepsilon_k)}\), and \(0\le\varphi\le 1\) on
@@ -3660,7 +3661,7 @@ many interpolation points, or when \(n\to\infty\).
     \overline{D\qty(z_k,\varepsilon_k)}\), and \(\Psi\) is holomorphic on
     \(\bigcup_{k=1}^\infty{D\qty(z_k,\varepsilon_k)}\).
 
-    Fix \(k\in\mathbb{N}\) and let \(n\in\qty{0,\ldots,n_k-1}\). For \(z\in
+    Fix \(k\in\mathbb{N}\) and let \(n\in\cbraces{0,\ldots,n_k-1}\). For \(z\in
     D\qty(z_k,\varepsilon_k)\), from
     \cref{eq:generalinterpolationexistence_constructionstatement}, we have \[f(z)=-\Phi(z)\Psi(z)+\phi_k(z).\] Since \(\Phi\) has a zero at \(z_k\) with multiplicity \(n_k\), we have
     \(\Phi(z)\Psi(z)\) vanishing at \(z_k\) with a multiplicity of at least
@@ -3690,9 +3691,9 @@ many interpolation points, or when \(n\to\infty\).
     where the linear term vanishes since \(\frac{\qty(\zeta-n)^2}{\sin[2](\piup\zeta)}\) is even around \(\zeta=n\). Hence, the principal part of \(\csc^2(\piup z)\) at \(z=n\) is \(\psi_n(z)=\frac{1}{\piup^2(z-n)^2}\). Let \(z=x+\ii y\). Since
     \begin{align*}
         \abs{\sum_{n=-\infty}^\infty\psi_n(z)} & \leq\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{\qty|z-n|^2}\leq\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{\qty(x-n)^2}                                \\
-        & =\frac{1}{\piup^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}] \\
-        & \leq\frac{1}{\piup^2}\qty[2\sum_{n=1}^\infty\frac{1}{n^2}+\frac{1}{\qty{x}^2}+\frac{1}{\qty[1-\qty{x}]^2}]
-    \end{align*} (where \(\qty{x}\) is the fractional part of the real component of \(z\)), it converges uniformly on compact subsets of \(\mathbb{C}\setminus\mathbb{Z}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). It follows that this sum is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\) by \cref{thm:weierstrassconvergence}. The difference \[f(z)=\csc[2](\piup z)-\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{(z-n)^2}\] is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\). Since the principal parts
+        & =\frac{1}{\piup^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\cbraces{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\cbraces{x}]^2}+\frac{1}{\cbraces{x}^2}+\frac{1}{\qty[1-\cbraces{x}]^2}] \\
+        & \leq\frac{1}{\piup^2}\qty[2\sum_{n=1}^\infty\frac{1}{n^2}+\frac{1}{\cbraces{x}^2}+\frac{1}{\qty[1-\cbraces{x}]^2}]
+    \end{align*} (where \(\cbraces{x}\) is the fractional part of the real component of \(z\)), it converges uniformly on compact subsets of \(\mathbb{C}\setminus\mathbb{Z}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). It follows that this sum is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\) by \cref{thm:weierstrassconvergence}. The difference \[f(z)=\csc[2](\piup z)-\frac{1}{\piup^2}\sum_{n=-\infty}^\infty\frac{1}{(z-n)^2}\] is holomorphic on \(\mathbb{C}\setminus\mathbb{Z}\). Since the principal parts
     of \(f\) at each \(z=n\) are zero, it follows that \(f\) is entire. Therefore,
     it is bounded on every compact subset of the complex plane. Since \(f\) is
     bounded on the compact rectangle \(K=\cbraces{z\in\mathbb{C}}{0\leq\Re(z)\leq
@@ -3700,13 +3701,13 @@ many interpolation points, or when \(n\to\infty\).
     For \(0\leq x=\Re(z)\leq 1\) satisfying \(\abs{y}=\abs{\Im(z)}>1\), by the
     reverse triangle inequality, we have
     \begin{align}
-        \abs{f(z)} & \leq\abs{\csc[2](\piup z)}+\frac{1}{\piup^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\qty{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\qty{x}]^2}+\frac{1}{\abs{z}^2}+\frac{1}{\abs{1-z}^2}]\nonumber \\
+        \abs{f(z)} & \leq\abs{\csc[2](\piup z)}+\frac{1}{\piup^2}\qty[\sum_{n=2}^\infty\frac{1}{\qty[n-\cbraces{x}]^2}+\sum_{n=1}^\infty\frac{1}{\qty[n+\cbraces{x}]^2}+\frac{1}{\abs{z}^2}+\frac{1}{\abs{1-z}^2}]\nonumber \\
         & \leq \frac{1}{\abs{\sin^2\qty[\piup(x+\ii y)]}}+\frac{1}{\piup^2}\qty[\frac{\piup^2}{3}+\frac{2}{y^2}]\nonumber                                                                                \\
         & =\frac{1}{\abs{\sin(\piup x)\cosh(\piup y)+\ii\sinh(\piup y)\cos(\piup x)}^2}+\frac{1}{3}+\frac{2}{\piup^2 y^2}\nonumber                                                                       \\
         & \leq \frac{1}{\sin[2](\piup x)\cosh[2](\piup y)+\sinh[2](\piup y)\qty[1-\sin[2](\piup x)]}+\frac{1}{3}+\frac{2}{\piup^2}\nonumber                                                              \\
         & \leq \frac{1}{\sin[2](\piup x)+\sinh[2](\piup y)}+\frac{1}{3}+\frac{2}{\piup^2}\leq\csch[2](\piup)+\frac{1}{3}+\frac{2}{\piup^2}.\label{eq:csc^2poleexpansionuniformbound}
     \end{align}
-    Since \[\abs{f}<\max\qty{M,\csch[2](\piup)+\frac{1}{3}+\frac{2}{\piup^2}}\] on \(\mathbb{C}\), Liouville's Theorem (\cref{thm:liouville}) gives that \(f\)
+    Since \[\abs{f}<\max\cbraces{M,\csch[2](\piup)+\frac{1}{3}+\frac{2}{\piup^2}}\] on \(\mathbb{C}\), Liouville's Theorem (\cref{thm:liouville}) gives that \(f\)
     is constant. At \(z=\frac{1}{2}\), we have
     \begin{align*}
         f\qty(\frac{1}{2}) & =\csc[2](\frac{\piup}{2})-\frac{8}{\piup^2}\sum_{n=1}^\infty\frac{1}{\qty[2n-1]^2}=1-\frac{8}{\piup^2}\qty(\sum_{n=1}^\infty\frac{1}{n^2}-\sum_{n=1}^\infty\frac{1}{(2n)^2}) \\
@@ -3742,7 +3743,7 @@ many interpolation points, or when \(n\to\infty\).
     Since for fixed \(k\), \[\log\abs{\varphi_{\frac{a_k}{R}}(0)}=\log\abs{\frac{a_k}{R}}\qand\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}=\log(1)=0,\]
     \cref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\piup}\int_0^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
     Suppose \(f\) has additional zeros at each
-    \(\qty{b_j=R\ee^{\ii\vartheta_j}}_{1\leq j\leq m}\subset\partial D(0,R)\), each
+    \(\cbraces{b_j=R\ee^{\ii\vartheta_j}}_{1\leq j\leq m}\subset\partial D(0,R)\), each
     with multiplicity \(k_j\). Since the zeros here are discrete, we can cover them
     with disks \(D\qty(b_j,\varepsilon_j)\) within the domain of holomorphy of
     \(f\) such that their closures are disjoint and do not intersect any \(a_k\).
@@ -3766,12 +3767,12 @@ Since the summation on the right is negative, we have the following consequence:
         \log\abs{f(z)} & =\int_0^{2\piup}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                                          \\
         & \quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
     \end{align}
-    where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in \cref{eq:poissonkernelgeneralform}.
+    where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\setminus\qty(\cbraces{a_j}_{j=1}^m\cup\cbraces{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in \cref{eq:poissonkernelgeneralform}.
 \end{theorem}
 \begin{proof}
     Let \(\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}\) and let \(\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}\) for all \(1\leq j\leq m\) and \(1\leq k\leq n\). Consider the function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})},\]
     which is holomorphic and nonzero on \(\overline{D(0,R)}\). Fix \(z\in
-    D(0,R)\setminus\qty(\qty{a_j}_{j=1}^m\cup\qty{b_k}_{j=1}^n)\) and let
+    D(0,R)\setminus\qty(\cbraces{a_j}_{j=1}^m\cup\cbraces{b_k}_{j=1}^n)\) and let
     \(\Phi(\xi)=g\circ\qty(R\varphi_{-\frac{z}{R}})\qty(\xi)\), where
     \(R\varphi_{-\frac{z}{R}}\qty(\xi)=\frac{R^2\xi+Rz}{R+\overline{z}\xi}\) is
     holomorphic on \(\overline{\mathbb{D}}\) with \(\Phi(0)=z\). Since \(g\) is
@@ -3806,7 +3807,7 @@ Since the summation on the right is negative, we have the following consequence:
     Let \(f:\mathbb{D}\to\mathbb{C}\) be a non-constant bounded holomorphic function whose zeros are \(a_1,a_2,\ldots\), counted according to their multiplicities, ordered such that \(\abs{a_n}\leq \abs{a_{n+1}}\) for all \(n\in\mathbb{N}\). Then, \[\sum_{n=1}^\infty\qty(1-\abs{a_n})\] is convergent.
 \end{lemma}
 \begin{proof}
-    First assume \(f(0)\neq 0\) and choose \(M\) such that \(f\leq M\) on \(\mathbb{D}\). The magnitudes \(\qty{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\qty{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside \(D(0,R)\). By Jensen's Formula (\cref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}\leq \log(M)+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
+    First assume \(f(0)\neq 0\) and choose \(M\) such that \(f\leq M\) on \(\mathbb{D}\). The magnitudes \(\cbraces{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\cbraces{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside \(D(0,R)\). By Jensen's Formula (\cref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\piup}\int_{0}^{2\piup}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}\leq \log(M)+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
     Let \(R\to 1^{-}\). It follows that \[\log\abs{f(0)}\leq\log\abs{M}+\sum_{k=1}^\infty\log\abs{a_k}.\]
     For any \(0<a<1\), we have \(-\log(a)=1-a+\sum_{n=2}^\infty\qty(1-a)^n
     a^n>1-a\). Hence, \[0\leq\sum_{k=1}^\infty\qty(1-\abs{a_k})<-\sum_{k=1}^\infty\log\abs{a_k}\leq\log\abs{M}-\log\abs{f(0)}.\]
@@ -3814,11 +3815,11 @@ Since the summation on the right is negative, we have the following consequence:
     to \(z\mapsto \frac{f(z)}{z^m}\).
 \end{proof}
 \begin{theorem}[\textsc{Blaschke Product}]\label{thm:blaschkeproduct}
-    Let \(\qty{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\qty{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textscsl{Blaschke condition}). Then the \textscsl{Blaschke product}, defined by
+    Let \(\cbraces{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\cbraces{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textscsl{Blaschke condition}). Then the \textscsl{Blaschke product}, defined by
     \begin{equation}
         B(z)=\prod_{k=1}^\infty \qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_k}(z)],\label{eq:blaschkeproduct_statement}
     \end{equation} where \(\varphi_a(z
-    )\) is a Möbius transformation in the form of \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}, is uniformly convergent on compact subsets of \(\mathbb{D}\) to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\qty{a_k}\).
+    )\) is a Möbius transformation in the form of \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}, is uniformly convergent on compact subsets of \(\mathbb{D}\) to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\cbraces{a_k}\).
 \end{theorem}
 \begin{proof}
     If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use
@@ -3896,7 +3897,7 @@ we will now formally introduce.
     where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\piup\ii}\oint_{\partial D(a,\rho)}\frac{f(z)\ddz}{(z-a)^{n+1}},\] we get that the residue of \(f\) at \(a\) is equal to the first term \(c_{-1}\)
     of the principal part of its Laurent expansion.
 \end{definition}
-It then follows that the residue at a removable singularity is 0. As a direct consequence of \cref{eq:residue}, we can derive explicit formulas for the calculation of residues at poles. If \(U\subseteq\mathbb{C}\) is open, \(a\in U\) is an isolated singularity (a pole of order \(m\neq\infty\)) of \(f:U\setminus\qty{a}\to\mathbb{C}\) that is holomorphic, then locally:
+It then follows that the residue at a removable singularity is 0. As a direct consequence of \cref{eq:residue}, we can derive explicit formulas for the calculation of residues at poles. If \(U\subseteq\mathbb{C}\) is open, \(a\in U\) is an isolated singularity (a pole of order \(m\neq\infty\)) of \(f:U\setminus\cbraces{a}\to\mathbb{C}\) that is holomorphic, then locally:
 \[f(z)=c_{-m}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_{-1}(z-a)^{-1}+\cdots.\]
 Multiplying by \((z-a)^{m}\), we obtain that \[{(z-a)^m}f(z)=c_{-m}+c_{1-m}(z-a)+\cdots+c_{-1}(z-a)^{m-1}+\cdots.\]
 By the definition of a Taylor series, we find that
@@ -3921,7 +3922,7 @@ reasoning behind this definition.
 \end{proof}
 This result itself is fairly trivial. Now we will explain the significance of the residue at infinity.
 \begin{theorem}[Global Residue Theorem]\label{thm:globalresiduethm}
-    If \(\qty{z_1,\ldots z_n,\infty}\) is discrete and finite, and \(f:\extcomplex\setminus\qty{z_1,\ldots z_n,\infty}\to\mathbb{C}\) is holomorphic, and these points are the isolated singularities of \(f\), then the sum of the residues at each of these isolated singularities is zero, or \[\sum_{k=1}^n\residue_{z=z_k} f(z)+\residue_{z=\infty}f(z)=0.\]
+    If \(\cbraces{z_1,\ldots z_n,\infty}\) is discrete and finite, and \(f:\extcomplex\setminus\cbraces{z_1,\ldots z_n,\infty}\to\mathbb{C}\) is holomorphic, and these points are the isolated singularities of \(f\), then the sum of the residues at each of these isolated singularities is zero, or \[\sum_{k=1}^n\residue_{z=z_k} f(z)+\residue_{z=\infty}f(z)=0.\]
 \end{theorem}
 \begin{proof}
     Let \(R>\max_{j\in\mathbb{N}_{\leq n}}\qty|z_n|\) be arbitrary. By the Residue Theorem (\cref{thm:residuethm}), \[-\residue_{z=\infty}f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}f(z)\ddz=\sum_{k=1}^n\residue_{z=z_k}f(z)\]
@@ -4348,7 +4349,7 @@ are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
     The disks \(\cbraces{D\qty(\zeta,r_\zeta)}_{\zeta \in\partial D\qty(z_0,R)}\)
     cover \(\partial D\qty(z_0,R)\). Then from compactness and the Heine--Borel
     Theorem (\cref{thm:heineborel}), the cover of disks admits a finite subcover
-    \(\qty{D\qty(\zeta_k,r_k)}_{k=1}^n\). Hence, \(\exists\rho>0\) such that
+    \(\cbraces{D\qty(\zeta_k,r_k)}_{k=1}^n\). Hence, \(\exists\rho>0\) such that
     \(A=\cbraces{z}{R-\rho\leq\abs{z-z_0}\leq R+\rho}\subset V\), where we let
     \(V=\bigcup_{k=1}^n D\qty(\zeta_k,r_k)\).
 
@@ -4370,7 +4371,7 @@ are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
     contradicting the maximality of \(R\).
 \end{proof}
 \begin{definition}\label{def:maximalanalyticcontinuation}
-    A \textscsl{maximal analytic continuation} \(\qty{\qty(f,U)}\) of an analytic function element \(\qty(\widetilde{f},\widetilde{U})\) is obtained by all possible succesive analytic continuations of \(\qty(\widetilde{f},\widetilde{U})\). The union of every \(U\) is known as the \textscsl{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial U\) is known as a \textscsl{natural boundary}. The continuation defines a function \(f\), known a \textscsl{global analytic function}, which can be multi-valued.
+    A \textscsl{maximal analytic continuation} \(\cbraces{\qty(f,U)}\) of an analytic function element \(\qty(\widetilde{f},\widetilde{U})\) is obtained by all possible succesive analytic continuations of \(\qty(\widetilde{f},\widetilde{U})\). The union of every \(U\) is known as the \textscsl{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial U\) is known as a \textscsl{natural boundary}. The continuation defines a function \(f\), known a \textscsl{global analytic function}, which can be multi-valued.
 \end{definition}
 \begin{example}\label{ex:factoriallacunaryseries}
     The series \(f(z)=\sum_{n=0}^{\infty}z^{n!}\) has \(\mathbb{D}\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
@@ -4406,8 +4407,8 @@ are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
     Show that the analytic functions defined by the series \(f(z)=\sum_{n=0}^\infty\alpha^n z^n\) and \(\widetilde{f}(z)=\sum_{n=0}^\infty\frac{(\alpha-1)^n z^n}{{\qty(1-z)}^{n+1}}\) are analytic continuations of each other.
 \end{example}
 \begin{proof}
-    The analytic function element \(\qty(f,D\qty(0,\abs{\frac{1}{\alpha}}))\) can be directly continued to the analytic function element \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{\frac{1}{\alpha}})\). The function element \(\qty(\widetilde{f},D\qty(0,\frac{1-z}{\alpha-1}))\) can be analytically continued to \[\qty(z\mapsto\frac{1}{(1-z)\qty(1-\frac{z\alpha-z}{1-z})},\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}})=\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\qty{1,\frac{1}{\alpha}}),\] which is a direction analytic continuation of \(\qty(z\mapsto\frac{1}{1-\alpha
-    z},\mathbb{C}\setminus\qty{\frac{1}{\alpha}})\). Therefore, \(f\) and
+    The analytic function element \(\qty(f,D\qty(0,\abs{\frac{1}{\alpha}}))\) can be directly continued to the analytic function element \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\cbraces{\frac{1}{\alpha}})\). The function element \(\qty(\widetilde{f},D\qty(0,\frac{1-z}{\alpha-1}))\) can be analytically continued to \[\qty(z\mapsto\frac{1}{(1-z)\qty(1-\frac{z\alpha-z}{1-z})},\mathbb{C}\setminus\cbraces{1,\frac{1}{\alpha}})=\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\cbraces{1,\frac{1}{\alpha}}),\] which is a direction analytic continuation of \(\qty(z\mapsto\frac{1}{1-\alpha
+    z},\mathbb{C}\setminus\cbraces{\frac{1}{\alpha}})\). Therefore, \(f\) and
     \(\widetilde{f}\) are analytic continuations of each other.
 \end{proof}
 In \cref{ex:complexlogarithmanalyticcontinuation}, we showed that two analytic function elements can on the same domain can be analytic continuations even if they do not agree on the entire domain. In this case, the two elements are on different branches of the function. Hence, depending on the chain of function elements chosen, we may obtain two different analytic function elements that have the same domain.
@@ -4418,7 +4419,7 @@ specifically the concept of homotopy. We will now introduce the concept of
 analytic continuation along a given curve.
 \subsection{Analytic Continuation Along a Curve}
 \begin{definition}\label{def:analyticcontinuationalongcurve}
-    Let \(\gamma:[0,1]\to\mathbb{C}\) be a (non-constant) curve. Let \(U\) be a disk centered at \(\gamma(0)\) and suppose \(f: U\to\mathbb{C}\) is holomorphic. An \textscsl{analytic continuation of} \(\qty(f,U)\) \textscsl{along} \(\gamma\) is defined to be a collection of analytic functions elements \(\qty{\qty(f_t, U_t)}_{0\leq t\leq 1}\) where
+    Let \(\gamma:[0,1]\to\mathbb{C}\) be a (non-constant) curve. Let \(U\) be a disk centered at \(\gamma(0)\) and suppose \(f: U\to\mathbb{C}\) is holomorphic. An \textscsl{analytic continuation of} \(\qty(f,U)\) \textscsl{along} \(\gamma\) is defined to be a collection of analytic functions elements \(\cbraces{\qty(f_t, U_t)}_{0\leq t\leq 1}\) where
     \begin{enumerate}
         \item We define \(U_0=U\) and \(f_0=f\).
         \item Each \(U_t\) (\(0\leq t\leq 1\)) is a disk centered at \(\gamma(t)\).
@@ -4430,7 +4431,7 @@ analytic continuation along a given curve.
 \end{definition}
 For a fixed curve, such analytic continuations are unique in the following sense:
 \begin{lemma}\label{lem:analyticcontinuationalongcurveuniqueness}
-    For a fixed curve \(\gamma:[0,1]\to\mathbb{C}\), let \(f\) be holomorphic on \(U\) (a disk centered at \(\gamma(0)\)). Then any two analytic continuations \(\qty{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\qty{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) along \(\gamma\) satisfy \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\) (where \(\qty(f_1,U_1)\) and \(\qty(\widetilde{f}_t,\widetilde{U}_t)\) are the respective terminal analytic function elements).
+    For a fixed curve \(\gamma:[0,1]\to\mathbb{C}\), let \(f\) be holomorphic on \(U\) (a disk centered at \(\gamma(0)\)). Then any two analytic continuations \(\cbraces{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\cbraces{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) along \(\gamma\) satisfy \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\) (where \(\qty(f_1,U_1)\) and \(\qty(\widetilde{f}_t,\widetilde{U}_t)\) are the respective terminal analytic function elements).
 \end{lemma}
 \begin{proof}
     Let \(S\subseteq[0,1]\) be the set of all \(t_0\) such that \(\forall 0\leq t\leq t_0\), \(f_t\equiv \widetilde{f}_t\) on \(U_t\cap\widetilde{U}_t\) (this intersection is nonempty since \(\gamma(t)\in U_t,\widetilde{U}_t\)). Since \(0\in S\), it follows that \(S\) is nonempty.
@@ -4439,7 +4440,7 @@ For a fixed curve, such analytic continuations are unique in the following sense
     \(0\leq t<t_0\) also lies in \(S\) by definition.
 
     Let \(t_\infty=\sup(S)\), and choose an increasing sequence
-    \(\qty{t_n}_{n\in\mathbb{N}}\subseteq S\) that converges to \(t_\infty\). By
+    \(\cbraces{t_n}_{n\in\mathbb{N}}\subseteq S\) that converges to \(t_\infty\). By
     \cref{itm:analyticcontinuationalongcurve_pointwiseequivalence} of
     \cref{def:analyticcontinuationalongcurve}, \(\exists\delta>0\) such that
     \(\forall n\in\mathbb{N}\) satisfying \(\abs{t_\infty-t_n}<\delta\), \[f_{t_n}\equiv f_{t_\infty}\qq{on} U_{t_n}\cap U_{t_\infty}.\] Similarly, \(\exists\widetilde{\delta}>0\) such that \(\forall n\in\mathbb{N}\)
@@ -4454,15 +4455,15 @@ For a fixed curve, such analytic continuations are unique in the following sense
 
     Let \(\widetilde{S}=[0,1]\setminus S\), and assume that it is nonempty (if not,
     our result is proven). Suppose
-    \(\qty{t_n}_{n\in\mathbb{N}}\subset\widetilde{S}\) is an arbitrary sequence
+    \(\cbraces{t_n}_{n\in\mathbb{N}}\subset\widetilde{S}\) is an arbitrary sequence
     that converges to \(t_\infty\). For each \(n\in\mathbb{N}\), since \(t_n\notin
     S\), by definition, there exists \(0\leq s_n\leq t_n\) such that
     \(f_{s_n}\not\equiv \widetilde{f}_{s_n}\) on \(U_{s_n}\cap\widetilde{U}_{s_n}\)
     (otherwise \(t_n\in S\) would be satisfied).
 
     By the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), the
-    sequence \(\qty{s_n}_{n\in\mathbb{N}}\) has a convergent subsequence
-    \(\qty{s_{n_k}}_{k\in\mathbb{N}}\) that converges to \(s_\infty\). Since
+    sequence \(\cbraces{s_n}_{n\in\mathbb{N}}\) has a convergent subsequence
+    \(\cbraces{s_{n_k}}_{k\in\mathbb{N}}\) that converges to \(s_\infty\). Since
     \(t_{n_k}\to t_\infty\) and \(s_{n_k}\leq t_{n_k}\) for all \(k\), it follows
     that \(s_\infty\leq t_\infty\). By definition, there exists \(\delta>0\)
     (choose it to be the minimum of the two \(\delta\) values, similar to in the
@@ -4518,21 +4519,21 @@ We are primarily concerned with homotopies with \textscsl{fixed endpoints} (unde
 \end{definition}
 As for our question in interest:
 \begin{quote}
-    Let \(\gamma_1:[0,1]\to\mathbb{C}\) and \(\gamma_2\to\mathbb{C}\) be two curves with the same endpoints (\(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), and let \(\qty{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\qty{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) be the unique analytic continuations along \(\gamma_1\) and \(\gamma_2\) respectively. Under what conditions will the terminal analytic function elements be equivalent (when will it be satisfied that \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\))?
+    Let \(\gamma_1:[0,1]\to\mathbb{C}\) and \(\gamma_2\to\mathbb{C}\) be two curves with the same endpoints (\(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), and let \(\cbraces{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\cbraces{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) be the unique analytic continuations along \(\gamma_1\) and \(\gamma_2\) respectively. Under what conditions will the terminal analytic function elements be equivalent (when will it be satisfied that \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\))?
 \end{quote}
-This question is not necessarily an affirmative. The principal branch logarithm on \(D\qty(1,1)\), when analytically continued on the unit upper semicircle \(\qty{\ee^{\piup\ii\theta}}_{0\leq t\leq 1}\) and unit lower semicircle \(\qty{\ee^{-\piup\ii\theta}}_{0\leq t\leq 1}\), yields inequivalent terminal analytic function elements (differing by \(2\piup\ii\)). The general answer to the question is given below:
+This question is not necessarily an affirmative. The principal branch logarithm on \(D\qty(1,1)\), when analytically continued on the unit upper semicircle \(\cbraces{\ee^{\piup\ii\theta}}_{0\leq t\leq 1}\) and unit lower semicircle \(\cbraces{\ee^{-\piup\ii\theta}}_{0\leq t\leq 1}\), yields inequivalent terminal analytic function elements (differing by \(2\piup\ii\)). The general answer to the question is given below:
 \begin{theorem}[\textsc{Monodromy Theorem}]\label{thm:monodromy}
-    Let \(\Omega\subseteq\mathbb{C}\) be a region, and suppose \(U\subseteq\Omega\) is a disk centered at \(P\), and let \(\gamma_1\) and \(\gamma_2\) be two curves in \(\Omega\) with the same endpoints (\(P=\gamma_1(0)=\gamma_2(0)\) and \(Q=\gamma_1(1)=\gamma_2(1)\)). Let \(\qty{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\qty{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) be the unique analytic continuations along \(\gamma_1\) and \(\gamma_2\) respectively. If \(\gamma_1\) and \(\gamma_2\) are homotopic in \(\Omega\) and \(\qty(f,U)\) has unrestricted continuation in \(\Omega\), then \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\).
+    Let \(\Omega\subseteq\mathbb{C}\) be a region, and suppose \(U\subseteq\Omega\) is a disk centered at \(P\), and let \(\gamma_1\) and \(\gamma_2\) be two curves in \(\Omega\) with the same endpoints (\(P=\gamma_1(0)=\gamma_2(0)\) and \(Q=\gamma_1(1)=\gamma_2(1)\)). Let \(\cbraces{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\cbraces{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) be the unique analytic continuations along \(\gamma_1\) and \(\gamma_2\) respectively. If \(\gamma_1\) and \(\gamma_2\) are homotopic in \(\Omega\) and \(\qty(f,U)\) has unrestricted continuation in \(\Omega\), then \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\).
 \end{theorem}
 \begin{proof}
-    Let \(s\) be a fixed value in \([0,1]\) and consider the curve defined by \(t\mapsto H(s,t)\) from \(P\) to \(Q\). By the unrestricted continuation assumption, there exists an analytic continuation \(\qty{\qty(f_{s,t},U_{s,t})}_{0\leq t\leq 1}\) of \(\qty(f,U)\) along this curve. In this form, we aim to show that \(f_{0,1}\equiv f_{1,1}\) on \(U_{0,1}\cap U_{1,1}\) (we have taken the liberties to denote \(f_1\) by \(f_{0,1}\) and \(\widetilde{f}_1\) by \(f_{1,1}\), with similar notions for \(U_1\) and \(\widetilde{U}_1\)).
+    Let \(s\) be a fixed value in \([0,1]\) and consider the curve defined by \(t\mapsto H(s,t)\) from \(P\) to \(Q\). By the unrestricted continuation assumption, there exists an analytic continuation \(\cbraces{\qty(f_{s,t},U_{s,t})}_{0\leq t\leq 1}\) of \(\qty(f,U)\) along this curve. In this form, we aim to show that \(f_{0,1}\equiv f_{1,1}\) on \(U_{0,1}\cap U_{1,1}\) (we have taken the liberties to denote \(f_1\) by \(f_{0,1}\) and \(\widetilde{f}_1\) by \(f_{1,1}\), with similar notions for \(U_1\) and \(\widetilde{U}_1\)).
 
     Let \[S=\cbraces{s\in[0,1]}{\forall 0\leq\lambda\leq s,f_{\lambda,1}\equiv f_{0,1}\text{ on }U_{\lambda,1}\cap U_{0,1}\ni Q}.\] Let us fix \(s\in S\). The analytic continuation
-    \(\qty{\qty(f_{s,t},U_{s,t})}_{0\leq t\leq 1}\) along the curve \(t\mapsto
-    H(s,t)\) generates the cover \(\qty{U_{s,t}}_{0\leq t\leq 1}\) of the compact
-    curve \(\qty{H(s,t)}_{0\leq t\leq 1}\). By Heine--Borel
+    \(\cbraces{\qty(f_{s,t},U_{s,t})}_{0\leq t\leq 1}\) along the curve \(t\mapsto
+    H(s,t)\) generates the cover \(\cbraces{U_{s,t}}_{0\leq t\leq 1}\) of the compact
+    curve \(\cbraces{H(s,t)}_{0\leq t\leq 1}\). By Heine--Borel
     (\cref{thm:heineborel}), there exists a finite subcover
-    \(\qty{U_{s,t_k}}_{k=1}^n\). Then \(\exists\varepsilon>0\) such that each
+    \(\cbraces{U_{s,t_k}}_{k=1}^n\). Then \(\exists\varepsilon>0\) such that each
     \(D\qty(H(s,t),\varepsilon)\subseteq\bigcup_{k=1}^n U_{s,t_k}\) for all
     \(t\in[0,1]\). In fact, we can choose \(\varepsilon\) to be \[\varepsilon=\min_{k=1}^n\qty[\mathrm{dist}\qty(H(s,[0,1]),\partial U_{s,t_k}\setminus\bigcup_{j=1}^n U_{s,t_j})].\] It can be verified that \(\mathrm{dist}\) here is positive since
     \(H(s,[0,1])\subset \bigcup_{j=1}^n U_{s,t_j}\) (thus both sets are disjoint)
@@ -4554,12 +4555,12 @@ This question is not necessarily an affirmative. The principal branch logarithm 
     \(\qty(f_{s,0},U_{s,0})\) and \(\qty(f_{s,0},\widetilde{U}_{s',0})\) are direct
     analytic continuations of each other, by
     \cref{lem:analyticcontinuationalongcurveuniqueness}, the continuations
-    \(\qty{\qty(f_{s,t},\widetilde{U}_{s',t})}_{0\leq t\leq 1}\) and
-    \(\qty{\qty(f_{s',t},U_{s',t})}_{0\leq t\leq 1}\) are equivalent. Thus, all
+    \(\cbraces{\qty(f_{s,t},\widetilde{U}_{s',t})}_{0\leq t\leq 1}\) and
+    \(\cbraces{\qty(f_{s',t},U_{s',t})}_{0\leq t\leq 1}\) are equivalent. Thus, all
     elements of \((s-\delta,s+\delta)\cap[0,1]\) belong in \(S\), and thus \(S\) is
     relatively open in \([0,1]\).
 
-    Let \(\qty{s_n}_{n\in\mathbb{N}}\subset S\) be an arbitrarily chosen convergent
+    Let \(\cbraces{s_n}_{n\in\mathbb{N}}\subset S\) be an arbitrarily chosen convergent
     sequence accumulating at \(s_\infty\). Since there exists an analytic
     continuation of \(\qty(f_{s_\infty,0},U_{s_\infty,0})\) along the curve
     \(H\qty(s_\infty,[0,1])\), we can use the same argument as before to construct
@@ -4568,8 +4569,8 @@ This question is not necessarily an affirmative. The principal branch logarithm 
     [0,1]\cap(s_\infty-\delta,s_\infty+\delta)\), \(\forall t\in[0,1]\),
     \(\abs{H(s,t)-H\qty(s_\infty,t)}<\varepsilon\). By convergence, for
     sufficiently large \(n\), \(\abs{s_n-s_\infty}<\delta\). Hence, there is an
-    analytic continuation \[\qty{\qty(f_{s_\infty,t}, D\qty(H\qty(s_n,t),\varepsilon-\abs{H(s_n,t)-H\qty(s_\infty,t)}))}_{0\leq t\leq 1}\] along \(H\qty(s_n,[0,1])\), which is equivalent to
-    \(\qty{\qty(f_{s_n,t},U_{s_n,t})}_{0\leq t\leq 1}\) by
+    analytic continuation \[\cbraces{\qty(f_{s_\infty,t}, D\qty(H\qty(s_n,t),\varepsilon-\abs{H(s_n,t)-H\qty(s_\infty,t)}))}_{0\leq t\leq 1}\] along \(H\qty(s_n,[0,1])\), which is equivalent to
+    \(\cbraces{\qty(f_{s_n,t},U_{s_n,t})}_{0\leq t\leq 1}\) by
     \cref{lem:analyticcontinuationalongcurveuniqueness} under the same preliminary
     assumptions as shown previously. By the following logic, \(f_{s_\infty,1}\equiv
     f_{s_n,1}\) on the intersection, and \(s_\infty\in S\) and \(S\) is closed.
@@ -4580,7 +4581,7 @@ This question is not necessarily an affirmative. The principal branch logarithm 
 \begin{corollary}
     Let \(\Omega\subseteq\mathbb{C}\) be simply connected, or that every closed curve in \(\Omega\) is null-homotopic (homotopic to a constant curve, or a point) in \(\Omega\). Let \(U\subseteq\Omega\) be a disk and suppose \(\qty(f,U)\) is an analytic function element with unrestricted continuation in \(\Omega\). Then \(\exists!\widetilde{f}\) that is holomorphic on \(\Omega\) such that \(\widetilde{f}\equiv f\) on \(U\).
 \end{corollary}
-The problems arising from the complex logarithm are now understood specifically as the failure of the homotopy condition. In a set excluding albeit enclosing the origin, such as \(\mathbb{C}\setminus\qty{0}\), curves enclosing the origin are not homotopic to the zero constant curve, and in the complex plane, the logarithm does not admit unrestricted continuation in \(\mathbb{C}\) since it cannot be continued along any curve passing through the origin.
+The problems arising from the complex logarithm are now understood specifically as the failure of the homotopy condition. In a set excluding albeit enclosing the origin, such as \(\mathbb{C}\setminus\cbraces{0}\), curves enclosing the origin are not homotopic to the zero constant curve, and in the complex plane, the logarithm does not admit unrestricted continuation in \(\mathbb{C}\) since it cannot be continued along any curve passing through the origin.
 \section{The Riemann Mapping Theorem}\label{sec:riemann}
 \subsection{Biholomorphy}
 In \cref{sec:conformalityintroduction}, it was asserted that for a holomorphic
@@ -4707,7 +4708,7 @@ We will now give examples of biholomorphisms.
 \end{proof}
 Let us now introduce some important properties of linear fractional transformations. By \cref{prop:mobiustransformationcompositionmatrixmultiplication}, it follows that the composition of two linear fractional transformations is also a linear fractional transformation.
 \begin{theorem}\label{thm:linearfractionaltransformationmapscirclestocircles}
-    Let \(\mathcal{C}\) be the collection of subsets of \(\extcomplex\) that are circles or \(L\cup\qty{\infty}\), where \(L\) is a straight line in \(\mathbb{C}\). Then every linear fractional transformation \(f:\extcomplex\to\extcomplex\) maps elements of \(\mathcal{C}\) to elements of \(\mathcal{C}\).
+    Let \(\mathcal{C}\) be the collection of subsets of \(\extcomplex\) that are circles or \(L\cup\cbraces{\infty}\), where \(L\) is a straight line in \(\mathbb{C}\). Then every linear fractional transformation \(f:\extcomplex\to\extcomplex\) maps elements of \(\mathcal{C}\) to elements of \(\mathcal{C}\).
 \end{theorem}
 \begin{proof}
     Since each linear fractional transformation is a composition of maps in the form of \(z\mapsto az\), \(z\mapsto z+b\), and \(z\mapsto \frac{1}{z}\), it suffices to show that these maps preserve the property of being a circle or a straight line. Consider a circle defined implicitly with \[\alpha\qty(x^2+y^2)+\beta x+\gamma y+\delta=0,\quad{x,y\in\mathbb{R},\alpha,\beta,\gamma,\delta\in\mathbb{R}}\] For \(z=x+\ii y\), this can be rewritten as
@@ -4727,7 +4728,7 @@ Let us now introduce some important properties of linear fractional transformati
     \cref{eq:linearfractionaltransformationmapscirclestocircles_circlecomplexform}.
 \end{proof}
 \begin{remark}
-    As in \cref{ex:biholomorphismsupperhalfplanetounitdisk}, we can consider extended straight lines in the form of \(L\cup\qty{\infty}\) as generalized circles in the Riemann sphere. In other words, the extended line can be geometrically visualized by a circle with infinite radius. In fact, when a circle on the Riemann sphere is projected stereographically onto the complex plane, the result is always either a circle or a straight line.
+    As in \cref{ex:biholomorphismsupperhalfplanetounitdisk}, we can consider extended straight lines in the form of \(L\cup\cbraces{\infty}\) as generalized circles in the Riemann sphere. In other words, the extended line can be geometrically visualized by a circle with infinite radius. In fact, when a circle on the Riemann sphere is projected stereographically onto the complex plane, the result is always either a circle or a straight line.
 \end{remark}
 \begin{definition}[Cross-Ratio]\label{def:crossratio}
     Let \(z_1,z_2,z_3,z_4\in\extcomplex\) be points such that at least three of them are distinct. The \textscsl{cross-ratio} of these points is defined as \[\qty(z_1,z_2;z_3,z_4)=\frac{\qty(z_1-z_3)\qty(z_2-z_4)}{\qty(z_1-z_4)\qty(z_2-z_3)}.\] If at least one of the four points is \(\infty\), then the cross-ratio is
@@ -4767,7 +4768,7 @@ In contrast, the uniform continuity of a function \(f\) guarantees that \(\delta
     \begin{equation}
         \abs{f(\zeta)-f(z)}<\frac{\varepsilon}{2}.\label{eq:heinecantorfamily_equicontinuityconsequence}
     \end{equation}
-    The collection \(\qty{D\qty(z,\frac{\delta_z}{2})}_{z\in K}\) forms an open cover of \(K\), and by the Heine--Borel Theorem, it admits a finite subcover \(\qty{D\qty(z_k,\frac{\delta_{z_k}}{2})}_{k=1}^n\) for some finite \(n\in\mathbb{N}\). Let \(\delta=\min_{k=1}^n\qty(\frac{\delta_{z_k}}{2})\).
+    The collection \(\cbraces{D\qty(z,\frac{\delta_z}{2})}_{z\in K}\) forms an open cover of \(K\), and by the Heine--Borel Theorem, it admits a finite subcover \(\cbraces{D\qty(z_k,\frac{\delta_{z_k}}{2})}_{k=1}^n\) for some finite \(n\in\mathbb{N}\). Let \(\delta=\min_{k=1}^n\qty(\frac{\delta_{z_k}}{2})\).
 
     For any \(z,w\in K\) such that \(\abs{z-w}<\delta\), \(\exists
     j\in\mathbb{N}_{\leq n}\) such that \(z\in D\qty(z_j,\frac{\delta_{z_j}}{2})\).
@@ -4781,19 +4782,19 @@ The following theorem is important in many areas of mathematical analysis and ha
     Let \(\mathcal{F}\) be a family of complex continuous functions defined on a compact subset \(K\subseteq\mathbb{C}\). Then, \(\mathcal{F}\) is uniformly bounded and uniformly equicontinuous on \(K\) iff \(\mathcal{F}\) is normal on \(K\).
 \end{theorem}
 \begin{proof}
-    We will first prove the sufficiency of uniform boundedness and uniform equicontinuity. Let \(\qty{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(z)}\leq M\) for all \(z\in K\) and all \(n\in\mathbb{N}\).
+    We will first prove the sufficiency of uniform boundedness and uniform equicontinuity. Let \(\cbraces{f_n}_{n\in\mathbb{N}}\) be any sequence in \(\mathcal{F}\). By the uniform boundedness of \(\mathcal{F}\), there exists a constant \(M>0\) such that \(\abs{f_n(z)}\leq M\) for all \(z\in K\) and all \(n\in\mathbb{N}\).
 
-    Let \(\qty{\zeta_k}_{k\in\mathbb{N}}\) be a countably dense subset of \(K\). By
+    Let \(\cbraces{\zeta_k}_{k\in\mathbb{N}}\) be a countably dense subset of \(K\). By
     the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), there exists
-    a subsequence of \(\qty{f_n}_{n\in\mathbb{N}}\), namely
-    \(\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\), such that
-    \(\qty{f_{n_{1,j}}\qty(\zeta_1)}_{j\in\mathbb{N}}\) is convergent. The set
-    \(\qty{f_{n_{1,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\) is also bounded by \(M\),
+    a subsequence of \(\cbraces{f_n}_{n\in\mathbb{N}}\), namely
+    \(\cbraces{f_{n_{1,j}}}_{j\in\mathbb{N}}\), such that
+    \(\cbraces{f_{n_{1,j}}\qty(\zeta_1)}_{j\in\mathbb{N}}\) is convergent. The set
+    \(\cbraces{f_{n_{1,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\) is also bounded by \(M\),
     and hence, by the Bolzano--Weierstrass Theorem, it too has a convergent
-    subsequence \(\qty{f_{n_{2,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\). Similarly,
-    there exists a subsequence of \(\qty{f_{n_{2,j}}}_{j\in\mathbb{N}}\), namely
-    \(\qty{f_{n_{3,j}}}_{j\in\mathbb{N}}\), such that
-    \(\qty{f_{n_{3,j}}\qty(\zeta_3)}_{j\in\mathbb{N}}\) is convergent.
+    subsequence \(\cbraces{f_{n_{2,j}}\qty(\zeta_2)}_{j\in\mathbb{N}}\). Similarly,
+    there exists a subsequence of \(\cbraces{f_{n_{2,j}}}_{j\in\mathbb{N}}\), namely
+    \(\cbraces{f_{n_{3,j}}}_{j\in\mathbb{N}}\), such that
+    \(\cbraces{f_{n_{3,j}}\qty(\zeta_3)}_{j\in\mathbb{N}}\) is convergent.
 
     By the method of construction, we have:
     \begin{gather}
@@ -4811,21 +4812,21 @@ The following theorem is important in many areas of mathematical analysis and ha
         n_{1,j}\leq n_{2,j}\leq \cdots\leq n_{j,k}\leq \cdots\nonumber\\
         \ddots.\label{eq:arzelaascoli_indexsequencestransposed}
     \end{gather}
-    We will now invoke a diagonalization argument. Since the sequences above in \cref{eq:arzelaascoli_indexsequences} are strictly increasing and from the results of \cref{eq:arzelaascoli_indexsequencestransposed}, it follows that \(\qty{n_{j,j}}_{j\in\mathbb{N}}\) is strictly increasing. Let \(n_{j,j}\) be denoted by \(n'_{j}\). Since \(\mathcal{F}\) is uniformly equicontinuous on \(K\), \(\forall\varepsilon>0\), \(\exists\delta=\delta(\varepsilon)>0\) such that \(\forall z,z'\in K\) satisfying \(\abs{z-z'}<\delta\), \(\forall j\in\mathbb{N}\), we have
+    We will now invoke a diagonalization argument. Since the sequences above in \cref{eq:arzelaascoli_indexsequences} are strictly increasing and from the results of \cref{eq:arzelaascoli_indexsequencestransposed}, it follows that \(\cbraces{n_{j,j}}_{j\in\mathbb{N}}\) is strictly increasing. Let \(n_{j,j}\) be denoted by \(n'_{j}\). Since \(\mathcal{F}\) is uniformly equicontinuous on \(K\), \(\forall\varepsilon>0\), \(\exists\delta=\delta(\varepsilon)>0\) such that \(\forall z,z'\in K\) satisfying \(\abs{z-z'}<\delta\), \(\forall j\in\mathbb{N}\), we have
     \begin{equation}
         \abs{f_{n'_j}(z)-f_{n'_j}(z')}<\frac{\varepsilon}{3}.\label{eq:arzelaascoli_uniformequicontinuitydirectconsequence}
-    \end{equation} Since each \(\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is convergent at \(\zeta_k\) (for a fixed \(k\)) by construction, and since \(\qty{n'_j}_{j\geq k}\) is a subsequence of \(\qty{n_{k,j}}_{j\in\mathbb{N}}\), it is evident that \(\qty{f_{n'_j}}_{j\in\mathbb{N}}\) is convergent at each \(\zeta_k\). We then have that \(\forall k\in\mathbb{N}\), \(\exists N=N(\varepsilon,k)\in\mathbb{N}\) such that \(\forall i,j>N\), \[\abs{f_{n'_i}\qty(\zeta_k)-f_{n'_j}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
+    \end{equation} Since each \(\cbraces{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is convergent at \(\zeta_k\) (for a fixed \(k\)) by construction, and since \(\cbraces{n'_j}_{j\geq k}\) is a subsequence of \(\cbraces{n_{k,j}}_{j\in\mathbb{N}}\), it is evident that \(\cbraces{f_{n'_j}}_{j\in\mathbb{N}}\) is convergent at each \(\zeta_k\). We then have that \(\forall k\in\mathbb{N}\), \(\exists N=N(\varepsilon,k)\in\mathbb{N}\) such that \(\forall i,j>N\), \[\abs{f_{n'_i}\qty(\zeta_k)-f_{n'_j}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
     For the fixed value of \(\varepsilon\), the collection
-    \(\qty{D\qty(\zeta_k,\delta)}_{k\in\mathbb{N}}\) forms an open cover of \(K\),
+    \(\cbraces{D\qty(\zeta_k,\delta)}_{k\in\mathbb{N}}\) forms an open cover of \(K\),
     and by the Heine--Borel Theorem (\cref{thm:heineborel}), it admits finite
-    subcovering \(\qty{D\qty(\zeta_k,\delta)}_{k\in\qty{1,\ldots,l}}\) for some
+    subcovering \(\cbraces{D\qty(\zeta_k,\delta)}_{k\in\cbraces{1,\ldots,l}}\) for some
     finite \(l=l(\varepsilon)\in\mathbb{N}\).
 
     Hence, \(\exists k=k(\varepsilon)\leq l\) such that any point \(z\in K\) lies
     in \(D\qty(\zeta_k,\delta)\). By
     \cref{eq:arzelaascoli_uniformequicontinuitydirectconsequence}, we have that \[\abs{f_{n'_j}(z)-f_{n'_j}\qty(\zeta_k)}<\frac{\varepsilon}{3},\qquad \abs{f_{n'_i}(z)-f_{n'_i}\qty(\zeta_k)}<\frac{\varepsilon}{3}.\]
     Letting
-    \(\widetilde{N}=\widetilde{N}(\varepsilon)=\max\qty{N(\varepsilon,1),\ldots,N(\varepsilon,
+    \(\widetilde{N}=\widetilde{N}(\varepsilon)=\max\cbraces{N(\varepsilon,1),\ldots,N(\varepsilon,
     l(\varepsilon))}\), we have that \(\forall i,j>\widetilde{N}\), \(\forall z\in
     K\),
     \begin{align*}
@@ -4840,14 +4841,14 @@ The following theorem is important in many areas of mathematical analysis and ha
     For the sake of contradiction, assume that \(\mathcal{F}\) is not uniformly
     bounded. Then \(\forall n\in\mathbb{N}\), \(\exists f_n\in\mathcal{F}\) and
     \(\exists z_n\in K\) such that \(\abs{f_n\qty(z_n)}>n\). By assumption, this
-    sequence has a subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) that uniformly
+    sequence has a subsequence \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) that uniformly
     converges. Hence, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\),
     \(\forall z\in K\), \(\abs{f_{n_k}(z)-f(z)}<1\). By the reverse triangle
     inequality, it follows that \(\abs{f_{n_k}(z)}<\abs{f(z)}+1\). Since \(f\) is
     continuous on \(K\) by \cref{thm:uniformlimit}, it is bounded by some \(M_1\)
     (\cref{thm:continuousfunctionboundedoncompact}). Let
     \(M_2=\max_{k=1}^N\sup_{z\in K}\abs{f_{n_k}(z)}\). It follows that this
-    subsequence is uniformly bounded by \(\max\qty{M_1+1,M_2}\). However, since
+    subsequence is uniformly bounded by \(\max\cbraces{M_1+1,M_2}\). However, since
     \(\abs{f_{n_k}\qty(z_{n_k})}>n_k\to\infty\) for any \(k\), this subsequence
     cannot be uniformly bounded, and hence we have a contradiction.
 
@@ -4855,13 +4856,13 @@ The following theorem is important in many areas of mathematical analysis and ha
     arbitrary point \(z_0\in K\). In other words, \(\exists\varepsilon>0\) such
     that \(\forall\delta>0\), \(\exists f\in\mathcal{F}\), \(\exists z\in K\) such
     that \(\abs{z-z_0}<\delta\) satisfying \[\abs{f(z)-f(z_0)}>\varepsilon.\]
-    Let us define sequences \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) and
-    \(\qty{z_n}_{n\in\mathbb{N}}\subseteq K\) such that
+    Let us define sequences \(\cbraces{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) and
+    \(\cbraces{z_n}_{n\in\mathbb{N}}\subseteq K\) such that
     \(\abs{z_n-z_0}<\frac{1}{n}\) and
     \[\abs{f_n\qty(z_n)-f_n\qty(z_0)}>\varepsilon.\]
     Since \(\mathcal{F}\) is assumed to be normal, the sequence
-    \(\qty{f_n}_{n\in\mathbb{N}}\) has a uniformly convergent subsequence
-    \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converging to a continuous function \(f\).
+    \(\cbraces{f_n}_{n\in\mathbb{N}}\) has a uniformly convergent subsequence
+    \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) converging to a continuous function \(f\).
     In particular, since uniform convergence preserves continuity
     (\cref{thm:uniformlimit}), the limit \(f\) is continuous at \(z_0\), and hence,
     \[f_{n_k}\qty(z_0)-f\qty(z_0)\to 0,\qquad f\qty(z_0)-f\qty(z_{n_k})\to 0,\qquad f_{n_k}\qty(z_{n_k})-f\qty(z_{n_k})\to 0,\] where the rightmost inequality is derived from the fact that
@@ -4918,29 +4919,29 @@ Obviously, the equivalence is established similarly to local finiteness and loca
     and the assertion follows.
 
     Let \(K\subset U\) be compact and arbitrary. The collection
-    \(\qty{D\qty(z,R_z)}_{z\in K}\) forms an open cover of \(K\) and by the
+    \(\cbraces{D\qty(z,R_z)}_{z\in K}\) forms an open cover of \(K\) and by the
     Heine--Borel Theorem (\cref{thm:heineborel}) admits a finite subcover
-    \(\qty{D\qty(z_k,R_{z_k})}_{k=1}^n\) for some finite \(n\in\mathbb{N}\). If we
+    \(\cbraces{D\qty(z_k,R_{z_k})}_{k=1}^n\) for some finite \(n\in\mathbb{N}\). If we
     let \(\delta=\min_{k=1}^n\qty(\delta_k)\), it follows that \(\mathcal{F}\) is
     uniformly equicontinuous on \(K\). By the Arzelà--Ascoli Theorem
     (\cref{thm:arzelaascoli}), any sequence
-    \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) has a uniformly convergent
-    subsequence \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) on \(K\).
+    \(\cbraces{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) has a uniformly convergent
+    subsequence \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) on \(K\).
 
-    Let \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) be arbitrary. Let \(U\)
-    be exhausted by the compact sets \(\qty{K_n}_{n\in\mathbb{N}}\). By the
+    Let \(\cbraces{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) be arbitrary. Let \(U\)
+    be exhausted by the compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\). By the
     argument above, we may extract a subsequence
-    \(\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\subseteq \qty{f_n}_{n\in\mathbb{N}}\) that
+    \(\cbraces{f_{n_{1,j}}}_{j\in\mathbb{N}}\subseteq \cbraces{f_n}_{n\in\mathbb{N}}\) that
     uniformly converges on \(K_1\). By the same argument, there exists a
     subsequence
-    \(\qty{f_{n_{2,j}}}_{j\in\mathbb{N}}\subseteq\qty{f_{n_{1,j}}}_{j\in\mathbb{N}}\)
+    \(\cbraces{f_{n_{2,j}}}_{j\in\mathbb{N}}\subseteq\cbraces{f_{n_{1,j}}}_{j\in\mathbb{N}}\)
     that uniformly converges on \(K_2\). Let \(n'_j=n_{j,j}\).
 
     We will now invoke the same diagonalization argument as in the proof of the
     Arzelà--Ascoli Theorem (\cref{thm:arzelaascoli}). Let \(K\subset U\) be an
     arbitrary compact set. It follows that for some \(k\in\mathbb{N}\),
-    \(K_k\supseteq K\). Since \(\qty{f_{n'_j}}_{j\geq
-    k}\subseteq\qty{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is the subsequence of a
+    \(K_k\supseteq K\). Since \(\cbraces{f_{n'_j}}_{j\geq
+    k}\subseteq\cbraces{f_{n_{k,j}}}_{j\in\mathbb{N}}\) is the subsequence of a
     sequence that converges on \(K\), the assertion follows.
 \end{proof}
 \subsection{The Riemann Mapping Theorem}
@@ -4981,15 +4982,15 @@ equivalent}.
     where we can assure that \(M\) is positive since each \(\alpha\in\mathcal{F}\) is univalent at \(z_0\) and by \cref{lem:univalentnonvanishingderivative}.
 
     If \(M\) is an accumulation point of
-    \(\qty{\abs{\alpha'\qty(z_0)}}_{\alpha\in\mathcal{F}}\), there exists a
-    sequence \(\qty{\alpha_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that
-    \(\qty{\abs{\alpha'_n\qty(z_0)}}_{n\in\mathbb{N}}\) converges to \(M\). If
+    \(\cbraces{\abs{\alpha'\qty(z_0)}}_{\alpha\in\mathcal{F}}\), there exists a
+    sequence \(\cbraces{\alpha_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that
+    \(\cbraces{\abs{\alpha'_n\qty(z_0)}}_{n\in\mathbb{N}}\) converges to \(M\). If
     \(M\) is attained as a maximum or that \(\abs{\alpha'(z_0)}=M\) for some
     \(\alpha\in\mathcal{F}\), we may let each \(\alpha_n\equiv\alpha\).
 
     By the normality of \(\mathcal{F}\), there exists a subsequence
-    \(\qty{\alpha_{n_k}(z)}_{k\in\mathbb{N}}\subseteq\qty{\alpha_n(z)}_{n\in\mathbb{N}}\)
-    such that \(\qty{\alpha_{n_k}(z)}_{k\in\mathbb{N}}\) is locally uniformly
+    \(\cbraces{\alpha_{n_k}(z)}_{k\in\mathbb{N}}\subseteq\cbraces{\alpha_n(z)}_{n\in\mathbb{N}}\)
+    such that \(\cbraces{\alpha_{n_k}(z)}_{k\in\mathbb{N}}\) is locally uniformly
     convergent in \(U\) to a function \(\doubletilde{\alpha}(z)\) (holomorphy of
     which is provided by \cref{thm:weierstrassconvergence}). By definition,
     \(\abs{\doubletilde{\alpha}'\qty(z_0)}=M\), and define a function sequence with
@@ -5001,7 +5002,7 @@ equivalent}.
     satisfy \(0<r'<\abs{\zeta_1-\zeta_2}\), and let
     \(\psi_k(z)=\widetilde{\alpha}_{n_k}(z)-\widetilde{\alpha}_{n_k}\qty(\zeta_2)\).
     Since each \(\widetilde{\alpha}_{n_k}\) is univalent in \(U\), it follows that
-    each \(\psi_k\) is non-vanishing in \(U\setminus\qty{\zeta_2}\) and
+    each \(\psi_k\) is non-vanishing in \(U\setminus\cbraces{\zeta_2}\) and
     consequently, in \(\overline{D\qty(\zeta_1,r')}\). By
     \cref{thm:hurwitzsimplecase}, it follows that the locally uniform limit of
     \(\psi_k\), or \(\psi=f(z)-f\qty(\zeta_2)\), is either non-vanishing or is
@@ -5019,7 +5020,7 @@ equivalent}.
     \(\widetilde{\alpha}_{n_k}\qty(z_0)\to 0=f\qty(z_0)\), it follows that
     \(f\in\mathcal{F}\).
 
-    Suppose \(\Phi:U\to\mathbb{C}^*=\mathbb{C}\setminus\qty{0}\) is holomorphic.
+    Suppose \(\Phi:U\to\mathbb{C}^*=\mathbb{C}\setminus\cbraces{0}\) is holomorphic.
     Define the \textscsl{holomorphic logarithm} of \(\Phi(z)\) to be a branch of \[\log\qty(\Phi(z))=\int_{\gamma}\frac{\Phi'(\zeta)}{\Phi(\zeta)}\ddzeta+\log\qty(\Phi\qty(z_0))\] for any \(z_0\in U\), where \(\gamma\subset U\) is any piecewise \(C^1\) curve
     from \(z_0\) to \(z\), and path independence is provided by the simple
     connectivity of \(U\). The result is the heuristic concatenation of several
@@ -5068,10 +5069,10 @@ equivalent}.
     either be equal to \(\emptyset\) or \(\mathbb{C}\), both of which are
     impossibilities. Additionally, if \(\partial U\) comprises exactly one point
     \(a\in\mathbb{C}\), then in subspace defined by
-    \(X=\mathbb{C}\setminus\qty{a}\), \(U\) is clopen (by the same reason as
+    \(X=\mathbb{C}\setminus\cbraces{a}\), \(U\) is clopen (by the same reason as
         before, open by assumption and closed because \(X\setminus
     U=\mathbb{C}\setminus\overline{U}\) is open). It follows that
-    \(U=X=\mathbb{C}\setminus\qty{a}\), which is not simply connected.
+    \(U=X=\mathbb{C}\setminus\cbraces{a}\), which is not simply connected.
 
     Suppose \(\xi_1\) and \(\xi_2\) are two distinct points in \(\partial U\). Let
     us apply the linear transformation \(\rho(z)=\frac{z-\xi_1}{\xi_2-\xi_1}\) to
@@ -5239,12 +5240,12 @@ A surface is a Hausdorff space that is locally homeomorphic to
 exists a neighborhood \(U\) of \(p\) such that \(U\) is homeomorphic to an open
 subset of \(\mathbb{R}^2\).
 
-Let \(\qty{U_\alpha}_{\alpha\in I}\) be an collection of open subsets of a
+Let \(\cbraces{U_\alpha}_{\alpha\in I}\) be an collection of open subsets of a
 surface \(X\) that covers \(X\). For each \(\alpha\), let
 \(\varphi_\alpha:U_\alpha\to\mathbb{C}\) be a homeomorphism between
 \(U_\alpha\) and an open subset of \(\mathbb{C}\cong\mathbb{R}^2\). The pair
 \(\qty(U_\alpha,\varphi_\alpha)\) is a \textscsl{coordinate chart} of \(X\).
-The collection \(\qty{\qty(U_\alpha, \varphi_\alpha)}_{\alpha\in I}\) is a
+The collection \(\cbraces{\qty(U_\alpha, \varphi_\alpha)}_{\alpha\in I}\) is a
 \textscsl{coordinate atlas} of \(X\). Let \(U_\alpha\) and \(U_\beta\) be two
 arbitrary sets in the covering. If all \textscsl{transition maps}
 \(\varphi_\beta\circ\varphi_\alpha^{-1}:\varphi_\alpha\qty(U_\alpha\cap
@@ -5268,15 +5269,15 @@ We will now give examples of Riemann surfaces (we will distinguish between
     The extended complex plane \(\extcomplex\) is a Riemann surface.
 \end{example}
 \begin{proof}
-    The extended complex plane can be covered by two charts: \(\qty(\mathbb{C},\varphi_1)\) and \(\qty(\extcomplex\setminus\qty{0},\varphi_2)\), where \(\varphi_1(z)=z\) and \(\varphi_2(z)=\frac{1}{z}\). The transition map is given by \(\varphi_2\circ\varphi_1^{-1}(z)=\frac{1}{z}\), which is biholomorphic on \(\varphi_1\qty(\mathbb{C}\cap\extcomplex^*)=\mathbb{C}^*\). Hence, \(\extcomplex\) is a Riemann surface.
+    The extended complex plane can be covered by two charts: \(\qty(\mathbb{C},\varphi_1)\) and \(\qty(\extcomplex\setminus\cbraces{0},\varphi_2)\), where \(\varphi_1(z)=z\) and \(\varphi_2(z)=\frac{1}{z}\). The transition map is given by \(\varphi_2\circ\varphi_1^{-1}(z)=\frac{1}{z}\), which is biholomorphic on \(\varphi_1\qty(\mathbb{C}\cap\extcomplex^*)=\mathbb{C}^*\). Hence, \(\extcomplex\) is a Riemann surface.
 \end{proof}
 \begin{example}
     The Riemann sphere \(S^2=\cbraces{\qty(x_1,x_2,x_3)\in\mathbb{R}^3}{x_1^2+x_2^2+x_3^2=1}\) is a Riemann surface.
 \end{example}
 \begin{proof}
-    Consider the open sets \(U_N=S^2\setminus (0,0,1)\) and \(U_S=S^2\setminus (0,0,-1)\) that cover \(S^2\). Define their stereographic projection homeomorphisms \(\varphi_N:U_N\to\mathbb{C}\) and \(\varphi_S:U_S\to\mathbb{C}\) with centers \((0,0,1)\) and \((0,0,-1)\), respectively. By taking the conjugate of \(\varphi_S\) (this is necessary to ensure that the transition map is not anti-holomorphic), we form an atlas \(\qty{\qty(U_N,\varphi_N),\qty(U_S,\overline{\varphi_S})}\) with two charts. More explicitly, we can assume \[\varphi_N(x_1,x_2,x_3)=\frac{x_1+\ii x_2}{1-x_3}\qquad\overline{\varphi_S}(x_1,x_2,x_3)=\frac{x_1-\ii x_2}{1+x_3}.\]
+    Consider the open sets \(U_N=S^2\setminus (0,0,1)\) and \(U_S=S^2\setminus (0,0,-1)\) that cover \(S^2\). Define their stereographic projection homeomorphisms \(\varphi_N:U_N\to\mathbb{C}\) and \(\varphi_S:U_S\to\mathbb{C}\) with centers \((0,0,1)\) and \((0,0,-1)\), respectively. By taking the conjugate of \(\varphi_S\) (this is necessary to ensure that the transition map is not anti-holomorphic), we form an atlas \(\cbraces{\qty(U_N,\varphi_N),\qty(U_S,\overline{\varphi_S})}\) with two charts. More explicitly, we can assume \[\varphi_N(x_1,x_2,x_3)=\frac{x_1+\ii x_2}{1-x_3}\qquad\overline{\varphi_S}(x_1,x_2,x_3)=\frac{x_1-\ii x_2}{1+x_3}.\]
     On
-    \(\varphi_N\qty(S^2\setminus\qty((0,0,1)\cup(0,0,-1)))=\extcomplex\setminus\qty(\qty{0}\cup\qty{\infty})=\mathbb{C}^*\),
+    \(\varphi_N\qty(S^2\setminus\qty((0,0,1)\cup(0,0,-1)))=\extcomplex\setminus\qty(\cbraces{0}\cup\cbraces{\infty})=\mathbb{C}^*\),
     the transition map \[\overline{\varphi_S}\circ\varphi_N^{-1}(z)=\frac{\Re(z)\qty(1-x_3)-\ii\Im(z)\qty(1-x_3)}{1+x_3}=\overline{z}\frac{1-x_3}{1+x^3}=\frac{\overline{z}}{\abs{z}^2}=\frac{1}{z}\] is biholomorphic. Hence, by the holomorphy of the atlas, \(S^2\) is a Riemann
     surface.
 \end{proof}
@@ -5474,10 +5475,10 @@ In its full generality, we will now apply a technique to \emph{push} a pole to a
 \end{lemma}
 \begin{proof}
     Define the set
-    \[S=\cbraces{\zeta\in U\setminus\qty{\infty}}{(\forall\varepsilon>0)(\exists\psi)\qty[\bigwedge
+    \[S=\cbraces{\zeta\in U\setminus\cbraces{\infty}}{(\forall\varepsilon>0)(\exists\psi)\qty[\bigwedge
                 \begin{aligned}
                     & \psi\text{ is rational},                                                         \\
-                    & \psi(\mathbb{C}\setminus\qty{\zeta})\subseteq\mathbb{C}\wedge\psi(\zeta)=\infty, \\
+                    & \psi(\mathbb{C}\setminus\cbraces{\zeta})\subseteq\mathbb{C}\wedge\psi(\zeta)=\infty, \\
                     & \sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}<\varepsilon
     \end{aligned}]}.\]
     Since \(a\in U\) satisfies the condition with \(\psi(z)=\frac{1}{z-a}\), it
@@ -5499,25 +5500,25 @@ In its full generality, we will now apply a technique to \emph{push} a pole to a
     \[\sup_{z\in K}\abs{\frac{1}{z-a}-\phi(z)}\leq\sup_{z\in K}\abs{\frac{1}{z-a}-\psi(z)}+\sup_{z\in K}\abs{\psi(z)-\phi(z)}<\varepsilon,\]
     and by definition, \(\zeta'\in S\Rightarrow
     D\qty(\zeta,\mathrm{dist}\qty(\zeta,K))\subseteq S\). Hence, \(S\) is
-    relatively open in \(U\setminus\qty{\infty}\).
+    relatively open in \(U\setminus\cbraces{\infty}\).
 
-    Now, consider \(\zeta\in U\setminus\qty(S\cup\qty{\infty})\). Suppose there
+    Now, consider \(\zeta\in U\setminus\qty(S\cup\cbraces{\infty})\). Suppose there
     exists \(\zeta'\in D(\zeta,\mathrm{dist}(\zeta,K))\cap S\). By repeated
     application of the preceding argument, this would imply \(\zeta\in S\),
     contradicting the assumption that \(\zeta\in
-    U\setminus\qty(S\cup\qty{\infty})\). Therefore, no such \(\zeta'\) exists, and
-    \(S\) is relatively closed in \(U\setminus\qty{\infty}\).
+    U\setminus\qty(S\cup\cbraces{\infty})\). Therefore, no such \(\zeta'\) exists, and
+    \(S\) is relatively closed in \(U\setminus\cbraces{\infty}\).
 
-    Since \(U\setminus\qty{\infty}\) is connected and \(S\) is both relatively open
-    and closed in \(U\setminus\qty{\infty}\), it follows from
+    Since \(U\setminus\cbraces{\infty}\) is connected and \(S\) is both relatively open
+    and closed in \(U\setminus\cbraces{\infty}\), it follows from
     \cref{thm:connectedtopologicalspaceclopensets} that
-    \(S=U\setminus\qty{\infty}\), completing the proof under the assumption that
+    \(S=U\setminus\cbraces{\infty}\), completing the proof under the assumption that
     \(\infty\notin U\).
 
     Now suppose \(\infty\in U\). In essence, we pole push to a point outside a disk
     on which we can make approximations by Taylor polynomials. Let \(R>0\) satisfy
     \(K\subset D(0,R)\) and let \(b\in
-    U\setminus\qty(\qty{\infty}\cup\overline{D(0,R)})\) be an arbitrary point. By
+    U\setminus\qty(\cbraces{\infty}\cup\overline{D(0,R)})\) be an arbitrary point. By
     \cref{lem:simplepolepushing}, there exists some rational function
     \(\widetilde{\psi}(z)\) with a pole at \(b\) such that \[\sup_{z\in K}\abs{\widetilde{\psi}(z)-\frac{1}{z-a}}<\frac\varepsilon2.\]
     Since \(\widetilde{\psi}\) is holomorphic on some neighborhood of
@@ -5533,7 +5534,7 @@ In its full generality, we will now apply a technique to \emph{push} a pole to a
     \begin{equation}
         \sup_{z\in K}\abs{f(z)-\phi(z)}<\frac\varepsilon2.\label{eq:runge_intermediate1}
     \end{equation}
-    Let the poles of \(\phi\) be \(\qty{\beta_k}_{k\in\mathbb{N}_{\leq n}}\subset\mathbb{C}\setminus K\), and as a consequence, we have \(\phi(z)=\sum_{k=1}^n\frac{a_k}{z-\beta_k}+\varphi(z)\) where \(\varphi(z)\) is entire. Since \(\phi(\infty)=0\), we have \(\varphi\equiv 0\) by Liouville's Theorem (\cref{thm:liouville}). By \cref{lem:generalpolepushing}, there exist rational functions \(\qty{\psi_k}_{k\in\mathbb{N}_{\leq n}}\) whose only poles lie in \(E\) such that \(\forall k\), \[\sup_{z\in K}\abs{\frac{1}{z-\beta_k}-\psi_k(z)}<\frac{\varepsilon}{2n\abs{a_k}}\] and it follows that \[\sup_{z\in K}\abs{\phi(z)-\sum_{k=1}^n a_k\psi_k(z)}\leq\sup_{z\in K}\sum_{k=1}^n\abs{\frac{a_k}{z-\beta_k}-a_k\psi_k(z)}<\frac\varepsilon2.\]
+    Let the poles of \(\phi\) be \(\cbraces{\beta_k}_{k\in\mathbb{N}_{\leq n}}\subset\mathbb{C}\setminus K\), and as a consequence, we have \(\phi(z)=\sum_{k=1}^n\frac{a_k}{z-\beta_k}+\varphi(z)\) where \(\varphi(z)\) is entire. Since \(\phi(\infty)=0\), we have \(\varphi\equiv 0\) by Liouville's Theorem (\cref{thm:liouville}). By \cref{lem:generalpolepushing}, there exist rational functions \(\cbraces{\psi_k}_{k\in\mathbb{N}_{\leq n}}\) whose only poles lie in \(E\) such that \(\forall k\), \[\sup_{z\in K}\abs{\frac{1}{z-\beta_k}-\psi_k(z)}<\frac{\varepsilon}{2n\abs{a_k}}\] and it follows that \[\sup_{z\in K}\abs{\phi(z)-\sum_{k=1}^n a_k\psi_k(z)}\leq\sup_{z\in K}\sum_{k=1}^n\abs{\frac{a_k}{z-\beta_k}-a_k\psi_k(z)}<\frac\varepsilon2.\]
     Let \(\psi(z)=\sum_{k=1}^na_k\psi_k(z)\). From \cref{eq:runge_intermediate1},
     we have \[\sup_{z\in K}\abs{f(z)-\psi(z)}\leq\sup_{z\in K}\abs{f(z)-\phi(z)}+\sup_{z\in K}\abs{\phi(z)-\psi(z)}<\varepsilon.\qedhere\]
 \end{proof}
@@ -5595,7 +5596,7 @@ Let \(z=f^{-1}(w)\). Then we have
     \begin{align*}
         \psi'(0)=-\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}=\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}\cdot\frac{\phi^{-1}(z)^2}{\alpha\qty(\phi^{-1})'(z)}=1.
     \end{align*}
-    By the Koebe Quarter Theorem (\cref{thm:koebequarter}), whose proof is independent of results of this section, in accordance, \(D\qty(0,\frac14)\subseteq\psi(\mathbb{D})\). Let \(\mu\in K\setminus\qty{\tau}\). Obviously, \(\mu\notin\phi^{-1}(\mathbb{D})=\extcomplex\setminus K\).
+    By the Koebe Quarter Theorem (\cref{thm:koebequarter}), whose proof is independent of results of this section, in accordance, \(D\qty(0,\frac14)\subseteq\psi(\mathbb{D})\). Let \(\mu\in K\setminus\cbraces{\tau}\). Obviously, \(\mu\notin\phi^{-1}(\mathbb{D})=\extcomplex\setminus K\).
 
     Let \(z\mapsto\frac{\alpha}{z-\tau}\) be injective on \(\extcomplex\). For the
     sake of contradiction, assume that
@@ -5611,10 +5612,10 @@ Let \(z=f^{-1}(w)\). Then we have
     Such a biholomorphism will always exist; for arbitrary \(\zeta\in K\), the map \(z\mapsto\frac{1}{z-\zeta}\) maps \(\extcomplex\setminus K\) to a simply connected, proper subset of \(\mathbb{C}\), which is biholomorphic to \(\mathbb{D}\) by the Riemann Mapping Theorem (\cref{thm:riemannmapping}).
 \end{remark}
 \begin{proposition}\label{prop:complementbiholomorphism584r4767r2estimates}
-    Let \(a\in\mathbb{C}\), \(r>0\), and suppose \(K\subseteq D(a,r)\) is compact such that \(\extcomplex\setminus K\) is connected and \(\diam(K)\geq\frac r2\). Then there is a family of holomorphic functions \(\mathcal{F}=\qty{\phi_\zeta}_{\zeta\in D(a,r)}\), where \(\forall\zeta\in D(a,r)\), \[\phi_\zeta:\extcomplex\setminus K\to\mathbb{C},\] and
+    Let \(a\in\mathbb{C}\), \(r>0\), and suppose \(K\subseteq D(a,r)\) is compact such that \(\extcomplex\setminus K\) is connected and \(\diam(K)\geq\frac r2\). Then there is a family of holomorphic functions \(\mathcal{F}=\cbraces{\phi_\zeta}_{\zeta\in D(a,r)}\), where \(\forall\zeta\in D(a,r)\), \[\phi_\zeta:\extcomplex\setminus K\to\mathbb{C},\] and
     \begin{enumerate}
         \item \(\abs{\phi_\zeta(z)}\leq\frac{584}{r}\) for any \(z\in\extcomplex\setminus K\).\label{itm:complementbiholomorphism584r4767r2estimates_absolute584}
-        \item \(\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\leq\frac{4676r^2}{\abs{\zeta-z}^3}\) for any \(z\in\extcomplex\setminus\qty(K\cup\qty{\zeta})\).\label{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676}
+        \item \(\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\leq\frac{4676r^2}{\abs{\zeta-z}^3}\) for any \(z\in\extcomplex\setminus\qty(K\cup\cbraces{\zeta})\).\label{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676}
         \item The function \(\phi(\zeta,z)\equiv\phi_\zeta(z)\) is jointly continuous in
             \(\zeta\) and \(z\).
     \end{enumerate}
@@ -5654,7 +5655,7 @@ Let \(z=f^{-1}(w)\). Then we have
     \cref{thm:riemannremovablesingularities},
     \(\qty(\phi_\zeta(z)-\frac{1}{z-\zeta})\qty(z-\zeta)^3\) has a removable
     singularity at \(\infty\). On the other hand, for \(\abs{z-\zeta}\leq 2r\) such
-    that \(z\in\extcomplex\setminus\qty(K\cup\qty{\zeta})\), we have \[\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\abs{z-\zeta}^3\leq\abs{\phi_\zeta(z)}\abs{z-\zeta}^3+\abs{z-\zeta}^2\leq\frac{584}{r}(2r)^3+(2r)^2=4676r^2\] from \cref{itm:complementbiholomorphism584r4767r2estimates_absolute584}. The
+    that \(z\in\extcomplex\setminus\qty(K\cup\cbraces{\zeta})\), we have \[\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\abs{z-\zeta}^3\leq\abs{\phi_\zeta(z)}\abs{z-\zeta}^3+\abs{z-\zeta}^2\leq\frac{584}{r}(2r)^3+(2r)^2=4676r^2\] from \cref{itm:complementbiholomorphism584r4767r2estimates_absolute584}. The
     Maximum Modulus Principle (\cref{thm:maximummodulus}) implies that \[\sup_{\abs{z-\zeta}>2r}\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\abs{z-\zeta}^3\leq\sup_{\abs{z-\zeta}=2r}\abs{\phi_\zeta(z)-\frac{1}{z-\zeta}}\abs{z-\zeta}^3\leq 4676r^2\] and thus
     \cref{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676}
     follows. The joint continuity of \(\phi_\zeta\) is immediate from the
@@ -5662,7 +5663,7 @@ Let \(z=f^{-1}(w)\). Then we have
 
     Lastly, if \(a\neq 0\), we may define
     \(\phi_\zeta(z)=\widetilde{\phi}_{\zeta-a}(z-a)\) where
-    \(\qty{\widetilde{\phi}_{\zeta-a}}\) is the family constructed above for the
+    \(\cbraces{\widetilde{\phi}_{\zeta-a}}\) is the family constructed above for the
     set \(\cbraces{z-a}{z\in K}\subset D(0,r)\).
 \end{proof}
 \begin{proposition}\label{prop:diracdeltaapproximation}
@@ -5727,11 +5728,11 @@ Let \(z=f^{-1}(w)\). Then we have
     Let \(K\subset\mathbb{C}\) be compact and \(f:K\to\mathbb{R}\) be continuous. Then \(\exists g\in C^0(\mathbb{C})\) such that \(g\equiv f\) on \(K\).
 \end{theorem}
 \begin{proof}
-    For any two disjoint closed \(A,B\subseteq\mathbb{C}\), consider the continuous separation function \[\eta_{A,B}(z)=\frac{\operatorname{dist}(z,A)-\operatorname{dist}(z,B)}{\operatorname{dist}(z,A)+\operatorname{dist}(z,B)}\] so that \(\eta_{A,B}(A)=\qty{-1}\) and \(\eta_{A,B}(B)=\qty{1}\).
+    For any two disjoint closed \(A,B\subseteq\mathbb{C}\), consider the continuous separation function \[\eta_{A,B}(z)=\frac{\operatorname{dist}(z,A)-\operatorname{dist}(z,B)}{\operatorname{dist}(z,A)+\operatorname{dist}(z,B)}\] so that \(\eta_{A,B}(A)=\cbraces{-1}\) and \(\eta_{A,B}(B)=\cbraces{1}\).
 
     For simplicity, by the boundedness of \(f\), we may assume that \(f(K)=[-1,1]\)
     (by a scaling and shift). We now aim to construct a sequence
-    \(\qty{g_n}_{n\in\mathbb{N}_{\geq 0}}\) inductively such that \[\abs{g_n}\leq\frac{2^n}{3^{n+1}}\text{ on }\mathbb{C},\quad\abs{f-\sum_{k=0}^n g_k}\leq\qty(\frac23)^{n+1}\text{ on }K\quad\forall n\in\mathbb{N}.\]
+    \(\cbraces{g_n}_{n\in\mathbb{N}_{\geq 0}}\) inductively such that \[\abs{g_n}\leq\frac{2^n}{3^{n+1}}\text{ on }\mathbb{C},\quad\abs{f-\sum_{k=0}^n g_k}\leq\qty(\frac23)^{n+1}\text{ on }K\quad\forall n\in\mathbb{N}.\]
     In the case that \(n=0\), define the disjoint closed sets \[A_0=\cbraces{z\in K}{f(z)\leq-\frac13}\qand B_0=\cbraces{z\in K}{f(z)\geq\frac13}.\]
     Let \(g_0(z)=\frac13\eta_{A_0,B_0}(z)\). It is clear that
     \(\abs{g_0}\leq\frac13\) on \(\mathbb{C}\). If \(z\in A_0\), then \(-1\leq
@@ -5813,7 +5814,7 @@ For \(r>0\), define
     by \cref{itm:diracdeltaapproximation_gradientstatement} of \cref{prop:diracdeltaapproximation}, confirming \cref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}. Finally, \cref{itm:integralofcontinuousextensionofholomorphicproperties_integralformula} follows from \cref{cor:pompeiuwithoutcauchyterm} (since outside the support the integral trivially vanishes and within \(U\), \(\pdv{\Phi}{\overline{\zeta}}\) vanishes as a consequence of holomorphy).
 \end{proof}
 \begin{theorem}[Mergelyan]\label{thm:mergelyan}
-    Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) has finitely many connected components. Let \(E=\qty{p_k}_{1\leq k\leq n}\cup\qty{\infty}\subset\extcomplex\setminus K\) contain exactly one point from each of the connected components of \(\extcomplex\setminus K\). Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a rational function \(\psi(z)\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\]
+    Let \(K\subset\mathbb{C}\) be compact such that \(\extcomplex\setminus K\) has finitely many connected components. Let \(E=\cbraces{p_k}_{1\leq k\leq n}\cup\cbraces{\infty}\subset\extcomplex\setminus K\) contain exactly one point from each of the connected components of \(\extcomplex\setminus K\). Suppose \(f\in C^0(K)\) is holomorphic on \(\interior{K}\). Then \(\forall\varepsilon>0\), there exists a rational function \(\psi(z)\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-f(z)}<\varepsilon.\]
 \end{theorem}
 \begin{proof}
     Suppose that \(r\) is chosen such that \(0<\frac34 r<\operatorname{dist}\qty(K, E)\) so that for each \(p_k\in E\), \[\overline{D\qty(p_k,\frac34r)}\subset\extcomplex\setminus K.\]
@@ -5897,7 +5898,7 @@ mathematician Lars Ahlfors. Our purpose here is to give a brief and elementary
 introduction. Despite its importance, still many trivially simple results
 remain conjecture.
 \begin{definition}[Analytic Capacity]\label{def:analyticcapacity}
-    Let \(K\subset\mathbb{C}\) be compact. The \textscsl{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\qty{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}.
+    Let \(K\subset\mathbb{C}\) be compact. The \textscsl{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\cbraces{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}.
 \end{definition}
 Intuitively,
 \section{Differential Geometry}\label{sec:differentialgeometry}
@@ -6223,12 +6224,12 @@ The preceding examples show that if the omitted set is sufficiently ``large'' (i
     Let \(U\subset\mathbb{C}\) be an open set such that \(\mathbb{C}\setminus U\) contains at least two points. Then \(U\) admits a conformal metric \(\rho\in C^2(U)\), \(\dd{s}_\rho^2=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho(z)\leq -\beta<0\qquad\forall z\in U\] for some \(\beta>0\).
 \end{proposition}
 \begin{proof}
-    Without loss of generality, we may assume that \(\qty{0,1}\subseteq\mathbb{C}\setminus U\) (if not, a linear transformation \(z\mapsto\frac{z-\xi_1}{\xi_2-\xi_1}\) where \(\xi_1,\xi_2\in\mathbb{C}\setminus U\) are distinct will suffice to transform \(U\) to such a region).
+    Without loss of generality, we may assume that \(\cbraces{0,1}\subseteq\mathbb{C}\setminus U\) (if not, a linear transformation \(z\mapsto\frac{z-\xi_1}{\xi_2-\xi_1}\) where \(\xi_1,\xi_2\in\mathbb{C}\setminus U\) are distinct will suffice to transform \(U\) to such a region).
 
     Define a conformal metric with
     \begin{equation}
         \rho(z)=\frac{\sqrt{1+\abs{z}^{\frac{1}{3}}}\sqrt{1+\abs{z-1}^{\frac{1}{3}}}}{\abs{z}^{\frac{5}{6}}\abs{z-1}^{\frac{5}{6}}},\qquad\dd{s}_{\rho}^2=\rho^2(z)\abs{\dd{z}}^2\label{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric}
-    \end{equation} on \(\mathbb{C}\setminus\qty{0,1}\).
+    \end{equation} on \(\mathbb{C}\setminus\cbraces{0,1}\).
 
     Since
     \(\laplacian(\log\abs{z}^{\frac{5}{6}})=\frac{5}{6}\laplacian(\log\abs{z})=\frac5{6}\laplacian(\Re\log(z))\),
@@ -6240,14 +6241,14 @@ The preceding examples show that if the omitted set is sufficiently ``large'' (i
     Hence, \[K_\rho(z)=-\frac{1}{18}\qty[\frac{\abs{z-1}^\frac53}{\qty(1+\abs{z}^{\frac13})^3\qty(1+\abs{z-1}^{\frac13})}+\frac{\abs{z}^{\frac53}}{\qty(1+\abs{z-1}^{\frac13})^3\qty(1+\abs{z}^{\frac13})}],\]
     and that
     \begin{enumerate}
-        \item \(K_\rho\in C^0\qty(\mathbb{C}\setminus\qty{0,1})\).
-        \item \(\forall z\in\mathbb{C}\setminus\qty{0,1}\), \(K_\rho(z)<0\).
+        \item \(K_\rho\in C^0\qty(\mathbb{C}\setminus\cbraces{0,1})\).
+        \item \(\forall z\in\mathbb{C}\setminus\cbraces{0,1}\), \(K_\rho(z)<0\).
         \item \(\lim_{z\to 0}K_\rho(z)=-\frac1{36}\).
         \item \(\lim_{z\to 1}K_\rho(z)=-\frac1{36}\).
         \item \(\lim_{z\to\infty}K_\rho(z)=-\infty\) in any direction (as in the one-point compactification).
     \end{enumerate}
-    Hence, \(\exists\delta>0\) such that \(\abs{K_\rho(z)+\frac{1}{36}}<\frac{1}{72}\) for any \(z\in D^*(0,\delta)\cup D^*(1,\delta)\) and \(\exists R>0\) such that \(K_\rho(z)<-1\) for any \(z\) satisfying \(\abs{z}>R\). By compactness of \(\overline{D(0,R)}\setminus\qty(D(0,\delta)\cup D(1,\delta))\) and continuity, it attains its supremum of some value \(-M<0\) by \cref{thm:extremevalue}. Let \(-\beta=\max\qty{-\frac{1}{72},-M}<0\).
-    \[\therefore\quad K_\rho(z)\leq-\beta<0\quad\forall z\in\mathbb{C}\setminus\qty{0,1}.\qedhere\]
+    Hence, \(\exists\delta>0\) such that \(\abs{K_\rho(z)+\frac{1}{36}}<\frac{1}{72}\) for any \(z\in D^*(0,\delta)\cup D^*(1,\delta)\) and \(\exists R>0\) such that \(K_\rho(z)<-1\) for any \(z\) satisfying \(\abs{z}>R\). By compactness of \(\overline{D(0,R)}\setminus\qty(D(0,\delta)\cup D(1,\delta))\) and continuity, it attains its supremum of some value \(-M<0\) by \cref{thm:extremevalue}. Let \(-\beta=\max\cbraces{-\frac{1}{72},-M}<0\).
+    \[\therefore\quad K_\rho(z)\leq-\beta<0\quad\forall z\in\mathbb{C}\setminus\cbraces{0,1}.\qedhere\]
 \end{proof}
 And we have the final implication:
 \begin{theorem}[name=\textsc{Picard's Little Theorem},store=thm:littlepicard]\label{thm:littlepicard}
@@ -6263,7 +6264,7 @@ And we have the final implication:
 Picard's Great Theorem requires a more profound concept by generalizing normal
 families in the one-point compactification of \(\mathbb{C}\).
 \begin{definition}
-    Let \(\qty{f_n(z)}\) be a (not necessarily analytic) complex function sequence on a connected set \(\Omega\subseteq\mathbb{C}\). If \(\forall K\subset\Omega\) compact, \(\forall R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in K\), \(\abs{f_n(z)}>R\), then \textscsl{\(f_n\to\infty\) locally uniformly spherically on \(\Omega\)}.
+    Let \(\cbraces{f_n(z)}\) be a (not necessarily analytic) complex function sequence on a connected set \(\Omega\subseteq\mathbb{C}\). If \(\forall K\subset\Omega\) compact, \(\forall R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in K\), \(\abs{f_n(z)}>R\), then \textscsl{\(f_n\to\infty\) locally uniformly spherically on \(\Omega\)}.
 \end{definition}
 When the ``locally uniform limit'' is taken to be \(\infty\), the condition of \(\varepsilon\)-closeness is instead replaced by the requirement that the values eventually leave every fixed compact subset of \(\mathbb{C}\) (the given definition is equivalent to: \(\forall K\subset\Omega\) compact, \(\forall L\subset\mathbb{C}\) compact, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in K\), \(f_n(z)\notin L\)). In this way, convergence to infinity is treated symmetrically with convergence to finite values by working in the Riemann sphere \(\extcomplex\), where \(\infty\) is simply another accumulation point.
 
@@ -6273,7 +6274,7 @@ treated like convergence to any finite point. In this setting, \(\infty\) is
 simply another accumulation point, so there is no need to handle it differently
 from other values.
 
-Let \(\qty{a_n}_{n\in\mathbb{N}}\subset\extcomplex\) be a sequence. Then we say
+Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\extcomplex\) be a sequence. Then we say
 \(a_n\to a_\infty\) \emph{spherically} iff \(\forall\varepsilon>0\), \(\exists
 N\in\mathbb{N}\) such that \(\forall n>N\),
 \(d_\sigma\qty(a_n,a_\infty)<\varepsilon\), where \(d_\sigma\) is the spherical
@@ -6301,7 +6302,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     \(\forall\abs{z_1-z_2}<\frac{\varepsilon}{M}\), \[d_\sigma\qty(\psi\qty(z_1),\psi\qty(z_2))<\varepsilon.\qedhere\]
 \end{proof}
 \begin{proposition}\label{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit}
-    Let \(\qty{f_n}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on a domain \(\Omega\subseteq\mathbb{C}\). If \(f_n\to f\) locally uniformly spherically, then \(f\) is either holomorphic on \(\Omega\) or identically \(\infty\).
+    Let \(\cbraces{f_n}_{n\in\mathbb{N}}\) be a sequence of holomorphic functions on a domain \(\Omega\subseteq\mathbb{C}\). If \(f_n\to f\) locally uniformly spherically, then \(f\) is either holomorphic on \(\Omega\) or identically \(\infty\).
 \end{proposition}
 \begin{proof}
     A result analogous to \cref{thm:uniformlimit} can be used to show that \(f\) is spherically continuous. Let \(z\in\Omega\) be arbitrary.
@@ -6348,12 +6349,12 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     Conversely, assume for the sake of contradiction that \(\mathcal{F}\) is a
     normal family such that conclusion is not satisfied. Then, \(\exists
     K\subset\Omega\) compact and a sequence
-    \(\qty{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that the sequence \[\qty{\sup_{z\in K}f^\sharp_n(z)}_{n\in\mathbb{N}}\] tends to \(\infty\) (specifically, suppose that \(\forall n\in\mathbb{N}\),
+    \(\cbraces{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that the sequence \[\cbraces{\sup_{z\in K}f^\sharp_n(z)}_{n\in\mathbb{N}}\] tends to \(\infty\) (specifically, suppose that \(\forall n\in\mathbb{N}\),
     \(\sup_{z\in K}f_n^\sharp(z)>n\)). By normality, we may extract a locally
     uniformly spherically convergent subsequence
-    \(\qty{f_{n_k}}_{k\in\mathbb{N}}\subseteq\qty{f_n}_{n\in\mathbb{N}}\). By
+    \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\subseteq\cbraces{f_n}_{n\in\mathbb{N}}\). By
     \cref{thm:uniformlimit} under the spherical metric, the uniform spherical limit
-    of \(\qty{f_{n_k}}_{k\in\mathbb{N}}\), \(f\), is spherically continuous on
+    of \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\), \(f\), is spherically continuous on
     \(\Omega\). For every point \(z\in\Omega\), there are two possibilities:
     \begin{enumerate}
         \item If \(f(z)\neq\infty\), then by continuity, \(\exists\delta>0\) such that
@@ -6361,36 +6362,36 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
             Hence, we have \[d_\sigma\qty(\infty,f(z))-d_\sigma\qty(f(z),f_{n_k}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(\infty,f_{n_k}(\zeta))>0.\]
             Hence, the meromorphy of each \(f_{n_k}\) is actually holomorphy. By
             continuity, \(f\) is locally uniformly bounded on \(D(z,\delta)\). Hence,
-            \(\qty{f_{n_k}}_{k>N}\) locally uniformly converges on \(D(z,\delta)\). By a
+            \(\cbraces{f_{n_k}}_{k>N}\) locally uniformly converges on \(D(z,\delta)\). By a
             result of Weierstrass (\cref{thm:weierstrassconvergence}), \(f\) is holomorphic
-            on \(D(z,\delta)\) and the sequence \(\qty{f'_{n_k}}_{k>N}\) locally uniformly
+            on \(D(z,\delta)\) and the sequence \(\cbraces{f'_{n_k}}_{k>N}\) locally uniformly
             converges to \(f'\) on \(D(z,\delta)\).
 
             By holomorphy of \(f'\) on \(\overline{D\qty(z,\frac\delta2)}\), \(\exists
             M'>0\) such that
             \(\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f'(\zeta)}<M'\). Uniform
-            convergence of \(\qty{f'_{n_k}}_{k>N}\) gives the existence of some \(N'>N\)
-            such that \(\forall k>N'\), \[\abs{f'_{n_k}(\zeta)-f'(\zeta)}<1\implies\abs{f'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\qty{f'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\qty{M'+1}\cup\qty{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{f_{n_k}'(\zeta)}}{1+\abs{f_{n_k}(\zeta)}^2}\leq 2\abs{f'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2)\subset\overline{D\qty(z,\frac\delta2)}.\]
+            convergence of \(\cbraces{f'_{n_k}}_{k>N}\) gives the existence of some \(N'>N\)
+            such that \(\forall k>N'\), \[\abs{f'_{n_k}(\zeta)-f'(\zeta)}<1\implies\abs{f'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\cbraces{f'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\cbraces{M'+1}\cup\cbraces{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{f_{n_k}'(\zeta)}}{1+\abs{f_{n_k}(\zeta)}^2}\leq 2\abs{f'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2)\subset\overline{D\qty(z,\frac\delta2)}.\]
         \item \(f\qty(z)=\infty\), then by continuity, \(\exists\delta>0\) such that \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),\infty)<\frac\piup2.\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[d_\sigma\qty(f(\zeta),f_{n_k}(\zeta))<\frac\piup2.\]
             Hence, we have \[\piup-d_\sigma\qty(\infty,f_{n_k}(\zeta))=d_\sigma(\infty,0)-d_\sigma\qty(\infty,f_{n_k}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(0,f_{n_k}(\zeta))>0.\]
             Hence, each \(g_{n_k}=\frac1{f_{n_k}}\) is holomorphic on \(D(z,\delta)\). By
             continuity, \(g=\frac1f\) is locally uniformly bounded on \(D(z,\delta)\). It
-            can also be realized that \(\qty{g_{n_k}}_{k>N}\) locally uniformly converges
+            can also be realized that \(\cbraces{g_{n_k}}_{k>N}\) locally uniformly converges
             on \(D(z,\delta)\). By a result of Weierstrass
             (\cref{thm:weierstrassconvergence}), \(g\) is holomorphic on \(D(z,\delta)\)
-            and the sequence \(\qty{g_{n_k}'}_{k>N}\) locally uniformly converges to \(g'\)
+            and the sequence \(\cbraces{g_{n_k}'}_{k>N}\) locally uniformly converges to \(g'\)
             on \(D(z,\delta)\).
 
             By holomorphy of \(g'\) on \(\overline{D\qty(z,\frac\delta2)}\), \(\exists
             M'>0\) such that
             \(\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g'(\zeta)}<M'\). Uniform
-            convergence of \(\qty{g'_{n_k}}_{k>N}\) gives the existence of some \(N'>N\)
-            such that \(\forall k>N'\), \[\abs{g'_{n_k}(\zeta)-g'(\zeta)}<1\implies\abs{g'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\qty{g'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\qty{M'+1}\cup\qty{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{-\frac{g_{n_k}'(\zeta)}{g_{n_k}(\zeta)^2}}}{1+\abs{g_{n_k}(\zeta)}^{-2}}=\frac{2\abs{g_{n_k}'(\zeta)}}{\abs{g_{n_k}(\zeta)}^2+1}\leq 2\abs{g'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2).\]
+            convergence of \(\cbraces{g'_{n_k}}_{k>N}\) gives the existence of some \(N'>N\)
+            such that \(\forall k>N'\), \[\abs{g'_{n_k}(\zeta)-g'(\zeta)}<1\implies\abs{g'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\cbraces{g'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\cbraces{M'+1}\cup\cbraces{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{-\frac{g_{n_k}'(\zeta)}{g_{n_k}(\zeta)^2}}}{1+\abs{g_{n_k}(\zeta)}^{-2}}=\frac{2\abs{g_{n_k}'(\zeta)}}{\abs{g_{n_k}(\zeta)}^2+1}\leq 2\abs{g'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2).\]
     \end{enumerate}
-    In essence, for any point \(z\), there exists an open disk \(D_z\) centered at \(z\) on which the spherical derivatives \(f^\sharp_{n_k}\) are bounded by some constant \(M_z\) for \(k>N_z\). By Heine--Borel (\cref{thm:heineborel}), there exists a finite collection of disks \(\qty{D_{z_j}}_{1\leq j\leq n}\) that cover \(K\). Thus, \(\qty{f_{n_k}^\sharp(z)}_{k>N}\) is uniformly bounded on \(K\) by \(\max_{1\leq j\leq n}M_{z_j}\), where \(N=\max_{1\leq j\leq n} N_{z_j}\), contradicting the assumption that \(\sup_{z\in K}f^\sharp_n(z)>n\) for all \(n\in\mathbb{N}\).
+    In essence, for any point \(z\), there exists an open disk \(D_z\) centered at \(z\) on which the spherical derivatives \(f^\sharp_{n_k}\) are bounded by some constant \(M_z\) for \(k>N_z\). By Heine--Borel (\cref{thm:heineborel}), there exists a finite collection of disks \(\cbraces{D_{z_j}}_{1\leq j\leq n}\) that cover \(K\). Thus, \(\cbraces{f_{n_k}^\sharp(z)}_{k>N}\) is uniformly bounded on \(K\) by \(\max_{1\leq j\leq n}M_{z_j}\), where \(N=\max_{1\leq j\leq n} N_{z_j}\), contradicting the assumption that \(\sup_{z\in K}f^\sharp_n(z)>n\) for all \(n\in\mathbb{N}\).
 \end{proof}
 \begin{theorem}[\textsc{Fundamental Normality Test}]\label{thm:fundamentalnormalitytest}
-    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of holomorphic functions on \(\Omega\). If there exist two different points \(\alpha,\beta\in\mathbb{C}\) such that \(\qty{\alpha,\beta}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of holomorphic functions on \(\Omega\). If there exist two different points \(\alpha,\beta\in\mathbb{C}\) such that \(\cbraces{\alpha,\beta}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
 \end{theorem}
 \begin{proof}
     Map \(\alpha\) and \(\beta\) to \(0,1\) by a linear function \(\varphi(z)=\frac{z-\alpha}{\beta-\alpha}\). Then the family of holomorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\) and \(1\) for all \(z\in\Omega\).
@@ -6398,13 +6399,13 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     By \cref{prop:conformalmetricnegativecurvatureexistencewhenomits2points},
     \(\exists\beta>0\) such that for \[\rho(z)=\frac{\sqrt{1+\abs{z}^{\frac13}}\sqrt{1+\abs{z-1}^{\frac13}}}{\abs{z}^{\frac56}\abs{z-1}^{\frac56}},\qquad\dd{s}^2_{\rho}=\rho(z)^2\abs{\ddz}^2\] as in
     \cref{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric},
-    \[K_\rho(z)\leq-\beta\qquad\forall z\in\mathbb{C}\setminus\qty{0,1}.\]
+    \[K_\rho(z)\leq-\beta\qquad\forall z\in\mathbb{C}\setminus\cbraces{0,1}.\]
     Therefore, if we let \(\mu=\rho\sqrt{\beta}\), then
     \begin{equation}
-        K_\mu=-\frac{\laplacian(\log\circ\mu)}{\mu^2}=-\frac{\laplacian(\log\circ\rho)}{\rho^2\beta}=\frac{K_\rho}{\beta}\leq-1\qq{on}\mathbb{C}\setminus\qty{0,1}.\label{eq:fundamentalnormalitytest_f_mu_pullback_inequality}
+        K_\mu=-\frac{\laplacian(\log\circ\mu)}{\mu^2}=-\frac{\laplacian(\log\circ\rho)}{\rho^2\beta}=\frac{K_\rho}{\beta}\leq-1\qq{on}\mathbb{C}\setminus\cbraces{0,1}.\label{eq:fundamentalnormalitytest_f_mu_pullback_inequality}
     \end{equation}
-    Let \(\zeta\in\Omega\) be arbitrary and let \(r_\zeta>0\) satisfy \(D\qty(\zeta,r_\zeta)\subseteq\Omega\). By \cref{cor:generalizedahlfors}, the pullback of \(\mu\) from \(\mathbb{C}\setminus\qty{0,1}\) to \(D\qty(\zeta,r_\zeta)\subseteq\Omega\) satisfies \[f^*\mu(z)\leq\lambda_{r_\zeta}(z-\zeta)\implies\mu\qty(f(z))\abs{f'(z)}\leq\frac{2r_\zeta}{r_\zeta^2-\abs{z-\zeta}^2}\qquad\forall z\in D\qty(\zeta,r_\zeta),f\in\widetilde{\mathcal{F}}.\]
-    Since \(\forall w\in\mathbb{C}\setminus\qty{0,1}\), \[\frac{\sigma(w)}{\mu(w)}=\frac{\frac{2}{1+\abs{w}^2}}{\frac{\sqrt{1+\abs{w}^{\frac13}}\sqrt{1+\abs{w-1}^{\frac13}}}{\abs{w}^{\frac56}\abs{w-1}^{\frac56}}}\to
+    Let \(\zeta\in\Omega\) be arbitrary and let \(r_\zeta>0\) satisfy \(D\qty(\zeta,r_\zeta)\subseteq\Omega\). By \cref{cor:generalizedahlfors}, the pullback of \(\mu\) from \(\mathbb{C}\setminus\cbraces{0,1}\) to \(D\qty(\zeta,r_\zeta)\subseteq\Omega\) satisfies \[f^*\mu(z)\leq\lambda_{r_\zeta}(z-\zeta)\implies\mu\qty(f(z))\abs{f'(z)}\leq\frac{2r_\zeta}{r_\zeta^2-\abs{z-\zeta}^2}\qquad\forall z\in D\qty(\zeta,r_\zeta),f\in\widetilde{\mathcal{F}}.\]
+    Since \(\forall w\in\mathbb{C}\setminus\cbraces{0,1}\), \[\frac{\sigma(w)}{\mu(w)}=\frac{\frac{2}{1+\abs{w}^2}}{\frac{\sqrt{1+\abs{w}^{\frac13}}\sqrt{1+\abs{w-1}^{\frac13}}}{\abs{w}^{\frac56}\abs{w-1}^{\frac56}}}\to
         \begin{cases}
             0                                            & \qq*{as}w\to 0     \\
             0                                            & \qq*{as}w\to 1     \\
@@ -6414,7 +6415,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     respectively on which \(\frac\sigma\mu<1\). Since \(\frac{\sigma}{\mu}\in
     C^0(\mathbb{C})\), by \cref{thm:continuousfunctionboundedoncompact}, \(\exists
     M'>0\) such that \(\frac{\sigma}{\mu}<M'\) on \(\mathbb{C}\setminus\qty(U_0\cup
-    U_1\cup U_\infty)\). Let \(M=\max\qty{M',1}\), and \[\therefore\sigma\leq M\mu\qq{on}\mathbb{C}\setminus\qty{0,1}.\]
+    U_1\cup U_\infty)\). Let \(M=\max\cbraces{M',1}\), and \[\therefore\sigma\leq M\mu\qq{on}\mathbb{C}\setminus\cbraces{0,1}.\]
     Hence, \(\forall f\in\widetilde{\mathcal{F}}\), we have by virtue of
     \cref{eq:fundamentalnormalitytest_f_mu_pullback_inequality}, \[f^\sharp(z)=\sigma\circ f(z)\abs{f'(z)}\leq M\mu\circ f(z)\abs{f'(z)}\leq\frac{2rM}{r_\zeta^2-\abs{z-\zeta}^2}\] for any \(z\in D\qty(\zeta,r_\zeta)\). Now restricting \(z\) to
     \(D\qty(\zeta,\frac{r_\zeta}{2})\), we have \[\abs{z-\zeta}^2<\frac{r_\zeta^2}4\implies r_\zeta^2-\abs{z-\zeta}^2>\frac{3r_\zeta^2}4\implies\abs{f^\sharp(z)}<\frac{8r_\zeta M}{3r_\zeta^2}=\frac{8M}{3r_\zeta}.\]
@@ -6427,7 +6428,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     \(\Omega\).
 \end{proof}
 \begin{corollary}[name=\textsc{Montel--Carathéodory}]\label{cor:montelcaratheodory}
-    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions on \(\Omega\). If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\qty{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions on \(\Omega\). If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\cbraces{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
 \end{corollary}
 \begin{proof}
     Let \(\varphi(z)=\frac{(z-\alpha)(\beta-\gamma)}{(z-\gamma)(\beta-\alpha)}\) be a Möbius transformation mapping \(\alpha,\beta,\gamma\) to \(0,1,\infty\), respectively.
@@ -6438,8 +6439,8 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     By \cref{prop:linearfractionaltransformationuniformlysphericallycontinuous},
     \(\forall\varepsilon>0\), \(\exists\delta>0\) such that
     \(\forall\abs{w_1-w_2}<\delta\) in \(\mathbb{C}\), \[d_\sigma\qty(\varphi^{-1}\qty(w_1),\varphi^{-1}\qty(w_2))<\varepsilon.\]
-    Let \(\qty{\widetilde{f}_n}_{n\in\mathbb{N}}\) be any function sequence in
-    \(\mathcal{F}\) and let \(\qty{\widetilde{f}_{n_k}}_{k\in\mathbb{N}}\) be
+    Let \(\cbraces{\widetilde{f}_n}_{n\in\mathbb{N}}\) be any function sequence in
+    \(\mathcal{F}\) and let \(\cbraces{\widetilde{f}_{n_k}}_{k\in\mathbb{N}}\) be
     locally uniformly convergent to \(\widetilde{f}\) on a compact set
     \(K\subset\Omega\). Then \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[\abs{\widetilde{f}_{n_k}(z)-\widetilde{f}(z)}<\delta\qquad\forall z\in K.\]
     Therefore, \(\forall z\in K\), \(k>N\), we have \[d_\sigma\qty(\varphi^{-1}\circ\widetilde{f}_{n_k}(z),\varphi^{-1}\circ\widetilde{f}(z))=d_\sigma\qty(f_{n_k}(z),f(z))<\varepsilon.\] Hence, every sequence \(f_n\) has a locally uniformly spherically convergent
@@ -6460,15 +6461,15 @@ characterization of this distribution by methods of differential geometry.
     \(1\), each element of \(\mathcal{F}\) does as well. By the Fundamental
     Normality Test (\cref{thm:fundamentalnormalitytest}), \(\mathcal{F}\) is
     spherically normal. Thus, there exists a subsequence
-    \(\qty{f_{n_k}}_{k\in\mathbb{N}}\subseteq\mathcal{F}\) that converges locally
+    \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\subseteq\mathcal{F}\) that converges locally
     uniformly on \(D^*\qty(0,\delta)\) in the spherical metric. By
     \cref{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit},
     this subsequence converges locally uniformly either to a holomorphic function
     on \(D^*\qty(0,\delta)\) or to \(\infty\) thereon.
     \begin{enumerate}
-        \item Suppose \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to a
+        \item Suppose \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to a
             holomorphic function on \(D^*\qty(0,\delta)\). Then
-            \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) is uniformly bounded on \(\partial
+            \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) is uniformly bounded on \(\partial
             D\qty(0,\frac\delta2)\). Hence, there exists \(M>0\) such that
             \[\abs{f\qty(\frac z{n_k})}=\abs{f_{n_k}(z)}<M\qquad\forall z\in\partial D\qty(0,\frac\delta2),\ k\in\mathbb{N}.\]
             In other words, \(f\) is bounded by \(M\) on every circle \(\partial
@@ -6476,12 +6477,12 @@ characterization of this distribution by methods of differential geometry.
             Principle (\cref{thm:maximummodulus}), \(f\) is then bounded by \(M\) on each
             annulus \(\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus
             D\qty(0,\frac{\delta}{2n_{k+1}})\) for \(k\in\mathbb{N}\). As
-            \[\bigcup_{k\in\mathbb{N}}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})=\overline{D\qty(0,\frac\delta{2n_1})}\setminus\qty{0},\]
+            \[\bigcup_{k\in\mathbb{N}}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})=\overline{D\qty(0,\frac\delta{2n_1})}\setminus\cbraces{0},\]
             it follows that \(f\) is bounded on \(D^*\qty(0,\frac\delta2)\). By Riemann's
             Removable Singularity Theorem (\cref{thm:riemannremovablesingularities}), \(f\)
             therefore extends holomorphically to \(0\).
 
-        \item Suppose \(\qty{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to
+        \item Suppose \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to
             \(\infty\) on \(D^*\qty(0,\delta)\). Then, for every \(\varepsilon>0\), there
             exists \(N\in\mathbb{N}\) such that, for all \(k>N\),
             \[\abs{\frac{1}{f\qty(\frac{z}{n_k})}}=\abs{\frac1{f_{n_k}(z)}}<\varepsilon\qquad\forall z\in\partial D\qty(0,\frac\delta2).\]
@@ -6652,7 +6653,7 @@ Similar to the univariate case, there are Taylor expansions of holomorphic funct
     Let \(\Omega\subset\mathbb{C}^n\) be a open bounded region, and suppose that \(f:\Omega\to\mathbb{C}\) is holomorphic. If \[M=\sup_{\zeta\in\partial\Omega}\lim_{\substack{z\to\zeta\\z\in\Omega}}\abs{f(z)},\] then \(\abs{f(z)}<M\) for all \(z\in\Omega\), unless \(f\) is constant.
 \end{theorem}
 \begin{theorem}[Weierstrass]\label{thm:weierstrassconvergencemultivar}
-    Suppose that \(\Omega\subseteq\mathbb{C}^n\) is a region and that \(\qty{f_k}_{k\in\mathbb{N}}\) is a sequence of holomorphic functions on \(\Omega\). If \(\qty{f_k}_{k\in\mathbb{N}}\) converges locally uniformly to \(f\) on \(\Omega\), then \(f\) is holomorphic on \(\Omega\). Moreover, \(\forall k_1,\ldots,k_n\in\mathbb{Z}_{\ge0}\),
+    Suppose that \(\Omega\subseteq\mathbb{C}^n\) is a region and that \(\cbraces{f_k}_{k\in\mathbb{N}}\) is a sequence of holomorphic functions on \(\Omega\). If \(\cbraces{f_k}_{k\in\mathbb{N}}\) converges locally uniformly to \(f\) on \(\Omega\), then \(f\) is holomorphic on \(\Omega\). Moreover, \(\forall k_1,\ldots,k_n\in\mathbb{Z}_{\ge0}\),
     \[\qty(\prod_{j=1}^n\pdv[k_j]{}{z_j})f_k\rightrightarrows\qty(\prod_{j=1}^n\pdv[k_j]{}{z_j})f\] on compact subsets of \(\Omega\).
 \end{theorem}
 \begin{theorem}[Montel]\label{thm:montelmultivar}
@@ -6733,7 +6734,7 @@ In preparation, we will introduce several relevant concepts.
     Hence, the linear homogeneous polynomial of
     \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
     Define a sequence of holomorphic functions
-    \(\qty{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ\vb{f}\qquad\forall k\in\mathbb{N}.\]
+    \(\cbraces{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ\vb{f}\qquad\forall k\in\mathbb{N}.\]
     Assume the existence of some \(m\in\mathbb{N}\), the smallest \(j\geq 2\) such
     that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1(z)=\vb{z}+\vb*{\psi}_m\qty(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j\qty(\vb{z}-\vb{a}),\] it then follows that
     \begin{align*}
@@ -6747,7 +6748,7 @@ In preparation, we will introduce several relevant concepts.
         & \quad+\sum_{j>m}\qty(\text{homogeneous polynomial of degree \(j\)})\qty(\vb{f}(\vb{z})-\vb{a})                                                            \\
         & =\vb{z}+(k+1)\vb*{\psi}_m(\vb{z}-\vb{a})+\qty(\text{degree \(>m\) homogeneous polynomials})(\vb{z}-\vb{a}).
     \end{align*}
-    Since \(\vb{f}_k(\Omega)\subseteq\Omega\) for any \(k\), the sequence \(\qty{\vb{f}_k}_{k\in\mathbb{N}}\) is uniformly bounded on \(\Omega\). By Montel's Theorem (\cref{thm:montelmultivar}), there exists a subsequence \(\qty{\vb{f}_{k_l}}_{l\in\mathbb{N}}\) that converges locally uniformly to some holomorphic function \(\widetilde{\vb{f}}\) by virtue of Weierstrass (\cref{thm:weierstrassconvergencemultivar}).
+    Since \(\vb{f}_k(\Omega)\subseteq\Omega\) for any \(k\), the sequence \(\cbraces{\vb{f}_k}_{k\in\mathbb{N}}\) is uniformly bounded on \(\Omega\). By Montel's Theorem (\cref{thm:montelmultivar}), there exists a subsequence \(\cbraces{\vb{f}_{k_l}}_{l\in\mathbb{N}}\) that converges locally uniformly to some holomorphic function \(\widetilde{\vb{f}}\) by virtue of Weierstrass (\cref{thm:weierstrassconvergencemultivar}).
 
     Since \(\vb*{\psi}_m\not\equiv 0\), there exists \(\vb*{\alpha}\) satisfying
     \(\abs{\vb*{\alpha}}=m\) such that \[\partial^{\vb*{\alpha}}\vb*{\psi}_m\equiv\vb{c}\neq\vb{0}\] is a nonzero constant by \cref{prop:homogeneouspolynomialderivatives}.
@@ -6833,33 +6834,33 @@ In preparation, we will introduce several relevant concepts.
     constant matrix
     \(\vb{A}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n})\).
     Thus,
-    \[\abs{\sum_{j=1}^n\zeta_{k,j}z_j}<1\qquad\forall\vb{z}\in\mathbb{D}^n,\ \forall k\in\qty{1,\ldots,n},\]
-    which implies \(\abs{\zeta_{k,j}}\leq1\) for all \(j,k\in\qty{1,\ldots,n}\)
+    \[\abs{\sum_{j=1}^n\zeta_{k,j}z_j}<1\qquad\forall\vb{z}\in\mathbb{D}^n,\ \forall k\in\cbraces{1,\ldots,n},\]
+    which implies \(\abs{\zeta_{k,j}}\leq1\) for all \(j,k\in\cbraces{1,\ldots,n}\)
     (for if \(\abs{\zeta_{k,j}}>1\), then choosing
         \(z_j=\frac1{\abs{\zeta_{k,j}}}+\varepsilon\) with
         \(0<\varepsilon<1-\frac1{\abs{\zeta_{k,j}}}\) and \(z_l=0\) for \(l\neq j\)
     yields a contradiction).
 
-    For each \(j\in\qty{1,\ldots,n}\), define the sequence
-    \(\qty{\vb{z}_{j,k}}_{k\in\mathbb{N}}\) by
+    For each \(j\in\cbraces{1,\ldots,n}\), define the sequence
+    \(\cbraces{\vb{z}_{j,k}}_{k\in\mathbb{N}}\) by
     \[\vb{z}_{j,k}=\qty(z_{j,k,1},\dots,z_{j,k,n})=\qty(\qty(1-\frac{1}{k})\frac{\abs{\zeta_{j,1}}}{\zeta_{j,1}},\dots,\qty(1-\frac{1}{k})\frac{\abs{\zeta_{j,n}}}{\zeta_{j,n}})\in\mathbb{D}^n\qquad\forall k\in\mathbb{N},\]
     where we informally let \(\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}=0\) if
-    \(\zeta_{j,i}=0\). Then, for all \(j\in\qty{1,\ldots,n}\) and
+    \(\zeta_{j,i}=0\). Then, for all \(j\in\cbraces{1,\ldots,n}\) and
     \(k\in\mathbb{N}\),
     \[\qty(\vb*{\varphi}\circ\vb{f})\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{1,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{j,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{n,i})\in\mathbb{D}^n.\]
     In particular, the \(j\)-th component is
     \[\qty(1-\frac{1}{k})\sum_{i=1}^n\abs{\zeta_{j,i}}\in\mathbb{D}.\]
     As \(k\to\infty\),
     \begin{equation}
-        \sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\qty{1,\ldots,n}.\label{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}
+        \sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\cbraces{1,\ldots,n}.\label{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}
     \end{equation}
-    Now consider, for each \(j\in\qty{1,\ldots,n}\), the sequence \(\vb{z}_{j,k}=\qty(0,\ldots,0,1-\frac{1}{k},0,\ldots,0)\), where \(1-\frac{1}{k}\) is in the \(j\)-th position. Then
+    Now consider, for each \(j\in\cbraces{1,\ldots,n}\), the sequence \(\vb{z}_{j,k}=\qty(0,\ldots,0,1-\frac{1}{k},0,\ldots,0)\), where \(1-\frac{1}{k}\) is in the \(j\)-th position. Then
     \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\zeta_{1,j},\ldots,\zeta_{n,j}).\]
     As \(k\to\infty\), \(\vb{z}_{j,k}\to\vb{e}_j\in\partial\qty(\mathbb{D}^n)\)
     (the \(j\)-th unit basis vector), so the limit
     \[\qty(\zeta_{1,j},\ldots,\zeta_{n,j})\in\partial\qty(\mathbb{D}^n)\]
     holds by continuity (extending across the boundary in this direction). Thus,
-    \(\max_{i\in\qty{1,\ldots,n}}\abs{\zeta_{i,j}}=1\). Combined with
+    \(\max_{i\in\cbraces{1,\ldots,n}}\abs{\zeta_{i,j}}=1\). Combined with
     \cref{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}, this
     forces exactly one entry in the \(j\)-th column of \(\vb{A}\) to have absolute
     value \(1\) (of the form \(\ee^{\ii\theta_j}\)), with all others zero.
@@ -6925,7 +6926,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
         \norm{\vb{Uz}}=1&=\frac12\norm{\qty(\zeta_{1,i}+\ii\zeta_{1,j},\dots,\zeta_{n,i}+\ii\zeta_{n,j})}^2=\frac12\sum_{k=1}^n\abs{\zeta_{k,i}+\ii\zeta_{k,j}}^2\\
         &=\frac12\sum_{k=1}^n\qty(\abs{\zeta_{k,i}^2}+\abs{\zeta_{k,j}^2}+2\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}}))=1+\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}}),
     \end{align*}
-    which implies that \(\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}})=0\). Therefore, by \cref{eq:unitballautomorphismfixedpointatzero_diagonalentries}, for all \(i,j\in\qty{1,\ldots,n}\), observe that
+    which implies that \(\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}})=0\). Therefore, by \cref{eq:unitballautomorphismfixedpointatzero_diagonalentries}, for all \(i,j\in\cbraces{1,\ldots,n}\), observe that
     \[\qty(\vb{U}^\dagger\vb{U})_{j,i}=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,j}}=\delta_{j,i},\] where \(\delta_{j,i}\) is the Kronecker delta. Hence, we have \(\vb{U}^\dagger\vb{U}=\vb{I}\), and thus \(\vb{U}\) is unitary.
 
     Conversely, if \(\vb{f}(\vb{z})=\vb{U}\vb{z}\) for some unitary matrix \(\vb{U}\), then for any \(\vb{z}\in B^n\), \[\norm{\vb{f}(\vb{z})}^2=\norm{\vb{Uz}}^2=\vb{z}^\dagger\vb{U}^\dagger\vb{U}\vb{z}=\vb{z}^\dagger\vb{z}=\norm{z}^2,\]
@@ -7021,7 +7022,7 @@ of generalization, we will assume that \(\Im{\frac{\omega_2}{\omega_1}}>0\)
 the same result). Any period of \(f\) is in the form of \[\omega=m\omega_1+n\omega_2\qquad m,n\in\mathbb{Z}.\] The set of all periods of \(f\) forms a \textscsl{period lattice} \[\Lambda=\Lambda\qty(\omega_1,\omega_2)=\omega_1\mathbb{Z}+\omega_2\mathbb{Z}=\cbraces{m\omega_1+n\omega_2}{m,n\in\mathbb{Z}}.\] The set formed by \(\Lambda\) is a discrete additive (any sum of two points in
 the lattice remain in the lattice) subgroup of \(\mathbb{C}\), a free
 \(\mathbb{Z}\)-module of rank 2 (generated by the basis
-\(\qty{\omega_1,\omega_2}\)).
+\(\cbraces{\omega_1,\omega_2}\)).
 
 For any point \(\alpha\in\mathbb{C}\), the complex parallelogram generated by \[P=\cbraces{\alpha+t_1\omega_1+t_2\omega_2}{t_1,t_2\in[0,1)},\] is known as a \textscsl{fundamental parallelogram of} \(\Lambda\).
 
@@ -7179,7 +7180,7 @@ convenient in theoretical analysis.
 \begin{proposition}\label{prop:weierstrasspfunctionintermediateseriesconvergence}
     Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series
     \begin{equation}
-        \sum_{\omega\in\Lambda\setminus\qty{0}}\frac{1}{\abs{\omega}^\alpha}\label{eq:weierstrasspfunctionintermediateseriesconvergence_statement}
+        \sum_{\omega\in\Lambda\setminus\cbraces{0}}\frac{1}{\abs{\omega}^\alpha}\label{eq:weierstrasspfunctionintermediateseriesconvergence_statement}
     \end{equation} is (absolutely) convergent for \(\alpha>2\).
 \end{proposition}
 \begin{proof}
@@ -7228,14 +7229,14 @@ convenient in theoretical analysis.
 
     Let \(\delta\) be the distance from 0 to \(\partial P_1\). Hence, the distance
     from 0 to \(\partial P_n\) is \(n\delta\). Since each
-    \(\omega\in\Lambda^*=\Lambda\setminus\qty{0}\) lies in a unique \(\partial
+    \(\omega\in\Lambda^*=\Lambda\setminus\cbraces{0}\) lies in a unique \(\partial
     P_n\), it follows that \(\abs{\omega}^\alpha\geq n^\alpha \delta^\alpha\) for
     all \(\alpha>0\). Hence, \[\sum_{\omega\in\Lambda^*}\frac{1}{\abs{\omega}^\alpha}\leq\sum_{n=1}^\infty\frac{8n}{n^\alpha\delta^\alpha}=\frac{8}{\delta^\alpha}\sum_{n=1}^\infty\frac{1}{n^{\alpha-1}},\] which is a \(p\)-series that converges for \(\alpha>2\).
 \end{proof}
 \begin{proposition}\label{prop:weierstrasspfunctionconvergence}
     Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series
     \begin{equation}
-        \sum_{\omega\in\Lambda\setminus\qty{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]\label{eq:weierstrasspfunctionconvergence_statement}
+        \sum_{\omega\in\Lambda\setminus\cbraces{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]\label{eq:weierstrasspfunctionconvergence_statement}
     \end{equation}
     locally uniformly converges on \(\mathbb{C}\setminus\Lambda\).
 \end{proposition}
@@ -7257,10 +7258,10 @@ convenient in theoretical analysis.
 \begin{definition}[Weierstrass \texorpdfstring{\(\wp\)}{p}-Function]\label{def:weierstrasspfunction}
     Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). The Weierstrass \(\wp\)-function with period lattice \(\Lambda\) is defined by
     \begin{equation}
-        \wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\qty{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}],\qquad z\in\mathbb{C}\setminus\Lambda.\label{eq:weierstrasspfunction}
+        \wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\cbraces{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}],\qquad z\in\mathbb{C}\setminus\Lambda.\label{eq:weierstrasspfunction}
     \end{equation}
 \end{definition}
-By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp\) is well-defined and meromorphic on \(\mathbb{C}\). By \cref{thm:weierstrassconvergence}, we can use termwise differentiation to get \[\wp'(z)=-\frac{2}{z^3}-\sum_{\omega\in\Lambda\setminus\qty{0}}\frac{2}{\qty(z-\omega)^3}=-2\sum_{\omega\in\Lambda}\frac1{\qty(z-\omega)^3},\] which is absolutely convergent for \(z\notin\Lambda\). It follows that \(\wp'\)
+By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp\) is well-defined and meromorphic on \(\mathbb{C}\). By \cref{thm:weierstrassconvergence}, we can use termwise differentiation to get \[\wp'(z)=-\frac{2}{z^3}-\sum_{\omega\in\Lambda\setminus\cbraces{0}}\frac{2}{\qty(z-\omega)^3}=-2\sum_{\omega\in\Lambda}\frac1{\qty(z-\omega)^3},\] which is absolutely convergent for \(z\notin\Lambda\). It follows that \(\wp'\)
 is also meromorphic on \(\mathbb{C}\). Hence, the series expression for
 \(\wp'(z)\) may be rearranged to \(\wp'(z+\omega_1)\), and hence, \[\wp'(z)=\wp'(z+\omega_1)=\wp'(z+\omega_2).\] Hence, \(\wp'\) is also an elliptic function with period lattice \(\Lambda\).
 Hence, we must have \[\wp(z)+c_1=\wp\qty(z+\omega_1),\qquad\wp(z)+c_2=\wp\qty(z+\omega_2).\] At \(z=-\frac{\omega_1}{2},-\frac{\omega_2}{2}\), we have \[\wp\qty(-\frac{\omega_1}{2})+c_1=\wp\qty(\frac{\omega_1}{2}),\qquad\wp\qty(-\frac{\omega_2}{2})+c_2=\wp\qty(\frac{\omega_2}{2})\] By evenness of \(\wp\), we must have \(c_1=c_2=0\). Therefore, \(\wp\) is also
@@ -7637,10 +7638,10 @@ continuation of \(\zeta(s)\) by
     \zeta(s)=\frac{\lim_{\varepsilon\to 0^+}F_\varepsilon(s)}{-2\ii\sin(\piup s)\Gamma(s)},\label{eq:riemannzetafunction_analyticcontinuationcontourintegral}
 \end{equation} whose singularities lie within \(\mathbb{Z}\) (the \(\Gamma\)-function never vanishes since \(\frac1\Gamma\) is entire by its Weierstrass factorization in \cref{thm:gammafunction_weierstrassformula}). By the series definition, the singularities at \(s\in\mathbb{N}_{\ge2}\) are removable and hence unimportant to our consideration, while the simple zeros of the \(\sin(\piup s)\) function at each \(s\in\mathbb{Z}_{\le0}\) cancel with the simple poles of the \(\Gamma\)-function and hence those are removable singularities of \(\zeta\) as well. Our final consideration is of the singularity at \(s=1\):
 \begin{theorem}
-    The Riemann \(\zeta\)-function is holomorphic on \(\mathbb{C}\setminus\qty{1}\). The singularity at \(s=1\) is a simple pole with a residue of \(1\).
+    The Riemann \(\zeta\)-function is holomorphic on \(\mathbb{C}\setminus\cbraces{1}\). The singularity at \(s=1\) is a simple pole with a residue of \(1\).
 \end{theorem}
 \begin{proof}
-    Our previous characterizations of the removable singularities in \(\mathbb{Z}\setminus\qty{1}\) allow for its analytic continuation to \(\mathbb{C}\setminus\qty{1}\). Hence we are left to show the nature of the singularity at \(s=1\).
+    Our previous characterizations of the removable singularities in \(\mathbb{Z}\setminus\cbraces{1}\) allow for its analytic continuation to \(\mathbb{C}\setminus\cbraces{1}\). Hence we are left to show the nature of the singularity at \(s=1\).
 
     The \(\mathrm{I\!I}\) and \(\mathrm{I\!I\!I}\) integrals vanish at \(s=1\)
     since \(\sin(\piup)=0\) (in
@@ -7701,7 +7702,7 @@ The functional equation as provided by Riemann in his original paper gives a mor
             Since \(\abs{x}<2\), we have that \(0\leq\frac{x^2}{R^2}<\frac4{R^2}<1\), which
             implies that \[\sqrt{1-\frac{x^2}{R^2}}\geq 1-\frac{x^2}{R^2}\] (since concavity of \(\sqrt{1-t}\) for \(t\in(0,1)\) suffices to ensure that the tangent line at \(0\) is an over-approximation). Therefore, we have \[1-\sqrt{1-\frac{x^2}{R^2}}\leq\frac{x^2}{R^2}\implies\frac{R}{2}\qty(1-\sqrt{1-\frac{x^2}{R^2}})\leq\frac{x^2}{2R}\leq\frac{2}{R}\leq\frac{2}{\piup}\] since \(R\geq\piup\). On this range \(\cos\) is decreasing and we hence obtain \[\sin^2\frac y2=\cos^2\eta\geq\cos[2](\frac2\piup)\implies\abs{\ee^z-1}^2\geq\frac4{\ee^2}\cos[2](\frac2\piup).\]
     \end{enumerate}
-    We have thus shown that \(\abs{\ee^z-1}\) is bounded below by a positive constant \[\min\qty{1-\ee^{-2},\frac2{\ee}\cos(\frac2\piup)}>0\] for all \(z\in\bigsqcup_{n=1}^\infty\partial D\qty(0,(2n+1)\piup)\) (and hence
+    We have thus shown that \(\abs{\ee^z-1}\) is bounded below by a positive constant \[\min\cbraces{1-\ee^{-2},\frac2{\ee}\cos(\frac2\piup)}>0\] for all \(z\in\bigsqcup_{n=1}^\infty\partial D\qty(0,(2n+1)\piup)\) (and hence
     \(\frac1{\abs{\ee^z-1}}\) is bounded). Therefore, from
     \cref{eq:riemannzetafunction_functionalequation_contourintegralbound} we have
     that \(\abs{F_{(2n+1)\piup}(s)}\to 0\) as \(n\to\infty\) for \(\Re s<0\).
@@ -7765,7 +7766,7 @@ Results have already shown that an infinite number of zeros lie on this line. Fo
     The Riemann \(\zeta\)-function has no zeros on the lines defined by \(\Re s=0\) and \(\Re s=1\).
 \end{theorem}
 \begin{proof}
-    Without loss of generality, we restrict our consideration to the line \(\Re s=1\) (the other line follows from the functional equation). Suppose that there exists some \(a=1+\ii t\) for \(t\in\mathbb{R}\setminus\qty{0}\) such that \(\zeta(a)=0\).
+    Without loss of generality, we restrict our consideration to the line \(\Re s=1\) (the other line follows from the functional equation). Suppose that there exists some \(a=1+\ii t\) for \(t\in\mathbb{R}\setminus\cbraces{0}\) such that \(\zeta(a)=0\).
 
     By \cref{prop:positivelogarithmicderivativerealpart}, \(\exists\varepsilon>0\) such that
     \begin{equation}
