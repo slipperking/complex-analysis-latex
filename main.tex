@@ -83,7 +83,7 @@
 \let\floordefault\floor%
 \renewcommand{\floor}{\floordefault*}
 
-\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\cbraces{#1\IfNoValueTF{#2}{}{:#2}}}}
+\NewDocumentCommand{\cbraces}{m g}{\ensuremath{\left\{#1\IfNoValueTF{#2}{}{:#2}\right\}}}
 
 \newcommand{\extcomplex}{\widehat{\mathbb{C}}}
 \newcommand{\ee}{\mathrm{e}}
@@ -333,7 +333,7 @@ differential form \(\omega\) is \textscsl{closed} if \(\dd{\omega}=0\), and is
 It is true that for any set \(U\subseteq \mathbb{R}^n\), regardless of contractibility, that for a differential form \(\omega\) defined on \(U\), \(\dd\dd\omega=0\). In other words, all exact differential forms are closed. (For a region \(U\), we have \(\partial\partial U=\emptyset\). This is one of many reasons for which the boundary operator is denoted by \(\partial\), in analogy to \(\dd\).)
 
 The implications of this are important: if \(\omega\) is a 0-form, then
-\(\curl(\grad\omega)=0\), and if \(\omega\) is a 1-form, \(\divg(\curl{v})=0\),
+\(\curl(\grad\omega)=0\), and if \(\omega\) is a 1-form, \(\div(\curl{v})=0\),
 where \(v\) is the vector of the coefficients of the basis differential forms
 of \(\omega\) (there are no correlations for higher degree forms since in
     3-dimensional space, the highest degree possible for any differential form is
@@ -614,7 +614,7 @@ and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
 This type of equation is called the \textscsl{Laplace equation}, which is a
 basic example of an elliptic partial differential equation. Define the operator
-(the \textscsl{Laplacian}) \[(\Delta=)\laplacian=\divg{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a
+(the \textscsl{Laplacian}) \[(\Delta=)\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a
 \textscsl{harmonic function}. Thus, the real and complex parts of a holomorphic
 function are harmonic functions.
 \begin{proposition}\label{prop:realvaluedholomorphicfunctionconstant}
