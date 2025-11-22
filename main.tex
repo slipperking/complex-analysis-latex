@@ -7799,7 +7799,7 @@ Define the first and second \textscsl{Chebyshev functions} \(\vartheta(x),\psi(x
 We hence derive that \[\psi(x)=\sum_{k=1}^\infty\sum_{\substack{p:p^k\leq x\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\sum_{\substack{p:p\leq \sqrt[k]{x}\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\vartheta\qty(x^{\frac1k}).\] 
 Grouping by primes, we see that this is in fact equivalent to 
 \begin{equation}
-    \psi(x)=\sum_{\substack{p:p\leq x\\\text{prime}}}\sum_{k:p^k\leq x}\log p=\sum_{\substack{p:p\leq x\\\text{prime}}}\sum_{k:k\leq\log_p x}\log p=\sum_{p:p\leq x}\sum_{k=1}^{\floor{\frac{\log x}{\log p}}}\log p=\sum_{p:p\leq x}\floor{\frac{\log x}{\log p}}\log p.\label{eq:chebyshevfunction_psi_floor}
+    \psi(x)=\mathmakebox[\widthof{\sum}][r]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k:p^k\leq x}\log p=\sum_{\substack{p\leq x\\p\text{ prime}}}\sum_{k\leq\log_p x}\log p=\sum_{\substack{p\leq x\\p\text{ prime}}}\sum_{k=1}^{\floor{\frac{\log x}{\log p}}}\log p=\sum_{p:p\leq x}\floor{\frac{\log x}{\log p}}\log p.\label{eq:chebyshevfunction_psi_floor}
 \end{equation}
 \begin{definition}
     A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{\substack{y-x\to 0^+\\\abs{y-x}<\delta}}\qty[f(y)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\), \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
