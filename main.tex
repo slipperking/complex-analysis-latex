@@ -7795,12 +7795,24 @@ The logarithmic integral function, defined by \[\operatorname{Li}(x)=\int_2^x\fr
     &=\frac{x}{\log x}+\frac{x}{\log^2 x}+\frac{2x}{\log^3 x}+\frac{6x}{\log^4 x}+\cdots+\order{1}\\
     &=\frac{x}{\log x}+\order{\frac x{\log^2 x}}.
 \end{align*}
-Define the first and second \textscsl{Chebyshev functions} \(\vartheta(x),\psi(x)\) by \[\vartheta(x)=\sum_{\substack{p\leq x\\p\text{ prime}}}\log p,\qquad\psi(x)=\sum_{n\leq x}\Lambda(n)=\sum_{\substack{(p,k):p^k\leq x\\p\text{ prime}}}\log p.\]
+Define the first and second \textscsl{Chebyshev functions} \(\vartheta(x),\psi(x)\) by \[\vartheta(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\log p,\qquad\psi(x)=\sum_{n\leq x}\Lambda(n)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{(p,k):p^k\leq x\\p\text{ prime}}}}\log p.\]
 We hence derive that \[\psi(x)=\sum_{k=1}^\infty\sum_{\substack{p:p^k\leq x\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\sum_{\substack{p:p\leq \sqrt[k]{x}\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\vartheta\qty(x^{\frac1k}).\] 
 Grouping by primes, we see that this is in fact equivalent to 
 \begin{equation}
-    \psi(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k:p^k\leq x}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k\leq\log_p x}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k=1}^{\floor{\frac{\log x}{\log p}}}\log p=\sum_{p:p\leq x}\floor{\frac{\log x}{\log p}}\log p.\label{eq:chebyshevfunction_psi_floor}
+    \psi(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k:p^k\leq x}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k\leq\log_p x}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k=1}^{\floor{\frac{\log x}{\log p}}}\log p=\sum_{\substack{p:p\leq x\\p\text{ prime}}}\floor{\frac{\log x}{\log p}}\log p.\label{eq:chebyshevfunction_psi_floor}
 \end{equation}
+Hence we have for any \(x>1\), 
+\begin{equation}
+    0\leq\vartheta(x)\leq\psi(x)\leq\mathmakebox[\widthof{\(\sum_{p:p\leq x}\)}][c]{\sum_{\substack{p:p\leq x\\p\text{ prime}}}}\frac{\log x}{\log p}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p:p\leq x\\p\text{ prime}}}}\log x=\pi(x)\log x.\label{eq:chebyshevfunctions_bounds_primecounting}
+\end{equation}
+\begin{theorem}
+    We have the following limit equivalences:
+    \[\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}{x}=\varlimsup_{x\to+\infty}\frac{\psi(x)}{x}=\varlimsup_{x\to+\infty}\frac{\vartheta(x)}{x}\] and
+    \[\varliminf_{x\to+\infty}\frac{\pi(x)\log x}{x}=\varliminf_{x\to+\infty}\frac{\psi(x)}{x}=\varliminf_{x\to+\infty}\frac{\vartheta(x)}{x}.\]
+\end{theorem}
+\begin{proof}
+    Because 
+\end{proof}
 \begin{definition}
     A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{\substack{y-x\to 0^+\\\abs{y-x}<\delta}}\qty[f(y)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\), \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
