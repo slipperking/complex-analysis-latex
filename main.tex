@@ -7811,7 +7811,8 @@ Hence we have for any \(x>1\),
     \[\varliminf_{x\to+\infty}\frac{\pi(x)\log x}{x}=\varliminf_{x\to+\infty}\frac{\psi(x)}{x}=\varliminf_{x\to+\infty}\frac{\vartheta(x)}{x}.\]
 \end{theorem}
 \begin{proof}
-    Because 
+    Let \(0<\alpha<1\) be arbitrary. By \cref{eq:chebyshevfunctions_bounds_primecounting}, we have that
+    \[\frac{\vartheta(x)}{x}\leq\frac{\psi(x)}{x}\leq\frac{\pi(x)\log x}{x}.\] Now suppose that \(\varlimsup_{x\to+\infty}\frac{\vartheta(x)}{x}=\ell\). Then for any \(\varepsilon>0\), there exists \(x_0\) such that \(\forall x>x_0\), \(\frac{\vartheta(x)}{x}<\ell+\varepsilon\). Hence, \(\frac{\psi(x)}{x}<\ell+\varepsilon\) and \(\frac{\pi(x)\log x}{x}<\ell+\varepsilon\) for all \(x>x_0\). Therefore, \(\varlimsup_{x\to+\infty}\frac{\psi(x)}{x}\leq\ell\) and \(\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}{x}\leq\ell\).
 \end{proof}
 \begin{definition}
     A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{\substack{y-x\to 0^+\\\abs{y-x}<\delta}}\qty[f(y)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\), \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
