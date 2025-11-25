@@ -7817,7 +7817,11 @@ Hence we have for any \(x>1\),
         &=\log x^\alpha\mathmakebox[\widthof{\(\sum_{\qquad}\)}][c]{\sum_{\substack{x^\alpha<p\leq x\\p\text{ prime}}}}\frac{\log p}{\log x^\alpha}>\alpha\log x\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{x^\alpha<p\leq x\\p\text{ prime}}}}1\\
         &=\alpha\log x\qty(\pi(x)-\pi\qty(x^\alpha))\geq \alpha\log x\qty(\pi(x)-x^\alpha).
     \end{align*}
-    Hence we have that \[\frac{\alpha\pi(x)\log x}{x}-\alpha x^{\alpha-1}\log x<\frac{\vartheta(x)}{x}\leq\frac{\psi(x)}x\leq\frac{\pi(x)\log x}x\] by virtue of \cref{eq:chebyshevfunctions_bounds_primecounting}. Letting \(x\to+\infty\) and taking the limit supremum yields \[\alpha\varlimsup_{x\to+\infty}\qty(\frac{\pi(x)\log x}{x}-x^{\alpha-1})\leq\varlimsup_{x\to+\infty}\frac{\vartheta(x)}x\leq \varlimsup_{x\to+\infty}\frac{\psi(x)}x\leq\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}x\]
+    Hence we have that \[\frac{\alpha\pi(x)\log x}{x}-\alpha x^{\alpha-1}\log x<\frac{\vartheta(x)}{x}\leq\frac{\psi(x)}x\leq\frac{\pi(x)\log x}x\] by virtue of \cref{eq:chebyshevfunctions_bounds_primecounting}. Letting \(x\to+\infty\) and taking the limit supremum yields 
+    \begin{align*}
+        \alpha\varlimsup_{x\to+\infty}\qty(\frac{\pi(x)\log x}{x}-x^{\alpha-1})&=\alpha\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}{x}\leq\varlimsup_{x\to+\infty}\frac{\vartheta(x)}x\\
+        &\leq\varlimsup_{x\to+\infty}\frac{\psi(x)}x\leq\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}x
+    \end{align*}
 \end{proof}
 \begin{definition}
     A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{\substack{y-x\to 0^+\\\abs{y-x}<\delta}}\qty[f(y)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\), \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
