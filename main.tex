@@ -2391,7 +2391,7 @@ To discuss the main topic of this section, we will first introduce the concept o
     A \textscsl{subgroup} \(H\) of \(G\) is a subset of \(G\) that is also a group under the same operation as \(G\). This relationship is denoted by \(H\leq G\) or \(H<G\) for \textscsl{proper subgroups}.
 \end{definition}
 
-Group operations are not necessarily commutative. If they are however, (\(a,b\in G\Rightarrow a*b=b*a\)), then \(G\) is an \textscsl{abelian group}.
+Group operations are not necessarily commutative. If they are however, (specifically if \(a,b\in G\Rightarrow a*b=b*a\)), then \(G\) is an \textscsl{abelian group}.
 
 If \(U\subseteq\mathbb{C}\) is connected and \(f:U\to U\) is holomorphic on
 \(U\) and bijective, \(f\) is a \textscsl{holomorphic automorphism} on \(U\).
@@ -3240,6 +3240,9 @@ theory.
     \end{enumerate}
 \end{proof}
 Under the normality of \(N\), the group \(G/N\) is known as the \textscsl{quotient group} of \(G\) by \(N\).
+\begin{remark}
+    Every subgroup of an abelian group is normal.
+\end{remark}
 \begin{definition}[Group Homomorphism]
     Let \((G,\cdot)\) and \((H,*)\) be groups. A function \(\varphi:G\to H\) is said to be a \textscsl{group homomorphism} if
     \[\varphi(g_1\cdot g_2)=\varphi(g_1)*\varphi(g_2)\qquad\forall g_1,g_2\in G.\]
@@ -6960,19 +6963,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 
     By \cref{thm:holomorphicautomorphismgrouponpolydisk}, every element of \(\Aut'\qty(\mathbb{D}^n)\) may be uniquely identified with a matrix in the form of \[\vb{P}\operatorname{diag}(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n}),\] where \(\vb{P}\) is a permutation matrix and \(\qty(\theta_1,\ldots,\theta_n)\in[0,2\piup)^n\). Hence \(\Aut'\qty(\mathbb{D}^n)\) is isomorphic to the group of unitary monomial matrices. The structure of \(\Aut'\qty(B^n)\) is given by \cref{prop:unitballautomorphismfixedpointatzero}, and each element corresponds uniquely to a unitary matrix. Thus there is a natural isomorphism \(\Aut'\qty(B^n)\cong\mathrm{U}(n)\), the \(n\times n\) \textscsl{unitary group}.
 
-    Let \(M_n\) denote the subgroup of all monomial matrices in \(\mathrm{U}(n)\), or the subgroup of unitary matrices with exactly one nonzero entry in each row and each column, and those nonzero entries lying in \(\mathrm{U}(1)\).
-
-    For each permutation \(\sigma\in S_n\) (the \textscsl{symmetric group} of permutations) let \(\vb{P}_\sigma\) be the corresponding permutation matrix and define
-    \[T_\sigma=\cbraces{\vb{D}\vb{P}_\sigma}{\vb{D}=\operatorname{diag}\qty(\ee^{\ii\theta_1},\dots,\ee^{\ii\theta_n})\in\mathrm{U}(1)^n}.\]
-    Each \(T_\sigma\) is homeomorphic to the torus \(\mathrm{U}(1)^n\), and every element of \(M_n\) lies in exactly one \(T_\sigma\). Hence
-    \[M_n=\bigsqcup_{\sigma\in S_n} T_\sigma,\]
-    a disjoint union of \(\abs{S_n}=n!\) copies of \(\mathrm{U}(1)^n\).
-
-    Each \(T_\sigma\) is clopen in \(M_n\) by their pairwise disjointness, the topology of the torus, and the fact that their union is \(M_n\). Therefore each \(T_\sigma\) is a connected component of \(M_n\). Because each \(T_\sigma\) is connected, \(M_n\) has \(n!\) connected components.
-
-    The elements of \(\mathrm{U}(n)\) may be diagonalized (by a spectral theorem) into \(\vb{VD}\vb{V}^\dagger\), where \[\vb{D}=\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\] is a diagonal unitary matrix and \(\vb{V}\in\mathrm{U}(n)\). Then there exists a connected path connecting \(\qty(\theta_1,\dots,\theta_n)\) to \(\qty(0,\ldots,0)\), which corresponds to the matrix \(\vb{VI}\vb{V}^\dagger=\vb{I}\). Because every matrix is path-connected to the identity, \(\mathrm{U}(n)\) is connected.
-
-    Consequently for \(n\ge2\), the subgroup \(M_n\) (which has more than one connected component) cannot be isomorphic to \(\mathrm{U}(n)\) as a topological group.
+    
 
     This contradicts the existence of \cref{eq:poincarepolydiskandunitball_isomorphism}, and therefore, no such biholomorphism \(\vb*{\varphi}\) exists.
 \end{proof}
