@@ -6897,7 +6897,7 @@ In preparation, we will introduce several relevant concepts.
     Any unitary matrix can be unitarily diagonalized. That is, for any unitary matrix \(\vb{U}\), there exists a unitary matrix \(\vb{V}\) such that \(\vb{U}=\vb{VD}\vb{V}^\dagger\), where \(\vb{D}\) is a diagonal matrix whose diagonal entries are all of unit modulus.
 \end{theorem}
 \begin{proof}
-    
+
 \end{proof}
 A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U}\vb{z}\), where \(\vb{U}\) is a unitary matrix.
 \begin{proposition}\label{prop:unitballsimpleautomorphism}
@@ -6950,7 +6950,13 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     The divisibility of a group is preserved under group isomorphisms.
 \end{proposition}
 \begin{proof}
+    Let \(\varphi:G\to H\) be a group isomorphism between groups \(G\) and \(H\) with juxtaposition. 
     
+    Assume \(G\) is divisible. Fix \(y\in H\) and a positive integer \(n\). Since \(\varphi\) is bijective there is \(x\in G\) with \(\varphi(x)=y\). By divisibility of \(G\) there exists \(h\in G\) with \(h^n=x\). Applying \(\varphi\) and using the homomorphism property gives
+    \[\varphi(h)^n=\varphi\qty(h^n)=\varphi(x)=y.\]
+    Thus every element of \(H\) has an \(n\)-th root, so \(H\) is divisible.
+
+    Conversely, if \(H\) is divisible then the same argument applied to \(\varphi^{-1}:H\to G\) shows \(G\) is divisible. Therefore divisibility is preserved under group isomorphisms.
 \end{proof}
 \begin{theorem}[The Holomorphic Automorphism Group on \(B^n\)]\label{thm:holomorphicautomorphismgrouponunitball}
     The holomorphic automorphism group \(\Aut\qty(B^n)\) consists solely of biholomorphisms in the form of
@@ -6984,20 +6990,20 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 \end{proof}
 \begin{remark}
     A more succinct proof of the nonexistence of an isomorphism in the proof of \cref{thm:poincarepolydiskandunitball} can be briefly described by means of topology:
-    
+
     \begin{quote}
         Let \(M_n\) denote the subgroup of all monomial matrices in \(\mathrm{U}(n)\), or the subgroup of unitary matrices with exactly one nonzero entry in each row and each column, and those nonzero entries lying in \(\mathrm{U}(1)\).
-    
+
         For each permutation \(\sigma\in S_n\) (the \textscsl{symmetric group} of permutations) let \(\vb{P}_\sigma\) be the corresponding permutation matrix and define
         \[T_\sigma=\cbraces{\vb{D}\vb{P}_\sigma}{\vb{D}=\operatorname{diag}\qty(\ee^{\ii\theta_1},\dots,\ee^{\ii\theta_n})\in\mathrm{U}(1)^n}.\]
         Each \(T_\sigma\) is homeomorphic to the torus \(\mathrm{U}(1)^n\), and every element of \(M_n\) lies in exactly one \(T_\sigma\). Hence
         \[M_n=\bigsqcup_{\sigma\in S_n} T_\sigma,\]
         a disjoint union of \(\abs{S_n}=n!\) copies of \(\mathrm{U}(1)^n\).
-    
+
         Each \(T_\sigma\) is clopen in \(M_n\) by their pairwise disjointness, the topology of the torus, and the fact that their union is \(M_n\). Therefore each \(T_\sigma\) is a connected component of \(M_n\). Because each \(T_\sigma\) is connected, \(M_n\) has \(n!\) connected components.
-    
+
         The elements of \(\mathrm{U}(n)\) may be unitarily diagonalized (by the spectral theorem) into \(\vb{VD}\vb{V}^\dagger\), where \[\vb{D}=\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\] is a diagonal unitary matrix and \(\vb{V}\in\mathrm{U}(n)\). Then there exists a connected path connecting \(\qty(\theta_1,\dots,\theta_n)\) to \(\qty(0,\ldots,0)\), which corresponds to the matrix \(\vb{VI}\vb{V}^\dagger=\vb{I}\). Because every matrix is path-connected to the identity, \(\mathrm{U}(n)\) is connected.
-    
+
         Consequently for \(n\ge2\), the subgroup \(M_n\) (which has more than one connected component) cannot be isomorphic to \(\mathrm{U}(n)\) as a topological group.
     \end{quote}
     Although we do not justify these topological claims in detail here, it is worth noting, heuristically, why such topological considerations naturally arise.
