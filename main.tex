@@ -6946,7 +6946,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 \begin{definition}
     A group \(G\) (under juxtaposition) is said to be \textscsl{divisible} iff for every \(g\in G\) and every positive integer \(n\), there exists some \(h\in G\) such that \(h^n=g\).
 \end{definition}
-\begin{proposition}
+\begin{proposition}\label{prop:groupdivisibilitypreservedunderisomorphisms}
     The divisibility of a group is preserved under group isomorphisms.
 \end{proposition}
 \begin{proof}
@@ -6987,9 +6987,9 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     For \(\vb{U}\in\mathrm{U}(n)\), the spectral theorem allows it to be expressed in the form of \(\vb{V}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{V}^\dagger\). Hence, for any positive integer \(m\), we have \[\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger\in\mathrm{U}(n)\] and \[\qty(\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger)^m=\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger\cdots\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger.\] The adjacent products of \(\vb{V}^\dagger\vb{V}\) simplify to the identity and the entire expression then simplifies to \(\vb{U}\). Hence the unitary group is divisible.
 
     Consider the unitary monomial matrix \[\vb{P}_\tau=\mqty(0&1&0&0&\cdots&0\\1&0&0&0&\cdots&0\\0&0&1&0&\cdots&0\\0&0&0&1&\cdots&0\\\vdots&\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&0&\cdots&1).\] inducing the permutation \(\tau\). Assume that there exists some unitary monomial matrix \(\vb{Q}=\vb{P}_\sigma\vb{D}\) (where \(\vb{D}\) is diagonal and \(\vb{P}_\sigma\) is a permutation matrix corresponding to the permutation \(\sigma\)) such that \(\vb{Q}^2=\vb{P}_\tau\). This is equivalent to \[\vb{P}_\sigma\vb{D}\vb{P}_\sigma\vb{D}=\vb{P}_\tau\implies\vb{P}^2_\sigma\vb{P}^{-1}_\sigma\vb{D}\vb{P}_\sigma\vb{D}=\vb{P}_\tau\implies\vb{P}^2_\sigma\vb{D}^2=\vb{P}_\tau\]
-    because \(\vb{P}^{-1}_\sigma\vb{D}\vb{P}_\sigma=\vb{D}\). Thus, \(\vb{P}^2_\sigma=\vb{P}_\tau\) (and \(\vb{D}^2=\vb{I}\)). 
+    because \(\vb{P}^{-1}_\sigma\vb{D}\vb{P}_\sigma=\vb{D}\). Thus, \(\vb{P}^2_\sigma=\vb{P}_\tau\) (and \(\vb{D}^2=\vb{I}\)) since their permutation parts must match. This is an impossibility since \(\vb{P}^2_\sigma\) corresponds to an even permutation, while \(\vb{P}_\tau\) corresponds to an odd permutation. Thus, the unitary monomial group is not divisible.
 
-    TO BE CONTINUED
+    By \cref{prop:groupdivisibilitypreservedunderisomorphisms}, the two groups cannot be isomorphic to each other.
 
     This contradicts the existence of \cref{eq:poincarepolydiskandunitball_isomorphism}, and therefore, no such biholomorphism \(\vb*{\varphi}\) exists.
 \end{proof}
