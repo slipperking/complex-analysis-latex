@@ -7796,12 +7796,12 @@ The logarithmic integral function, defined by \[\operatorname{Li}(x)=\int_2^x\fr
     &=\frac{x}{\log x}+\order{\frac x{\log^2 x}}.
 \end{align*}
 Define the first and second \textscsl{Chebyshev functions} \(\vartheta(x),\psi(x)\) by \[\vartheta(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\log p,\qquad\psi(x)=\sum_{n\leq x}\Lambda(n)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{(p,k):p^k\leq x\\p\text{ prime}}}}\log p.\]
-We hence derive that \[\psi(x)=\sum_{k=1}^\infty\sum_{\substack{p:p^k\leq x\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\sum_{\substack{p:p\leq \sqrt[k]{x}\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\vartheta\qty(x^{\frac1k}).\] 
-Grouping by primes, we see that this is in fact equivalent to 
+We hence derive that \[\psi(x)=\sum_{k=1}^\infty\sum_{\substack{p:p^k\leq x\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\sum_{\substack{p:p\leq \sqrt[k]{x}\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\vartheta\qty(x^{\frac1k}).\]
+Grouping by primes, we see that this is in fact equivalent to
 \begin{equation}
     \psi(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k:p^k\leq x}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k\leq\log_p x}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k=1}^{\floor{\frac{\log x}{\log p}}}\log p=\sum_{\substack{p:p\leq x\\p\text{ prime}}}\floor{\frac{\log x}{\log p}}\log p.\label{eq:chebyshevfunction_psi_floor}
 \end{equation}
-Hence we have for any \(x>1\), 
+Hence we have for any \(x>1\),
 \begin{equation}
     0\leq\vartheta(x)\leq\psi(x)\leq\mathmakebox[\widthof{\(\sum_{p:p\leq x}\)}][c]{\sum_{\substack{p:p\leq x\\p\text{ prime}}}}\frac{\log x}{\log p}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p:p\leq x\\p\text{ prime}}}}\log x=\pi(x)\log x.\label{eq:chebyshevfunctions_bounds_primecounting}
 \end{equation}
@@ -7821,10 +7821,10 @@ Hence we have for any \(x>1\),
         &=\log x^\alpha\mathmakebox[\widthof{\(\sum_{\qquad}\)}][c]{\sum_{\substack{x^\alpha<p\leq x\\p\text{ prime}}}}\frac{\log p}{\log x^\alpha}>\alpha\log x\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{x^\alpha<p\leq x\\p\text{ prime}}}}1\\
         &=\alpha\log x\qty(\pi(x)-\pi\qty(x^\alpha))\geq \alpha\log x\qty(\pi(x)-x^\alpha).
     \end{align*}
-    Hence we have that 
+    Hence we have that
     \begin{equation}
         \frac{\alpha\pi(x)\log x}{x}-\alpha x^{\alpha-1}\log x<\frac{\vartheta(x)}{x}\leq\frac{\psi(x)}x\leq\frac{\pi(x)\log x}x\label{eq:chebyshevfunctions_limsup_inflim_equivalences_inequalities}
-    \end{equation} by virtue of \cref{eq:chebyshevfunctions_bounds_primecounting}. Letting \(x\to+\infty\) and taking the limit supremum yields 
+    \end{equation} by virtue of \cref{eq:chebyshevfunctions_bounds_primecounting}. Letting \(x\to+\infty\) and taking the limit supremum yields
     \begin{align*}
         \alpha\varlimsup_{x\to+\infty}\qty(\frac{\pi(x)\log x}{x}-x^{\alpha-1})&=\alpha\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}{x}\leq\varlimsup_{x\to+\infty}\frac{\vartheta(x)}x\\
         &\leq\varlimsup_{x\to+\infty}\frac{\psi(x)}x\leq\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}x.
@@ -7835,7 +7835,7 @@ Hence we have for any \(x>1\),
     A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{\substack{y-x\to 0^+\\\abs{y-x}<\delta}}\qty[f(y)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\), \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
 \begin{theorem}[\textsc{Wiener--Ikehara}]
-    Let \(A:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{A}(s)=\int_0^\infty A(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such that \[\mathcal{L}\cbraces{A}(s)-\frac c{s-1}\] admits a continuous extension to the closed half-plane defined by \(\Re s\geq 1\). Then \[A(x)\sim ce^x\] as \(x\to+\infty\).
+    Let \(A:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{A}(s)=\int_0^\infty A(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such that \[f(s)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{A}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\] converges locally uniformly with respect to \(t\) in \(\mathbb{R}\). Then \[\lim_{x\to+\infty}\frac{A(x)}{\ee^x}=c.\]
 \end{theorem}
 {
     \sloppy
