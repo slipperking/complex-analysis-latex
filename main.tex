@@ -6894,7 +6894,7 @@ In preparation, we will introduce several relevant concepts.
     A matrix \(\vb{U}\) is said to be \textscsl{unitary} iff its inverse is its conjugate transpose, or iff \(\vb{U}^\dagger\vb{U}=\vb{U}\vb{U}^\dagger=\vb{I}\).
 \end{definition}
 \begin{theorem}[\textsc{Spectral Theorem}]\label{thm:unitaryspectraltheorem}
-    Any unitary matrix can be unitarily diagonalized. That is, for any unitary matrix \(\vb{U}\), there exists a unitary matrix \(\vb{V}\) such that \(\vb{U}=\vb{VD}\vb{V}^\dagger\), where \(\vb{D}\) is a diagonal matrix whose diagonal entries are all of unit modulus.
+    For any unitary matrix \(\vb{U}\), there exists a unitary matrix \(\vb{V}\) such that \(\vb{U}=\vb{VD}\vb{V}^\dagger\), where \(\vb{D}\) is a diagonal matrix whose diagonal entries are all of unit modulus.
 \end{theorem}
 \begin{proof}
 
@@ -6984,10 +6984,10 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
 
     By \cref{thm:holomorphicautomorphismgrouponpolydisk}, every element of \(\Aut'\qty(\mathbb{D}^n)\) may be uniquely identified with a matrix in the form of \[\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n}),\] where \(\vb{P}\) is a permutation matrix and \(\qty(\theta_1,\ldots,\theta_n)\in[0,2\piup)^n\). Hence \(\Aut'\qty(\mathbb{D}^n)\) is isomorphic to the group of unitary monomial matrices. The structure of \(\Aut'\qty(B^n)\) is given by \cref{prop:unitballautomorphismfixedpointatzero}, and each element corresponds uniquely to a unitary matrix. Thus there is a natural isomorphism \(\Aut'\qty(B^n)\cong\mathrm{U}(n)\), the \(n\times n\) \textscsl{unitary group}.
 
-    USE DIVISIBILITY
-    For \(\vb{U}\in\mathrm{U}(n)\), the spectral theorem allows it to be expressed in the form of \(\vb{V}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{V}^\dagger\). Hence, for any positive integer \(m\), we have \(\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger\in\mathrm{U}(n)\) and \[\qty(\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger)^m=\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger\cdots\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger.\] The adjacent products of \(\vb{V}^\dagger\vb{V}\) simplify to the identity and the entire expression then simplifies to \(\vb{U}\). Hence the unitary group is divisible.
+    For \(\vb{U}\in\mathrm{U}(n)\), the spectral theorem allows it to be expressed in the form of \(\vb{V}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{V}^\dagger\). Hence, for any positive integer \(m\), we have \[\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger\in\mathrm{U}(n)\] and \[\qty(\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger)^m=\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger\cdots\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger.\] The adjacent products of \(\vb{V}^\dagger\vb{V}\) simplify to the identity and the entire expression then simplifies to \(\vb{U}\). Hence the unitary group is divisible.
 
     NEXT SHOW THE MONOMIAL ONE ISNT
+    Consider the matrix \(\mqty(0&1&0&\dots&0\\1&0&0&\cdots&0\\0&0&1&\cdots&0\\\vdots&\vdots&\vdots&\ddots&\vdots)\)
 
     This contradicts the existence of \cref{eq:poincarepolydiskandunitball_isomorphism}, and therefore, no such biholomorphism \(\vb*{\varphi}\) exists.
 \end{proof}
