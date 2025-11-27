@@ -6897,11 +6897,11 @@ In preparation, we will introduce several relevant concepts.
     For any unitary matrix \(\vb{U}\), there exists a unitary matrix \(\vb{V}\) such that \(\vb{U}=\vb{VD}\vb{V}^\dagger\), where \(\vb{D}\) is a diagonal matrix whose diagonal entries are all of unit modulus.
 \end{theorem}
 \begin{proof}
-    Because \(\norm{\vb{U}\vb{z}}^2=\vb{z}^\dagger\vb{U}^\dagger\vb{U}\vb{z}=\norm{\vb{z}}^2\) for any \(\vb{z}\in\mathbb{C}^n\), any eigenvalue \(\lambda\) of \(\vb{U}\) must satisfy \[\vb{U}\vb{v}=\lambda\vb{v}\implies\norm{\vb{Uv}}=\norm{\vb{v}}=\abs{\lambda}\norm{\vb{v}}\implies\abs{\lambda}=1,\]
-    where \(\norm{\vb{v}}=1\) (normalized) is the corresponding eigenvector. Then \[\vb{U}^{-1}\vb{Uv}=\vb{U}^{-1}\lambda\vb{v}=\lambda\vb{U}^{-1}\vb{v}\implies\frac1\lambda\vb{v}=\vb{U}^{-1}\vb{v}\implies\overline{\lambda}\vb{v}=\vb{U}^\dagger\vb{v}.\]
-    Let \(\vb{v}^\perp=\cbraces{\vb{w}:\vb{v}^\dagger\vb{w}=\vb{0}}\subset\mathbb{C}^n\). For any \(\vb{w}\in\vb{v}^\perp\),
-    \[\vb{v}^\dagger\vb{Uw}=\qty(\vb{U}^\dagger\vb{v})^\dagger\vb{w}=\qty(\overline{\lambda}\vb{v})^\dagger\vb{w}=\lambda\vb{v}^\dagger\vb{w}=0,\]
-    so \(\vb{Uw}\in\vb{v}^\perp\). Hence \(\vb{v}^\perp\) is \textscsl{invariant} under \(\vb{U}\). 
+    Because \(\norm{\vb{U}\vb{z}}^2=\vb{z}^\dagger\vb{U}^\dagger\vb{U}\vb{z}=\norm{\vb{z}}^2\) for any \(\vb{z}\in\mathbb{C}^n\), any eigenvalue \(\lambda\) of \(\vb{U}\) must satisfy \[\vb{U}\vb{v}_1=\lambda\vb{v}_1\implies\norm{\vb{U}\vb{v}_1}=\norm{\vb{v}_1}=\abs{\lambda}\norm{\vb{v}_1}\implies\abs{\lambda}=1,\]
+    where \(\norm{\vb{v}}_1=1\) is the corresponding eigenvector. Then \[\vb{U}^{-1}\vb{Uv}=\vb{U}^{-1}\lambda\vb{v}=\lambda\vb{U}^{-1}\vb{v}\implies\frac1\lambda\vb{v}=\vb{U}^{-1}\vb{v}\implies\overline{\lambda}\vb{v}=\vb{U}^\dagger\vb{v}.\]
+    Let \(\vb{v}_1^\perp=\cbraces{\vb{w}:\vb{v}_1^\dagger\vb{w}=\vb{0}}\subset\mathbb{C}^n\). For any \(\vb{w}\in\vb{v}_1^\perp\),
+    \[\vb{v}_1^\dagger\vb{Uw}=\qty(\vb{U}^\dagger\vb{v}_1)^\dagger\vb{w}=\qty(\overline{\lambda}\vb{v})^\dagger\vb{w}=\lambda\vb{v}^\dagger\vb{w}=0,\]
+    so \(\vb{Uw}\in\vb{v}_1^\perp\). Hence \(\vb{v}_1^\perp\) is invariant under \(\vb{U}\). The restriction of \(\vb{U}\) to \(\vb{v}_1^\perp\) yields another eigenvalue \(\lambda_2\in\vb{v}_1^\perp\) with eigenvector \(\vb{v}_2\in\vb{v}^\perp\) satisfying \(\abs{\lambda_2}=1\). 
 \end{proof}
 A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U}\vb{z}\), where \(\vb{U}\) is a unitary matrix.
 \begin{proposition}\label{prop:unitballsimpleautomorphism}
