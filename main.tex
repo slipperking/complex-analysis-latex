@@ -2832,10 +2832,10 @@ convergence disk in Abel's Theorem (\cref{thm:abelradius}) can be generalized
 to Laurent series. In other words, \(f\) is absolutely convergent on the
 annulus and is uniformly convergent on every compact subset of it.
 \begin{theorem}\label{thm:laurentexpansionofholomorphicfunction}
-    Let \(V=\cbraces{z\in\mathbb{C}}{r<\abs{z-a}<R}\) for some \(0\leq r<R\leq\infty\). Let \(f\) be holomorphic on \(V\). Then \(f\) has the unique \textscsl{Laurent expansion}
+    Let \(V=\cbraces{z\in\mathbb{C}}{r<\abs{z-a}<R}\) for some \(0\leq r<R\leq+\infty\). Let \(f\) be holomorphic on \(V\). Then \(f\) has the unique \textscsl{Laurent expansion}
     \begin{equation}
-        f(z)=\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f(\zeta)\ddzeta}{(\zeta-a)^{n+1}},\label{eq:laurentexpansionofholomorphicfunction_statement}
-    \end{equation} for \(z\in V\) and any simple closed curve \(\gamma\subset V\) enclosing \(a\).
+        f(z)=\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f(\zeta)\ddzeta}{(\zeta-a)^{n+1}},\qquad z\in V,\label{eq:laurentexpansionofholomorphicfunction_statement}
+    \end{equation} for any simple closed curve \(\gamma\subset V\) enclosing \(a\). Moreover, the series converges absolutely on \(V\) and uniformly on all compact subsets of \(V\).
 \end{theorem}
 \begin{proof}
     \begin{figure}
@@ -2863,21 +2863,20 @@ annulus and is uniformly convergent on every compact subset of it.
     \end{equation} is uniformly convergent with respect to \(\zeta\). Similarly, \(\forall\zeta\in\gamma_2\), \(\abs{\zeta-a}>\abs{z-a}\Leftrightarrow\frac{\abs{z-a}}{\abs{\zeta-a}}<1\), and it follows that
     \begin{equation}
         \frac{1}{\zeta-z}=\frac{1}{(\zeta-a)\qty(1-\frac{z-a}{\zeta-a})}=\sum_{n=0}^\infty\frac{\qty(z-a)^n}{\qty(\zeta-a)^{n+1}}\label{eq:laurentexpansionofholomorphicfunction_kernelexpansionoutside}
-    \end{equation} is uniformly convergent with respect to \(\zeta\). By the boundedness of \(f\) on \(\gamma_1\) and \(\gamma_2\) from holomorphy on a compact set, and from the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), we get that
+    \end{equation} is uniformly convergent with respect to \(\zeta\). By the boundedness of \(f\) on \(\gamma_1\) and \(\gamma_2\) from holomorphy on a compact set, the uniform convergence from the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), gives that
     \begin{equation}
         f(z)=\frac{1}{2\piup\ii}\qty(\sum_{n=0}^\infty\oint_{\gamma_2}\frac{(z-a)^n}{(\zeta-a)^{n+1}}f(\zeta)\ddzeta+\sum_{n=1}^\infty\oint_{\gamma_1}\frac{(\zeta-a)^{n-1}}{(z-a)^{n}}f(\zeta)\ddzeta).\label{eq:laurentexpansionofholomorphicfunction_finalstep}
     \end{equation}
     By the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}), for a given \(n\), \[\int_{\gamma_2^+\cup\gamma^-}\frac{f(\zeta)\ddzeta}{(\zeta-a)^n}=0\qand\int_{\gamma^+\cup\gamma_1^-}f(\zeta)(\zeta-a)^n\ddzeta=0.\]
     In other words, the integrals in
     \cref{eq:laurentexpansionofholomorphicfunction_finalstep} are the same as on
-    \(\gamma\). Hence, we get that \[f(z)=\sum_{n=0}^\infty c_n(z-a)^n+\sum_{n=1}^\infty c_{-n}(z-a)^{-n}=\sum_{n=-\infty}^\infty c_n(z-a)^n.\]
-    The constants \(\cbraces{c_n}_{n\in\mathbb{Z}}\) are also unique in the expansion.
+    \(\gamma\). Hence, we obtain the absolutely convergent expansion \[f(z)=\sum_{n=0}^\infty c_n(z-a)^n+\sum_{n=1}^\infty c_{-n}(z-a)^{-n}=\sum_{n=-\infty}^\infty c_n(z-a)^n\] which converges uniformly on compact sets of \(V\). The constants \(\cbraces{c_n}_{n\in\mathbb{Z}}\) are also unique in the expansion.
     For the sake of contradiction, assume there exists another set of constants
     \(\cbraces{c'_n}_{n\in\mathbb{Z}}\) such that
     \begin{equation}
         f(z)=\sum_{n=-\infty}^\infty c'_n{(z-a)}^n,\label{eq:laurentexpansionofholomorphicfunction_uniquenessstatement}
     \end{equation}
-    where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. ByCauchy--Goursat (\cref{thm:cauchydifferentiationformula}), \[\oint_{\gamma}(z-a)^k\ddz=
+    where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. By Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}), \[\oint_{\gamma}(z-a)^k\ddz=
         \begin{cases}
             0                        & \qif* k\geq0   \\
             2\piup\ii\dv[-k-1]{z}(1) & \qif* k\leq -1
@@ -7035,7 +7034,7 @@ The general study of complex function theory in multiple variables is made pract
 Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
 \begin{proposition}
     Let \(\Omega\subseteq\mathbb{C}^n\) be a Reinhardt domain and let \(f:\Omega\to\mathbb{C}\) be holomorphic. Then \(\vb{f}\) admits the unique Laurent expansion
-    \[\vb{f}(\vb{z})=\sum_{\vb{m}\in\mathbb{Z}^n}\vb{a}_{\vb{m}}\vb{z}^{\vb{m}},\quad\vb{a}_{\vb{m}}\in\mathbb{C},\] converging absolutely and uniformly on compact subsets of \(\Omega\).
+    \[\vb{f}(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}},\quad\vb{a}_{\vb{k}}\in\mathbb{C},\] converging absolutely and uniformly on compact subsets of \(\Omega\).
 \end{proposition}
 \begin{proof}
     Let \(\vb{w}=\qty(w_1,\dots,w_n)\in\Omega\) with each \(w_j\neq0\). Since \(\Omega\) is a Reinhardt domain, for every \(\vb*{\theta}=\qty(\theta_1,\dots,\theta_n)\in[-\piup,\piup]^n\) the point
@@ -7048,20 +7047,28 @@ Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
     To prove the existence of such an expansion, again fix \(w\in\Omega\). Because \(\Omega\) is Reinhardt, there exists \(\varepsilon>0\) such that the polyannulus
     \[\Omega\qty(\vb{w},\varepsilon)=\cbraces{\vb{z}=\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\abs{w_j}-\varepsilon<\abs{z_j}<\abs{w_j}+\varepsilon,j\in\mathbb{N}_{\leq n}}\] is contained in \(\Omega\). On this set one may perform one-variable Laurent expansions (\cref{thm:laurentexpansionofholomorphicfunction}) successively in each coordinate, holding the others fixed. Since \(f\) is holomorphic on \(\Omega\), this procedure yields
     \[f(\vb{z})=\sum_{\mathbf{k}\in\mathbb{Z}^n}a_{\mathbf{k}}(\vb{w})\vb{z}^{\mathbf{k}},\]
-    a Laurent series converging uniformly on a neighborhood of \(w\).
-
-    If \(\vb{w}'\in\Omega(\vb{w},\varepsilon)\), then the same construction gives
+    a Laurent series converging uniformly on a neighborhood of \(w\). If \(\vb{w}'\in\Omega(\vb{w},\varepsilon)\), then the same construction gives
     \[f(z)=\sum_{\mathbf{k}\in\mathbb{Z}^n}a_{\mathbf{k}}(\vb{w}')z^{\mathbf{k}}.\]
-    By uniqueness of Laurent coefficients, it follows that \(a_{\mathbf{k}}(\vb{w}')=a_{\mathbf{k}}(\vb{w})\). Thus the coefficient functions \(a_{\mathbf{k}}(\vb{w})\) are locally constant on \(\Omega\), and since \(\Omega\) is connected they are constant throughout \(\Omega\); we therefore write them simply as \(a_{\mathbf{k}}\).
+    By uniqueness of Laurent coefficients (in the one-variable expansions), it follows that \(a_{\mathbf{k}}(\vb{w}')=a_{\mathbf{k}}(\vb{w})\). Thus the coefficient functions \(a_{\mathbf{k}}(\vb{w})\) are locally constant on \(\Omega\), and since \(\Omega\) is connected they are constant throughout \(\Omega\); we therefore write them simply as \(a_{\mathbf{k}}\).
 
     Consequently,
     \[f(\vb{z})=\sum_{\mathbf{k}\in\mathbb{Z}^n}a_{\mathbf{k}}\vb{z}^{\mathbf{k}}\]
     holds in a neighborhood of every point in \(\Omega\).
-    If \(K\subset\Omega\) is compact, then it lies inside some polyannulus \(\Omega(\vb{w},\varepsilon)\subset\Omega\), and on this polyannulus the series converges uniformly; therefore it converges uniformly on \(K\).
+    If \(K\subset\Omega\) is compact, then it lies inside some polyannulus \(\Omega(\vb{w},\varepsilon)\subset\Omega\), and on this polyannulus the series converges uniformly; therefore it converges uniformly on \(K\). The absolute convergence follow from the absolute convergence of the one-variable Laurent expansions used in the construction.
 \end{proof}
 \begin{proposition}
-    Let \(\Omega\subseteq\mathbb{C}^n\) (\(n\ge2\)) be a Reinhardt domain 
+    Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain such that \(\Omega\)
+    satisfies the condition that for every \(j\in\mathbb{N}_{\leq n}\), there
+    exists a point in \(\Omega\) of the form \(a_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(a_j\notin\mathbb{C}^*\)). Then any holomorphic function \(f:\Omega\to\mathbb{C}\) has the expansion \[f(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\vb{z}^{\vb{k}},\] which locally uniformly converges on \(\Omega\).
 \end{proposition}
+\begin{theorem}[Hartogs' Extension Theorem for Reinhardt Domains]\label{thm:hartogsextensiontheoremforreinhardtdomains}
+    Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain such that \(\Omega\)
+    satisfies the condition that for every \(j\in\mathbb{N}_{\leq n}\), there
+    exists a point in \(\Omega\) of the form \(a_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(a_j\notin\mathbb{C}^*\)). Let \(f:\Omega\to\mathbb{C}\) be
+    holomorphic. Then \(f(\vb{z})\) can be
+    analytically continued to the complete Reinhardt domain \(\widetilde{\Omega}\) defined by \[\widetilde{\Omega}=\cbraces{\qty(\rho_1z_1,\rho_2z_2,\dots,\rho_nz_n)\in\mathbb{C}^n}{0\leq\rho_j\leq 1,j\in\mathbb{N}_{\leq n},\qty(z_1,\dots,z_n)\in\Omega}\]
+    In other words, \(\exists\widetilde{f}:\widetilde{\Omega}\to\mathbb{C}\) holomorphic such that \(\widetilde{f}\equiv f\) on \(\Omega\).
+\end{theorem}
 \section{Special Classes of Holomorphic Functions}
 \subsection{Elliptic Functions}
 The theory of elliptic functions is an elaborate chapter of complex analysis,
