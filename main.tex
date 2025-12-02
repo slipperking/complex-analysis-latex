@@ -7156,9 +7156,11 @@ in particular the \(\overline\partial\)-problem, whose utility in a single
 variable has already been preluded to many times before.
 
 Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
-\begin{proposition}
+\begin{proposition}\label{prop:reinhardtlaurentexpansion}
     Let \(\Omega\subseteq\mathbb{C}^n\) be a Reinhardt domain and let \(f:\Omega\to\mathbb{C}\) be holomorphic. Then \(\vb{f}\) admits the unique Laurent expansion
-    \[\vb{f}(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}},\quad\vb{a}_{\vb{k}}\in\mathbb{C},\] converging absolutely and uniformly on compact subsets of \(\Omega\).
+    \begin{equation}
+        \vb{f}(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}},\qquad\vb{a}_{\vb{k}}\in\mathbb{C},\label{eq:reinhardtlaurentexpansion}
+    \end{equation} converging absolutely and uniformly on compact subsets of \(\Omega\).
 \end{proposition}
 \begin{proof}
     Let \(\vb{w}=\qty(w_1,\dots,w_n)\in\Omega\) with each \(w_j\neq0\). Since \(\Omega\) is a Reinhardt domain, for every \(\vb*{\theta}=\qty(\theta_1,\dots,\theta_n)\in[-\piup,\piup]^n\) the point
@@ -7196,11 +7198,14 @@ Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
     convergence follow from the absolute convergence of the one-variable Laurent
     expansions used in the construction.
 \end{proof}
-\begin{proposition}
+\begin{proposition}\label{prop:hartogslaurentexpansionnonnegative}
     Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain such that \(\Omega\)
     satisfies the condition that for every \(j\in\mathbb{N}_{\leq n}\), there
-    exists a point in \(\Omega\) of the form \(a_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(a_j\notin\mathbb{C}^*\)). Then any holomorphic function \(f:\Omega\to\mathbb{C}\) has the expansion \[f(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\vb{z}^{\vb{k}},\] which locally uniformly converges on \(\Omega\).
+    exists a point in \(\Omega\) of the form \(w_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(w_j\notin\mathbb{C}^*\)). Then any holomorphic function \(f:\Omega\to\mathbb{C}\) has the expansion \[f(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\vb{z}^{\vb{k}},\] which locally uniformly converges on \(\Omega\).
 \end{proposition}
+\begin{proof}
+    By \cref{prop:reinhardtlaurentexpansion}, \(f\) has an expansion matching the form of \cref{eq:reinhardtlaurentexpansion}. Now for a fixed \(j\in\mathbb{N}_{\leq n}\), if not all \(a_{\vb{k}}\)'s with \(k_j<0\) are zero, then fixing all variables except \(z_j\) gives a Laurent expansion that does not uniformly converge on all compact neighborhoods of \(w_j\vb{e}_j\in\Omega\) (either a pole or an essential singularity with respect to \(z_j\)). Thus, we are left only with \(\vb{k}\) containing nonnegative components, and the conclusion holds.
+\end{proof}
 \begin{theorem}[Hartogs' Extension Theorem for Reinhardt Domains]\label{thm:hartogsextensiontheoremforreinhardtdomains}
     Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain such that \(\Omega\)
     satisfies the condition that for every \(j\in\mathbb{N}_{\leq n}\), there
@@ -7210,6 +7215,9 @@ Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
     In other words, \(\exists\widetilde{f}:\widetilde{\Omega}\to\mathbb{C}\)
     holomorphic such that \(\widetilde{f}\equiv f\) on \(\Omega\).
 \end{theorem}
+\begin{proof}
+    By \cref{prop:hartogslaurentexpansionnonnegative}, \(f\) has the
+\end{proof}
 \section{Special Classes of Holomorphic Functions}
 \subsection{Elliptic Functions}
 The theory of elliptic functions is an elaborate chapter of complex analysis,
