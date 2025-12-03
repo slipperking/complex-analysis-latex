@@ -8099,10 +8099,10 @@ Hence we have for any \(x>1\),
     \end{align*}
     Letting \(\alpha\to 1^-\) yields \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_limsup}. The proof of \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_liminf} follows similarly by taking limit infimums in \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_inequalities} and \(\alpha\to 1^-\).
 \end{proof}
-\begin{theorem}
+\begin{theorem}\label{thm:primenumbertheorem_laplacetransformchebyshevfunction}
     The Laplace transform of \(\psi\circ\exp\) defined as
     \begin{equation}
-        f(s)=\int_0^\infty\psi\qty(\ee^{t})\ee^{-st}\ddt\label{eq:primenumbertheorem_laplacetransformchebyshevfunction}
+        f(s)=\int_0^\infty\psi\qty(\ee^{t})\ee^{-st}\ddt\label{eq:primenumbertheorem_laplacetransformchebyshevfunction_statement}
     \end{equation} converges for \(\Re s>1\) and defines a holomorphic function on this domain. Moreover, the function \(g\) defined by \[g(t)=\lim_{\sigma\to 1^+}\qty[f(s)-\frac1{s-1}],\qquad s=\sigma+\ii t\] converges uniformly with respect to \(t\) on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon.
 \end{theorem}
 \begin{proof}
@@ -8113,13 +8113,36 @@ Hence we have for any \(x>1\),
         &=\frac1s\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\qty[n^{-s}-(n+1)^{-s}]=\frac1s\sum_{m=1}^\infty\Lambda(m)\sum_{n=m}^\infty\qty[n^{-s}-(n+1)^{-s}]\\
         &=\frac1s\sum_{m=1}^\infty\Lambda(m)m^{-s}=\frac1s\sum_{n=1}^\infty\frac{\Lambda(n)}{n^{-s}}
     \end{align*}
-    by absolute convergence and because the inner summation telescopes. By \cref{prop:riemannzetafunction_logarithmicderivativezetavonmangoldt}, we have that for \(\Re s>1\), \[f(s)=-\frac1s\frac{\zeta'(s)}{\zeta(s)}\implies f(s)-\frac{1}{s-1}=-\frac1s\qty(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1})-\frac1s.\]
-    The expression \(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}\) is meromorphic in \(\mathbb{C}\). Because \(\zeta(s)\) has a simple pole at \(s=1\) with residue \(1\), it follows that \[\zeta(s)=\frac{1}{s-1}+l(s)\] for some entire function \(l:\mathbb{C}\to\mathbb{C}\). By \cref{prop:riemannzetafunction_trivialzeros} and \cref{thm:riemannzetafunction_nozerosoncriticalstripboundary}, the quantity \(\zeta(s)(s-1)=1+\qty(s-1)l(s)\) does not vanish for \(\Re s\geq1\) (at \(s=1\), the simple pole \(\zeta\) cancels with the simple zero of \(s-1\)). Hence, \[\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}=\frac{\zeta'(s)\qty(s-1)+\zeta(s)}{\zeta(s)\qty(s-1)}=\frac{\dv{s}(\zeta(s)(s-1))}{1+(s-1)l(s)}=\frac{l'(s)(s-1)+l(s)}{1+(s-1)l(s)}\] defines a holomorphic function on \(\Re s\geq1\) (observe that the numerator is entire). Therefore, \(g(t)\) converges uniformly on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon.
+    by absolute convergence and because the inner summation telescopes. By \cref{prop:riemannzetafunction_logarithmicderivativezetavonmangoldt}, we have that for \(\Re s>1\),
+    \begin{equation}
+        f(s)=-\frac1s\frac{\zeta'(s)}{\zeta(s)}\implies f(s)-\frac{1}{s-1}=-\frac1s\qty(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1})-\frac1s.\label{eq:primenumbertheorem_laplacetransformchebyshevfunction_gfunction}
+    \end{equation}
+    The expression \(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}\) is meromorphic in \(\mathbb{C}\). Because \(\zeta(s)\) has a simple pole at \(s=1\) with residue \(1\), it follows that \[\zeta(s)=\frac{1}{s-1}+l(s)\] for some entire function \(l:\mathbb{C}\to\mathbb{C}\). By \cref{prop:riemannzetafunction_trivialzeros} and \cref{thm:riemannzetafunction_nozerosoncriticalstripboundary}, the quantity \(\zeta(s)(s-1)=1+\qty(s-1)l(s)\) does not vanish for \(\Re s\geq1\) (at \(s=1\), the simple pole \(\zeta\) cancels with the simple zero of \(s-1\)). Hence, \[\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}=\frac{\zeta'(s)\qty(s-1)+\zeta(s)}{\zeta(s)\qty(s-1)}=\frac{\dv{s}(\zeta(s)(s-1))}{1+(s-1)l(s)}=\frac{l'(s)(s-1)+l(s)}{1+(s-1)l(s)}\] and \cref{eq:primenumbertheorem_laplacetransformchebyshevfunction_gfunction} define holomorphic functions on \(\Re s\geq1\) (observe that the numerator is entire).
+
+    For a compact subset \(I\subset\mathbb{R}\), the complex rectangle \(K\equiv\cbraces{x+\ii y}{1\leq x\leq 2,y\in I}\) is compact in \(\mathbb{C}\). Thus, by uniform continuity (given by \cref{thm:heinecantor}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \[s_1=\sigma_1+\ii t_1,s_2=\sigma_2+\ii t_2\in K:\abs{s_1-s_2}<\delta\implies\abs{f(s_1)-\frac1{s_1-1}-f(s_2)+\frac1{s_2-1}}<\varepsilon.\]
+    In particular, for \(\sigma_1=1\) such that \(t_2=t_1(=t)\), we have \[s=\sigma+\ii t\in K:\abs{\sigma-1}<\delta\implies\abs{f\qty(1+\ii t)-\frac1{\ii t}-f\qty(s)+\frac1{s-1}}<\varepsilon,\] where \(\delta\) is chosen independently of \(t\). Therefore, \(g(t)\) converges uniformly on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon.
 \end{proof}
 \subsubsection{Proof of a Tauberian Theorem}
-Previously we have seen the subtle relation between \(\zeta\) and \(\psi\). Given the properties of the Laplace transform of \(\psi\circ\exp\) established above, we apply now prove what is known as a \textscsl{Tauberian} theorem to extract sufficient information (such as convergence) of the function itself under certain mild conditions.
+Previously we have seen the subtle relation between \(\zeta\) and \(\psi\). Given the properties of the Laplace transform of \(\psi\circ\exp\) and certain conditions established above, we apply now prove what is known as a \textscsl{Tauberian} theorem to extract sufficient information (such as convergence) of the function itself.
+
+For arbitrary \(x\in\mathbb{R}\) and \(\lambda>0\), define a triangular kernel cutoff by \[K_\lambda(x)=
+    \begin{cases}
+        1-\frac{\abs{x}}{2\lambda} & \abs{x}<2\lambda, \\
+        0                          & \text{otherwise},
+\end{cases}\qquad\supp K_\lambda=\qty[-2\lambda,2\lambda],\] and a normalized Fejér kernel by
+\[k_\lambda(x)=
+    \begin{cases}
+        \frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2&x\neq 0,\\
+        \frac{2\lambda}{\sqrt{2\piup}}&x=0.
+\end{cases}\]
+The two kernels are related by a angular unitary Fourier transform:
+\begin{lemma}\label{lem:wienerikehara_kernels_fouriertransform}
+    For every \(\lambda>0\), we have that \[\mathcal{F}\cbraces{K_\lambda}(x)=\mathcal{F}^{-1}\cbraces{K_\lambda}(x)=k_\lambda(x),\qquad\mathcal{F}\cbraces{k_\lambda}(x)=\mathcal{F}^{-1}\cbraces{k_\lambda}(x)=K_\lambda(x),\] where we define \[\mathcal{F}\cbraces{f}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)\ee^{-\ii xt}\ddt,\qquad\mathcal{F}^{-1}\cbraces{f}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)\ee^{\ii xt}\ddt.\]
+\end{lemma}
+\begin{proof}
+\end{proof}
 \begin{definition}
-    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{h\to0^+}\liminf_{x\to+\infty}\qty[f(x+h)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
+    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\liminf_{h\to0^+}\liminf_{x\to+\infty}\qty[f(x+h)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
     \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
 \begin{theorem}[\textsc{Wiener--Ikehara}]
