@@ -5908,7 +5908,7 @@ For \(r>0\), define
         =18704r\omega_f(r)2\piup\eval{\frac{1}{\rho}}_{\infty}^{2r}+\frac{9344\piup\omega_f(r)r^2}{r^2}+\frac{4\omega_f(r)}{r}4r\piup\\
         =18704\piup\omega_f(r)+9344\piup\omega_f(r)+16\piup\omega_f(r)=28064\piup\omega_f(r).
     \end{multline*}
-    Now Runge's Theorem (\cref{thm:runge}) provides the existence of some rational function \(\psi\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-\Psi(z)}\leq\piup\omega_f(r)\] since \(\Psi\) is holomorphic on a neighborhood of \(K\) (to assure this bound
+    Runge's Theorem (\cref{thm:runge}) provides the existence of some rational function \(\psi\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-\Psi(z)}\leq\piup\omega_f(r)\] since \(\Psi\) is holomorphic on a neighborhood of \(K\) (to assure this bound
         is positive, we assume \(f\) is not identically zero, otherwise the assertion
     is trivial). Therefore, for all \(z\in K\), we have \[\sup_{z\in K}\abs{\psi(z)-\Phi(z)}\leq\sup_{z\in K}\abs{\psi(z)-\Psi(z)}+\abs{\Psi(z)-\Phi(z)}\leq 28065\piup\omega_f(r).\] Because \(\lim_{r\to0^+}\omega_f(r)=0\), for any \(\varepsilon>0\), there
     exists a \(r>0\) such that \[\omega_f(r)<\frac{\varepsilon}{28065\piup}.\]
@@ -8096,13 +8096,18 @@ Hence we have for any \(x>1\),
     \end{align*}
     Letting \(\alpha\to 1^-\) yields \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_limsup}. The proof of \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_liminf} follows similarly by taking limit infimums in \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_inequalities} and \(\alpha\to 1^-\).
 \end{proof}
+\begin{theorem}
+    The integral defined as \begin{equation}
+        f(s)=\int_0^\infty\frac{\psi\qty(\ee^{t})}{\ee^{st}}\ddt\label{eq:primenumbertheorem_laplacetransformchebyshevfunction}
+    \end{equation} converges for \(\Re s>1\) and defines a holomorphic function on this domain. Moreover, the function \(g\) defined by \[g(t)=\lim_{\sigma\to 1^+}\qty(f(s)-\frac1{s-1}),\qquad s=\sigma+\ii t\] converges uniformly with respect to \(t\) on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon. 
+\end{theorem}
 \begin{definition}
-    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{\substack{y-x\to 0^+\\\abs{y-x}<\delta}}\qty[f(y)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
+    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{h\to0^+}\liminf_{x\to+\infty}\qty[f(x+h)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
     \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
 \begin{theorem}[\textsc{Wiener--Ikehara}]
     Let \(A:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{A}(s)=\int_0^\infty A(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
-    that \[f(s)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{A}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\] converges locally uniformly with respect to \(t\) in \(\mathbb{R}\). Then \[\lim_{x\to+\infty}\frac{A(x)}{\ee^x}=c.\]
+    that \[f(t)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{A}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\] converges locally uniformly with respect to \(t\) in \(\mathbb{R}\) and is continuously differentiable. Then \[\lim_{x\to+\infty}\frac{A(x)}{\ee^x}=c.\]
 \end{theorem}
 {
     \sloppy
