@@ -8097,20 +8097,30 @@ Hence we have for any \(x>1\),
     Letting \(\alpha\to 1^-\) yields \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_limsup}. The proof of \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_liminf} follows similarly by taking limit infimums in \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_inequalities} and \(\alpha\to 1^-\).
 \end{proof}
 \begin{theorem}
-    The integral defined as \begin{equation}
-        f(s)=\int_0^\infty\frac{\psi\qty(\ee^{t})}{\ee^{st}}\ddt\label{eq:primenumbertheorem_laplacetransformchebyshevfunction}
-    \end{equation} converges for \(\Re s>1\) and defines a holomorphic function on this domain. Moreover, the function \(g\) defined by \[g(t)=\lim_{\sigma\to 1^+}\qty(f(s)-\frac1{s-1}),\qquad s=\sigma+\ii t\] converges uniformly with respect to \(t\) on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon. 
+    The Laplace transform of \(\psi\circ\exp\) defined as
+    \begin{equation}
+        f(s)=\int_0^\infty\psi\qty(\ee^{t})\ee^{-st}\ddt\label{eq:primenumbertheorem_laplacetransformchebyshevfunction}
+    \end{equation} converges for \(\Re s>1\) and defines a holomorphic function on this domain. Moreover, the function \(g\) defined by \[g(t)=\lim_{\sigma\to 1^+}\qty[f(s)-\frac1{s-1}],\qquad s=\sigma+\ii t\] converges uniformly with respect to \(t\) on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon.
 \end{theorem}
-\begin{definition}
-    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{h\to0^+}\liminf_{x\to+\infty}\qty[f(x+h)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
-    \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
-\end{definition}
-\begin{theorem}[\textsc{Wiener--Ikehara}]
-    Let \(A:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{A}(s)=\int_0^\infty A(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
-    that \[f(t)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{A}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\] converges locally uniformly with respect to \(t\) in \(\mathbb{R}\) and is continuously differentiable. Then \[\lim_{x\to+\infty}\frac{A(x)}{\ee^x}=c.\]
-\end{theorem}
-{
-    \sloppy
-    \printbibliography
-}
-\end{document}
+\begin{proof}
+    Let \(u=\ee^t\), \(\dd{u}=\ee^t\ddt\). Then we obtain
+    \begin{align*}
+        f(s)&=\int_1^\infty\psi(u)u^{-s-1}\dd{u}=\sum_{n=1}^\infty\int_n^{n+1}\psi(u)u^{-s-1}\dd{u}\\
+        &=\sum_{n=1}^\infty\psi(n)\int_n^{n+1}u^{-s-1}\dd{u}=\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\eval[\frac{u^{-s}}{-s}|_{n}^{n+1}\\
+            &=\frac1s\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\qty[n^{-s}-(n+1)^{-s}]=\frac1s\sum_{m=1}^\infty\Lambda(m)\sum_{n=m}^\infty\qty[n^{-s}-(n+1)^{-s}]\\
+            &=\frac1s\sum_{m=1}^\infty\Lambda(m)m^{-s}=\frac1s\sum_{n=1}^\infty\frac{\Lambda(n)}{n^{-s}}
+        \end{align*} by absolute convergence and because the inner summation telescopes. By \cref{prop:riemannzetafunction_logarithmicderivativezetavonmangoldt}, we have that for \(\Re s>1\), \[f(s)=-\frac1s\frac{\zeta'(s)}{\zeta(s)}\implies f(s)-\frac{1}{s-1}=-\frac1s\qty(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1})-\frac1s.\]
+    \end{proof}
+    \begin{definition}
+        A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\lim_{h\to0^+}\liminf_{x\to+\infty}\qty[f(x+h)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
+        \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
+    \end{definition}
+    \begin{theorem}[\textsc{Wiener--Ikehara}]
+        Let \(f:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{f}(s)=\int_0^\infty f(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
+        that \[g(t)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{f}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\] converges locally uniformly with respect to \(t\) in \(\mathbb{R}\) and is continuously differentiable. Then \[\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c.\]
+    \end{theorem}
+    {
+        \sloppy
+        \printbibliography
+    }
+    \end{document}
