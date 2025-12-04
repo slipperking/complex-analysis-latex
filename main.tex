@@ -8140,11 +8140,30 @@ The two kernels are related by a angular unitary Fourier transform:
     For every \(\lambda>0\), we have that \[\mathcal{F}\cbraces{K_\lambda}(x)=\mathcal{F}^{-1}\cbraces{K_\lambda}(x)=k_\lambda(x),\qquad\mathcal{F}\cbraces{k_\lambda}(x)=\mathcal{F}^{-1}\cbraces{k_\lambda}(x)=K_\lambda(x),\] where we define \[\mathcal{F}\cbraces{f}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)\ee^{-\ii xt}\ddt,\qquad\mathcal{F}^{-1}\cbraces{f}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)\ee^{\ii xt}\ddt.\]
 \end{lemma}
 \begin{proof}
+    The equivalence between the Fourier and inverse Fourier transforms follows from the evenness of both kernels. We hence prove only the forward transform equivalences.
+
+    Since \(\supp K_\lambda=\qty[-2\lambda,2\lambda]\), we have that
+    \begin{align*}
+        \mathcal{F}\cbraces{K_\lambda}(x)&=\frac1{\sqrt{2\piup}}\int_{-2\lambda}^{2\lambda}\qty(1-\frac{\abs{t}}{2\lambda})\ee^{-\ii xt}\ddt=\frac{1}{\sqrt{2\piup}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\qty(\ee^{-\ii xt}+\ee^{\ii xt})\ddt\\
+        &=\frac{\sqrt{2}}{\sqrt{\piup}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\cos\qty(xt)\ddt\\
+        &=\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\eval{\frac{\sin(xt)}x}_0^{2\lambda}-\eval{\frac{t\sin(xt)}{2\lambda x}}_0^{2\lambda}+\int_0^{2\lambda}\frac{\sin(xt)}{2\lambda x}\ddt]\\
+        &=\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\frac{\sin(2\lambda x)}x-\frac{\sin(2\lambda x)}{x}-\eval{\frac{\cos(xt)}{2\lambda x^2}}_0^{2\lambda}]\\
+        &=\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\frac{1-\cos(2\lambda x)}{2\lambda x^2}]=\frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2=k_\lambda(x).
+    \end{align*}
+    On the other hand,
+    \begin{align*}
+        \mathcal{F}\cbraces{k_\lambda}(x)&=\frac{2\lambda}{2\piup}\int_{-\infty}^\infty\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ee^{-\ii xt}\ddt=\frac{2}{\piup\lambda}\int_{0}^\infty\frac{\sin^2(\lambda t)}{t^2}\cos(xt)\ddt\\
+        &=\frac{1}{\piup\lambda}\int_{0}^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt
+    \end{align*}
+    rip how is this part supposed to work
 \end{proof}
 \begin{definition}
     A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\liminf_{h\to0^+}\liminf_{x\to+\infty}\qty[f(x+h)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
     \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
+\begin{proposition}
+    Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the convolution \(\cbraces{f*k_\lambda}\) defined by \[\cbraces{f*k_\lambda}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}\cbraces{f*k_\lambda}(x)=\lim_{x\to+\infty}f(x)\).
+\end{proposition}
 \begin{theorem}[\textsc{Wiener--Ikehara}]
     Let \(f:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{f}(s)=\int_0^\infty f(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
     that \[g(t)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{f}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\] converges locally uniformly with respect to \(t\) in \(\mathbb{R}\) and is continuously differentiable. Then \[\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c.\]
