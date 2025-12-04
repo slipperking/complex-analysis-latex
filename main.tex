@@ -8152,10 +8152,50 @@ The two kernels are related by a angular unitary Fourier transform:
     \end{align*}
     On the other hand,
     \begin{align*}
-        \mathcal{F}\cbraces{k_\lambda}(x)&=\frac{2\lambda}{2\piup}\int_{-\infty}^\infty\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ee^{-\ii xt}\ddt=\frac{2}{\piup\lambda}\int_{0}^\infty\frac{\sin^2(\lambda t)}{t^2}\cos(xt)\ddt\\
-        &=\frac{1}{\piup\lambda}\int_{0}^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt
+        \mathcal{F}\cbraces{k_\lambda}(x)&=\frac{2\lambda}{2\piup}\int_{-\infty}^\infty\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ee^{-\ii xt}\ddt=\frac2{\piup\lambda}\int_{0}^\infty\frac{\sin^2(\lambda t)}{t^2}\cos(xt)\ddt\\
+        &=\frac{1}{\piup\lambda}\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt.
     \end{align*}
-    rip how is this part supposed to work
+    Let \(I(x)=\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt\). Differentiation under the integral sign yields \[\dv{I}{x}=\int_0^\infty\pdv{x}\qty(\frac{1-\cos(2\lambda t)}{t^2}\cos(xt))\ddt=\int_0^\infty\qty(\frac{\cos(2\lambda t)-1}{t})\sin(xt)\ddt.\] % TODO: prove the conditions required for the commute
+    By the product-to-sum formulas, this can be rewritten as \[\dv{I}{x}=\int_0^\infty\frac{\sin(xt+2\lambda t)}{2t}\ddt+\int_0^\infty\frac{\sin(xt-2\lambda t)}{2t}\ddt-\int_0^\infty\frac{\sin(xt)}t\ddt=\mathrm{I}+\mathrm{I\!I}-\mathrm{I\!I\!I}.\]
+    By substituting \(u=t(x+2\lambda)\), we have that \[\mathrm{I}=\int_0^{\pm\infty}\frac{\sin u}{2u}\dd{u},\qfor\pm\infty=
+        \begin{cases}
+            +\infty & x+2\lambda>0, \\
+            -\infty & x+2\lambda<0,
+    \end{cases}\] and substituting \(u=t(x-2\lambda)\) gives \[\mathrm{I\!I}=\int_0^{\pm\infty}\frac{\sin u}{2u}\dd{u},\qfor\pm\infty=
+        \begin{cases}
+            +\infty & x-2\lambda>0, \\
+            -\infty & x-2\lambda<0.
+    \end{cases}\] By the Dirichlet integral \(\int_0^\infty\frac{\sin u}u\dd{u}=\frac\piup2\), we have that \[\mathrm{I}=\frac\piup4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\piup4\operatorname{sgn}(x-2\lambda).\] Similarly, \(\mathrm{I\!I\!I}=\frac\piup2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\piup4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)],\] and \[I(0)+\int_0^x\dv{I}{x}\ddx=I(0)+
+        \begin{cases}
+            \frac\piup 4\qty[\eval{-x-x+2x}_{-2\lambda}^x]+I\qty(-2\lambda^+)-I(0)&x<-2\lambda, \\
+            \frac\piup 4(x-x+2x)=\frac{\piup x}{2} &-2\lambda<x<0, \\
+            \frac\piup 4(x-x-2x)=-\frac{\piup x}{2} &0<x<2\lambda, \\
+            \frac\piup 4\qty[\eval{x+x-2x}_{2\lambda}^x]+I\qty(2\lambda^-)-I(0)&x>2\lambda,
+    \end{cases},\] which after simplification, becomes \[I(x)=I(0)+\piup
+        \begin{cases}
+            -\lambda&x<-2\lambda, \\
+            \frac x2&-2\lambda<x<0, \\
+            -\frac x2&0<x<2\lambda, \\
+            \lambda&x>2\lambda,
+    \end{cases}.\]
+    Since
+    \begin{align*}
+        I(0)&=\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\ddt=\eval{\frac{\cos(2\lambda t)-1}{t}}_0^\infty+\int_0^\infty 2\lambda\frac{\sin(2\lambda t)}{t}\ddt\\
+        &=\lim_{t\to 0}\frac{1-\cos(2\lambda t)}{t}+2\lambda\frac\piup2=\piup\lambda,
+    \end{align*}
+    we obtain \[I=
+        \begin{cases}
+            0 & x<-2\lambda, \\
+            \piup\qty(\lambda+\frac x2) & -2\lambda<x<0, \\
+            \piup\qty(\lambda-\frac x2) & 0<x<2\lambda, \\
+            0 & x>2\lambda,
+        \end{cases}\implies\mathcal{F}\cbraces{k_\lambda}(x)=
+        \begin{cases}
+            0 & x<-2\lambda, \\
+            \qty(1+\frac x{2\lambda}) & -2\lambda<x<0, \\
+            \qty(1-\frac x{2\lambda}) & 0<x<2\lambda, \\
+            0 & x>2\lambda,
+    \end{cases},\] which confirms the second equivalence.
 \end{proof}
 \begin{definition}
     A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\liminf_{h\to0^+}\liminf_{x\to+\infty}\qty[f(x+h)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
