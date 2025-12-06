@@ -135,7 +135,7 @@ space is defined to be \(X=\mathbb{C}^n\). This is satisfactory to the main
 purpose of our proceeding passage, but it is noteworthy that it can be
 generalized to more abstract sets.
 \begin{definition}[Accumulation Point]\label{def:accumulationpoint}
-    A point \(z\in\mathbb{C}^n\) is an \textscsl{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\cbraces{z})\cap X\neq\emptyset\)
+    A point \(z\in\mathbb{C}^n\) is an \textscsl{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\cbraces{z})\cap X\neq\varnothing\)
 \end{definition}
 \begin{definition}[Closure]\label{def:closure}
     For a set \(X\in\mathbb{C}^n\), define the \textscsl{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and its accumulation points.
@@ -180,7 +180,7 @@ generalized to more abstract sets.
     We now show that \(z_\infty\in X\). Suppose for contradiction that
     \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is
     open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B^n\qty(z_\infty,
-    \delta)\), and hence \(Q_k\cap X=\emptyset\). This contradicts the construction
+    \delta)\), and hence \(Q_k\cap X=\varnothing\). This contradicts the construction
     of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A
     \subset X\).
 \end{proof}
@@ -199,7 +199,7 @@ generalized to more abstract sets.
     \(\mathcal{C}=\cbraces{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k_j})}}{j\in\mathbb{N}_{\leq
     m}}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{\max\cbraces{k_1,\ldots,k_m}})},\]
     and that
-    \(X\cap\overline{B^n\qty(z_0,\frac{1}{\max\cbraces{k_1,\ldots,k_m}})}=\emptyset\).
+    \(X\cap\overline{B^n\qty(z_0,\frac{1}{\max\cbraces{k_1,\ldots,k_m}})}=\varnothing\).
     However, by the definition of the accumulation point, every open neighborhood
     of the accumulation point must intersect \(X\). Therefore, by contradiction,
     \(X\) is closed.
@@ -218,7 +218,7 @@ generalized to more abstract sets.
     Since the side length of each cube tends to 0, \(\bigcap_{j=0}^\infty Q_j\)
     consists of a single point \(z_{\infty}\in\mathbb{C}^n\). By the
     Bolzano-Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), because \(\forall
-    j\in\mathbb{N}\), \(Q_j\cap X\neq\emptyset\), select a point \(z_{j}\in Q_j\cap
+    j\in\mathbb{N}\), \(Q_j\cap X\neq\varnothing\), select a point \(z_{j}\in Q_j\cap
     X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\) as \(X\)
     is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in U\).
     Since \(U\) is open, \(\exists\varepsilon>0\) such that
@@ -330,7 +330,7 @@ differential form \(\omega\) is \textscsl{closed} if \(\dd{\omega}=0\), and is
 \begin{lemma}[Poincaré]\label{lem:poincare}
     For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
 \end{lemma}
-It is true that for any set \(U\subseteq \mathbb{R}^n\), regardless of contractibility, that for a differential form \(\omega\) defined on \(U\), \(\dd\dd\omega=0\). In other words, all exact differential forms are closed. (For a region \(U\), we have \(\partial\partial U=\emptyset\). This is one of many reasons for which the boundary operator is denoted by \(\partial\), in analogy to \(\dd\).)
+It is true that for any set \(U\subseteq \mathbb{R}^n\), regardless of contractibility, that for a differential form \(\omega\) defined on \(U\), \(\dd\dd\omega=0\). In other words, all exact differential forms are closed. (For a region \(U\), we have \(\partial\partial U=\varnothing\). This is one of many reasons for which the boundary operator is denoted by \(\partial\), in analogy to \(\dd\).)
 
 The implications of this are important: if \(\omega\) is a 0-form, then
 \(\curl(\grad\omega)=0\), and if \(\omega\) is a 1-form, \(\div(\curl{v})=0\),
@@ -1378,7 +1378,7 @@ When Cauchy formalized \cref{thm:cauchyintegralformula,thm:cauchyintegraltheorem
     Let \(U\subset\mathbb{C}\) be an open region bounded with boundary \(\partial U\). Let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then, \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
-    Since \(\partial U\cap U=\emptyset\) and \(f(z)\) is not necessarily holomorphic over \(\overline{U}\), we cannot directly apply \cref{lem:cauchyintegraltheoremoversimplyconnectedset}.
+    Since \(\partial U\cap U=\varnothing\) and \(f(z)\) is not necessarily holomorphic over \(\overline{U}\), we cannot directly apply \cref{lem:cauchyintegraltheoremoversimplyconnectedset}.
     \begin{figure}
         \centering
         \begin{tikzpicture}[>=stealth,
@@ -1741,7 +1741,7 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
     \(f:\mathbb{C}\to\mathbb{C}\) be entire and bounded such that \(\abs{f}\leq M\)
     for some \(M>0\). Let \(R>\abs{a},\abs{b}\). Since \(a\neq b\),
     \(\exists\varepsilon>0\) such that
-    \(\overline{D(a,\varepsilon)}\cup\overline{D(b,\varepsilon)}=\emptyset\). By
+    \(\overline{D(a,\varepsilon)}\cup\overline{D(b,\varepsilon)}=\varnothing\). By
     the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}), we have \[\oint_{\partial D(0,R)}\frac{f(z)}{(z-a)(z-b)}\ddz=\qty(\oint_{\partial D(a,\varepsilon)}+\oint_{\partial D(b,\varepsilon)})\frac{f(z)}{(z-a)(z-b)}\ddz.\]
     Since \(z\mapsto\frac{f(z)}{z-a}\) is holomorphic on the disk centered at \(b\)
     and \(z\mapsto\frac{f(z)}{z-b}\) is holomorphic on the disk centered at \(a\),
@@ -1785,7 +1785,7 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
     and by the triangle inequality,
     \[\abs{f^{(n)}(z)}\leq\frac{n!}{2\piup}\int_{K_1}\abs{f(\zeta)}\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{\abs{\ddzeta\wedge\dd{\overline{\zeta}}}}{\abs{\zeta-z}^{n+1}}.\]
     Notice that over \(W\), \(\varphi=1\), \(\varphi'=0\), and is disjoint from
-    \(K_1\) (or that \(W\cap K_1=\emptyset\)). Then, the distance between \(W\) and
+    \(K_1\) (or that \(W\cap K_1=\varnothing\)). Then, the distance between \(W\) and
     \(K\) is positive and the two are disjoint. Therefore, \(\exists M>0\) such
     that
     \[\frac{1}{\abs{\zeta-z}}\leq M,\] and thus, \[\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{1}{\abs{\zeta-z}^{n+1}}\] can be bounded by a sequence \(\cbraces{c'_n}\), independent of \(f\) and
@@ -1834,7 +1834,7 @@ The concept of analytic continuation and its consequent problems and properties 
 \begin{definition}[Topological Space]
     A \textscsl{topological space} is a pair \((X,\tau)\), where \(X\) is a set and \(\tau\) is a collection of subsets of \(X\) satisfying the following properties:
     \begin{enumerate}
-        \item \(\emptyset\in\tau\) and \(X\in\tau\),
+        \item \(\varnothing\in\tau\) and \(X\in\tau\),
         \item The union of any (possibly infinite) collection of sets in \(\tau\) is also in
             \(\tau\),
         \item The intersection of any finite collection of sets in \(\tau\) is also in
@@ -1870,23 +1870,23 @@ It is easy to see that \(\mathfrak{B}\) forms an open cover of \(X\). Moreover, 
 
 In a topological space \(X\), a subset can be open, closed (the complement of
 some open set), both (clopen), or neither. The only clopen sets that exist in
-any topological space \(X\) are \(\emptyset\) and \(X\) if \(X\) is connected.
+any topological space \(X\) are \(\varnothing\) and \(X\) if \(X\) is connected.
 A technique used in many proofs in complex analysis relies on the following
 fact:
 \begin{theorem}[Connectivity Argument]\label{thm:connectedtopologicalspaceclopensets}
-    A topological space \(X\) is \textscsl{connected} if and only if \(X\) and \(\emptyset\) are the only clopen subsets of \(X\).
+    A topological space \(X\) is \textscsl{connected} if and only if \(X\) and \(\varnothing\) are the only clopen subsets of \(X\).
 \end{theorem}
 \begin{proof}
-    Suppose \(X\) is connected and let \(A\subseteq X\) be clopen. Then \(A\) and \(X\setminus A\) are both open in \(X\), disjoint, and their union is \(X\). Thus, either \(A=\emptyset\) or \(X\setminus A=\emptyset\) (i.e., \(A=X\)).
+    Suppose \(X\) is connected and let \(A\subseteq X\) be clopen. Then \(A\) and \(X\setminus A\) are both open in \(X\), disjoint, and their union is \(X\). Thus, either \(A=\varnothing\) or \(X\setminus A=\varnothing\) (i.e., \(A=X\)).
 
     Conversely, suppose \(X\) is disconnected. Then there exist nonempty open sets
-    \(U,V\subseteq X\) such that \(U\cap V=\emptyset\) and \(U\cup V=X\). Thus,
+    \(U,V\subseteq X\) such that \(U\cap V=\varnothing\) and \(U\cup V=X\). Thus,
     \(U=X\setminus V\) and \(V=X\setminus U\) are both clopen, contradicting the
-    assumption that \(X\) and \(\emptyset\) are the only clopen subsets. Hence,
+    assumption that \(X\) and \(\varnothing\) are the only clopen subsets. Hence,
     \(X\) must be connected.
 \end{proof}
 \begin{example}
-    The topological space \(\mathbb{R}\) under the standard topology has only two clopen sets: \(\mathbb{R}\) and \(\emptyset\).
+    The topological space \(\mathbb{R}\) under the standard topology has only two clopen sets: \(\mathbb{R}\) and \(\varnothing\).
 
     Now consider \(X=\bigsqcup_{n\in2\mathbb{Z}}(n,n+1)\), equipped with the
     topology \(\tau\) generated by the basis
@@ -1909,8 +1909,8 @@ fact:
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Let \(\cbraces{K_n}_{n\in\mathbb{N}}\subset\Omega\) be an exhaustion by compact sets with \(K_0=\emptyset\) and \(K_n\subseteq\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\). For each \(n\in\mathbb{N}\), define \[W_n=\interior{K_{n+1}}\setminus K_{n-1},\quad V_n=K_n\setminus\interior{K_{n-1}},\]
-    where \(K_{-1}=\emptyset\). Each \(W_n\) is open and each \(V_n\) is compact,
+    Let \(\cbraces{K_n}_{n\in\mathbb{N}}\subset\Omega\) be an exhaustion by compact sets with \(K_0=\varnothing\) and \(K_n\subseteq\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\). For each \(n\in\mathbb{N}\), define \[W_n=\interior{K_{n+1}}\setminus K_{n-1},\quad V_n=K_n\setminus\interior{K_{n-1}},\]
+    where \(K_{-1}=\varnothing\). Each \(W_n\) is open and each \(V_n\) is compact,
     with \(V_n\subseteq W_n\) and \(\bigsqcup_{n\in\mathbb{N}}V_n=\Omega\).
 
     For each \(n\in\mathbb{N}\) and each \(z\in V_n\), since \(W_n\) is open and
@@ -3033,7 +3033,7 @@ the implications on the entire function \(f\) given an isolated singularity.
 Similar to holomorphy, meromorphy on a compact set can be defined as meromorphy on a neighborhood of the set. In general, we imply for the set to be open unless stated otherwise. If the set is not implicitly specified, we assume meromorphy on \(\mathbb{C}\).
 
 All holomorphic functions are meromorphic functions (with poles on
-\(\emptyset\)). Consequently, entire functions are meromorphic on
+\(\varnothing\)). Consequently, entire functions are meromorphic on
 \(\mathbb{C}\). All rational functions (including polynomials) are also
 meromorphic on \(\mathbb{C}\). In the study of meromorphic functions with an
 isolated singularity at \(\infty\), rational functions are of important
@@ -3552,7 +3552,7 @@ finitely many poles. Therefore, \(f\) has an isolated singularity at
             \begin{enumerate}[label=(\alph*)]
                 \item Fix \(n\in\mathbb{N}\), let \(U_n\) be an open neighborhood of \(a_n\) such
                     that \(\forall i,j\in\mathbb{N}\) where \(i\neq j\), \(\overline{U_i}\cap
-                    \overline{U_j}=\emptyset\). Let \(V_n\) be a neighborhood of \(a_n\) that is
+                    \overline{U_j}=\varnothing\). Let \(V_n\) be a neighborhood of \(a_n\) that is
                     relatively compact in \(U_n\). By \cref{thm:bumpfunctionexistence}, for each
                     \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[
                         \begin{cases}
@@ -3618,7 +3618,7 @@ The Mittag--Leffler Theorem (\cref{thm:mittagleffler}) can also be generalized a
 \begin{theorem}\label{thm:mittaglefflerboundary}
     Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary \(\partial U\) and let \(E=\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a sequence of distinct complex numbers whose accumulation points lie on \(\partial U\). Let \(\cbraces{\psi_n}_{n\in\mathbb{N}}\) be a sequence of functions in the form of \cref{eq:meromorphicfunctionconstructionprincipalparts}. Then there exists a meromorphic function \(f:U\to\mathbb{C}\) with poles at each \(a_n\) with principal parts \(\psi_n\) at each \(a_n\).
 \end{theorem}
-Indeed, since \(\partial U\cap U=\emptyset\), each \(a_n\) is not an accumulation of \(E\). In other words, for each \(n\in\mathbb{N}\), there exist neighborhoods \(U_n\) of \(a_n\) that are relatively compact in \(U\) with disjoint closures. The proceeding proof is analogous to that of \cref{itm:mittagleffler_existence} in \cref{thm:mittagleffler}.
+Indeed, since \(\partial U\cap U=\varnothing\), each \(a_n\) is not an accumulation of \(E\). In other words, for each \(n\in\mathbb{N}\), there exist neighborhoods \(U_n\) of \(a_n\) that are relatively compact in \(U\) with disjoint closures. The proceeding proof is analogous to that of \cref{itm:mittagleffler_existence} in \cref{thm:mittagleffler}.
 
 Finally, we will examine the construction of entire functions interpolating
 prescribed values and derivatives at given points.
@@ -4343,7 +4343,7 @@ Analytic elements serve as local representations of analytic functions. The proc
 
 By the Identity Theorem (\cref{thm:identity}), such continuations are unique;
 if \(\qty(f_1,U_1)\) and \(\qty(f_2,U_2)\) are analytic elements with \(U_1\cap
-U_2 \neq \emptyset\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are
+U_2 \neq \varnothing\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are
 \textscsl{direct analytic continuations} of each other. The combined function:
 \[\widetilde{f}(z)=
     \begin{cases}
@@ -4379,7 +4379,7 @@ are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
     Define \(\Phi:V\to\mathbb{C}\) by \(\Phi(z)=f_{\zeta_k}(z)\) if \(z\in
     D\qty(\zeta_k,r_k)\). This is well-defined: If \(z\in D\qty(\zeta_i,r_i)\cap
     D\qty(\zeta_j,r_j)\), then \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j) \cap
-    D\qty(z_0,R)\neq\emptyset\), and \(f_{\zeta_i}=f_{\zeta_j}=f\) there. By the
+    D\qty(z_0,R)\neq\varnothing\), and \(f_{\zeta_i}=f_{\zeta_j}=f\) there. By the
     Identity Theorem (\cref{thm:identity}), \(f_{\zeta_i}\equiv f_{\zeta_j}\) on
     \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j)\).
 
@@ -4449,7 +4449,7 @@ analytic continuation along a given curve.
         \item For each \(t_0\in [0,1]\), \(\exists\delta>0\) such that \(\forall t\in[0,1]\)
             satisfying \(\abs{t-t_0}<\delta\), \(\gamma(t)\in U_{t_0}\) and \(f_t\equiv
             f_{t_0}\) on \(U_t\cap
-            U_{t_0}\neq\emptyset\).\label{itm:analyticcontinuationalongcurve_pointwiseequivalence}
+            U_{t_0}\neq\varnothing\).\label{itm:analyticcontinuationalongcurve_pointwiseequivalence}
     \end{enumerate}
 \end{definition}
 For a fixed curve, such analytic continuations are unique in the following sense:
@@ -4470,7 +4470,7 @@ For a fixed curve, such analytic continuations are unique in the following sense
     satisfying \(\abs{t_\infty-t_n}<\widetilde{\delta}\), \[\widetilde{f}_{t_n}\equiv\widetilde{f}_{t_\infty}\qq{on}\widetilde{U}_{t_n}\cap\widetilde{U}_{t_\infty}.\]
     Choose \(n\) arbitrarily to satisfy
     \(\abs{t_\infty-t_n}<\min\qty(\delta,\widetilde{\delta})\). By definition, \[\gamma\qty(t_n)\in U_{t_\infty}\qand \gamma\qty(t_n)\in\widetilde{U}_{t_\infty}.\] Hence, \(\widetilde{U}_{t_\infty}\cap U_{t_\infty}\cap \widetilde{U}_{t_n}\cap
-    U_{t_n}\neq\emptyset\). Since \(t_n\in S\), it follows that
+    U_{t_n}\neq\varnothing\). Since \(t_n\in S\), it follows that
     \(\widetilde{f}_{t_n}\equiv f_{t_n}\) on \(\widetilde{U}_{t_n}\cap U_{t_n}\).
     Thus, \[f_{t_\infty}\equiv\widetilde{f}_{t_\infty}\qq{on}\widetilde{U}_{t_\infty}\cap U_{t_\infty}\cap \widetilde{U}_{t_n}\cap U_{t_n}.\] By the Identity Theorem (\cref{thm:identity}), this equality holds on the
     entire intersection \(\widetilde{U}_{t_\infty}\cap U_{t_\infty}\). It follows
@@ -4515,7 +4515,7 @@ For a fixed curve, such analytic continuations are unique in the following sense
     contradiction). It follows that \(\widetilde{S}\) is closed as it contains all
     of its accumulation points. By the connectivity argument
     (\cref{thm:connectedtopologicalspaceclopensets}), we have \(\widetilde{S}\) is
-    either \([0,1]\) or \(\emptyset\). Obviously, the former is an impossibility
+    either \([0,1]\) or \(\varnothing\). Obviously, the former is an impossibility
     and thus \(S=[0,1]\). Therefore, \(f_1\equiv\widetilde{f}_1\) on
     \(U_1\cap\widetilde{U}_1\).
 \end{proof}
@@ -5089,9 +5089,9 @@ equivalent}.
 
     Next, assume that \(U\) is unbounded. It is easy to show that the boundary
     \(\partial U\) contains at least two points. Indeed, if \(\partial
-    U=\emptyset\), \(U\) would be closed because \(\partial U\subseteq U\) and open
+    U=\varnothing\), \(U\) would be closed because \(\partial U\subseteq U\) and open
     by assumption. By \cref{thm:connectedtopologicalspaceclopensets}, \(U\) would
-    either be equal to \(\emptyset\) or \(\mathbb{C}\), both of which are
+    either be equal to \(\varnothing\) or \(\mathbb{C}\), both of which are
     impossibilities. Additionally, if \(\partial U\) comprises exactly one point
     \(a\in\mathbb{C}\), then in subspace defined by
     \(X=\mathbb{C}\setminus\cbraces{a}\), \(U\) is clopen (by the same reason as
@@ -5106,7 +5106,7 @@ equivalent}.
     root \(z\mapsto\sqrt{z-1}\) (existent by simple connectivity and the fact that
     \(1\notin U'\)). Trivially, \(\psi\) is univalent in \(U'\).
 
-    In addition, we assert that \(\psi\qty(U')\cap\qty(-\psi\qty(U'))=\emptyset\).
+    In addition, we assert that \(\psi\qty(U')\cap\qty(-\psi\qty(U'))=\varnothing\).
     If not, then \(\exists \xi\in \psi\qty(U')\) such that \(-\xi\in\psi\qty(U')\).
     By definition, \(\exists z_1,z_2\in U'\) such that \(\psi\qty(z_1)=\xi\) and
     \(\psi\qty(z_2)=-\xi\). It would then follow that \(\sqrt{z_1-1}=\sqrt{z_2-1}\)
@@ -5117,7 +5117,7 @@ equivalent}.
     Fix \(\xi\in\psi(U')\) to be arbitrary. By the Open Mapping Theorem
     (\cref{thm:openmapping}), there exists an open neighborhood
     \(D(\xi,\varepsilon)\subseteq \psi(U')\). It follows that
-    \(D\qty(-\xi,\varepsilon)\cap\psi\qty(U')=\emptyset\). Therefore, \(\forall
+    \(D\qty(-\xi,\varepsilon)\cap\psi\qty(U')=\varnothing\). Therefore, \(\forall
     z\in U'\), \(\abs{\psi(z)+\xi}\geq\varepsilon\), and consequently,
     \(\abs{\frac{1}{\psi(z)+\xi}}\leq\frac{1}{\varepsilon}\). Hence, the function
     \(\varphi(z)=\frac{1}{z+\xi}\) maps \(U'\) to a bounded region that lies within
@@ -5865,7 +5865,7 @@ For \(r>0\), define
     least one connected component joining \(\zeta_k^{(j)}\) to a point on
     \(\partial D\qty(\zeta_k^{(j)},\frac34 r)\). Denote this intersection by
     \(E_k^{(j)}\), satisfying \(\diam E_k^{(j)}\geq\frac34r\) and \(E_k^{(j)}\cap
-    K=\emptyset\).
+    K=\varnothing\).
 
     Now for each \(j\) and \(k\),
     \cref{prop:complementbiholomorphism584r4767r2estimates} now provides the
@@ -6229,7 +6229,7 @@ transformations to reduce to the bounded setting.
     If \(f:\mathbb{C}\to\mathbb{C}\setminus\cbraces{x\in\mathbb{R}}{0\leq x\leq 1}\) is entire, then \(f\) must be constant.
 \end{example}
 \begin{proof}
-    Consider the biholomorphism \(\varphi(z)=\frac{1}{z}\), mapping \(\mathbb{C}\setminus\cbraces{x\in\mathbb{R}}{0\leq x\leq 1}\) to \(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1}\). By simple connectivity of \(\mathbb{C}\setminus\mathbb{R}_{\geq 1}\), there exists a univalent branch \(\psi\) of \(z\mapsto\sqrt{z-1}\) on \(\mathbb{C}\setminus\mathbb{R}_{\geq 1}\). Now omitting the origin, it is trivially realized that \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\cap-\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})=\emptyset\). If otherwise, then \(\exists\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\) such that \(-\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\), implying that \(\exists z_1,z_2\in\mathbb{C}^*\setminus\mathbb{R}_{\geq 1}\) such that \(\phi\qty(z_1)=\xi\) and \(\phi\qty(z_2)=-\xi\), implying that \(z_1=z_2\) and \(\xi=0\Rightarrow z_1=z_2=1\), which does not lie in \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\).
+    Consider the biholomorphism \(\varphi(z)=\frac{1}{z}\), mapping \(\mathbb{C}\setminus\cbraces{x\in\mathbb{R}}{0\leq x\leq 1}\) to \(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1}\). By simple connectivity of \(\mathbb{C}\setminus\mathbb{R}_{\geq 1}\), there exists a univalent branch \(\psi\) of \(z\mapsto\sqrt{z-1}\) on \(\mathbb{C}\setminus\mathbb{R}_{\geq 1}\). Now omitting the origin, it is trivially realized that \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\cap-\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})=\varnothing\). If otherwise, then \(\exists\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\) such that \(-\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\), implying that \(\exists z_1,z_2\in\mathbb{C}^*\setminus\mathbb{R}_{\geq 1}\) such that \(\phi\qty(z_1)=\xi\) and \(\phi\qty(z_2)=-\xi\), implying that \(z_1=z_2\) and \(\xi=0\Rightarrow z_1=z_2=1\), which does not lie in \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\).
 
     Now fix \(\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\). By the
     Open Mapping Theorem (\cref{thm:openmapping}), \(\exists\varepsilon>0\) such
@@ -6237,7 +6237,7 @@ transformations to reduce to the bounded setting.
     \(D(\xi,\varepsilon)\subseteq\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq
     1})\). Consequently,
     \(D(-\xi,\varepsilon)\cap\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq
-    1})=\emptyset\). Lastly, the function \(\phi(z)=\frac{\varepsilon}{z+\xi}\)
+    1})=\varnothing\). Lastly, the function \(\phi(z)=\frac{\varepsilon}{z+\xi}\)
     maps \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\) to \(\mathbb{D}\).
     By Liouville (\cref{thm:liouville}), \(\phi\circ\psi\circ\varphi\circ f\) is
     constant, which implies \(f\) is constant by the injectivity of \(\phi\),
@@ -6352,7 +6352,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
             \(D(z,\delta)\) and has zeros that accumulate at \(z\). By the Identity
             Theorem, \(\frac1f\equiv0\Rightarrow f\equiv\infty\) on \(D(z,\delta)\).
     \end{enumerate}
-    Let \(S\) be the set of all \(z\in\Omega\) such that \(f(z)\) is finite. By the argument above, \(S\) is open. The complement \(\Omega\setminus S\) then consists of all points where \(f(z)=\infty\). By the argument above, \(\Omega\setminus S\) is also open. Since \(\Omega\) is connected, by \cref{thm:connectedtopologicalspaceclopensets}, either \(S=\emptyset\) or \(S=\Omega\). In the former case, \(f\equiv\infty\) on \(\Omega\), and in the latter case, \(f\) is holomorphic on \(\Omega\).
+    Let \(S\) be the set of all \(z\in\Omega\) such that \(f(z)\) is finite. By the argument above, \(S\) is open. The complement \(\Omega\setminus S\) then consists of all points where \(f(z)=\infty\). By the argument above, \(\Omega\setminus S\) is also open. Since \(\Omega\) is connected, by \cref{thm:connectedtopologicalspaceclopensets}, either \(S=\varnothing\) or \(S=\Omega\). In the former case, \(f\equiv\infty\) on \(\Omega\), and in the latter case, \(f\) is holomorphic on \(\Omega\).
 \end{proof}
 \begin{theorem}[\textsc{Marty's Criterion}]\label{thm:marty}
     A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal iff \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in
@@ -6416,7 +6416,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     In essence, for any point \(z\), there exists an open disk \(D_z\) centered at \(z\) on which the spherical derivatives \(f^\sharp_{n_k}\) are bounded by some constant \(M_z\) for \(k>N_z\). By Heine--Borel (\cref{thm:heineborel}), there exists a finite collection of disks \(\cbraces{D_{z_j}}_{1\leq j\leq n}\) that cover \(K\). Thus, \(\cbraces{f_{n_k}^\sharp(z)}_{k>N}\) is uniformly bounded on \(K\) by \(\max_{1\leq j\leq n}M_{z_j}\), where \(N=\max_{1\leq j\leq n} N_{z_j}\), contradicting the assumption that \(\sup_{z\in K}f^\sharp_n(z)>n\) for all \(n\in\mathbb{N}\).
 \end{proof}
 \begin{theorem}[\textsc{Fundamental Normality Test}]\label{thm:fundamentalnormalitytest}
-    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of holomorphic functions on \(\Omega\). If there exist two different points \(\alpha,\beta\in\mathbb{C}\) such that \(\cbraces{\alpha,\beta}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of holomorphic functions on \(\Omega\). If there exist two different points \(\alpha,\beta\in\mathbb{C}\) such that \(\cbraces{\alpha,\beta}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\varnothing\), then \(\mathcal{F}\) must be a spherically normal family.
 \end{theorem}
 \begin{proof}
     Map \(\alpha\) and \(\beta\) to \(0,1\) by a linear function \(\varphi(z)=\frac{z-\alpha}{\beta-\alpha}\). Then the family of holomorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\) and \(1\) for all \(z\in\Omega\).
@@ -6453,7 +6453,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     \(\Omega\).
 \end{proof}
 \begin{corollary}[name=\textsc{Montel--Carathéodory}]\label{cor:montelcaratheodory}
-    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions on \(\Omega\). If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\cbraces{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\emptyset\), then \(\mathcal{F}\) must be a spherically normal family.
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions on \(\Omega\). If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\cbraces{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\varnothing\), then \(\mathcal{F}\) must be a spherically normal family.
 \end{corollary}
 \begin{proof}
     Let \(\varphi(z)=\frac{(z-\alpha)(\beta-\gamma)}{(z-\gamma)(\beta-\alpha)}\) be a Möbius transformation mapping \(\alpha,\beta,\gamma\) to \(0,1,\infty\), respectively.
