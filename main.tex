@@ -8204,7 +8204,10 @@ The two kernels are related by a angular unitary Fourier transform:
 \begin{proposition}
     Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the convolution \(\cbraces{f*k_\lambda}\) defined by \[\cbraces{f*k_\lambda}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}\cbraces{f*k_\lambda}(x)=\lim_{x\to+\infty}f(x)\).
 \end{proposition}
-\begin{theorem}[\textsc{Wiener--Ikehara}]
+\begin{proof}
+
+\end{proof}
+\begin{theorem}[\textsc{Wiener--Ikehara}]\label{thm:wienerikehara}
     Let \(f:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{f}(s)=\int_0^\infty f(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
     that \[g(t)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{f}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\] converges locally uniformly with respect to \(t\) in \(\mathbb{R}\) and is continuously differentiable. Then \[\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c.\]
 \end{theorem}
@@ -8215,7 +8218,7 @@ The two kernels are related by a angular unitary Fourier transform:
     The prime counting function \(\pi(x)\) is asymptotically equal to \(\frac x{\log x}\), i.e., \(\lim_{x\to+\infty}\frac{\pi(x)\log x}x=1\).
 \end{theorem}
 \begin{proof}
-
+    By \cref{thm:chebyshevfunctions_limsup_inflim_equivalences}, it suffices to show that \(\lim_{x\to+\infty}\frac{\psi(x)}x=1\). Consider the Laplace transform of \(\psi\circ\exp\) in \cref{eq:primenumbertheorem_laplacetransformchebyshevfunction_statement}. By \cref{thm:primenumbertheorem_laplacetransformchebyshevfunction}, the function \(g\) defined therein converges uniformly on compact subsets of \(\mathbb{R}\) and is continuously differentiable. Hence, by the Wiener--Ikehara theorem (\cref{thm:wienerikehara}), we have that \[\lim_{x\to+\infty}\frac{\psi\qty(\ee^x)}{\ee^x}=\lim_{x\to+\infty}\frac{\psi\qty(x)}{x}=1,\] and the Prime Number Theorem follows.
 \end{proof}
 {
     \sloppy
