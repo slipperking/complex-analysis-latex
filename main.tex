@@ -8202,10 +8202,26 @@ The two kernels are related by a angular unitary Fourier transform:
     \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
 \begin{proposition}
-    Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the convolution \(\cbraces{f*k_\lambda}\) defined by \[\cbraces{f*k_\lambda}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}\cbraces{f*k_\lambda}(x)=\lim_{x\to+\infty}f(x)\).
+    Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the limit of the convolution \(f*k_\lambda\) given by \[L=\lim_{x\to+\infty}\qty(f*k_\lambda)(x)=\lim_{x\to+\infty}\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}f(x)=L\).
 \end{proposition}
 \begin{proof}
+    Let \(\varepsilon>0\) be arbitrary. Assume, for the sake of contradiction, that \(f\not\to L\) as \(x\to\infty\). Then there exists some sequence \(\cbraces{x_n}_{n\in\mathbb{N}}\) such that \(\abs{f(x_n)-L}>\varepsilon\) for all \(n\). Assume that \(f(x_n)-L>\varepsilon\) for all \(n\in\mathbb{N}\) (\(\qty{x_n}\) is increasing). By the slow decrease of \(f\), there exist \(\delta>0\) and \(N\in\mathbb{N}\) such that \[f(y)>f\qty(x_n)-\frac{\varepsilon}{2}>L+\frac\varepsilon2\] for any \(n>N\) and \(0<y-x_n<2\delta\). Then we have
+    \begin{align*}
+        \qty(f*k_\lambda)&\qty(x+\delta)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x+\delta-t)\ddt\\
+        &=\frac1{\sqrt{2\piup}}\qty(\int_x^{x+2\delta}+\int_{(-\infty,x]\cup[x+2\delta,\infty)}^\infty)f(t)k_\lambda\qty(x+\delta-t)\ddt\\
+        &>\frac{1}{\sqrt{2\piup}}\int_x^{x+2\delta}\qty(L+\frac{\varepsilon}2)k_\lambda\qty(x+\delta-t)\ddt-\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^x+\int_{x+2\delta}^\infty)k_\lambda\qty(x+\delta-t)\ddt\\
+        &>\frac{2L+\varepsilon}{2\sqrt{2\piup}}\int_x^{x+2\delta}k_\lambda\qty(x+\delta-t)\ddt-\frac M{\sqrt{2\piup}}\qty(\int_\delta^\infty+\int_{-\infty}^{-\delta})k_\lambda(u)\dd{u}.
+    \end{align*}
+    Because 
+    \begin{align*}
+        \frac{1}{\sqrt{2\piup}}\int_{-\infty}^\infty k_{\lambda}(t)\ddt&=\frac{\lambda}{\piup}\int_{\mathbb{R}}\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ddt=\frac{1}{\piup}\int_{\mathbb{R}}\qty(\frac{\sin t}t)^2\ddt\\
+        &=-\eval{\frac{\sin^2 t}{\piup t}}_{-\infty}^\infty+\int_{\mathbb{R}}\frac{\dd(\sin^2 t)}{\piup t}=\int_{\mathbb{R}}\frac{\sin(2t)}{\piup t}\ddt=1,
+    \end{align*}
+    we then have for any \(n>N\), that \[\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)\geq\frac{2L+\varepsilon}{2\sqrt{2\piup}}\int_{-\delta}^{\delta}\frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin\qty(\lambda u)}{\lambda u})^2\dd{u}-\frac{2M}{\sqrt{2\piup}}\int_{\delta\lambda}^\infty\frac{2}{\sqrt{2\piup}}\qty(\frac{\sin t}{t})^2\ddt.\]
+    Letting \(\lambda\to\infty\), we have \[\frac{2L+\varepsilon}{2\piup}\int_{-\delta\lambda}^{\delta\lambda}\qty(\frac{\sin t}{t})^2\ddt-\frac{2M}{\piup}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt\to\frac{2L+\varepsilon}{2\piup}\int_{\mathbb{R}}\qty(\frac{\sin t}{t})^2\ddt=L+\frac{\varepsilon}{2}.\]
+    Because \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)=L\geq L+\frac\varepsilon2\), we reach a contradiction, and no such \(\cbraces{x_n}_{n\in\mathbb{N}}\) exists.
 
+    Now assume that \(f\qty(x_n)-L<-\varepsilon\) for all \(n\in\mathbb{N}\). 
 \end{proof}
 \begin{theorem}[\textsc{Wiener--Ikehara}]\label{thm:wienerikehara}
     Let \(f:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{f}(s)=\int_0^\infty f(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
