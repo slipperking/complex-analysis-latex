@@ -1553,9 +1553,9 @@ We have also already seen the utility of parameterization via a polar transforma
     since all the higher order terms vanish:
     \[\oint_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\ii\int_0^{2\piup}\ee^{2\ii\theta(k-n)}\dd{\theta}=
         \begin{cases}
-            0         & \qif* k<n \\
-            2\piup\ii & \qif* k=n
-    \end{cases}.\]
+            0         & \qif* k<n, \\
+            2\piup\ii & \qif* k=n.
+    \end{cases}\]
     Therefore, \[2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=2\piup\ii\binom{2n}{n}\Longleftrightarrow\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=\frac{2\piup\qty(2n)!}{2^{2n}\qty(n!)^2}=\frac{2\piup\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}{\qty(2k)}^2}.\]
     From simple cancellation, we get \[2\piup\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\piup\prod_{k=1}^n\frac{2k-1}{2k},\]
     as expected.
@@ -1566,17 +1566,17 @@ We have also already seen the utility of parameterization via a polar transforma
         \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty}
             f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=
                 \begin{cases}
-                    w      & \qif* z\in\mathrm{int}(\gamma) \\
-                    w-f(z) & \qif* z\in\mathrm{ext}(\gamma)
-            \end{cases}.\]
+                    w      & \qif* z\in\mathrm{int}(\gamma), \\
+                    w-f(z) & \qif* z\in\mathrm{ext}(\gamma).
+            \end{cases}\]
         \item If \(\gamma\) encloses the origin, then \(\forall
             z\in\mathbb{C}\setminus\gamma\), then
             \begin{equation}
                 \frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
                 \begin{cases}
-                    0    & \qif* z\in\mathrm{int}(\gamma)                                                       \\
-                    f(z) & \qif* z\in\mathrm{ext}(\gamma)\label{eq:cauchygoursatformulaexteriorpart2_statement}
-                \end{cases}.
+                    0    & \qif* z\in\mathrm{int}(\gamma),                                                       \\
+                    f(z) & \qif* z\in\mathrm{ext}(\gamma).\label{eq:cauchygoursatformulaexteriorpart2_statement}
+                \end{cases}
             \end{equation}
     \end{enumerate}
 \end{example}
@@ -1589,9 +1589,9 @@ We have also already seen the utility of parameterization via a polar transforma
             \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\),
             we get that \[\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+
                 \begin{cases}
-                    0    & \qif* z\in\mathrm{int}(\gamma)            \\
-                    f(z) & \qif* z\in D(0,R)\cap\mathrm{ext}(\gamma)
-            \end{cases}.\]
+                    0    & \qif* z\in\mathrm{int}(\gamma),            \\
+                    f(z) & \qif* z\in D(0,R)\cap\mathrm{ext}(\gamma).
+            \end{cases}\]
             By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\lim_{R\to\infty}\int_0^{2\piup}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{cases}
                     0    & \qif* z\in\mathrm{int}(\gamma) \\
@@ -8202,12 +8202,12 @@ The two kernels are related by a angular unitary Fourier transform:
     \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
 \begin{proposition}
-    Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the limit of the convolution \(f*k_\lambda\) given by \[L=\lim_{x\to+\infty}\qty(f*k_\lambda)(x)=\lim_{x\to+\infty}\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}f(x)=L\).
+    Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the limit of the convolution \(f*k_\lambda\) given by \[L\equiv\lim_{x\to+\infty}\qty(f*k_\lambda)(x)=\lim_{x\to+\infty}\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}f(x)=L\).
 \end{proposition}
 \begin{proof}
     Let \(\varepsilon>0\) be arbitrary. Assume, for the sake of contradiction, that \(f\not\to L\) as \(x\to\infty\). Then there exists some sequence \(\cbraces{x_n}_{n\in\mathbb{N}}\) such that \(\abs{f(x_n)-L}>\varepsilon\) for all \(n\). From here, we may extract an infinite subsequence (continued to be denoted by \(\cbraces{x_n}\)) such that one of the two cases is assumed:
     \begin{enumerate}
-        \item \(f(x_n)-L>\varepsilon\) for all \(n\in\mathbb{N}\) (\(\qty{x_n}\) is increasing). By the slow decrease of \(f\), there exist \(\delta>0\) and \(N\in\mathbb{N}\) such that \[f(y)>f\qty(x_n)-\frac{\varepsilon}{2}>L+\frac\varepsilon2\] for any \(n>N\) and \(0<y-x_n<2\delta\). Then we have
+        \item \(f(x_n)-L>\varepsilon\) for all \(n\in\mathbb{N}\). By the slow decrease of \(f\), there exist \(\delta>0\) and \(N\in\mathbb{N}\) such that \[f(y)>f\qty(x_n)-\frac{\varepsilon}{2}>L+\frac\varepsilon2\] for any \(n>N\) and \(0<y-x_n<2\delta\). Then we have
             \begin{align*}
                 \qty(f*k_\lambda)\qty(x+\delta)&=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x+\delta-t)\ddt\\
                 &=\frac1{\sqrt{2\piup}}\qty(\int_x^{x+2\delta}+\int_{-\infty}^x+\int_{x+2\delta}^\infty)f(t)k_\lambda\qty(x+\delta-t)\ddt\\
@@ -8236,11 +8236,36 @@ The two kernels are related by a angular unitary Fourier transform:
     Hence, no such sequence exists in either case, and \(\lim_{x\to+\infty}f(x)=L\).
 \end{proof}
 \begin{theorem}[\textsc{Wiener--Ikehara}]\label{thm:wienerikehara}
-    Let \(f:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a non-decreasing function such that the Laplace transform \[\mathcal{L}\cbraces{f}(s)=\int_0^\infty f(x)\ee^{-sx}\ddx\] converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
-    that \[g(t)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{f}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\] converges locally uniformly with respect to \(t\) in \(\mathbb{R}\) and is continuously differentiable. Then \[\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c.\]
+    Let \(f:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a monotically non-decreasing function such that the Laplace transform
+    \begin{equation}
+        \mathcal{L}\cbraces{f}(s)=\int_0^\infty f(x)\ee^{-sx}\ddx\label{eq:wienerikehara_laplacetransform}
+    \end{equation} converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
+    that
+    \begin{equation}
+        g(t)=\lim_{\sigma\to1^+}\qty[\mathcal{L}\cbraces{f}(s)-\frac c{s-1}],\qquad s=\sigma+\ii t\label{eq:wienerikehara_gfunction}
+    \end{equation} converges locally uniformly with respect to \(t\) in \(\mathbb{R}\) and is continuously differentiable. Then
+    \begin{equation}
+        \lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c.\label{eq:wienerikehara_conclusion}
+    \end{equation}
 \end{theorem}
 \begin{proof}
-
+    Let \[a(t)=
+        \begin{cases}
+            f(t)\ee^{-t} & t\geq 0, \\
+            0            & t<0,
+        \end{cases}\qand A(t)=
+        \begin{cases}
+            c & t\geq 0, \\
+            0 & t<0.
+    \end{cases}\]
+    The convergence of \cref{eq:wienerikehara_laplacetransform} implies that for \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt.\] Because \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of \cref{lem:wienerikehara_kernels_fouriertransform}, that
+    \begin{align*}
+        I_{\lambda,\varepsilon}(x)&=\frac{1}{2\piup}\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\varepsilon t}}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii(x-t)y}\ddy\ddt\\
+        &=\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\int_0^\infty\frac{a(t)-A(t)}{\ee^{(\varepsilon+\ii y)t}}\ddt\ddy\\
+        &=\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\qty[\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}]\ddy.
+    \end{align*}
+    Now \(\forall\varepsilon'>0\), by the local uniform convergence of \(g\) in \cref{eq:wienerikehara_gfunction}, there exists some \(\delta>0\) such that \[\forall\abs{y}<2\lambda,\quad\abs{\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}-g(y)}<\frac{\piup\varepsilon'}{\lambda}.\] Hence, we have that \[\abs{I_{\lambda,\varepsilon}(x)-\frac1{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}g(y)\ddy}\leq\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\frac{\piup\varepsilon'}{\lambda}\ddy=\varepsilon'.\] Therefore, \[\lim_{\varepsilon\to 0^+}I_{\lambda,\varepsilon}(x)=\frac1{2\piup}\int_{-2\lambda}^{2\lambda} K_\lambda(y)\ee^{\ii xy}g(y)\ddy,\] or when the limit is exchanged with the integral. By parts, we have that \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac{1}{2\piup}\qty(\eval{K_\lambda(y)g(y)\frac{\ee^{\ii x y}}{\ii x}}_{-2\lambda}^{2\lambda}-\frac{1}{\ii x}\int_{-2\lambda}^{2\lambda}\qty(K_\lambda g)'(y)\ee^{\ii xy}\ddy).\]
+    This implies that \(\lim_{x\to+\infty}\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)\equiv 0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\piup}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\]
 \end{proof}
 \begin{theorem}[name=\textscsl{Prime Number Theorem},store=thm:primenumber]\label{thm:primenumber}
     The prime counting function \(\pi(x)\) is asymptotically equal to \(\frac x{\log x}\), i.e., \(\lim_{x\to+\infty}\frac{\pi(x)\log x}x=1\).
