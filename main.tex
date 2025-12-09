@@ -1594,9 +1594,9 @@ We have also already seen the utility of parameterization via a polar transforma
             \end{cases}\]
             By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\lim_{R\to\infty}\int_0^{2\piup}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{cases}
-                    0    & \qif* z\in\mathrm{int}(\gamma) \\
-                    f(z) & \qif* z\in\mathrm{ext}(\gamma)
-            \end{cases}.\]
+                    0    & \qif* z\in\mathrm{int}(\gamma), \\
+                    f(z) & \qif* z\in\mathrm{ext}(\gamma).
+            \end{cases}\]
             By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum
             \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{R\ee^{\ii\theta}}}\)
             attains a positive minimum. Then the integrand is uniformly bounded in \(R\)
@@ -1605,13 +1605,13 @@ We have also already seen the utility of parameterization via a polar transforma
             \begin{align*}
                 \frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\piup}\int_0^{2\piup}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{cases}
-                    0    & \qif* z\in\mathrm{int}(\gamma) \\
-                    f(z) & \qif* z\in\mathrm{ext}(\gamma)
+                    0    & \qif* z\in\mathrm{int}(\gamma), \\
+                    f(z) & \qif* z\in\mathrm{ext}(\gamma),
                 \end{cases}                                                                                                                                \\      & =
                 \begin{cases}
-                    w      & \qif* z\in\mathrm{int}(\gamma) \\
-                    w-f(z) & \qif* z\in\mathrm{ext}(\gamma)
-                \end{cases},
+                    w      & \qif* z\in\mathrm{int}(\gamma), \\
+                    w-f(z) & \qif* z\in\mathrm{ext}(\gamma),
+                \end{cases}
             \end{align*} as expected.
         \item Under the partial fraction decomposition of
             \cref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that
@@ -1619,7 +1619,7 @@ We have also already seen the utility of parameterization via a polar transforma
                 I & =\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\oint_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
                 & =\int_0^{2\piup}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
                 \begin{cases}
-                    0              & \qif* z\in\mathrm{int}(\gamma)             \\
+                    0              & \qif* z\in\mathrm{int}(\gamma),             \\
                     2\piup\ii f(z) & \qif* z\in\mathrm{ext}(\gamma)\cap D(0,R),
                 \end{cases}\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
             \end{align} when \(\gamma\subset D(0,R)\).
@@ -1631,9 +1631,9 @@ We have also already seen the utility of parameterization via a polar transforma
     \end{enumerate}
     By substituting the result into \cref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
         \begin{cases}
-            0    & \qif* z\in\mathrm{int}(\gamma) \\
-            f(z) & \qif* z\in\mathrm{ext}(\gamma)
-    \end{cases},\] as desired.
+            0    & \qif* z\in\mathrm{int}(\gamma), \\
+            f(z) & \qif* z\in\mathrm{ext}(\gamma),
+    \end{cases}\] as desired.
 \end{proof}
 \subsection{Analyticity and Holomorphy}\label{sec:analyticityandholomorphy}
 The Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}) can also be
@@ -1820,9 +1820,9 @@ The concept of analytic continuation and its consequent problems and properties 
 \begin{proof}
     Define the auxiliary function \[\varphi(z)=
         \begin{cases}
-            \paren{z-z_0}^2f(z) & \qif* z\in D^*\paren{z_0,r} \\
-            0                   & \qif* z=z_0
-    \end{cases}.\]
+            \paren{z-z_0}^2f(z) & \qif* z\in D^*\paren{z_0,r}, \\
+            0                   & \qif* z=z_0.
+    \end{cases}\]
     \(\varphi(z)\) is bounded and continuously differentiable on \(D\paren{z_0,r}\) and satisfies the Cauchy--Riemann Equations since
     \[\lim_{z\to z_0}\frac{\varphi(z)-\varphi\paren{z_0}}{z-z_0}=\frac{\paren{z-z_0}^2f(z)}{z-z_0}=\lim_{z\to z_0}\paren{z-z_0}f(z)=0,\] meaning that \(\dv{\varphi}{z}\paren{z_0}=0\). For \(z\in D^*\paren{z_0,r}\), \[\varphi'(z)=2\paren{z-z_0}f(z)+\paren{z-z_0}^2f'(z).\] As \(z\to z_0\), \(\varphi(z)\to0\), meaning that \(\varphi\) is holomorphic
     over \(D\paren{z_0,r}\). By \cref{thm:cauchydifferentiationformula}, \[\varphi(z)=\sum_{j=2}^\infty a_j\paren{z-z_0}^j,\]
@@ -2354,9 +2354,9 @@ Modulus Principle.
 \begin{proof}
     Define the auxiliary function \[g(z)=
         \begin{cases}
-            \frac{f(z)}{z} & \qif* z\neq0 \\
-            f'(0)          & \qif* z=0
-    \end{cases}.\]
+            \frac{f(z)}{z} & \qif* z\neq0, \\
+            f'(0)          & \qif* z=0.
+    \end{cases}\]
     Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on
     \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk,
     \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle
@@ -2883,13 +2883,13 @@ annulus and is uniformly convergent on every compact subset of it.
     \end{equation}
     where \(z\in V\) and the series is uniformly convergent on \(\gamma\). Let \(m\in\mathbb{Z}\) be arbitrary. By Cauchy--Goursat (\cref{thm:cauchydifferentiationformula}), \[\oint_{\gamma}(z-a)^k\ddz=
         \begin{cases}
-            0                        & \qif* k\geq0   \\
-            2\piup\ii\dv[-k-1]{z}(1) & \qif* k\leq -1
+            0                        & \qif* k\geq0,   \\
+            2\piup\ii\dv[-k-1]{z}(1) & \qif* k\leq -1,
         \end{cases}=
         \begin{cases}
-            0         & \qif* k\neq-1 \\
-            2\piup\ii & \qif* k=-1    \\
-    \end{cases}.\]
+            0         & \qif* k\neq-1, \\
+            2\piup\ii & \qif* k=-1.    \\
+    \end{cases}\]
     Multiplying \cref{eq:laurentexpansionofholomorphicfunction_uniquenessstatement}
     by \((z-a)^{-m-1}\) and from integrating over \(\gamma\), we get that \[\oint_\gamma\frac{f(z)\ddz}{(z-a)^{m+1}}=\oint_{\gamma}\sum_{n=-\infty}^\infty c'_n(z-a)^{n-m-1}\ddz,\] implying that \[2\piup \ii c_m=\sum_{n=-\infty}^\infty c'_n\oint_{\gamma}(z-a)^{n-m-1}\ddz=2\piup\ii c'_m,\]
     which is a contradiction, implying uniqueness.
@@ -3046,10 +3046,10 @@ and \(q\) are polynomials. Let
     q(z)=b_mz^m+b_{m-1}z^{m-1}+\cdots b_0,
 \end{gather*} where \(a_n,b_m\neq 0\). Trivially, the poles of \(f\) are the zeros of \(q\). Since \[f(z)=\frac{z^n}{z^m}\cdot\frac{a_n+\frac{a_{n-1}}{z}+\cdots+\frac{a_0}{z^n}}{b_m+\frac{b_{m-1}}{z}+\cdots\frac{b_0}{z^m}},\] we have \[\lim_{z\to\infty} f(z)=
     \begin{cases}
-        \frac{a_n}{b_m} & \qif* n=m \\
-        0               & \qif* n<m \\
-        \infty          & \qif* n>m
-\end{cases}.\]
+        \frac{a_n}{b_m} & \qif* n=m, \\
+        0               & \qif* n<m, \\
+        \infty          & \qif* n>m.
+\end{cases}\]
 Conversely, we have:
 \begin{theorem}\label{thm:rationalmeromorphicfunctions}
     If \(f(z)\) is meromorphic on \(\mathbb{C}\) and has a pole or removable singularity at \(z=\infty\), then \(f\) is a rational function.
@@ -3556,18 +3556,18 @@ finitely many poles. Therefore, \(f\) has an isolated singularity at
                     relatively compact in \(U_n\). By \cref{thm:bumpfunctionexistence}, for each
                     \(n\), there is a \(C^\infty\) function \(\varphi_n\) satisfying \[
                         \begin{cases}
-                            \varphi_n(z)\equiv 1 & \qif* z\in\overline{V_n}          \\
-                            \varphi_n(z)\equiv 0 & \qif* z\in\mathbb{C}\setminus U_n
-                    \end{cases}.\]
+                            \varphi_n(z)\equiv 1 & \qif* z\in\overline{V_n},          \\
+                            \varphi_n(z)\equiv 0 & \qif* z\in\mathbb{C}\setminus U_n.
+                    \end{cases}\]
                     Let \(u(z)=\sum_{k=1}^\infty\varphi_k(z)\psi_k(z)\), which is an element of
                     \(C^\infty\qty(\mathbb{C}\setminus\cbraces{a_k}_{k\in\mathbb{N}})\). For a
                     fixed \(n\in\mathbb{N}\), it is true that \(u\equiv\psi_n\) on
                     \(\overline{V_n}\setminus\cbraces{a_n}\). Hence, although \(u\) is not
                     meromorphic, it does have the required principal part near each \(a_k\). Let \[\phi(z)=
                         \begin{cases}
-                            \pdv{u}{\overline{z}} & \qif* z\in\mathbb{C}\setminus\cbraces{a_k}_{k\in\mathbb{N}} \\
-                            0                     & \qif* z\in\cbraces{a_k}_{k\in\mathbb{N}}
-                    \end{cases}.\]
+                            \pdv{u}{\overline{z}} & \qif* z\in\mathbb{C}\setminus\cbraces{a_k}_{k\in\mathbb{N}}, \\
+                            0                     & \qif* z\in\cbraces{a_k}_{k\in\mathbb{N}}.
+                    \end{cases}\]
                     Since \(\pdv{u}{\overline{z}}\equiv\pdv{\psi_n}{\overline{z}}\equiv 0\) and is
                     \(C^\infty\) on \(\overline{V_n}\setminus\cbraces{a_n}\) and \(\phi\) vanishes
                     on \(\cbraces{a_k}_{k\in\mathbb{N}}\), \(\phi\in C^\infty(\mathbb{C})\). By the
@@ -3892,7 +3892,7 @@ The goal of the classification is to find the implications of \(\lambda\) on the
 \begin{proof}
     The zeros of \(\sin(\piup z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
         \begin{cases}
-            -\frac{n}{2}  & \qif* n\in 2\mathbb{N}                      \\
+            -\frac{n}{2}  & \qif* n\in 2\mathbb{N},                      \\
             \frac{n+1}{2} & \qif* n\in \mathbb{N}\setminus 2\mathbb{N}.
     \end{cases}\]
     For each \(R>0\), the series
@@ -4347,8 +4347,8 @@ U_2 \neq \varnothing\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are
 \textscsl{direct analytic continuations} of each other. The combined function:
 \[\widetilde{f}(z)=
     \begin{cases}
-        f_1(z) & \qif* z\in U_1               \\
-        f_2(z) & \qif* z\in U_2 \setminus U_1
+        f_1(z) & \qif* z\in U_1,               \\
+        f_2(z) & \qif* z\in U_2 \setminus U_1,
 \end{cases}\] is holomorphic on \(U_1\cup U_2\).
 
 The most straightforward method of the derivation of analytic continuations
@@ -4387,8 +4387,8 @@ are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
     \(D\qty(z_0,R)\cap V\), the function:
     \[\widetilde{f}(z)=
         \begin{cases}
-            f(z)    & \qif* z\in D\qty(z_0,R) \\
-            \Phi(z) & \qif* z\in V
+            f(z)    & \qif* z\in D\qty(z_0,R), \\
+            \Phi(z) & \qif* z\in V,
     \end{cases}\]
     is holomorphic on \(D\qty(z_0,R)\cup V\supseteq D\qty(z_0,R+\rho)\),
     contradicting the maximality of \(R\).
@@ -4681,9 +4681,9 @@ We will now study holomorphic functions from a more geometric perspective.
     D\qty(w_0,\delta)\cap\mathrm{ext}(\Gamma)\). Thus, we have a contradiction. We
     then have \[k=
         \begin{cases}
-            0 & \qif* w_0\in\overline{\mathrm{ext}(\Gamma)} \\
-            1 & \qif* w_0\in \mathrm{int}(\Gamma)
-    \end{cases}.\]
+            0 & \qif* w_0\in\overline{\mathrm{ext}(\Gamma)}, \\
+            1 & \qif* w_0\in \mathrm{int}(\Gamma).
+    \end{cases}\]
     Hence, for any arbitrary \(z_0\in U\), \(w_0=f\qty(z_0)\) must lie in
     \(\mathrm{int}(\Gamma)\). Indeed, if \(f\qty(z_0)\) lies in
     \(\mathrm{ext}(\Gamma)\) or \(\Gamma\), then \(k\) would be nonzero in those
@@ -5192,9 +5192,9 @@ across a curve, given by the following theorem.
 \begin{theorem}[\textsc{Painlevé}]\label{thm:painleve}
     Let \(U_1\) and \(U_2\) be two disjoint simply connected open regions in \(\mathbb{C}\) such that \(\partial U_1\cap\partial U_2\) is a simple curve \(\gamma\) without its endpoints. Let \(f_1:U_1\to\mathbb{C}\) and \(f_2:U_2\to\mathbb{C}\) be two holomorphic functions that are continuous on \(U_1\cup\gamma\) and \(U_2\cup\gamma\), respectively, such that \(f_1\equiv f_2\) on \(\gamma\). Then there exists a unique holomorphic function \[f=
         \begin{cases}
-            f_1           & \qq*{on}U_1    \\
-            f_2           & \qq*{on}U_2    \\
-            f_1\equiv f_2 & \qq*{on}\gamma
+            f_1           & \qq*{on}U_1,    \\
+            f_2           & \qq*{on}U_2,    \\
+            f_1\equiv f_2 & \qq*{on}\gamma,
     \end{cases}\] on \(U_1\cup U_2\cup\gamma\).
 \end{theorem}
 \begin{proof}
@@ -5221,9 +5221,9 @@ A consequent result was discovered by Schwarz, known as the \textscsl{reflection
 \begin{theorem}[Schwarz Reflection Principle]\label{thm:riemannschwarzreflection}
     Let \(U\subseteq\mathbb{C}\) be a connected region on one side of the real axis such that there exists a non-degenerate curve \(\gamma\subseteq\partial U\) such that \(\gamma\in\mathbb{R}\). Let \(f:U\to\mathbb{C}\) be holomorphic with continuity up to \(U\cup\gamma\) such that \(f\) is real-valued on \(\gamma\), and let \(\widetilde{U}=\cbraces{\overline{z}}{z\in U}\) be the reflection of \(U\) across the real axis. Then there exists a unique holomorphic function \[\widetilde{f}(z)=
         \begin{cases}
-            f(z)                                 & \qif* z\in U            \\
-            \overline{f(\overline{z})}           & \qif* z\in\widetilde{U} \\
-            f(z)\equiv\overline{f(\overline{z})} & \qif* z\in\gamma
+            f(z)                                 & \qif* z\in U,            \\
+            \overline{f(\overline{z})}           & \qif* z\in\widetilde{U}, \\
+            f(z)\equiv\overline{f(\overline{z})} & \qif* z\in\gamma,
     \end{cases}\] on \(U\cup\widetilde{U}\cup\gamma\).
 \end{theorem}
 \begin{proof}
@@ -5696,7 +5696,7 @@ Let \(z=f^{-1}(w)\). Then we have
     \begin{equation}
         \lambda(z)=
         \begin{cases}
-            \qty(1-\abs{z}^2)^2 & \qif*\abs{z}<1    \\
+            \qty(1-\abs{z}^2)^2 & \qif*\abs{z}<1,    \\
             0                   & \qif*\abs{z}\ge1,
         \end{cases}\qquad\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\quad\forall r>0\label{eq:diracdeltaapproximation_lambdadefinition}
     \end{equation}
@@ -5781,9 +5781,9 @@ Let \(z=f^{-1}(w)\). Then we have
 \begin{proof}
     Let \(f=u+\ii v\) where \(u,v:K\to\mathbb{R}\) are continuous. By Tietze--Urysohn--Brouwer (\cref{thm:tietzeextension}), \(\exists\widetilde{u},\widetilde{v}\in C^0(\mathbb{C})\) such that \(\widetilde{u}\equiv u\) and \(\widetilde{v}\equiv v\) on \(K\). Let \(R>0\) be such that \(K\subset D(0,R)\), provided by compactness. Define the piecewise-linear function \[\psi(z)=
         \begin{cases}
-            1                   & \qif*\abs{z}\leq R  \\
-            2-\frac{\abs{z}}{R} & \qif*R<\abs{z}<2R   \\
-            0                   & \qif*\abs{z}\geq 2R
+            1                   & \qif*\abs{z}\leq R,  \\
+            2-\frac{\abs{z}}{R} & \qif*R<\abs{z}<2R,   \\
+            0                   & \qif*\abs{z}\geq 2R,
     \end{cases}\] such that \(\psi\in C^0(\mathbb{C})\) and is compactly supported. Let
     \(g(z)=\qty(\widetilde{u}(z)+\ii\widetilde{v}(z))\psi(z)\), and the assertion
     follows.
@@ -6432,10 +6432,10 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
     Let \(\zeta\in\Omega\) be arbitrary and let \(r_\zeta>0\) satisfy \(D\qty(\zeta,r_\zeta)\subseteq\Omega\). By \cref{cor:generalizedahlfors}, the pullback of \(\mu\) from \(\mathbb{C}\setminus\cbraces{0,1}\) to \(D\qty(\zeta,r_\zeta)\subseteq\Omega\) satisfies \[f^*\mu(z)\leq\lambda_{r_\zeta}(z-\zeta)\implies\mu\qty(f(z))\abs{f'(z)}\leq\frac{2r_\zeta}{r_\zeta^2-\abs{z-\zeta}^2}\qquad\forall z\in D\qty(\zeta,r_\zeta),f\in\widetilde{\mathcal{F}}.\]
     Since \(\forall w\in\mathbb{C}\setminus\cbraces{0,1}\), \[\frac{\sigma(w)}{\mu(w)}=\frac{\frac{2}{1+\abs{w}^2}}{\frac{\sqrt{1+\abs{w}^{\frac13}}\sqrt{1+\abs{w-1}^{\frac13}}}{\abs{w}^{\frac56}\abs{w-1}^{\frac56}}}\to
         \begin{cases}
-            0                                            & \qq*{as}w\to 0     \\
-            0                                            & \qq*{as}w\to 1     \\
-            \frac{2\abs{w}^{-2}}{\abs{w}^{-\frac43}}\to0 & \qq*{as}w\to\infty
-    \end{cases}.\]
+            0                                            & \qq*{as}w\to 0,     \\
+            0                                            & \qq*{as}w\to 1,     \\
+            \frac{2\abs{w}^{-2}}{\abs{w}^{-\frac43}}\to0 & \qq*{as}w\to\infty.
+    \end{cases}\]
     Hence, there exist open neighborhoods \(U_0,U_1,U_\infty\) of \(0,1,\infty\)
     respectively on which \(\frac\sigma\mu<1\). Since \(\frac{\sigma}{\mu}\in
     C^0(\mathbb{C})\), by \cref{thm:continuousfunctionboundedoncompact}, \(\exists
@@ -7980,8 +7980,8 @@ Results have already shown that an infinite number of zeros lie on this line. Fo
         \Lambda(n)=
         \begin{cases}
             \log p & n=p^k\text{ for some prime }p\wedge k\in\mathbb{N}, \\
-            0      & \qotherwise*
-        \end{cases}.\label{eq:vonmangoldtfunction}
+            0      & \text{otherwise}.
+        \end{cases}\label{eq:vonmangoldtfunction}
     \end{equation}
 \end{definition}
 \begin{proposition}\label{prop:riemannzetafunction_logarithmicderivativezetavonmangoldt}
@@ -8186,7 +8186,7 @@ The two kernels are related by a angular unitary Fourier transform:
             \qty(1+\frac x{2\lambda}) & -2\lambda<x<0, \\
             \qty(1-\frac x{2\lambda}) & 0<x<2\lambda, \\
             0 & x>2\lambda,
-    \end{cases},\] which confirms the second equivalence.
+    \end{cases}\] which confirms the second equivalence.
 \end{proof}
 \begin{definition}
     A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\liminf_{\delta\to0^+}\liminf_{x\to+\infty}\qty[f(x+\delta)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
@@ -8252,7 +8252,7 @@ The two kernels are related by a angular unitary Fourier transform:
             c & t\geq 0, \\
             0 & t<0.
     \end{cases}\]
-    The convergence of \cref{eq:wienerikehara_laplacetransform} implies that for \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt.\] Because \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of \cref{lem:wienerikehara_kernels_fouriertransform}, that
+    The convergence of \cref{eq:wienerikehara_laplacetransform} implies that for \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt\] converges. Since \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of \cref{lem:wienerikehara_kernels_fouriertransform}, that
     \begin{align*}
         I_{\lambda,\varepsilon}(x)&=\frac{1}{2\piup}\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\varepsilon t}}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii(x-t)y}\ddy\ddt\\
         &=\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\int_0^\infty\frac{a(t)-A(t)}{\ee^{(\varepsilon+\ii y)t}}\ddt\ddy\\
@@ -8269,7 +8269,7 @@ The two kernels are related by a angular unitary Fourier transform:
     which is satisfied for all \(\lambda>0\) and \(x>x_0\). Letting \(\lambda\to\infty\), we have that \(a(x)<c+1\). Compactness shows that \(a\) is bounded on \([0,x_0]\) (\cref{thm:continuousfunctionboundedoncompact}). Hence, \(a\) is bounded (above) on \(\mathbb{R}\) by some \(M>0\).
 
     The final hypothesis required is the slow decrease of \(a\): for any \(\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y>0\) with \(0<y-x<\delta\), we have \[a(y)-a(x)=\ee^{-x}\qty(\ee^{x-y}f(y)-f(x))>\ee^{-x}f(x)\qty(\ee^{-\delta}-1)=a(x)\qty(\ee^{-\delta}-1)>-M\qty(1-\ee^{-\delta}).\]
-    If \(\delta\) is chosen so that \(M\qty(1-\ee^{-\delta})<\varepsilon\), namely \(\delta<\ln\qty(\frac M{M-\varepsilon})\), then \(a(y)-a(x)>-\varepsilon\), and \(a\) then exhibits slow decrease.
+    If \(\delta\) is chosen so that \(M\qty(1-\ee^{-\delta})<\varepsilon\), namely \(0<\delta<\ln\qty(\frac M{M-\varepsilon})\), then \(a(y)-a(x)>-\varepsilon\), and \(a\) then exhibits slow decrease.
 
     The slow decrease, boundedness, and the condition in \cref{eq:wienerikehara_convolutionlimit} are sufficient by \cref{prop:wienerikehara_intermediatetauberiantheorem}, to show that \(\lim_{x\to+\infty}a(x)=c\), or equivalently, \(\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c\).
 \end{proof}
