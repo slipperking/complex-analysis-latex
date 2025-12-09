@@ -241,7 +241,7 @@ functions, it is only natural that generalizations are made on classical
 formulas in calculus for complex functions.
 
 It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at
-a point \(x\in(a,b)\) if the limit \[\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by
+a point \(x\in(a,b)\) if the limit \[\lim_{\Delta x\to0}\frac{f(x+\Delta x)-f(x)}{\Delta x}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by
 \(f'(x)\) or \(\frac{\dd{f}}{\ddx}\). The value \(\dd{f}=f'(x)\ddx\) is the
 differential of \(f(x)\). Partition \([a,b]\) into
 \(a=x_0<x_1<x_2<\cdots<x_n=b\) such that the length of the intervals
@@ -7565,9 +7565,8 @@ theory on the distribution of prime numbers.
 \end{definition}
 By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
 \begin{align*}
-    \abs{\Gamma(x)} & =\int_0^1\ee^{-t}t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt \\
-    & \leq\int_0^1 t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt     \\
-    & =\frac{1}{x}+\int_1^\infty\ee^{-t}t^{x-1}\ddt.
+    \abs{\Gamma(x)} & =\int_0^1\ee^{-t}t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt\\
+    &\leq\int_0^1 t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt=\frac{1}{x}+\int_1^\infty\ee^{-t}t^{x-1}\ddt.
 \end{align*}
 Since \(\int_1^\infty\frac{\ddt}{t^2}\) is convergent and \(\lim_{t\to\infty}\frac{\ee^{-t}t^{z-1}}{t^{-2}}=0\), then by comparison, the second integral is convergent.
 
@@ -7575,12 +7574,8 @@ Therefore, \(\Gamma(x)\) is convergent on \(\mathbb{R}_{>0}\). It follows that
 \(\Gamma(z)\) is absolutely convergent on the right half-plane
 \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). Furthermore, \(\Gamma(z)\) is
 well-defined and holomorphic on \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). From
-integration by parts, we get
-\begin{align*}
-    \Gamma(z+1) & =\int_0^\infty\ee^{-t}t^z\ddt                                    \\
-    & =-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt. \\
-    & =z\Gamma(z).
-\end{align*}
+integration by parts, we obtain
+\[\Gamma(z+1)=\int_0^\infty\ee^{-t}t^z\ddt=-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt.=z\Gamma(z).\]
 Additionally, \[\Gamma(1)=\int_0^\infty\ee^{-t}\ddt=-\eval{\ee^{-t}}_0^\infty=1.\]
 Hence, we have \(\Gamma(z+1)=z!\), and the \(\Gamma\)-function generalizes the
 factorial. We also have \[\Gamma(z+n)=\Gamma(z)\prod_{k=0}^{n-1}(z+k),\quad\Re(z)>0, n\in\mathbb{N}.\]
@@ -7596,9 +7591,8 @@ We will now study two representations for the Gamma function.
 \begin{theorem}[Gauss]\label{thm:gammafunctiongaussformula}
     The Gamma function satisfies
     \begin{equation}
-        \Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n (z+k)}\label{eq:gammafunctiongaussformula}
+        \Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n(z+k)},\qquad\Re z>0.\label{eq:gammafunctiongaussformula}
     \end{equation}
-    for \(\Re(z)>0\).
 \end{theorem}
 \begin{proof}
     Define the sequence of functions
@@ -7621,10 +7615,7 @@ We will now study two representations for the Gamma function.
         1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunction_gaussformulaintermediate2}
     \end{equation}
     Additionally, since
-    \begin{align*}
-        \dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1}) & =\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2} \\
-        & =\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)
-    \end{align*} has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\]
+    \[\dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2}=\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)\] has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\]
     evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \[\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\] as \(u\to n^-\), \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of
     \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\),
     \(\ee\qty(\frac{n-1}{n})^{n-1}\leq\ee\). From
@@ -8006,7 +7997,7 @@ Results have already shown that an infinite number of zeros lie on this line. Fo
     where the interchange of the order of summation is justified by the absolute convergence of the series for \(\Re s>1\).
 \end{proof}
 \begin{proposition}\label{prop:positivelogarithmicderivativerealpart}
-    If \(\Phi\) is holomorphic on a neighborhood of a point \(a\in\mathbb{R}\) on which \(\Phi(a)\not\equiv 0\) such that \(\Phi(a)=0\), then \[\Re\qty(\frac{\Phi'(s)}{\Phi(s)})>0\] for \(s\in\mathbb{R}_{>a}\) near \(a\).
+    If \(\Phi\) is holomorphic on a neighborhood of a point \(a\in\mathbb{R}\) on which \(\Phi\not\equiv 0\) such that \(\Phi(a)=0\), then \[\Re\qty(\frac{\Phi'(s)}{\Phi(s)})>0\] for \(s\in\mathbb{R}_{>a}\) near \(a\).
 \end{proposition}
 \begin{proof}
     By assumption, \(\Phi\) has the local Taylor expansion \[\Phi(s)=(s-a)^n\varphi(s)\] for some \(n\in\mathbb{N}\) and holomorphic \(\varphi\) (non-vanishing near
@@ -8198,10 +8189,13 @@ The two kernels are related by a angular unitary Fourier transform:
     \end{cases},\] which confirms the second equivalence.
 \end{proof}
 \begin{definition}
-    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\liminf_{h\to0^+}\liminf_{x\to+\infty}\qty[f(x+h)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
+    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\liminf_{\delta\to0^+}\liminf_{x\to+\infty}\qty[f(x+\delta)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
     \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
-\begin{proposition}
+\begin{proof}[Proof of equivalence]
+
+\end{proof}
+\begin{proposition}\label{prop:wienerikehara_intermediatetauberiantheorem}
     Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the limit of the convolution \(f*k_\lambda\) given by \[L\equiv\lim_{x\to+\infty}\qty(f*k_\lambda)(x)=\lim_{x\to+\infty}\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}f(x)=L\).
 \end{proposition}
 \begin{proof}
@@ -8236,7 +8230,7 @@ The two kernels are related by a angular unitary Fourier transform:
     Hence, no such sequence exists in either case, and \(\lim_{x\to+\infty}f(x)=L\).
 \end{proof}
 \begin{theorem}[\textsc{Wiener--Ikehara}]\label{thm:wienerikehara}
-    Let \(f:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a monotically non-decreasing function such that the Laplace transform
+    Let \(f:\mathbb{R}_{\geq0}\to\mathbb{R}\) be a nonnegative, monotically non-decreasing function such that the Laplace transform
     \begin{equation}
         \mathcal{L}\cbraces{f}(s)=\int_0^\infty f(x)\ee^{-sx}\ddx\label{eq:wienerikehara_laplacetransform}
     \end{equation} converges for \(\Re s>1\). Suppose that there exists some constant \(c>0\) such
@@ -8265,7 +8259,19 @@ The two kernels are related by a angular unitary Fourier transform:
         &=\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\qty[\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}]\ddy.
     \end{align*}
     Now \(\forall\varepsilon'>0\), by the local uniform convergence of \(g\) in \cref{eq:wienerikehara_gfunction}, there exists some \(\delta>0\) such that \[\forall\abs{y}<2\lambda,\quad\abs{\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}-g(y)}<\frac{\piup\varepsilon'}{\lambda}.\] Hence, we have that \[\abs{I_{\lambda,\varepsilon}(x)-\frac1{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}g(y)\ddy}\leq\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\frac{\piup\varepsilon'}{\lambda}\ddy=\varepsilon'.\] Therefore, \[\lim_{\varepsilon\to 0^+}I_{\lambda,\varepsilon}(x)=\frac1{2\piup}\int_{-2\lambda}^{2\lambda} K_\lambda(y)\ee^{\ii xy}g(y)\ddy,\] or when the limit is exchanged with the integral. By parts, we have that \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac{1}{2\piup}\qty(\eval{K_\lambda(y)g(y)\frac{\ee^{\ii x y}}{\ii x}}_{-2\lambda}^{2\lambda}-\frac{1}{\ii x}\int_{-2\lambda}^{2\lambda}\qty(K_\lambda g)'(y)\ee^{\ii xy}\ddy).\]
-    This implies that \(\lim_{x\to+\infty}\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)\equiv 0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\piup}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\]
+    This implies that \(\lim_{x\to+\infty}\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)\equiv 0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\piup}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\] The Lebesgue's dominated convergence theorem then gives \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac1{\sqrt{2\piup}}\int_0^\infty k_\lambda(x-t)\qty(a(t)-A(t))\ddt=(a*k_\lambda-A*k_\lambda)(x)\to0\] as \(x\to+\infty\). Since \((A*k_\lambda)(x)=c\) for all \(x\), we have that
+    \begin{equation}
+        \lim_{x\to+\infty}(a*k_\lambda)(x)=c.\label{eq:wienerikehara_convolutionlimit}
+    \end{equation}
+    Therefore, \(\exists x_0>0\) such that \[\qty(a*k_\lambda)(x)<c+1\implies\frac{1}{\piup}\int_{-\infty}^\infty\qty(\frac{\sin t}{t})^2a\qty(x-\frac t\lambda)\ddt<c+1\] for all \(x>x_0\). Substituting \(x+\frac2{\sqrt{\lambda}}\) for \(x\) in the integral, we have (after further restricting the integration bounds, which preserve the inequality)
+    \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2a\qty(x+\frac{2\sqrt{\lambda}-t}\lambda)\ddt<\piup(c+1)\]
+    Since \(\ee^{u}a(u)=f(u)\) (for \(u=x+\frac{2\sqrt{\lambda}-t}\lambda>0\)) is non-decreasing in \(u\), it is bounded below by \(f\qty(x+\frac{\sqrt{\lambda}}\lambda)>f(x)\). Thus, we have \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\exp\qty(\frac{t-2\sqrt{\lambda}}{\lambda}-x)f\qty(x)\ddt<\piup\qty(c+1),\] implying that \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ee^{\frac{t-2\sqrt{\lambda}}{\lambda}}a\qty(x)\ddt<\piup\qty(c+1)\implies a(x)\ee^{-\frac{3}{\sqrt{\lambda}}}\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ddt<\piup(c+1),\]
+    which is satisfied for all \(\lambda>0\) and \(x>x_0\). Letting \(\lambda\to\infty\), we have that \(a(x)<c+1\). Compactness shows that \(a\) is bounded on \([0,x_0]\) (\cref{thm:continuousfunctionboundedoncompact}). Hence, \(a\) is bounded (above) on \(\mathbb{R}\) by some \(M>0\).
+
+    The final hypothesis required is the slow decrease of \(a\): for any \(\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y>0\) with \(0<y-x<\delta\), we have \[a(y)-a(x)=\ee^{-x}\qty(\ee^{x-y}f(y)-f(x))>\ee^{-x}f(x)\qty(\ee^{-\delta}-1)=a(x)\qty(\ee^{-\delta}-1)>-M\qty(1-\ee^{-\delta}).\]
+    If \(\delta\) is chosen so that \(M\qty(1-\ee^{-\delta})<\varepsilon\), namely \(\delta<\ln\qty(\frac M{M-\varepsilon})\), then \(a(y)-a(x)>-\varepsilon\), and \(a\) then exhibits slow decrease.
+
+    The slow decrease, boundedness, and the condition in \cref{eq:wienerikehara_convolutionlimit} are sufficient by \cref{prop:wienerikehara_intermediatetauberiantheorem}, to show that \(\lim_{x\to+\infty}a(x)=c\), or equivalently, \(\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c\).
 \end{proof}
 \begin{theorem}[name=\textscsl{Prime Number Theorem},store=thm:primenumber]\label{thm:primenumber}
     The prime counting function \(\pi(x)\) is asymptotically equal to \(\frac x{\log x}\), i.e., \(\lim_{x\to+\infty}\frac{\pi(x)\log x}x=1\).
