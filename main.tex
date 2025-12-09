@@ -180,9 +180,9 @@ generalized to more abstract sets.
     We now show that \(z_\infty\in X\). Suppose for contradiction that
     \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is
     open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B^n\qty(z_\infty,
-    \delta)\), and hence \(Q_k\cap X=\varnothing\). This contradicts the construction
-    of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A
-    \subset X\).
+    \delta)\), and hence \(Q_k\cap X=\varnothing\). This contradicts the
+    construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many
+    points of \(A \subset X\).
 \end{proof}
 \begin{theorem}[\textsc{Heine--Borel}]\label{thm:heineborel}
     A set \(X\in\mathbb{C}^n\) is compact iff if every open cover has a finite subcover.
@@ -218,10 +218,10 @@ generalized to more abstract sets.
     Since the side length of each cube tends to 0, \(\bigcap_{j=0}^\infty Q_j\)
     consists of a single point \(z_{\infty}\in\mathbb{C}^n\). By the
     Bolzano-Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), because \(\forall
-    j\in\mathbb{N}\), \(Q_j\cap X\neq\varnothing\), select a point \(z_{j}\in Q_j\cap
-    X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\) as \(X\)
-    is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in U\).
-    Since \(U\) is open, \(\exists\varepsilon>0\) such that
+    j\in\mathbb{N}\), \(Q_j\cap X\neq\varnothing\), select a point \(z_{j}\in
+    Q_j\cap X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\)
+    as \(X\) is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in
+    U\). Since \(U\) is open, \(\exists\varepsilon>0\) such that
     \(B^n(z_\infty,\varepsilon)\subset U\).\ \(\exists N\in\mathbb{N}\) such that
     \(\forall k>N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\). Then taking the
     intersection with \(X\) on both sides, \[Q_k\cap X\subseteq B^n(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every \(k\), \(Q_k\cap X\) has no finite
@@ -1607,7 +1607,7 @@ We have also already seen the utility of parameterization via a polar transforma
                 \begin{cases}
                     0    & \qif* z\in\mathrm{int}(\gamma), \\
                     f(z) & \qif* z\in\mathrm{ext}(\gamma),
-                \end{cases}                                                                                                                                \\      & =
+                \end{cases}                                                                                                                               \\       & =
                 \begin{cases}
                     w      & \qif* z\in\mathrm{int}(\gamma), \\
                     w-f(z) & \qif* z\in\mathrm{ext}(\gamma),
@@ -1619,7 +1619,7 @@ We have also already seen the utility of parameterization via a polar transforma
                 I & =\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\oint_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
                 & =\int_0^{2\piup}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
                 \begin{cases}
-                    0              & \qif* z\in\mathrm{int}(\gamma),             \\
+                    0              & \qif* z\in\mathrm{int}(\gamma),            \\
                     2\piup\ii f(z) & \qif* z\in\mathrm{ext}(\gamma)\cap D(0,R),
                 \end{cases}\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
             \end{align} when \(\gamma\subset D(0,R)\).
@@ -1785,8 +1785,8 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
     and by the triangle inequality,
     \[\abs{f^{(n)}(z)}\leq\frac{n!}{2\piup}\int_{K_1}\abs{f(\zeta)}\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{\abs{\ddzeta\wedge\dd{\overline{\zeta}}}}{\abs{\zeta-z}^{n+1}}.\]
     Notice that over \(W\), \(\varphi=1\), \(\varphi'=0\), and is disjoint from
-    \(K_1\) (or that \(W\cap K_1=\varnothing\)). Then, the distance between \(W\) and
-    \(K\) is positive and the two are disjoint. Therefore, \(\exists M>0\) such
+    \(K_1\) (or that \(W\cap K_1=\varnothing\)). Then, the distance between \(W\)
+    and \(K\) is positive and the two are disjoint. Therefore, \(\exists M>0\) such
     that
     \[\frac{1}{\abs{\zeta-z}}\leq M,\] and thus, \[\abs{\pdv{\varphi(\zeta)}{\overline{\zeta}}}\frac{1}{\abs{\zeta-z}^{n+1}}\] can be bounded by a sequence \(\cbraces{c'_n}\), independent of \(f\) and
     dependent only on \(n\) and the sets \(K\) and \(V\). Then, \[\abs{f^{(n)}(z)}\leq\frac{n!}{2\piup}\int_{K_1}c'_n\abs{f(\zeta)}{\abs{\ddzeta\wedge\dd{\overline{\zeta}}}}=\frac{n!}{\piup}\int_{K_1}c'_n\abs{f(\zeta)}{\abs{\ddx\wedge\ddy}}.\] Because \(K_1\) is compact, it has a finite area \(\mathrm{area}\qty(K_1)\),
@@ -1870,9 +1870,9 @@ It is easy to see that \(\mathfrak{B}\) forms an open cover of \(X\). Moreover, 
 
 In a topological space \(X\), a subset can be open, closed (the complement of
 some open set), both (clopen), or neither. The only clopen sets that exist in
-any topological space \(X\) are \(\varnothing\) and \(X\) if \(X\) is connected.
-A technique used in many proofs in complex analysis relies on the following
-fact:
+any topological space \(X\) are \(\varnothing\) and \(X\) if \(X\) is
+connected. A technique used in many proofs in complex analysis relies on the
+following fact:
 \begin{theorem}[Connectivity Argument]\label{thm:connectedtopologicalspaceclopensets}
     A topological space \(X\) is \textscsl{connected} if and only if \(X\) and \(\varnothing\) are the only clopen subsets of \(X\).
 \end{theorem}
@@ -3892,7 +3892,7 @@ The goal of the classification is to find the implications of \(\lambda\) on the
 \begin{proof}
     The zeros of \(\sin(\piup z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
         \begin{cases}
-            -\frac{n}{2}  & \qif* n\in 2\mathbb{N},                      \\
+            -\frac{n}{2}  & \qif* n\in 2\mathbb{N},                     \\
             \frac{n+1}{2} & \qif* n\in \mathbb{N}\setminus 2\mathbb{N}.
     \end{cases}\]
     For each \(R>0\), the series
@@ -5089,9 +5089,9 @@ equivalent}.
 
     Next, assume that \(U\) is unbounded. It is easy to show that the boundary
     \(\partial U\) contains at least two points. Indeed, if \(\partial
-    U=\varnothing\), \(U\) would be closed because \(\partial U\subseteq U\) and open
-    by assumption. By \cref{thm:connectedtopologicalspaceclopensets}, \(U\) would
-    either be equal to \(\varnothing\) or \(\mathbb{C}\), both of which are
+    U=\varnothing\), \(U\) would be closed because \(\partial U\subseteq U\) and
+    open by assumption. By \cref{thm:connectedtopologicalspaceclopensets}, \(U\)
+    would either be equal to \(\varnothing\) or \(\mathbb{C}\), both of which are
     impossibilities. Additionally, if \(\partial U\) comprises exactly one point
     \(a\in\mathbb{C}\), then in subspace defined by
     \(X=\mathbb{C}\setminus\cbraces{a}\), \(U\) is clopen (by the same reason as
@@ -5106,9 +5106,10 @@ equivalent}.
     root \(z\mapsto\sqrt{z-1}\) (existent by simple connectivity and the fact that
     \(1\notin U'\)). Trivially, \(\psi\) is univalent in \(U'\).
 
-    In addition, we assert that \(\psi\qty(U')\cap\qty(-\psi\qty(U'))=\varnothing\).
-    If not, then \(\exists \xi\in \psi\qty(U')\) such that \(-\xi\in\psi\qty(U')\).
-    By definition, \(\exists z_1,z_2\in U'\) such that \(\psi\qty(z_1)=\xi\) and
+    In addition, we assert that
+    \(\psi\qty(U')\cap\qty(-\psi\qty(U'))=\varnothing\). If not, then \(\exists
+    \xi\in \psi\qty(U')\) such that \(-\xi\in\psi\qty(U')\). By definition,
+    \(\exists z_1,z_2\in U'\) such that \(\psi\qty(z_1)=\xi\) and
     \(\psi\qty(z_2)=-\xi\). It would then follow that \(\sqrt{z_1-1}=\sqrt{z_2-1}\)
     and \(z_1=z_2\). It follows that \(\xi=0\), which is obtained when
     \(z_1=z_2=\psi^{-1}(\xi)=1\). Since \(1\in\partial U'\) and \(U\) is open, this
@@ -5696,7 +5697,7 @@ Let \(z=f^{-1}(w)\). Then we have
     \begin{equation}
         \lambda(z)=
         \begin{cases}
-            \qty(1-\abs{z}^2)^2 & \qif*\abs{z}<1,    \\
+            \qty(1-\abs{z}^2)^2 & \qif*\abs{z}<1,   \\
             0                   & \qif*\abs{z}\ge1,
         \end{cases}\qquad\lambda_r(z)=\frac{3}{\piup r^2}\lambda\qty(\frac{z}{r})\quad\forall r>0\label{eq:diracdeltaapproximation_lambdadefinition}
     \end{equation}
@@ -7157,7 +7158,7 @@ variable has already been preluded to many times before.
 
 Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
 \begin{proposition}\label{prop:reinhardtlaurentexpansion}
-    Let \(\Omega\subseteq\mathbb{C}^n\) be a Reinhardt domain and let \(f:\Omega\to\mathbb{C}\) be holomorphic. Then \(\vb{f}\) admits the unique Laurent expansion
+    Let \(\Omega\subseteq\mathbb{C}^n\) be a Reinhardt domain centered at \(\vb{0}\) and let \(f:\Omega\to\mathbb{C}\) be holomorphic. Then \(\vb{f}\) admits the unique Laurent expansion
     \begin{equation}
         \vb{f}(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}},\qquad\vb{a}_{\vb{k}}\in\mathbb{C},\label{eq:reinhardtlaurentexpansion}
     \end{equation} converging absolutely and uniformly on compact subsets of \(\Omega\).
@@ -7199,15 +7200,15 @@ Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
     expansions used in the construction.
 \end{proof}
 \begin{proposition}\label{prop:hartogslaurentexpansionnonnegative}
-    Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain such that \(\Omega\)
+    Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain centered at \(\vb{0}\) such that \(\Omega\)
     satisfies the condition that for every \(j\in\mathbb{N}_{\leq n}\), there
-    exists a point in \(\Omega\) of the form \(w_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(w_j\notin\mathbb{C}^*\)). Then any holomorphic function \(f:\Omega\to\mathbb{C}\) has the expansion \[f(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\vb{z}^{\vb{k}},\] which locally uniformly converges on \(\Omega\).
+    exists a point in \(\Omega\) of the form \(w_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(w_j\notin\mathbb{C}^*\)). Then any holomorphic function \(f:\Omega\to\mathbb{C}\) has the expansion \[f(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\vb{z}^{\vb{k}},\] which converges locally uniformly and absolutely on \(\Omega\).
 \end{proposition}
 \begin{proof}
     By \cref{prop:reinhardtlaurentexpansion}, \(f\) has an expansion matching the form of \cref{eq:reinhardtlaurentexpansion}. Now for a fixed \(j\in\mathbb{N}_{\leq n}\), if not all \(a_{\vb{k}}\)'s with \(k_j<0\) are zero, then fixing all variables except \(z_j\) gives a Laurent expansion that does not uniformly converge on all compact neighborhoods of \(w_j\vb{e}_j\in\Omega\) (either a pole or an essential singularity with respect to \(z_j\)). Thus, we are left only with \(\vb{k}\) containing nonnegative components, and the conclusion holds.
 \end{proof}
 \begin{theorem}[Hartogs' Extension Theorem for Reinhardt Domains]\label{thm:hartogsextensiontheoremforreinhardtdomains}
-    Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain such that \(\Omega\)
+    Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain centered at \(\vb{0}\) such that \(\Omega\)
     satisfies the condition that for every \(j\in\mathbb{N}_{\leq n}\), there
     exists a point in \(\Omega\) of the form \(a_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(a_j\notin\mathbb{C}^*\)). Let \(f:\Omega\to\mathbb{C}\) be
     holomorphic. Then \(f(\vb{z})\) can be
@@ -7216,7 +7217,13 @@ Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
     holomorphic such that \(\widetilde{f}\equiv f\) on \(\Omega\).
 \end{theorem}
 \begin{proof}
-    By \cref{prop:hartogslaurentexpansionnonnegative}, \(f\) has the
+    By \cref{prop:hartogslaurentexpansionnonnegative}, \(f\) has the expansion
+    \[f(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\vb{z}^{\vb{k}},\] which absolutely converges on \(\Omega\). Substituting
+    \(\qty(\rho_1z_1,\dots,\rho_nz_n)\) for \(\vb{z}\in\Omega\) with
+    \(0\leq\rho_j\leq1\) for each \(j\in\mathbb{N}_{\leq n}\) gives
+    \[\abs{\widetilde{f}(\rho_1z_1,\dots,\rho_nz_n)}=\abs{\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\qty(\rho_1z_1)^{k_1}\cdots\qty(\rho_nz_n)^{k_n}}\leq\sum_{\vb{k}\in\mathbb{Z}^n_{\geq0}}\abs{a_{\vb{k}}\vb{z}^{\vb{k}}},\] which converges. The function \(\widetilde{f}:\widetilde{\Omega}\to\mathbb{C}\)
+    is then holomorphic as it is given by a power series expansion, and it
+    satisfies \(\widetilde{f}\equiv f\) on \(\Omega\).
 \end{proof}
 \section{Special Classes of Holomorphic Functions}
 \subsection{Elliptic Functions}
@@ -7565,16 +7572,25 @@ theory on the distribution of prime numbers.
 \end{definition}
 By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
 \begin{align*}
-    \abs{\Gamma(x)} & =\int_0^1\ee^{-t}t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt\\
-    &\leq\int_0^1 t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt=\frac{1}{x}+\int_1^\infty\ee^{-t}t^{x-1}\ddt.
+    \abs{\Gamma(x)} & =\int_0^1\ee^{-t}t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt                                           \\
+    & \leq\int_0^1 t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt=\frac{1}{x}+\int_1^\infty\ee^{-t}t^{x-1}\ddt.
 \end{align*}
 Since \(\int_1^\infty\frac{\ddt}{t^2}\) is convergent and \(\lim_{t\to\infty}\frac{\ee^{-t}t^{z-1}}{t^{-2}}=0\), then by comparison, the second integral is convergent.
 
 Therefore, \(\Gamma(x)\) is convergent on \(\mathbb{R}_{>0}\). It follows that
 \(\Gamma(z)\) is absolutely convergent on the right half-plane
-\(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). Furthermore, \(\Gamma(z)\) is
-well-defined and holomorphic on \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\). From
-integration by parts, we obtain
+\(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\).
+\begin{theorem}
+    The \(\Gamma\)-function is holomorphic on \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\).
+\end{theorem}
+\begin{proof}
+    Let \(\gamma\subset\cbraces{z\in\mathbb{C}}{\Re(z)>0}\) be an arbitrary simple, closed, rectifiable curve. By Morera's Theorem (\cref{thm:morera}), it suffices to show that \(\oint_\gamma\Gamma(z)\ddz=0\). We have
+    \begin{align*}
+        \oint_\gamma\Gamma(z)\ddz & =\oint_\gamma\qty(\int_0^\infty\ee^{-t}t^{z-1}\ddt)\ddz=\int_0^\infty\ee^{-t}\qty(\oint_\gamma t^{z-1}\ddz)\ddt=0,
+    \end{align*}
+    where the integral exchange is justified by uniform convergence of \(\Gamma\) on compact subsets of \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\) (by the Weierstrass \(M\)--Test, \cref{thm:weierstrassmtest}).
+\end{proof}
+From integration by parts, we obtain
 \[\Gamma(z+1)=\int_0^\infty\ee^{-t}t^z\ddt=-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt.=z\Gamma(z).\]
 Additionally, \[\Gamma(1)=\int_0^\infty\ee^{-t}\ddt=-\eval{\ee^{-t}}_0^\infty=1.\]
 Hence, we have \(\Gamma(z+1)=z!\), and the \(\Gamma\)-function generalizes the
@@ -8035,14 +8051,13 @@ Prime numbers have been a central object of study in number theory since
 antiquity. From the times of Euclid, it was known that there were infinitely
 many primes. The \textscsl{prime counting function} \(\pi(n)\) is defined to be
 the number of primes not exceeding \(n\). The \textscsl{Prime Number Theorem}
-states formally that \getkeytheorem{thm:primenumber}
-This result was first conjectured by Gauss and Legendre in
-the late 18th century based on empirical evidence, while early results given by
-P. L. Chebyshev and J. J. Sylvester proved that the ratio
-\(\frac{\log(n)\pi(n)}{n}\) is bounded between two positive constants for large
-\(n\). The full asymtotic relation was finally proven independently by Hadamard
-and de la Vallée Poussin in 1896 using complex analysis and properties of the
-Riemann \(\zeta\)-function.
+states formally that \getkeytheorem{thm:primenumber} This result was first
+conjectured by Gauss and Legendre in the late 18th century based on empirical
+evidence, while early results given by P. L. Chebyshev and J. J. Sylvester
+proved that the ratio \(\frac{\log(n)\pi(n)}{n}\) is bounded between two
+positive constants for large \(n\). The full asymtotic relation was finally
+proven independently by Hadamard and de la Vallée Poussin in 1896 using complex
+analysis and properties of the Riemann \(\zeta\)-function.
 
 The logarithmic integral function, defined by \[\operatorname{Li}(x)=\int_2^x\frac{\ddt}{\log(t)}\] is of considerable interest as it much better approximates the prime counting
 function \(\pi(x)\) than \(\frac x{\log x}\) does. It can be trivially shown
@@ -8054,7 +8069,8 @@ that \(\operatorname{Li}(x)\sim\frac{x}{\log x}\) by the realization that
 \end{align*}
 We have previously seen how the Riemann \(\zeta\)-function could be used to determine properties of the distribution of primes. The proof of the Prime Number Theorem depends on a more subtle connection between \(\zeta\) and \(\pi\). The most efficient way to construct such a connection has been the subject of much experimentation. The proof we proceed to provide may seem arbitrary, we provide this connection via auxiliary functions. But a look into history reveals the many failed experiments and attempts that ultimately led to the simplicity of the proof presented below.
 
-Define the first and second \textscsl{Chebyshev functions} \(\vartheta(x),\psi(x)\) by \[\vartheta(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\log p,\qquad\psi(x)=\sum_{n\leq x}\Lambda(n)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{(p,k):p^k\leq x\\p\text{ prime}}}}\log p.\]
+Define the first and second \textscsl{Chebyshev functions}
+\(\vartheta(x),\psi(x)\) by \[\vartheta(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\log p,\qquad\psi(x)=\sum_{n\leq x}\Lambda(n)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{(p,k):p^k\leq x\\p\text{ prime}}}}\log p.\]
 We hence derive that \[\psi(x)=\sum_{k=1}^\infty\sum_{\substack{p:p^k\leq x\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\sum_{\substack{p:p\leq \sqrt[k]{x}\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\vartheta\qty(x^{\frac1k}).\]
 Grouping by primes, we see that this is in fact equivalent to
 \begin{equation}
@@ -8094,37 +8110,55 @@ Hence we have for any \(x>1\),
     The Laplace transform of \(\psi\circ\exp\) defined as
     \begin{equation}
         f(s)=\int_0^\infty\psi\qty(\ee^{t})\ee^{-st}\ddt\label{eq:primenumbertheorem_laplacetransformchebyshevfunction_statement}
-    \end{equation} converges for \(\Re s>1\) and defines a holomorphic function on this domain. Moreover, the function \(g\) defined by \[g(t)=\lim_{\sigma\to 1^+}\qty[f(s)-\frac1{s-1}],\qquad s=\sigma+\ii t\] converges uniformly with respect to \(t\) on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon.
+    \end{equation} converges for \(\Re s>1\) and defines a holomorphic function on this domain. Moreover, the function \(g\) defined by \[g(t)=\lim_{\sigma\to 1^+}\qty[f(s)-\frac1{s-1}],\qquad s=\sigma+\ii t\] converges uniformly with respect to \(t\) on compact subsets of \(\mathbb{R}\)
+    and is continuously differentiable thereon.
 \end{theorem}
 \begin{proof}
     Let \(u=\ee^t\), \(\dd{u}=\ee^t\ddt\). Then we obtain
     \begin{align*}
-        f(s)&=\int_1^\infty\psi(u)u^{-s-1}\dd{u}=\sum_{n=1}^\infty\int_n^{n+1}\psi(u)u^{-s-1}\dd{u}\\
-        &=\sum_{n=1}^\infty\psi(n)\int_n^{n+1}u^{-s-1}\dd{u}=\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\eval{\frac{u^{-s}}{-s}}_{n}^{n+1}\\
-        &=\frac1s\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\qty[n^{-s}-(n+1)^{-s}]=\frac1s\sum_{m=1}^\infty\Lambda(m)\sum_{n=m}^\infty\qty[n^{-s}-(n+1)^{-s}]\\
-        &=\frac1s\sum_{m=1}^\infty\Lambda(m)m^{-s}=\frac1s\sum_{n=1}^\infty\frac{\Lambda(n)}{n^{-s}}
+        f(s) & =\int_1^\infty\psi(u)u^{-s-1}\dd{u}=\sum_{n=1}^\infty\int_n^{n+1}\psi(u)u^{-s-1}\dd{u}                                                            \\
+        & =\sum_{n=1}^\infty\psi(n)\int_n^{n+1}u^{-s-1}\dd{u}=\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\eval{\frac{u^{-s}}{-s}}_{n}^{n+1}                     \\
+        & =\frac1s\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\qty[n^{-s}-(n+1)^{-s}]=\frac1s\sum_{m=1}^\infty\Lambda(m)\sum_{n=m}^\infty\qty[n^{-s}-(n+1)^{-s}] \\
+        & =\frac1s\sum_{m=1}^\infty\Lambda(m)m^{-s}=\frac1s\sum_{n=1}^\infty\frac{\Lambda(n)}{n^{-s}}
     \end{align*}
     by absolute convergence and because the inner summation telescopes. By \cref{prop:riemannzetafunction_logarithmicderivativezetavonmangoldt}, we have that for \(\Re s>1\),
     \begin{equation}
         f(s)=-\frac1s\frac{\zeta'(s)}{\zeta(s)}\implies f(s)-\frac{1}{s-1}=-\frac1s\qty(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1})-\frac1s.\label{eq:primenumbertheorem_laplacetransformchebyshevfunction_gfunction}
     \end{equation}
-    The expression \(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}\) is meromorphic in \(\mathbb{C}\). Because \(\zeta(s)\) has a simple pole at \(s=1\) with residue \(1\), it follows that \[\zeta(s)=\frac{1}{s-1}+l(s)\] for some entire function \(l:\mathbb{C}\to\mathbb{C}\). By \cref{prop:riemannzetafunction_trivialzeros} and \cref{thm:riemannzetafunction_nozerosoncriticalstripboundary}, the quantity \(\zeta(s)(s-1)=1+\qty(s-1)l(s)\) does not vanish for \(\Re s\geq1\) (at \(s=1\), the simple pole \(\zeta\) cancels with the simple zero of \(s-1\)). Hence, \[\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}=\frac{\zeta'(s)\qty(s-1)+\zeta(s)}{\zeta(s)\qty(s-1)}=\frac{\dv{s}(\zeta(s)(s-1))}{1+(s-1)l(s)}=\frac{l'(s)(s-1)+l(s)}{1+(s-1)l(s)}\] and \cref{eq:primenumbertheorem_laplacetransformchebyshevfunction_gfunction} define holomorphic functions on \(\Re s\geq1\) (observe that the numerator is entire).
+    The expression \(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}\) is meromorphic in \(\mathbb{C}\). Because \(\zeta(s)\) has a simple pole at \(s=1\) with residue \(1\), it follows that \[\zeta(s)=\frac{1}{s-1}+l(s)\] for some entire function \(l:\mathbb{C}\to\mathbb{C}\). By
+    \cref{prop:riemannzetafunction_trivialzeros} and
+    \cref{thm:riemannzetafunction_nozerosoncriticalstripboundary}, the quantity
+    \(\zeta(s)(s-1)=1+\qty(s-1)l(s)\) does not vanish for \(\Re s\geq1\) (at
+    \(s=1\), the simple pole \(\zeta\) cancels with the simple zero of \(s-1\)).
+    Hence, \[\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}=\frac{\zeta'(s)\qty(s-1)+\zeta(s)}{\zeta(s)\qty(s-1)}=\frac{\dv{s}(\zeta(s)(s-1))}{1+(s-1)l(s)}=\frac{l'(s)(s-1)+l(s)}{1+(s-1)l(s)}\] and \cref{eq:primenumbertheorem_laplacetransformchebyshevfunction_gfunction}
+    define holomorphic functions on \(\Re s\geq1\) (observe that the numerator is
+    entire).
 
-    For a compact subset \(I\subset\mathbb{R}\), the complex rectangle \(K\equiv\cbraces{x+\ii y}{1\leq x\leq 2,y\in I}\) is compact in \(\mathbb{C}\). Thus, by uniform continuity (given by \cref{thm:heinecantor}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \[s_1=\sigma_1+\ii t_1,s_2=\sigma_2+\ii t_2\in K:\abs{s_1-s_2}<\delta\implies\abs{f(s_1)-\frac1{s_1-1}-f(s_2)+\frac1{s_2-1}}<\varepsilon.\]
-    In particular, for \(\sigma_1=1\) such that \(t_2=t_1(=t)\), we have \[s=\sigma+\ii t\in K:\abs{\sigma-1}<\delta\implies\abs{f\qty(1+\ii t)-\frac1{\ii t}-f\qty(s)+\frac1{s-1}}<\varepsilon,\] where \(\delta\) is chosen independently of \(t\). Therefore, \(g(t)\) converges uniformly on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon.
+    For a compact subset \(I\subset\mathbb{R}\), the complex rectangle
+    \(K\equiv\cbraces{x+\ii y}{1\leq x\leq 2,y\in I}\) is compact in
+    \(\mathbb{C}\). Thus, by uniform continuity (given by \cref{thm:heinecantor}),
+    \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \[s_1=\sigma_1+\ii t_1,s_2=\sigma_2+\ii t_2\in K:\abs{s_1-s_2}<\delta\implies\abs{f(s_1)-\frac1{s_1-1}-f(s_2)+\frac1{s_2-1}}<\varepsilon.\]
+    In particular, for \(\sigma_1=1\) such that \(t_2=t_1(=t)\), we have \[s=\sigma+\ii t\in K:\abs{\sigma-1}<\delta\implies\abs{f\qty(1+\ii t)-\frac1{\ii t}-f\qty(s)+\frac1{s-1}}<\varepsilon,\] where \(\delta\) is chosen independently of \(t\). Therefore, \(g(t)\)
+    converges uniformly on compact subsets of \(\mathbb{R}\) and is continuously
+    differentiable thereon.
 \end{proof}
 \subsubsection{Proof of a Tauberian Theorem}
-Previously we have seen the subtle relation between \(\zeta\) and \(\psi\). Given the properties of the Laplace transform of \(\psi\circ\exp\) and certain conditions established above, we apply now prove what is known as a \textscsl{Tauberian} theorem to extract sufficient information (such as convergence) of the function itself.
+Previously we have seen the subtle relation between \(\zeta\) and \(\psi\).
+Given the properties of the Laplace transform of \(\psi\circ\exp\) and certain
+conditions established above, we apply now prove what is known as a
+\textscsl{Tauberian} theorem to extract sufficient information (such as
+convergence) of the function itself.
 
-For arbitrary \(x\in\mathbb{R}\) and \(\lambda>0\), define a triangular kernel cutoff by \[K_\lambda(x)=
+For arbitrary \(x\in\mathbb{R}\) and \(\lambda>0\), define a triangular kernel
+cutoff by \[K_\lambda(x)=
     \begin{cases}
         1-\frac{\abs{x}}{2\lambda} & \abs{x}<2\lambda, \\
         0                          & \text{otherwise},
 \end{cases}\qquad\supp K_\lambda=\qty[-2\lambda,2\lambda],\] and a normalized Fejér kernel by
 \[k_\lambda(x)=
     \begin{cases}
-        \frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2&x\neq 0,\\
-        \frac{2\lambda}{\sqrt{2\piup}}&x=0.
+        \frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2 & x\neq 0, \\
+        \frac{2\lambda}{\sqrt{2\piup}}                                          & x=0.
 \end{cases}\]
 The two kernels are related by a angular unitary Fourier transform:
 \begin{lemma}\label{lem:wienerikehara_kernels_fouriertransform}
@@ -8135,16 +8169,16 @@ The two kernels are related by a angular unitary Fourier transform:
 
     Since \(\supp K_\lambda=\qty[-2\lambda,2\lambda]\), we have that
     \begin{align*}
-        \mathcal{F}\cbraces{K_\lambda}(x)&=\frac1{\sqrt{2\piup}}\int_{-2\lambda}^{2\lambda}\qty(1-\frac{\abs{t}}{2\lambda})\ee^{-\ii xt}\ddt=\frac{1}{\sqrt{2\piup}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\qty(\ee^{-\ii xt}+\ee^{\ii xt})\ddt\\
-        &=\frac{\sqrt{2}}{\sqrt{\piup}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\cos\qty(xt)\ddt\\
-        &=\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\eval{\frac{\sin(xt)}x}_0^{2\lambda}-\eval{\frac{t\sin(xt)}{2\lambda x}}_0^{2\lambda}+\int_0^{2\lambda}\frac{\sin(xt)}{2\lambda x}\ddt]\\
-        &=\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\frac{\sin(2\lambda x)}x-\frac{\sin(2\lambda x)}{x}-\eval{\frac{\cos(xt)}{2\lambda x^2}}_0^{2\lambda}]\\
-        &=\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\frac{1-\cos(2\lambda x)}{2\lambda x^2}]=\frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2=k_\lambda(x).
+        \mathcal{F}\cbraces{K_\lambda}(x) & =\frac1{\sqrt{2\piup}}\int_{-2\lambda}^{2\lambda}\qty(1-\frac{\abs{t}}{2\lambda})\ee^{-\ii xt}\ddt=\frac{1}{\sqrt{2\piup}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\qty(\ee^{-\ii xt}+\ee^{\ii xt})\ddt \\
+        & =\frac{\sqrt{2}}{\sqrt{\piup}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\cos\qty(xt)\ddt                                                                                                                 \\
+        & =\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\eval{\frac{\sin(xt)}x}_0^{2\lambda}-\eval{\frac{t\sin(xt)}{2\lambda x}}_0^{2\lambda}+\int_0^{2\lambda}\frac{\sin(xt)}{2\lambda x}\ddt]                                \\
+        & =\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\frac{\sin(2\lambda x)}x-\frac{\sin(2\lambda x)}{x}-\eval{\frac{\cos(xt)}{2\lambda x^2}}_0^{2\lambda}]                                                                 \\
+        & =\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\frac{1-\cos(2\lambda x)}{2\lambda x^2}]=\frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2=k_\lambda(x).
     \end{align*}
     On the other hand,
     \begin{align*}
-        \mathcal{F}\cbraces{k_\lambda}(x)&=\frac{2\lambda}{2\piup}\int_{-\infty}^\infty\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ee^{-\ii xt}\ddt=\frac2{\piup\lambda}\int_{0}^\infty\frac{\sin^2(\lambda t)}{t^2}\cos(xt)\ddt\\
-        &=\frac{1}{\piup\lambda}\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt.
+        \mathcal{F}\cbraces{k_\lambda}(x) & =\frac{2\lambda}{2\piup}\int_{-\infty}^\infty\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ee^{-\ii xt}\ddt=\frac2{\piup\lambda}\int_{0}^\infty\frac{\sin^2(\lambda t)}{t^2}\cos(xt)\ddt \\
+        & =\frac{1}{\piup\lambda}\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt.
     \end{align*}
     Let \(I(x)=\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt\). Differentiation under the integral sign yields \[\dv{I}{x}=\int_0^\infty\pdv{x}\qty(\frac{1-\cos(2\lambda t)}{t^2}\cos(xt))\ddt=\int_0^\infty\qty(\frac{\cos(2\lambda t)-1}{t})\sin(xt)\ddt.\] % TODO: prove the conditions required for the commute
     By the product-to-sum formulas, this can be rewritten as \[\dv{I}{x}=\int_0^\infty\frac{\sin(xt+2\lambda t)}{2t}\ddt+\int_0^\infty\frac{\sin(xt-2\lambda t)}{2t}\ddt-\int_0^\infty\frac{\sin(xt)}t\ddt=\mathrm{I}+\mathrm{I\!I}-\mathrm{I\!I\!I}.\]
@@ -8156,36 +8190,37 @@ The two kernels are related by a angular unitary Fourier transform:
         \begin{cases}
             +\infty & x-2\lambda>0, \\
             -\infty & x-2\lambda<0.
-    \end{cases}\] By the Dirichlet integral \(\int_0^\infty\frac{\sin u}u\dd{u}=\frac\piup2\), we have that \[\mathrm{I}=\frac\piup4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\piup4\operatorname{sgn}(x-2\lambda).\] Similarly, \(\mathrm{I\!I\!I}=\frac\piup2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\piup4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)],\] and \[I(0)+\int_0^x\dv{I}{x}\ddx=I(0)+
+    \end{cases}\] By the Dirichlet integral \(\int_0^\infty\frac{\sin u}u\dd{u}=\frac\piup2\), we
+    have that \[\mathrm{I}=\frac\piup4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\piup4\operatorname{sgn}(x-2\lambda).\] Similarly, \(\mathrm{I\!I\!I}=\frac\piup2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\piup4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)],\] and \[I(0)+\int_0^x\dv{I}{x}\ddx=I(0)+
         \begin{cases}
-            \frac\piup 4\qty[\eval{-x-x+2x}_{-2\lambda}^x]+I\qty(-2\lambda^+)-I(0)&x<-2\lambda, \\
-            \frac\piup 4(x-x+2x)=\frac{\piup x}{2} &-2\lambda<x<0, \\
-            \frac\piup 4(x-x-2x)=-\frac{\piup x}{2} &0<x<2\lambda, \\
-            \frac\piup 4\qty[\eval{x+x-2x}_{2\lambda}^x]+I\qty(2\lambda^-)-I(0)&x>2\lambda,
+            \frac\piup 4\qty[\eval{-x-x+2x}_{-2\lambda}^x]+I\qty(-2\lambda^+)-I(0) & x<-2\lambda,   \\
+            \frac\piup 4(x-x+2x)=\frac{\piup x}{2}                                 & -2\lambda<x<0, \\
+            \frac\piup 4(x-x-2x)=-\frac{\piup x}{2}                                & 0<x<2\lambda,  \\
+            \frac\piup 4\qty[\eval{x+x-2x}_{2\lambda}^x]+I\qty(2\lambda^-)-I(0)    & x>2\lambda,
     \end{cases},\] which after simplification, becomes \[I(x)=I(0)+\piup
         \begin{cases}
-            -\lambda&x<-2\lambda, \\
-            \frac x2&-2\lambda<x<0, \\
-            -\frac x2&0<x<2\lambda, \\
-            \lambda&x>2\lambda,
+            -\lambda  & x<-2\lambda,   \\
+            \frac x2  & -2\lambda<x<0, \\
+            -\frac x2 & 0<x<2\lambda,  \\
+            \lambda   & x>2\lambda,
     \end{cases}.\]
     Since
     \begin{align*}
-        I(0)&=\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\ddt=\eval{\frac{\cos(2\lambda t)-1}{t}}_0^\infty+\int_0^\infty 2\lambda\frac{\sin(2\lambda t)}{t}\ddt\\
-        &=\lim_{t\to 0}\frac{1-\cos(2\lambda t)}{t}+2\lambda\frac\piup2=\piup\lambda,
+        I(0) & =\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\ddt=\eval{\frac{\cos(2\lambda t)-1}{t}}_0^\infty+\int_0^\infty 2\lambda\frac{\sin(2\lambda t)}{t}\ddt \\
+        & =\lim_{t\to 0}\frac{1-\cos(2\lambda t)}{t}+2\lambda\frac\piup2=\piup\lambda,
     \end{align*}
     we obtain \[I=
         \begin{cases}
-            0 & x<-2\lambda, \\
+            0                           & x<-2\lambda,   \\
             \piup\qty(\lambda+\frac x2) & -2\lambda<x<0, \\
-            \piup\qty(\lambda-\frac x2) & 0<x<2\lambda, \\
-            0 & x>2\lambda,
+            \piup\qty(\lambda-\frac x2) & 0<x<2\lambda,  \\
+            0                           & x>2\lambda,
         \end{cases}\implies\mathcal{F}\cbraces{k_\lambda}(x)=
         \begin{cases}
-            0 & x<-2\lambda, \\
+            0                         & x<-2\lambda,   \\
             \qty(1+\frac x{2\lambda}) & -2\lambda<x<0, \\
-            \qty(1-\frac x{2\lambda}) & 0<x<2\lambda, \\
-            0 & x>2\lambda,
+            \qty(1-\frac x{2\lambda}) & 0<x<2\lambda,  \\
+            0                         & x>2\lambda,
     \end{cases}\] which confirms the second equivalence.
 \end{proof}
 \begin{definition}
@@ -8203,27 +8238,30 @@ The two kernels are related by a angular unitary Fourier transform:
     \begin{enumerate}
         \item \(f(x_n)-L>\varepsilon\) for all \(n\in\mathbb{N}\). By the slow decrease of \(f\), there exist \(\delta>0\) and \(N\in\mathbb{N}\) such that \[f(y)>f\qty(x_n)-\frac{\varepsilon}{2}>L+\frac\varepsilon2\] for any \(n>N\) and \(0<y-x_n<2\delta\). Then we have
             \begin{align*}
-                \qty(f*k_\lambda)\qty(x+\delta)&=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x+\delta-t)\ddt\\
-                &=\frac1{\sqrt{2\piup}}\qty(\int_x^{x+2\delta}+\int_{-\infty}^x+\int_{x+2\delta}^\infty)f(t)k_\lambda\qty(x+\delta-t)\ddt\\
-                &>\frac{1}{\sqrt{2\piup}}\int_x^{x+2\delta}\qty(L+\frac{\varepsilon}2)k_\lambda\qty(x+\delta-t)\ddt\\
-                &\quad-\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^x+\int_{x+2\delta}^\infty)k_\lambda\qty(x+\delta-t)\ddt\\
-                &>\frac{2L+\varepsilon}{2\sqrt{2\piup}}\int_x^{x+2\delta}k_\lambda\qty(x+\delta-t)\ddt-\frac M{\sqrt{2\piup}}\qty(\int_\delta^\infty+\int_{-\infty}^{-\delta})k_\lambda(u)\dd{u}.
+                \qty(f*k_\lambda)\qty(x+\delta) & =\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x+\delta-t)\ddt                                                                                                    \\
+                & =\frac1{\sqrt{2\piup}}\qty(\int_x^{x+2\delta}+\int_{-\infty}^x+\int_{x+2\delta}^\infty)f(t)k_\lambda\qty(x+\delta-t)\ddt                                                         \\
+                & >\frac{1}{\sqrt{2\piup}}\int_x^{x+2\delta}\qty(L+\frac{\varepsilon}2)k_\lambda\qty(x+\delta-t)\ddt                                                                               \\
+                & \quad-\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^x+\int_{x+2\delta}^\infty)k_\lambda\qty(x+\delta-t)\ddt                                                                          \\
+                & >\frac{2L+\varepsilon}{2\sqrt{2\piup}}\int_x^{x+2\delta}k_\lambda\qty(x+\delta-t)\ddt-\frac M{\sqrt{2\piup}}\qty(\int_\delta^\infty+\int_{-\infty}^{-\delta})k_\lambda(u)\dd{u}.
             \end{align*}
             Because
             \begin{align*}
-                \frac{1}{\sqrt{2\piup}}\int_{-\infty}^\infty k_{\lambda}(t)\ddt&=\frac{\lambda}{\piup}\int_{\mathbb{R}}\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ddt=\frac{1}{\piup}\int_{\mathbb{R}}\qty(\frac{\sin t}t)^2\ddt\\
-                &=-\eval{\frac{\sin^2 t}{\piup t}}_{-\infty}^\infty+\int_{\mathbb{R}}\frac{\dd(\sin^2 t)}{\piup t}=\int_{\mathbb{R}}\frac{\sin(2t)}{\piup t}\ddt=1,
+                \frac{1}{\sqrt{2\piup}}\int_{-\infty}^\infty k_{\lambda}(t)\ddt & =\frac{\lambda}{\piup}\int_{\mathbb{R}}\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ddt=\frac{1}{\piup}\int_{\mathbb{R}}\qty(\frac{\sin t}t)^2\ddt    \\
+                & =-\eval{\frac{\sin^2 t}{\piup t}}_{-\infty}^\infty+\int_{\mathbb{R}}\frac{\dd(\sin^2 t)}{\piup t}=\int_{\mathbb{R}}\frac{\sin(2t)}{\piup t}\ddt=1,
             \end{align*}
             we then have for any \(n>N\), that \[\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)\geq\frac{2L+\varepsilon}{2\sqrt{2\piup}}\int_{-\delta}^{\delta}\frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin\qty(\lambda u)}{\lambda u})^2\dd{u}-\frac{2M}{\piup}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt.\]
             Letting \(\lambda\to\infty\), we have \[\frac{2L+\varepsilon}{2\piup}\int_{-\delta\lambda}^{\delta\lambda}\qty(\frac{\sin t}{t})^2\ddt-\frac{2M}{\piup}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt\to\frac{2L+\varepsilon}{2\piup}\int_{\mathbb{R}}\qty(\frac{\sin t}{t})^2\ddt=L+\frac{\varepsilon}{2}.\]
-            Because \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)=L\geq L+\frac\varepsilon2\), we reach a contradiction.
-        \item \(f(x_n)-L<-\varepsilon\). Then there exist \(\delta>0\), \(N\in\mathbb{N}\) such that \[f\qty(x_n)-f(y)>-\frac\varepsilon2\implies f(y)<f\qty(x_n)+\frac\varepsilon2<L-\frac\varepsilon2\] for any \(n>N\) and \(0<x_n-y<2\delta\). Splitting the convolution integral into \(\int_\infty^{x_n-2\delta}\), \(\int_{x_n-2\delta}^{x_n}\), and \(\int_{x_n}^\infty\), we have
+            Because \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)=L\geq
+            L+\frac\varepsilon2\), we reach a contradiction.
+        \item \(f(x_n)-L<-\varepsilon\). Then there exist \(\delta>0\), \(N\in\mathbb{N}\) such that \[f\qty(x_n)-f(y)>-\frac\varepsilon2\implies f(y)<f\qty(x_n)+\frac\varepsilon2<L-\frac\varepsilon2\] for any \(n>N\) and \(0<x_n-y<2\delta\). Splitting the convolution integral
+            into \(\int_\infty^{x_n-2\delta}\), \(\int_{x_n-2\delta}^{x_n}\), and
+            \(\int_{x_n}^\infty\), we have
             \begin{align*}
-                \qty(f*k_\lambda)\qty(x_n-\delta)&=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x_n-\delta-t)\ddt\\
-                &=\frac1{\sqrt{2\piup}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n-2\delta}^{x_n}+\int_{x_n}^\infty)f(t)k_\lambda\qty(x_n-\delta-t)\ddt\\
-                &<\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n}^\infty)k_\lambda\qty(x_n-\delta-t)\ddt\\
-                &\quad+\frac{1}{\sqrt{2\piup}}\int_{x_n-2\delta}^{x_n}\qty(L-\frac{\varepsilon}2)k_\lambda\qty(x_n-\delta-t)\ddt\\
-                &<\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^{-\delta}+\int_{\delta}^\infty)k_\lambda(u)\dd{u}+\frac{2L-\varepsilon}{2\sqrt{2\piup}}\int_{-\delta}^{\delta}k_\lambda(u)\dd{u}.
+                \qty(f*k_\lambda)\qty(x_n-\delta) & =\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x_n-\delta-t)\ddt                                                                                              \\
+                & =\frac1{\sqrt{2\piup}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n-2\delta}^{x_n}+\int_{x_n}^\infty)f(t)k_\lambda\qty(x_n-\delta-t)\ddt                                       \\
+                & <\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n}^\infty)k_\lambda\qty(x_n-\delta-t)\ddt                                                                   \\
+                & \quad+\frac{1}{\sqrt{2\piup}}\int_{x_n-2\delta}^{x_n}\qty(L-\frac{\varepsilon}2)k_\lambda\qty(x_n-\delta-t)\ddt                                                              \\
+                & <\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^{-\delta}+\int_{\delta}^\infty)k_\lambda(u)\dd{u}+\frac{2L-\varepsilon}{2\sqrt{2\piup}}\int_{-\delta}^{\delta}k_\lambda(u)\dd{u}.
             \end{align*}
             Letting \(\lambda\to\infty\), we have similarly that \[\lim_{n\to\infty}(f*k_\lambda)\qty(x_n-\delta)\leq L-\frac{\varepsilon}2,\] contradicting \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n-\delta)=L\).
     \end{enumerate}
@@ -8252,26 +8290,45 @@ The two kernels are related by a angular unitary Fourier transform:
             c & t\geq 0, \\
             0 & t<0.
     \end{cases}\]
-    The convergence of \cref{eq:wienerikehara_laplacetransform} implies that for \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt\] converges. Since \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of \cref{lem:wienerikehara_kernels_fouriertransform}, that
+    The convergence of \cref{eq:wienerikehara_laplacetransform} implies that for
+    \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt\] converges. Since \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of
+    \cref{lem:wienerikehara_kernels_fouriertransform}, that
     \begin{align*}
-        I_{\lambda,\varepsilon}(x)&=\frac{1}{2\piup}\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\varepsilon t}}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii(x-t)y}\ddy\ddt\\
-        &=\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\int_0^\infty\frac{a(t)-A(t)}{\ee^{(\varepsilon+\ii y)t}}\ddt\ddy\\
-        &=\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\qty[\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}]\ddy.
+        I_{\lambda,\varepsilon}(x) & =\frac{1}{2\piup}\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\varepsilon t}}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii(x-t)y}\ddy\ddt             \\
+        & =\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\int_0^\infty\frac{a(t)-A(t)}{\ee^{(\varepsilon+\ii y)t}}\ddt\ddy                 \\
+        & =\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\qty[\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}]\ddy.
     \end{align*}
     Now \(\forall\varepsilon'>0\), by the local uniform convergence of \(g\) in \cref{eq:wienerikehara_gfunction}, there exists some \(\delta>0\) such that \[\forall\abs{y}<2\lambda,\quad\abs{\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}-g(y)}<\frac{\piup\varepsilon'}{\lambda}.\] Hence, we have that \[\abs{I_{\lambda,\varepsilon}(x)-\frac1{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}g(y)\ddy}\leq\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\frac{\piup\varepsilon'}{\lambda}\ddy=\varepsilon'.\] Therefore, \[\lim_{\varepsilon\to 0^+}I_{\lambda,\varepsilon}(x)=\frac1{2\piup}\int_{-2\lambda}^{2\lambda} K_\lambda(y)\ee^{\ii xy}g(y)\ddy,\] or when the limit is exchanged with the integral. By parts, we have that \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac{1}{2\piup}\qty(\eval{K_\lambda(y)g(y)\frac{\ee^{\ii x y}}{\ii x}}_{-2\lambda}^{2\lambda}-\frac{1}{\ii x}\int_{-2\lambda}^{2\lambda}\qty(K_\lambda g)'(y)\ee^{\ii xy}\ddy).\]
-    This implies that \(\lim_{x\to+\infty}\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)\equiv 0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\piup}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\] The Lebesgue's dominated convergence theorem then gives \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac1{\sqrt{2\piup}}\int_0^\infty k_\lambda(x-t)\qty(a(t)-A(t))\ddt=(a*k_\lambda-A*k_\lambda)(x)\to0\] as \(x\to+\infty\). Since \((A*k_\lambda)(x)=c\) for all \(x\), we have that
+    This implies that
+    \(\lim_{x\to+\infty}\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)\equiv
+    0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\piup}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\] The Lebesgue's dominated convergence theorem then gives \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac1{\sqrt{2\piup}}\int_0^\infty k_\lambda(x-t)\qty(a(t)-A(t))\ddt=(a*k_\lambda-A*k_\lambda)(x)\to0\] as \(x\to+\infty\). Since \((A*k_\lambda)(x)=c\) for all \(x\), we have that
     \begin{equation}
         \lim_{x\to+\infty}(a*k_\lambda)(x)=c.\label{eq:wienerikehara_convolutionlimit}
     \end{equation}
-    Therefore, \(\exists x_0>0\) such that \[\qty(a*k_\lambda)(x)<c+1\implies\frac{1}{\piup}\int_{-\infty}^\infty\qty(\frac{\sin t}{t})^2a\qty(x-\frac t\lambda)\ddt<c+1\] for all \(x>x_0\). Substituting \(x+\frac2{\sqrt{\lambda}}\) for \(x\) in the integral, we have (after further restricting the integration bounds, which preserve the inequality)
+    Therefore, \(\exists x_0>0\) such that \[\qty(a*k_\lambda)(x)<c+1\implies\frac{1}{\piup}\int_{-\infty}^\infty\qty(\frac{\sin t}{t})^2a\qty(x-\frac t\lambda)\ddt<c+1\] for all \(x>x_0\). Substituting \(x+\frac2{\sqrt{\lambda}}\) for \(x\) in the
+    integral, we have (after further restricting the integration bounds, which
+    preserve the inequality)
     \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2a\qty(x+\frac{2\sqrt{\lambda}-t}\lambda)\ddt<\piup(c+1)\]
-    Since \(\ee^{u}a(u)=f(u)\) (for \(u=x+\frac{2\sqrt{\lambda}-t}\lambda>0\)) is non-decreasing in \(u\), it is bounded below by \(f\qty(x+\frac{\sqrt{\lambda}}\lambda)>f(x)\). Thus, we have \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\exp\qty(\frac{t-2\sqrt{\lambda}}{\lambda}-x)f\qty(x)\ddt<\piup\qty(c+1),\] implying that \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ee^{\frac{t-2\sqrt{\lambda}}{\lambda}}a\qty(x)\ddt<\piup\qty(c+1)\implies a(x)\ee^{-\frac{3}{\sqrt{\lambda}}}\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ddt<\piup(c+1),\]
-    which is satisfied for all \(\lambda>0\) and \(x>x_0\). Letting \(\lambda\to\infty\), we have that \(a(x)<c+1\). Compactness shows that \(a\) is bounded on \([0,x_0]\) (\cref{thm:continuousfunctionboundedoncompact}). Hence, \(a\) is bounded (above) on \(\mathbb{R}\) by some \(M>0\).
+    Since \(\ee^{u}a(u)=f(u)\) (for \(u=x+\frac{2\sqrt{\lambda}-t}\lambda>0\)) is
+    non-decreasing in \(u\), it is bounded below by
+    \(f\qty(x+\frac{\sqrt{\lambda}}\lambda)>f(x)\). Thus, we have \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\exp\qty(\frac{t-2\sqrt{\lambda}}{\lambda}-x)f\qty(x)\ddt<\piup\qty(c+1),\] implying that \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ee^{\frac{t-2\sqrt{\lambda}}{\lambda}}a\qty(x)\ddt<\piup\qty(c+1)\implies a(x)\ee^{-\frac{3}{\sqrt{\lambda}}}\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ddt<\piup(c+1),\]
+    which is satisfied for all \(\lambda>0\) and \(x>x_0\). Letting
+    \(\lambda\to\infty\), we have that \(a(x)<c+1\). Compactness shows that \(a\)
+    is bounded on \([0,x_0]\) (\cref{thm:continuousfunctionboundedoncompact}).
+    Hence, \(a\) is bounded (above) on \(\mathbb{R}\) by some \(M>0\).
 
-    The final hypothesis required is the slow decrease of \(a\): for any \(\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y>0\) with \(0<y-x<\delta\), we have \[a(y)-a(x)=\ee^{-x}\qty(\ee^{x-y}f(y)-f(x))>\ee^{-x}f(x)\qty(\ee^{-\delta}-1)=a(x)\qty(\ee^{-\delta}-1)>-M\qty(1-\ee^{-\delta}).\]
-    If \(\delta\) is chosen so that \(M\qty(1-\ee^{-\delta})<\varepsilon\), namely \(0<\delta<\ln\qty(\frac M{M-\varepsilon})\), then \(a(y)-a(x)>-\varepsilon\), and \(a\) then exhibits slow decrease.
+    The final hypothesis required is the slow decrease of \(a\): for any
+    \(\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y>0\) with
+    \(0<y-x<\delta\), we have \[a(y)-a(x)=\ee^{-x}\qty(\ee^{x-y}f(y)-f(x))>\ee^{-x}f(x)\qty(\ee^{-\delta}-1)=a(x)\qty(\ee^{-\delta}-1)>-M\qty(1-\ee^{-\delta}).\]
+    If \(\delta\) is chosen so that \(M\qty(1-\ee^{-\delta})<\varepsilon\), namely
+    \(0<\delta<\ln\qty(\frac M{M-\varepsilon})\), then \(a(y)-a(x)>-\varepsilon\),
+    and \(a\) then exhibits slow decrease.
 
-    The slow decrease, boundedness, and the condition in \cref{eq:wienerikehara_convolutionlimit} are sufficient by \cref{prop:wienerikehara_intermediatetauberiantheorem}, to show that \(\lim_{x\to+\infty}a(x)=c\), or equivalently, \(\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c\).
+    The slow decrease, boundedness, and the condition in
+    \cref{eq:wienerikehara_convolutionlimit} are sufficient by
+    \cref{prop:wienerikehara_intermediatetauberiantheorem}, to show that
+    \(\lim_{x\to+\infty}a(x)=c\), or equivalently,
+    \(\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c\).
 \end{proof}
 \begin{theorem}[name=\textscsl{Prime Number Theorem},store=thm:primenumber]\label{thm:primenumber}
     The prime counting function \(\pi(x)\) is asymptotically equal to \(\frac x{\log x}\), i.e., \(\lim_{x\to+\infty}\frac{\pi(x)\log x}x=1\).
