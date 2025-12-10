@@ -245,12 +245,14 @@ a point \(x\in(a,b)\) if the limit \[\lim_{\Delta x\to0}\frac{f(x+\Delta x)-f(x)
 \(f'(x)\) or \(\frac{\dd{f}}{\ddx}\). The value \(\dd{f}=f'(x)\ddx\) is the
 differential of \(f(x)\). Partition \([a,b]\) into
 \(a=x_0<x_1<x_2<\cdots<x_n=b\) such that the length of the intervals
-\([x_i,x_{i-1}]\) tends to 0 as \(n\to\infty\). If for any such partition, the
+\([x_i,x_{i-1}]\) vanishes (we let the norm of the partition, or the size of the largest interval, tend to zero) as \(n\to\infty\). If for any such partition, the
 sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\) (as the length of the
 largest partition approaches 0), then the function can be roughly said to be
-integrable over \([a,b]\). The full details of Riemann integrability relate to
-the upper and lower Riemann sums and will not be discussed here. The value of
-this sum is denoted by \[\int_a^bf(x)\dd{x}.\] The following theorems are the fundamental results of classical calculus:
+integrable over \([a,b]\). The full details of Riemann integrability are simplified by the use of Darboux sums and will not be discussed here. The value of
+this sum is denoted by \[\int_a^bf(x)\dd{x}.\]
+We will attempt to avoid notions involving Lebesgue integration. However it is important to note that every Riemann integrable function is also Lebesgue integrable, and the two integrals are equal. Therefore, we will use Lebesgue integral theorems (where the resultant integral is Riemann integrable) when necessary without further mention of the Lebesgue integral itself.
+
+The following theorems are the fundamental results of classical calculus:
 \begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
     Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
     \[\Phi(x)=\int_a^x f(t)\dd{t}.\]
@@ -455,21 +457,25 @@ It is important to note that in the case of multiple \emph{explicit} variables, 
     A continuous function on a compact set \(K\) is uniformly continuous on \(K\).
 \end{theorem}
 \begin{proof}
-    Suppose for contradiction that \(f:K\to\mathbb{R}\) is continuous but not uniformly continuous on compact \(K\). Then \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in K\) with \(|x-y|<\delta\) and \(|f(x)-f(y)|\geq\varepsilon\).
-
-    In particular, \(\forall n\in\mathbb{N}\), let \(\delta=\frac{1}{n}\). Then
-    \(\exists x_n,y_n\in K\) such that \(|x_n-y_n|<\frac{1}{n}\) and
-    \(|f(x_n)-f(y_n)|\geq\varepsilon\). Since \(K\) is compact, the sequence
-    \(\cbraces{x_n}\) has a convergent subsequence \(x_{n_k}\to x_{n_\infty}\in
-    K\). Because \(\qty|x_{n_k}-y_{n_k}|<\frac{1}{n_k}\to 0\), we also have
-    \(y_{n_k}\to x_{n_\infty}\).
-
-    By continuity, \(f(x_{n_k})\to f\paren{x_{n_\infty}}\) and \(f(y_{n_k})\to
-    f\paren{x_{n_\infty}}\), so \(\qty|f(x_{n_k})-f(y_{n_k})|\to 0\), contradicting
-    \(\qty|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon\). Therefore, \(f\) is uniformly
-    continuous on \(K\).
+    Fix \(x\in K\). Since \(f\) is continuous at \(x\), for every
+    \(\varepsilon>0\) there exists \(\delta_x>0\) such that for all \(\zeta\in D\qty(x,
+    \delta_x)\cap K\),
+    \begin{equation}\label{eq:heinecantor_pointwise}
+        \abs{f(\zeta)-f(x)}<\frac{\varepsilon}2.
+    \end{equation}
+    The collection of open balls \(\cbraces{D\qty(x,\frac{\delta_x}{2})}_{x\in K}\) forms an open cover of the compact set \(K\). By Heine--Borel (\cref{thm:heineborel}), there is a finite subcover
+    \[\cbraces{D\qty(x_k,\frac{\delta_{x_k}}{2})}_{k=1}^n.\]
+    Set
+    \[\delta=\min_{1\leq k\leq n}\frac{\delta_{x_k}}2.\]
+    Now let \(x,y\in K\) satisfy \(\abs{x-y}<\delta\). Then there exists an index \(j\in\cbraces{1,\dots,n}\) such that \(x\in D\qty(x_j,\frac{\delta_{x_j}}{2})\). Consequently,
+    \[\abs{x_j-y}\leq\abs{x_j-x}+\abs{x-y}<\frac{\delta_{x_j}}{2}+\delta\leq \delta_{x_j}.\]
+    Applying \cref{eq:heinecantorpointwise} to the points \(x\) and \(y\) through \(x_j\), we obtain
+    \[\abs{f(x_j)-f(x)}<\frac{\varepsilon}{2},\qquad\abs{f(x_j)-f(y)}<\frac{\varepsilon}{2}.\]
+    Therefore,
+    \[\abs{f(x)-f(y)}\leq\abs{f(x)-f(x_j)}+\abs{f(x_j)-f(y)}
+    <\varepsilon.\]
+    Since \(\varepsilon>0\) was arbitrary, the uniform continuity of \(f\) on \(K\) follows.
 \end{proof}
-A more general version of this proof can be achieved by using the Heine--Borel Theorem (\cref{thm:heineborel}) analogously to the proof of \cref{thm:heinecantorfamily}.
 \begin{definition}
     A function \(f\) is Lipschitz continuous over \(U\) if \(\exists M\in\mathbb{R}_{\geq0}\) such that \(\forall x,y \in U\), \(\abs{f(x)-f(y)} \leq M\abs{x-y}\). The smallest possible \(M\) satisfying the above condition is known as the Lipschitz constant.
 \end{definition}
@@ -490,22 +496,6 @@ Lipschitz continuity is an important concept in real analysis and the theory of 
     and \(y\) such that \(f(x)-f(y)=f'(c)(x-y)\). Then,
     \(|f(x)-f(y)|=|f'(c)||x-y|\leq M|x-y|\), which means \(f\) is Lipschitz
     continuous with Lipschitz constant less than or equal to \(M\).
-\end{proof}
-We will now give statements relating to operations on Riemann integrals:
-\begin{lemma}\label{lem:integralwithparameterproperties}
-    Let \(f(x,u)\) be a continuous complex function on the rectangle defined by \(a\leq x\leq b\), \(\alpha\leq u\leq\beta\) (where \(a<b\), \(\alpha<\beta\)). Then,
-    \begin{enumerate}
-        \item For an arbitrary point \(u_0\in [\alpha,\beta]\), we have \[\lim_{u\to u_0}\int_a^b f(x,u)\ddx=\int_a^b f\qty(x,u_0)\ddx.\]
-        \item The order of integration can be switched: \[\int_a^b\int_\alpha^\beta f(x,u)\dd{u}\ddx=\int_\alpha^\beta\int_a^b f(x,u)\ddx\dd{u}\]
-    \end{enumerate}
-\end{lemma}
-\begin{proof}
-    The second part is self-explanatory as it can be interpreted as an area integral. Let \[\varphi(u)=\int_a^b f(x,u)\ddx.\]
-    Since \(f(x,u)\) is continuous on a compact set in both \(x\) and \(u\), by
-    \cref{thm:heinecantor}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that
-    \(\forall\qty(x_1,u_1),\qty(x_2,u_2)\in[a,b]\times[\alpha,\beta]\) satisfying \[\abs{\qty(x_1-x_2,u_1-u_2)}<\delta,\]
-    we have \(\abs{f(x_1,u_1)-f(x_2,u_2)}<\frac{\varepsilon}{b-a}\). Then for
-    \(\abs{u-u_0}<\delta\), the integral difference can be bounded by \[\abs{\varphi(u)-\varphi\qty(u_0)}\leq\int_a^b\abs{f(x,u)-f\qty(x,u_0)}\ddx<\varepsilon.\qedhere\]
 \end{proof}
 \section{Complex Prerequisites}
 \subsection{The Extended Complex Plane and its Spherical Representation}
@@ -901,7 +891,7 @@ will now observe the convergence of power series.
     \begin{enumerate}
         \item \(f\) absolutely converges on \(D(0,R)\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\overline{D(0,\rho)}\).\label{itm:abelradius_absoluteanduniformconvergence}
         \item \(f(z)\) diverges when \(\abs{z}>R\).\label{itm:abelradius_divergence}
-        \item \(f\) is holomorphic over \(D(0,R)\) and \(f'(z)\) can be obtained by termwise differentiation, or \(f'(z)=\sum_{n=1}^\infty na_n z^{n-1}\), which also has the radius of convergence \(R\).\label{itm:abelradius_differentiation}
+        \item \(f\) is holomorphic over \(D(0,R)\) and \(f'(z)\) can be obtained by termwise differentiation, or \(f'(z)=\sum_{n=1}^\infty na_n z^{n-1}\), which also has a convergence radius of \(R\).\label{itm:abelradius_differentiation}
     \end{enumerate}
 \end{theorem}
 The disk \(\abs{z}<R\) is known as the \textscsl{disk of convergence}, a direct generalization of the \textscsl{interval of convergence} for real series. There are many ways to determine the radius of convergence:
