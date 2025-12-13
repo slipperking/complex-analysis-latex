@@ -468,9 +468,9 @@ It is important to note that in the case of multiple \emph{explicit} variables, 
     Now let \(x,y\in K\) satisfy \(\abs{x-y}<\delta\). Then there exists an index \(j\in\cbraces{1,\dots,n}\) such that \(x\in D\qty(x_j,\frac{\delta_{x_j}}{2})\). Consequently,
     \[\abs{x_j-y}\leq\abs{x_j-x}+\abs{x-y}<\frac{\delta_{x_j}}{2}+\delta\leq \delta_{x_j}.\]
     Applying \cref{eq:heinecantorpointwise} to the points \(x\) and \(y\) through \(x_j\), we obtain
-    \[\abs{f(x_j)-f(x)}<\frac{\varepsilon}{2},\qquad\abs{f(x_j)-f(y)}<\frac{\varepsilon}{2}.\]
+    \[\abs{f\qty(x_j)-f(x)}<\frac{\varepsilon}{2},\qquad\abs{f\qty(x_j)-f(y)}<\frac{\varepsilon}{2}.\]
     Therefore,
-    \[\abs{f(x)-f(y)}\leq\abs{f(x)-f(x_j)}+\abs{f(x_j)-f(y)}
+    \[\abs{f(x)-f(y)}\leq\abs{f(x)-f\qty(x_j)}+\abs{f\qty(x_j)-f(y)}
     <\varepsilon.\]
     Since \(\varepsilon>0\) was arbitrary, the uniform continuity of \(f\) on \(K\) follows.
 \end{proof}
@@ -7213,6 +7213,9 @@ Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
     is then holomorphic as it is given by a power series expansion, and it
     satisfies \(\widetilde{f}\equiv f\) on \(\Omega\).
 \end{proof}
+\begin{example}
+    Set \(r>0\) and let \[\Omega\qty(r)=B^n\setminus r\overline{B^n}=\cbraces{\vb{z}}{r<\norm{\vb{z}}<1}\] define a Reinhardt domain. Then any holomorphic function \(f:\Omega(r)\to\mathbb{C}\) can be analytically continued to the entire unit ball \(B^n\) by \cref{thm:hartogsextensiontheoremforreinhardtdomains}.
+\end{example}
 \section{Special Classes of Holomorphic Functions}
 \subsection{Elliptic Functions}
 The theory of elliptic functions is an elaborate chapter of complex analysis,
@@ -7509,7 +7512,18 @@ singularity \(\omega\in\Lambda\) is a pole of order two with residue 0 (by
 of \(\Lambda\) with vertices at \(0\), \(\omega_1\), \(\omega_2\), and
 \(\omega_1+\omega_2\), which by identification, are homeomorphic to a single
 point on the torus.
-
+\begin{proposition}
+    At \(z=0\), \(\wp\) has a double pole with Laurent expansion \[\frac{1}{z^2}+\sum_{n=1}^\infty c_nz^n,c_n=\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}}\] whose convergence annulus centered at \(0\) has an outer radius equal to the distance from \(0\) to the nearest period in \(\Lambda^*\).
+\end{proposition}
+\begin{proof}
+    Observe that for \(\abs{z}<\min_{\omega\in\Lambda^*}\abs{\omega}\), \(\omega\in\Lambda^*\), \[\frac{1}{\omega-z}=\frac{\frac1\omega}{1-\frac z\omega}=\frac1\omega\sum_{n=0}^\infty\qty(\frac z\omega)^n\implies\frac1{\qty(z-\omega)^2}=\frac1{\omega^2}\qty[\sum_{n=0}^\infty\qty(\frac z\omega)^n]^2.\] Therefore,
+    \begin{align*}
+        \wp(z) & =\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]=\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\qty[\frac{1}{\omega^2}\qty(\sum_{m=0}^\infty\qty(\frac z\omega)^m)^2-\frac{1}{\omega^2}] \\
+        & =\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\frac{1}{\omega^2}\qty[\sum_{m=0}^\infty(m+1)\qty(\frac z\omega)^m-1]=\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\sum_{m=1}^\infty\frac{m+1}{\omega^{m+2}}z^m\\
+        &=\frac{1}{z^2}+\sum_{m=1}^\infty\qty(\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}})z^m=\frac1{z^2}+\sum_{m=1}^\infty c_mz^m,
+    \end{align*} % TODO: JUSTIFY ABSOLUTE CONVERGENCE TO EXCHANGE SUMMATIONS.
+    where \(c_m=\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}}\). 
+\end{proof}
 \begin{definition}[Weierstrass \(\zeta\)-Function]
 
 \end{definition}
