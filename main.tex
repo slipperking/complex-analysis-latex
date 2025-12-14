@@ -7513,17 +7513,19 @@ of \(\Lambda\) with vertices at \(0\), \(\omega_1\), \(\omega_2\), and
 \(\omega_1+\omega_2\), which by identification, are homeomorphic to a single
 point on the torus.
 \begin{proposition}
-    At \(z=0\), \(\wp\) has a double pole with Laurent expansion \[\frac{1}{z^2}+\sum_{n=1}^\infty c_nz^n,c_n=\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}}\] whose convergence annulus centered at \(0\) has an outer radius equal to the distance from \(0\) to the nearest period in \(\Lambda^*\).
+    At \(z=0\), \(\wp\) has a double pole with Laurent expansion \[\frac{1}{z^2}+\sum_{n=1}^\infty c_{2n}z^{2n},\qquad c_{2n}=\sum_{\omega\in\Lambda^*}\frac{2n+1}{\omega^{2n+2}}\] whose convergence annulus centered at \(0\) has an outer radius equal to the distance from \(0\) to the nearest period in \(\Lambda^*\).
 \end{proposition}
 \begin{proof}
-    Observe that for \(\abs{z}<\min_{\omega\in\Lambda^*}\abs{\omega}\), \(\omega\in\Lambda^*\), \[\frac{1}{\omega-z}=\frac{\frac1\omega}{1-\frac z\omega}=\frac1\omega\sum_{n=0}^\infty\qty(\frac z\omega)^n\implies\frac1{\qty(z-\omega)^2}=\frac1{\omega^2}\qty[\sum_{n=0}^\infty\qty(\frac z\omega)^n]^2.\] Therefore,
+    Observe that for \(\abs{z}<R=\min_{\omega\in\Lambda^*}\abs{\omega}\), \(\omega\in\Lambda^*\), \[\frac{1}{\omega-z}=\frac{\frac1\omega}{1-\frac z\omega}=\frac1\omega\sum_{n=0}^\infty\qty(\frac z\omega)^n\implies\frac1{\qty(z-\omega)^2}=\frac1{\omega^2}\qty[\sum_{n=0}^\infty\qty(\frac z\omega)^n]^2.\] Therefore,
     \begin{align*}
         \wp(z) & =\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]=\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\qty[\frac{1}{\omega^2}\qty(\sum_{m=0}^\infty\qty(\frac z\omega)^m)^2-\frac{1}{\omega^2}] \\
         & =\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\frac{1}{\omega^2}\qty[\sum_{m=0}^\infty(m+1)\qty(\frac z\omega)^m-1]=\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\sum_{m=1}^\infty\frac{m+1}{\omega^{m+2}}z^m\\
         &=\frac{1}{z^2}+\sum_{m=1}^\infty\qty(\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}})z^m=\frac1{z^2}+\sum_{m=1}^\infty c_mz^m,
-    \end{align*} % TODO: JUSTIFY ABSOLUTE CONVERGENCE TO EXCHANGE SUMMATIONS.
-    where \(c_m=\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}}\). 
+    \end{align*}
+    where \(c_m=\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}}\). Indeed, since \[\abs{\sum_{\omega\in\Lambda^*}\sum_{m=1}^\infty\frac{m+1}{\omega^{m+2}}z^m}\leq\sum_{\omega\in\Lambda^*}\frac{2\abs{z\omega}-\abs{z}^2}{\qty(\abs{\omega}-\abs{z})^2\abs{\omega}^2}=\sum_{\omega\in\Lambda^*}\frac{\abs{z}\qty(2-\abs{\frac z\omega})}{\abs{\omega}^3\qty(\abs{\frac z\omega}-1)^2},\] which for \(\abs{\omega}>2R\) (which comprises all \(\omega\) except for finitely many) is bounded by \(\sum_{\substack{\omega\in\Lambda\\\abs{\omega}>2R}}\frac{10R}{\abs{\omega}^3}\) (estimates derived in the proof of \cref{prop:weierstrasspfunctionconvergence}), which is convergent by \cref{prop:weierstrasspfunctionintermediateseriesconvergence}. Hence, the series converges absolutely for \(\abs{z}<R\) and the summation exchange is valid. By the symmetry of the period lattice, it is trivial that \(c_{2m+1}=0\) for all \(m\in\mathbb{N}\). Hence, the assertion follows.
 \end{proof}
+Termwise differentiation (provided by \cref{thm:weierstrassconvergence}) now gives \[\wp'(z)=-\frac{2}{z^3}+\sum_{n=1}^\infty 2n c_{2n} z^{2n-1}.\] Letting \[b_m=\sum_{\omega\in\Lambda^*}\frac1{\omega^m},\] we have \[\wp(z)=\frac1{z^2}+3b_4z^2+5b_6z^4+7b_8z^6+\ldots,\quad\wp'(z)=-\frac2{z^3}+6b_4z+20b_6z^3+42b_8z^5+\ldots.\]
+
 \begin{definition}[Weierstrass \(\zeta\)-Function]
 
 \end{definition}
