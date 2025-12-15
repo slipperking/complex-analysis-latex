@@ -4,8 +4,9 @@
 \usepackage{amssymb, amsfonts, amsthm}
 \usepackage{parskip}
 \usepackage{cancel}
-\usepackage{tikz}
-\usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns, pgfplots.fillbetween}
 \usepackage{csquotes}
 \usepackage{pifont}
 \usepackage{xparse}
@@ -7559,11 +7560,38 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
     \item If \(\partial\Omega_1\) and \(\partial\Omega_2\) are real analytic (the boundary is parameterizable by functions such that at every point, there is a power series expansion that converge to the function on a neighborhood), then \(\varphi\) extends analytically past \(\partial\Omega_1\).
 \end{enumerate}
 \begin{theorem}[name=\textsc{Osgood--Taylor--Carathéodory},store=thm:osgoodtaylorcaratheodory]\label{thm:osgoodtaylorcaratheodory}
-    Suppose \(\Omega_1\) and \(\Omega_2\) are two regions in \(\mathbb{C}\) such that \(\partial\Omega_1\) and \(\Omega_2\) each comprises a single Jordan curve. If \(\varphi:\Omega_1\to\Omega_2\) is a biholomorphism (provided by the Riemann Mapping Theorem in \cref{thm:riemannmapping}), then \(\varphi\) extends continuously and injectively to \(\partial\Omega_1\).
+    Suppose that \(\Omega_1\) and \(\Omega_2\) are two bounded regions in \(\mathbb{C}\) such that \(\partial\Omega_1\) and \(\Omega_2\) each comprises a single Jordan curve. If \(\varphi:\Omega_1\to\Omega_2\) is a biholomorphism (provided by the Riemann Mapping Theorem in \cref{thm:riemannmapping}), then \(\exists\widetilde{\varphi}:\overline{\Omega_1}\to\overline{\Omega_2}\) continuous and injective such that \(\left.\widetilde{\varphi}\right|_{\Omega_1}\equiv\varphi\) (the restriction of \(\widetilde{\varphi}\) to \(\Omega_1\) agrees with \(\varphi\)).
 \end{theorem}
 \begin{remark}
     Note that the statement as is requires the regions to be bounded by a single Jordan curve. However, by the proof we present later, it will become clear that the result holds for regions bounded by finitely many Jordan curves as well.
 \end{remark}
+\begin{proof}
+    The theorem will be first proven in the case that \(\Omega_1\) is the unit disk \(\mathbb{D}\). The general case will then be reduced to this special case.
+
+    Let \(\mu_1,\mu_2:[0,1]\to\overline{\mathbb{D}}\) be two curves mapping \(1\) to \(1\) such that \(\mu_1([0,1)),\mu_1([0,1))\subset\mathbb{D}\). We now aim to show that \(\lim_{t\to 1^-}\varphi\qty(\mu_1(t))=\lim_{t\to 1^-}\varphi\qty(\mu_2(t))\) (existence and equality).
+
+    Let \(V=\mathbb{D}\cap D\qty(1,\frac12)\), which has a finite area. Since \(\varphi\) is a biholomorphism, \(\varphi(V)\subset\Omega_2\) also has a finite area (call this \(M\)).
+
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[thick, name path=A] plot[smooth cycle] coordinates {
+                (3.75,0.9) (2.1,2.55) (-1.2,0.75) (-1.5,-0.75) (-0.75,-1.5) (1.65,-1.35)
+            };
+
+            \draw[thick, name path=B] plot[smooth] coordinates {
+                (-1.51,-0.751)
+                (-1.1,-0.4) (-0.6,-0.7) (-0.2,-0.3) (0.4,-0.2)
+                (0.9,-0.8) (1.6499, -1.3501)
+            };
+            \tikzfillbetween[of=A and B, 
+            split, every segment no 1/.style={pattern=north east lines}]{fill=none};
+            \node[anchor=north] at (0.2, 0.3) {\(\varphi(V)\)};
+            \node[anchor=north] at (2.6, -0.8) {\(\Omega_2\)};
+        \end{tikzpicture}
+        \caption{Possible positioning of \(\varphi(V)\) relative to \(\Omega_2\)}\label{fig:osgoodtaylorcaratheodory_phiofV}
+    \end{figure}Let \(K\subset\Omega_2\) be compact. Since \(\varphi^{-1}\) is continuous, it maps \(K\) to a compact set \(\varphi^{-1}(K)\). This implies that for any sequence \(\cbraces{z_j}_{j\in\mathbb{N}}\subset\mathbb{D}\) with accumulation points only in \(\partial\mathbb{D}\), \(\cbraces{\varphi\qty(z_j)}_{j\in\mathbb{N}}\) will have its accumulation points in \(\partial\Omega_2\) (because otherwise, there would be a subsequence of \(\cbraces{z_j}_{j\in\mathbb{N}}\) that converges to a point in \(\mathbb{D}\)). Therefore, \(\varphi(V)\) does not have relatively compact closure in \(\Omega_2\) (a representation of a possible configuration in \cref{fig:osgoodtaylorcaratheodory_phiofV}).
+\end{proof}
 \section{The Prime Number Theorem}
 The Riemann \(\zeta\)-function is one of the most important functions in
 analytic number theory due to its connection with the distribution of prime
