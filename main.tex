@@ -32,6 +32,11 @@
     \path (#1) -- (#2) coordinate[pos=0.25] (Pstart) coordinate[pos=0.75] (Pend);
     \draw[-{Stealth}, thick, black] (Pstart) -- (Pend);
 }
+\def\centerarc[#1](#2)(#3:#4:#5)%[options](center) (initial:final:radius)
+{
+    {\draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5);}
+    \path[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5);
+}
 
 \newcommand{\ddx}{\dd{x}}
 \newcommand{\ddy}{\dd{y}}
@@ -1039,7 +1044,7 @@ By taking the wedge product of the two basis complex differential forms, we get
     & =2\ii\ddx\wedge\ddy.
 \end{align*}
 Analogous to the real case, a 0-form is defined as a scalar-valued function in the form \(f\paren{z,\overline{z}}\), a 1-form in the form of \(\omega_0\ddz+\omega_1\dd{\overline{z}}\), and a 2-form as \(\omega_0\ddz\wedge\dd{\overline{z}}\). The exterior differential operator for this one-dimensional case is defined as \(\partial+\overline{\partial}\), where \(\partial=\ddz\wedge\pdv{}{z}\) and \(\overline{\partial}=\dd{\overline{z}}\wedge\pdv{}{\overline{z}}\). Occasionally, one will informally use \(\partial\) and \(\overline{\partial}\) as an abbreviation for \(\pdv{z}\) and \(\pdv{\overline{z}}\) respectively.
-\begin{example}
+\begin{example}\label{ex:holomorphicareaformula}
     For a compact region \(U\subset\mathbb{C}\) and a univalent function \(f:U\to\mathbb{C}\), the area of the image \(f(U)\) is equal to \[\int_{U}\abs{f'(z)}^2\dd{A}.\]
 \end{example}
 \begin{proof}
@@ -7568,29 +7573,127 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
 \begin{proof}
     The theorem will be first proven in the case that \(\Omega_1\) is the unit disk \(\mathbb{D}\). The general case will then be reduced to this special case.
 
-    Let \(\mu_1,\mu_2:[0,1]\to\overline{\mathbb{D}}\) be two curves mapping \(1\) to \(1\) such that \(\mu_1([0,1)),\mu_1([0,1))\subset\mathbb{D}\). We now aim to show that \(\lim_{t\to 1^-}\varphi\qty(\mu_1(t))=\lim_{t\to 1^-}\varphi\qty(\mu_2(t))\) (existence and equality).
+    Let \(\mu_1,\mu_2:[0,1]\to\overline{\mathbb{D}}\) be two curves such that \(\mu_1([0,1)),\mu_1([0,1))\subset\mathbb{D}\) and \(\mu_1(1)=1\), \(\mu_2(1)=1\) (as in \cref{fig:osgoodtaylorcaratheodory_unitdiskandVandmu}). We now aim to show that \(\lim_{t\to 1^-}\varphi\qty(\mu_1(t))=\lim_{t\to 1^-}\varphi\qty(\mu_2(t))\) (existence and equality).
 
-    Let \(V=\mathbb{D}\cap D\qty(1,\frac12)\), which has a finite area. Since \(\varphi\) is a biholomorphism, \(\varphi(V)\subset\Omega_2\) also has a finite area (call this \(M\)).
+    Let \(V=\mathbb{D}\cap D\qty(1,\frac12)\), which has a finite area. Since \(\varphi\) is a biholomorphism, \(\varphi(V)\subset\Omega_2\) also has a finite area (call this \(M\)) and is simply connected since its complement in \(\Omega_2\), \(\varphi\qty(\mathbb{D}\setminus V)\), is connected.
 
     \begin{figure}
-        \centering
-        \begin{tikzpicture}
-            \draw[thick, name path=A] plot[smooth cycle] coordinates {
-                (3.75,0.9) (2.1,2.55) (-1.2,0.75) (-1.5,-0.75) (-0.75,-1.5) (1.65,-1.35)
-            };
+        \centering\vspace{0pt}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \vspace{0pt}
+            \begin{tikzpicture}
+                \draw[thick, name path=A] (-1.875, 0) arc (180:-180:1.875);
+                \draw[thick, name path=B] (2.8125, 0) arc (0:360:0.9375);
+                \tikzfillbetween[of=A and B,
+                split, every segment no 1/.style={pattern=north east lines}]{fill=none};
+                \draw[thick, ->] plot[smooth] coordinates {
+                    (-0.5, 1.2)(-0.2, 0.8) (0.3,1) (0.6,0.9) (0.8,0.6) (0.9,0.4) (1.3,0.45) (1.875,0)
+                };
+                \node[anchor=north] at (1.3,0.2) {\(V\)};
+                \node[anchor=north] at (-0.4,-0.4) {\(\mu_2\)};
+                \node[anchor=north] at (0,0.8) {\(\mu_1\)};
+                \node[anchor=north] at (-1.7, -1.2) {\(\partial\mathbb{D}\)};
+                \draw[thick, ->] plot[smooth] coordinates {
+                    (-0.5, -0.9) (-0.9, -0.8) (-0.3, 0.1) (0.1,-0.5) (0.4,-0.8) (0.8,-0.4) (1.0,-0.5) (1.3,-0.6) (1.875,0)
+                };
+            \end{tikzpicture}
+            \caption{Configuration of \(V\), and possible \(\mu_1,\mu_2\).}
+            \label{fig:osgoodtaylorcaratheodory_unitdiskandVandmu}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \vspace{0pt}
+            \begin{tikzpicture}
+                \draw[thick, name path=A] plot[smooth cycle] coordinates {
+                    (3.6,0.9) (2.1,2.55) (-1.2,0.75) (-1.5,-0.75) (-1.1,-1.3) (-0.75,-1.5) (0.5,-1.4) (1.65,-1.35)
+                };
 
-            \draw[thick, name path=B] plot[smooth] coordinates {
-                (-1.51,-0.751)
-                (-1.1,-0.4) (-0.6,-0.7) (-0.2,-0.3) (0.4,-0.2)
-                (0.9,-0.8) (1.6499, -1.3501)
-            };
-            \tikzfillbetween[of=A and B, 
-            split, every segment no 1/.style={pattern=north east lines}]{fill=none};
-            \node[anchor=north] at (0.2, 0.3) {\(\varphi(V)\)};
-            \node[anchor=north] at (2.6, -0.8) {\(\Omega_2\)};
-        \end{tikzpicture}
-        \caption{Possible positioning of \(\varphi(V)\) relative to \(\Omega_2\)}\label{fig:osgoodtaylorcaratheodory_phiofV}
+                \draw[thick, name path=B] plot[smooth] coordinates {
+                    (-1.51,-0.751)
+                    (-1.1,-0.4) (-0.6,-0.5) (-0.1,0.2) (0.4,0.5)
+                    (0.9,0.1) (1.2, -0.2) (1.6499, -1.3501)
+                };
+                \tikzfillbetween[of=A and B,
+                split, every segment no 1/.style={pattern=north east lines}]{fill=none};
+                \node[anchor=north] at (0.2, -0.5) {\(\varphi(V)\)};
+                \node[anchor=north] at (2.6, -0.8) {\(\partial\Omega_2\)};
+            \end{tikzpicture}
+            \caption{Possible positioning of \(\varphi(V)\) relative to \(\Omega_2\).}\label{fig:osgoodtaylorcaratheodory_phiofV}
+        \end{minipage}
     \end{figure}Let \(K\subset\Omega_2\) be compact. Since \(\varphi^{-1}\) is continuous, it maps \(K\) to a compact set \(\varphi^{-1}(K)\). This implies that for any sequence \(\cbraces{z_j}_{j\in\mathbb{N}}\subset\mathbb{D}\) with accumulation points only in \(\partial\mathbb{D}\), \(\cbraces{\varphi\qty(z_j)}_{j\in\mathbb{N}}\) will have its accumulation points in \(\partial\Omega_2\) (because otherwise, there would be a subsequence of \(\cbraces{z_j}_{j\in\mathbb{N}}\) that converges to a point in \(\mathbb{D}\)). Therefore, \(\varphi(V)\) does not have relatively compact closure in \(\Omega_2\) (a representation of a possible configuration in \cref{fig:osgoodtaylorcaratheodory_phiofV}).
+
+    \begin{figure}
+        \centering\vspace{0pt}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \vspace{0pt}
+            \begin{tikzpicture}[>=stealth,
+                    arrow style/.style={
+                        postaction={decorate},
+                        decoration={markings, mark=at position 0.5 with {\arrow[scale=1]{Stealth}}}
+                }]
+                \draw[thick, name path=A] (-1.875, 0) arc (180:-180:1.875);
+                \draw[thick, name path=B] (2.8125, 0) arc (0:360:0.9375);
+                \draw[thick, name path=B] (2.8125, 0) arc (0:360:0.9375);
+                \centerarc[thick, name path=C](1.875,0)(99.1:260.9:0.6);
+
+                %\tikzfillbetween[of=A and B,split, every segment no 1/.style={pattern=north east lines}]{fill=none};
+                %\tikzfillbetween[of=A and C,split, every segment no 1/.style={pattern=north west lines}]{fill=none};
+                \node[circle, fill=black, inner sep=1pt, label={[xshift=-0.1cm]right:{\small\(1\)}}] at (1.875,0) {};
+                \node[anchor=north] at (0.7,0.2) {\small\(V\)};
+                \node[anchor=south] at (0,0.7) {\scriptsize\(-\theta_0(r)<\theta<\theta_0(r)\)};
+                \node[anchor=south] at (1.8,1.1) {\scriptsize\(-\theta_0(r)\)};
+                \node[anchor=north] at (1.8,-1.1) {\scriptsize\(\theta_0(r)\)};
+                \node[anchor=north] at (1.5,0.3) {\scriptsize\(\gamma_r\)};
+                \node[anchor=north] at (-1.6, -1.2) {\small\(\partial\mathbb{D}\)};
+                \draw[-{Stealth}] (1.8,-1.1) -- (1.8,-0.65);
+                \draw[-{Stealth}] (1.8,1.1) -- (1.8,0.65);
+                \draw[-{Stealth}] (0.3,0.75) -- (1.22,0.1);
+
+            \end{tikzpicture}
+            \caption{Possible configuration of \(\gamma_r\).}
+            \label{fig:osgoodtaylorcaratheodory_unitdiskandVandmu}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \vspace{0pt}
+            \begin{tikzpicture}
+                \draw[thick, name path=A] plot[smooth cycle] coordinates {
+                    (3.6,0.9) (2.1,2.55) (-1.2,0.75) (-1.5,-0.75) (-1.1,-1.3) (-0.75,-1.5) (0.5,-1.4) (1.65,-1.35)
+                };
+
+                \draw[thick, name path=B] plot[smooth] coordinates {
+                    (-1.51,-0.751)
+                    (-1.1,-0.4) (-0.6,-0.5) (-0.1,0.2) (0.4,0.5)
+                    (0.9,0.1) (1.2, -0.2) (1.6499, -1.3501)
+                };
+                \draw[thick, name path=C] plot[smooth] coordinates {
+                    (-1.11,-1.31) (-1,-0.8) (-0.5,-0.9) (-0.2,-0.5) (0.2,-0.7) (0.7, -1.1) (0.5,-1.41)
+                };
+                %\tikzfillbetween[of=A and B,split, every segment no 1/.style={pattern=north east lines}]{fill=none};
+                %\tikzfillbetween[of=A and C,split, every segment no 1/.style={pattern=north west lines}]{fill=none};
+                \node[anchor=north] at (0.5, 0.1) {\small\(\varphi(V)\)};
+                \node[anchor=north] at (2.6, -0.8) {\small\(\partial\Omega_2\)};
+            \end{tikzpicture}
+            \caption{Concept configuration of \(\varphi\qty(\gamma_r)\)}\label{fig:osgoodtaylorcaratheodory_subwedgeimage}
+        \end{minipage}
+    \end{figure}For \(0<r<\frac12\), we now introduce polar coordinates \((r,\theta)\) centered at \(1\) with angles offset by \(\piup\). Let \(\theta_0(r)\) be the supremum of \(\theta\) for fixed \(r\) such that \(1-r\ee^{\ii\theta}\in V\). Define \(\gamma_r:\qty(-\theta_0(r),\theta_0(r))\to V\) to be the curve with \(\theta\mapsto 1-r\ee^{\ii\theta}\) (as in \cref{fig:osgoodtaylorcaratheodory_unitdiskandVandmu}).
+    \begin{lemma}
+        Let \(l_r\) be the length of \(\varphi\circ\gamma_r\). Then \[\int_0^{\frac12}\frac{l_r^2}{\piup r}\dd{r}\] is finite.
+    \end{lemma}
+    \begin{proof}
+        Notice that \[l_r=\int_{\varphi\circ\gamma_r\qty(\qty[-\theta_0(r),\theta_0(r)])}\abs{\ddz}=\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\dv{\theta}\varphi\qty(1-r\ee^{\ii\theta})}\dd{\theta}=\int_{-\theta_0(r)}^{\theta_0(r)}r\abs{\varphi'\qty(1-r\ee^{\ii\theta})}\dd{\theta}.\] Hence, \begin{align*}
+            \int_0^{\frac12}\frac{l_r^2}{\piup r}\dd{r} & =&&\int_0^{\frac12}\frac{1}{\piup r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}r\dd{\theta}]^2\dd{r}\\
+            &=&&\int_0^{\frac12}\frac{1}{\piup r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}\sqrt{r}\sqrt{r}\dd{\theta}]^2\dd{r}\\
+            &\underset{\mathclap{\substack{\text{Cauchy}\\\text{Schwarz}}}}{\leq}&&\int_0^{\frac12}\frac{1}{\piup r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}]\qty[\int_{-\theta_0(r)}^{\theta_0(r)}r\dd{\theta}]\dd{r}\\
+            &\leq&& 2\int_0^{\frac12}\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}\dd{r}\\
+            &=&&2\iint_V\abs{\varphi'(z)}^2\dd{A}=M,
+        \end{align*}
+        where the last step uses the Jacobian matrix (see \cref{ex:holomorphicareaformula}). %TODO: clarify usage
+    \end{proof}
 \end{proof}
 \section{The Prime Number Theorem}
 The Riemann \(\zeta\)-function is one of the most important functions in
