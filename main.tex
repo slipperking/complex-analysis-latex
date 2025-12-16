@@ -1730,8 +1730,9 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
     Let \(f:\mathbb{C}\to\mathbb{C}\) be entire. Then, \(\forall z_0\in\mathbb{C}\), \(\forall R>0\), \(f\) is holomorphic over \(\overline{D\paren{z_0,R}}\). By \cref{thm:cauchysestimate}, \[\abs{f'\paren{z_0}}\leq\frac{M}{R},\] where \(M=\sup_{z\in\mathbb{C}}\abs{f(z)}\). By letting \(R\to\infty\),
     \(f'\paren{z_0}\) where \(z_0\) is any arbitrary value in \(\mathbb{C}\).
     Therefore, \(f(z)\) is constant.
-
-    Alternatively, let \(a,b\in\mathbb{C}\) be distinct and arbitrarily chosen. Let
+\end{proof}
+\begin{proof}[Alternative Proof]
+    Let \(a,b\in\mathbb{C}\) be distinct and arbitrarily chosen. Let
     \(f:\mathbb{C}\to\mathbb{C}\) be entire and bounded such that \(\abs{f}\leq M\)
     for some \(M>0\). Let \(R>\abs{a},\abs{b}\). Since \(a\neq b\),
     \(\exists\varepsilon>0\) such that
@@ -7564,6 +7565,9 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
     \item If \(\partial\Omega_1\) and \(\Omega_2\) are \(C^\infty\), then \(\varphi\) extends continuously and injectively to \(\partial\Omega_1\) and is \(C^\infty\) on \(\overline{\Omega_1}\).
     \item If \(\partial\Omega_1\) and \(\partial\Omega_2\) are real analytic (the boundary is parameterizable by functions such that at every point, there is a power series expansion that converge to the function on a neighborhood), then \(\varphi\) extends analytically past \(\partial\Omega_1\).
 \end{enumerate}
+\begin{example}
+    The biholomorphism \(\varphi:\mathbb{D}\to\mathbb{D}\cap\mathbb{H}^+\) defined by \[\varphi:z\mapsto\frac{1+\ii\sqrt{\frac{\ii(1-z)}{1+z}}}{1-\ii\sqrt{\frac{\ii(1-z)}{1+z}}}\] extends continuously but not differentiably to \(\pm1\). The boundary of \(\mathbb{D}\cap\mathbb{H}^+\) is piecewise \(C^\infty\).
+\end{example}
 \begin{theorem}[name=\textsc{Osgood--Taylor--Carathéodory},store=thm:osgoodtaylorcaratheodory]\label{thm:osgoodtaylorcaratheodory}
     Suppose that \(\Omega_1\) and \(\Omega_2\) are two bounded regions in \(\mathbb{C}\) such that \(\partial\Omega_1\) and \(\Omega_2\) each comprises a single Jordan curve. If \(\varphi:\Omega_1\to\Omega_2\) is a biholomorphism (provided by the Riemann Mapping Theorem in \cref{thm:riemannmapping}), then \(\exists\widetilde{\varphi}:\overline{\Omega_1}\to\overline{\Omega_2}\) continuous and injective such that \(\left.\widetilde{\varphi}\right|_{\Omega_1}\equiv\varphi\) (the restriction of \(\widetilde{\varphi}\) to \(\Omega_1\) agrees with \(\varphi\)).
 \end{theorem}
@@ -7681,19 +7685,24 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
             \caption{Concept configuration of \(\varphi\qty(\gamma_r)\)}\label{fig:osgoodtaylorcaratheodory_subwedgeimage}
         \end{minipage}
     \end{figure}For \(0<r<\frac12\), we now introduce polar coordinates \((r,\theta)\) centered at \(1\) with angles offset by \(\piup\). Let \(\theta_0(r)\) be the supremum of \(\theta\) for fixed \(r\) such that \(1-r\ee^{\ii\theta}\in V\). Define \(\gamma_r:\qty(-\theta_0(r),\theta_0(r))\to V\) to be the curve with \(\theta\mapsto 1-r\ee^{\ii\theta}\) (as in \cref{fig:osgoodtaylorcaratheodory_unitdiskandVandmu}).
-    \begin{lemma}
+    \begin{lemma}\label{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}
         Let \(l_r\) be the length of \(\varphi\circ\gamma_r\). Then \[\int_0^{\frac12}\frac{l_r^2}{\piup r}\dd{r}\] is finite.
     \end{lemma}
     \begin{proof}
-        Notice that \[l_r=\int_{\varphi\circ\gamma_r\qty(\qty[-\theta_0(r),\theta_0(r)])}\abs{\ddz}=\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\dv{\theta}\varphi\qty(1-r\ee^{\ii\theta})}\dd{\theta}=\int_{-\theta_0(r)}^{\theta_0(r)}r\abs{\varphi'\qty(1-r\ee^{\ii\theta})}\dd{\theta}.\] Hence, \begin{align*}
+        Notice that \[l_r=\int_{\varphi\circ\gamma_r\qty(\qty[-\theta_0(r),\theta_0(r)])}\abs{\ddz}=\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\dv{\theta}\varphi\qty(1-r\ee^{\ii\theta})}\dd{\theta}=\int_{-\theta_0(r)}^{\theta_0(r)}r\abs{\varphi'\qty(1-r\ee^{\ii\theta})}\dd{\theta}.\] Hence,
+        \begin{align*}
             \int_0^{\frac12}\frac{l_r^2}{\piup r}\dd{r} & =&&\int_0^{\frac12}\frac{1}{\piup r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}r\dd{\theta}]^2\dd{r}\\
             &=&&\int_0^{\frac12}\frac{1}{\piup r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}\sqrt{r}\sqrt{r}\dd{\theta}]^2\dd{r}\\
             &\underset{\mathclap{\substack{\text{Cauchy}\\\text{Schwarz}}}}{\leq}&&\int_0^{\frac12}\frac{1}{\piup r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}]\qty[\int_{-\theta_0(r)}^{\theta_0(r)}r\dd{\theta}]\dd{r}\\
-            &\leq&& 2\int_0^{\frac12}\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}\dd{r}\\
-            &=&&2\iint_V\abs{\varphi'(z)}^2\dd{A}=M,
+            &\leq&&\int_0^{\frac12}\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}\dd{r}\\
+            &=&&\iint_V\abs{\varphi'(z)}^2\dd{A}=M,
         \end{align*}
-        where the last step uses the Jacobian matrix (see \cref{ex:holomorphicareaformula}). %TODO: clarify usage
+        where the last step uses the Jacobian matrix (see \cref{ex:holomorphicareaformula}).
     \end{proof}
+    Assume that \(\exists c>0,\varepsilon>0\) such that \(l_r\geq c\) for all \(0<r<\varepsilon\). Then, this implies that \[\int_0^{\frac12}\frac{l_r^2}{\piup r}\dd{r}\geq\int_0^{\varepsilon}\frac{l_r^2}{\piup r}\dd{r}\geq\int_0^{\varepsilon}\frac{c^2}{\piup r}\dd{r}=\frac{c^2}{\piup}\int_0^\varepsilon\frac{\dd{r}}r,\] which is a divergent integral. This contradicts \cref{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}. Therefore, we must have \(\varliminf_{r\to 0^+}l_r=0\). Thus, there exists a sequence \(\cbraces{r_j}_{j\in\mathbb{N}}\subset\qty(0,\frac12)\) such that \(r_j\to 0\) and \(l_{r_j}\to 0\) as \(j\to\infty\).
+    \begin{proposition}
+        For each such \(r_j\) as above, the limits \[\lim_{\theta\to\theta_0(r_j)^-}\varphi\qty(1-r_j\ee^{\ii\theta})\qand\lim_{\theta\to-\theta_0(r_j)^+}\varphi\qty(1-r_j\ee^{\ii\theta})\] exist.
+    \end{proposition}
 \end{proof}
 \section{The Prime Number Theorem}
 The Riemann \(\zeta\)-function is one of the most important functions in
@@ -8438,7 +8447,7 @@ The two kernels are related by a angular unitary Fourier transform:
     Now \(\forall\varepsilon'>0\), by the local uniform convergence of \(g\) in \cref{eq:wienerikehara_gfunction}, there exists some \(\delta>0\) such that \[\forall\abs{y}<2\lambda,\quad\abs{\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}-g(y)}<\frac{\piup\varepsilon'}{\lambda}.\] Hence, we have that \[\abs{I_{\lambda,\varepsilon}(x)-\frac1{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}g(y)\ddy}\leq\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\frac{\piup\varepsilon'}{\lambda}\ddy=\varepsilon'.\] Therefore, \[\lim_{\varepsilon\to 0^+}I_{\lambda,\varepsilon}(x)=\frac1{2\piup}\int_{-2\lambda}^{2\lambda} K_\lambda(y)\ee^{\ii xy}g(y)\ddy,\] or when the limit is exchanged with the integral. By parts, we have that \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac{1}{2\piup}\qty(\eval{K_\lambda(y)g(y)\frac{\ee^{\ii x y}}{\ii x}}_{-2\lambda}^{2\lambda}-\frac{1}{\ii x}\int_{-2\lambda}^{2\lambda}\qty(K_\lambda g)'(y)\ee^{\ii xy}\ddy).\]
     This implies that
     \(\lim_{x\to+\infty}\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)\equiv
-    0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\piup}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\] The Lebesgue's dominated convergence theorem then gives \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac1{\sqrt{2\piup}}\int_0^\infty k_\lambda(x-t)\qty(a(t)-A(t))\ddt=(a*k_\lambda-A*k_\lambda)(x)\to0\] as \(x\to+\infty\). Since \((A*k_\lambda)(x)=c\) for all \(x\), we have that
+    0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\piup}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\] The Lebesgue's Dominated Convergence Theorem then gives \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac1{\sqrt{2\piup}}\int_0^\infty k_\lambda(x-t)\qty(a(t)-A(t))\ddt=(a*k_\lambda-A*k_\lambda)(x)\to0\] as \(x\to+\infty\). Since \((A*k_\lambda)(x)=c\) for all \(x\), we have that
     \begin{equation}
         \lim_{x\to+\infty}(a*k_\lambda)(x)=c.\label{eq:wienerikehara_convolutionlimit}
     \end{equation}
