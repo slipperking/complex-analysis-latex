@@ -2388,7 +2388,7 @@ To discuss the main topic of this section, we will first introduce the concept o
     A \textscsl{subgroup} \(H\) of \(G\) is a subset of \(G\) that is also a group under the same operation as \(G\). This relationship is denoted by \(H\leq G\) or \(H<G\) for \textscsl{proper subgroups}.
 \end{definition}
 
-Group operations are not necessarily commutative. If they are however,
+Group operations are not necessarily commutative. In the case that they are,
 (specifically if \(a,b\in G\Rightarrow a*b=b*a\)), then \(G\) is an
 \textscsl{abelian group}.
 
@@ -4272,7 +4272,7 @@ illustrated in \cref{fig:semicircularcontour}. In the presence of singularities
 on the contour itself, we can insert arc indentations around them, as shown in
 \cref{fig:indentedsemicircularcontour}.
 
-If \(f(z)\) is a constant multiple of \(f(z+\ii y)\) for some
+If \(f(z)\) is a constant multiple of \(f(z+\ii y)\) (a type of quasiperiodicity) for some
 \(y\in\mathbb{R}\), it is a strong indication to use a rectangular contour. If
 \(f(z)\) is a constant multiple of \(f\qty(z\ee^{\ii\tau})\) for some
 \(\tau\in\mathbb{R}\), a wedge-shaped contour is an appropriate choice.
@@ -7703,6 +7703,34 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
     \begin{proposition}
         For each such \(r_j\) as above, the limits \[\lim_{\theta\to\theta_0(r_j)^-}\varphi\qty(1-r_j\ee^{\ii\theta})\qand\lim_{\theta\to-\theta_0(r_j)^+}\varphi\qty(1-r_j\ee^{\ii\theta})\] exist.
     \end{proposition}
+    \begin{proof}
+        Since \(l_{r_j}\) is finite, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that for \(\theta>\theta_0\qty(r_j)-\delta\), \[\int_\theta^{\theta_0\qty(r_j)}r\abs{\varphi'\qty(1-r\ee^{\ii\vartheta})}\dd{\vartheta}.\] Then for any \(\theta',\theta''\in\qty(\theta_0(r)-\delta,\theta_0(r))\),
+        \begin{align*}
+            \abs{\varphi\qty(1-r\ee^{\ii\theta'})-\varphi\qty(1-r\ee^{\ii\theta''})}&\leq\operatorname{length}\qty(\varphi\qty(\gamma_r\qty([\theta', \theta'']))) \\
+            &= \int_{\theta'}^{\theta''}r\abs{\varphi'(1-r\ee^{\ii\vartheta})}\dd{\vartheta}< \varepsilon,
+        \end{align*}
+        implying that \(\cbraces{\varphi\qty(1-r\ee^{\ii\theta})}_{\theta\to\theta_0(r_j)^-}\) is Cauchy and hence convergent. The proof for the other limit follows symmetrically.
+    \end{proof}
+    \begin{lemma}
+        Let \(\tau=\partial\Omega_2\). Then there is a function \(\eta(\delta)\) defined for sufficiently small \(\delta\), such that \(\eta(\delta)\to 0\) as \(\delta\to 0^+\), such that for all \(a,b\in\tau\) satisfying \(\abs{a-b}\le\delta\), then there is exactly one curve in \(\tau\) with endpoints \(a\) and \(b\) with diameter \(\leq\eta(\delta)\).
+    \end{lemma}
+    \begin{proof}
+        Since \(\tau\) is a Jordan curve, it admits a homeomorphic parametrization \(\psi:S^1\to\tau\), and \(\psi\) is a bicontinuous bijection (onto its image) between compact Hausdorff spaces, so \(\psi^{-1}\) is continuous.
+
+        Since \(\psi^{-1}\) is uniformly continuous on the compact set \(\tau\), for every \(\varepsilon>0\) there exists \(\delta'>0\) such that if \(\abs{p-q}<\delta'\) with \(p,q\in\tau\), then \(\abs{\psi^{-1}(p)-\psi^{-1}(q)}<\varepsilon\).
+
+        In particular, choose \(\delta_0>0\) small enough so that whenever \(\abs{\psi(\zeta)-\psi(\zeta')}\leq\delta_0\), then \(\abs{\zeta-\zeta'}<2\).
+
+        Now define
+        \[\eta(\delta)=\sup\cbraces{\diam\rho}{\abs{\psi(\zeta)-\psi(\zeta')}\leq\delta}\]
+        for \(0<\delta\leq\delta_0\), where \(\rho=\psi(\sigma)\) and \(\sigma\subseteq S^1\) is the shorter arc connecting \(\zeta,\zeta'\in S^1\).
+
+        First, \(\eta(\delta)\to0\) as \(\delta\to0^+\); if not, there exists \(\varepsilon>0\) and a sequence \(\delta_n\to0^+\) with \(\eta\qty(\delta_n)\geq\varepsilon\). Then for each \(n\in\mathbb{N}\), there are \(\zeta_n,\zeta_n'\in S^1\) with \(\abs{\psi(\zeta_n)-\psi(\zeta_n')}\leq\delta_n\) such that the shorter arc on \(S^1\) between \(\zeta_n\) and \(\zeta_n'\) has image \(\rho_n\) with \(\diam\rho_n\geq\varepsilon\). By compactness of \(S^1\), we may assume (by passing to a subsequence if necessary) that \(\zeta_n\to\zeta\) and \(\zeta_n'\to\zeta'\). Then \(\psi(\zeta)=\lim_{n\to\infty}\psi(\zeta_n)=\lim_{n\to\infty}\psi(\zeta_n')=\psi(\zeta')\), so \(\zeta=\zeta'\). But then the images of the shorter arcs between each \(\zeta_n\) and \(\zeta_n'\) must have diameters tending to zero (by continuity), contradicting that \(\diam\rho_n\geq\varepsilon\).
+
+        To finish, choose \(0 < \delta_1 < \delta_0\) small enough that \(\eta(\delta_1) < \frac{1}{2} \diam \tau\) (possible since \(\eta(\delta) \to 0\) as \(\delta \to 0\) and \(\diam \tau > 0\)).
+
+        Then the assertion holds for all \(\delta\leq\delta_1\) with this \(\eta\): for \(a,b\in\tau\) with \(\abs{a-b}\leq\delta\leq\delta_1\), let \(\zeta,\zeta'\in S^1\) with \(\psi(\zeta)=a\), \(\psi\qty(\zeta')=b\). The shorter arc on \(S^1\) between \(\zeta,\zeta'\) has image \(\rho\) with \(\diam\rho\leq\eta(\delta)\). The other arc on \(\tau\) between \(a,b\) has diameter at least \[\diam\tau-\diam\rho>\diam\tau-\frac12\diam\tau=\frac12\diam\tau>\eta(\delta).\] Thus exactly one arc (the image of the shorter one on \(S^1\)) has diameter \(\leq\eta(\delta)\).
+    \end{proof}
 \end{proof}
 \section{The Prime Number Theorem}
 The Riemann \(\zeta\)-function is one of the most important functions in
