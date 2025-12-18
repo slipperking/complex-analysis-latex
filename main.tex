@@ -7626,7 +7626,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
             \end{tikzpicture}
             \caption{Possible positioning of \(\varphi(V)\) relative to \(\Omega_2\).}\label{fig:osgoodtaylorcaratheodory_phiofV}
         \end{minipage}
-    \end{figure}Let \(K\subset\Omega_2\) be compact. Since \(\varphi^{-1}\) is continuous, it maps \(K\) to a compact set \(\varphi^{-1}(K)\). This implies that for any sequence \(\cbraces{z_j}_{j\in\mathbb{N}}\subset\mathbb{D}\) with accumulation points only in \(\partial\mathbb{D}\), \(\cbraces{\varphi\qty(z_j)}_{j\in\mathbb{N}}\) will have its accumulation points in \(\partial\Omega_2\) (because otherwise, there would be a subsequence of \(\cbraces{z_j}_{j\in\mathbb{N}}\) that converges to a point in \(\mathbb{D}\)). Therefore, \(\varphi(V)\) does not have relatively compact closure in \(\Omega_2\) (a representation of a possible configuration in \cref{fig:osgoodtaylorcaratheodory_phiofV}).
+    \end{figure}Let \(K\subset\Omega_2\) be compact. Since \(\varphi^{-1}\) is continuous, it maps \(K\) to a compact set \(\varphi^{-1}(K)\) (a function providing the compactness of the preimage of every compact set is more generally known as \textscsl{proper}). This implies that for any sequence \(\cbraces{z_j}_{j\in\mathbb{N}}\subset\mathbb{D}\) with accumulation points only in \(\partial\mathbb{D}\), \(\cbraces{\varphi\qty(z_j)}_{j\in\mathbb{N}}\) will have its accumulation points in \(\partial\Omega_2\) (because otherwise, there would be a subsequence of \(\cbraces{z_j}_{j\in\mathbb{N}}\) that converges to a point in \(\mathbb{D}\)). Therefore, \(\varphi(V)\) does not have relatively compact closure in \(\Omega_2\) (a representation of a possible configuration in \cref{fig:osgoodtaylorcaratheodory_phiofV}).
 
     \begin{figure}
         \centering\vspace{0pt}
@@ -7700,7 +7700,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
         where the last step uses the Jacobian matrix (see \cref{ex:holomorphicareaformula}).
     \end{proof}
     Assume that \(\exists c>0,\varepsilon>0\) such that \(l_r\geq c\) for all \(0<r<\varepsilon\). Then, this implies that \[\int_0^{\frac12}\frac{l_r^2}{\piup r}\dd{r}\geq\int_0^{\varepsilon}\frac{l_r^2}{\piup r}\dd{r}\geq\int_0^{\varepsilon}\frac{c^2}{\piup r}\dd{r}=\frac{c^2}{\piup}\int_0^\varepsilon\frac{\dd{r}}r,\] which is a divergent integral. This contradicts \cref{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}. Therefore, we must have \(\varliminf_{r\to 0^+}l_r=0\). Thus, there exists a sequence \(\cbraces{r_j}_{j\in\mathbb{N}}\subset\qty(0,\frac12)\) such that \(r_j\to 0\) and \(l_{r_j}\to 0\) as \(j\to\infty\).
-    \begin{proposition}
+    \begin{proposition}\label{prop:osgoodtaylorcaratheodory_limitsexistence}
         For each such \(r_j\) as above, the limits \[\lim_{\theta\to\theta_0(r_j)^-}\varphi\qty(1-r_j\ee^{\ii\theta})\qand\lim_{\theta\to-\theta_0(r_j)^+}\varphi\qty(1-r_j\ee^{\ii\theta})\] exist.
     \end{proposition}
     \begin{proof}
@@ -7711,7 +7711,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
         \end{align*}
         implying that \(\cbraces{\varphi\qty(1-r\ee^{\ii\theta})}_{\theta\to\theta_0(r_j)^-}\) is Cauchy and hence convergent. The proof for the other limit follows symmetrically.
     \end{proof}
-    \begin{lemma}
+    \begin{lemma}\label{lem:osgoodtaylorcaratheodory_jordancurvearcdiameter}
         Let \(\tau=\partial\Omega_2\). Then there is a function \(\eta(\delta)\) defined for sufficiently small \(\delta\), such that \(\eta(\delta)\to 0\) as \(\delta\to 0^+\), such that for all \(a,b\in\tau\) satisfying \(\abs{a-b}\le\delta\), then there is exactly one curve in \(\tau\) with endpoints \(a\) and \(b\) with diameter \(\leq\eta(\delta)\).
     \end{lemma}
     \begin{proof}
@@ -7725,12 +7725,28 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
         \[\eta(\delta)=\sup\cbraces{\diam\rho}{\abs{\psi(\zeta)-\psi(\zeta')}\leq\delta}\]
         for \(0<\delta\leq\delta_0\), where \(\rho=\psi(\sigma)\) and \(\sigma\subseteq S^1\) is the shorter arc connecting \(\zeta,\zeta'\in S^1\).
 
-        First, \(\eta(\delta)\to0\) as \(\delta\to0^+\); if not, there exists \(\varepsilon>0\) and a sequence \(\delta_n\to0^+\) with \(\eta\qty(\delta_n)\geq\varepsilon\). Then for each \(n\in\mathbb{N}\), there are \(\zeta_n,\zeta_n'\in S^1\) with \(\abs{\psi(\zeta_n)-\psi(\zeta_n')}\leq\delta_n\) such that the shorter arc on \(S^1\) between \(\zeta_n\) and \(\zeta_n'\) has image \(\rho_n\) with \(\diam\rho_n\geq\varepsilon\). By compactness of \(S^1\), we may assume (by passing to a subsequence if necessary) that \(\zeta_n\to\zeta\) and \(\zeta_n'\to\zeta'\). Then \(\psi(\zeta)=\lim_{n\to\infty}\psi(\zeta_n)=\lim_{n\to\infty}\psi(\zeta_n')=\psi(\zeta')\), so \(\zeta=\zeta'\). But then the images of the shorter arcs between each \(\zeta_n\) and \(\zeta_n'\) must have diameters tending to zero (by continuity), contradicting that \(\diam\rho_n\geq\varepsilon\).
+        First, \(\eta(\delta)\to0\) as \(\delta\to0^+\); if not, there exists \(\varepsilon>0\) and a sequence \(\delta_n\to0^+\) with \(\eta\qty(\delta_n)\geq\varepsilon\). Then for each \(n\in\mathbb{N}\), there are \(\zeta_n,\zeta_n'\in S^1\) with \(\abs{\psi(\zeta_n)-\psi(\zeta_n')}\leq\delta_n\) such that the shorter arc on \(S^1\) between \(\zeta_n\) and \(\zeta_n'\) has image \(\rho_n\) with \(\diam\rho_n\geq\varepsilon\). By compactness of \(S^1\), we may assume (by passing to a subsequence if necessary) that \(\zeta_n\to\zeta\) and \(\zeta_n'\to\zeta'\). Then \(\psi(\zeta)=\lim_{n\to\infty}\psi(\zeta_n)=\lim_{n\to\infty}\psi(\zeta_n')=\psi(\zeta')\), so \(\zeta=\zeta'\). But then the images of the shorter arcs between each \(\zeta_n\) and \(\zeta_n'\) must have diameters tending to zero (by continuity of \(\psi\)), contradicting that \(\diam\rho_n\geq\varepsilon\) for each \(n\).
 
         To finish, choose \(0 < \delta_1 < \delta_0\) small enough that \(\eta(\delta_1) < \frac{1}{2} \diam \tau\) (possible since \(\eta(\delta) \to 0\) as \(\delta \to 0\) and \(\diam \tau > 0\)).
 
-        Then the assertion holds for all \(\delta\leq\delta_1\) with this \(\eta\): for \(a,b\in\tau\) with \(\abs{a-b}\leq\delta\leq\delta_1\), let \(\zeta,\zeta'\in S^1\) with \(\psi(\zeta)=a\), \(\psi\qty(\zeta')=b\). The shorter arc on \(S^1\) between \(\zeta,\zeta'\) has image \(\rho\) with \(\diam\rho\leq\eta(\delta)\). The other arc on \(\tau\) between \(a,b\) has diameter at least \[\diam\tau-\diam\rho>\diam\tau-\frac12\diam\tau=\frac12\diam\tau>\eta(\delta).\] Thus exactly one arc (the image of the shorter one on \(S^1\)) has diameter \(\leq\eta(\delta)\).
+        Then the assertion holds for all \(\delta\leq\delta_1\) with this \(\eta\): for \(a,b\in\tau\) with \(\abs{a-b}\leq\delta\leq\delta_1\), let \(\zeta,\zeta'\in S^1\) with \(\psi(\zeta)=a\), \(\psi\qty(\zeta')=b\). The shorter arc on \(S^1\) between \(\zeta,\zeta'\) has image \(\rho\) with \(\diam\rho\leq\eta(\delta)\). The image of the other arc on \(\tau\), \(\widetilde{\rho}\) between \(a,b\) satisfies \[\diam\widetilde{\rho}+\diam\rho\geq\diam\tau,\] which is sufficient to imply that \[\diam\widetilde{\rho}\geq\diam\tau-\diam\rho>\diam\tau-\frac12\diam\tau=\frac12\diam\tau>\eta(\delta).\] Thus, exactly one arc's image (specifically, the image of the shorter arc on \(S^1\)) has diameter \(\leq\eta(\delta)\).
     \end{proof}
+    By the uniqueness as described by \cref{lem:osgoodtaylorcaratheodory_jordancurvearcdiameter}, for any two points \(a,b\) sufficiently close together, we now identify the unique curve in \(\tau\) (joining \(a\) and \(b\)) with diameter less than \(\eta(\abs{a-b})\) as the \textit{smaller arc} of \(\tau\) joining \(a\) and \(b\), denoted by \(\tau_{a,b}\).
+    \begin{lemma}\label{lem:osgoodtaylorcaratheodory_twoalternatives}
+        Let \(\cbraces{r_j}_{j\in\mathbb{N}}\) be the sequence such that \(l_{r_j}\to 0\) as \(j\to\infty\) (in the discussion preceeding \cref{prop:osgoodtaylorcaratheodory_limitsexistence}). Then, for each \(j\in\mathbb{N}\), either
+        \begin{equation}
+            \Omega_2\ni a_j=\lim_{\theta\to\theta_0(r_j)^-}\varphi\qty(1-r_j\ee^{\ii\theta})\neq\lim_{\theta\to-\theta_0\qty(r_j)^+}\varphi\qty(1-r_j\ee^{\ii\theta})=b_j\in\partial\Omega_2\label{eq:osgoodtaylorcaratheodory_twoalternatives_differentpoints}
+        \end{equation} or
+        \begin{equation}
+            \lim_{\theta\to\theta_0(r_j)^-}\varphi\qty(1-r_j\ee^{\ii\theta})=\lim_{\theta\to-\theta_0\qty(r_j)^+}\varphi\qty(1-r_j\ee^{\ii\theta})=p_j\in\partial\Omega_2\label{eq:osgoodtaylorcaratheodory_twoalternatives_samepoint}
+        \end{equation} is satisfied.
+    \end{lemma}
+    \begin{proof}
+        By virtue of \cref{prop:osgoodtaylorcaratheodory_limitsexistence}, both described limits exist. Similarly, since any sequences \(\cbraces{1-r_j\ee^{\ii\theta}}_{\theta\to\theta_0(r_j)^-}\) and \(\cbraces{1-r_j\ee^{\ii\theta}}_{\theta\to-\theta_0(r_j)^+}\) approach the boundary \(\partial\mathbb{D}\), their images under \(\varphi\) approach \(\partial\Omega_2\) by properness (refer to the discussions preceeding \cref{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}). Therefore, both limits must lie in \(\partial\Omega_2\), and the conclusion follows.
+    \end{proof}
+    For fixed \(r_j\), in the case of \cref{eq:osgoodtaylorcaratheodory_twoalternatives_differentpoints}, let \(\varphi\qty(\gamma_{r_j})\) be the described curve joining \(a_j\) and \(b_j\) (where \(\gamma_{r_j}\) is represented by the arc as labeled in \cref{fig:osgoodtaylorcaratheodory_subwedgeimage}). The shorter arc on \(\Omega_2\) joining the two points \(a_j\) and \(b_j\) is denoted by \(\tau_{a_j,b_j}\). Except for the two boundary points, the curve \(\varphi\qty(\gamma_{r_j})\) lies entirely in \(\Omega_2\) since \(\gamma_{r_j}\subset V\subset\mathbb{D}\). Therefore, the curve \(\varphi\qty(\gamma_{r_j})\cup\tau_{a_j,b_j}\) forms a Jordan curve (simplicity by injectivity).
+
+    In the event that \cref{eq:osgoodtaylorcaratheodory_twoalternatives_samepoint} is assumed, \(\varphi\qty(\gamma_{r_j})\qty(\cup\cbraces{p_j})\) forms a Jordan curve. By the Jordan Curve Theorem (\cref{thm:jordancurve}), the selected curve bounds a region, denoted by \(W_j\subseteq\Omega_2\).
 \end{proof}
 \section{The Prime Number Theorem}
 The Riemann \(\zeta\)-function is one of the most important functions in
