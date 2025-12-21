@@ -6924,7 +6924,7 @@ In preparation, we will introduce several relevant concepts.
     \[\vb{v}_1^\dagger\vb{Uw}=\qty(\vb{U}^\dagger\vb{v}_1)^\dagger\vb{w}=\qty(\overline{\lambda_1}\vb{v}_1)^\dagger\vb{w}=\lambda_1\vb{v}_1^\dagger\vb{w}=0,\]
     so \(\vb{Uw}\in\vb{v}_1^\perp\). Hence \(\vb{v}_1^\perp\) is invariant under
     \(\vb{U}\). The restriction of \(\vb{U}\) to \(\vb{v}_1^\perp\),
-    \(\left.\vb{U}\right|_{\vb{v}_1^\perp}\), yields another eigenvalue
+    \(\vb{U}{\restriction_{\vb{v}_1^\perp}}\), yields another eigenvalue
     \(\lambda_2\in\partial\mathbb{D}\) with eigenvector
     \(\vb{v}_2\in\vb{v}_1^\perp\) satisfying \(\abs{\lambda_2}=1\) and
     \(\norm{\vb{v}_2}=1\). Similarly, we may define
@@ -7569,7 +7569,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
     The biholomorphism \(\varphi:\mathbb{D}\to\mathbb{D}\cap\mathbb{H}^+\) defined by \[\varphi:z\mapsto\frac{1+\ii\sqrt{\frac{\ii(1-z)}{1+z}}}{1-\ii\sqrt{\frac{\ii(1-z)}{1+z}}}\] extends continuously but not differentiably to \(\pm1\). The boundary of \(\mathbb{D}\cap\mathbb{H}^+\) is piecewise \(C^\infty\).
 \end{example}
 \begin{theorem}[name=\textsc{Osgood--Taylor--Carathéodory},store=thm:osgoodtaylorcaratheodory]\label{thm:osgoodtaylorcaratheodory}
-    Suppose that \(\Omega_1\) and \(\Omega_2\) are two bounded regions in \(\mathbb{C}\) such that \(\partial\Omega_1\) and \(\Omega_2\) each comprises a single Jordan curve. If \(\varphi:\Omega_1\to\Omega_2\) is a biholomorphism (provided by the Riemann Mapping Theorem in \cref{thm:riemannmapping}), then \(\exists\widetilde{\varphi}:\overline{\Omega_1}\to\overline{\Omega_2}\) continuous and injective such that \(\left.\widetilde{\varphi}\right|_{\Omega_1}\equiv\varphi\) (the restriction of \(\widetilde{\varphi}\) to \(\Omega_1\) agrees with \(\varphi\)).
+    Suppose that \(\Omega_1\) and \(\Omega_2\) are two bounded regions in \(\mathbb{C}\) such that \(\partial\Omega_1\) and \(\Omega_2\) each comprises a single Jordan curve. If \(\varphi:\Omega_1\to\Omega_2\) is a biholomorphism (provided by the Riemann Mapping Theorem in \cref{thm:riemannmapping}), then \(\exists\widetilde{\varphi}:\overline{\Omega_1}\to\overline{\Omega_2}\) continuous and injective such that \(\widetilde{\varphi}{\restriction_{\Omega_1}}\equiv\varphi\) (the restriction of \(\widetilde{\varphi}\) to \(\Omega_1\) agrees with \(\varphi\)).
 \end{theorem}
 \begin{proof}
     The theorem will be first proven in the case that \(\Omega_1\) is the unit disk \(\mathbb{D}\). The general case will then be reduced to this special case.
@@ -7655,7 +7655,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
 
             \end{tikzpicture}
             \caption{Possible configuration of \(\gamma_r\).}
-            \label{fig:osgoodtaylorcaratheodory_unitdiskandVandmu}
+            \label{fig:osgoodtaylorcaratheodory_gammarconfiguration}
         \end{minipage}
         \hfill
         \begin{minipage}{0.45\textwidth}
@@ -7682,7 +7682,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
             \end{tikzpicture}
             \caption{Concept configuration of \(\varphi\qty(\gamma_r)\)}\label{fig:osgoodtaylorcaratheodory_subwedgeimage}
         \end{minipage}
-    \end{figure}For \(0<r<\frac12\), we now introduce polar coordinates \((r,\theta)\) centered at \(1\) with angles offset by \(\piup\). Let \(\theta_0(r)\) be the supremum of \(\theta\) for fixed \(r\) such that \(1-r\ee^{\ii\theta}\in V\). Define \(\gamma_r:\qty(-\theta_0(r),\theta_0(r))\to V\) to be the curve with \(\theta\mapsto 1-r\ee^{\ii\theta}\) (as in \cref{fig:osgoodtaylorcaratheodory_unitdiskandVandmu}).
+    \end{figure}For \(0<r<\frac12\), we now introduce polar coordinates \((r,\theta)\) centered at \(1\) with angles offset by \(\piup\). Let \(\theta_0(r)\) be the supremum of \(\theta\) for fixed \(r\) such that \(1-r\ee^{\ii\theta}\in V\). Define \(\gamma_r:\qty(-\theta_0(r),\theta_0(r))\to V\) to be the curve with \(\theta\mapsto 1-r\ee^{\ii\theta}\) (as in \cref{fig:osgoodtaylorcaratheodory_gammarconfiguration}).
     \begin{lemma}\label{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}
         Let \(l_r\) be the length of \(\varphi\circ\gamma_r\). Then \[\int_0^{\frac12}\frac{l_r^2}{\piup r}\dd{r}\] is finite.
     \end{lemma}
@@ -7795,7 +7795,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
             \operatorname{area}W_j\leq\operatorname{area}D_j=\piup\qty(l_{r_j}+\eta\qty(l_{r_j}))^2\to0\label{eq:osgoodtaylorcaratheodory_vanishingareasanddiameters_areaestimation2}
         \end{equation} as \(j\to\infty\).
     \end{proof}
-    \begin{lemma}\label{lemma:osgoodtaylorcaratheodory_matchingareas}
+    \begin{lemma}\label{lem:osgoodtaylorcaratheodory_matchingareas}
         For sufficiently large \(j\in\mathbb{N}\), \(\varphi\qty(V_j)=W_j\).
     \end{lemma}
     \begin{proof}
@@ -7809,11 +7809,17 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
                 \Cref{prop:osgoodtaylorcaratheodory_vanishingareasanddiameters} implies that \[\operatorname{area}W_j\to 0\] as \(j\to\infty\). Hence, for sufficiently large \(j\), we cannot have \(\varphi\qty(T_j)\subseteq W_j\) (by the induced contradiction with \cref{eq:osgoodtaylorcaratheodory_matchingareas_areaestimation}). Therefore, \(\varphi\qty(T_j)=\Omega_2\setminus\overline{W_j}\) and \(\varphi\qty(V_j)=W_j\).
         \end{enumerate}
     \end{proof}
-    \begin{lemma}
-        If the curves \(\mu_1,\mu_2\)
+    \begin{lemma}\label{lem:osgoodtaylorcaratheodory_limitsexistenceandequality}
+        If the two complex curves \(\mu_1,\mu_2:[0,1]\to\overline{\mathbb{D}}\) map 1 to 1 such that \(\mu_1([0,1)),\mu_2([0,1))\subset\mathbb{D}\), then \[\lim_{t\to 1^-}\varphi\qty(\mu_1(t))=\lim_{t\to 1^-}\varphi\qty(\mu_2(t))\] exist and are equal.
     \end{lemma}
     \begin{proof}
-
+        By \cref{lem:osgoodtaylorcaratheodory_matchingareas} and \cref{prop:osgoodtaylorcaratheodory_vanishingareasanddiameters}, \(\exists j\in\mathbb{N}\) such that \(\diam W_j<\varepsilon\) and \(\varphi\qty(V_j)=W_j\). Since \(\mu_1(t),\mu_2(t)\to 1\) as \(t\to 1^-\), \(\exists S\in(0,1)\) such that \(\forall t:S<t<1\), \(\abs{\mu_1(t)-1}<r_j\) and \(\abs{\mu_2(t)-1}<r_j\). Recall the definition of \(V_j\) as the set of points \(\cbraces{1-r\ee^{\ii\theta}}{0<r<r_j,-\theta_0\qty(r)<\theta<\theta_0\qty(r)}\); then \(\mu_1(t),\mu_2(t)\in V_j\) for all \(S<t<1\). Therefore, \[\varphi\qty(\mu_1(t)),\varphi\qty(\mu_2(t))\in W_j\] for all \(S<t<1\). Then \[\abs{\varphi\qty(\mu_1(t))-\varphi\qty(\mu_2(t))}\leq\diam W_j<\varepsilon\] for all \(S<t<1\), thus equality is derived. Moreover, \(\bigcap_j W_j\) (shrinks to) is a single point, which is precisely the prescribed limit.
+    \end{proof}
+    \begin{corollary}
+        There is a continuous extension of \(\varphi\) to \(\partial\mathbb{D}\).
+    \end{corollary}
+    \begin{proof}
+        Let \(\zeta\in\partial\mathbb{D}\). Let \(\gamma:[0,1]\to\overline{\mathbb{D}}\) satisfy \(\varphi\qty([0,1))\in\mathbb{D}\) and \(\gamma(1)=1\). Suppose \(\varphi_\zeta:z\mapsto\varphi\circ\qty(z\zeta)\). Then by \cref{lem:osgoodtaylorcaratheodory_limitsexistenceandequality}, \(\lim_{t\to 1^-}\qty(\varphi_\zeta)\qty(\gamma(t))\) exists and is independent of the choice of \(\gamma\). Now define \(\widetilde{\varphi}(\zeta)\) to be the \textit{unique} value of this limit and let \(\widetilde{\varphi}{\restriction_{\mathbb{D}}}=\varphi\). % show this extension is cont.
     \end{proof}
 \end{proof}
 \section{The Prime Number Theorem}
