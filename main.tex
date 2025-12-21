@@ -7784,26 +7784,37 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
     In the event that \cref{eq:osgoodtaylorcaratheodory_twoalternatives_samepoint} is assumed, let \(\tau_j=\cbraces{p_j}\), and \(\varphi\qty(\gamma_{r_j})\qty(\cup\tau_j)\) forms a Jordan curve. By the Jordan Curve Theorem (\cref{thm:jordancurve}), the selected curve bounds a region, which we will denote by \(W_j\subseteq\Omega_2\).
 
     For each \(j\), let \(V_j=\cbraces{1-r\ee^{\ii\theta}}{0<r<r_j,-\theta_0\qty(r)<\theta<\theta_0\qty(r)}\). Since \(\varphi\qty(\gamma_{r_j})\) is a curve with endpoints \(a_j\) and \(b_j\) (or \(p_j\)) and lies in \(\Omega_2\) except for its endpoints, it splits \(\Omega_2\) into two disconnected regions, \(W_j\) or \(\Omega_2\setminus\overline{W_j}\). Since \(\gamma_{r_j}\) splits \(\mathbb{D}\) into two regions, one of which being \(V_j\), the image \(\varphi\qty(V_j)\) is either \(W_j\) or \(\Omega_2\setminus\overline{W_j}\).
-    \begin{lemma}
+    \begin{proposition}\label{prop:osgoodtaylorcaratheodory_vanishingareasanddiameters}
+        As \(j\to\infty\), \[\diam W_j\to 0\qand\operatorname{area}W_j\to 0.\]
+    \end{proposition}
+    \begin{proof}
+        \Cref{lem:osgoodtaylorcaratheodory_jordancurvearcdiameter} provides the existence of \(\eta\) such that \(\diam\tau_j\leq\eta\qty(l_{r_j})\) for sufficiently large \(j\) (since \(\abs{a_j-b_j}\leq l_{r_j}\) or 0 for the \(p_j\) case) such that \(\eta\qty(l_{r_j})\to 0\) as \(j\to\infty\).
+
+        Let \(D_j=D\qty(a_j,l_{r_j}+\eta\qty(l_{r_j}))\) (or \(D_j=D\qty(p_j,l_{r_j}+\eta\qty(l_{r_j}))\) in the case of the same point) for each \(j\). By the previous diameter estimate, the entire Jordan curve \(\varphi\qty(\gamma_{r_j})\cup\tau_j\) lies in \(D_j\), and hence \(W_j\subset D_j\). This implies that
+        \begin{equation}
+            \operatorname{area}W_j\leq\operatorname{area}D_j=\piup\qty(l_{r_j}+\eta\qty(l_{r_j}))^2\to0\label{eq:osgoodtaylorcaratheodory_vanishingareasanddiameters_areaestimation2}
+        \end{equation} as \(j\to\infty\).
+    \end{proof}
+    \begin{lemma}\label{lemma:osgoodtaylorcaratheodory_matchingareas}
         For sufficiently large \(j\in\mathbb{N}\), \(\varphi\qty(V_j)=W_j\).
     \end{lemma}
     \begin{proof}
         For fixed \(j\), let \(T_j\) be the complementary region of \(V_j\) in \(\mathbb{D}\) (as \(\mathbb{D}\setminus\overline{V_j}\)). Then for an arbitrary \(w_0\in W_j\), there exists a point \(z_0\in\mathbb{D}\) (specifically, either in \(T_j\) or \(V_j\)) such that \(\varphi(z_0)=w_0\).
         \begin{enumerate}
-        \item If \(z_0\in V_j\), then \(\varphi(z_0)\in W_j\) and connectivity suffices to ensure that \(\varphi\qty(V_j)=W_j\).
-        \item If \(z_0\in T_j\), then from \(\varphi(z_0)\in W_j\), connectivity implies that \(\varphi\qty(T_j)\subseteq W_j\). Now by the Lusin Area Theorem (\cref{thm:lusinarea}), \[\operatorname{area}\qty[\varphi\qty(T_j)]=\operatorname{area}\qty[\Omega_2]-\operatorname{area}\qty[\varphi\qty(V_j)]=\operatorname{area}\qty[\Omega_2]-\iint_{V_j}\abs{\varphi'(z)}\ddx\ddy.\] Since \(V_j\) shrinks to the empty set, \(\iint_{V_j}\abs{\varphi'(z)}\ddx\ddy\to 0\) as \(j\to\infty\), and hence 
-        \begin{equation}
-            \operatorname{area}\qty[\varphi\qty(T_j)]\to\operatorname{area}\qty[\Omega_2].\label{eq:osgoodtaylorcaratheodory_twoalternatives_areaestimation1}
-        \end{equation}
-        \Cref{lem:osgoodtaylorcaratheodory_jordancurvearcdiameter} provides the existence of \(\eta\) such that \(\diam\tau_j\leq\eta\qty(l_{r_j})\) for sufficiently large \(j\) (since \(\abs{a_j-b_j}\leq l_{r_j}\) or 0 for the \(p_j\) case) such that \(\eta\qty(l_{r_j})\to 0\) as \(j\to\infty\). 
-
-        Let \(D_j=D\qty(a_j,l_{r_j}+\eta\qty(l_{r_j}))\) (or \(D_j=D\qty(p_j,l_{r_j}+\eta\qty(l_{r_j}))\) in the case of the same point) for each \(j\). By the previous diameter estimate, the entire Jordan curve \(\varphi\qty(\gamma_{r_j})\cup\tau_j\) lies in \(D_j\), and hence \(W_j\subset D_j\). This implies that 
-        \begin{equation}
-            \operatorname{area}\qty[W_j]\leq\operatorname{area}\qty[D_j]=\piup\qty(l_{r_j}+\eta\qty(l_{r_j}))^2\to0\label{eq:osgoodtaylorcaratheodory_twoalternatives_areaestimation2}
-        \end{equation} as \(j\to\infty\). Hence, for sufficiently large \(j\), we cannot have \(\varphi\qty(T_j)\subseteq W_j\) (by the induced contradiction from \cref{eq:osgoodtaylorcaratheodory_twoalternatives_areaestimation1,eq:osgoodtaylorcaratheodory_twoalternatives_areaestimation2}). Therefore, \(\varphi\qty(T_j)=\Omega_2\setminus\overline{W_j}\) and \(\varphi\qty(V_j)=W_j\).
+            \item If \(z_0\in V_j\), then \(\varphi(z_0)\in W_j\) and connectivity suffices to ensure that \(\varphi\qty(V_j)=W_j\).
+            \item If \(z_0\in T_j\), then from \(\varphi(z_0)\in W_j\), connectivity implies that \(\varphi\qty(T_j)\subseteq W_j\). Now by the Lusin Area Theorem (\cref{thm:lusinarea}), \[\operatorname{area}\qty[\varphi\qty(T_j)]=\operatorname{area}\qty[\Omega_2]-\operatorname{area}\qty[\varphi\qty(V_j)]=\operatorname{area}\qty[\Omega_2]-\iint_{V_j}\abs{\varphi'(z)}\ddx\ddy.\] Since \(V_j\) shrinks to the empty set, \(\iint_{V_j}\abs{\varphi'(z)}\ddx\ddy\to 0\) as \(j\to\infty\), and hence
+                \begin{equation}
+                    \operatorname{area}\qty[\varphi\qty(T_j)]\to\operatorname{area}\qty[\Omega_2].\label{eq:osgoodtaylorcaratheodory_matchingareas_areaestimation}
+                \end{equation}
+                \Cref{prop:osgoodtaylorcaratheodory_vanishingareasanddiameters} implies that \[\operatorname{area}W_j\to 0\] as \(j\to\infty\). Hence, for sufficiently large \(j\), we cannot have \(\varphi\qty(T_j)\subseteq W_j\) (by the induced contradiction with \cref{eq:osgoodtaylorcaratheodory_matchingareas_areaestimation}). Therefore, \(\varphi\qty(T_j)=\Omega_2\setminus\overline{W_j}\) and \(\varphi\qty(V_j)=W_j\).
         \end{enumerate}
     \end{proof}
-    
+    \begin{lemma}
+        If the curves \(\mu_1,\mu_2\)
+    \end{lemma}
+    \begin{proof}
+
+    \end{proof}
 \end{proof}
 \section{The Prime Number Theorem}
 The Riemann \(\zeta\)-function is one of the most important functions in
