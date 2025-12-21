@@ -1044,9 +1044,9 @@ By taking the wedge product of the two basis complex differential forms, we get
     & =2\ii\ddx\wedge\ddy.
 \end{align*}
 Analogous to the real case, a 0-form is defined as a scalar-valued function in the form \(f\paren{z,\overline{z}}\), a 1-form in the form of \(\omega_0\ddz+\omega_1\dd{\overline{z}}\), and a 2-form as \(\omega_0\ddz\wedge\dd{\overline{z}}\). The exterior differential operator for this one-dimensional case is defined as \(\partial+\overline{\partial}\), where \(\partial=\ddz\wedge\pdv{}{z}\) and \(\overline{\partial}=\dd{\overline{z}}\wedge\pdv{}{\overline{z}}\). Occasionally, one will informally use \(\partial\) and \(\overline{\partial}\) as an abbreviation for \(\pdv{z}\) and \(\pdv{\overline{z}}\) respectively.
-\begin{example}\label{ex:holomorphicareaformula}
+\begin{theorem}[Lusin Area Theorem]\label{thm:lusinarea}
     For a region \(U\subset\mathbb{C}\) and \(f:U\to\mathbb{C}\) univalent, the area of the image \(f(U)\) is equal to \[\int_{U}\abs{f'(z)}^2\dd{A}.\]
-\end{example}
+\end{theorem}
 \begin{proof}
     We aim to find \[\int_{f(U)}\dd{A}.\]
     By the properties above,
@@ -7571,9 +7571,6 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
 \begin{theorem}[name=\textsc{Osgood--Taylor--Carathéodory},store=thm:osgoodtaylorcaratheodory]\label{thm:osgoodtaylorcaratheodory}
     Suppose that \(\Omega_1\) and \(\Omega_2\) are two bounded regions in \(\mathbb{C}\) such that \(\partial\Omega_1\) and \(\Omega_2\) each comprises a single Jordan curve. If \(\varphi:\Omega_1\to\Omega_2\) is a biholomorphism (provided by the Riemann Mapping Theorem in \cref{thm:riemannmapping}), then \(\exists\widetilde{\varphi}:\overline{\Omega_1}\to\overline{\Omega_2}\) continuous and injective such that \(\left.\widetilde{\varphi}\right|_{\Omega_1}\equiv\varphi\) (the restriction of \(\widetilde{\varphi}\) to \(\Omega_1\) agrees with \(\varphi\)).
 \end{theorem}
-\begin{remark}
-    Note that the statement as is requires the regions to be bounded by a single Jordan curve. However, by the proof we present later, it will become clear that the result holds for regions bounded by finitely many Jordan curves as well.
-\end{remark}
 \begin{proof}
     The theorem will be first proven in the case that \(\Omega_1\) is the unit disk \(\mathbb{D}\). The general case will then be reduced to this special case.
 
@@ -7626,7 +7623,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
             \end{tikzpicture}
             \caption{Possible positioning of \(\varphi(V)\) relative to \(\Omega_2\).}\label{fig:osgoodtaylorcaratheodory_phiofV}
         \end{minipage}
-    \end{figure}Let \(K\subset\Omega_2\) be compact. Since \(\varphi^{-1}\) is continuous, it maps \(K\) to a compact set \(\varphi^{-1}(K)\) (a function providing the compactness of the preimage of every compact set is more generally known as \textscsl{proper}). This implies that for any sequence \(\cbraces{z_j}_{j\in\mathbb{N}}\subset\mathbb{D}\) with accumulation points only in \(\partial\mathbb{D}\), \(\cbraces{\varphi\qty(z_j)}_{j\in\mathbb{N}}\) will have its accumulation points in \(\partial\Omega_2\) (because otherwise, there would be a subsequence of \(\cbraces{z_j}_{j\in\mathbb{N}}\) that converges to a point in \(\mathbb{D}\)). Therefore, \(\varphi(V)\) does not have relatively compact closure in \(\Omega_2\) (a representation of a possible configuration in \cref{fig:osgoodtaylorcaratheodory_phiofV}).
+    \end{figure}Let \(K\subset\Omega_2\) be compact. Since \(\varphi^{-1}\) is continuous, it maps \(K\) to a compact set \(\varphi^{-1}(K)\) (a function providing the compactness of the preimage of every compact set is more generally known as \textscsl{proper}). This implies that for any sequence \(\cbraces{z_j}_{j\in\mathbb{N}}\subset\mathbb{D}\) with accumulation points only in \(\partial\mathbb{D}\), \(\cbraces{\varphi\qty(z_j)}_{j\in\mathbb{N}}\) will have its accumulation points in \(\partial\Omega_2\) (because otherwise, there would be a corresponding subsequence of \(\cbraces{z_j}_{j\in\mathbb{N}}\) that converges to a point in \(\mathbb{D}\)). Therefore, \(\varphi(V)\) does not have relatively compact closure in \(\Omega_2\) (a representation of a possible configuration in \cref{fig:osgoodtaylorcaratheodory_phiofV}).
 
     \begin{figure}
         \centering\vspace{0pt}
@@ -7680,6 +7677,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
                 %\tikzfillbetween[of=A and B,split, every segment no 1/.style={pattern=north east lines}]{fill=none};
                 %\tikzfillbetween[of=A and C,split, every segment no 1/.style={pattern=north west lines}]{fill=none};
                 \node[anchor=north] at (0.5, 0.1) {\small\(\varphi(V)\)};
+                \node[anchor=north] at (0, -0.7) {\footnotesize\(\varphi\qty(\gamma_r)\)};
                 \node[anchor=north] at (2.6, -0.8) {\small\(\partial\Omega_2\)};
             \end{tikzpicture}
             \caption{Concept configuration of \(\varphi\qty(\gamma_r)\)}\label{fig:osgoodtaylorcaratheodory_subwedgeimage}
@@ -7697,7 +7695,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
             &\leq&&\int_0^{\frac12}\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}\dd{r}\\
             &=&&\iint_V\abs{\varphi'(z)}^2\dd{A}=M,
         \end{align*}
-        where the last step uses the Jacobian matrix (see \cref{ex:holomorphicareaformula}).
+        where the last step uses the Jacobian matrix (see \cref{thm:lusinarea}).
     \end{proof}
     Assume that \(\exists c>0,\varepsilon>0\) such that \(l_r\geq c\) for all \(0<r<\varepsilon\). Then, this implies that \[\int_0^{\frac12}\frac{l_r^2}{\piup r}\dd{r}\geq\int_0^{\varepsilon}\frac{l_r^2}{\piup r}\dd{r}\geq\int_0^{\varepsilon}\frac{c^2}{\piup r}\dd{r}=\frac{c^2}{\piup}\int_0^\varepsilon\frac{\dd{r}}r,\] which is a divergent integral. This contradicts \cref{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}. Therefore, we must have \(\varliminf_{r\to 0^+}l_r=0\). Thus, there exists a sequence \(\cbraces{r_j}_{j\in\mathbb{N}}\subset\qty(0,\frac12)\) such that \(r_j\to 0\) and \(l_{r_j}\to 0\) as \(j\to\infty\).
     \begin{proposition}\label{prop:osgoodtaylorcaratheodory_limitsexistence}
@@ -7733,20 +7731,79 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
     \end{proof}
     By the uniqueness as described by \cref{lem:osgoodtaylorcaratheodory_jordancurvearcdiameter}, for any two points \(a,b\) sufficiently close together, we now identify the unique curve in \(\tau\) (joining \(a\) and \(b\)) with diameter less than \(\eta(\abs{a-b})\) as the \textit{smaller arc} of \(\tau\) joining \(a\) and \(b\), denoted by \(\tau_{a,b}\).
     \begin{lemma}\label{lem:osgoodtaylorcaratheodory_twoalternatives}
-        Let \(\cbraces{r_j}_{j\in\mathbb{N}}\) be the sequence such that \(l_{r_j}\to 0\) as \(j\to\infty\) (in the discussion preceeding \cref{prop:osgoodtaylorcaratheodory_limitsexistence}). Then, for each \(j\in\mathbb{N}\), either
+        \begin{figure}
+            \centering
+            \vspace{0pt}
+            \begin{tikzpicture}
+                \draw[thick, name path=A] plot[smooth cycle] coordinates {
+                    (3.6,0.9) (2.1,2.55) (-1.2,0.75) (-1.5,-0.75) (-1.1,-1.3) (-0.75,-1.5) (0.5,-1.4) (1.65,-1.35)
+                };
+
+                \draw[thin, name path=B] plot[smooth] coordinates {
+                    (-1.51,-0.751)
+                    (-1.1,-0.4) (-0.6,-0.5) (-0.1,0.2) (0.4,0.5)
+                    (0.9,0.1) (1.2, -0.2) (1.6499, -1.3501)
+                };
+                \draw[thick, name path=C] plot[smooth] coordinates {
+                    (-1.11,-1.31) (-1,-0.8) (-0.5,-0.9) (-0.2,-0.5) (0.2,-0.7) (0.7, -1.1) (0.5,-1.41)
+                };
+                \node[anchor=north] at (0.2, 0.1) {\footnotesize\(\varphi\qty(\gamma_{r_j})\)};
+                \node[anchor=north] at (-1.1,-1.3) {\footnotesize\(a_j\)};
+                \node[anchor=north] at (0.5,-1.35) {\footnotesize\(b_j\)};
+            \end{tikzpicture}\hfill
+            \begin{tikzpicture}
+                \draw[thick, name path=A] plot[smooth cycle] coordinates {
+                    (3.6,0.9) (2.1,2.55) (-1.2,0.75) (-1.5,-0.75) (-1.1,-1.3) (-0.75,-1.5) (0.5,-1.4) (1.65,-1.35)
+                };
+
+                \draw[thin, name path=B] plot[smooth] coordinates {
+                    (-1.51,-0.751)
+                    (-1.1,-0.4) (-0.6,-0.5) (-0.1,0.2) (0.4,0.5)
+                    (0.9,0.1) (1.2, -0.2) (1.6499, -1.3501)
+                };
+                \draw[thick, name path=C] plot[smooth] coordinates {
+                    (-0.75,-1.51) (-0.8,-1.1) (-0.5,-0.9) (-0.2,-0.5) (0.2,-0.7) (0.6, -0.9) (0.4,-1.0) (0.4,-1.2) (-0.75,-1.51)
+                };
+                \node[anchor=north] at (0.3,0.05) {\footnotesize\(\varphi\qty(\gamma_{r_j})\)};
+                \node[anchor=north] at (-0.75,-1.51) {\footnotesize\(p_j\)};
+            \end{tikzpicture}
+            \caption{Two possibilities for the endpoints of \(\varphi\qty(\gamma_{r_j})\)}\label{fig:osgoodtaylorcaratheodory_curveimagetwocases}
+        \end{figure}Let \(\cbraces{r_j}_{j\in\mathbb{N}}\) be the sequence such that \(l_{r_j}\to 0\) as \(j\to\infty\) (in the discussion preceeding \cref{prop:osgoodtaylorcaratheodory_limitsexistence}). Then, for each \(j\in\mathbb{N}\), either
         \begin{equation}
             \Omega_2\ni a_j=\lim_{\theta\to\theta_0(r_j)^-}\varphi\qty(1-r_j\ee^{\ii\theta})\neq\lim_{\theta\to-\theta_0\qty(r_j)^+}\varphi\qty(1-r_j\ee^{\ii\theta})=b_j\in\partial\Omega_2\label{eq:osgoodtaylorcaratheodory_twoalternatives_differentpoints}
         \end{equation} or
         \begin{equation}
             \lim_{\theta\to\theta_0(r_j)^-}\varphi\qty(1-r_j\ee^{\ii\theta})=\lim_{\theta\to-\theta_0\qty(r_j)^+}\varphi\qty(1-r_j\ee^{\ii\theta})=p_j\in\partial\Omega_2\label{eq:osgoodtaylorcaratheodory_twoalternatives_samepoint}
-        \end{equation} is satisfied.
+        \end{equation} is satisfied. The two situations are represented in \cref{fig:osgoodtaylorcaratheodory_curveimagetwocases}.
     \end{lemma}
     \begin{proof}
         By virtue of \cref{prop:osgoodtaylorcaratheodory_limitsexistence}, both described limits exist. Similarly, since any sequences \(\cbraces{1-r_j\ee^{\ii\theta}}_{\theta\to\theta_0(r_j)^-}\) and \(\cbraces{1-r_j\ee^{\ii\theta}}_{\theta\to-\theta_0(r_j)^+}\) approach the boundary \(\partial\mathbb{D}\), their images under \(\varphi\) approach \(\partial\Omega_2\) by properness (refer to the discussions preceeding \cref{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}). Therefore, both limits must lie in \(\partial\Omega_2\), and the conclusion follows.
     \end{proof}
-    For fixed \(r_j\), in the case of \cref{eq:osgoodtaylorcaratheodory_twoalternatives_differentpoints}, let \(\varphi\qty(\gamma_{r_j})\) be the described curve joining \(a_j\) and \(b_j\) (where \(\gamma_{r_j}\) is represented by the arc as labeled in \cref{fig:osgoodtaylorcaratheodory_subwedgeimage}). The shorter arc on \(\Omega_2\) joining the two points \(a_j\) and \(b_j\) is denoted by \(\tau_{a_j,b_j}\). Except for the two boundary points, the curve \(\varphi\qty(\gamma_{r_j})\) lies entirely in \(\Omega_2\) since \(\gamma_{r_j}\subset V\subset\mathbb{D}\). Therefore, the curve \(\varphi\qty(\gamma_{r_j})\cup\tau_{a_j,b_j}\) forms a Jordan curve (simplicity by injectivity).
+    For fixed \(r_j\), in the case of \cref{eq:osgoodtaylorcaratheodory_twoalternatives_differentpoints}, let \(\varphi\qty(\gamma_{r_j})\) be the described curve joining \(a_j\) and \(b_j\) (where \(\gamma_{r_j}\) is represented by the arc as labeled in \cref{fig:osgoodtaylorcaratheodory_subwedgeimage}). Except for the two boundary points, the curve \(\varphi\qty(\gamma_{r_j})\) lies entirely in \(\Omega_2\) since \(\gamma_{r_j}\subset V\subset\mathbb{D}\). Let the \textit{shorter} arc on \(\Omega_2\) joining the two points \(a_j\) and \(b_j\) be denoted by \(\tau_j\). Therefore, the curve \(\varphi\qty(\gamma_{r_j})\cup\tau_j\) forms a Jordan curve (simplicity by injectivity).
 
-    In the event that \cref{eq:osgoodtaylorcaratheodory_twoalternatives_samepoint} is assumed, \(\varphi\qty(\gamma_{r_j})\qty(\cup\cbraces{p_j})\) forms a Jordan curve. By the Jordan Curve Theorem (\cref{thm:jordancurve}), the selected curve bounds a region, denoted by \(W_j\subseteq\Omega_2\).
+    In the event that \cref{eq:osgoodtaylorcaratheodory_twoalternatives_samepoint} is assumed, let \(\tau_j=\cbraces{p_j}\), and \(\varphi\qty(\gamma_{r_j})\qty(\cup\tau_j)\) forms a Jordan curve. By the Jordan Curve Theorem (\cref{thm:jordancurve}), the selected curve bounds a region, which we will denote by \(W_j\subseteq\Omega_2\).
+
+    For each \(j\), let \(V_j=\cbraces{1-r\ee^{\ii\theta}}{0<r<r_j,-\theta_0\qty(r)<\theta<\theta_0\qty(r)}\). Since \(\varphi\qty(\gamma_{r_j})\) is a curve with endpoints \(a_j\) and \(b_j\) (or \(p_j\)) and lies in \(\Omega_2\) except for its endpoints, it splits \(\Omega_2\) into two disconnected regions, \(W_j\) or \(\Omega_2\setminus\overline{W_j}\). Since \(\gamma_{r_j}\) splits \(\mathbb{D}\) into two regions, one of which being \(V_j\), the image \(\varphi\qty(V_j)\) is either \(W_j\) or \(\Omega_2\setminus\overline{W_j}\).
+    \begin{lemma}
+        For sufficiently large \(j\in\mathbb{N}\), \(\varphi\qty(V_j)=W_j\).
+    \end{lemma}
+    \begin{proof}
+        For fixed \(j\), let \(T_j\) be the complementary region of \(V_j\) in \(\mathbb{D}\) (as \(\mathbb{D}\setminus\overline{V_j}\)). Then for an arbitrary \(w_0\in W_j\), there exists a point \(z_0\in\mathbb{D}\) (specifically, either in \(T_j\) or \(V_j\)) such that \(\varphi(z_0)=w_0\).
+        \begin{enumerate}
+        \item If \(z_0\in V_j\), then \(\varphi(z_0)\in W_j\) and connectivity suffices to ensure that \(\varphi\qty(V_j)=W_j\).
+        \item If \(z_0\in T_j\), then from \(\varphi(z_0)\in W_j\), connectivity implies that \(\varphi\qty(T_j)\subseteq W_j\). Now by the Lusin Area Theorem (\cref{thm:lusinarea}), \[\operatorname{area}\qty[\varphi\qty(T_j)]=\operatorname{area}\qty[\Omega_2]-\operatorname{area}\qty[\varphi\qty(V_j)]=\operatorname{area}\qty[\Omega_2]-\iint_{V_j}\abs{\varphi'(z)}\ddx\ddy.\] Since \(V_j\) shrinks to the empty set, \(\iint_{V_j}\abs{\varphi'(z)}\ddx\ddy\to 0\) as \(j\to\infty\), and hence 
+        \begin{equation}
+            \operatorname{area}\qty[\varphi\qty(T_j)]\to\operatorname{area}\qty[\Omega_2].\label{eq:osgoodtaylorcaratheodory_twoalternatives_areaestimation1}
+        \end{equation}
+        \Cref{lem:osgoodtaylorcaratheodory_jordancurvearcdiameter} provides the existence of \(\eta\) such that \(\diam\tau_j\leq\eta\qty(l_{r_j})\) for sufficiently large \(j\) (since \(\abs{a_j-b_j}\leq l_{r_j}\) or 0 for the \(p_j\) case) such that \(\eta\qty(l_{r_j})\to 0\) as \(j\to\infty\). 
+
+        Let \(D_j=D\qty(a_j,l_{r_j}+\eta\qty(l_{r_j}))\) (or \(D_j=D\qty(p_j,l_{r_j}+\eta\qty(l_{r_j}))\) in the case of the same point) for each \(j\). By the previous diameter estimate, the entire Jordan curve \(\varphi\qty(\gamma_{r_j})\cup\tau_j\) lies in \(D_j\), and hence \(W_j\subset D_j\). This implies that 
+        \begin{equation}
+            \operatorname{area}\qty[W_j]\leq\operatorname{area}\qty[D_j]=\piup\qty(l_{r_j}+\eta\qty(l_{r_j}))^2\to0\label{eq:osgoodtaylorcaratheodory_twoalternatives_areaestimation2}
+        \end{equation} as \(j\to\infty\). Hence, for sufficiently large \(j\), we cannot have \(\varphi\qty(T_j)\subseteq W_j\) (by the induced contradiction from \cref{eq:osgoodtaylorcaratheodory_twoalternatives_areaestimation1,eq:osgoodtaylorcaratheodory_twoalternatives_areaestimation2}). Therefore, \(\varphi\qty(T_j)=\Omega_2\setminus\overline{W_j}\) and \(\varphi\qty(V_j)=W_j\).
+        \end{enumerate}
+    \end{proof}
+    
 \end{proof}
 \section{The Prime Number Theorem}
 The Riemann \(\zeta\)-function is one of the most important functions in
