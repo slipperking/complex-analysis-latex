@@ -5848,7 +5848,7 @@ For \(r>0\), define
     k\leq n}\) covering \(H\) exists by the Heine--Borel Theorem
     (\cref{thm:heineborel}).
 
-    By the connectedness of each component of \(\extcomplex\setminus K\), for every
+    By the connectivity of each component of \(\extcomplex\setminus K\), for every
     there exists a piecewise-linear simple curve \(\gamma_k^{(j)}\) for all \(1\leq
     k\leq n\), \(1\leq j\leq m_k\), joining \(\zeta_k^{(j)}\) and \(p_k\) which
     lies entirely within \(\extcomplex\setminus K\). The compact disks
@@ -7120,10 +7120,10 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     A biholomorphism between two domains induces a homeomorphism with respect to
     their natural topologies (the \textscsl{compact-open topology}) by
     \(\vb*{\psi}\mapsto\vb*{\Phi}\circ\vb*{\psi}\circ\vb*{\Phi}^{-1}\). Hence any
-    induced topological invariant of an automorphism group---such as connectedness,
+    induced topological invariant of an automorphism group---such as connectivity,
     is to be preserved under this equivalence. Of course, we are yet to verify the
     rigor and intuition used within the topology, but the intuitive picture already
-    hints to the validity of the connectedness argument.
+    hints to the validity of the connectivity argument.
 \end{remark}
 \subsection{Hartogs' Phenomenon}
 In complex function theory, one of the most prominent results is
@@ -7815,7 +7815,7 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
     \begin{proof}
         By \cref{lem:osgoodtaylorcaratheodory_matchingareas,prop:osgoodtaylorcaratheodory_vanishingareasanddiameters}, \(\exists j\in\mathbb{N}\) such that \(\diam W_j<\varepsilon\) and \(\varphi\qty(V_j)=W_j\). Since \(\mu_1(t),\mu_2(t)\to 1\) as \(t\to 1^-\), \(\exists S\in(0,1)\) such that \(\forall t:S<t<1\), \(\abs{\mu_1(t)-1}<r_j\) and \(\abs{\mu_2(t)-1}<r_j\). Recall the definition of \(V_j\) as the set of points \(\cbraces{1-r\ee^{\ii\theta}}{0<r<r_j,-\theta_0\qty(r)<\theta<\theta_0\qty(r)}\); then \(\mu_1(t),\mu_2(t)\in V_j\) for all \(S<t<1\). Therefore, \[\varphi\qty(\mu_1(t)),\varphi\qty(\mu_2(t))\in W_j\] for all \(S<t<1\). Then \[\abs{\varphi\qty(\mu_1(t))-\varphi\qty(\mu_2(t))}\leq\diam W_j<\varepsilon\] for all \(S<t<1\), thus equality is derived. Moreover, \(\bigcap_j\overline{W_j}\) (shrinks to) is a single point, which is precisely the prescribed limit.
     \end{proof}
-    \begin{corollary}
+    \begin{corollary}\label{cor:osgoodtaylorcaratheodory_continuousextension}
         There is a continuous extension of \(\varphi\) to \(\partial\mathbb{D}\).
     \end{corollary}
     \begin{proof}
@@ -7877,9 +7877,15 @@ assumptions on the boundaries \(\partial\Omega_1\) and \(\partial\Omega_2\):
 
         Therefore, by the induced contradiction, we must have \(\zeta=\zeta'\), which implies the injectivity of \(\widetilde{\varphi}\).
     \end{proof}
-    Thus, the preceding results gives the construction of an injective, continuous extension of \(\varphi\) to \(\overline{\mathbb{D}}\).
+    Thus, the preceding results gives the construction of an injective, continuous extension of \(\varphi\) to \(\overline{\mathbb{D}}\). Moreover, the extension is onto since a continuous function maps compact sets to compact sets.
 
     Now consider the general case for arbitrary \(\Omega_1\) as in the theorem statement.
+    
+    By the preceding results, there exist biholomorphisms \(\varphi_1:\mathbb{D}\to\Omega_1\) and \(\varphi_2:\mathbb{D}\to\Omega_2\), and the Riemann Mapping Theorem (\cref{thm:riemannmapping}) implies the existence of a biholomorphism \(\varphi:\Omega_1\to\Omega_2\). Moreover, \(\varphi_1\) and \(\varphi_2\) extend continuously to \(\widetilde{\varphi}_1\) and \(\widetilde{\varphi}_2\), respectively.
+
+    The restriction \(\widetilde{\varphi}_1{\restriction_{\partial\mathbb{D}}}\) forms a continuous bijection to \(\partial\Omega_1\). We now aim to show that \(\qty(\widetilde{\varphi}_1{\restriction_{\partial\mathbb{D}}})^{-1}\) is continuous. This is in fact a specific case of a famous topological argument that we will avoid. By the final argument of the proof of \cref{cor:osgoodtaylorcaratheodory_continuousextension}, it suffices to show that any sequence \(\cbraces{z_n}_{n\in\mathbb{N}}\subset\partial\Omega_2\) that converges to a point \(z\in\partial\Omega_2\) has a corresponding sequence \(\cbraces{w_n}_{n\in\mathbb{N}}=\cbraces{\qty(\widetilde{\varphi}_1{\restriction_{\partial\mathbb{D}}})^{-1}\qty(z_n)}_{n\in\mathbb{N}}\) in \(\partial\mathbb{D}\) which converges to \(w=\qty(\widetilde{\varphi}_1{\restriction_{\partial\mathbb{D}}})^{-1}(z)\). Assume, for contradiction, that some sequence as labeled above does not converge to \(w\). By the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), some subsequence of \(\cbraces{w_n}_{n\in\mathbb{N}}\), denoted by \(\cbraces{w_{n_k}}_{k\in\mathbb{N}}\), converges to \(w_\infty\in\partial\mathbb{D}\) (which is not equal to \(w\)). Then \(\widetilde{\varphi}_1\qty(w_{n_k})\to\widetilde{\varphi}_1\qty(w_\infty)\) as \(k\to\infty\) by the continuity of \(\qty(\widetilde{\varphi}_1)\). However, each \(\widetilde{\varphi}_1\qty(w_{n_k})=z_{n_k}\to z=\widetilde{\varphi}_1(w)\). Hence, \(\widetilde{\varphi}_1(w)=\widetilde{\varphi}_1\qty(w_\infty)\) which by injectivity, implies \(w=w_\infty\), which is a contradiction. Thus \(\widetilde{\varphi}_1\) establishes a homeomorphism between \(\overline{\mathbb{D}}\) and \(\overline{\Omega_1}\). A similar deduction gives the same result for \(\widetilde{\varphi}_2\).
+    
+    Thus, \(\psi=\varphi_2^{-1}\circ\varphi\circ\varphi_1\in\Aut(\mathbb{D})\), which by \cref{thm:holomorphicautomorphismgrouponunitdisk}, is the composition of a Möbius transformation and a rotation, which extends injectively and continuously to some function \(\widetilde{\psi}\) on \(\overline{\mathbb{D}}\). Thus, we define \(\widetilde{\varphi}=\widetilde{\varphi}_2\circ\widetilde{\psi}\circ\widetilde{\varphi}_1^{-1}\) to be the composition of three continuous functions, defining a continuous extension of \(\varphi\), completing the proof.
 \end{proof}
 \section{The Prime Number Theorem}
 The Riemann \(\zeta\)-function is one of the most important functions in
