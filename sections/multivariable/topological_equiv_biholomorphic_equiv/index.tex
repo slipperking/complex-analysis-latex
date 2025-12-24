@@ -1,0 +1,93 @@
+\subsection{Topological Equivalence and Biholomorphic Equivalence}
+\begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
+    For any \(n\geq2\), the \(n\)-dimensional unit ball \(B^n\) and the \(n\)-dimensional polydisk \(\mathbb{D}^n\) are not biholomorphically equivalent.
+\end{theorem}
+\begin{proof}
+    Suppose, for the sake of contradiction, that there exists a biholomorphism \(\vb*{\varphi}:\mathbb{D}^n\to B^n\). Let \(\vb*{\alpha}=\vb*{\varphi}(\vb{0})\in B^n\), and define \(\vb*{\Phi}=\vb*{\varphi}_{\abs{\vb*{\alpha}}}\circ\vb{U}\vb*{\varphi}\), where \(\vb{U}\) is a unitary matrix such that \(\vb{U}\vb*{\alpha}=\qty(\abs{\vb*{\alpha}},0,\ldots,0)\) and \(\vb*{\varphi}_{\abs{\vb*{\alpha}}}\) is as in \cref{prop:unitballsimpleautomorphism}.
+
+    The definition of \(\vb*{\Phi}\) ensures that \(\vb*{\Phi}:\mathbb{D}^n\to
+    B^n\) and \(\vb*{\Phi}(\vb{0})=\vb{0}\). Then
+    \(\vb*{\Phi}^{-1}\circ\Aut\qty(B^n)\circ\vb*{\Phi}\) consists of functions
+    mapping \(\mathbb{D}^n\) to \(\mathbb{D}^n\), or that \[\vb*{\Phi}^{-1}\circ\Aut\qty(B^n)\circ\vb*{\Phi}\subseteq\Aut\qty(\mathbb{D}^n)\implies\Aut\qty(B^n)\subseteq\vb*{\Phi}\circ\Aut\qty(\mathbb{D}^n)\circ\vb*{\Phi}^{-1}.\]
+    Similarly,
+    \(\vb*{\Phi}\circ\Aut\qty(\mathbb{D}^n)\circ\vb*{\Phi}^{-1}\subseteq\Aut\qty(B^n)\).
+    Hence,
+    \(\Aut\qty(B^n)=\vb*{\Phi}\circ\Aut\qty(\mathbb{D}^n)\circ\vb*{\Phi}^{-1}\),
+    and
+    \begin{equation}
+        \vb*{\psi}\mapsto\vb*{\Phi}\circ\vb*{\psi}\circ\vb*{\Phi}^{-1}\label{eq:poincarepolydiskandunitball_isomorphism}
+    \end{equation} defines a group isomorphism between \(\Aut\qty(\mathbb{D}^n)\) and \(\Aut\qty(B^n)\). Let \(\Aut'\qty(\mathbb{D}^n)<\Aut\qty(\mathbb{D}^n)\) and \(\Aut'\qty(B^n)<\Aut\qty(B^n)\) be subgroups fixing \(\vb{0}\). Therefore, \cref{eq:poincarepolydiskandunitball_isomorphism} induces a group isomorphism between \(\Aut'\qty(\mathbb{D}^n)\) and \(\Aut'\qty(B^n)\) as well.
+
+    By \cref{thm:holomorphicautomorphismgrouponpolydisk}, every element of \(\Aut'\qty(\mathbb{D}^n)\) may be uniquely identified with a matrix in the form of \[\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n}),\] where \(\vb{P}\) is a permutation matrix and \(\qty(\theta_1,\ldots,\theta_n)\in[0,2\piup)^n\). Hence \(\Aut'\qty(\mathbb{D}^n)\) is isomorphic to the group of unitary monomial matrices. The structure of \(\Aut'\qty(B^n)\) is given by
+    \cref{prop:unitballautomorphismfixedpointatzero}, and each element corresponds
+    uniquely to a unitary matrix. Thus there is a natural isomorphism
+    \(\Aut'\qty(B^n)\cong\mathrm{U}(n)\), the \(n\times n\) \textscsl{unitary
+    group}.
+
+    For \(\vb{U}\in\mathrm{U}(n)\), the spectral theorem allows it to be expressed
+    in the form of
+    \(\vb{V}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{V}^\dagger\).
+    Hence, for any positive integer \(m\), we have \[\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger\in\mathrm{U}(n)\] and \[\qty(\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger)^m=\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger\cdots\vb{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\vb{V}^\dagger.\] The adjacent products of \(\vb{V}^\dagger\vb{V}\) simplify to the identity and
+    the entire expression then simplifies to \(\vb{U}\). Hence the unitary group is
+    divisible.
+
+    Consider the unitary monomial matrix \[\vb{P}_\tau=\mqty(0&1&0&0&\cdots&0\\1&0&0&0&\cdots&0\\0&0&1&0&\cdots&0\\0&0&0&1&\cdots&0\\\vdots&\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&0&\cdots&1).\] inducing the permutation \(\tau\), swapping the first and second entries.
+    Assume that there exists some unitary monomial matrix
+    \(\vb{Q}=\vb{P}_\sigma\vb{D}\) (where \(\vb{D}\) is diagonal and
+        \(\vb{P}_\sigma\) is a permutation matrix corresponding to the permutation
+    \(\sigma\)) such that \(\vb{Q}^2=\vb{P}_\tau\). This is equivalent to \[\vb{P}_\sigma\vb{D}\vb{P}_\sigma\vb{D}=\vb{P}_\tau\implies\vb{P}^2_\sigma\vb{P}^{-1}_\sigma\vb{D}\vb{P}_\sigma\vb{D}=\vb{P}_\tau\implies\vb{P}^2_\sigma\vb{D}^2=\vb{P}_\tau\]
+    because \(\vb{P}^{-1}_\sigma\vb{D}\vb{P}_\sigma=\vb{D}\). Thus,
+    \(\vb{P}^2_\sigma=\vb{P}_\tau\) (and \(\vb{D}^2=\vb{I}\)) since their
+    permutation parts must match. This is an impossibility since
+    \(\vb{P}^2_\sigma\) corresponds to an even permutation, while \(\vb{P}_\tau\)
+    corresponds to an odd permutation. Thus, the unitary monomial group is not
+    divisible.
+
+    By \cref{prop:groupdivisibilitypreservedunderisomorphisms}, the two groups
+    cannot be isomorphic to each other.
+
+    This contradicts the existence of
+    \cref{eq:poincarepolydiskandunitball_isomorphism}, and therefore, no such
+    biholomorphism \(\vb*{\varphi}\) exists.
+\end{proof}
+\begin{remark}
+    A more succinct proof of the nonexistence of an isomorphism in the proof of \cref{thm:poincarepolydiskandunitball} can be briefly described by means of topology:
+
+    \begin{quote}
+        Let \(M_n\) denote the subgroup of all monomial matrices in \(\mathrm{U}(n)\), or the subgroup of unitary matrices with exactly one nonzero entry in each row and each column, and those nonzero entries lying in \(\mathrm{U}(1)\).
+
+        For each permutation \(\sigma\in S_n\) (the \textscsl{symmetric group} of
+        permutations) let \(\vb{P}_\sigma\) be the corresponding permutation matrix and
+        define
+        \[T_\sigma=\cbraces{\vb{D}\vb{P}_\sigma}{\vb{D}=\operatorname{diag}\qty(\ee^{\ii\theta_1},\dots,\ee^{\ii\theta_n})\in\mathrm{U}(1)^n}.\]
+        Each \(T_\sigma\) is homeomorphic to the torus \(\mathrm{U}(1)^n\), and every
+        element of \(M_n\) lies in exactly one \(T_\sigma\). Hence
+        \[M_n=\bigsqcup_{\sigma\in S_n} T_\sigma,\]
+        a disjoint union of \(\abs{S_n}=n!\) copies of \(\mathrm{U}(1)^n\).
+
+        Each \(T_\sigma\) is clopen in \(M_n\) by their pairwise disjointness, the
+        topology of the torus, and the fact that their union is \(M_n\). Therefore each
+        \(T_\sigma\) is a connected component of \(M_n\). Because each \(T_\sigma\) is
+        connected, \(M_n\) has \(n!\) connected components.
+
+        The elements of \(\mathrm{U}(n)\) may be unitarily diagonalized (by the
+        spectral theorem) into \(\vb{VD}\vb{V}^\dagger\), where \[\vb{D}=\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\] is a diagonal unitary matrix and \(\vb{V}\in\mathrm{U}(n)\). Then there exists
+        a connected path connecting \(\qty(\theta_1,\dots,\theta_n)\) to
+        \(\qty(0,\ldots,0)\), which corresponds to the matrix
+        \(\vb{VI}\vb{V}^\dagger=\vb{I}\). Because every matrix is path-connected to the
+        identity, \(\mathrm{U}(n)\) is connected.
+
+        Consequently for \(n\ge2\), the subgroup \(M_n\) (which has more than one
+        connected component) cannot be isomorphic to \(\mathrm{U}(n)\) as a topological
+        group.
+    \end{quote}
+    Although we do not justify these topological claims in detail here, it is worth noting, heuristically, why such topological considerations naturally arise.
+
+    A biholomorphism between two domains induces a homeomorphism with respect to
+    their natural topologies (the \textscsl{compact-open topology}) by
+    \(\vb*{\psi}\mapsto\vb*{\Phi}\circ\vb*{\psi}\circ\vb*{\Phi}^{-1}\). Hence any
+    induced topological invariant of an automorphism group---such as connectivity,
+    is to be preserved under this equivalence. Of course, we are yet to verify the
+    rigor and intuition used within the topology, but the intuitive picture already
+    hints to the validity of the connectivity argument.
+\end{remark}

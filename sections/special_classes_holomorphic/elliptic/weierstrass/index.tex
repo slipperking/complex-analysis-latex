@@ -1,0 +1,123 @@
+\subsubsection{Weierstrass Elliptic Functions}
+Since any (non-constant) elliptic function has order greater than one, it is natural to next consider elliptic functions of order two.
+
+Within a fundamental parallelogram, by \cref{thm:ellipticfunctionnumberofzerosandpoles}, such a function either has two simple poles or a single double pole. This distinction is the key difference between the Weierstrass theory of elliptic functions (the former case) and the Jacobi theory (the latter case).
+
+In practice, elliptic functions derived from the Jacobi formulation often have
+more practical use cases, whereas the Weierstrass theory tends to be more
+convenient in theoretical analysis.
+\begin{proposition}\label{prop:weierstrasspfunctionintermediateseriesconvergence}
+    Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series
+    \begin{equation}
+        \sum_{\omega\in\Lambda\setminus\cbraces{0}}\frac{1}{\abs{\omega}^\alpha}\label{eq:weierstrasspfunctionintermediateseriesconvergence_statement}
+    \end{equation} is (absolutely) convergent for \(\alpha>2\).
+\end{proposition}
+\begin{proof}
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\n}{4}
+            \pgfmathsetmacro{\ax}{1.5}
+            \pgfmathsetmacro{\ay}{0.3}
+            \pgfmathsetmacro{\bx}{0.5}
+            \pgfmathsetmacro{\by}{1.0}
+            \pgfmathsetmacro{\over}{0.3}
+            \foreach \j in {0,...,\n} {
+                \draw[thin]
+                ({-\over*\ax+\j*\bx},{-\over*\ay+\j*\by})
+                -- ({(\n+\over)*\ax+\j*\bx},{(\n+\over)*\ay+\j*\by});
+            }
+            \foreach \i in {0,...,\n} {
+                \draw[thin]
+                ({-\over*\bx+\i*\ax},{-\over*\by+\i*\ay}) -- ({\i*\ax+(\n+\over)*\bx},{\i*\ay+(\n+\over)*\by});
+            }
+            \foreach \i in {-1,1} {
+                \draw[thick] ({\ax*(\n/2+\i)+\bx*(\n/2-1)},{\ay*(\n/2+\i)+\by*(\n/2-1)}) -- ({\ax*(\n/2+\i)+\bx*(\n/2+1)},{\ay*(\n/2+\i)+\by*(\n/2+1)});
+                \draw[thick] ({\ax*(\n/2-1)+\bx*(\n/2+\i)},{\ay*(\n/2-1)+\by*(\n/2+\i)}) -- ({\ax*(\n/2+1)+\bx*(\n/2+\i)},{\ay*(\n/2+1)+\by*(\n/2+\i)});
+            }
+            \node[shift={(5pt,-5pt)}] at ({\ax*(\n/2)+\bx*(\n/2)},{\ay*(\n/2)+\by*(\n/2)}) {\(0\)};
+            \node[shift={(5pt,-5pt)}] at ({\ax*(\n/2+1)+\bx*(\n/2)},{\ay*(\n/2+1)+\by*(\n/2)}) {\(\omega_1\)};
+            \node[shift={(9pt,-5pt)}] at ({\ax*(\n/2-1)+\bx*(\n/2)},{\ay*(\n/2-1)+\by*(\n/2)}) {\(-\omega_1\)};
+            \node[shift={(5pt,-5pt)}] at ({\ax*(\n/2)+\bx*(\n/2+1)},{\ay*(\n/2)+\by*(\n/2+1)}) {\(\omega_2\)};
+            \node[shift={(9pt,-5pt)}] at ({\ax*(\n/2)+\bx*(\n/2-1)},{\ay*(\n/2)+\by*(\n/2-1)}) {\(-\omega_2\)};
+            \node[shift={(16pt,-5pt)}] at ({\ax*(\n/2+1)+\bx*(\n/2+1)},{\ay*(\n/2+1)+\by*(\n/2+1)}) {\(\omega_1+\omega_2\)};
+            \node[shift={(16pt,-5pt)}] at ({\ax*(\n/2-1)+\bx*(\n/2-1)},{\ay*(\n/2-1)+\by*(\n/2-1)}) {\(-\omega_1-\omega_2\)};
+            \node[shift={(16pt,-5pt)}] at ({\ax*(\n/2-1)+\bx*(\n/2+1)},{\ay*(\n/2-1)+\by*(\n/2+1)}) {\(\omega_2-\omega_1\)};
+            \node[shift={(16pt,-5pt)}] at ({\ax*(\n/2+1)+\bx*(\n/2-1)},{\ay*(\n/2+1)+\by*(\n/2-1)}) {\(\omega_1-\omega_2\)};
+            \coordinate (O) at ({\ax*(\n/2)+\bx*(\n/2)},{\ay*(\n/2)+\by*(\n/2)});
+
+            \pgfmathsetmacro{\lengtha}{sqrt(\ax*\ax+\ay*\ay)}
+            \pgfmathsetmacro{\lengthb}{sqrt(\bx*\bx+\by*\by)}
+            \pgfmathsetmacro{\sineanglebetween}{sqrt(1-((\ax*\bx+\ay*\by)/(\lengtha*\lengthb))^2)}
+            \coordinate (H) at ([shift={(\ay*\lengthb*\sineanglebetween/\lengtha,-\ax*\lengthb*\sineanglebetween/\lengtha)}] O);
+            \draw[dotted, thick] (O) -- (H);
+            \node[xshift=-4, yshift=-2] at ($(O)!0.5!(H)$) {\(\delta\)};
+        \end{tikzpicture}
+        \caption{The parallelogram \(P_1\) with 8 periods on its boundary with lattice \(\Lambda\).}\label{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}
+    \end{figure}Let \(P_n\) be a parallelogram whose center is 0 and has \(n\qty(\omega_1+\omega_2)\) as a vertex (the specific case of \(n=1\) is illustrated in \cref{fig:weierstrasspfunctionintermediateseriesconvergence_parallelogram}). For each \(n\in\mathbb{N}\), there exist \(8n\) periods (points in \(\Lambda\)) on \(\partial P_n\).
+
+    Let \(\delta\) be the distance from 0 to \(\partial P_1\). Hence, the distance
+    from 0 to \(\partial P_n\) is \(n\delta\). Since each
+    \(\omega\in\Lambda^*=\Lambda\setminus\cbraces{0}\) lies in a unique \(\partial
+    P_n\), it follows that \(\abs{\omega}^\alpha\geq n^\alpha \delta^\alpha\) for
+    all \(\alpha>0\). Hence, \[\sum_{\omega\in\Lambda^*}\frac{1}{\abs{\omega}^\alpha}\leq\sum_{n=1}^\infty\frac{8n}{n^\alpha\delta^\alpha}=\frac{8}{\delta^\alpha}\sum_{n=1}^\infty\frac{1}{n^{\alpha-1}},\] which is a \(p\)-series that converges for \(\alpha>2\).
+\end{proof}
+\begin{proposition}\label{prop:weierstrasspfunctionconvergence}
+    Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). Then the series
+    \begin{equation}
+        \sum_{\omega\in\Lambda\setminus\cbraces{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]\label{eq:weierstrasspfunctionconvergence_statement}
+    \end{equation}
+    locally uniformly converges on \(\mathbb{C}\setminus\Lambda\).
+\end{proposition}
+\begin{proof}
+    Let \(R>0\) be arbitrary. Then \(\forall z\in D(0,R)\), and for \(\abs{\omega}>2R\), we have \[\frac{\abs{z}}{\abs{\omega}}<\frac12,\quad\abs{2-\frac{z}{\omega}}\leq 2+\frac{\abs{z}}{\abs{\omega}}<\frac52,\quad\abs{1-\frac{z}{\omega}}^2\geq\qty(1-\abs{\frac{z}{\omega}})^2>\frac14.\]
+    It follows that
+    \[\abs{\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}}=\abs{\frac{2\omega z-z^2}{\omega^2(z-\omega)^2}}=\abs{\frac{z\qty(2-\frac{z}{\omega})}{\omega^3\qty(\frac{z}{\omega}-1)^2}}<\frac{\frac52z}{\frac14\omega^3}\leq\frac{10R}{\omega^3}.\]
+    Hence, by \cref{prop:weierstrasspfunctionintermediateseriesconvergence},
+    \begin{equation}
+        \sum_{\substack{\omega\in\Lambda\\
+        \omega\notin\overline{D\qty(0,2R)}}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]\label{eq:weierstrasspfunctionconvergence_intermediateseries}
+    \end{equation} is termwise bounded by a series \(\sum_{\substack{\omega\in\Lambda\\
+    \omega\notin\overline{D\qty(0,2R)}}}\frac{10R}{\omega^3}\), which is convergent by \cref{prop:weierstrasspfunctionintermediateseriesconvergence}. Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}) gives the uniform convergence of \cref{eq:weierstrasspfunctionconvergence_intermediateseries} on \(D(0,R)\). Since we have omitted only finitely many terms, \cref{eq:weierstrasspfunctionintermediateseriesconvergence_statement} converges uniformly on \(D(0,R)\setminus\Lambda\).
+
+    Let \(K\subset\mathbb{C}\setminus\Lambda\) be compact and arbitrary. By
+    boundedness, \(\exists R>0\) such that \(K\subset D(0,R)\setminus\Lambda\), on
+    which it uniformly converges.
+\end{proof}
+\begin{definition}[Weierstrass \texorpdfstring{\(\wp\)}{p}-Function]\label{def:weierstrasspfunction}
+    Let \(\omega_1\), \(\omega_2\) be a fundamental pair of periods generating the lattice \(\Lambda\). The Weierstrass \(\wp\)-function with period lattice \(\Lambda\) is defined by
+    \begin{equation}
+        \wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\cbraces{0}}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}],\qquad z\in\mathbb{C}\setminus\Lambda.\label{eq:weierstrasspfunction}
+    \end{equation}
+\end{definition}
+By \cref{prop:weierstrasspfunctionconvergence,thm:weierstrassconvergence}, \(\wp\) is well-defined and meromorphic on \(\mathbb{C}\). By \cref{thm:weierstrassconvergence}, we can use termwise differentiation to get \[\wp'(z)=-\frac{2}{z^3}-\sum_{\omega\in\Lambda\setminus\cbraces{0}}\frac{2}{\qty(z-\omega)^3}=-2\sum_{\omega\in\Lambda}\frac1{\qty(z-\omega)^3},\] which is absolutely convergent for \(z\notin\Lambda\). It follows that \(\wp'\)
+is also meromorphic on \(\mathbb{C}\). Hence, the series expression for
+\(\wp'(z)\) may be rearranged to \(\wp'(z+\omega_1)\), and hence, \[\wp'(z)=\wp'(z+\omega_1)=\wp'(z+\omega_2).\] Hence, \(\wp'\) is also an elliptic function with period lattice \(\Lambda\).
+Hence, we must have \[\wp(z)+c_1=\wp\qty(z+\omega_1),\qquad\wp(z)+c_2=\wp\qty(z+\omega_2).\] At \(z=-\frac{\omega_1}{2},-\frac{\omega_2}{2}\), we have \[\wp\qty(-\frac{\omega_1}{2})+c_1=\wp\qty(\frac{\omega_1}{2}),\qquad\wp\qty(-\frac{\omega_2}{2})+c_2=\wp\qty(\frac{\omega_2}{2})\] By evenness of \(\wp\), we must have \(c_1=c_2=0\). Therefore, \(\wp\) is also
+an elliptic function with period lattice \(\Lambda\). Moreover, each isolated
+singularity \(\omega\in\Lambda\) is a pole of order two with residue 0 (by
+\cref{prop:ellipticfunctionresiduesum}). The quotient group
+\(\mathbb{C}/\Lambda\), may be represented by a fundamental parallelogram \(P\)
+of \(\Lambda\) with vertices at \(0\), \(\omega_1\), \(\omega_2\), and
+\(\omega_1+\omega_2\), which by identification, are homeomorphic to a single
+point on the torus.
+\begin{proposition}
+    At \(z=0\), \(\wp\) has a double pole with Laurent expansion \[\frac{1}{z^2}+\sum_{n=1}^\infty c_{2n}z^{2n},\qquad c_{2n}=\sum_{\omega\in\Lambda^*}\frac{2n+1}{\omega^{2n+2}}\] whose convergence annulus centered at \(0\) has an outer radius equal to the distance from \(0\) to the nearest period in \(\Lambda^*\).
+\end{proposition}
+\begin{proof}
+    Observe that for \(\abs{z}<R=\min_{\omega\in\Lambda^*}\abs{\omega}\), \(\omega\in\Lambda^*\), \[\frac{1}{\omega-z}=\frac{\frac1\omega}{1-\frac z\omega}=\frac1\omega\sum_{n=0}^\infty\qty(\frac z\omega)^n\implies\frac1{\qty(z-\omega)^2}=\frac1{\omega^2}\qty[\sum_{n=0}^\infty\qty(\frac z\omega)^n]^2.\] Therefore,
+    \begin{align*}
+        \wp(z) & =\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\qty[\frac{1}{\qty(z-\omega)^2}-\frac{1}{\omega^2}]=\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\qty[\frac{1}{\omega^2}\qty(\sum_{m=0}^\infty\qty(\frac z\omega)^m)^2-\frac{1}{\omega^2}] \\
+        & =\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\frac{1}{\omega^2}\qty[\sum_{m=0}^\infty(m+1)\qty(\frac z\omega)^m-1]=\frac{1}{z^2}+\sum_{\omega\in\Lambda^*}\sum_{m=1}^\infty\frac{m+1}{\omega^{m+2}}z^m\\
+        &=\frac{1}{z^2}+\sum_{m=1}^\infty\qty(\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}})z^m=\frac1{z^2}+\sum_{m=1}^\infty c_mz^m,
+    \end{align*}
+    where \(c_m=\sum_{\omega\in\Lambda^*}\frac{m+1}{\omega^{m+2}}\). Indeed, since \[\abs{\sum_{\omega\in\Lambda^*}\sum_{m=1}^\infty\frac{m+1}{\omega^{m+2}}z^m}\leq\sum_{\omega\in\Lambda^*}\frac{2\abs{z\omega}-\abs{z}^2}{\qty(\abs{\omega}-\abs{z})^2\abs{\omega}^2}=\sum_{\omega\in\Lambda^*}\frac{\abs{z}\qty(2-\abs{\frac z\omega})}{\abs{\omega}^3\qty(\abs{\frac z\omega}-1)^2},\] which for \(\abs{\omega}>2R\) (which comprises all \(\omega\) except for finitely many) is bounded by \(\sum_{\substack{\omega\in\Lambda\\\abs{\omega}>2R}}\frac{10R}{\abs{\omega}^3}\) (estimates derived in the proof of \cref{prop:weierstrasspfunctionconvergence}), which is convergent by \cref{prop:weierstrasspfunctionintermediateseriesconvergence}. Hence, the series converges absolutely for \(\abs{z}<R\) and the summation exchange is valid. By the symmetry of the period lattice, it is trivial that \(c_{2m+1}=0\) for all \(m\in\mathbb{N}\). Hence, the assertion follows.
+\end{proof}
+Termwise differentiation (provided by \cref{thm:weierstrassconvergence}) now gives \[\wp'(z)=-\frac{2}{z^3}+\sum_{n=1}^\infty 2n c_{2n} z^{2n-1}.\] Letting \[b_m=\sum_{\omega\in\Lambda^*}\frac1{\omega^m},\] we have \[\wp(z)=\frac1{z^2}+3b_4z^2+5b_6z^4+7b_8z^6+\ldots,\quad\wp'(z)=-\frac2{z^3}+6b_4z+20b_6z^3+42b_8z^5+\ldots.\]
+
+\begin{definition}[Weierstrass \(\zeta\)-Function]
+
+\end{definition}
+\begin{definition}[Weierstrass \(\sigma\)-Function]
+
+\end{definition}

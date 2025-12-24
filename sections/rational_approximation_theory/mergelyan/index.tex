@@ -2,20 +2,9 @@
 Although many mathematicians have since tried after the efforts of Weierstrass
 and Runge to approximation continuous functions holomorphic on the interior
 restriction, it was only 67 years later when Armenian mathematician provided
-the first widely accepted proof. The proof of Runge's Theorem (specifically in
-\cref{prop:rungesimplepolesandremovablesingularityatinfinity}) relied heavily
-on the assumption of holomorphy on a neighborhood, a rational function was
-created by placing poles in prescribed points of a contour that lay outside of
-\(K\) but within its domain of holomorphy. Obviously, these assumptions are
-null under the context of this new formulation.
+the first widely accepted proof. The proof of Runge's Theorem (specifically in \cref{prop:rungesimplepolesandremovablesingularityatinfinity}) relied heavily on the assumption of holomorphy on a neighborhood, a rational function was created by placing poles in prescribed points of a contour that lay outside of \(K\) but within its domain of holomorphy. Obviously, these assumptions are null under the context of this new formulation.
 
-The proof proposed by Mergelyan is almost trivial when compared with the
-results of many other mathematicians at the time. It even uses the concepts
-previously proposed by Runge. This begs the question: why was there such a
-prolonged time gap between the two similar formulations? Many mathematicians
-felt that the conclusion was too ethereal; during this elapsed time period
-there were many efforts of mathematicians that resulted in many technical
-partial results. Mergelyan's Theorem came as a surprise as it encapsulated many
+The proof proposed by Mergelyan is almost trivial when compared with the results of many other mathematicians at the time. It even uses the concepts previously proposed by Runge. This begs the question: why was there such a prolonged time gap between the two similar formulations? Many mathematicians felt that the conclusion was too ``too good to be true''; during this elapsed time period there were many efforts of mathematicians that resulted in many technical partial results. Mergelyan's Theorem came as a surprise as it encapsulated many
 of those results with simplicity.
 
 As we have previously seen, there is a prevalent notion in complex analysis
@@ -50,17 +39,13 @@ Let \(z=f^{-1}(w)\). Then we have
 \end{proposition}
 \begin{proof}
     Denote the derivative of \(\phi\) at the infinity to be \(\alpha\). By \cref{eq:derivativeatpole1}, we have \[\qty(\phi^{-1})'(0)=\frac{1}{\phi'(\infty)}=\frac1\alpha=-\lim_{z\to 0}\frac{\qty(\phi^{-1})'(z)}{\phi^{-1}(z)^2}\Longleftrightarrow-\lim_{z\to0}\frac{\phi^{-1}(z)^2}{\alpha\qty(\phi^{-1})'(z)}=1.\]
-    Fix \(\tau\in K\) and let \(\psi(z)=\frac{\alpha}{\phi^{-1}(z)-\tau}\),
-    univalent on \(\mathbb{D}\). By direct calculation, we have \(\psi(0)=0\).
-    Additionally,
+    Fix \(\tau\in K\) and let \(\psi(z)=\frac{\alpha}{\phi^{-1}(z)-\tau}\), univalent on \(\mathbb{D}\). By direct calculation, we have \(\psi(0)=0\). Additionally,
     \begin{align*}
         \psi'(0)=-\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}=\lim_{z\to 0}\frac{\alpha\qty(\phi^{-1})'(z)}{\qty(\phi^{-1}(z)-\tau)^2}\cdot\frac{\phi^{-1}(z)^2}{\alpha\qty(\phi^{-1})'(z)}=1.
     \end{align*}
     By the Koebe Quarter Theorem (\cref{thm:koebequarter}), whose proof is independent of results of this section, in accordance, \(D\qty(0,\frac14)\subseteq\psi(\mathbb{D})\). Let \(\mu\in K\setminus\cbraces{\tau}\). Obviously, \(\mu\notin\phi^{-1}(\mathbb{D})=\extcomplex\setminus K\).
 
-    Let \(z\mapsto\frac{\alpha}{z-\tau}\) be injective on \(\extcomplex\). For the
-    sake of contradiction, assume that
-    \(\qty(z\mapsto\frac{\alpha}{z-\tau})(\mu)\in\psi(\mathbb{D})\). Then
+    Let \(z\mapsto\frac{\alpha}{z-\tau}\) be injective on \(\extcomplex\). For the sake of contradiction, assume that \(\qty(z\mapsto\frac{\alpha}{z-\tau})(\mu)\in\psi(\mathbb{D})\). Then
     \(\exists\zeta\in\phi^{-1}(\mathbb{D})\) such that
     \(\frac{\alpha}{\zeta-\tau}=\frac{\alpha}{\mu-\tau}\). By injectivity,
     \(\zeta=\mu\), which contradicts \(\mu\in K\), and accordingly,
@@ -281,20 +266,13 @@ For \(r>0\), define
         \begin{tikzpicture}
             \node[anchor=center] at (2.8,1) {\small\(K\)};
             \tikztemporarygrid{-3}{3}{-3}{3}
-            \subimport{erosion_output/original/}{1.tex}
-            \subimport{erosion_output/original/}{2.tex}
-            \subimport{erosion_output/original/}{3.tex}
-            \subimport{erosion_output/eroded/}{1.tex}
-            \subimport{erosion_output/eroded/}{2.tex}
-            \subimport{erosion_output/eroded/}{3.tex}
-            \subimport{erosion_output/eroded/}{4.tex}
-            \subimport{erosion_output/eroded/}{5.tex}
+            \subimport{erosion_output/}{imports.tex}
 
-            \foreach \c in {\ErosionInputCoordinatesA,\ErosionInputCoordinatesB,\ErosionInputCoordinatesC}{
-                \draw[thick] plot[smooth cycle] coordinates \c;
+            \foreach \c [count=\i] in \ErosionInputList{
+                \draw[thick, name path=path \i] plot[smooth cycle] coordinates \c;
             }
-            \foreach \c in {\ErosionOutputCoordinatesA,\ErosionOutputCoordinatesB,\ErosionOutputCoordinatesC,\ErosionOutputCoordinatesD,\ErosionOutputCoordinatesE}{
-                \draw[thin] plot[smooth cycle] coordinates \c;
+            \foreach \c [count=\i] in \ErosionOutputList{
+                \draw[thin, name path=path \i] plot[smooth cycle] coordinates \c;
             }
         \end{tikzpicture}
         \caption{The thick lines bound \(K\), while the thin lines bound \(U\).}
@@ -343,11 +321,7 @@ For \(r>0\), define
     Dominate Convergence gives that
     \[\pdv{\Psi}{x}=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{x}\qty(z)\dd{\xi}\wedge\dd{\eta},\] and in analogous fashion, \[\pdv{\Psi}{y}=\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{y}\qty(z)\dd{\xi}\wedge\dd{\eta}.\]
     Hence, \(\Psi\) is holomorphic on
-    \(\extcomplex\setminus\bigcup_{k=1}^n\bigcup_{j=1}^{m_k} E_{k}^{(j)}\), a
-    neighborhood of \(K\). Since \(\forall z\in\extcomplex\setminus\bigcup
-    E_k^{(j)}\), by
-    \cref{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676}
-    of \cref{prop:complementbiholomorphism584r4767r2estimates},
+    \(\extcomplex\setminus\bigcup_{k=1}^n\bigcup_{j=1}^{m_k} E_{k}^{(j)}\), a neighborhood of \(K\). Since \(\forall z\in\extcomplex\setminus\bigcup E_k^{(j)}\), by \cref{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676} of \cref{prop:complementbiholomorphism584r4767r2estimates},
     \begin{align*}
         \abs{\Psi(z)-\Phi(z)} & =\abs{\frac{1}{\piup}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\dd{\eta}-\frac1\piup\iint_H\pdv{\Phi}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{z-\zeta}} \\
         & =\frac1{\piup}\abs{\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\qty(\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta})\dd{\xi}\dd{\eta}}                                                           \\
@@ -366,10 +340,6 @@ For \(r>0\), define
         =18704r\omega_f(r)2\piup\eval{\frac{1}{\rho}}_{\infty}^{2r}+\frac{9344\piup\omega_f(r)r^2}{r^2}+\frac{4\omega_f(r)}{r}4r\piup\\
         =18704\piup\omega_f(r)+9344\piup\omega_f(r)+16\piup\omega_f(r)=28064\piup\omega_f(r).
     \end{multline*}
-    Runge's Theorem (\cref{thm:runge}) provides the existence of some rational function \(\psi\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-\Psi(z)}\leq\piup\omega_f(r)\] since \(\Psi\) is holomorphic on a neighborhood of \(K\) (to assure this bound
-        is positive, we assume \(f\) is not identically zero, otherwise the assertion
-    is trivial). Therefore, for all \(z\in K\), we have \[\sup_{z\in K}\abs{\psi(z)-\Phi(z)}\leq\sup_{z\in K}\abs{\psi(z)-\Psi(z)}+\abs{\Psi(z)-\Phi(z)}\leq 28065\piup\omega_f(r).\] Because \(\lim_{r\to0^+}\omega_f(r)=0\), for any \(\varepsilon>0\), there
-    exists a \(r>0\) such that \[\omega_f(r)<\frac{\varepsilon}{28065\piup}.\]
-    Hence for any such \(\varepsilon\), we now construct \(\psi\) in accordance
-    with an \(r\) satisfying \(28065\piup\omega_f(r)<\varepsilon\).
+    Runge's Theorem (\cref{thm:runge}) provides the existence of some rational function \(\psi\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-\Psi(z)}\leq\piup\omega_f(r)\] since \(\Psi\) is holomorphic on a neighborhood of \(K\) (to assure this bound is positive, we assume \(f\) is not identically zero, otherwise the assertion is trivial). Therefore, for all \(z\in K\), we have \[\sup_{z\in K}\abs{\psi(z)-\Phi(z)}\leq\sup_{z\in K}\abs{\psi(z)-\Psi(z)}+\abs{\Psi(z)-\Phi(z)}\leq 28065\piup\omega_f(r).\] Because \(\lim_{r\to0^+}\omega_f(r)=0\), for any \(\varepsilon>0\), there exists a \(r>0\) such that \[\omega_f(r)<\frac{\varepsilon}{28065\piup}.\]
+    Hence for any such \(\varepsilon\), we now construct \(\psi\) in accordance with an \(r\) satisfying \(28065\piup\omega_f(r)<\varepsilon\).
 \end{proof}
