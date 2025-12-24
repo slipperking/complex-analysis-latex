@@ -1,0 +1,71 @@
+\subsection{Prime Number Theorem}
+Prime numbers have been a central object of study in number theory since antiquity. From the times of Euclid, it was known that there were infinitely many primes. The \textscsl{prime counting function} \(\pi(n)\) is defined to be the number of primes not exceeding \(n\). The \textscsl{Prime Number Theorem} states formally that \getkeytheorem{thm:primenumber} This result was first conjectured by Gauss and Legendre in the late 18th century based on empirical evidence, while early results given by P. L. Chebyshev and J. J. Sylvester proved that the ratio \(\frac{\log(n)\pi(n)}{n}\) is bounded between two positive constants for large \(n\). The full asymtotic relation was finally proven independently by Hadamard and de la Vallée Poussin in 1896 using complex analysis and properties of the Riemann \(\zeta\)-function.
+
+The logarithmic integral function, defined by \[\operatorname{Li}(x)=\int_2^x\frac{\ddt}{\log(t)}\] is of considerable interest as it much better approximates the prime counting function \(\pi(x)\) than \(\frac x{\log x}\) does. It can be trivially shown that \(\operatorname{Li}(x)\sim\frac{x}{\log x}\) by the realization that
+\begin{align*}
+    \operatorname{Li}(x) & =\eval{\frac{t}{\log t}}_2^x+\int_2^x\frac{\ddt}{\log^2 t}=\frac{x}{\log x}+\int_2^x\frac{\ddt}{\log^2 t}+\order{1} \\
+    & =\frac{x}{\log x}+\frac{x}{\log^2 x}+\frac{2x}{\log^3 x}+\frac{6x}{\log^4 x}+\cdots+\order{1}                       \\
+    & =\frac{x}{\log x}+\order{\frac x{\log^2 x}}.
+\end{align*}
+We have previously seen how the Riemann \(\zeta\)-function could be used to determine properties of the distribution of primes. The proof of the Prime Number Theorem depends on a more subtle connection between \(\zeta\) and \(\pi\). The most efficient way to construct such a connection has been the subject of much experimentation. The proof we proceed to provide may seem arbitrary, we provide this connection via auxiliary functions. But a look into history reveals the many failed experiments and attempts that ultimately led to the simplicity of the proof presented below.
+
+Define the first and second \textscsl{Chebyshev functions} \(\vartheta(x),\psi(x)\) by \[\vartheta(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\log p,\qquad\psi(x)=\sum_{n\leq x}\Lambda(n)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{(p,k):p^k\leq x\\p\text{ prime}}}}\log p.\]
+We hence derive that \[\psi(x)=\sum_{k=1}^\infty\sum_{\substack{p:p^k\leq x\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\sum_{\substack{p:p\leq \sqrt[k]{x}\\p\text{ prime}}}\log p=\sum_{k=1}^\infty\vartheta\qty(x^{\frac1k}).\]
+Grouping by primes, we see that this is in fact equivalent to
+\begin{equation}
+    \psi(x)=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k:p^k\leq x}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k\leq\log_p x}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x\\p\text{ prime}}}}\sum_{k=1}^{\floor{\frac{\log x}{\log p}}}\log p=\sum_{\substack{p:p\leq x\\p\text{ prime}}}\floor{\frac{\log x}{\log p}}\log p.\label{eq:chebyshevfunction_psi_floor}
+\end{equation}
+Hence we have for any \(x>1\),
+\begin{equation}
+    0\leq\vartheta(x)\leq\psi(x)\leq\mathmakebox[\widthof{\(\sum_{p:p\leq x}\)}][c]{\sum_{\substack{p:p\leq x\\p\text{ prime}}}}\frac{\log x}{\log p}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p:p\leq x\\p\text{ prime}}}}\log x=\pi(x)\log x.\label{eq:chebyshevfunctions_bounds_primecounting}
+\end{equation}
+\begin{theorem}\label{thm:chebyshevfunctions_limsup_inflim_equivalences}
+    We have the following limit equivalences:
+    \begin{equation}
+        \varlimsup_{x\to+\infty}\frac{\pi(x)\log x}{x}=\varlimsup_{x\to+\infty}\frac{\psi(x)}{x}=\varlimsup_{x\to+\infty}\frac{\vartheta(x)}{x}\label{eq:chebyshevfunctions_limsup_inflim_equivalences_limsup}
+    \end{equation} and
+    \begin{equation}
+        \varliminf_{x\to+\infty}\frac{\pi(x)\log x}{x}=\varliminf_{x\to+\infty}\frac{\psi(x)}{x}=\varliminf_{x\to+\infty}\frac{\vartheta(x)}{x}.\label{eq:chebyshevfunctions_limsup_inflim_equivalences_liminf}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Let \(0<\alpha<1\) be arbitrary and suppose \(x>1\). By definition, we have
+    \begin{align*}
+        \vartheta(x) & =\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x                                \\p\text{ prime}}}}\log p=\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{p\leq x^\alpha\\p\text{ prime}}}}\log p+\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{x^\alpha<p\leq x\\p\text{ prime}}}}\log p\geq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{x^\alpha<p\leq x\\p\text{ prime}}}}\log p\\
+        & =\log x^\alpha\mathmakebox[\widthof{\(\sum_{\qquad}\)}][c]{\sum_{\substack{x^\alpha<p\leq x \\p\text{ prime}}}}\frac{\log p}{\log x^\alpha}>\alpha\log x\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{\substack{x^\alpha<p\leq x\\p\text{ prime}}}}1\\
+        & =\alpha\log x\qty(\pi(x)-\pi\qty(x^\alpha))\geq \alpha\log x\qty(\pi(x)-x^\alpha).
+    \end{align*}
+    Hence we have that
+    \begin{equation}
+        \frac{\alpha\pi(x)\log x}{x}-\alpha x^{\alpha-1}\log x<\frac{\vartheta(x)}{x}\leq\frac{\psi(x)}x\leq\frac{\pi(x)\log x}x\label{eq:chebyshevfunctions_limsup_inflim_equivalences_inequalities}
+    \end{equation} by virtue of \cref{eq:chebyshevfunctions_bounds_primecounting}. Letting \(x\to+\infty\) and taking the limit supremum yields
+    \begin{align*}
+        \alpha\varlimsup_{x\to+\infty}\qty(\frac{\pi(x)\log x}{x}-x^{\alpha-1}) & =\alpha\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}{x}\leq\varlimsup_{x\to+\infty}\frac{\vartheta(x)}x \\
+        & \leq\varlimsup_{x\to+\infty}\frac{\psi(x)}x\leq\varlimsup_{x\to+\infty}\frac{\pi(x)\log x}x.
+    \end{align*}
+    Letting \(\alpha\to 1^-\) yields \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_limsup}. The proof of \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_liminf} follows similarly by taking limit infimums in \cref{eq:chebyshevfunctions_limsup_inflim_equivalences_inequalities} and \(\alpha\to 1^-\).
+\end{proof}
+\begin{theorem}\label{thm:primenumbertheorem_laplacetransformchebyshevfunction}
+    The Laplace transform of \(\psi\circ\exp\) defined as
+    \begin{equation}
+        f(s)=\int_0^\infty\psi\qty(\ee^{t})\ee^{-st}\ddt\label{eq:primenumbertheorem_laplacetransformchebyshevfunction_statement}
+    \end{equation} converges for \(\Re s>1\) and defines a holomorphic function on this domain. Moreover, the function \(g\) defined by \[g(t)=\lim_{\sigma\to 1^+}\qty[f(s)-\frac1{s-1}],\qquad s=\sigma+\ii t\] converges uniformly with respect to \(t\) on compact subsets of \(\mathbb{R}\)
+    and is continuously differentiable thereon.
+\end{theorem}
+\begin{proof}
+    Let \(u=\ee^t\), \(\dd{u}=\ee^t\ddt\). Then we obtain
+    \begin{align*}
+        f(s) & =\int_1^\infty\psi(u)u^{-s-1}\dd{u}=\sum_{n=1}^\infty\int_n^{n+1}\psi(u)u^{-s-1}\dd{u}                                                            \\
+        & =\sum_{n=1}^\infty\psi(n)\int_n^{n+1}u^{-s-1}\dd{u}=\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\eval{\frac{u^{-s}}{-s}}_{n}^{n+1}                     \\
+        & =\frac1s\sum_{n=1}^\infty\sum_{m=1}^n\Lambda(m)\qty[n^{-s}-(n+1)^{-s}]=\frac1s\sum_{m=1}^\infty\Lambda(m)\sum_{n=m}^\infty\qty[n^{-s}-(n+1)^{-s}] \\
+        & =\frac1s\sum_{m=1}^\infty\Lambda(m)m^{-s}=\frac1s\sum_{n=1}^\infty\frac{\Lambda(n)}{n^{-s}}
+    \end{align*}
+    by absolute convergence and because the inner summation telescopes. By \cref{prop:riemannzetafunction_logarithmicderivativezetavonmangoldt}, we have that for \(\Re s>1\),
+    \begin{equation}
+        f(s)=-\frac1s\frac{\zeta'(s)}{\zeta(s)}\implies f(s)-\frac{1}{s-1}=-\frac1s\qty(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1})-\frac1s.\label{eq:primenumbertheorem_laplacetransformchebyshevfunction_gfunction}
+    \end{equation}
+    The expression \(\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}\) is meromorphic in \(\mathbb{C}\). Because \(\zeta(s)\) has a simple pole at \(s=1\) with residue \(1\), it follows that \[\zeta(s)=\frac{1}{s-1}+l(s)\] for some entire function \(l:\mathbb{C}\to\mathbb{C}\). By \cref{prop:riemannzetafunction_trivialzeros} and \cref{thm:riemannzetafunction_nozerosoncriticalstripboundary}, the quantity \(\zeta(s)(s-1)=1+\qty(s-1)l(s)\) does not vanish for \(\Re s\geq1\) (at \(s=1\), the simple pole \(\zeta\) cancels with the simple zero of \(s-1\)). Hence, \[\frac{\zeta'(s)}{\zeta(s)}+\frac1{s-1}=\frac{\zeta'(s)\qty(s-1)+\zeta(s)}{\zeta(s)\qty(s-1)}=\frac{\dv{s}(\zeta(s)(s-1))}{1+(s-1)l(s)}=\frac{l'(s)(s-1)+l(s)}{1+(s-1)l(s)}\] and \cref{eq:primenumbertheorem_laplacetransformchebyshevfunction_gfunction} define holomorphic functions on \(\Re s\geq1\) (observe that the numerator is entire).
+
+    For a compact subset \(I\subset\mathbb{R}\), the complex rectangle \(K\equiv\cbraces{x+\ii y}{1\leq x\leq 2,y\in I}\) is compact in \(\mathbb{C}\). Thus, by uniform continuity (given by \cref{thm:heinecantor}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \[s_1=\sigma_1+\ii t_1,s_2=\sigma_2+\ii t_2\in K:\abs{s_1-s_2}<\delta\implies\abs{f(s_1)-\frac1{s_1-1}-f(s_2)+\frac1{s_2-1}}<\varepsilon.\] In particular, for \(\sigma_1=1\) such that \(t_2=t_1(=t)\), we have \[s=\sigma+\ii t\in K:\abs{\sigma-1}<\delta\implies\abs{f\qty(1+\ii t)-\frac1{\ii t}-f\qty(s)+\frac1{s-1}}<\varepsilon,\] where \(\delta\) is chosen independently of \(t\). Therefore, \(g(t)\) converges uniformly on compact subsets of \(\mathbb{R}\) and is continuously differentiable thereon.
+\end{proof}
+\subimport{wiener_ikehara_theorem/}{index.tex}
