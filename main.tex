@@ -6,7 +6,7 @@
 \usepackage{cancel}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns, pgfplots.fillbetween}
+\usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns, patterns.meta, pgfplots.fillbetween}
 \usepackage{csquotes}
 \usepackage{pifont}
 \usepackage{xparse}
@@ -32,16 +32,23 @@
     \path (#1) -- (#2) coordinate[pos=0.25] (Pstart) coordinate[pos=0.75] (Pend);
     \draw[-{Stealth}, thick, black] (Pstart) -- (Pend);
 }
-\def\tikzcenterarc[#1](#2)(#3:#4:#5)%[options](center) (initial:final:radius)
+\def\tikzcenterarc(#1)(#2:#3:#4)%[options](center) (initial:final:radius)
 {
-    {\draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5);}
-    \path[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5);
+    ($(#1)+({#4*cos(#2)},{#4*sin(#2)})$) arc (#2:#3:#4)
 }
 \newcommand{\tikztemporarygrid}[4]{%
     % #1 = xmin, #2 = xmax, #3 = ymin, #4 = ymax
     \draw[step=1cm, gray!50, very thin] (#1,#3) grid (#2,#4);
     \draw[->, thick] (#1-0.5,0) -- (#2+0.5,0) node[right] {$x$};
     \draw[->, thick] (0,#3-0.5) -- (0,#4+0.5) node[above] {$y$};
+}
+
+\tikzset{
+    point/.style={
+        circle,
+        fill,
+        inner sep=0.7pt
+    }
 }
 
 \newcommand{\ddx}{\dd{x}}
@@ -168,34 +175,19 @@ The following definitions are subject to the assumption where the topological sp
 \begin{proof}
     Since \(X\) is bounded, there exists a closed cube \(Q\subset\mathbb{C}^n\) such that \(A\subseteq X\subset Q\).
 
-    Bisect \(Q_0=Q\) into \(2^{2n}\) congruent sub-cubes. Since \(A\) is infinite
-    and the sub-cubes are finite in number, at least one of the sub-cubes contains
-    infinitely many points of \(A\), and choose one to be \(Q_1\).
+    Bisect \(Q_0=Q\) into \(2^{2n}\) congruent sub-cubes. Since \(A\) is infinite and the sub-cubes are finite in number, at least one of the sub-cubes contains infinitely many points of \(A\), and choose one to be \(Q_1\).
 
-    Bisect \(Q_1\) into \(2^{2n}\) sub-cubes, and choose a sub-cube \(Q_2\subset
-    Q_1\) that contains infinitely many points of \(A\). We then obtain the
-    recursive sequence \[Q_0\supset Q_1 \supset Q_2\supset\cdots.\]
+    Bisect \(Q_1\) into \(2^{2n}\) sub-cubes, and choose a sub-cube \(Q_2\subset Q_1\) that contains infinitely many points of \(A\). We then obtain the recursive sequence \[Q_0\supset Q_1\supset Q_2\supset\cdots.\]
 
-    Because the side lengths shrink to zero and the cubes are nested, the
-    intersection
+    Because the side lengths shrink to zero and the cubes are nested, the intersection
     \[\bigcap_{k=0}^{\infty} Q_k\]
     consists of exactly one point. Call this point \(z_\infty\in\mathbb{C}^n\).
 
-    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the
-    side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists
-    N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset
-    B^n(z_\infty,\varepsilon)\) where \(B^n(a,r)\subset\mathbb{C}^n\) is the
-    \(n\)-dimensional \textscsl{ball} with radius \(r\) centered at
-    \(a=\paren{a_1,a_2,\ldots,a_n}\in\mathbb{C}^n\), or \[B^n(a,r)=\cbraces{\qty(z_1,z_2,\ldots,z_n)\in\mathbb{C}^n}{\sum_{j=1}^n\abs{z_j-a_j}^2<r^2}.\]
-    Then, \(B^n(z_\infty, \varepsilon)\) also contains infinitely many points of
-    \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
+    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\) where \(B^n(a,r)\subset\mathbb{C}^n\) is the \(n\)-dimensional \textscsl{ball} with radius \(r\) centered at \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\), or \[B^n(a,r)=\cbraces{\qty(z_1,z_2,\ldots,z_n)\in\mathbb{C}^n}{\sum_{j=1}^n\abs{z_j-a_j}^2<r^2}.\]
+    Then, \(B^n(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
 
-    We now show that \(z_\infty\in X\). Suppose for contradiction that
-    \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is
-    open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\] But then, for sufficiently large \(k\), we have \(Q_k \subset B^n\qty(z_\infty,
-    \delta)\), and hence \(Q_k\cap X=\varnothing\). This contradicts the
-    construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many
-    points of \(A \subset X\).
+    We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\]
+    But then, for sufficiently large \(k\), we have \(Q_k \subset B^n\qty(z_\infty,\delta)\), and hence \(Q_k\cap X=\varnothing\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
 \end{proof}
 \begin{theorem}[\textsc{Heine--Borel}]\label{thm:heineborel}
     A set \(X\in\mathbb{C}^n\) is compact iff if every open cover has a finite subcover.

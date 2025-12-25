@@ -263,27 +263,75 @@ For \(r>0\), define
 \begin{proof}
     \begin{figure}
         \centering
+        \subimport{erosion_output/}{imports.tex}
         \begin{tikzpicture}
             \node[anchor=center] at (2.8,1) {\small\(K\)};
-            \tikztemporarygrid{-3}{3}{-3}{3}
-            \subimport{erosion_output/}{imports.tex}
-
-            \foreach \c [count=\i] in \ErosionInputList{
-                \draw[thick, name path=path \i] plot[smooth cycle] coordinates \c;
-            }
+            %\tikztemporarygrid{-3}{3}{-3}{3}
+            \filldraw[thick, even odd rule, pattern=north east lines] {
+                \foreach \c [count=\i] in \ErosionInputList{
+                    plot[smooth cycle] coordinates \c
+                }
+            };
             \foreach \c [count=\i] in \ErosionOutputList{
                 \draw[thin, name path=path \i] plot[smooth cycle] coordinates \c;
             }
+            \draw[thin, |-|, line cap=round, shorten >=1pt] (1.98,-1.16) -- (1.93,-0.78) node[midway, anchor=east] {\small\(r\)};
+            \draw[thin, |-|, line cap=round, shorten >=1pt] (-0.41,0.02) -- (-0.18,0.36) node[midway, anchor=north west] {\small\(r\)};
+
+            \path (-0.6,-0.4) coordinate (P1)
+            (0.94,0.05) coordinate (P2)
+            (-2.2,0.2) coordinate (P3);
+
+            \draw[dashed] \tikzcenterarc(P1)(0:360:0.3) \tikzcenterarc(P2)(0:360:0.3) \tikzcenterarc(P3)(0:360:0.3);
+
+            \path
+            (P1) node[point,label={[yshift=-2]above:\tiny\(p_1\)}] {}
+            (P2) node[point,label={[yshift=2]below:\tiny\(p_2\)}] {}
+            (P3) node[point,label={[yshift=-2]above:\tiny\(p_3\)}] {};
+
+            \draw[thin, |-|, line cap=round, shorten >=1pt] (P3) -- ([yshift=-0.3cm]P3) coordinate[midway] (M);
+            \draw[thin,-{Stealth}] (-2.8,1.2) -- ([xshift=-1pt]M);
+            \node[anchor=south] at (-2.8,1.2) {\tiny\(\tfrac34r\)};
         \end{tikzpicture}
-        \caption{The thick lines bound \(K\), while the thin lines bound \(U\).}
-        \label{fi}
+        \caption{The striped region bounding \(K\), while the thin lines bound \(U\).}
+        \label{fig:mergelyan_kseterosions}
     \end{figure}Let \(F=\cbraces{p_k}_{1\leq k\leq n}\) contain precisely one point from each connected component of \(\extcomplex\setminus K\) (such that each \(p_k\neq\infty\) is finite). Suppose that \(r\) is chosen such that \(0<\frac34 r<\operatorname{dist}\qty(K, F)\) so that for each \(p_k\in F\) not equal to \(\infty\), \[\overline{D\qty(p_k,\frac34r)}\subset\extcomplex\setminus K.\]
-    Define the extension of \(f\), \(\Phi\), \(U\), and \(H\) as in the previous
-    results. Hence,
+    \begin{figure}
+        \centering
+        \subimport{erosion_output/}{imports.tex}
+        \begin{tikzpicture}
+            \node[anchor=center] at (2.8,1) {\small\(H\)};
+            \tikztemporarygrid{-3}{3}{-3}{3}
+
+            \filldraw[thick, even odd rule, pattern=north east lines] {
+                \foreach \c [count=\i] in \ErosionOutputList{
+                    plot[smooth cycle] coordinates \c
+                }
+                plot[smooth cycle] coordinates {
+                    (-1.8,0.2) (-2.2,1.2) (-2.5,1.9) (-1.4,1.5) (-0.6,2.5) (0.3,2.4) (-0.2,1.7) (1.3,2.8) (2.1,2.3) (3.2,1.2) (2.8,0.2) (3,-1) (2.1,-1.5) (1.5,-1.8) (0.4,-1.9) (-0.2,-1.6) (-1.3,-2.4) (-2.1,-1.6) (-2.5,-0.6)
+                }
+            };
+            \coordinate (P1) at (-0.6,-0.4);
+            \coordinate (P2) at (0.94,0.05);
+            \coordinate (P3) at (-2.2,0.2);
+            \node[circle, fill=black, inner sep=0.7pt, label={\tiny\(p_1\)}] at (P1) {};
+            \node[circle, fill=black, inner sep=0.7pt, label={\tiny\(p_2\)}] at (P2) {};
+            \node[circle, fill=black, inner sep=0.7pt, label={\tiny\(p_3\)}] at (P3) {};
+
+            \filldraw[thin, fill opacity=0.3, even odd rule] {
+                \foreach \c in \ErosionInputList{
+                    plot[smooth cycle] coordinates \c
+                }
+
+                \tikzcenterarc(P1)(0:361:0.3) \tikzcenterarc(P2)(0:361:0.3) \tikzcenterarc(P3)(0:361:0.3)
+            };
+        \end{tikzpicture}
+        \caption{The striped region represents \(H\) while the unshaded regions represent the set which \(\zeta_k\) can be in.}
+        \label{fig:mergelyan_hset}
+    \end{figure}Define the extension of \(f\), \(\Phi\), \(U\), and \(H\) as in the previous
+    results. Hence, (see \cref{fig:mergelyan_kseterosions,fig:mergelyan_hset})
     \[\cbraces{D\qty(\zeta_k,\frac54r)}{(\forall)\zeta_k\in\extcomplex\setminus\qty(K\cup\overline{D\qty(p_k,\frac34r)}),1\leq k\leq n}\]
-    covers a (compact) \(r\)-neighborhood of \(\extcomplex\setminus K\) (so that
-        each \(\zeta_k\notin K\), and is labeled so that each \(\zeta_k\) is in the
-    same connected component as \(p_k\)) (in the case that \(p_k=\infty\), let the disk inside be the empty set). Thus, the collection also covers \(H\). A
+    covers a (compact) \(r\)-neighborhood of \(\extcomplex\setminus K\) (so that each \(\zeta_k\notin K\), and is labeled so that each \(\zeta_k\) is in the same connected component as \(p_k\)) (in the case that \(p_k=\infty\), let the disk inside be the empty set). Thus, the collection also covers \(H\). A
     finite subcover \(\cbraces{D\qty(\zeta^{(j)}_k,\frac54r)}{1\leq j\leq m_k,1\leq
     k\leq n}\) covering \(H\) exists by the Heine--Borel Theorem
     (\cref{thm:heineborel}).
