@@ -1,0 +1,111 @@
+\subsection{Complex Power Series}
+Power series in real analysis can be generalized into complex series. Particularly, concepts such as uniform convergence are the same in complex analysis:
+\begin{definition}[Uniform Convergence]
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) \textscsl{uniformly converges} to a function \(f(z)\) on \(U\) iff \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\), \(\abs{f_n(z)-f(z)}<\varepsilon\).
+\end{definition}
+\begin{remark}
+    The definition above is equivalent to the following definition.
+
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) iff
+    \[\lim_{n\to\infty}\sup_{z\in U}\abs{f_n(z)-f(z)}=0.\]
+    (Informally, we will use the notation \(f_n(z)\rightrightarrows f(z)\) to represent uniform convergence.)
+\end{remark}
+\begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionuniformconvergence}
+    For a set \(U\subseteq\mathbb{C}\), a function sequence \(\cbraces{f_n(z)}\) uniformly converges to a function \(f(z)\) iff \(\forall\varepsilon>0\),\(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\forall z\in U\), \(\abs{f_n(z)-f_m(z)}<\varepsilon\).
+\end{theorem}
+\begin{proof}
+    \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\forall z\in U\), \[\abs{f_m(z)-f(z)}<\frac{\varepsilon}{2},\quad\abs{f_n(z)-f(z)}<\frac{\varepsilon}{2}.\]
+    Then,
+    \[\abs{f_m(z)-f_n(z)}\leq\abs{f_n(z)-f(z)}+\abs{f_m(z)-f(z)}<\varepsilon.\]
+
+    For the converse, refer to the analogous proof in \cref{thm:cauchycriterionsequenceconvergence}.
+\end{proof}
+Function series are defined to be a sequence formed by the partial sums of function sequences. There are many ways to verify the uniform convergence of a function series. Perhaps the most widely known is the Weierstrass \(M\)--Test.
+\begin{theorem}[Weierstrass \(M\)--Test]\label{thm:weierstrassmtest}
+    Let \(U\subseteq\mathbb{C}\) be a region and \(\cbraces{f_n}\) be a function sequence on \(U\)
+
+    If \(\exists\cbraces{M_n}\subset\mathbb{R}_{\geq 0}\) such that \(\forall n\in\mathbb{N}\), \(\forall z\in U\), \(\qty|f_n(z)|\le M_n\) and the series \(\sum_{n=1}^\infty M_n\) converges, then the series \(\sum_{n=1}^\infty f_n(z)\) converges uniformly and absolutely on \(U\).
+\end{theorem}
+\begin{proof}
+    By the convergence of \(\sum_{n=1}^\infty M_n\), \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall m\geq n>N\), \[\abs{M_m+M_{m-1}+\cdots+M_{n+1}}<\varepsilon.\] Since \(M_j\) bounds \(f_j(z)\), it follows that \[\abs{f_m(z)+f_{m-1}(z)+\cdots+f_{n+1}(z)}\leq\abs{M_m+M_{m-1}+\cdots+M_{n+1}}<\varepsilon,\]
+    and the result follows from \cref{thm:cauchycriterionuniformconvergence}.
+\end{proof}
+The concept of uniform convergence is generalized to improper integrals with parameters, and the same theorems from series have a corresponding counterpart.
+
+In both complex and real analysis, the concept of \textscsl{power series}, a unique type of function series, is of trivial importance. Similar to real power series, complex series have the form \[\sum_{n=0}^\infty a_n z^n,\] where \(\cbraces{a_n}\) are constants.
+
+Let \(D(a,r)=B^1(a,r)=\cbraces{z\in\mathbb{C}}{\abs{z-a}<r}\) denote the \textscsl{open disk} centered at \(a\) with radius \(r\). For simplicity, from now on we will have \(\mathbb{D}\) denote the unit open disk, or \(D(0,1)\). We will now observe the convergence of power series.
+\begin{theorem}[Abel's Theorem]\label{thm:abelradius}
+    For a power series \(f(z)=\sum_{n=0}^\infty a_nz^n\), there exists a constant \(R\in\mathbb{R}_{\geq0}\cup\cbraces{\infty}\), known as the \textscsl{radius of convergence} such that:
+    \begin{enumerate}
+        \item \(f\) absolutely converges on \(D(0,R)\), and \(\forall 0\leq\rho<R\), uniformly converges on \(\overline{D(0,\rho)}\).\label{itm:abelradius_absoluteanduniformconvergence}
+        \item \(f(z)\) diverges when \(\abs{z}>R\).\label{itm:abelradius_divergence}
+        \item \(f\) is holomorphic over \(D(0,R)\) and \(f'(z)\) can be obtained by termwise differentiation, or \(f'(z)=\sum_{n=1}^\infty na_n z^{n-1}\), which also has a convergence radius of \(R\).\label{itm:abelradius_differentiation}
+    \end{enumerate}
+\end{theorem}
+The disk \(\abs{z}<R\) is known as the \textscsl{disk of convergence}, a direct generalization of the \textscsl{interval of convergence} for real series. There are many ways to determine the radius of convergence:
+\begin{theorem}[\textsc{Cauchy--Hadamard}]\label{thm:cauchyhadamard}
+    The radius of convergence of the power series in the form of \(\sum_{n=0}^\infty a_n z^n\) can be determined by
+    \begin{equation}
+        R=\frac{1}{\varlimsup_{n\to\infty}\sqrt[n]{\abs{a_n}}}. \label{eq:cauchyhadamard}
+    \end{equation}
+\end{theorem}
+Of course, a convergence radius of \(0\) implies that the series is divergent everywhere except for possibly at \(0\), and a convergence radius of \(\infty\) means that the series absolutely converges everywhere.
+\begin{proof}[Proof of \cref{thm:abelradius}]
+    We will prove that the value in \cref{eq:cauchyhadamard} satisfies the criteria in \cref{thm:abelradius}.
+
+    Assume \(\abs{z}<R\). Then, \(\forall\rho\in(\abs{z},R)\), and consequently, \(\frac{1}{\rho}>\frac{1}{R}\). By \cref{def:limsup,eq:cauchyhadamard}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho}\) and \(\abs{a_n}<\frac{1}{\rho^n}\). It follows that \(\abs{a_n z^n}<\frac{\abs{z}^n}{\rho^n}<1\) for all \(n>N\). Then, \(\sum_{n=0}^\infty\abs{a_nz^n}\) converges.
+
+    Let \(\rho'\in(\rho, R)\). Similarly, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N'\), \(\sqrt[n]{\abs{a_n}}<\frac{1}{\rho'}\), and \(\abs{a_n}<\frac{1}{\rho'^n}\). Then \(\qty|a_n z^n|<\qty|a_n\rho^n|<\frac{\rho^n}{\rho'^n}<1\). By the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), the \(\sum_{n=0}^\infty\abs{a_n z^n}\) is uniformly bounded (for \(n>N'\)) by the convergent series \(\sum_{n=0}^\infty a_n\rho^n\), and thus uniformly converges on \(\abs{z}<\rho\). This proves \cref{itm:abelradius_absoluteanduniformconvergence}.
+
+    Assume that \(\abs{z}>R\).\ \(\forall\rho\in\qty(R,\abs{z})\), \(\frac{1}{\rho}<\frac{1}{R}\). By \cref{def:limsup}, \(\forall N\in\mathbb{N}\), \(\exists n_N>N\) such that \(\sqrt[n_N]{\abs{a_{n_N}}}>\frac{1}{\rho}\). It follows that \(\abs{a_{n_N}z^{n_N}}>\frac{\abs{z^{n_N}}}{\rho^{n_N}}>1\). Since \(\forall N\in\mathbb{N}\), \(\abs{\sum_{k=0}^{n_N}a_k z^k-\sum_{k=0}^{n_N-1}a_k z^k}>1\), by the Cauchy Criterion (\cref{thm:cauchycriterionsequenceconvergence}), \(\sum_{n=0}^\infty a_n z^n\) is divergent. Thus, \cref{itm:abelradius_divergence} is satisfied.
+
+    To prove \cref{itm:abelradius_differentiation}, first observe that \(\sum_{n=1}^\infty na_n z^n\) and \(\sum_{n=1}^\infty a_n z^n\) have the same convergence radius since \(\varlimsup_{n\to\infty}\sqrt[n]{n}=1\). For \(z\in D(0, R)\), let \(f(z)=S_n(z)+R_n(z)\), where \[S_n(z)=\sum_{k=0}^{n-1}a_k z^k,\quad R_n(z)=\sum_{k=n}^\infty a_k z^k.\]
+    Let \(f_1(z)=\lim_{n\to\infty}S_n'(z)=\sum_{n=0}^\infty na_n z^{n-1}\). Let \(\rho<R\) be positive and \(\abs{z_0}<\rho\). Then we aim to show that \[\lim_{z\to z_0}\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}=0.\]
+    By analyzing the difference,
+    \begin{align}
+        \frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z} & =\qty[\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)]\nonumber                                                \\
+        & \quad+S'_n(z)-f_1(z)+\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}.\label{eq:abelradius_differentiationintermediate}
+    \end{align}
+    Since \(S'_n(z)\to f_1(z)\) as \(n\to\infty\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{S'_n(z)-f_1(z)}<\frac{\varepsilon}{3}\). Since \[\frac{R_n(z)-R_n\qty(z_0)}{z-z_0}=\sum_{k=n}^\infty a_k\frac{z^k-z_0^k}{z-z_0}=\sum_{k=n}^\infty a_k\qty(z^{k-1}+z^{k-2}z+\cdots+z_0^{k-1})\]
+    for \(z\neq z_0\), \(\abs{z}<\rho<R\), \[\qty|\sum_{k=n}^\infty a_k\qty(z^{k-1}+\cdots+z_0^{k-1})|\leq \sum_{k=n}^\infty\abs{a_k}\qty(\abs{z^{k-1}}+\cdots+\abs{z_0^{k-1}})<\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}.\] Since \(\sum_{k=1}^\infty ka_k\rho^{k-1}\) is absolutely convergent, \(\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}\) is the remainder term of a convergent series. Then, \(\exists N'\in\mathbb{N}\) such that \(\forall n>N\), \(\qty|\sum_{k=n}^\infty\abs{a_k}k\rho^{k-1}|<\frac{\varepsilon}{3}\).
+
+    Finally, for a fixed \(n>\max\cbraces{N,N'}\), \(\exists\delta>0\) such that \(\forall z\in D\qty(z_0,\delta)\setminus\cbraces{z_0}\), \[\qty|\frac{S_n(z)-S_n\qty(z_0)}{z-z_0}-S'_n(z)|<\frac{\varepsilon}{3}.\]
+    From \cref{eq:abelradius_differentiationintermediate}, we get:
+    \[\qty|\frac{f(z)-f\qty(z_0)}{z-z_0}-f_1\paren{z}|<\varepsilon,\] confirming \cref{itm:abelradius_differentiation}.
+\end{proof}
+Obviously, a substitution of \(z=\zeta-a\) where \(a\in\mathbb{C}\) translates the disk of convergence to \(D(a,R)\).
+
+The subsequent results on uniform convergence hold for complex functions:
+\begin{theorem}[Uniform Limit]\label{thm:uniformlimit}
+    Let \(\cbraces{f_n(z)}\) be continuous on \(U\subseteq\mathbb{C}\) and uniformly convergent to \(f(z)\). Then \(f(z)\) is continuous on \(U\).
+\end{theorem}
+\begin{proof}
+    By continuity, \(\forall n\in\mathbb{N}\), \(\forall z_0\in U\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall z\in D\paren{z_0,\delta}\subseteq U\), \(\abs{f_n(z)-f_n\paren{z_0}}<\frac{\varepsilon}{3}\). Additionally, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\forall z\in U\) (\(n\) is independent of \(z\)), \(\abs{f_n(z)-f(z)}<\frac{\varepsilon}{3}\). It follows that \(\abs{f_n\paren{z_0}-f\paren{z_0}}<\frac{\varepsilon}{3}\). By the triangle inequality,
+    \begin{align*}
+        \abs{f(z)-f\paren{z_0}} & \leq\abs{f(z)-f_n(z)}+\abs{f_n(z)-f_n\paren{z_0}}+\abs{f_n\paren{z_0}-f\paren{z_0}}                                   \\
+        & <\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon,\quad\forall z\in D\paren{z_0,\delta}.
+    \end{align*}
+    Then the continuity of \(f\) is satisfied.
+\end{proof}
+Lastly, the sufficient criteria to pass a limit through an integral:
+\begin{theorem}\label{thm:limitintegralswitch}
+    Let \(\gamma\) be a rectifiable curve on which the function sequence \(\cbraces{f_n}_{n\in\mathbb{N}}\) is continuous on. If \(\cbraces{f_n(z)}\) uniformly converges to \(f\), then \[\lim_{n\to\infty}\int_{\gamma}f_n(z)\ddz=\int_{\gamma}f(z)\ddz.\]
+\end{theorem}
+\begin{proof}
+    Since \(\cbraces{f_n(z)}\) uniformly converges to \(f(z)\) on \(\gamma\), \(\forall\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that for all \(n>N\), \[\abs{f_n(z)-f(z)}<\frac{\varepsilon}{\operatorname{length}(\gamma)},\quad\forall z\in\gamma.\]
+    Since each \(f_n\) is continuous and \(\gamma\) is rectifiable, each integral \(\int_\gamma f_n(z)\ddz\) is convergent and well-defined.
+
+    Then \(\forall n>N\),
+    \begin{align*}
+        \abs{\int_\gamma f_n(z)\ddz-\int_\gamma f(z)\ddz}
+        & =\abs{\int_\gamma\paren{f_n(z)-f(z)}\ddz}                                            \\
+        & \leq\int_\gamma\abs{f_n(z)-f(z)}\abs{\ddz}                                           \\
+        & <\int_\gamma\frac{\varepsilon}{\operatorname{length}(\gamma)}\abs{\ddz}=\varepsilon.
+    \end{align*}
+    Therefore, \[\lim_{n\to\infty}\int_\gamma f_n(z)\ddz=\int_\gamma f(z)\ddz.\qedhere\]
+\end{proof}
+\begin{remark}
+    For a uniformly convergent series \(\sum_{n=1}^\infty f_n(z)\), the commutation between the limit and the integral becomes a summation-integral switch:
+    \[\sum_{n=1}^\infty\int_{\gamma}f_n(z)\ddz=\int_{\gamma}\sum_{n=1}^\infty f_n(z)\ddz.\]
+\end{remark}

@@ -1,0 +1,140 @@
+\subsection{Further Properties of Holomorphic Functions}
+A useful corollary of \cref{thm:cauchygoursatformula} is the Maximum Modulus Principle.
+
+Before the theorem, we first introduce the mean-value property of holomorphic functions.
+\begin{lemma}\label{lem:holomorphicmeanvalueproperty}
+    Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall\varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
+\end{lemma}
+\begin{proof}
+    By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}.\]
+    Observe that
+    \begin{align*}
+        f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}} & =\frac{1}{2\piup\varepsilon}\int_{0}^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\abs{\ii\varepsilon\ee^{\ii t}\dd{t}} \\
+                                                                                                  & =\frac{1}{2\piup}\int_{0}^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t},
+    \end{align*}
+    and the conclusion follows.
+\end{proof}
+Since the real and imaginary parts of holomorphic functions are real-valued harmonic functions, they also satisfy the mean-value property. Furthermore, if a real continuous function satisfies the mean-value property, it is harmonic (to be proved in \cref{thm:meanvaluepropertysolutionsareharmonic}). This equivalence allows for the alternative definition of harmonic functions.
+\begin{theorem}[Maximum Modulus Principle]\label{thm:maximummodulus}
+    Let \(f(z)\) be holomorphic on an open connected region \(U\subseteq\mathbb{C}\). If \(\exists z_0\in U\) and an open neighborhood \(V\subseteq U\) of \(z_0\) such that \(\forall z\in V\), \(\abs{f\paren{z_0}}\geq\abs{f(z)}\), then \(f\) is a constant function on \(U\).
+\end{theorem}
+\begin{proof}
+    Assume that \(z_0\) exists. We will first prove that the set \[S=\cbraces{z}{f(z)=f\paren{z_0},z\in V}\]
+    is all of \(V\). This is equivalent to proving that \(S\) is nonempty, open, and closed in \(V\).
+
+    Since \(z_0\in S\), the first condition is satisfied (nonemptiness). For any sequence \(\cbraces{z_n}\in S\) converging to some \(z_\infty\in V\), by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=0,\] and \(z_\infty\in S\). Thus, \(S\) contains all of its accumulation points in \(V\) and is therefore closed (if \(z_\infty\notin V\), then it is no longer relevant; we are concerned with its relative closedness in \(V\)).
+
+    Since \(S\subseteq V\) and \(V\) are both open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \cref{lem:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
+    \begin{align*}
+        |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}\leq\frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
+               & \leq\frac{1}{2\piup}\int_0^{2\piup}\abs{f(z)}\dd{t}=\abs{f(z)}.
+    \end{align*}
+    It follows that all inequalities above are equalities, or that
+    \begin{align*}
+        |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}=\frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
+               & =\frac{1}{2\piup}\int_0^{2\piup}\abs{f(z)}\dd{t}=\abs{f(z)}.
+    \end{align*}
+    From the equality of the last two integrals, \(\int_{0}^{2\piup}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon\ee^{\ii t}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\cref{thm:identity}).
+\end{proof}
+\begin{remark}
+    If \(f\) is holomorphic and non-constant on an open region \(U\subseteq\mathbb{C}\), then for any compact set \(K\subset U\), the maximum of \(f\) in \(K\) lies on \(\partial K\). Otherwise, \(f\) would attain a maximum at some \(z\in\interior{K}\), and contradict the statement of \cref{thm:maximummodulus} under the assumption of being non-constant.
+\end{remark}
+A similar theorem exists for real-valued harmonic functions. The proof follows in the same way as the one for holomorphic functions. We will state it formally below.
+\begin{theorem}\label{thm:maximumprincipleforrealharmonicfunctions}
+    Let \(U\subseteq\mathbb{C}\) be open and connected and let \(f:U\to\mathbb{R}\) be harmonic. Suppose that \(\exists z_0\in U\) and a neighborhood \(V\subseteq U\) of \(z_0\) such that either \[f(z)\geq f\qty(z_0)\quad\forall z\in V\qq{or}f\qty(z_0)\quad\forall z\in V.\]
+    Then \(f\) is constant on \(U\).
+\end{theorem}
+By nature of the proof, the result holds for any continuous function satisfying the mean-value property.
+\subsection{The Group of Holomorphic Automorphisms on the Unit Disk}
+The following important result can be directly obtained from the Maximum Modulus Principle.
+\begin{lemma}[Schwarz]\label{lem:schwarz}
+    If \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic and \(f(0)=0\), then \[\abs{f(z)}\leq\abs{z},\quad\abs{f'(0)}\leq 1.\]
+    Any one of the inequalities becomes equalities iff \(f(z)\) is in the form of \(z\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\). In other words, \(f\) is a pure rotation.
+\end{lemma}
+\begin{proof}
+    Define the auxiliary function \[g(z)=
+        \begin{dcases}
+            \frac{f(z)}{z} & \qif* z\neq0, \\
+            f'(0)          & \qif* z=0.
+        \end{dcases}\]
+    Because \(\lim_{z\to0}\frac{f(z)}{z}=f'(0)\), \(g(z)\) is holomorphic on \(\mathbb{D}\). Since \(f\) is an automorphism on the open disk, \(\forall\abs{z}<1\), \(\abs{f(z)}<1\). By the Maximum Modulus Principle \cref{thm:maximummodulus}, \(\forall0<\varepsilon<1\), \(\forall z\in D(0,\varepsilon)\), \[\abs{g(z)}\leq\max_{z_\varepsilon\in\partial D(0,\varepsilon)}\frac{\abs{f\paren{z_\varepsilon}}}{\varepsilon}<\frac{1}{\varepsilon}.\] As \(\varepsilon\to 1^-\), we obtain that \(\forall z\in\mathbb{D}\), \(\abs{g(z)}\leq 1\), or that \(\abs{f(z)}\leq\abs{z}\). Let \(z=0\). Then we get \(\abs{g(0)}=f'(0)\leq 1\).
+
+    For the sake of the equality condition, assume \(\abs{f(z)}=\abs{z}\). Then \(\abs{g(z)}\equiv 1\) on the unit open disk. By \cref{thm:maximummodulus}, \(g(z)=\exp(\ii\tau)\) where \(\tau\in\mathbb{R}\) and \(f(z)=z\exp(\ii\tau)\) on \(\mathbb{D}\).
+
+    Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in\mathbb{D}\), it follows from \cref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(\ii\tau)\).
+\end{proof}
+To discuss the main topic of this section, we will first introduce the concept of a \textscsl{group}.
+\begin{definition}[Group]\label{def:group}
+    A group is a nonempty set \(G\) and a binary operation (we will denote this as \(*\)) satisfying the four \textscsl{group axioms}:
+    \begin{enumerate}
+        \item Closure: \(\forall a,b\in G\), \(a*b\in G\).
+        \item Associativity: \(\forall a,b,c\in G\), \((a*b)*c=a*(b*c)\).
+        \item Identity Element: \(\exists e\in G\) such that \(\forall a\in G\), \(a*e=e*a=a\). Note that \(e\) is unique; if \(e,f\in G\) were both identity elements, then \(e*f=f*e=e=f\), and are equal.
+        \item Inverse Element: \(\forall a\in G\), \(\exists a^{-1}\in G\) such that \(a*a^{-1}=e=a^{-1}*a\), where \(e\) is the identity element. Note that \(a^{-1}\) is unique. Assume \(b,c\) were both inverses of \(a\). Then, \(b=b*e=b*(a*c)=(b*a)*c=c\), and are equal.
+    \end{enumerate}
+    A \textscsl{subgroup} \(H\) of \(G\) is a subset of \(G\) that is also a group under the same operation as \(G\). This relationship is denoted by \(H\leq G\) or \(H<G\) for \textscsl{proper subgroups}.
+\end{definition}
+
+Group operations are not necessarily commutative. In the case that they are, (specifically if \(a,b\in G\Rightarrow a*b=b*a\)), then \(G\) is an \textscsl{abelian group}.
+
+If \(U\subseteq\mathbb{C}\) is connected and \(f:U\to U\) is holomorphic on \(U\) and bijective, \(f\) is a \textscsl{holomorphic automorphism} on \(U\). The \textscsl{group of holomorphic automorphisms} on \(U\) is denoted by \(\Aut(U)\), which is the set of all holomorphic automorphisms such as \(f\), with the operation of composition (\(f\circ g\)).
+
+First we will show that \(\forall a\in\mathbb{D}\),
+\begin{equation}
+    \varphi_a(z)=\frac{z-a}{1-\overline{a}z}\in\Aut(\mathbb{D}).\label{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}
+\end{equation}
+Firstly, the function is holomorphic on \(\mathbb{D}\) as \(\abs{z}\le1\), \(\abs{\overline{a}}<1\), the denominator never vanishes. Additionally, \(\varphi_a(a)=0\).
+
+First, we will observe the image of \(\partial\mathbb{D}\). Let \(\abs{z}=1\). Then,
+\[\abs{\varphi_a(z)}=\abs{\frac{1}{z}}\abs{\frac{z-a}{\frac{1}{z}-\overline{a}}}=\abs{\frac{z-a}{\overline{z}-\overline{a}}}=1.\]
+Therefore, the image of \(\partial\mathbb{D}\) lies on \(\partial\mathbb{D}\), and since \(f\) is holomorphic and non-constant, by the Maximum Modulus Principle (\cref{thm:maximummodulus}), for any \(\abs{z}<1\), \(\abs{\varphi_a(z)}<1\). Therefore, \(f\) maps \(\mathbb{D}\) to \(\mathbb{D}\). We next aim to show that \(f:\mathbb{D}\to\mathbb{D}\) is bijective.
+
+Let us first confirm injectivity.\ \(\forall z_1,z_2\in\mathbb{D}\), we will observe when \[\frac{z_1-a}{1-\overline{a}z_1}=\frac{z_2-a}{1-\overline{a}z_2}\] is satisfied. It follows that
+\begin{gather*}
+    \qty(z_1-a)\qty(1-\overline{a}z_2)=\qty(z_2-a)\qty(1-\overline{a}z_1),\\
+    z_1-a-\overline{a}z_1z_2+\abs{a}^2z_2=z_2-a-\overline{a}z_1z_2+\abs{a}^2z_1.
+\end{gather*}
+Then, \[\abs{a}^2\paren{z_2-z_1}=z_2-z_1.\Longleftrightarrow\qty(|a|^2-1)\qty(z_2-z_1)=0.\] Since \(\abs{a}<1\), then \(\abs{a}^2-1\neq0\), and we get \(z_2-z_2=0\). This proves the univalence of \(\varphi_a(z)\).
+
+Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac{w-a}{1-\overline{a}w}\). Then,
+\begin{equation}
+    z-\overline{a}zw=w-a\Longleftrightarrow w=\frac{z+a}{1+\overline{a}z}.\label{eq:inversemobiustransformation}
+\end{equation}
+It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in\mathbb{D}\)) are known as \textscsl{Möbius transformations}, and the group of all such transformations is known as the \textscsl{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textscsl{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
+\begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{D}\)]\label{thm:holomorphicautomorphismgrouponunitdisk}
+    \(\forall f\in\Aut(\mathbb{D})\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\] Moreover, all such functions are in \(\Aut(\mathbb{D})\).
+\end{theorem}
+\begin{proof}
+    Define the auxiliary function \(\psi(z)=\varphi_{f(0)}\circ f(z)\). It follows that \(\psi\in\Aut(\mathbb{D})\). Furthermore, \(\psi(0)=\varphi_{f(0)}\circ f(0)=0\).
+
+    By the Schwarz Lemma (\cref{lem:schwarz}), \(\qty|\psi'(0)|\leq1\). Since \(\psi^{-1}\in\Aut(\mathbb{D})\) with \(\psi^{-1}(0)=0\), \(\abs{\qty(\psi^{-1})'(0)}\leq1\). Then, \[\abs{\qty(\psi^{-1})'(0)}=\frac{1}{\psi'\qty(\psi^{-1}(0))}=\frac{1}{\psi'(0)}\leq 1.\]
+    Then, \(\abs{\psi'(0)}=1\), and by the equality statement of \cref{lem:schwarz}, \(\psi(z)=z\ee^{\ii\tau}=\rho_\tau(z)\) for some constant \(\tau\in\mathbb{R}\), and \(f(z)=\varphi_{f(0)}^{-1}\circ\rho_\tau(z)\). By \cref{eq:inversemobiustransformation}, it follows that \(f(z)=\varphi_{-f(0)}\circ\rho_\tau(z)\).
+\end{proof}
+As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we have the following result:
+\begin{lemma}[\textsc{Schwarz--Pick}]\label{lem:schwarzpick}
+    Let \(f:\mathbb{D}\to\mathbb{D}\) be holomorphic.\ \(\forall z_1,z_2\in\mathbb{D}\), let \(w_1=f\qty(z_1)\) and \(w_2=f\qty(z_2)\). Then,
+    \begin{equation}
+        \abs{\frac{w_1-w_2}{1-w_1\overline{w_2}}}\leq\abs{\frac{z_1-z_2}{1-z_1\overline{z_2}}},\label{eq:schwarzpick_statement1}
+    \end{equation} and
+    \begin{equation}
+        \frac{\abs{\dd{w}}}{1-\qty|w|^2}\leq\frac{\abs{\ddz}}{1-\abs{z}^2}.\label{eq:schwarzpick_statement2}
+    \end{equation}
+    The equalities hold iff \(f\in\Aut(\mathbb{D})\).
+\end{lemma}
+\begin{proof}
+    Let \[\varphi_{-z_1}(z)=\frac{z+z_1}{1+\overline{z_1}z}\in\Aut(\mathbb{D}),\quad\varphi_{w_1}(z)=\frac{z-w_1}{1-\overline{w_1}z}\in\Aut(\mathbb{D}).\]
+    It follows that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}(0)=\varphi_{w_1}\qty(w_1)=0\). Then by the Schwarz Lemma (\cref{lem:schwarz}), for \(z\in\mathbb{D}\), \[\abs{\varphi_{w_1}\circ f\circ\varphi_{-z_1}(z)}\leq\abs{z}.\] Let \(z_2=\varphi_{-z_1}(z)\). Then, \(\abs{\varphi_{w_1}\circ f\qty(z_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\Leftrightarrow\abs{\varphi_{w_1}\qty(w_2)}\leq\abs{\varphi_{z_1}\qty(z_2)}\), confirming \cref{eq:schwarzpick_statement1}. By the second statement of the Schwarz Lemma (\cref{lem:schwarz}), \(\abs{\qty(\varphi_{w_1}\circ f\circ\varphi_{-z_1})'(0)}\leq1\).
+
+    By the chain rule, \(\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}\leq1\). Let us now calculate the derivatives of \(\varphi_{w_1}\) and \(\varphi_{-z_1}\). By the quotient rule, \[\varphi'_{w_1}(z)=\frac{1-\overline{w_1}w_1}{\paren{1-\overline{w_1}z}^2},\quad\varphi'_{w_1}\qty(w_1)=\frac{1}{1-\overline{w_1}w_1},\]
+    and
+    \[\varphi'_{-z_1}(z)=\frac{1-\overline{z_1}z_1}{\qty(1+\overline{z_1}z)^2},\quad\varphi'_{-z_1}(0)=1-\overline{z_1}z_1.\]
+    Since both derivatives are positive, \(\abs{f'(z_1)}\leq\frac{1-\overline{w_1}w_1}{1-\overline{z_1}z_1}\). Since \(z_1\in\mathbb{D}\) is arbitrary, it follows that
+    \begin{equation}
+        \abs{\dv{w}{z}}\leq\frac{1-\overline{w}w}{1-\overline{z}z}\Longleftrightarrow\frac{\abs{\dd{w}}}{1-\overline{w}w}\leq\frac{\abs{\ddz}}{1-\overline{z}z}.\label{eq:schwarzpick_nonincreasingmetric}
+    \end{equation}
+    By the Schwarz Lemma (\cref{lem:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ\ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\qedhere\]
+\end{proof}
+\begin{remark}
+    In \cref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
+    From \cref{eq:schwarzpick_nonincreasingmetric}, we get that the hyperbolic metric does not increase under a holomorphic mapping of \(\mathbb{D}\) to itself. This metric is invariant (the equality condition) under all functions in \(\Aut(\mathbb{D})\). This gives a geometric explanation for \cref{lem:schwarz}.
+\end{remark}

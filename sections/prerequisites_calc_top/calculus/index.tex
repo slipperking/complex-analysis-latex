@@ -1,0 +1,197 @@
+\subsection{Calculus}
+Since traditional complex analysis is the theory of calculus on complex functions, it is only natural that generalizations are made on classical formulas in calculus for complex functions.
+
+It is well known that a function \(f:(a,b)\to\mathbb{R}\) is differentiable at a point \(x\in(a,b)\) if the limit \[\lim_{\Delta x\to0}\frac{f(x+\Delta x)-f(x)}{\Delta x}\] exists, and the value of this limit is the derivative of \(f(x)\), denoted by \(f'(x)\) or \(\frac{\dd{f}}{\ddx}\). The value \(\dd{f}=f'(x)\ddx\) is the differential of \(f(x)\). Partition \([a,b]\) into \(a=x_0<x_1<x_2<\cdots<x_n=b\) such that the length of the intervals \([x_i,x_{i-1}]\) vanishes (we let the norm of the partition, or the size of the largest interval, tend to zero) as \(n\to\infty\). If for any such partition, the sum \[\sum_{i=1}^n f(\xi_i)(x_i-x_{i-1})\] tends to the same value \(\forall\xi_i\in[x_{i-1},x_i]\) (as the length of the largest partition approaches 0), then the function can be roughly said to be integrable over \([a,b]\). The full details of Riemann integrability are simplified by the use of Darboux sums and will not be discussed here. The value of this sum is denoted by \[\int_a^bf(x)\dd{x}.\]
+We will attempt to avoid notions involving Lebesgue integration. However it is important to note that every Riemann integrable function is also Lebesgue integrable, and the two integrals are equal. Therefore, we will use Lebesgue integral theorems (where the resultant integral is Riemann integrable) when necessary without further mention of the Lebesgue integral itself.
+
+The following theorems are the fundamental results of classical calculus:
+\begin{theorem}[Fundamental Theorem of Calculus, Differential Form]
+    Let \(f(x)\) be a function continuous over \([a,b]\). For \(x\in[a,b]\), define
+    \[\Phi(x)=\int_a^x f(t)\dd{t}.\]
+    Then \(\Phi(x)\) is differentiable over \([a,b]\), \(\Phi'(x)=f(x)\), and \(\dd{\Phi(x)}=f(x)\dd{x}\).
+\end{theorem}
+\begin{theorem}[Fundamental Theorem of Calculus, Integral Form]
+    Let \(\Phi(x)\) be a function differentiable over \([a,b]\). Let \(f(x)=\Phi'(x)\) over \([a,b]\). Then,
+    \[{\int_a^x}f(t)\dd{t}=\Phi(x)-\Phi(a).\]
+\end{theorem}
+The two forms of the theorem show that differentiation and integration are inverse operations to each other. Operations performed for differentiating oftentimes have a corresponding inverse operation that can be done for integrating. For instance, \[\dv{(f(x)\pm g(x))}{x}=\dv{f(x)}{x}\pm\dv{g(x)}{x}\] corresponds to \[\int(f(x)\pm g(x))\ddx=\int f(x)\ddx\pm\int g(x)\ddx,\]
+and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx=f(x)g(x)-\int f'(x)g(x)\ddx,\] and \[\dv{f(g(x))}{x}=\dv{f(g)}{g}\cdot\dv{g(x)}{x}\] corresponds to \[\int_a^b f(g(x))g'(x)\ddx=\int_{g(a)}^{g(b)}f(u)\dd{u}.\] Another correspondence is the Mean Value Theorem:
+\begin{theorem}[Mean Value Theorem, Differential Form]
+    If \(f(x)\) is differentiable over \([a,b]\), then \(\exists c\in[a,b]\) such that \[f(b)-f(a)=f'(c)(b-a).\]
+\end{theorem}
+\begin{theorem}[Mean Value Theorem, Integral Form]
+    If \(f(x)\) is continuous over \([a,b]\), then \(\exists \xi\in[a,b]\) such that \[\int_a^b f(x)\ddx=f(\xi)(b-a).\]
+\end{theorem}
+A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\qty(P(t),Q(t),R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textscsl{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textscsl{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textscsl{piecewise smooth}. If it is of finite length, then the curve is said to be \textscsl{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textscsl{simple} if it is simple (non-self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textscsl{Jordan curve}.
+\begin{theorem}[Jordan Curve Theorem]\label{thm:jordancurve}
+    Let \(\gamma\) be a Jordan curve in \(\mathbb{R}^2\). Then the set \(\mathbb{R}^2\setminus\gamma\) consists of exactly two connected subsets. One of them is the interior, denoted by \(\operatorname{int}(\gamma)\), and is a bounded set, while the other is the exterior, denoted by \(\operatorname{ext}(\gamma)\), which is unbounded. Both of the two sets share the common boundary \(\gamma\).
+\end{theorem}
+The theorem above seems trivial, but its rigorous proof in topology is extremely complex. The theorem itself can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textscsl{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is doubly connected, and a region bound by \(n\) non-intersecting Jordan curves is traditionally known as \(n\)-connected. Lastly, any closed curve can degenerate to a single point or slit.
+
+Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). An important result in multivariable calculus allows the calculation of the derivatives of a definite integral with respect to its parameter.
+\begin{theorem}[Leibniz Integral Rule]\label{thm:leibnizintegralrule}
+    Let \(f(x,u)\) be continuous on \(a\leq x\leq b\), \(c\leq u\leq d\), and suppose \(a\leq\alpha(u),\beta(u)\leq b\) are differentiable functions of \(c\leq u\leq d\). If \(f\) is continuously differentiable with respect to \(u\), then \[\dv{u}\qty(\int_{\alpha(u)}^{\beta(u)}f(x,u)\ddx)=\int_{\alpha(u)}^{\beta(u)}\pdv{f}{u}\qty(x,u)\ddx+\dv{\beta}{u}f(\beta(u),u)-\dv{\alpha}{u}f\qty(\alpha(u),u).\]
+\end{theorem}
+Four main classical theorems exist, relating a function and its line integral in 2 and 3 dimensions, line and surface integrals in 2 and 3 dimensions, and the surface and volume integrals in 3 dimensions:
+\begin{theorem}[Gradient Theorem]\label{thm:gradient}
+    Let \(C\) be an oriented smooth curve in \(\mathbb{R}^3\) with boundary points \(A\) to \(B\). Then
+    \[\int_C\pdv{f}{x} \ddx+\pdv{f}{y}\ddy+\pdv{f}{z}\ddz=f(B)-f(A).\]
+\end{theorem}
+\begin{theorem}[Green's Theorem]\label{thm:realgreen}
+    Let \(U\) be a positively oriented, multiply connected subset of \(\mathbb{R}^2\) with a piecewise smooth oriented boundary \(\partial U\). Suppose that \(P(x,y),Q(x,y)\in C^1\paren{\overline{U}}\). Then,
+    \[\oint_{\partial U} P\ddx+Q\ddy=\iint_U\paren{\pdv{Q}{x}-\pdv{P}{y}}\ddx\ddy.\]
+\end{theorem}
+\begin{theorem}[Stokes' Theorem]\label{thm:kelvinstokes}
+    Suppose that \(S\subset\mathbb{R}^3\) is a positively oriented surface with a positively oriented, piecewise smooth boundary curve \(\partial S\). Suppose that \(P(x,y,z), Q(x,y,z), R(x,y,z)\in C^1\paren{\overline{S}}\). Then,
+    \begin{multline*}
+        \oint_{\partial S}P\ddx+Q\ddy+R\ddz                                                                                                    \\
+        =\iint_S\qty(\pdv{R}{y}-\pdv{Q}{z})\ddy\ddz+\qty(\pdv{P}{z}-\pdv{R}{x})\ddz\ddx+\qty(\pdv{Q}{x}-\pdv{P}{y})\ddx\ddy.
+    \end{multline*}
+\end{theorem}
+\begin{theorem}[Gauss' Theorem]\label{thm:divergencegauss}
+    Suppose that \(V\subset\mathbb{R}^3\) is a positively oriented region with a positively oriented, piecewise smooth boundary surface \(\partial V\). Suppose that \(P(x,y,z), Q(x,y,z), R(x,y,z)\in C^1\paren{\overline{V}}\). Then,
+    \[\oiint_{\partial V}P\ddy\ddz+Q\ddz\ddx+R\ddx\ddy=\iiint_V\qty(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z})\ddx\ddy\ddz.\]
+\end{theorem}
+In 3-dimensional \(\mathbb{R}^3\) space, define a scalar valued function to be a 0-form, a linear combination of \(\ddx\), \(\dd{y}\), and \(\dd{z}\) to be a 1-form, and a linear combination of \(\dd{y}\wedge\dd{z}\), \(\dd{z}\wedge\ddx\), and \(\dd{x}\wedge\dd{y}\) to be a 2-form, and \(\ddx\wedge\dd{y}\wedge\dd{z}\) to be a 3-form, where \(\wedge\) denotes an anti-commutative and associative product, where for any two differential forms \(\omega_1\) and \(\omega_2\)
+\[\omega_1\wedge\omega_2=-\omega_2\wedge\omega_1.\]
+Then consequently, for any differential form \(\omega\), \[\omega\wedge\omega=0.\]
+We can generalize the operator \(\dd\) to increase the degree of a differential form. For instance,
+\[\dd{f}=\pdv{f}{x}\ddx+\pdv{f}{y}\dd{y}+\pdv{f}{z}\dd{z},\]
+which is the definition of the total differential. For a 1-form in 3-dimensional space, \(\omega_1=P\ddx+Q\dd{y}+R\dd{z}\), we can define the exterior derivative in a similar way:
+\begin{align*}
+    \dd{\omega_1} & =\dd{P}\wedge\ddx+\dd{Q}\wedge\dd{y}+\dd{R}\wedge\dd{z}                                                                               \\
+    & =\qty(\pdv{P}{x}\ddx+\pdv{P}{y}\dd{y}+\pdv{P}{z}\dd{z})\wedge\ddx                                                                     \\
+    & \qquad+\qty(\pdv{Q}{x}\ddx+\pdv{Q}{y}\dd{y}+\pdv{Q}{z}\dd{z})\wedge\ddy                                                               \\
+    & \qquad\qquad+\qty(\pdv{R}{x}\ddx+\pdv{R}{y}\dd{y}+\pdv{R}{z}\dd{z})\wedge\dd{z}                                                       \\
+    & =\qty(\pdv{R}{y}-\pdv{Q}{z})\dd{y}\wedge\dd{z}+\qty(\pdv{P}{z}-\pdv{R}{x})\dd{z}\wedge\ddx+\qty(\pdv{Q}{x}-\pdv{P}{y})\ddx\wedge\ddy.
+\end{align*}
+Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
+\[\qty(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z})\ddx\wedge\ddy\wedge\ddz.\]
+The two results above resemble the curl and divergence of \(\qty(P,Q,R)\). A differential form \(\omega\) is \textscsl{closed} if \(\dd{\omega}=0\), and is \textscsl{exact} if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
+\begin{lemma}[Poincaré]\label{lem:poincare}
+    For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
+\end{lemma}
+It is true that for any set \(U\subseteq \mathbb{R}^n\), regardless of contractibility, that for a differential form \(\omega\) defined on \(U\), \(\dd\dd\omega=0\). In other words, all exact differential forms are closed. (For a region \(U\), we have \(\partial\partial U=\varnothing\). This is one of many reasons for which the boundary operator is denoted by \(\partial\), in analogy to \(\dd\).)
+
+The implications of this are important: if \(\omega\) is a 0-form, then \(\curl(\grad\omega)=0\), and if \(\omega\) is a 1-form, \(\div(\curl{v})=0\), where \(v\) is the vector of the coefficients of the basis differential forms of \(\omega\) (there are no correlations for higher degree forms since in 3-dimensional space, the highest degree possible for any differential form is 3).
+
+Then, the Fundamental Theorem of Calculus, the Gradient Theorem, Green's, Stokes', and Gauss' Theorems can be generalized into:
+\begin{theorem}[Stokes--Cartan]\label{thm:stokescartan}
+    For an oriented smooth \(n\)-dimensional compact manifold \(M\) with boundary \(\partial M\), for a smooth differential \((n-1)\)-form \(\omega\) over \(\overline{M}\), \[\int_M\dd{\omega}=\int_{\partial M}\omega.\]
+\end{theorem}
+Real analysis is the subject dedicated to rigorously defining concepts such as limits, continuity, integrability, convergence, etc. The most widely used definition of a finite limit of a function is the language of \(\varepsilon\)--\(\delta\), which states:
+\begin{definition}[Epsilon--Delta]\label{def:epsilondelta}
+    Let \(f:U\to\mathbb{R}\) be a function defined over an open set \(U\subseteq\mathbb{R}\) such that \(a\) is an accumulation point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if \(\forall\varepsilon>0\), \(\exists\delta>0\) such that for all \(x\in U\) with \(0<\abs{x-a}<\delta\), we have \(\abs{f(x)-L}<\varepsilon\).
+
+    Similarly, we define the \textscsl{right-handed limit} \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(\abs{f(x)-L}<\varepsilon\).
+
+    Likewise, the \textscsl{left-hand limit} \(\lim_{x\to a^-}f(x)=L\) exists if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(-\delta<x-a<0\), we have \(\abs{f(x)-L}<\varepsilon\).
+\end{definition}
+We also have the definition of the limit of a sequence:
+\begin{definition}[Epsilon--N]\label{def:epsilonn}
+    Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. If \(\exists a_\infty\in\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\cbraces{a_n}\) \textscsl{converges} to \(a_\infty\).
+\end{definition}
+\begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionsequenceconvergence}
+    Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. Then \(\cbraces{a_n}\) is convergent iff \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_m}<\varepsilon\).
+\end{theorem}
+\begin{proof}
+    Assume \(\cbraces{a_n}\) is convergent. Then \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_\infty}<\frac{\varepsilon}{2}\) and \(\abs{a_m-a_\infty}<\frac{\varepsilon}{2}\) for some \(a_\infty\in\mathbb{R}\). It follows that \[\abs{a_n-a_m}\leq\abs{a_n-a_\infty}+\abs{a_m-a_\infty}=\varepsilon.\]
+
+    Conversely, \(\cbraces{a_n}\) is bounded (fixing \(N\), \(\forall n>N\), \(\abs{a_n-a_{N+1}}<\varepsilon\)). By the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), \(\cbraces{a_n}_{n\in\mathbb{N}}\) has a subsequence \(\cbraces{a_{n_k}}_{k\in\mathbb{N}}\) that converges to \(a_\infty\). Therefore, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) and \(\exists M\in\mathbb{N}\) such that \(\forall k>M\), \(n_k>N\), and \(\forall n>N\), \(\abs{a_n-a_{n_k}}<\frac{\varepsilon}{2}\) and \(\abs{a_{n_k}-a_\infty}<\frac{\varepsilon}{2}\). Then \[\abs{a_n-a_\infty}\leq\abs{a_n-a_{n_k}}+\abs{a_{n_k}-a_\infty}<\varepsilon.\] Hence, \(\cbraces{a_n}\) converges to \(a_\infty\).
+\end{proof}
+\begin{definition}[Limit Superior]\label{def:limsup}
+    For a number sequence \(\cbraces{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
+    \begin{enumerate}
+        \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n<a+\varepsilon\),
+        \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n>a-\varepsilon\),
+    \end{enumerate}
+    then the \textscsl{superior limit} of \(\cbraces{a_n}\) is \(a\), denoted by \(\varlimsup_{n\to\infty}a_n=\limsup_{n\to\infty}a_n=a\).
+\end{definition}
+\begin{definition}[Limit Inferior]\label{def:liminf}
+    For a number sequence \(\cbraces{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
+    \begin{enumerate}
+        \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n>a-\varepsilon\),
+        \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n<a+\varepsilon\),
+    \end{enumerate}
+    then the \textscsl{inferior limit} of \(\cbraces{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
+\end{definition}
+\begin{lemma}
+    A number sequence \(\cbraces{a_n}\) is convergent iff \(\varlimsup_{n\to\infty} a_n=\varliminf_{n\to\infty}a_n\).
+\end{lemma}
+\begin{proof}
+    We first prove that \(a=\lim_{n\to\infty}a_n\) implies \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n=a\).
+    By \cref{def:epsilonn}, \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[\abs{a_n-a}<\varepsilon\Longleftrightarrow a-\varepsilon<a_n<a+\varepsilon.\]
+    Then from \cref{def:limsup,def:liminf}, we have that \(\varlimsup_{n\to\infty}a_n\geq a\) and \(\varliminf_{n\to\infty} a_n\leq a\). By the second conditions, we get \(\varlimsup_{n\to\infty}a_n\leq a\) and \(\varliminf_{n\to\infty} a_n\geq a\). Therefore, \[\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n.\]
+
+    For the converse, assume \(\varlimsup_{n\to\infty}a_n=\varliminf_{n\to\infty}a_n\). Since \(\exists N_1\in\mathbb{N}\) such that \(\forall n>N_1\), \(a_n<a+\varepsilon\).\ \(\exists N_2\in\mathbb{N}\) such that \(\forall n>N_2\), \(a_n>a-\varepsilon\). Then \(\forall n>\max\cbraces{N_1,N_2}\), \(\abs{a_n-a}<\varepsilon\), as expected.
+\end{proof}
+\begin{definition}[Continuity]\label{def:continuity}
+    A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) iff if \[\lim_{x\to a}f(x)=f(a).\]
+\end{definition}
+It is important to note that in the case of multiple \emph{explicit} variables, a distinction is made between (separate) continuity (where there are two \(\delta\)'s on which variable varies, and does not guarantee a single \(\delta\) for when both variables vary simultaneously) and \textscsl{joint} continuity (where a single \(\delta\) controls both variables at once). To illustrate this, let \(\qty(x_0,y_0)\) be fixed. The former is commonly written as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{x-x_0}<\delta,\abs{f\qty(x,y_0)-f\qty(x_0,y_0)}<\varepsilon\] in conjunction with \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{y-y_0}<\delta,\abs{f\qty(x_0,y)-f\qty(x_0,y_0)}<\varepsilon,\] whereas the latter is expressed as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{\qty(x-x_0,y-y_0)}<\delta,\abs{f\qty(x,y)-f\qty(x_0,y_0)}<\varepsilon.\]
+\begin{theorem}\label{thm:continuousfunctionboundedoncompact}
+    Any continuous function on a compact set \(K\) is bounded on \(K\).
+\end{theorem}
+\begin{proof}
+    Suppose for the sake of contradiction that \(f:U\to\mathbb{R}\) is continuous and unbounded on compact \(K\). Then for each \(n\in\mathbb{N}\), there exists \(x_n\in K\) such that \(|f(x_n)|>n\). The sequence \(\cbraces{x_n}\) lies in \(K\), which is compact, so by the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), \(\cbraces{x_n}\) has an accumulation point in \(K\). In other words, there exists a convergent subsequence \(\cbraces{x_{n_k}}\) with \(\lim_{k\to\infty} x_{n_k}\in K\).
+
+    Since \(f\) is continuous, \(\lim_{k\to\infty}f\qty(x_{n_k})=f\qty(\lim_{k\to\infty}x_{n_k})\), which is well-defined because \(\lim_{k\to\infty} x_{n_k}\in K\). However, this contradicts \(\abs{f\qty(x_{n_k})}>n_k\to\infty\), hence \(f\) must be bounded on \(K\).
+\end{proof}
+\begin{theorem}[\textsc{Extreme Value}]\label{thm:extremevalue}
+    A continuous function \(f(x)\) defined on a compact set \(K\) attains its infimum and supremum in \(K\).
+\end{theorem}
+\begin{proof}
+    Assume that \(f\) never attains its supremum \(M\). Then, \(f(x)<M\). Define the auxiliary function \(\psi(x)=\frac{1}{M-f(x)}\), which is strictly positive and continuous as the denominator never reaches \(0\). By \cref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\).\ \(f(x)\) also has the representation \(M-\frac{1}{\psi(x)}\), and therefore, \[f(x)\leq M-\frac{1}{\mu},\] which means that \(M\) is not the supremum. Similarly, assume that \(f\) never attains its infimum \(m\). Then \(f(x)>m\). Let \(\psi(x)=\frac{1}{f(x)-m}\), which is strictly positive and continuous as the denominator never reaches \(0\). By \cref{thm:continuousfunctionboundedoncompact}, \(\psi(x)\) is bounded with some value of \(\mu>0\) satisfying \(\psi(x)\leq\mu\).\ \(f(x)\) also has the representation \(m+\frac{1}{\psi(x)}\), and therefore, \[f(x)\geq m+\frac{1}{\mu},\] which means that \(m\) is not the infimum.
+\end{proof}
+\begin{definition}[Uniform Continuity]\label{def:uniformcontinuity}
+    A function \(f:U\to\mathbb{R}\), defined on a set \(U\subseteq\mathbb{R}\), is uniformly continuous iff \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y\in U\) where \(|x-y|<\delta\), \(\abs{f(x)-f(y)}<\varepsilon\).
+\end{definition}
+\begin{example}
+    The function \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
+\end{example}
+\begin{proof}
+    If \(\exists\varepsilon>0\) such that \(\forall\delta>0\), \(\exists x,y\in(0,1)\) satisfying both \(|x-y|<\delta\) and \(\abs{f(x)-f(y)}\geq\varepsilon\), then \(f\) is not uniformly continuous over \((0,1)\).
+
+    Let \(\varepsilon=1\) and \[x=\frac{1}{n},\quad y=\frac{1}{n+1}.\] Then \(\forall\delta>0\), \(\exists n>1\) where \(\abs{x-y}<\delta\), since \(\lim_{n\to\infty}\abs{x-y}=0\). Additionally, \(\abs{f(x)-f(y)}=1\geq\varepsilon\). This satisfies the negation, and thus, \(f(x)=\frac{1}{x}\) is not uniformly continuous over \((0,1)\).
+\end{proof}
+\begin{theorem}[\textsc{Heine--Cantor}]\label{thm:heinecantor}
+    A continuous function on a compact set \(K\) is uniformly continuous on \(K\).
+\end{theorem}
+\begin{proof}
+    Fix \(x\in K\). Since \(f\) is continuous at \(x\), for every
+    \(\varepsilon>0\) there exists \(\delta_x>0\) such that for all \(\zeta\in D\qty(x,
+    \delta_x)\cap K\),
+    \begin{equation}\label{eq:heinecantorpointwise}
+        \abs{f(\zeta)-f(x)}<\frac{\varepsilon}2.
+    \end{equation}
+    The collection of open balls \(\cbraces{D\qty(x,\frac{\delta_x}{2})}_{x\in K}\) forms an open cover of the compact set \(K\). By Heine--Borel (\cref{thm:heineborel}), there is a finite subcover
+    \[\cbraces{D\qty(x_k,\frac{\delta_{x_k}}{2})}_{k=1}^n.\]
+    Set
+    \[\delta=\min_{1\leq k\leq n}\frac{\delta_{x_k}}2.\]
+    Now let \(x,y\in K\) satisfy \(\abs{x-y}<\delta\). Then there exists an index \(j\in\cbraces{1,\dots,n}\) such that \(x\in D\qty(x_j,\frac{\delta_{x_j}}{2})\). Consequently,
+    \[\abs{x_j-y}\leq\abs{x_j-x}+\abs{x-y}<\frac{\delta_{x_j}}{2}+\delta\leq \delta_{x_j}.\]
+    Applying \cref{eq:heinecantorpointwise} to the points \(x\) and \(y\) through \(x_j\), we obtain
+    \[\abs{f\qty(x_j)-f(x)}<\frac{\varepsilon}{2},\qquad\abs{f\qty(x_j)-f(y)}<\frac{\varepsilon}{2}.\]
+    Therefore,
+    \[\abs{f(x)-f(y)}\leq\abs{f(x)-f\qty(x_j)}+\abs{f\qty(x_j)-f(y)}
+    <\varepsilon.\]
+    Since \(\varepsilon>0\) was arbitrary, the uniform continuity of \(f\) on \(K\) follows.
+\end{proof}
+\begin{definition}
+    A function \(f\) is Lipschitz continuous over \(U\) if \(\exists M\in\mathbb{R}_{\geq0}\) such that \(\forall x,y \in U\), \(\abs{f(x)-f(y)} \leq M\abs{x-y}\). The smallest possible \(M\) satisfying the above condition is known as the Lipschitz constant.
+\end{definition}
+Lipschitz continuity is an important concept in real analysis and the theory of differential equations. It is a strong form of uniform continuity.
+\begin{proposition}
+    All Lipschitz continuous functions on \(U\) are uniformly continuous on \(U\).
+\end{proposition}
+\begin{proof}
+    Let \(M>0\) be the Lipschitz constant. Then \(\forall \varepsilon>0\), let \(\delta=\frac{\varepsilon}{M}\). It then follows that \(\forall x,y\in U\) such that \(\abs{x-y}<\delta\), \(\abs{f(x)-f(y)}\leq M|x-y|<\varepsilon\).
+\end{proof}
+\begin{proposition}\label{prop:c1lipschitz}
+    A \(C^1\) function on a compact set \(K\) is Lipschitz continuous on \(K\).
+\end{proposition}
+\begin{proof}
+    Let \(f:K\to\mathbb{R}\) be \(C^1\). By \cref{thm:continuousfunctionboundedoncompact}, since \(K\) is compact and \(f'\) is continuous, \(\exists M>0\) such that \(\forall x\in K\), \(|f'(x)|\leq M\).
+
+    By the Mean Value Theorem, \(\forall x,y\in K\), \(\exists c\) between \(x\) and \(y\) such that \(f(x)-f(y)=f'(c)(x-y)\). Then, \(|f(x)-f(y)|=|f'(c)||x-y|\leq M|x-y|\), which means \(f\) is Lipschitz continuous with Lipschitz constant less than or equal to \(M\).
+\end{proof}

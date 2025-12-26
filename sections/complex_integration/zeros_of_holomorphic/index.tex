@@ -1,0 +1,140 @@
+\subsection{Zeros of a Holomorphic Function}
+For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textscsl{zero} of \(f\) iff \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
+
+We will introduce a fundamental application of Liouville's Theorem (\cref{thm:liouville}) below.
+\begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
+    Every non-constant polynomial \(p(z)\) with complex coefficients has at least one complex zero.
+\end{theorem}
+\begin{proof}
+    For the sake of contradiction, suppose that \(p(z)\) has no complex zeros. Then the function \(f(z)=\frac{1}{p(z)}\) is continuous and entire, because \(p(z)\) has no zeros in \(\mathbb{C}\). Moreover, as \(z\to\infty\), \(p(z)\to\infty\), so \(f(z)\to 0\), and thus \(f(z)\) is bounded. By Liouville's Theorem (\cref{thm:liouville}), every bounded entire function is constant. Thus, \(f(z)\) is constant, and so \(p(z)\) must also be constant. By contradiction, \(p(z)\) has at least one complex zero.
+\end{proof}
+\begin{theorem}\label{thm:identityaccumulationofzeros}
+    Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f:U\to\mathbb{C}\) be holomorphic over \(U\). Then if the set defined by \(S=\cbraces{z\in U}{f(z)=0}\) has an accumulation point in \(U\), then \(f\equiv0\) over \(U\).
+\end{theorem}
+\begin{proof}
+    Let \(\cbraces{z_n}_{n\in\mathbb{N}}\) be a subset of \(S\) and assume it has an accumulation point \(z_\infty\) in \(U\). Since \(f\) is holomorphic over \(U\), \(\exists\varepsilon>0\) such that \(f\) is holomorphic over \(D\paren{z_\infty,\varepsilon}\subseteq U\). Then over this disk, \(f\) has the Taylor expansion
+    \begin{equation}\label{eq:identityaccumulationofzeros_taylorexpansion}
+        f(z)=\sum_{n=0}^\infty a_n\paren{z-z_\infty}^n.
+    \end{equation}
+    By \cref{def:accumulationpoint}, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(z_n\in D\paren{z_\infty,\varepsilon}\). Since \(z_n\) is a zero of \(f\), \(f\paren{z_n}=0\). Then, by the continuity of \(f\), \[\lim_{n\to\infty} f\paren{z_n}=f\paren{\lim_{n\to\infty}z_n}=f\paren{z_\infty}=0.\] Using this result in comparison to \cref{eq:identityaccumulationofzeros_taylorexpansion}, we get that \(a_0=0\).
+
+    The function \(f_1(z)=\frac{f(z)}{z-z_\infty}\) has a Taylor expansion over \(D\paren{z_0,\varepsilon}\) of
+    \[f_1(z)=\sum_{n=0}^\infty a_{n+1}\paren{z-z_\infty}^n.\]
+    Let \(z=z_n\neq z_\infty\) for some \(n>N\). Then \(f_1\) vanishes, leaving \[0=a_1+\order{z_n-z_\infty}.\]
+    Letting \(n\to\infty\), \(z_n\to z_\infty\), and \(a_1=0\). Define \(f_2(z)=\frac{f_1(z)}{z-z_\infty}\). Then, \[f_2(z)=\sum_{n=0}^\infty a_{n+2}\paren{z-z_\infty}^n.\]
+    Similarly, \(a_2=0\). Letting \(f_n(z)=\frac{f(z)}{\paren{z-z_\infty}^n}\), the sequence \(\cbraces{a_n}_{n\in\mathbb{Z}_{\geq0}}\) vanishes, and \(f\equiv 0\) on \(D\paren{z_\infty,\varepsilon}\).
+
+    Let \(\widetilde{S}=\cbraces{z\in U}{\forall n\in\mathbb{Z}_{\geq0}, f^{(n)}(z)=0}\).\ \(\forall z\in D\paren{z_\infty,\varepsilon}\), since \(f(z)\) locally vanishes (and has vanishing derivatives as a consequence), \(D\paren{z_\infty,\varepsilon}\subseteq\widetilde{S}\). Furthermore, \(\forall z'\in\widetilde{S}\), \(\exists\varepsilon'>0\) such that \(f(z)\) has a convergent Taylor series with vanishing coefficients on \(D(z',\varepsilon')\subseteq U\). Then \(f\equiv0\) on \(D\paren{z',\varepsilon'}\). Then \(\forall z\in D(z',\varepsilon')\), since \(f\) is constant at \(z\), it also has vanishing derivatives. It follows that \(D(z',\varepsilon')\subseteq\widetilde{S}\). Since every point in \(\widetilde{S}\) has an open neighborhood also in \(\widetilde{S}\), \(\widetilde{S}\) is open.
+
+    It is evident that \(\forall k\in\mathbb{Z}_{\geq0}\), \(f^{(k)}\) is continuous in \(U\) by the holomorphy of \(f\). Let \(S_k=\cbraces{z\in U}{f^{(k)}(z)=0}\). For any sequence \(\cbraces{\widetilde{z}_n}\in S_k\) converging to some \(\widetilde{z}_\infty\in U\), by the continuity of \(f\), \[\lim_{n\to\infty} f^{(k)}\paren{\widetilde{z}_n}=f^{(k)}\paren{\lim_{n\to\infty}\widetilde{z}_n}=f^{(k)}\paren{z'_\infty}=0,\] and therefore \(\widetilde{z}_\infty\in S_k\). Thus, \(S_k\) contains all of its accumulation points in \(U\) and is therefore closed in \(U\) (if \(\widetilde{z}_\infty\notin U\), then it is no longer relevant; we are concerned about it being closed within \(U\)). Since \(\widetilde{S}=\bigcap_{k\in\mathbb{Z}_{\geq0}} S_k\) and each of \(S_k\) is closed in \(U\), \(\widetilde{S}\) is the intersection of closed sets and consequently closed.
+
+    Since \(\widetilde{S}\) is nonempty and clopen in the connected set \(U\), \(\widetilde{S}=U\) (by \cref{thm:connectedtopologicalspaceclopensets}). It follows that \(f\equiv 0\) on \(U\).
+\end{proof}
+\begin{remark}
+    This is a trivial property of holomorphic functions that allows for the uniqueness of analytic continuations. It is oftentimes stated in the form below:
+\end{remark}
+\begin{theorem}[Identity Theorem]\label{thm:identity}
+    Let \(U\subseteq\mathbb{C}\) be open and connected, and define \(f(z)\) and \(g(z)\) to be two holomorphic functions on \(U\). For a set \(S\subseteq U\) with an accumulation point in \(U\), if \(f\equiv g\) on \(S\), then \(f\equiv g\) on \(U\).
+\end{theorem}
+\begin{proof}
+    Let \(h=f-g\) be holomorphic over \(U\). Since \(S\) has an accumulation point in \(U\), and \(h\equiv 0\) over \(S\), then by \cref{thm:identityaccumulationofzeros}, \(h\equiv 0\) over \(U\).
+\end{proof}
+\begin{theorem}[Holomorphic Argument Principle]\label{thm:argumentprincipleholomorphic}
+    Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a simple, closed, positively oriented curve that is null-homotopic in \(U\). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\), and this number, counting multiplicities, is given by
+    \[k=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
+    Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k=\frac{1}{2\piup}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
+\end{theorem}
+\begin{proof}
+    Let \(z_1,\ldots,z_n\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with the respective multiplicities \(k_1,\ldots,k_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) centered at each \(z_j\) with radii \(\varepsilon_j>0\), each contained in the interior of \(\gamma\) and avoiding \(\gamma\). The function \[\frac{f'(z)}{f(z)}\]
+    is holomorphic on the domain \[\mathrm{int}\paren{\gamma}\setminus\bigcup_{j=1}^n\overline{D\qty(z_j,\varepsilon_j)},\]
+    where \(\mathrm{int}(\gamma)\) denotes the interior relative to \(\gamma\). The oriented boundary of this domain is \(\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-\). By Cauchy--Goursat (\cref{thm:cauchygoursattheorem}),
+    \[\int_{\gamma^+\cup\bigcup_{j=1}^n\partial D\paren{z_j,\varepsilon_j}^-}\frac{f'(z)}{f(z)}\ddz=0,\]
+    which rearranges to
+    \[\oint_{\gamma^+}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n\oint_{\partial D\paren{z_j,\varepsilon_j}^+}\frac{f'(z)}{f(z)}\ddz.\]
+    Near each \(z_j\), express \(f(z)=\paren{z-z_j}^{k_j}h_j(z)\) where \(h_j\) is holomorphic and non-vanishing on \(D\paren{z_j,\varepsilon_j}\). Differentiation yields
+    \[f'(z)=k_j\paren{z-z_j}^{k_j-1}h_j(z)+\paren{z-z_j}^{k_j}h_j'(z),\] and thus
+    \[\frac{f'(z)}{f(z)}=\frac{k_j}{z-z_j}+\frac{h_j'(z)}{h_j(z)}.\]
+    Since \(h_j\) is holomorphic and non-vanishing on \(D\paren{z_j,\varepsilon_j}\), the function \(\frac{h_j'}{h_j}\) is holomorphic there. By the Cauchy--Goursat Theorem,
+    \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{h_j'(z)}{h_j(z)}\ddz=0.\]
+    The Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}) gives
+    \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{k_j}{z-z_j}\ddz=2\piup\ii k_j.\]
+    Combining results,
+    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\piup\ii k_j=2\piup\ii k.\]
+    Finally, parameterize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
+    \[k=\frac{1}{2\piup\ii}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\piup\ii}\Delta_\Gamma\log(w)=\frac{1}{2\piup}\Delta_\Gamma\arg(w),\] which proves the result.
+\end{proof}
+Thus, one defines the \textscsl{winding index} to quantify how many times a closed curve winds counterclockwise around a given point in the complex plane. Formally, if \(\gamma=\gamma([0,1])\) is a counterclockwise-oriented closed curve and \(z\) is a point satisfying \(z\notin\gamma\), then \[\mathrm{Ind}_{\gamma}(z)=\frac{1}{2\piup\ii}\int_\gamma\frac{\ddzeta}{\zeta-z}=\frac{1}{2\piup\ii}\int_0^1\frac{\gamma'(t)\ddt}{\gamma(t)-z}.\]
+\begin{theorem}\label{thm:hurwitzsimplecase}
+    Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\). If \(\forall n\in\mathbb{N}\), \(f_n(z)\) has no zeros in \(U\), then \(f\) is either identically 0 or has no zeros in \(U\).
+\end{theorem}
+\begin{proof}
+    By the holomorphy of \(f_n(z)\), for any simple closed rectifiable curve \(\gamma\subset U\) (whose interior is a subset of \(U\)), by the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}), \[\oint_{\gamma}f_n(\zeta)\ddzeta=0.\] Since \(\gamma\) is a subset of any compact subset of \(U\), \(\cbraces{f_n(\zeta)}\) uniformly converges on \(\gamma\), and by \cref{thm:limitintegralswitch},
+    \begin{equation}
+        \lim_{n\to\infty}\oint_{\gamma}f_n(\zeta)\ddzeta=\oint_{\gamma}\lim_{n\to\infty}f_n(\zeta)\ddzeta=\oint_{\gamma}f(\zeta)\ddzeta=0.\label{eq:hurwitzsimplecase_integrallimitswitchforholomorphy}
+    \end{equation}
+    Then by Morera's Theorem (\cref{thm:morera}), \(f(z)\) is holomorphic, and \(f'(z)\) is holomorphic. We aim to show that \(f'_n(z)\rightrightarrows f'(z)\).
+
+    Let \(K\subset U\) be arbitrary and compact and \(V\supset K\) be open and relatively compact in \(U\). Since \(\cbraces{f'_n(z)}\) is holomorphic, by \cref{cor:nthderivativeboundedsupremum}, there exists a finite constant \(c>0\) such that \[\lim_{n\to\infty}\sup_{z\in K}\abs{f'_n(z)-f'(z)}\leq c\lim_{n\to\infty}\sup_{z\in V}\abs{f_n(z)-f(z)}.\]
+
+    By the definition of uniform convergence, the right-hand side approaches 0, and \(\cbraces{f'_n(z)}\) is then uniformly convergent to \(f'(z)\) by the same reasoning.
+
+    Through the proof of \cref{thm:identityaccumulationofzeros}, if \(f\not\equiv0\) over \(U\), then the zeros of \(f\) do not have an accumulation point in \(U\) and are therefore discrete. In this case, let \(\gamma\subset U\) be a curve that does not pass through the zeros of \(f\). Since each function in the sequence \(f_n\) does not contain zeros in \(U\), by the Argument Principle, (\cref{thm:argumentprincipleholomorphic}),
+    \begin{equation}
+        \lim_{n\to\infty}\oint_{\gamma}\frac{f_n'(z)}{f_n(z)}\ddz=0.\label{eq:hurwitzsimplecase_argumentprinciple}
+    \end{equation}
+    Since \(f\) and \(f'\) are holomorphic over \(\gamma\), by \cref{thm:continuousfunctionboundedoncompact}, there exists a finite value \(M>0\) such that \(\forall z\in\gamma\), \(\max\cbraces{\abs{f(z)},\abs{f'(z)}}<M\).
+
+    Since \(\gamma\) does not pass through the zeros of \(f\), \(\exists\lambda>0\) such that \(\forall z\in\gamma\), \(\abs{f(z)}>\lambda\). By the uniform convergence of \(\cbraces{f_n(z)}\), \(\exists N\in\mathbb{N}\) such that
+    \[\abs{f_n(z)-f(z)}<\frac{\lambda}{2},\quad\forall n>N,\forall z\in\gamma.\]
+    Then \(\abs{f_n(z)}>\frac{\lambda}{2}\) on \(\gamma\). Hence, \(\frac{1}{f_n(z)}\) and its limit are uniformly bounded; \[\abs{\frac{1}{f(z)}}<\frac{1}{\lambda},\quad\abs{\frac{1}{f_n(z)}}<\frac{2}{\lambda},\quad\forall z\in\gamma,\forall n>N.\]
+    Then,
+    \begin{align*}
+        \abs{\frac{f'}{f}-\frac{f'_n}{f_n}}                                               & =\abs{\frac{f'f_n-f'_n f}{f_n f}}                                                                       \\
+                                                                                          & <2\frac{\abs{f'f_n-f'f}+\abs{f'f-f'_n f}}{\lambda^2}                                                    \\
+                                                                                          & <\frac{2M}{\lambda^2}\cdot\paren{\abs{f_n-f}+\abs{f'-f'_n}}.                                            \\
+        \sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}}                  & \leq\frac{2M}{\lambda^2}\paren{\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\sup_{z\in\gamma}\abs{f'(z)-f'_n(z)}} \\
+        \lim_{n\to\infty}\sup_{z\in\gamma}\abs{\frac{f'(z)}{f(z)}-\frac{f'_n(z)}{f_n(z)}} & \leq\frac{2M}{\lambda^2}\paren{\lim_{n\to\infty}\sup_{z\in\gamma}\abs{f_n(z)-f(z)}+\abs{f'(z)-f'_n(z)}} \\
+                                                                                          & =0.
+    \end{align*}
+    Therefore, \(\frac{f'(z)}{f(z)}\) is uniformly convergent on \(\gamma\). By \cref{thm:limitintegralswitch}, we can pass the limit through the integral in \cref{eq:hurwitzsimplecase_argumentprinciple}. Then,
+    \[\lim_{n\to\infty}\oint_\gamma\frac{f'_n(z)}{f_n(z)}\ddz=\oint_\gamma\frac{f'(z)}{f(z)}\ddz=0.\] By the Argument Principle, (\cref{thm:argumentprincipleholomorphic}), \(f(z)\) has no zeros in the interior of \(\gamma\). Since \(\gamma\) was arbitrarily chosen, either \(f(z)\equiv 0\) on \(U\) or has no zeros in \(U\).
+\end{proof}
+\begin{theorem}[\textsc{Rouché}]\label{thm:rouche}
+    Let \(U\subseteq\mathbb{C}\) be open and \(f,g\) be two holomorphic functions over \(U\). Let \(\gamma\subset U\) be a simple, closed, rectifiable curve, and \(\forall z\in\gamma\)
+    \begin{equation}
+        \abs{f(z)-g(z)}<\abs{f(z)}\label{eq:rouche}.
+    \end{equation} Then \(f\) and \(g\) have the same number of zeros enclosed by \(\gamma\) and do not vanish on \(\gamma\).
+\end{theorem}
+\begin{proof}
+    It is obvious that \(g(z)\) has no zeros on \(\gamma\). Otherwise, \(\exists z_0\in\gamma\) such that \(g\paren{z_0}=0\), implying that \(\abs{f\paren{z_0}}<\abs{f\paren{z_0}}\) which is impossible. Similarly, \(f(z)\) has no zeros on \(\gamma\), since \(\abs{g(z)}<0\) is an impossibility.
+
+    Let \(k_f\) and \(k_g\) denote the number of zeros of \(f\) and \(g\) enclosed by \(\gamma\), respectively. By the Argument Principle (\cref{thm:argumentprincipleholomorphic}),
+    \begin{align*}
+        k_g-k_f & =\int_{\gamma}\frac{g'(z)}{g(z)}\ddz-\int_\gamma\frac{f'(z)}{f(z)}\ddz                                                  \\
+                & =\int_\gamma\frac{g'(z)f(z)-f'(z)g(z)}{g(z)f(z)}\ddz=\int_\gamma\frac{\qty(\frac{g(z)}{f(z)})'}{\frac{g(z)}{f(z)}}\ddz.
+    \end{align*}
+    Let \(w=h(z)=\frac{g(z)}{f(z)}\) with \(\Gamma=h(\gamma)\). Then, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}.\]
+    From \cref{eq:rouche}, by dividing both sides by \(f(z)\), we obtain \(\abs{w-1}<1\). Then \(\Gamma\) lies in the open disk \(D(1,1)\), which will never intersect or enclose 0. Then by \cref{lem:cauchyintegraltheoremoversimplyconnectedset}, \[k_g-k_f=\int_\Gamma\frac{\dd{w}}{w}=0,\] as desired.
+\end{proof}
+By the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}), any polynomial in the form \(p(z)=\sum_{k=0}^n a_kz^k\) (\(n\in\mathbb{N}\), \(a_n\neq 0\), \(a_k\in\mathbb{C}\) where \(k=1,\ldots n\)) has at least one complex zero. Consider the function \(q(z)=a_nz^n\), with a zero at \(z=0\) with multiplicity \(n\). By Rouché's Theorem (\cref{thm:rouche}), since \(\exists R\in\mathbb{R}\) such that \(\abs{q(z)-p(z)}=\abs{\sum_{k=0}^{n-1}a_k z^k}<\abs{a_n z^n}\) over \(\abs{z}=R\), \(p\) and \(q\) have the same number of zeros, counting multiplicity.
+\begin{theorem}\label{thm:hurwitzshifts}
+    Let \(U\subseteq\mathbb{C}\) be open and connected, and \(f(z)\) be holomorphic and non-constant on \(U\).
+
+    If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\cbraces{z_0}\), \(\exists\delta>0\) such that \(\forall\xi\in D\qty(w_0,\delta)\), \(f-\xi\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
+\end{theorem}
+\begin{proof}
+    The zero at \(z_0\) is isolated by \cref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). Hence, \(\forall\xi\in D\qty(w_0,\delta)\), we have \(\abs{\xi-w_0}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
+
+    By Rouché's Theorem, since \(\abs{\qty(f(z)-w_0)-\qty(f(z)-\xi)}<\abs{f(z)-w_0}\), it follows that \(f-\xi\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
+\end{proof}
+We also have the following generalization of \cref{thm:hurwitzsimplecase}, which is a heuristic restatement of \cref{thm:hurwitzshifts}:
+\begin{theorem}[\textsc{Hurwitz}]\label{thm:hurwitz}
+    Let \(U\subseteq\mathbb{C}\) be an open and connected set, and suppose \(\cbraces{f_n(z)}_{n\in\mathbb{N}}\) is a holomorphic function sequence that uniformly converges to a non-constant function \(f(z)\) on all compact sets of \(U\).
+
+    If \(z_0\in U\) and \(w_0=f\qty(z_0)\), and the multiplicity of the zero at \(z_0\) of \(f-w_0\) is \(m\), then for all \(\rho>0\) such that \(f-w_0\) is non-vanishing on \(\overline{D\qty(z_0,\rho)}\setminus\cbraces{z_0}\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(f_n-w_0\) has \(m\) zeros in \(D\qty(z_0,\rho)\), counting multiplicity.
+\end{theorem}
+\begin{proof}
+    The zero at \(z_0\) is isolated by \cref{thm:identityaccumulationofzeros}. Furthermore, \(\abs{f-w_0}\) is continuous on \(\partial D\qty(z_0,\rho)\) and attains a positive infimum \(\delta\). In other words, on this set, \(\abs{f-w_0}\geq\delta\). By uniform convergence, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), we have \(\abs{f(z)-f_n\qty(z)}<\delta\leq\abs{f(z)-w_0}\) for any \(z\in\partial D\qty(z_0,\rho)\).
+
+    By Rouché's Theorem (\cref{thm:rouche}), since \[\abs{\qty(f(z)-w_0)-\qty(f_n(z)-w_0)}<\abs{f(z)-w_0},\] it follows that \(f_n-w_0\) and \(f-w_0\) have the same number of zeros in \(D\qty(z_0,\rho)\).
+\end{proof}

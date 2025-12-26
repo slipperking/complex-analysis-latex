@@ -1,0 +1,97 @@
+\subsection{Elementary Functions}
+Univariate functions formed by compositions, sums, products, and powers of finitely many functions of the following form are known as \textscsl{elementary functions}:
+\begin{enumerate}
+    \item Power functions including polynomials, rational functions, and their inverses.
+    \item Trigonometric functions, hyperbolic functions, and their inverses
+    \item Exponential functions and their inverses.
+\end{enumerate}
+Power functions are easily extendable to the complex plane by simply changing the real variable to a complex variable. The other two functions have to be redefined and reinterpreted for the complex plane. It is well known that the exponential function can be expanded as
+\begin{align*}
+    \ee^x & =\frac{x^0}{0!}+\frac{x^1}{1!}+\frac{x^2}{2!}+\frac{x^3}{3!}\cdots                            \\
+    & =\frac{x^0}{0!\ii^0}+\ii\frac{x^1}{1!\ii^1}-\frac{x^2}{2!\ii^2}-\ii\frac{x^3}{3!\ii^3}+\cdots \\
+    & =\cos(\frac{x}{\ii})+\ii\sin(\frac{x}{\ii}).
+\end{align*}
+This is better written as
+\begin{equation}
+    \ee^{\ii x}=\cos(x)+\ii\sin(x),\label{eq:eulersformula}
+\end{equation} which is the famous \textscsl{Euler Formula}. Then for any complex number \(z=x+\ii y\), \(\ee^z=\ee^{x+\ii y}=\ee^x\paren{\cos(y)+\ii\sin(y)}\). Then trigonometric functions and exponential functions can be written in terms of each other:
+\begin{align*}
+    \sin(z)  & =\frac{\ee^{\ii z}-\ee^{-\ii z}}{2\ii}, & \cos(z)  & =\frac{\ee^{\ii z}+\ee^{-\ii z}}{2}, & \tan(z)  & =\frac{\ee^{\ii z}-\ee^{-\ii z}}{\ii \paren{\ee^{\ii z}+\ee^{-\ii z}}} \\
+    \sinh(z) & =\frac{\ee^z-\ee^{-z}}{2},              & \cosh(z) & =\frac{\ee^z+\ee^{-z}}{2},           & \tanh(z) & =\frac{\ee^z-\ee^{-z}}{\ee^z+\ee^{-z}}x.
+\end{align*}
+Hence, the following relationships are derived:
+\[\sin(z)=-\ii\sinh(\ii z),\quad\cos(z)=\cosh(\ii z),\quad\tan(z)=-\ii\tanh(\ii z).\]
+The complex logarithm, denoted \(w=\log(z)\), is the solution to \(z=\ee^w\). We can then define the inverse trigonometric and hyperbolic functions.
+
+We can also define the power function for non-integer powers with \(w=z^\alpha=\ee^{\alpha\log(z)}\). Then, power functions can all be written in terms of exponential functions and logarithms. Letting \(x=\piup\) in \cref{eq:eulersformula} yields \(\ee^{\ii\piup}=-1\). Furthermore, we can see that exponentiation with an imaginary number is a rotation:
+\begin{theorem}[De Moivre]\label{thm:demoivre}
+    \(\forall x\in\mathbb{R}\), \(\forall n\in\mathbb{N}\),
+    \[\paren{\cos(x)+\ii\sin(x)}^n=\cos(nx)+\ii\sin(nx).\]
+\end{theorem}
+Since all elementary functions can be written in terms of exponential functions and complex logarithms, we will first study the exponential function.
+\begin{enumerate}
+    \item The exponential function \(\ee^z\) never vanishes as \(\abs{\ee^z}=\ee^x>0\).
+    \item Since \(\ee^{2\piup\ii}=1\), it is periodic over \(2\piup\ii\).
+    \item It is also an entire function with \(\paren{\ee^z}'=\ee^z\).
+
+        Write \(\ee^z=\ee^{x+\ii y}=\ee^x\paren{\cos(y)+\ii\sin(y)}\) where \(x,y\in\mathbb{R}\). Let \(u(x,y)=\Re\paren{\ee^z}=\ee^x\cos(y)\) and \(v(x,y)=\Im\paren{\ee^z}=\ee^x\sin(y)\). The first order derivatives are respectively:
+        \[\pdv{u}{x}=\ee^x\cos(y),\quad\pdv{u}{y}=-\ee^x\sin(y),\]\[\pdv{v}{x}=\ee^x\sin(y),\quad\pdv{v}{y}=\ee^x\cos(y),\]
+        and indeed, the condition described by \cref{thm:holomorphycondition} is satisfied.
+    \item For any two complex numbers \(z_1\) and \(z_2\), \(\ee^{z_1}\ee^{z_2}=\ee^{z_1+z_2}\).
+
+        In fact, most real exponentiation rules are identical to those in the complex number field. Previously we claimed the periodic properties of \(\ee^z\). For \(U\subseteq\mathbb{C}\), a holomorphic function \(f:U\to\mathbb{C}\) is \textscsl{univalent} over \(U\) if it is injective over \(U\). This means that the solutions \(z_1\) and \(z_2\) satisfying \(f\paren{z_1}=f\paren{z_2}\) will also always satisfy \(z_1=z_2\).
+    \item The region \(\ee^z\) is univalent over:
+
+        Let \(z_1=x_1+\ii y_1\), \(z_2=x_2+\ii y_2\), \(x_1,y_1,x_2,y_2\in\mathbb{R}\) satisfy \(\ee^{z_1}=\ee^{z_2}\). Then, \[\ee^{x_1}\ee^{\ii y_1}=\ee^{x_2}\ee^{\ii y_2}.\] The moduli are equal, and therefore \(x_1=x_2\), and by the periodic nature of the exponentiation of imaginary numbers, \(y_1-y_2=2\piup k\), where \(k\in\mathbb{Z}\). To satisfy the univalence over a region \(U\), \(y_1-y_2\neq2\piup k\), we can select \(U\) to be any horizontal strip \(2\piup k\leq \Im(z)< 2\piup (k+1)\) (or \(2\piup k< \Im(z)\leq 2\piup (k+1)\)). Similar to the exponential function, any belt region with thickness \(2\piup\) is a region over which \(\log\) is univalent.
+\end{enumerate}
+Next we examine the complex logarithm.
+\begin{enumerate}
+    \item From of the periodicity of \(z=\ee^w\), \(\log\) is a multi-valued function (infinite-valued).
+    \item Let \(z=r\ee^{\ii\theta}\) and \(w=u+\ii v\), where \(r,\theta,u,v\in\mathbb{R}\). Then,
+        \[r\ee^{\ii\theta}=\ee^{u+\ii v},\]
+        and \(\ee^u=r\), meaning that \(u=\log(r)\), \(v=\theta+2\piup k\), where \(k\in\mathbb{Z}\). Then,
+        \[w=\log(r)+\ii(\theta+2\piup k),\]
+        and using the modulus-argument notation,
+        \[\log(z)=\log\abs{z}+\ii\arg(z),\]
+        where \(\arg(z)\) is the multi-valued argument function. We denote the \textscsl{principal branch} of the argument function by \(\Arg:\mathbb{C}\setminus\cbraces{0}\to(-\piup,\piup]\). The principal branch of \(\log(z)\), or \(\Log(z)\), can be defined such that \(\Im\paren{\Log}\in(-\piup,\piup]\).
+\end{enumerate}
+The functions \(\sin\) and \(\cos\), through their exponential form, still satisfy the properties such as their derivatives, periodicity being \(2\piup\), parity, sum and difference, and the fundamental identities \(\sin^2(z)+\cos^2(z)=1\), \(\sin(z)=\cos(\frac{\piup}{2}-z)\). However, due to the extension, some properties do not hold. For instance, \(\sin(z)\) and \(\cos(z)\) are unbounded, as along the imaginary axis, they resemble their hyperbolic counterparts, which are unbounded along the real line.
+
+We now examine the regions over which they are univalent. Consider \(\cos(z)=\frac{\ee^{\ii z}+\ee^{-\ii z}}{2}\). Define the auxiliary functions \[\xi(z)=\ii z,\quad\zeta(\xi)=\ee^\xi,\quad w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}.\] Then, \(\cos(z)=(w\circ\zeta\circ\xi)(z)\).
+
+\(\xi\) is clearly univalent on \(\mathbb{C}\), as it is a linear map (specifically, a rotation by \(\frac{\piup}{2}\) radians followed by scaling).\ \(\zeta\) is univalent on any domain \(U\subset\mathbb{C}\) such that for all \(\xi_1,\xi_2\in U\), \(\xi_1-\xi_2\neq2\piup \ii k\) for any \(k\in\mathbb{Z}\). That is, \(U\) must not contain any pair of points differing by a nonzero integer multiple of \(2\piup\ii\). If \(\xi_1=\ii z_1\) and \(\xi_2=\ii z_2\), then this translates to \(z_1-z_2\neq2\piup k\) for \(k\in\mathbb{Z}\).\ \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) is univalent on regions excluding pairs \((\zeta_1,\zeta_2)\) such that \(\zeta_1=\frac{1}{\zeta_2}\). In terms of \(z\), this condition becomes \(\ee^{\ii z_1}\ee^{\ii z_2}\neq1\), or equivalently, \(z_1+z_2\neq2\piup k\) for any \(k\in\mathbb{Z}\).
+
+Combining these constraints, we conclude that \(\cos(z)\) is univalent on any vertical strip in the complex plane of width \(\piup\), such as a region of the form \[\cbraces{z\in\mathbb{C}}{k\piup<\Re(z)<(k+1)\piup,k\in\mathbb{Z}}.\] Let us now consider the specific region \(\cbraces{z\in\mathbb{C}}{0<\Re(z)<\piup}\), and analyze how it is mapped under \(\cos(z)\).
+\begin{enumerate}
+    \item \(\xi(z)=\ii z\) maps the region \(\cbraces{z\in\mathbb{C}}{0<\Re(z)<\piup}\) to \(\cbraces{\xi\in\mathbb{C}}{0<\Im(\xi)<\piup}\).
+    \item \(\zeta(\xi)=\ee^\xi\) maps this region to the upper half plane \(\Im(\zeta)>0\) since \(0<\Arg(\zeta)<\piup\) and \(0<\abs{\zeta}\).
+    \item \(w(\zeta)=\frac{\zeta+\frac{1}{\zeta}}{2}\) maps \(\Im\paren{\zeta}>0\) to \(\mathbb{C}\setminus\paren{(-\infty,-1]\cup[1,\infty)}\).
+\end{enumerate}
+Thus, the composition \(\cos(z)=w\circ\zeta\circ\xi\) is univalent on the strip \[\cbraces{z\in\mathbb{C}}{0<\Re(z)<\piup},\]
+and the image of this strip under \(\cos\) is \(\mathbb{C}\setminus\paren{(-\infty,-1]\cup[1,\infty)}\). We will now analyze the inverse cosine function, denoted \(\arccos(z)\).
+
+Consider \(z=\frac{\ee^{\ii w}+\ee^{-\ii w}}{2}\). Then,
+\begin{align*}
+    \paren{\ee^{\ii w}}^2+1 & =2z\ee^{\ii w}                \\
+    \ee^{\ii w}             & =\frac{2z\pm\sqrt{4z^2-4}}{2} \\
+    w                       & =-\ii\log(z\pm\sqrt{z^2-1}).
+\end{align*}
+Then \(\arccos\) is also a multi-valued function. We can also define \(\arcsin(z)=\frac{\piup}{2}-\arccos{z}\).
+
+Lastly, we will examine the power function. Let \(\alpha=u+\ii v\) where \(u,v\in\mathbb{R}\). Then, \[z^\alpha=\exp(\alpha\log(z))=\exp((u+\ii v)\paren{\log\abs{z}+\ii\arg\paren{z}}),\]
+and in polar form, \[z^\alpha=\exp(u\log\abs{z}-v\arg\paren{z})\exp(\ii\paren{v\log\abs{z}+u\arg\paren{z}}).\]
+Let \(r_k=\exp\paren{u\log\abs{z}-v\arg(z)}\) and \(\theta_k=v\log\abs{z}+u\arg(z)\). Then, \(z^\alpha=r_k\ee^{\ii\theta_k}\), where \(k\in\mathbb{Z}\). Analyzing the coefficient of \(v\) in the exponent of \(r_k\), \(z^\alpha\) is multi-valued if \(v\neq0\).
+
+Then assuming \(v=0\), \(z^\alpha=\abs{z}^u\exp(\ii u\arg(z))\). Doing casework on \(\alpha\),
+\begin{enumerate}
+    \item If \(\alpha=u\in\mathbb{Z}\), then \(u\) can be absorbed into \(k\), and \(z^\alpha\) is single valued.
+    \item If \(\alpha=u\in\mathbb{Q}\) with reduced fractional form \(\frac{p}{q}\), where \(p,q\in\mathbb{Z}\), \(q>0\), and \(\gcd(p,q)=1\), then the multivalued function \(z^\alpha\) is given by
+        \[z^\alpha=\abs{z}^{\frac{p}{q}}\exp\qty(\ii\frac{p}{q}(\Arg(z)+2\piup k))=\abs{z}^{\frac{p}{q}}\exp(\ii\frac{p}{q}\Arg(z))\exp(2\ii\frac{p}{q}\piup k),\]
+        for \(k\in\mathbb{Z}\). These values are periodic with period \(q\), since
+        \[\exp(2\ii\frac{p}{q}\piup(k+q))=\exp(2\ii\frac{p}{q}\piup k)\exp(2\ii\piup p)=\exp(2\ii\frac{p}{q}\piup k),\]
+        as \(\exp(2\piup\ii p)=1\) for integer \(p\). To prove there are exactly \(q\) distinct values, consider \(k=0,1,\dots,q-1\). The exponential factors are \(\exp(2\ii\frac{p}{q}\piup k)\). These are distinct if, for \(0\leq j<k\leq q-1\),
+        \[\exp(2\ii\frac{p}{q}\piup j)\neq\exp(2\ii\frac{p}{q}\piup k),\]
+        which holds unless \(\frac{p}{q}(k-j)\in\mathbb{Z}\), or if \(q\) divides \(p(k-j)\). Since \(\gcd(p,q)=1\), \(q\) must divide \(k-j\), but \(\abs{k-j}<q\) and \(k-j\neq 0\), a contradiction. Thus, \(z^\alpha\) has exactly \(q\) distinct values.
+    \item If \(\alpha=u\in\mathbb{R}\setminus\mathbb{Q}\), then \(z^\alpha\) is infinite valued.
+\end{enumerate}
+Lastly, there exist series representations of functions using power functions (Taylor series) and trigonometric functions (Fourier series). There does not exist another representation using exponential functions as trigonometric functions can be written in terms of them.

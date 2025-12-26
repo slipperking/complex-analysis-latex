@@ -8,27 +8,20 @@
     \[g(z)=\frac{\psi(z)f'(z)}{f(z)}\]
     is holomorphic on
     \[\operatorname{int}(\gamma)\setminus\qty(\bigcup_{i=1}^k D\qty(a_i,\varepsilon_i)\cup\bigcup_{j=1}^m D\qty(b_j,\varepsilon'_j)),\]
-    since \(\psi\) is holomorphic there, \(f\) is meromorphic with no other
-    singularities, and \(f\neq0\) on \(\gamma\). The oriented boundary of this
-    punctured domain is \(\gamma^+\cup\bigcup_{i=1}^k\partial
-        D\qty(a_i,\varepsilon_i)^-\cup\bigcup_{j=1}^m\partial
-    D\qty(b_j,\varepsilon'_j)^-\). By Cauchy--Goursat
-    (\cref{thm:cauchygoursattheorem}), \[\oint_{\gamma^+}g(z)\ddz+\sum_{i=1}^k\oint_{\partial D\qty(a_i,\varepsilon_i)^-}g(z)\ddz+\sum_{j=1}^m\oint_{\partial D\qty(b_j,\varepsilon'_j)^-}g(z)\ddz=0.\]
+    since \(\psi\) is holomorphic there, \(f\) is meromorphic with no other singularities, and \(f\neq0\) on \(\gamma\). The oriented boundary of this punctured domain is \(\gamma^+\cup\bigcup_{i=1}^k\partial D\qty(a_i,\varepsilon_i)^-\cup\bigcup_{j=1}^m\partial D\qty(b_j,\varepsilon'_j)^-\). By Cauchy--Goursat (\cref{thm:cauchygoursattheorem}), \[\oint_{\gamma^+}g(z)\ddz+\sum_{i=1}^k\oint_{\partial D\qty(a_i,\varepsilon_i)^-}g(z)\ddz+\sum_{j=1}^m\oint_{\partial D\qty(b_j,\varepsilon'_j)^-}g(z)\ddz=0.\]
     Thus,
     \[-\oint_{\gamma}g(z)\ddz=\sum_{i=1}^k \oint_{\partial D\qty(a_i,\varepsilon_i)^+}g(z)\ddz+\sum_{j=1}^m\oint_{\partial D\qty(b_j,\varepsilon'_j)^+}g(z)\ddz.\]
-    Near each zero \(a_i\), write \(f(z)=\qty(z-a_i)^{\alpha_i}h(z)\) where \(h\)
-    is holomorphic at \(a_i\) with \(h\qty(a_i)\neq0\). Then
+    Near each zero \(a_i\), write \(f(z)=\qty(z-a_i)^{\alpha_i}h(z)\) where \(h\) is holomorphic at \(a_i\) with \(h\qty(a_i)\neq0\). Then
     \[\frac{f'(z)}{f(z)}=\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)},\]
     so
     \[g(z)=\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)}).\]
     Then,
     \begin{align*}
         \oint_{\partial D\qty(a_i,\varepsilon_i)}g(z)\ddz
-        & =\oint_{\partial D\qty(a_i,\varepsilon_i)}\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)})\ddz=2\piup\ii\alpha_i\psi\qty(a_i),
+         & =\oint_{\partial D\qty(a_i,\varepsilon_i)}\psi(z)\qty(\frac{\alpha_i}{z-a_i}+\frac{h'(z)}{h(z)})\ddz=2\piup\ii\alpha_i\psi\qty(a_i),
     \end{align*} where the first term has been reduced by the Cauchy--Goursat Formula (\cref{eq:cauchygoursatformula}) and the second integral vanishes by the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}).
 
-    Near a pole \(b_j\), write \(f(z)=\qty(z-b_j)^{-\beta_j}k(z)\) where \(k\) is
-    holomorphic at \(b_j\) with \(k\qty(b_j)\neq0\). Then
+    Near a pole \(b_j\), write \(f(z)=\qty(z-b_j)^{-\beta_j}k(z)\) where \(k\) is holomorphic at \(b_j\) with \(k\qty(b_j)\neq0\). Then
     \[\frac{f'(z)}{f(z)}=-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)},\]
     so
     \[g(z)=\psi(z)\qty(-\frac{\beta_j}{z-b_j}+\frac{k'(z)}{k(z)}).\]
@@ -37,15 +30,14 @@
     Combining these,
     \begin{align*}
         \oint_{\gamma}\frac{\psi(z)f'(z)}{f(z)}\ddz
-        & = \sum_{i=1}^k 2\piup\ii\alpha_i \psi\qty(a_i)-\sum_{j=1}^m-2\piup\ii\beta_j\psi\qty(b_j)      \\
-        & = 2\piup\ii\qty(\sum_{i=1}^k \alpha_i\psi\qty(a_i)-\sum_{j=1}^m \beta_j\psi\qty(b_j)).\qedhere
+         & = \sum_{i=1}^k 2\piup\ii\alpha_i \psi\qty(a_i)-\sum_{j=1}^m-2\piup\ii\beta_j\psi\qty(b_j)      \\
+         & = 2\piup\ii\qty(\sum_{i=1}^k \alpha_i\psi\qty(a_i)-\sum_{j=1}^m \beta_j\psi\qty(b_j)).\qedhere
     \end{align*}
 \end{proof}
 \begin{theorem}[Argument Principle]\label{thm:argumentprinciplemeromorphic}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be meromorphic. Let \(\gamma\subset U\) be a simple, closed, positively oriented curve that is null-homotopic in \(U\). If \(f\) has no zeros or poles on \(\gamma\), then \(f\) has finitely many zeros and poles in the region bounded by \(\gamma\), and the number of zeros, \(k\), minus the number of poles, \(k'\), counting multiplicities and orders, is given by
     \[k-k'=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
-    Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then
-    \(k-k'=\operatorname{Ind}_{\Gamma}(0)\).
+    Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k-k'=\operatorname{Ind}_{\Gamma}(0)\).
 \end{theorem}
 \begin{proof}
     By \cref{thm:generalizedargumentprinciple} for \(\psi\equiv 1\),

@@ -1,0 +1,53 @@
+\subsection{Complex Differentiation}\label{sec:complexdifferentiation}
+For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is \textscsl{complex differentiable} at \(z\in U\) if the following limit exists, regardless of the direction \(\Delta z\) approaches 0 at:
+\[\lim_{\Delta z\to0}\frac{f(z+\Delta z)-f(z)}{\Delta z}.\]
+We can consider \(f(z)\) to be a bivariate function \(f(x,y)\) for \(z=x+\ii y\). Two main cases we are concerned with are when \(\Delta z\) approaches 0 from the real and imaginary axes:
+\[\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\Delta z)-f(z)}{\Delta z}=\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\ii\Delta z)-f(z)}{\ii \Delta z}.\] Expressing \(f(z)\) as \(f(x,y)=u(x,y)+\ii v(x,y)\),
+\[\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\Delta z)-f(z)}{\Delta z}=\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(x+\Delta z,y)-f(x,y)}{\Delta z}=\pdv{u}{x}+\ii\pdv{v}{x},\]
+\[\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\ii\Delta z)-f(z)}{\ii \Delta z}=-\ii\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(x,y+\Delta z)-f(x,y)}{\Delta z}=\pdv{v}{y}-\ii\pdv{u}{y}.\]
+By comparing the real and imaginary parts, we obtain necessary conditions for complex differentiability:
+\begin{equation}
+    \pdv{u}{x}=\pdv{v}{y}\qand\pdv{v}{x}=-\pdv{u}{y}\label{eq:cauchyriemanneqs1}
+\end{equation}
+By multiplying the second equation by \(\ii\) and adding it to the first, we obtain the logical equivalence with:
+\begin{equation}
+    \pdv{f}{x}=-\ii\pdv{f}{y}\label{eq:cauchyriemanneqs2}
+\end{equation}
+\cref{eq:cauchyriemanneqs1,eq:cauchyriemanneqs2} are known as the \textscsl{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\abs{\Re(z)\Im(z)}}\). Let \(z=x+\ii y\), \(x=\alpha t\), and \(y=\beta t\). Then
+\[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\abs{\alpha\beta t^2}}}{\alpha t+\ii\beta t}=\frac{\sqrt{\abs{\alpha\beta}}}{\alpha+\ii\beta}.\]
+The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However, the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
+\begin{definition}[Holomorphy]\label{def:holomorphy}
+    A function \(f:U\to\mathbb{C}\) is said to be \textscsl{holomorphic} at \(z_0\in U\) if it is complex differentiable on a neighborhood of \(z_0\). If \(f(z)\) is holomorphic for every point in an open connected set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over compact set \(K\) if it is holomorphic on a neighborhood of \(K\).
+\end{definition}
+Weierstrass provided the following classification:
+\begin{definition}
+    A function is \textscsl{entire} if it is holomorphic over \(\mathbb{C}\).
+\end{definition}
+For the purpose of the following contents, a \textscsl{region} or \textscsl{domain} will denote a nonempty, open, connected subset of the complex plane.
+\begin{theorem}\label{thm:holomorphycondition}
+    Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. Then \(f\) is holomorphic on \(U\) iff \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
+\end{theorem}
+\begin{proof}
+    The first part is to prove that any holomorphic function on \(U\) has continuous first-order partial derivatives in \(U\). This requires an argument that will be covered later (specifically in \cref{sec:analyticityandholomorphy}), which claims that the complex derivative of any holomorphic function is also holomorphic over the region.
+
+    For the second part, let \(f(z)=f(x,y)=u(x,y)+\ii v(x,y)\). Assume that \(u,v\in C^1\qty(\cbraces{z_0})\) and satisfy the Cauchy--Riemann equations at \(z_0=x_0+\ii y_0\). Let \[\alpha=\pdv{u}{x}\paren{x_0,y_0}=\pdv{v}{y}\paren{x_0,y_0},\quad\beta=\pdv{v}{x}\paren{x_0,y_0}=-\pdv{u}{y}\paren{x_0,y_0}.\]
+
+    Then because \(u,v\in C^1\paren{U}\) have continuous partial derivatives, \(\forall x+\ii y\in U\):
+    \[u\paren{x,y}-u\paren{x_0,y_0}=\alpha\paren{x-x_0}-\beta\paren{y-y_0}+o\paren{\abs{\Delta z}},\]
+    \[v\paren{x,y}-v\paren{x_0,y_0}=\beta\paren{x-x_0}+\alpha\paren{y-y_0}+o\paren{\abs{\Delta z}},\]
+    where \(\abs{\Delta z}=\sqrt{{\Delta x}^2+{\Delta y}^2}\) and \(o\paren{\abs{\Delta z}}\) denotes a value with higher infinitesimal order to \(\abs{\Delta z}\), or that \(\lim_{\Delta z\to0}\frac{o\paren{\abs{\Delta z}}}{\abs{\Delta z}}=0\). Then letting \(\Delta z=x-x_0+\ii\paren{y-y_0}\),
+    \[f\paren{z}-f\paren{z_0}=\alpha{\Delta z}+\ii\beta{\Delta z}+o\paren{\abs{\Delta z}}+o\paren{\abs{\Delta z}},\]
+    \[\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta+\frac{o\paren{\abs{\Delta z}}}{\abs{\Delta z}}\frac{\abs{\Delta z}}{\Delta z}.\]
+    Taking the limit as \(\Delta z\to0\), the high order infinitesimals on the right-hand side vanish, and \[\lim_{\Delta z\to0}\frac{f\paren{z}-f\paren{z_0}}{z-z_0}=\alpha+\ii\beta.\qedhere\]
+\end{proof}
+We will prove later in \cref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+\ii v(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
+and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
+Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
+This type of equation is called the \textscsl{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textscsl{Laplacian}) \[(\Delta=)\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a \textscsl{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
+\begin{proposition}\label{prop:realvaluedholomorphicfunctionconstant}
+    Let \(U\subseteq\mathbb{C}\) be open and connected and \(f:U\to\mathbb{R}\) be holomorphic. It follows that \(f\) is constant over \(U\).
+\end{proposition}
+\begin{proof}
+    Since \(f(x,y)=u(x,y)+\ii v(x,y)\) is real-valued, \(v(x,y)\equiv0\) on \(U\). Then by the Cauchy--Riemann equations on \(U\), \(\pdv{u}{x}=\pdv{v}{y}=0\). Similarly, \(\pdv{u}{y}=-\pdv{v}{x}=0.\) Therefore, \(f(z)=u(z)\) is constant.
+\end{proof}
+\subimport{wirtinger_derivatives/}{index.tex}

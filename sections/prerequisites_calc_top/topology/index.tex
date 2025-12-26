@@ -1,0 +1,62 @@
+\subsection{Topological Preliminaries}
+The following definitions are subject to the assumption where the topological space is defined to be \(X=\mathbb{C}^n\). This is satisfactory to the main purpose of our proceeding passage, but it is noteworthy that it can be generalized to more abstract sets.
+\begin{definition}[Accumulation Point]\label{def:accumulationpoint}
+    A point \(z\in\mathbb{C}^n\) is an \textscsl{accumulation point} of \(X\) if for any open set \(U\) containing \(z\), \((U\setminus\cbraces{z})\cap X\neq\varnothing\)
+\end{definition}
+\begin{definition}[Closure]\label{def:closure}
+    For a set \(X\in\mathbb{C}^n\), define the \textscsl{closure} of \(X\), or \(\overline{X}\) to be the intersection of all closed sets containing \(X\). In other words, it is the union of \(X\) and its accumulation points.
+\end{definition}
+\begin{definition}[Interior]\label{def:interior}
+    For a set \(X\in\mathbb{C}^n\), the \textscsl{interior} of \(X\), denoted \(\interior{X}\), is the union of all open sets contained in \(X\), or the set of points \(z\in\mathbb{C}^n\) such that there exists an open neighborhood of \(z\) that is fully contained in \(X\).
+\end{definition}
+\begin{definition}[Compact Set]\label{def:compactsets}
+    A set \(X\in\mathbb{C}^n\) is compact iff \(X\) is closed and bounded.
+\end{definition}
+\begin{definition}[Set Covering]
+    A cover \(\mathcal{C}\) of a set \(X\) is a collection of sets \(\cbraces{U_n}\) such that \[\bigcup_{n\in\mathbb{N}}U_n\supseteq X.\] A cover is \textscsl{open} if every set in the collection is open.
+\end{definition}
+\begin{theorem}[\textsc{Bolzano--Weierstrass}]\label{thm:bolzanoweierstrass}
+    Every infinite subset \(A\) of a compact set \(X\subset\mathbb{C}^n\) has an accumulation point in \(X\).
+\end{theorem}
+\begin{proof}
+    Since \(X\) is bounded, there exists a closed cube \(Q\subset\mathbb{C}^n\) such that \(A\subseteq X\subset Q\).
+
+    Bisect \(Q_0=Q\) into \(2^{2n}\) congruent sub-cubes. Since \(A\) is infinite and the sub-cubes are finite in number, at least one of the sub-cubes contains infinitely many points of \(A\), and choose one to be \(Q_1\).
+
+    Bisect \(Q_1\) into \(2^{2n}\) sub-cubes, and choose a sub-cube \(Q_2\subset Q_1\) that contains infinitely many points of \(A\). We then obtain the recursive sequence \[Q_0\supset Q_1\supset Q_2\supset\cdots.\]
+
+    Because the side lengths shrink to zero and the cubes are nested, the intersection
+    \[\bigcap_{k=0}^{\infty} Q_k\]
+    consists of exactly one point. Call this point \(z_\infty\in\mathbb{C}^n\).
+
+    For each \(k\), \(Q_k\) contains infinitely many points of \(A\). Because the side length of \(Q_k\) tends to zero, for any \(\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall k\geq N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\) where \(B^n(a,r)\subset\mathbb{C}^n\) is the \(n\)-dimensional \textscsl{ball} with radius \(r\) centered at \(a=\qty(a_1,a_2,\ldots,a_n)\in\mathbb{C}^n\), or \[B^n(a,r)=\cbraces{\qty(z_1,z_2,\ldots,z_n)\in\mathbb{C}^n}{\sum_{j=1}^n\abs{z_j-a_j}^2<r^2}.\]
+    Then, \(B^n(z_\infty, \varepsilon)\) also contains infinitely many points of \(A\). Therefore, \(z_\infty\) is an accumulation point of \(A\).
+
+    We now show that \(z_\infty\in X\). Suppose for contradiction that \(z_\infty\notin X\). Since \(X\) is closed, \(\mathbb{C}^n\setminus X\) is open, and \(\exists\delta>0\) such that \[B^n(z_\infty,\delta)\subset\mathbb{C}^n\setminus X.\]
+    But then, for sufficiently large \(k\), we have \(Q_k \subset B^n\qty(z_\infty,\delta)\), and hence \(Q_k\cap X=\varnothing\). This contradicts the construction of \(Q_k\), which ensures that \(Q_k\) contains infinitely many points of \(A \subset X\).
+\end{proof}
+\begin{theorem}[\textsc{Heine--Borel}]\label{thm:heineborel}
+    A set \(X\in\mathbb{C}^n\) is compact iff if every open cover has a finite subcover.
+\end{theorem}
+\begin{proof}
+    We will first show that any set satisfying the condition is compact.
+
+    First we will show that \(X\) is bounded. Suppose that \(\forall R>0\), \(\exists z\in X\) where \(\norm{z}>R\). Consider the collection of open sets \[\mathcal{U}=\cbraces{B^n(0,k)}{k\in\mathbb{N}}.\] \(\mathcal{U}\) forms an open cover of \(X\). Then by the assumption, there exists a finite subcover in \(\mathcal{U}\), namely \(\cbraces{B^n(0,k_1),\ldots,B^n(0,k_m)}\) which covers \(X\). Then, \[X\subseteq\bigcup_{i=1}^mB^n(0,k_i)=B^n\qty(0,\max\cbraces{k_1,\ldots k_m}).\] By contradiction, \(X\) must be bounded.
+
+    \(X\) must also be a closed set. For the sake of contradiction, assume that there exists a point \(z_0\in\overline{X}\setminus X\). Since \(z_0\notin X\), the following open collection of sets covers \(X\):
+    \[\mathcal{U}=\cbraces{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k})}}{\forall k\in\mathbb{N}}.\]
+    There then exists a finite subcover \(\mathcal{C}=\cbraces{\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{k_j})}}{j\in\mathbb{N}_{\leq m}}\). Then, \[X\subseteq\mathbb{C}^n\setminus\overline{B^n\qty(z_0,\frac{1}{\max\cbraces{k_1,\ldots,k_m}})},\]
+    and that \(X\cap\overline{B^n\qty(z_0,\frac{1}{\max\cbraces{k_1,\ldots,k_m}})}=\varnothing\). However, by the definition of the accumulation point, every open neighborhood of the accumulation point must intersect \(X\). Therefore, by contradiction, \(X\) is closed.
+
+    We then prove the converse. By the assumption that \(X\) is bounded, \(\exists R>0\) such that the \(X\) is contained within the closed cube \[Q=\cbraces{z\in\mathbb{C}^n}{\max_{j\in\mathbb{N}_{\leq n}}\abs{\Re(z_j)}\le R\wedge\max_{j\in\mathbb{N}_{\leq n}}\abs{\Im(z_j)}\le R}.\]
+
+    Assume that there exists an infinite open cover \(\mathcal{U}\) of \(X\) without finite subcovering. Bisect \(Q_0=Q\) into \(2^{2n}\) sub-cubes (for real and complex parts). Choose \(Q_1\) such that \(Q_1\cup X\) has no finite subcover of \(\mathcal{U}\). Under the previous assumptions, this is possible since if every \(\text{sub-cube}\cap X\) had finite subcovering, then \(Q_0\cap X=X\) would have finite subcovering. Similarly, choose \(Q_2\) by bisecting \(Q_1\) similarly, and recursively obtain a sequence of cubes:
+    \[Q_0\supset Q_1\supset Q_2\supset\cdots\]
+    Since the side length of each cube tends to 0, \(\bigcap_{j=0}^\infty Q_j\) consists of a single point \(z_{\infty}\in\mathbb{C}^n\). By the Bolzano-Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), because \(\forall j\in\mathbb{N}\), \(Q_j\cap X\neq\varnothing\), select a point \(z_{j}\in Q_j\cap X\), forming a sequence \({z_k}\in X\) convergent to \(z_\infty\in X\) as \(X\) is closed. Therefore, \(\exists U\in\mathcal{U}\) where \(z_\infty\in U\). Since \(U\) is open, \(\exists\varepsilon>0\) such that \(B^n(z_\infty,\varepsilon)\subset U\).\ \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \(Q_k\subset B^n(z_\infty,\varepsilon)\). Then taking the intersection with \(X\) on both sides, \[Q_k\cap X\subseteq B^n(z_\infty,\varepsilon)\cap X\subset U.\] Our original assumption said that for every \(k\), \(Q_k\cap X\) has no finite subcovering. However, \(U\) covers \(Q_k\cap X\), which is a single open set that covers a nonempty subset. Therefore by contradiction, every open cover has finite subcovering.
+\end{proof}
+\begin{definition}[Support of a Function]\label{def:support}
+    For a set \(X\) and a function \(f:X\to\mathbb{C}\), the \textscsl{support}, denoted by \(\supp(f)=\overline{\cbraces{z\in X}{f(z)\neq 0}}\), is the closure of the set for which \(f\) is nonzero.
+\end{definition}
+\begin{remark}
+    A notable classification of functions comes from the compactness of support---more specifically, its boundedness. Compactly supported functions in \(C^\infty\) are commonly referred to as \textscsl{bump functions} (see \cref{sec:partitionsofunity}).
+\end{remark}
