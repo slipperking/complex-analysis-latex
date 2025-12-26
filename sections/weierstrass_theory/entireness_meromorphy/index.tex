@@ -1,0 +1,129 @@
+\subsection{Entireness and Meromorphy}
+We have previously defined the concept of an entire function in
+\cref{sec:complexdifferentiation}. Let \(f\) be entire with the unique Taylor
+expansion \(\sum_{n=0}^\infty c_nz^n\). Since \(z=\infty\) is an isolated
+singularity, by the uniqueness of the Laurent expansion, the expansion at
+\(z=0\) has the same form as the expansion at \(z=\infty\). We will now analyze
+the implications on the entire function \(f\) given an isolated singularity.
+\begin{enumerate}
+    \item If the infinity point is a removable singularity, then \(\lim_{z\to\infty}
+        f(z)\) exists and is finite.
+        \begin{proposition}\label{prop:removablesingularityatinftyentireconstant}
+            If \(f(z)\) is entire and has a removable singularity at \(z=\infty\), then \(f\) is constant.
+        \end{proposition}
+        \begin{proof}
+            Let \(z=\frac{1}{\zeta}\), \(g(\zeta)=f\qty(\frac{1}{\zeta})\), which has a removable singularity at \(\zeta=0\). By \cref{thm:riemannremovablesingularities}, \(g\) can be analytically continued to all of \(\mathbb{C}\), especially at \(\zeta=0\). Let \(w=g(0)\). Then, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\zeta\in D(0,\delta)\), \(|g(\zeta)-w|<\varepsilon\). It follows that \(\forall \abs{z}>\frac{1}{\delta}\), \(\abs{f(z)}<|w|+\varepsilon\), and is bounded. For the complement, \(\forall z\in \overline{D\qty(0,\frac{1}{\delta})}\), \(f(z)\) is continuous on a compact set, and by \cref{thm:continuousfunctionboundedoncompact}, is also bounded.
+
+            Then by Liouville's Theorem (\cref{thm:liouville}), \(f\) is constant.
+        \end{proof}
+    \item If \(f(z)\) has a pole at \(z=\infty\) of order \(m\in\mathbb{N}\), then \(f\)
+        is a polynomial of degree \(m\).
+        \begin{proof}
+            By the classification of a pole at \(\infty\), \(f\) can be written as \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0+\frac{c_{-1}}{z}+\cdots.\]
+            Since \(f(z)\) is entire, it is holomorphic at \(z=0\) and has a convergent
+            Taylor expansion. By the uniqueness of Laurent expansions
+            (\cref{thm:laurentexpansionofholomorphicfunction}), the two expansions are
+            equivalent and therefore all terms with negative exponents vanish, and \[f(z)=c_mz^m+c_{m-1}z^{m-1}+\cdots+c_0,\]
+            and since \(c_m\neq0\), the statement is confirmed.
+        \end{proof}
+    \item If \(f(z)\) has an essential singularity at \(z=\infty\), \(f(z)\) is known as
+        a \textscsl{transcendental entire function}.
+\end{enumerate}
+\begin{example}
+    The entire functions \(\sin(z)\), \(\cos(z)\), \(\sinh(z)\), \(\cosh(z)\), and \(\exp(z)\) are transcendental.
+\end{example}
+\begin{definition}[Meromorphy]\label{def:meromorphicfunction}
+    Let \(U\subseteq\mathbb{C}\) be open, and let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset U\) be a set of isolated points. Suppose \(f:U\setminus\cbraces{a_n}_{n\in\mathbb{N}}\to\mathbb{C}\) is holomorphic and has a pole at each of \(z\in\cbraces{a_n}\). Then \(f\) is \textscsl{meromorphic} in \(U\).
+\end{definition}
+Similar to holomorphy, meromorphy on a compact set can be defined as meromorphy on a neighborhood of the set. In general, we imply for the set to be open unless stated otherwise. If the set is not implicitly specified, we assume meromorphy on \(\mathbb{C}\).
+
+All holomorphic functions are meromorphic functions (with poles on
+\(\varnothing\)). Consequently, entire functions are meromorphic on
+\(\mathbb{C}\). All rational functions (including polynomials) are also
+meromorphic on \(\mathbb{C}\). In the study of meromorphic functions with an
+isolated singularity at \(\infty\), rational functions are of important
+interest.
+
+Let \(f(z)\) be rational, written as \(f(z)=\frac{p(z)}{q(z)}\), where \(p\)
+and \(q\) are polynomials. Let
+\begin{gather*}
+    p(z)=a_nz^n+a_{n-1}z^{n-1}+\cdots a_0\\
+    q(z)=b_mz^m+b_{m-1}z^{m-1}+\cdots b_0,
+\end{gather*} where \(a_n,b_m\neq 0\). Trivially, the poles of \(f\) are the zeros of \(q\). Since \[f(z)=\frac{z^n}{z^m}\cdot\frac{a_n+\frac{a_{n-1}}{z}+\cdots+\frac{a_0}{z^n}}{b_m+\frac{b_{m-1}}{z}+\cdots\frac{b_0}{z^m}},\] we have \[\lim_{z\to\infty} f(z)=
+    \begin{dcases}
+        \frac{a_n}{b_m} & \qif* n=m, \\
+        0               & \qif* n<m, \\
+        \infty          & \qif* n>m.
+\end{dcases}\]
+Conversely, we have:
+\begin{theorem}\label{thm:rationalmeromorphicfunctions}
+    If \(f(z)\) is meromorphic on \(\mathbb{C}\) and has a pole or removable singularity at \(z=\infty\), then \(f\) is a rational function.
+\end{theorem}
+\begin{proof}
+    Since \(f\) is meromorphic on \(\mathbb{C}\), its singularities are isolated poles. The assumption that \(f\) has either a pole or a removable singularity at \(\infty\) implies that this singularity is also isolated. Thus, there exists some \(R>0\) such that \(f\) is holomorphic on the punctured neighborhood \(\cbraces{z\in\mathbb{C}}{R<|z|<\infty}\) of \(\infty\).
+
+    Consider the Laurent expansion of \(f\) at \(\infty\), obtained by substituting
+    \(w=\frac{1}{z}\) and expanding around \(w=0\):
+    \[f(z)=\sum_{n=-\infty}^{\infty}a_n z^n,\]
+    where the series converges for sufficiently large \(|z|\). If \(\infty\) is a
+    removable singularity, the coefficients \(a_n=0\) for all \(n>0\). If
+    \(\infty\) is a pole of order \(m\), then \(a_n=0\) for all \(n>m\), and
+    \(a_m\neq0\). In either case, the principal part at \(\infty\) is
+    \[\psi_\infty(z)=\sum_{n=1}^{m}a_nz^n,\]
+    which is a polynomial (identically zero if degree is 0).
+
+    Next, observe that \(f\) has only finitely many poles in the closed disk
+    \(\overline{D(0,R)}=\cbraces{z}{\abs{z}\leq R}\). Suppose otherwise. Then the
+    set of poles in \(\overline{D(0,R)}\) would be infinite. By
+    Bolzano--Weierstrass (\cref{thm:bolzanoweierstrass}), this set would have an
+    accumulation point in \(\overline{D(0,R)}\). At such an accumulation point,
+    \(f\) would have a non-isolated singularity, a contradiction of the meromorphy
+    of \(f\) on \(\mathbb{C}\).
+
+    Let \(z_1,\dots,z_n\) denote these finitely many poles in
+    \(\overline{D(0,R)}\). For each \(k=1,\dots,n\), the Laurent expansion of \(f\)
+    at \(z_k\) has principal part
+    \[\psi_k(z)=\sum_{j=1}^{m_k}\frac{c_{k,-j}}{\qty(z-z_k)^j},\]
+    where \(m_k\) is the order of the pole at \(z_k\). Define the auxiliary
+    function
+    \[\Phi(z)=f(z)-\psi_\infty(z)-\sum_{k=1}^n\psi_k(z),\]
+    which is meromorphic on \(\mathbb{C}\), with potential singularities only at
+    \(z_1,\dots,z_n\) and \(\infty\).
+
+    We now show that each of these singularities is removable. First, fix
+    \(j\in\cbraces{1,\ldots,n}\) arbitrarily. Since the poles are isolated, there
+    exists \(\varepsilon_j>0\) such that the punctured disk
+    \(D^*\qty(z_j,\varepsilon_j)=\cbraces{z}{0<\abs{z-z_j}<\varepsilon_j}\)
+    contains no other poles \(z_k\) for \(k\neq j\).
+    \begin{enumerate}
+        \item Since \(f(z)-\psi_j(z)\) is the holomorphic part of the Laurent expansion at
+            \(z_j\), it is holomorphic on \(D\qty(z_j,\varepsilon_j)\) (including at
+            \(z_j\)).
+        \item \(\sum_{k\neq j}\psi_k(z)\) is holomorphic on \(D\qty(z_j,\varepsilon_j)\), as each \(\psi_k\) has its singularity elsewhere.
+        \item \(\psi_\infty(z)\) is a polynomial, hence entire.
+    \end{enumerate}
+    Thus,
+    \[\Phi(z)=\qty[f(z)-\psi_j(z)]-\psi_\infty(z)-\sum_{k\neq j}\psi_k(z)\]
+    is holomorphic on \(D\qty(z_j,\varepsilon_j)\), including at \(z_j\).
+    Therefore, we can define \(\Phi\qty(z_j)\) to make \(\Phi\) holomorphic at
+    \(z_j\).
+
+    Since \(f(z)-\psi_\infty(z)\) is the holomorphic part of the expansion at
+    \(\infty\), consisting of terms with non-positive powers of \(z\),
+    \(\lim_{z\to\infty}f(z)-\psi_\infty(z)\) exists and is finite. Additionally,
+    each \(\psi_k(z)\) consists of negative powers of \(z-z_k\), so
+    \(\lim_{z\to\infty}\psi_k(z)=0\) for each \(k\), and thus
+    \(\lim_{z\to\infty}\sum_{k=1}^n\psi_k(z)=0\). Therefore,
+    \(\lim_{z\to\infty}\Phi(z)\) exists and is finite, so \(\infty\) is a removable
+    singularity of \(\Phi\). Without the finite singularities at each \(z_k\),
+    \(\Phi\) is entire. Since \(\Phi\) has a finite limit at \(\infty\), it is
+    bounded on \(\mathbb{C}\). By Liouville's theorem, \(\Phi(z)\equiv c\) for some
+    constant \(c\).
+
+    Hence,
+    \[f(z)=c+\psi_\infty(z)+\sum_{k=1}^n\psi_k(z).\]
+    The right-hand side is a sum of a constant, a polynomial, and finitely many
+    principal parts (each a rational function with a single pole), so \(f\) is
+    rational.
+\end{proof}
+If \(z=\infty\) is not a pole or removable singularity of a meromorphic function \(f(z)\), then it is either an essential singularity or an accumulation point of poles. In this case, \(f\) is not rational and is known as a \textscsl{transcendental meromorphic function}.

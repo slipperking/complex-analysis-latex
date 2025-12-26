@@ -1,0 +1,29 @@
+\subsubsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{C}\)}{the complex plane}}
+In complex analysis, three main sets of interest are \(\mathbb{D}\), \(\mathbb{C}\), and \(\extcomplex\). We will now find \(\Aut(\mathbb{C})\).
+\begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{C}\)]\label{thm:holomorphicautomorphismgrouponcomplexplane}
+    \(\forall f\in \Aut(\mathbb{C})\), \(f\) is linear and non-constant. In other words, \(\exists a\in\mathbb{C}^*=\mathbb{C}\setminus\cbraces{0}\) and \(\exists b\in\mathbb{C}\) such that \[f(z)=az+b.\]
+\end{theorem}
+\begin{proof}
+    First, assume that \(\infty\) is not an essential singularity of \(f(z)\) (we will prove this later). Then \(\infty\) must be a pole by trichotomy, as a removable singularity implies boundedness (\cref{prop:removablesingularityatinftyentireconstant}). Therefore, \(f(z)\) is a polynomial of degree \(m\), where \(m\in\mathbb{N}\).
+
+    Since \(f^{-1}\in\Aut(\mathbb{C})\), it is true that \(\qty(f^{-1})'\) is
+    entire. Since \(\qty(f^{-1})'=\frac{1}{f'\qty(f^{-1})}\), it follows that
+    \(f'\) has no zeros in \(\mathbb{C}\). By the Fundamental Theorem of Algebra
+    (\cref{thm:fundamentaltheoremofalgebra}), if \(m>1\), then \(f'\) has a complex
+    zero, which is a contradiction. Hence, \(f\) must be linear, and all functions
+    in \(\Aut(\mathbb{C})\) are in the form of \(az+b\), where
+    \(a\in\mathbb{C}^*\), \(b\in\mathbb{C}\) are constants. In other words, any
+    holomorphic automorphism on \(\mathbb{C}\) is a composition of a rotation, a
+    dilation, and a translation.
+
+    We will now prove the primary assumption; the singularity at \(z=\infty\)
+    cannot be an essential singularity of \(f(z)\). Let \(w\in\mathbb{C}\) be
+    arbitrary. Then by the Casorati--Weierstrass Theorem
+    (\cref{thm:casoratiweierstrass}), \(\forall\varepsilon>0\), \(\forall R>0\),
+    \(\exists \abs{z}>R\) such that \(|f(z)-w|<\varepsilon\). Equivalently,
+    \(\forall R>0\), \(\exists\zeta\in D(w,\varepsilon)\) such that
+    \(\abs{f^{-1}(\zeta)}>R\). Since \(f^{-1}\) is continuous on
+    \(\overline{D(w,\varepsilon)}\) by holomorphy, by
+    \cref{thm:continuousfunctionboundedoncompact}, it is bounded, which is a
+    contradiction.
+\end{proof}
