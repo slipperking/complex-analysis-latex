@@ -266,13 +266,13 @@ For \(r>0\), define
         \subimport{erosion_output/}{imports.tex}
         \begin{tikzpicture}
             \node[anchor=center] at (2.8,1) {\small\(K\)};
-            %\tikztemporarygrid{-3}{3}{-3}{3}
+            \tikztemporarygrid{-3}{3}{-3}{3}
             \filldraw[thick, even odd rule, pattern=north east lines] {
-                \foreach \c [count=\i] in \ErosionInputList{
+                \foreach \c [count=\i] in \PreErosionRegionList{
                     plot[smooth cycle] coordinates \c
                 }
             };
-            \foreach \c [count=\i] in \ErosionOutputList{
+            \foreach \c [count=\i] in \ErodedRegionList{
                 \draw[thin, name path=path \i] plot[smooth cycle] coordinates \c;
             }
             \draw[thin, |-|, line cap=round, shorten >=1pt] (1.98,-1.16) -- (1.93,-0.78) node[midway, anchor=east] {\small\(r\)};
@@ -304,11 +304,8 @@ For \(r>0\), define
             \tikztemporarygrid{-3}{3}{-3}{3}
 
             \filldraw[thick, even odd rule, pattern=north east lines] {
-                \foreach \c [count=\i] in \ErosionOutputList{
+                \foreach \c [count=\i] in \CoveredRegionList{
                     plot[smooth cycle] coordinates \c
-                }
-                plot[smooth cycle] coordinates {
-                    (-1.8,0.2) (-2.2,1.2) (-2.5,1.9) (-1.4,1.5) (-0.6,2.5) (0.3,2.4) (-0.2,1.7) (1.3,2.8) (2.1,2.3) (3.2,1.2) (2.8,0.2) (3,-1) (2.1,-1.5) (1.5,-1.8) (0.4,-1.9) (-0.2,-1.6) (-1.3,-2.4) (-2.1,-1.6) (-2.5,-0.6)
                 }
             };
             \coordinate (P1) at (-0.6,-0.4);
@@ -319,12 +316,16 @@ For \(r>0\), define
             \node[circle, fill=black, inner sep=0.7pt, label={\tiny\(p_3\)}] at (P3) {};
 
             \filldraw[thin, fill opacity=0.3, even odd rule] {
-                \foreach \c in \ErosionInputList{
+                \foreach \c in \NoCentersRegionList{
                     plot[smooth cycle] coordinates \c
                 }
-
-                \tikzcenterarc(P1)(0:361:0.3) \tikzcenterarc(P2)(0:361:0.3) \tikzcenterarc(P3)(0:361:0.3)
             };
+            \filldraw[ultra thin, pattern={Dots[distance=1.5pt,angle=30,radius=0.3pt]}] {
+                \foreach \x/\y in \SubcoverDiskCenters{
+                    \tikzcenterarc(\x,\y)(0:360:0.5)
+                }
+            };
+
         \end{tikzpicture}
         \caption{The striped region represents \(H\) while the unshaded regions represent the set which \(\zeta_k\) can be in.}
         \label{fig:mergelyan_hset}
