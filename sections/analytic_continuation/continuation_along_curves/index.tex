@@ -1,0 +1,84 @@
+\subsection{Analytic Continuation Along a Curve}
+\begin{definition}\label{def:analyticcontinuationalongcurve}
+    Let \(\gamma:[0,1]\to\mathbb{C}\) be a (non-constant) curve. Let \(U\) be a disk centered at \(\gamma(0)\) and suppose \(f: U\to\mathbb{C}\) is holomorphic. An \textscsl{analytic continuation of} \(\qty(f,U)\) \textscsl{along} \(\gamma\) is defined to be a collection of analytic functions elements \(\cbraces{\qty(f_t, U_t)}_{0\leq t\leq 1}\) where
+    \begin{enumerate}
+        \item We define \(U_0=U\) and \(f_0=f\).
+        \item Each \(U_t\) (\(0\leq t\leq 1\)) is a disk centered at \(\gamma(t)\).
+        \item For each \(t_0\in [0,1]\), \(\exists\delta>0\) such that \(\forall t\in[0,1]\)
+            satisfying \(\abs{t-t_0}<\delta\), \(\gamma(t)\in U_{t_0}\) and \(f_t\equiv
+            f_{t_0}\) on \(U_t\cap
+            U_{t_0}\neq\varnothing\).\label{itm:analyticcontinuationalongcurve_pointwiseequivalence}
+    \end{enumerate}
+\end{definition}
+For a fixed curve, such analytic continuations are unique in the following sense:
+\begin{lemma}\label{lem:analyticcontinuationalongcurveuniqueness}
+    For a fixed curve \(\gamma:[0,1]\to\mathbb{C}\), let \(f\) be holomorphic on \(U\) (a disk centered at \(\gamma(0)\)). Then any two analytic continuations \(\cbraces{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\cbraces{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) along \(\gamma\) satisfy \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\) (where \(\qty(f_1,U_1)\) and \(\qty(\widetilde{f}_t,\widetilde{U}_t)\) are the respective terminal analytic function elements).
+\end{lemma}
+\begin{proof}
+    Let \(S\subseteq[0,1]\) be the set of all \(t_0\) such that \(\forall 0\leq t\leq t_0\), \(f_t\equiv \widetilde{f}_t\) on \(U_t\cap\widetilde{U}_t\) (this intersection is nonempty since \(\gamma(t)\in U_t,\widetilde{U}_t\)). Since \(0\in S\), it follows that \(S\) is nonempty.
+
+    Obviously, \(S\) is a connected set. Indeed, for any \(t_0\) in \(S\), any
+    \(0\leq t<t_0\) also lies in \(S\) by definition.
+
+    Let \(t_\infty=\sup(S)\), and choose an increasing sequence
+    \(\cbraces{t_n}_{n\in\mathbb{N}}\subseteq S\) that converges to \(t_\infty\).
+    By \cref{itm:analyticcontinuationalongcurve_pointwiseequivalence} of
+    \cref{def:analyticcontinuationalongcurve}, \(\exists\delta>0\) such that
+    \(\forall n\in\mathbb{N}\) satisfying \(\abs{t_\infty-t_n}<\delta\), \[f_{t_n}\equiv f_{t_\infty}\qq{on} U_{t_n}\cap U_{t_\infty}.\] Similarly, \(\exists\widetilde{\delta}>0\) such that \(\forall n\in\mathbb{N}\)
+    satisfying \(\abs{t_\infty-t_n}<\widetilde{\delta}\), \[\widetilde{f}_{t_n}\equiv\widetilde{f}_{t_\infty}\qq{on}\widetilde{U}_{t_n}\cap\widetilde{U}_{t_\infty}.\]
+    Choose \(n\) arbitrarily to satisfy
+    \(\abs{t_\infty-t_n}<\min\qty(\delta,\widetilde{\delta})\). By definition, \[\gamma\qty(t_n)\in U_{t_\infty}\qand \gamma\qty(t_n)\in\widetilde{U}_{t_\infty}.\] Hence, \(\widetilde{U}_{t_\infty}\cap U_{t_\infty}\cap \widetilde{U}_{t_n}\cap
+    U_{t_n}\neq\varnothing\). Since \(t_n\in S\), it follows that
+    \(\widetilde{f}_{t_n}\equiv f_{t_n}\) on \(\widetilde{U}_{t_n}\cap U_{t_n}\).
+    Thus, \[f_{t_\infty}\equiv\widetilde{f}_{t_\infty}\qq{on}\widetilde{U}_{t_\infty}\cap U_{t_\infty}\cap \widetilde{U}_{t_n}\cap U_{t_n}.\] By the Identity Theorem (\cref{thm:identity}), this equality holds on the
+    entire intersection \(\widetilde{U}_{t_\infty}\cap U_{t_\infty}\). It follows
+    that \(t_\infty\in S\) and thus \(S\) is closed.
+
+    Let \(\widetilde{S}=[0,1]\setminus S\), and assume that it is nonempty (if not,
+    our result is proven). Suppose
+    \(\cbraces{t_n}_{n\in\mathbb{N}}\subset\widetilde{S}\) is an arbitrary sequence
+    that converges to \(t_\infty\). For each \(n\in\mathbb{N}\), since \(t_n\notin
+    S\), by definition, there exists \(0\leq s_n\leq t_n\) such that
+    \(f_{s_n}\not\equiv \widetilde{f}_{s_n}\) on \(U_{s_n}\cap\widetilde{U}_{s_n}\)
+    (otherwise \(t_n\in S\) would be satisfied).
+
+    By the Bolzano--Weierstrass Theorem (\cref{thm:bolzanoweierstrass}), the
+    sequence \(\cbraces{s_n}_{n\in\mathbb{N}}\) has a convergent subsequence
+    \(\cbraces{s_{n_k}}_{k\in\mathbb{N}}\) that converges to \(s_\infty\). Since
+    \(t_{n_k}\to t_\infty\) and \(s_{n_k}\leq t_{n_k}\) for all \(k\), it follows
+    that \(s_\infty\leq t_\infty\). By definition, there exists \(\delta>0\)
+    (choose it to be the minimum of the two \(\delta\) values, similar to in the
+    previous section) such that \(\forall t\in[0,1]\) satisfying
+    \(\abs{t-s_\infty}<\delta\), \(f_t\equiv f_{s_\infty}\) and
+    \(\widetilde{f}_t\equiv \widetilde{f}_{s_\infty}\) on \(U_t\cap U_{s_\infty}\)
+    and on \(\widetilde{U}_t\cap \widetilde{U}_{s_\infty}\) respectively, and
+    \(\gamma\qty(t)\in U_{s_\infty}\cap \widetilde{U}_{s_\infty}\).
+
+    Since \(s_{n_k}\to s_\infty\), we have \(\abs{s_{n_k}-s_\infty}<\delta\) for
+    sufficiently large \(k\). Thus, \(f_{s_{n_k}}\equiv f_{s_\infty}\) and
+    \(\widetilde{f}_{s_{n_k}}\equiv \widetilde{f}_{s_\infty}\) on \(U_{s_{n_k}}\cap
+    U_{s_\infty}\) and \(\widetilde{U}_{s_{n_k}}\cap\widetilde{U}_{s_\infty}\)
+    respectively, and \(\gamma\qty(s_{n_k})\in U_{s_\infty}\cap
+    \widetilde{U}_{s_\infty}\).
+
+    For the sake of contradiction, assume that \(s_\infty\in S\), and it follows
+    that \(f_{s_\infty}\equiv\widetilde{f}_{s_\infty}\) on
+    \(U_{s_\infty}\cap\widetilde{U}_{s_\infty}\). Because \[f_{s_{n_k}}\equiv f_{s_\infty}\equiv\widetilde{f}_{s_\infty}\equiv\widetilde{f}_{s_{n_k}}\qq{on}U_{s_\infty}\cap\widetilde{U}_{s_\infty}\cap U_{s_{n_k}}\cap\widetilde{U}_{s_{n_k}}\ni \gamma\qty(s_{n_k}),\] by the Identity Theorem (\cref{thm:identity}), this implies that
+    \(f_{s_{n_k}}\equiv\widetilde{f}_{s_{n_k}}\) on
+    \(U_{s_{n_k}}\cap\widetilde{U}_{s_{n_k}}\). This contradicts the assumption
+    that \(f_{s_n}\not\equiv \widetilde{f}_{s_n}\) on
+    \(U_{s_n}\cap\widetilde{U}_{s_n}\) for all \(n\), and hence,
+    \(s_\infty\in\widetilde{S}\), implying that \(t_\infty\in\widetilde{S}\) (if
+        not, then \(s_\infty\notin\widetilde{S}\), which we derived was a
+    contradiction). It follows that \(\widetilde{S}\) is closed as it contains all
+    of its accumulation points. By the connectivity argument
+    (\cref{thm:connectedtopologicalspaceclopensets}), we have \(\widetilde{S}\) is
+    either \([0,1]\) or \(\varnothing\). Obviously, the former is an impossibility
+    and thus \(S=[0,1]\). Therefore, \(f_1\equiv\widetilde{f}_1\) on
+    \(U_1\cap\widetilde{U}_1\).
+\end{proof}
+Provided by the trivial fact, under the assumption that an analytic continuation along a fixed curve exists, it is unique in the defined sense.
+
+To avoid being pedantic, we will refer to two analytic continuations on a fixed
+curve as \textscsl{equivalent} if \(f_t\equiv\widetilde{f}_{t}\) on
+\(U_t\cap\widetilde{U}_t\) for all \(0\leq t\leq 1\).

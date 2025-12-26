@@ -1,0 +1,80 @@
+\subsection{The Monodromy Theorem}
+Before we address our main issue, we will first formalize the concept of
+homotopy. Informally, it is a continuous deformation or ``smooth
+interpolation'' between two curves (that lies entirely within a provided set).
+\begin{definition}[Homotopy]\label{def:homotopy}
+    Let \(U\subseteq\mathbb{C}\) be an open set. Two curves \(\gamma_1,\gamma_2:[0,1]\to U\) are said to be \textscsl{homotopic} if there exists a continuous function \(H:[0,1]\times[0,1]\to U\) such that:
+    \begin{enumerate}
+        \item \(H(0,t)=\gamma_1(t)\) for all \(t\in[0,1]\),
+        \item \(H(1,t)=\gamma_2(t)\) for all \(t\in[0,1]\).
+    \end{enumerate}
+    The function \(H\) is known as a \textscsl{homotopy} between \(\gamma_1\) and \(\gamma_2\).
+\end{definition}
+We are primarily concerned with homotopies with \textscsl{fixed endpoints} (under the pretense that \(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), or that the homotopy \(H\) satisfies \(H(s,0)=\gamma_1(0)=\gamma_2(0)\) and \(H(s,1)=\gamma_1(1)=\gamma_2(1)\) for any \(s\in[0,1]\).
+\begin{definition}
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(U\subseteq\Omega\) be an open disk centered at \(P\in\Omega\). Suppose \(\qty(f,U)\) is an analytic function element. If there is an analytic continuation of \(\qty(f,U)\) along any curve \(\gamma\) from \(P\), then \((f,U)\) has \textscsl{unrestricted continuation} in \(\Omega\).
+\end{definition}
+As for our question in interest:
+\begin{quote}
+    Let \(\gamma_1:[0,1]\to\mathbb{C}\) and \(\gamma_2\to\mathbb{C}\) be two curves with the same endpoints (\(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), and let \(\cbraces{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\cbraces{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) be the unique analytic continuations along \(\gamma_1\) and \(\gamma_2\) respectively. Under what conditions will the terminal analytic function elements be equivalent (when will it be satisfied that \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\))?
+\end{quote}
+This question is not necessarily an affirmative. The principal branch logarithm on \(D\qty(1,1)\), when analytically continued on the unit upper semicircle \(\cbraces{\ee^{\piup\ii\theta}}_{0\leq t\leq 1}\) and unit lower semicircle \(\cbraces{\ee^{-\piup\ii\theta}}_{0\leq t\leq 1}\), yields inequivalent terminal analytic function elements (differing by \(2\piup\ii\)). The general answer to the question is given below:
+\begin{theorem}[\textsc{Monodromy Theorem}]\label{thm:monodromy}
+    Let \(\Omega\subseteq\mathbb{C}\) be a region, and suppose \(U\subseteq\Omega\) is a disk centered at \(P\), and let \(\gamma_1\) and \(\gamma_2\) be two curves in \(\Omega\) with the same endpoints (\(P=\gamma_1(0)=\gamma_2(0)\) and \(Q=\gamma_1(1)=\gamma_2(1)\)). Let \(\cbraces{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\cbraces{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) be the unique analytic continuations along \(\gamma_1\) and \(\gamma_2\) respectively. If \(\gamma_1\) and \(\gamma_2\) are homotopic in \(\Omega\) and \(\qty(f,U)\) has unrestricted continuation in \(\Omega\), then \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\).
+\end{theorem}
+\begin{proof}
+    Let \(s\) be a fixed value in \([0,1]\) and consider the curve defined by \(t\mapsto H(s,t)\) from \(P\) to \(Q\). By the unrestricted continuation assumption, there exists an analytic continuation \(\cbraces{\qty(f_{s,t},U_{s,t})}_{0\leq t\leq 1}\) of \(\qty(f,U)\) along this curve. In this form, we aim to show that \(f_{0,1}\equiv f_{1,1}\) on \(U_{0,1}\cap U_{1,1}\) (we have taken the liberties to denote \(f_1\) by \(f_{0,1}\) and \(\widetilde{f}_1\) by \(f_{1,1}\), with similar notions for \(U_1\) and \(\widetilde{U}_1\)).
+
+    Let \[S=\cbraces{s\in[0,1]}{\forall 0\leq\lambda\leq s,f_{\lambda,1}\equiv f_{0,1}\text{ on }U_{\lambda,1}\cap U_{0,1}\ni Q}.\] Let us fix \(s\in S\). The analytic continuation
+    \(\cbraces{\qty(f_{s,t},U_{s,t})}_{0\leq t\leq 1}\) along the curve \(t\mapsto
+    H(s,t)\) generates the cover \(\cbraces{U_{s,t}}_{0\leq t\leq 1}\) of the
+    compact curve \(\cbraces{H(s,t)}_{0\leq t\leq 1}\). By Heine--Borel
+    (\cref{thm:heineborel}), there exists a finite subcover
+    \(\cbraces{U_{s,t_k}}_{k=1}^n\). Then \(\exists\varepsilon>0\) such that each
+    \(D\qty(H(s,t),\varepsilon)\subseteq\bigcup_{k=1}^n U_{s,t_k}\) for all
+    \(t\in[0,1]\). In fact, we can choose \(\varepsilon\) to be \[\varepsilon=\min_{k=1}^n\qty[\mathrm{dist}\qty(H(s,[0,1]),\partial U_{s,t_k}\setminus\bigcup_{j=1}^n U_{s,t_j})].\] It can be verified that \(\mathrm{dist}\) here is positive since
+    \(H(s,[0,1])\subset \bigcup_{j=1}^n U_{s,t_j}\) (thus both sets are disjoint)
+    and both are compact sets. By continuity, \(\forall t\in[0,1]\),
+    \(\exists\delta>0\) such that \(\forall s'\in[0,1]\cap(s-\delta,s+\delta)\),
+    \(\abs{H(s,t)-h\qty(s',t)}<\varepsilon\). By the Heine--Cantor Theorem
+    (\cref{thm:heinecantor}), \(\delta\) attains a positive infimum, and thus
+    \(\exists\delta>0\) such that \(\forall s'\in[0,1]\cap(s-\delta,s+\delta)\),
+    \(\forall t\in[0,1]\), \(\abs{H(s,t)-H\qty(s',t)}<\varepsilon\).
+
+    Fix \(s'\) and \(t\). By the derived inequality, we have that \(H\qty(s',t)\in
+    U_{s,t}\) and therefore,
+    \(\widetilde{U}_{s',t}=D\qty(H(s',t),\varepsilon-\abs{H(s,t)-H\qty(s',t)})\subseteq
+    U_{s,t}\). Thus, the analytic function element
+    \(\qty(f_{s,t},\widetilde{U}_{s',t})\) is a direct analytic continuation of
+    \(\qty(f_{s,t},U_{s,t})\). By constructing analytic function elements similarly for all \(t\), we obtain an analytic continuation of
+    \(\qty(f_{s,0},\widetilde{U}_{s',0})\) along \(H\qty(s',[0,1])\). Because
+    \(\qty(f_{s,0},U_{s,0})\) and \(\qty(f_{s,0},\widetilde{U}_{s',0})\) are direct
+    analytic continuations of each other, by
+    \cref{lem:analyticcontinuationalongcurveuniqueness}, the continuations
+    \(\cbraces{\qty(f_{s,t},\widetilde{U}_{s',t})}_{0\leq t\leq 1}\) and
+    \(\cbraces{\qty(f_{s',t},U_{s',t})}_{0\leq t\leq 1}\) are equivalent. Thus, all
+    elements of \((s-\delta,s+\delta)\cap[0,1]\) belong in \(S\), and thus \(S\) is
+    relatively open in \([0,1]\).
+
+    Let \(\cbraces{s_n}_{n\in\mathbb{N}}\subset S\) be an arbitrarily chosen
+    convergent sequence accumulating at \(s_\infty\). Since there exists an
+    analytic continuation of \(\qty(f_{s_\infty,0},U_{s_\infty,0})\) along the
+    curve \(H\qty(s_\infty,[0,1])\), we can use the same argument as before to
+    construct \(\varepsilon\) such that each \(D\qty(H\qty(s_\infty,
+    \varepsilon))\subseteq U_{s_\infty,t}\) and \(\delta\) such that \(\forall s\in
+    [0,1]\cap(s_\infty-\delta,s_\infty+\delta)\), \(\forall t\in[0,1]\),
+    \(\abs{H(s,t)-H\qty(s_\infty,t)}<\varepsilon\). By convergence, for
+    sufficiently large \(n\), \(\abs{s_n-s_\infty}<\delta\). Hence, there is an
+    analytic continuation \[\cbraces{\qty(f_{s_\infty,t}, D\qty(H\qty(s_n,t),\varepsilon-\abs{H(s_n,t)-H\qty(s_\infty,t)}))}_{0\leq t\leq 1}\] along \(H\qty(s_n,[0,1])\), which is equivalent to
+    \(\cbraces{\qty(f_{s_n,t},U_{s_n,t})}_{0\leq t\leq 1}\) by
+    \cref{lem:analyticcontinuationalongcurveuniqueness} under the same preliminary
+    assumptions as shown previously. By the following logic, \(f_{s_\infty,1}\equiv
+    f_{s_n,1}\) on the intersection, and \(s_\infty\in S\) and \(S\) is closed.
+    Hence, by \cref{thm:connectedtopologicalspaceclopensets}, \(S=[0,1]\). Thus,
+    \(\forall 0\leq\lambda\leq 1\), \(f_{\lambda,1}\equiv f_{0,1}\) on
+    \(U_{\lambda,1}\cap U_{0,1}\ni Q\).
+\end{proof}
+\begin{corollary}
+    Let \(\Omega\subseteq\mathbb{C}\) be simply connected, or that every closed curve in \(\Omega\) is null-homotopic (homotopic to a constant curve, or a point) in \(\Omega\). Let \(U\subseteq\Omega\) be a disk and suppose \(\qty(f,U)\) is an analytic function element with unrestricted continuation in \(\Omega\). Then \(\exists!\widetilde{f}\) that is holomorphic on \(\Omega\) such that \(\widetilde{f}\equiv f\) on \(U\).
+\end{corollary}
+The problems arising from the complex logarithm are now understood specifically as the failure of the homotopy condition. In a set excluding albeit enclosing the origin, such as \(\mathbb{C}\setminus\cbraces{0}\), curves enclosing the origin are not homotopic to the zero constant curve, and in the complex plane, the logarithm does not admit unrestricted continuation in \(\mathbb{C}\) since it cannot be continued along any curve passing through the origin.

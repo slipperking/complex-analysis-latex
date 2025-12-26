@@ -1,0 +1,105 @@
+\subsection{Analytic Function Elements}
+\begin{definition}\label{def:analyticelement}
+    An \textscsl{(analytic) function element} is a pair \((f,U)\), where \(U\subseteq\mathbb{C}\) is an open region and \(f\) is a holomorphic function on \(U\).
+\end{definition}
+Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textscsl{analytic continuation}. In the definition above for a function element, we let \(U\) be an arbitrary region. However, it is often more practical to consider the explicit case where \(U\) is a disk.
+
+By the Identity Theorem (\cref{thm:identity}), such continuations are unique;
+if \(\qty(f_1,U_1)\) and \(\qty(f_2,U_2)\) are analytic elements with \(U_1\cap
+U_2 \neq \varnothing\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are
+\textscsl{direct analytic continuations} of each other. The combined function:
+\[\widetilde{f}(z)=
+    \begin{dcases}
+        f_1(z) & \qif* z\in U_1,               \\
+        f_2(z) & \qif* z\in U_2 \setminus U_1,
+\end{dcases}\] is holomorphic on \(U_1\cup U_2\).
+
+The most straightforward method of the derivation of analytic continuations
+uses power series. Let \(f(z)=\sum_{n=0}^{\infty}c_n\qty(z-z_0)^n\) have radius
+of convergence \(R>0\) (by \cref{thm:abelradius}). For \(z_1\in D\qty(z_0,R)\),
+we can expand \(f\) at \(z_1\):
+\[f(z)=\sum_{k=0}^\infty\frac{f^{(k)}\qty(z_1)}{k!}\qty(z-z_1)^k.\]
+Let \(\rho\) be the radius of convergence of this series. Then:
+\[\rho\geq R-\abs{z_1-z_0}.\]
+If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to
+\(D\qty(z_0,R)\cup D\qty(z_1,\rho)\). In the case that
+\(\rho=R-\abs{z_1-z_0}\), the disks \(D\qty(z_0,R)\) and \(D\qty(z_1,\rho)\)
+are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
+\textscsl{singularity}, and \(f\) cannot be continued beyond \(\zeta_0\).
+\begin{theorem}\label{thm:boundarysingularity}
+    Let \(f(z)=\sum_{n=0}^{\infty}c_n{\qty(z-z_0)}^n\) have radius of convergence \(R>0\). Then \(\partial D\qty(z_0,R)\) contains at least one singularity of \(f\).
+\end{theorem}
+\begin{proof}
+    Assume \(f\) can be analytically continued from every \(\zeta\in\partial D\qty(z_0,R)\). Then for each \(\zeta\), there exists \(r_\zeta>0\) and a holomorphic \(f_\zeta\) on \(D\qty(\zeta,r_\zeta)\) agreeing with \(f\) on \(D\qty(\zeta,r_\zeta) \cap D\qty(z_0,R)\).
+
+    The disks \(\cbraces{D\qty(\zeta,r_\zeta)}_{\zeta \in\partial D\qty(z_0,R)}\)
+    cover \(\partial D\qty(z_0,R)\). Then from compactness and the Heine--Borel
+    Theorem (\cref{thm:heineborel}), the cover of disks admits a finite subcover
+    \(\cbraces{D\qty(\zeta_k,r_k)}_{k=1}^n\). Hence, \(\exists\rho>0\) such that
+    \(A=\cbraces{z}{R-\rho\leq\abs{z-z_0}\leq R+\rho}\subset V\), where we let
+    \(V=\bigcup_{k=1}^n D\qty(\zeta_k,r_k)\).
+
+    Define \(\Phi:V\to\mathbb{C}\) by \(\Phi(z)=f_{\zeta_k}(z)\) if \(z\in
+    D\qty(\zeta_k,r_k)\). This is well-defined: If \(z\in D\qty(\zeta_i,r_i)\cap
+    D\qty(\zeta_j,r_j)\), then \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j) \cap
+    D\qty(z_0,R)\neq\varnothing\), and \(f_{\zeta_i}\equiv f_{\zeta_j}\equiv f\) there. By the
+    Identity Theorem (\cref{thm:identity}), \(f_{\zeta_i}\equiv f_{\zeta_j}\) on
+    \(D\qty(\zeta_i,r_i)\cap D\qty(\zeta_j,r_j)\).
+
+    Since \(\Phi\) is holomorphic on \(V\) and agrees with \(f\) on
+    \(D\qty(z_0,R)\cap V\), the function:
+    \[\widetilde{f}(z)=
+        \begin{dcases}
+            f(z)    & \qif* z\in D\qty(z_0,R), \\
+            \Phi(z) & \qif* z\in V,
+    \end{dcases}\]
+    is holomorphic on \(D\qty(z_0,R)\cup V\supseteq D\qty(z_0,R+\rho)\),
+    contradicting the maximality of \(R\).
+\end{proof}
+\begin{definition}\label{def:maximalanalyticcontinuation}
+    A \textscsl{maximal analytic continuation} \(\cbraces{\qty(f,U)}\) of an analytic function element \(\qty(\widetilde{f},\widetilde{U})\) is obtained by all possible succesive analytic continuations of \(\qty(\widetilde{f},\widetilde{U})\). The union of every \(U\) is known as the \textscsl{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial U\) is known as a \textscsl{natural boundary}. The continuation defines a function \(f\), known a \textscsl{global analytic function}, which can be multi-valued.
+\end{definition}
+\begin{example}\label{ex:factoriallacunaryseries}
+    The series \(f(z)=\sum_{n=0}^{\infty}z^{n!}\) has \(\mathbb{D}\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
+\end{example}
+\begin{proof}
+    By Cauchy--Hadamard (\cref{thm:cauchyhadamard}), \(\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}=1\) since \(c_n=1\) if \(n=k!\) and \(0\) otherwise. Thus, \(R=1\).
+
+    Fix \(\zeta\in\partial\mathbb{D}\). Suppose \(f\) extends analytically to a
+    disk \(D(\zeta,\delta)\). Since \(\exp(2\piup\ii\mathbb{Q})\) is dense in
+    \(\partial\mathbb{D}\), there exists \(\zeta'=\exp(2\piup\ii\frac{p}{q})\in
+    D(\zeta,\delta)\cap\partial\mathbb{D}\) for coprime integers \(p,q\). The
+    extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
+    \[\lim_{r\to1^{-}}f(r\zeta')=g(\zeta').\]
+    However, for \(0<r<1\):
+    \[f(r\zeta')=\sum_{k=0}^{q-1}{\qty(r\zeta')}^{k!}+\sum_{k=q}^\infty r^{k!}\zeta'^{k!}.\]
+    The second summation is unbounded since \[\sum_{k=q}^\infty r^{k!}\zeta'^{k!}=\sum_{k=q}^\infty r^{k!}>\sum_{k=q}^N r^{k!}>(N-q+1)r^{N!}\] for any integer with \(N>q\). Hence, as \(r\to1^-\), \(\sum_{k=q}^{\infty}
+    r^{k!}\to\infty\). Hence, \(\zeta\) is a singularity.
+\end{proof}
+\begin{example}
+    Show that \(f(z)=\sum_{n=0}^\infty z^{2^n}\) cannot be analytically continued to the outside of \(\mathbb{D}\).
+\end{example}
+\begin{proof}
+    Trivially, at \(z=1\), the series diverges. Therefore, \(\mathbb{D}\) is its convergence disk. Observe that \(f(z)=\sum_{n=0}^\infty \qty(z^2)^{2^{n-1}}=\sum_{n=0}^\infty \qty(z^2)^{2^n}+z=f\qty(z^2)+z\). Hence, we have \[f(z)=f\qty(z^2)+z=f\qty(z^4)+z^2+z=f\qty(z^8)+z^4+z^2+z\cdots,\]
+    which diverges at each \(z^2,z^4,z^8,\ldots=1\). The solutions form a dense set
+    in \(\partial\mathbb{D}\). By the same reasoning as
+    \cref{ex:factoriallacunaryseries}, \(f\) cannot be analytically continued to
+    the outside of \(\mathbb{D}\).
+\end{proof}
+\begin{example}\label{ex:complexlogarithmanalyticcontinuation}
+    Let \(\Log(z)\) denote the principal branch of \(\log(z)\), with \(-\piup<\Arg(z)\leq\piup\). The analytic function elements \[\qty(\Log,D(1,1))\qand\qty(\Log+2\piup\ii,D(1,1))\] are analytic continuations of each other.
+\end{example}
+\begin{example}
+    Show that the analytic functions defined by the series \(f(z)=\sum_{n=0}^\infty\alpha^n z^n\) and \(\widetilde{f}(z)=\sum_{n=0}^\infty\frac{(\alpha-1)^n z^n}{{\qty(1-z)}^{n+1}}\) are analytic continuations of each other.
+\end{example}
+\begin{proof}
+    The analytic function element \(\qty(f,D\qty(0,\abs{\frac{1}{\alpha}}))\) can be directly continued to the analytic function element \(\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\cbraces{\frac{1}{\alpha}})\). The function element \(\qty(\widetilde{f},D\qty(0,\frac{1-z}{\alpha-1}))\) can be analytically continued to \[\qty(z\mapsto\frac{1}{(1-z)\qty(1-\frac{z\alpha-z}{1-z})},\mathbb{C}\setminus\cbraces{1,\frac{1}{\alpha}})=\qty(z\mapsto\frac{1}{1-\alpha z},\mathbb{C}\setminus\cbraces{1,\frac{1}{\alpha}}),\] which is a direction analytic continuation of \(\qty(z\mapsto\frac{1}{1-\alpha
+    z},\mathbb{C}\setminus\cbraces{\frac{1}{\alpha}})\). Therefore, \(f\) and
+    \(\widetilde{f}\) are analytic continuations of each other.
+\end{proof}
+In \cref{ex:complexlogarithmanalyticcontinuation}, we showed that two analytic function elements can on the same domain can be analytic continuations even if they do not agree on the entire domain. In this case, the two elements are on different branches of the function. Hence, depending on the chain of function elements chosen, we may obtain two different analytic function elements that have the same domain.
+
+This is a common issue when it comes to the problem of analytic continuation.
+This question of non-ambiguity can be explained by planar topology;
+specifically the concept of homotopy. We will now introduce the concept of
+analytic continuation along a given curve.
