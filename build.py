@@ -19,11 +19,10 @@ def run_latex():
     print("Running LaTeX build...")
     cmd = [
         "latexmk",
-        "--max-print-line=10000",
-        "-interaction=nonstopmode",
+        #"-interaction=nonstopmode",
         "-file-line-error",
         "--shell-escape",
-        "-pdf",
+        "-lualatex",
         f"-outdir={ROOT}",
         str(main_tex),
     ]

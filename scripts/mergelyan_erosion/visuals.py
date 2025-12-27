@@ -97,7 +97,7 @@ def compute_eroded_region(curves, global_offset: float, samples_per_segment: int
     region = compute_polygon_region(curves, samples_per_segment)
     if region is None:
         return None
-    return region.buffer(-global_offset, resolution=256)
+    return region.buffer(-global_offset, resolution=80)
 
 def compute_support_region(curves, samples_per_segment: int):
     return compute_polygon_region(curves, samples_per_segment)
@@ -105,11 +105,11 @@ def compute_support_region(curves, samples_per_segment: int):
 def coords_to_tikz_path(coords: np.ndarray) -> str:
     return " ".join(f"({x:.6f},{y:.6f})" for x, y in coords)
 
-def write_region_boundaries(folder: str, geom, prefix: str, list_macro: str):
+def write_region_boundaries(folder: str, geom_list, prefix: str, list_macro: str):
     os.makedirs(folder, exist_ok=True)
     print(f"Writing region boundaries to {folder}")
 
-    if geom is None or geom.is_empty:
+    if all(geom is None or geom.is_empty for geom in geom_list):
         path = os.path.join(folder, "all.tex")
         with open(path, "w") as f:
             f.write(f"\\def\\{list_macro}{{}}\n")
@@ -117,7 +117,9 @@ def write_region_boundaries(folder: str, geom, prefix: str, list_macro: str):
         return
 
     rings = []
-    polys = geom.geoms if isinstance(geom, (MultiPolygon, GeometryCollection)) else [geom]
+    polys = [
+        g for geom in geom_list for g in (geom.geoms if isinstance(geom, (MultiPolygon, GeometryCollection)) else [geom])
+    ]
     for poly in polys:
         if not isinstance(poly, Polygon):
             continue
@@ -227,7 +229,7 @@ def prune_redundant_disks(centers: List[np.ndarray], r_sub: float, covered_regio
         return []
 
     points = [Point(p) for p in centers]
-    disks = [p.buffer(r_sub, resolution=64) for p in points]
+    disks = [p.buffer(r_sub, resolution=50) for p in points]
     useful_areas = [disk.intersection(covered_region) for disk in disks]
     useful_area_values = [ua.area for ua in useful_areas]
 
@@ -273,7 +275,7 @@ def main():
     CoveredRegion = Support.difference(Eroded) if Support and Eroded else Support
 
     disk_r = cfg["input_disk_radius_scalar"] * cfg["global_offset"]
-    D = unary_union([Point(p).buffer(disk_r, resolution=256) for p in cfg["disk_points"]]) if cfg["disk_points"] else None
+    D = unary_union([Point(p).buffer(disk_r, resolution=50) for p in cfg["disk_points"]]) if cfg["disk_points"] else None
     NoCentersRegion = unary_union([g for g in [K, D] if g])
 
     for name, geom in [("K_region", K), ("ErodedRegion", Eroded), ("support_region", Support),
@@ -282,18 +284,18 @@ def main():
 
     write_input_disks(str(OUTPUT_ROOT / "input_disks"), cfg["disk_points"], disk_r)
 
-    write_region_boundaries(str(OUTPUT_ROOT / "pre_erosion_region"), K, "PreErosionRegion", "PreErosionRegionList")
-    write_region_boundaries(str(OUTPUT_ROOT / "eroded_region"), Eroded, "ErodedRegion", "ErodedRegionList")
-    write_region_boundaries(str(OUTPUT_ROOT / "support_region"), Support, "SupportRegion", "SupportRegionList")
-    write_region_boundaries(str(OUTPUT_ROOT / "covered_region"), CoveredRegion, "CoveredRegion", "CoveredRegionList")
-    write_region_boundaries(str(OUTPUT_ROOT / "no_centers_region"), NoCentersRegion, "NoCentersRegion", "NoCentersRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "pre_erosion_region"), [K], "PreErosionRegion", "PreErosionRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "eroded_region"), [Eroded], "ErodedRegion", "ErodedRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "support_region"), [Support], "SupportRegion", "SupportRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "covered_region"), [CoveredRegion], "CoveredRegion", "CoveredRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "no_centers_region"), [NoCentersRegion], "NoCentersRegion", "NoCentersRegionList")
 
     r_sub = cfg["global_offset"] * cfg["subcover_disk_radius_scalar"]
     l = max(0, (cfg["subcover_disk_radius_scalar"] - 1) / 8 * cfg["global_offset"])
 
-    H_prime = CoveredRegion.buffer(l, resolution=256) if CoveredRegion else Polygon()
+    H_prime = CoveredRegion.buffer(l, resolution=80) if CoveredRegion else Polygon()
     H_doubleprime = H_prime.boundary
-    N = NoCentersRegion.buffer(l, resolution=256) if NoCentersRegion else Polygon()
+    N = NoCentersRegion.buffer(l, resolution=80) if NoCentersRegion else Polygon()
     N_prime = N.boundary
     curves = unary_union([H_doubleprime, N_prime]).difference(NoCentersRegion)
 
@@ -345,7 +347,7 @@ def main():
             row += 1
 
     for _ in range(10):
-        sub_disks = [Point(p).buffer(r_sub, resolution=256) for p in sub_centers]
+        sub_disks = [Point(p).buffer(r_sub, resolution=50) for p in sub_centers]
         union_sub = unary_union(sub_disks) if sub_disks else Polygon()
         uncovered = CoveredRegion.difference(union_sub)
         if uncovered.is_empty:
@@ -363,8 +365,32 @@ def main():
                     sub_centers.append(np.array([possible.centroid.x, possible.centroid.y]))
     sub_centers = prune_redundant_disks(sub_centers, r_sub, CoveredRegion, NoCentersRegion)
     write_subcover_centers(str(OUTPUT_ROOT / "subcover"), sub_centers)
-    final_union = unary_union([Point(p).buffer(r_sub, resolution=256) for p in sub_centers]) if sub_centers else Polygon()
+    final_union = unary_union([Point(p).buffer(r_sub, resolution=80) for p in sub_centers]) if sub_centers else Polygon()
     write_wkt(str(OUTPUT_ROOT), "SubcoverRegion", final_union)
+    
+    covered_disjoint_union_region = []
+    current_union = None
+
+    for center in sub_centers:
+        disk = Point(center).buffer(r_sub, resolution=80)
+        contrib = disk.intersection(CoveredRegion)
+
+        if contrib.is_empty:
+            covered_disjoint_union_region.append(Polygon())  # empty for consistency
+            continue
+
+        if current_union is None:
+            remaining = contrib
+        else:
+            remaining = contrib.difference(current_union)
+
+        covered_disjoint_union_region.append(remaining)
+
+        if current_union is None:
+            current_union = disk.intersection(CoveredRegion)
+        else:
+            current_union = current_union.union(contrib)
+    write_region_boundaries(str(OUTPUT_ROOT / "covered_disjoint_union_region"), covered_disjoint_union_region, "CoveredDisjointUnionRegion", "CoveredDisjointUnionRegionList")
     write_metadata_tex_all(str(OUTPUT_ROOT))
 
 if __name__ == "__main__":

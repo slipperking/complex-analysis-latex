@@ -1,15 +1,15 @@
 \subsection{The Concept of Riemann Surfaces}\label{sec:riemannsurfaces}
-Let \(X=(X,\tau)\) be a \textscsl{connected} topological space, and let \(x\in X\) be a fixed point. If \(\exists U\in\tau\) such that \(x\in U\), then \(U\) is a \textscsl{neighborhood} of \(x\). If any two points \(x,y\in X\) have disjoint neighborhoods, then \(X\) is a \textscsl{Hausdorff space}.
+Let \(X=(X,\tau)\) be a \textit{connected} topological space, and let \(x\in X\) be a fixed point. If \(\exists U\in\tau\) such that \(x\in U\), then \(U\) is a \textit{neighborhood} of \(x\). If any two points \(x,y\in X\) have disjoint neighborhoods, then \(X\) is a \textit{Hausdorff space}.
 
-For two topological spaces \(X\) and \(Y\), a function \(f:X\to Y\) is a \textscsl{homeomorphism} (also known as a \textscsl{bicontinuous function}) if it is a bijection such that both \(f\) and \(f^{-1}\) are continuous. If such a function exists, then \(X\) and \(Y\) are \textscsl{homeomorphic}.
+For two topological spaces \(X\) and \(Y\), a function \(f:X\to Y\) is a \textit{homeomorphism} (also known as a \textit{bicontinuous function}) if it is a bijection such that both \(f\) and \(f^{-1}\) are continuous. If such a function exists, then \(X\) and \(Y\) are \textit{homeomorphic}.
 
-The continuity of the inverse is essential. Consider the two topological spaces \(S^1=\cbraces{(x_1,x_2)\in\mathbb{R}^2}{x_1^2+x_2^2=1}\) and \([0,2\piup)=\cbraces{t\in\mathbb{R}}{0\leq t<2\piup}\) under the standard topology.
+The continuity of the inverse is essential. Consider the two topological spaces \(S^1=\cbraces{(x_1,x_2)\in\mathbb{R}^2}{x_1^2+x_2^2=1}\) and \([0,2\muppi)=\cbraces{t\in\mathbb{R}}{0\leq t<2\muppi}\) under the standard topology.
 
-The function \(f:[0,2\piup)\to S^1\) with \(f(t)=\qty(\cos(t),\sin(t))\) is indeed continuous, but the inverse \(f^{-1}\qty(x_1,x_2)\) is discontinuous at \(\qty(x_1,x_2)=(1,0)\).
+The function \(f:[0,2\muppi)\to S^1\) with \(f(t)=\qty(\cos(t),\sin(t))\) is indeed continuous, but the inverse \(f^{-1}\qty(x_1,x_2)\) is discontinuous at \(\qty(x_1,x_2)=(1,0)\).
 
 A surface is a Hausdorff space that is locally homeomorphic to \(\mathbb{R}^2\). In other words, for any point \(p\) on the surface, there exists a neighborhood \(U\) of \(p\) such that \(U\) is homeomorphic to an open subset of \(\mathbb{R}^2\).
 
-Let \(\cbraces{U_\alpha}_{\alpha\in I}\) be an collection of open subsets of a surface \(X\) that covers \(X\). For each \(\alpha\), let \(\varphi_\alpha:U_\alpha\to\mathbb{C}\) be a homeomorphism between \(U_\alpha\) and an open subset of \(\mathbb{C}\cong\mathbb{R}^2\). The pair \(\qty(U_\alpha,\varphi_\alpha)\) is a \textscsl{coordinate chart} of \(X\). The collection \(\cbraces{\qty(U_\alpha, \varphi_\alpha)}_{\alpha\in I}\) is a \textscsl{coordinate atlas} of \(X\). Let \(U_\alpha\) and \(U_\beta\) be two arbitrary sets in the covering. If all \textscsl{transition maps} \(\varphi_\beta\circ\varphi_\alpha^{-1}:\varphi_\alpha\qty(U_\alpha\cap U_\beta)\to\varphi_\beta\qty(U_\alpha\cap U_\beta)\) are biholomorphic on their respective \(f_\alpha\qty(U_\alpha\cap U_\beta)\) (we don't need to explicitly consider \(\varphi_\alpha\circ\varphi_\beta^{-1}\) as it is the inverse of the biholomorphism, which is biholomorphic by definition), then the atlas is said to be \textscsl{holomorphic} (intuitively, transition maps convert Euclidean coordinates between two charts on an overlapping region). Such an \(X\) is formally known as a \textscsl{Riemann surface}.
+Let \(\cbraces{U_\alpha}_{\alpha\in I}\) be an collection of open subsets of a surface \(X\) that covers \(X\). For each \(\alpha\), let \(\varphi_\alpha:U_\alpha\to\mathbb{C}\) be a homeomorphism between \(U_\alpha\) and an open subset of \(\mathbb{C}\cong\mathbb{R}^2\). The pair \(\qty(U_\alpha,\varphi_\alpha)\) is a \textit{coordinate chart} of \(X\). The collection \(\cbraces{\qty(U_\alpha, \varphi_\alpha)}_{\alpha\in I}\) is a \textit{coordinate atlas} of \(X\). Let \(U_\alpha\) and \(U_\beta\) be two arbitrary sets in the covering. If all \textit{transition maps} \(\varphi_\beta\circ\varphi_\alpha^{-1}:\varphi_\alpha\qty(U_\alpha\cap U_\beta)\to\varphi_\beta\qty(U_\alpha\cap U_\beta)\) are biholomorphic on their respective \(f_\alpha\qty(U_\alpha\cap U_\beta)\) (we don't need to explicitly consider \(\varphi_\alpha\circ\varphi_\beta^{-1}\) as it is the inverse of the biholomorphism, which is biholomorphic by definition), then the atlas is said to be \textit{holomorphic} (intuitively, transition maps convert Euclidean coordinates between two charts on an overlapping region). Such an \(X\) is formally known as a \textit{Riemann surface}.
 
 In short, a Riemann surface is a locally Euclidean connected Hausdorff space with complex structure.
 
@@ -31,13 +31,13 @@ We will now give examples of Riemann surfaces (we will distinguish between \(\ex
 \end{proof}
 Riemann surfaces are particularly useful when considering multi-valued functions. These functions cannot be defined \emph{globally} as single-valued holomorphic maps, but they can be made into well-defined holomorphic functions if we enlarge the domain, passing on to a Riemann surface.
 
-Consider \(\log(z)=\log\abs{z}=\ii\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is multi-valued. The most common solution to this problem is achieved by restricting the range of \(\arg\), say to \((-\piup,\piup]\), effectively selecting a branch of \(\log\), inducing a discontinuity along the branch cut (here, along \(\mathbb{R}_{\leq0}\)).
+Consider \(\log(z)=\log\abs{z}=\ii\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is multi-valued. The most common solution to this problem is achieved by restricting the range of \(\arg\), say to \((-\muppi,\muppi]\), effectively selecting a branch of \(\log\), inducing a discontinuity along the branch cut (here, along \(\mathbb{R}_{\leq0}\)).
 
 The geometric solution is to construct a new topological space \(X\), where the branches or sheets of the logarithm are \emph{glued} together. More explicitly, we take infinite copies of \(\mathbb{C}^*\), each copy indexed by an integer \(k\in\mathbb{Z}\), and glue them along the consecutive branch cuts such that after traversing a counterclockwise loop around the origin, one moves from the \(k\)-th sheet to the \((k+1)\)-th sheet (also called a branch).
 
 Note that the concatenation along a different branch cut (for example, along \(\ii\mathbb{R}_{\leq0}\)) yields an identical Riemann surface, although it is important to specify the branch cut before the construction.
 
-A point that connects multiple branches or sheets is known as a \textscsl{branch point}. In the case of the above construction, the origin is a branch point. In general, a branch point does not need to connect \emph{all} sheets; if it connects \(n\) sheets, it is known as a branch point of order \(n-1\).
+A point that connects multiple branches or sheets is known as a \textit{branch point}. In the case of the above construction, the origin is a branch point. In general, a branch point does not need to connect \emph{all} sheets; if it connects \(n\) sheets, it is known as a branch point of order \(n-1\).
 
 We now briefly touch on the importance of \(\mathbb{D}\), \(\mathbb{C}\), and \(\extcomplex\) below.
 \begin{theorem}[\textsc{Uniformization}]\label{thm:uniformization}

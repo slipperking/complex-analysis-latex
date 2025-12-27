@@ -1,13 +1,13 @@
 \subsection{Analytic Function Elements}
 \begin{definition}\label{def:analyticelement}
-    An \textscsl{(analytic) function element} is a pair \((f,U)\), where \(U\subseteq\mathbb{C}\) is an open region and \(f\) is a holomorphic function on \(U\).
+    An \textit{(analytic) function element} is a pair \((f,U)\), where \(U\subseteq\mathbb{C}\) is an open region and \(f\) is a holomorphic function on \(U\).
 \end{definition}
-Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textscsl{analytic continuation}. In the definition above for a function element, we let \(U\) be an arbitrary region. However, it is often more practical to consider the explicit case where \(U\) is a disk.
+Analytic elements serve as local representations of analytic functions. The process of extending these elements is formalized through \textit{analytic continuation}. In the definition above for a function element, we let \(U\) be an arbitrary region. However, it is often more practical to consider the explicit case where \(U\) is a disk.
 
 By the Identity Theorem (\cref{thm:identity}), such continuations are unique;
 if \(\qty(f_1,U_1)\) and \(\qty(f_2,U_2)\) are analytic elements with \(U_1\cap
 U_2 \neq \varnothing\), and \(f_1\equiv f_2\) on \(U_1\cap U_2\), then they are
-\textscsl{direct analytic continuations} of each other. The combined function:
+\textit{direct analytic continuations} of each other. The combined function:
 \[\widetilde{f}(z)=
     \begin{dcases}
         f_1(z) & \qif* z\in U_1,               \\
@@ -25,7 +25,7 @@ If \(\rho>R-\abs{z_1-z_0}\), then \(f\) extends analytically to
 \(D\qty(z_0,R)\cup D\qty(z_1,\rho)\). In the case that
 \(\rho=R-\abs{z_1-z_0}\), the disks \(D\qty(z_0,R)\) and \(D\qty(z_1,\rho)\)
 are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
-\textscsl{singularity}, and \(f\) cannot be continued beyond \(\zeta_0\).
+\textit{singularity}, and \(f\) cannot be continued beyond \(\zeta_0\).
 \begin{theorem}\label{thm:boundarysingularity}
     Let \(f(z)=\sum_{n=0}^{\infty}c_n{\qty(z-z_0)}^n\) have radius of convergence \(R>0\). Then \(\partial D\qty(z_0,R)\) contains at least one singularity of \(f\).
 \end{theorem}
@@ -57,7 +57,7 @@ are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
     contradicting the maximality of \(R\).
 \end{proof}
 \begin{definition}\label{def:maximalanalyticcontinuation}
-    A \textscsl{maximal analytic continuation} \(\cbraces{\qty(f,U)}\) of an analytic function element \(\qty(\widetilde{f},\widetilde{U})\) is obtained by all possible succesive analytic continuations of \(\qty(\widetilde{f},\widetilde{U})\). The union of every \(U\) is known as the \textscsl{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial U\) is known as a \textscsl{natural boundary}. The continuation defines a function \(f\), known a \textscsl{global analytic function}, which can be multi-valued.
+    A \textit{maximal analytic continuation} \(\cbraces{\qty(f,U)}\) of an analytic function element \(\qty(\widetilde{f},\widetilde{U})\) is obtained by all possible succesive analytic continuations of \(\qty(\widetilde{f},\widetilde{U})\). The union of every \(U\) is known as the \textit{domain of holomorphy} of \(\widetilde{f}\). The boundary set \(\partial U\) is known as a \textit{natural boundary}. The continuation defines a function \(f\), known a \textit{global analytic function}, which can be multi-valued.
 \end{definition}
 \begin{example}\label{ex:factoriallacunaryseries}
     The series \(f(z)=\sum_{n=0}^{\infty}z^{n!}\) has \(\mathbb{D}\) as its disk of convergence, and every point on \(\partial\mathbb{D}\) is a singularity.
@@ -66,8 +66,8 @@ are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
     By Cauchy--Hadamard (\cref{thm:cauchyhadamard}), \(\varlimsup_{n\to\infty}\sqrt[n]{\abs{c_n}}=1\) since \(c_n=1\) if \(n=k!\) and \(0\) otherwise. Thus, \(R=1\).
 
     Fix \(\zeta\in\partial\mathbb{D}\). Suppose \(f\) extends analytically to a
-    disk \(D(\zeta,\delta)\). Since \(\exp(2\piup\ii\mathbb{Q})\) is dense in
-    \(\partial\mathbb{D}\), there exists \(\zeta'=\exp(2\piup\ii\frac{p}{q})\in
+    disk \(D(\zeta,\delta)\). Since \(\exp(2\muppi\ii\mathbb{Q})\) is dense in
+    \(\partial\mathbb{D}\), there exists \(\zeta'=\exp(2\muppi\ii\frac{p}{q})\in
     D(\zeta,\delta)\cap\partial\mathbb{D}\) for coprime integers \(p,q\). The
     extension \(g\) of \(f\) to \(D(\zeta, \delta)\) would satisfy:
     \[\lim_{r\to1^{-}}f(r\zeta')=g(\zeta').\]
@@ -87,7 +87,7 @@ are tangent at a point \(\zeta_0\). Here, \(\zeta_0\) is a
     the outside of \(\mathbb{D}\).
 \end{proof}
 \begin{example}\label{ex:complexlogarithmanalyticcontinuation}
-    Let \(\Log(z)\) denote the principal branch of \(\log(z)\), with \(-\piup<\Arg(z)\leq\piup\). The analytic function elements \[\qty(\Log,D(1,1))\qand\qty(\Log+2\piup\ii,D(1,1))\] are analytic continuations of each other.
+    Let \(\Log(z)\) denote the principal branch of \(\log(z)\), with \(-\muppi<\Arg(z)\leq\muppi\). The analytic function elements \[\qty(\Log,D(1,1))\qand\qty(\Log+2\muppi\ii,D(1,1))\] are analytic continuations of each other.
 \end{example}
 \begin{example}
     Show that the analytic functions defined by the series \(f(z)=\sum_{n=0}^\infty\alpha^n z^n\) and \(\widetilde{f}(z)=\sum_{n=0}^\infty\frac{(\alpha-1)^n z^n}{{\qty(1-z)}^{n+1}}\) are analytic continuations of each other.

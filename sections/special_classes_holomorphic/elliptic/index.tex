@@ -1,29 +1,29 @@
 \subsection{Elliptic Functions}
-The theory of elliptic functions is an elaborate chapter of complex analysis, with origins in seemingly trivial problems of calculus. In the 18th century, mathematicians studying the rectification (arc length calculation) of curves such as the ellipse and the lemniscate discovered that these could not be expressed in terms of elementary functions, leading to the introduction of elliptic integrals. Inverting these integrals gave rise to elliptic functions, which extend the idea of trigonometric functions by being \textscsl{doubly periodic} in the complex plane. Closely related ideas also appeared in conformal mapping, such as the Schwarz--Christoffel transformation (\cref{sec:schwarzchristoffeltransformation}) between the upper half-plane and rectangles. Henceforth, elliptic functions became a central subject related to calculus, geometry, and complex analysis.
+The theory of elliptic functions is an elaborate chapter of complex analysis, with origins in seemingly trivial problems of calculus. In the 18th century, mathematicians studying the rectification (arc length calculation) of curves such as the ellipse and the lemniscate discovered that these could not be expressed in terms of elementary functions, leading to the introduction of elliptic integrals. Inverting these integrals gave rise to elliptic functions, which extend the idea of trigonometric functions by being \textit{doubly periodic} in the complex plane. Closely related ideas also appeared in conformal mapping, such as the Schwarz--Christoffel transformation (\cref{sec:schwarzchristoffeltransformation}) between the upper half-plane and rectangles. Henceforth, elliptic functions became a central subject related to calculus, geometry, and complex analysis.
 
-It is well-known in real analysis that a periodic function can be expressed as a Fourier series, with terms involving the most trivial periodic functions \(\sin,\cos,\ldots,\sin(nx),\cos(nx)\). Such functions are called \textscsl{singly periodic}.
+It is well-known in real analysis that a periodic function can be expressed as a Fourier series, with terms involving the most trivial periodic functions \(\sin,\cos,\ldots,\sin(nx),\cos(nx)\). Such functions are called \textit{singly periodic}.
 
-If \(f:\mathbb{C}\to\extcomplex\) is meromorphic with period \(\omega\in\mathbb{C}^*\), then it has the Fourier expansion \[f(z)=\sum_{n=-\infty}^\infty c_n\exp\qty(\frac{2\piup\ii nz}{\omega}),\quad c_n=\frac1\omega\int_a^{a+\omega}f(z)\exp(-\frac{2\piup\ii nz}{\omega})\ddz\quad\forall n\in\mathbb{Z}.\] We briefly justify this as follows.\ \(f\) being periodic with period \(\omega\) implies that by letting \(w=\exp\qty(\frac{2\piup\ii z}{\omega})\), the function \(g(w)=f\qty(\frac{\omega}{2\piup\ii}\log w)=f(z)\) is well-defined and single-valued on \(\extcomplex\setminus\cbraces{0}\) (except for at finitely many isolated poles). Hence, \(g\) admits a Laurent expansion
-\[g(w)=\sum_{n=-\infty}^\infty c_nw^n,\quad c_n=\frac1{2\piup\ii}\oint_{\abs{w}=r}g(w)w^{-n-1}\dd{w}\quad\forall n\in\mathbb{Z},\] for \(r>0\). Substituting back \(w=\exp\qty(\frac{2\piup\ii z}{\omega})\), \(\dd{w}=\frac{2\piup\ii}\omega\exp\qty(\frac{2\piup\ii z}{\omega})\ddz\) gives the desired Fourier expansion of \(f\):
+If \(f:\mathbb{C}\to\extcomplex\) is meromorphic with period \(\omega\in\mathbb{C}^*\), then it has the Fourier expansion \[f(z)=\sum_{n=-\infty}^\infty c_n\exp\qty(\frac{2\muppi\ii nz}{\omega}),\quad c_n=\frac1\omega\int_a^{a+\omega}f(z)\exp(-\frac{2\muppi\ii nz}{\omega})\ddz\quad\forall n\in\mathbb{Z}.\] We briefly justify this as follows.\ \(f\) being periodic with period \(\omega\) implies that by letting \(w=\exp\qty(\frac{2\muppi\ii z}{\omega})\), the function \(g(w)=f\qty(\frac{\omega}{2\muppi\ii}\log w)=f(z)\) is well-defined and single-valued on \(\extcomplex\setminus\cbraces{0}\) (except for at finitely many isolated poles). Hence, \(g\) admits a Laurent expansion
+\[g(w)=\sum_{n=-\infty}^\infty c_nw^n,\quad c_n=\frac1{2\muppi\ii}\oint_{\abs{w}=r}g(w)w^{-n-1}\dd{w}\quad\forall n\in\mathbb{Z},\] for \(r>0\). Substituting back \(w=\exp\qty(\frac{2\muppi\ii z}{\omega})\), \(\dd{w}=\frac{2\muppi\ii}\omega\exp\qty(\frac{2\muppi\ii z}{\omega})\ddz\) gives the desired Fourier expansion of \(f\):
 \begin{align*}
-    c_n & =\frac{1}{2\piup\ii}\int_{\frac{\omega}{2\piup\ii}\log(r)}^{\frac{\omega}{2\piup\ii}\qty(\log(r)+2\piup\ii)}f(z)\exp\qty(-\frac{2\piup\ii nz}{\omega})\exp\qty(-\frac{2\piup\ii z}{\omega})\frac{2\piup\ii}\omega\exp\qty(\frac{2\piup\ii z}{\omega})\ddz \\
-    & =\frac{1}{\omega}\int_{\frac{\omega}{2\piup\ii}\log(r)}^{\frac{\omega}{2\piup\ii}\log(r)+\omega}f(z)\exp(-\frac{2\piup\ii nz}{\omega})\ddz.
+    c_n & =\frac{1}{2\muppi\ii}\int_{\frac{\omega}{2\muppi\ii}\log(r)}^{\frac{\omega}{2\muppi\ii}\qty(\log(r)+2\muppi\ii)}f(z)\exp\qty(-\frac{2\muppi\ii nz}{\omega})\exp\qty(-\frac{2\muppi\ii z}{\omega})\frac{2\muppi\ii}\omega\exp\qty(\frac{2\muppi\ii z}{\omega})\ddz \\
+    & =\frac{1}{\omega}\int_{\frac{\omega}{2\muppi\ii}\log(r)}^{\frac{\omega}{2\muppi\ii}\log(r)+\omega}f(z)\exp(-\frac{2\muppi\ii nz}{\omega})\ddz.
 \end{align*}
 The term ``elliptic function'' itself refers to a \emph{doubly periodic}
 meromorphic function. More precisely, a meromorphic function
-\(f:\mathbb{C}\to\extcomplex\) is called an \textscsl{elliptic function} if
+\(f:\mathbb{C}\to\extcomplex\) is called an \textit{elliptic function} if
 there exist two \(\mathbb{C}\)-linearly independent periods
 \(\omega_1,\omega_2\in\mathbb{C}^*\) such that
 \(f(z+\omega_1)=f(z+\omega_2)=f(z)\) for all \(z\in\mathbb{C}\). Without loss
 of generalization, we will assume that \(\Im{\frac{\omega_2}{\omega_1}}>0\)
 (linear independence guarantees that this is non-vanishing, while we may
     consider periods \(\omega_1,-\omega_2\) or \(-\omega_1,\omega_2\) to achieve
-the same result). Any period of \(f\) is in the form of \[\omega=m\omega_1+n\omega_2\qquad m,n\in\mathbb{Z}.\] The set of all periods of \(f\) forms a \textscsl{period lattice} \[\Lambda=\Lambda\qty(\omega_1,\omega_2)=\omega_1\mathbb{Z}+\omega_2\mathbb{Z}=\cbraces{m\omega_1+n\omega_2}{m,n\in\mathbb{Z}}.\] The set formed by \(\Lambda\) is a discrete additive (any sum of two points in
+the same result). Any period of \(f\) is in the form of \[\omega=m\omega_1+n\omega_2\qquad m,n\in\mathbb{Z}.\] The set of all periods of \(f\) forms a \textit{period lattice} \[\Lambda=\Lambda\qty(\omega_1,\omega_2)=\omega_1\mathbb{Z}+\omega_2\mathbb{Z}=\cbraces{m\omega_1+n\omega_2}{m,n\in\mathbb{Z}}.\] The set formed by \(\Lambda\) is a discrete additive (any sum of two points in
 the lattice remain in the lattice) subgroup of \(\mathbb{C}\), a free
 \(\mathbb{Z}\)-module of rank 2 (generated by the basis
 \(\cbraces{\omega_1,\omega_2}\)).
 
-For any point \(\alpha\in\mathbb{C}\), the complex parallelogram generated by \[P=\cbraces{\alpha+t_1\omega_1+t_2\omega_2}{t_1,t_2\in[0,1)},\] is known as a \textscsl{fundamental parallelogram of} \(\Lambda\).
+For any point \(\alpha\in\mathbb{C}\), the complex parallelogram generated by \[P=\cbraces{\alpha+t_1\omega_1+t_2\omega_2}{t_1,t_2\in[0,1)},\] is known as a \textit{fundamental parallelogram of} \(\Lambda\).
 
 \begin{figure}
     \centering
@@ -89,7 +89,7 @@ For any point \(\alpha\in\mathbb{C}\), the complex parallelogram generated by \[
         \draw[-{Stealth[length=1.5mm, width=1.5mm]}, thick] (7.3,0.6) -- (7.8,0.6);
     \end{tikzpicture}
     \caption{Illustration of the deformation of a homeomorphism between a rectangle with opposite sides \emph{identified} and a torus.}\label{fig:identifiedrectagletotorushomeomorphism}
-\end{figure}The properties of an elliptic function can be more easily observed on its fundamental parallelogram, since the values of \(f\) on \(\mathbb{C}\) are fully represented by its values on \(P\). Because the opposite sides of the parallelogram are \textscsl{identified} (treated to be the same, or topologically ``glued together'') by the periodicity of \(f\), the fundamental parallelogram is homeomorphic to a torus, as visualized in \cref{fig:identifiedrectagletotorushomeomorphism}.
+\end{figure}The properties of an elliptic function can be more easily observed on its fundamental parallelogram, since the values of \(f\) on \(\mathbb{C}\) are fully represented by its values on \(P\). Because the opposite sides of the parallelogram are \textit{identified} (treated to be the same, or topologically ``glued together'') by the periodicity of \(f\), the fundamental parallelogram is homeomorphic to a torus, as visualized in \cref{fig:identifiedrectagletotorushomeomorphism}.
 
 Let \(\mathbb{C}\) be closed under addition and let \(\Lambda\) be the subgroup
 of \(\mathbb{C}\). Then, the quotient group \(\mathbb{C}/\Lambda\) is compact
@@ -113,7 +113,7 @@ poles, then it must be constant:
     For any elliptic function \(f\) with period lattice \(\Lambda\), the sum of the residues of \(f\) in \(\mathbb{C}/\Lambda\) is zero.
 \end{proposition}
 \begin{proof}
-    Let \(\alpha\), \(\alpha+\omega_1\), \(\alpha+\omega_2\), and \(\alpha+\omega_1+\omega_2\) be the vertices of a fundamental parallelogram \(P\) of \(\Lambda\) such that \(\partial P\) does not pass through the poles \(f\). By the Residue Theorem (\cref{thm:residuethm}), we have \[2\piup\ii\sum_{z_k\in P}\residue_{z=z_k}f(z)=\oint_{\partial P}f(z)\ddz,\] where the sum is over all poles \(z_k\) of \(f\) in \(\mathbb{C}/\Lambda\)
+    Let \(\alpha\), \(\alpha+\omega_1\), \(\alpha+\omega_2\), and \(\alpha+\omega_1+\omega_2\) be the vertices of a fundamental parallelogram \(P\) of \(\Lambda\) such that \(\partial P\) does not pass through the poles \(f\). By the Residue Theorem (\cref{thm:residuethm}), we have \[2\muppi\ii\sum_{z_k\in P}\residue_{z=z_k}f(z)=\oint_{\partial P}f(z)\ddz,\] where the sum is over all poles \(z_k\) of \(f\) in \(\mathbb{C}/\Lambda\)
     (effectively \(P\)). The integral is equivalent to
     \begin{align*}
         \oint_{\partial P}f(z)\ddz & =\pm\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_1}^{\alpha+\omega_1+\omega_2}+\int_{\alpha+\omega_1+\omega_2}^{\alpha+\omega_2}+\int_{\alpha+\omega_2}^\alpha)f(z)\ddz \\
@@ -124,7 +124,7 @@ poles, then it must be constant:
     For any non-constant elliptic function \(f\) with period lattice \(\Lambda\), the number of zeros and poles (counting multiplicities and orders, respectively) in \(\mathbb{C}/\Lambda\) are equal.
 \end{theorem}
 \begin{proof}
-    Let \(P\) be a fundamental parallelogram of \(\Lambda\) such that \(\partial P\) \(f\) has no poles or zeros thereon. By the Argument Principle (\cref{thm:argumentprinciplemeromorphic}), we have \[\frac{1}{2\piup\ii}\oint_{\partial P}\frac{f'(z)}{f(z)}\ddz=\text{\# of zeros in \(P\)}-\text{\# of poles in \(P\)}\] where the sums are over all zeros and poles of \(f\) in \(\mathbb{C}/\Lambda\)
+    Let \(P\) be a fundamental parallelogram of \(\Lambda\) such that \(\partial P\) \(f\) has no poles or zeros thereon. By the Argument Principle (\cref{thm:argumentprinciplemeromorphic}), we have \[\frac{1}{2\muppi\ii}\oint_{\partial P}\frac{f'(z)}{f(z)}\ddz=\text{\# of zeros in \(P\)}-\text{\# of poles in \(P\)}\] where the sums are over all zeros and poles of \(f\) in \(\mathbb{C}/\Lambda\)
     (effectively \(P\)) counted with multiplicities and orders, respectively. By
     assumption, \(f'\not\equiv 0\), and hence \(\frac{f'}{f}\) is non-constant and
     elliptic with period lattice \(\Lambda\). By
@@ -139,7 +139,7 @@ poles, then it must be constant:
 \end{proof}
 Hence, it is only natural to quantify this number:
 \begin{definition}
-    An elliptic function \(f\) is said to be of \textscsl{order} \(n\) iff it attains every value in \(\extcomplex\) exactly \(n\) times (counting multiplicities) in \(\mathbb{C}/\Lambda\), where \(\Lambda\) is the period lattice of \(f\) (in other words, the number of poles of \(f\) in a fundamental parallelogram, counted according to order, is \(n\)).
+    An elliptic function \(f\) is said to be of \textit{order} \(n\) iff it attains every value in \(\extcomplex\) exactly \(n\) times (counting multiplicities) in \(\mathbb{C}/\Lambda\), where \(\Lambda\) is the period lattice of \(f\) (in other words, the number of poles of \(f\) in a fundamental parallelogram, counted according to order, is \(n\)).
 \end{definition}
 \begin{proposition}
     A non-constant elliptic function \(f\) is of order \(\geq 2\).
@@ -153,15 +153,15 @@ Hence, it is only natural to quantify this number:
 \begin{proof}
     By \cref{thm:generalizedargumentprinciple}, the quantity in question is equal to
     \begin{align*}
-        \sum_{j=1}^n a_j-\sum_{j=1}^n b_j & =\frac1{2\piup\ii}\oint_{\partial P}\frac{zf'(z)}{f(z)}\ddz                                                                                                                                                       \\
-        & =\pm\frac1{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_1}^{\alpha+\omega_1+\omega_2}+\int_{\alpha+\omega_1+\omega_2}^{\alpha+\omega_2}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz \\
-        & =\pm\frac1{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz                                                                                                     \\
-        & \quad\pm\frac{1}{2\piup\ii}\qty(\int_\alpha^{\alpha+\omega_2}\frac{\qty(z+\omega_1)f'(z)}{f(z)}\ddz+\int_{\alpha+\omega_1}^\alpha\frac{\qty(z+\omega_2)f'(z)}{f(z)}\ddz)                                          \\
-        & =\pm\frac1{2\piup\ii}\qty(\int_{\alpha+\omega_1}^\alpha\frac{\omega_2f'(z)}{f(z)}\ddz+\int_\alpha^{\alpha+\omega_2}\frac{\omega_1f'(z)}{f(z)}\ddz)c                                                               \\
-        & =\pm\frac{\omega_2}{2\piup\ii}\qty(\log{f(\alpha)}-\log{f\qty(\alpha+\omega_1)})\pm\frac{\omega_1}{2\piup\ii}\qty(\log{f\qty(\alpha+\omega_2)}-\log{f\qty(\alpha)})                                               \\
-        & =\pm\frac{\omega_2}{2\piup\ii}\log(1)\pm\frac{\omega_1}{2\piup\ii}\log(1).
+        \sum_{j=1}^n a_j-\sum_{j=1}^n b_j & =\frac1{2\muppi\ii}\oint_{\partial P}\frac{zf'(z)}{f(z)}\ddz                                                                                                                                                       \\
+        & =\pm\frac1{2\muppi\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_1}^{\alpha+\omega_1+\omega_2}+\int_{\alpha+\omega_1+\omega_2}^{\alpha+\omega_2}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz \\
+        & =\pm\frac1{2\muppi\ii}\qty(\int_\alpha^{\alpha+\omega_1}+\int_{\alpha+\omega_2}^\alpha)\frac{zf'(z)}{f(z)}\ddz                                                                                                     \\
+        & \quad\pm\frac{1}{2\muppi\ii}\qty(\int_\alpha^{\alpha+\omega_2}\frac{\qty(z+\omega_1)f'(z)}{f(z)}\ddz+\int_{\alpha+\omega_1}^\alpha\frac{\qty(z+\omega_2)f'(z)}{f(z)}\ddz)                                          \\
+        & =\pm\frac1{2\muppi\ii}\qty(\int_{\alpha+\omega_1}^\alpha\frac{\omega_2f'(z)}{f(z)}\ddz+\int_\alpha^{\alpha+\omega_2}\frac{\omega_1f'(z)}{f(z)}\ddz)c                                                               \\
+        & =\pm\frac{\omega_2}{2\muppi\ii}\qty(\log{f(\alpha)}-\log{f\qty(\alpha+\omega_1)})\pm\frac{\omega_1}{2\muppi\ii}\qty(\log{f\qty(\alpha+\omega_2)}-\log{f\qty(\alpha)})                                               \\
+        & =\pm\frac{\omega_2}{2\muppi\ii}\log(1)\pm\frac{\omega_1}{2\muppi\ii}\log(1).
     \end{align*}
-    Since the branches of the multi-valued logarithm differ by integer multiples of \(2\piup\ii\), the assertion follows.
+    Since the branches of the multi-valued logarithm differ by integer multiples of \(2\muppi\ii\), the assertion follows.
 \end{proof}
 \subimport{weierstrass/}{index.tex}
 \subimport{jacobi/}{index.tex}

@@ -55,7 +55,7 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\cref{th
 \begin{theorem}[\textsc{Cauchy--Pompeiu}]\label{thm:pompeiu}
     Let \(U\subset\mathbb{C}\) be bounded with a piecewise \(C^1\) boundary \(\partial U\). Let \(f(z)\in C^1(\overline{U})\). Then \(\forall z\in U\setminus\partial U\),
     \begin{equation}
-        f(z)=\frac{1}{2\piup\ii}\qty(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}).
+        f(z)=\frac{1}{2\muppi\ii}\qty(\int_{\partial U}\frac{f(\zeta)}{\zeta-z}\mathop{\dd{\zeta}}-\int_{U}\pdv{f(\zeta)}{\overline{\zeta}}\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}).
     \end{equation}
 \end{theorem}
 \begin{proof}
@@ -71,14 +71,14 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\cref{th
     \end{align*}
     The first term in the integrand vanishes as it contains \(\ddzeta\wedge\ddzeta\). The second term can be simplified using the fact that \(\pdv{\overline{\zeta}}(\frac{1}{\zeta-z})=0\), leading to
     \[\int_{U\setminus D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}.\]
-    The rightmost term in \cref{eq:pompeiu_directintermediate} can be parameterized with \(\zeta=z+\varepsilon\ee^{\ii t}\), \(t\in[0,2\piup]\). Then,
+    The rightmost term in \cref{eq:pompeiu_directintermediate} can be parameterized with \(\zeta=z+\varepsilon\ee^{\ii t}\), \(t\in[0,2\muppi]\). Then,
     \begin{gather*}
-        \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\piup}\frac{f\paren{z+\varepsilon\ee^{\ii t}}}{\varepsilon\ee^{\ii t}}\cdot\ii\varepsilon\ee^{\ii t}\dd{t}=\ii\int_0^{2\piup}f(z+\varepsilon\ee^{\ii t})\dd{t}\\
-        =\ii\int_0^{2\piup}\qty(f\paren{z+\varepsilon\ee^{\ii t}}-f(z))\dd{t}+\ii\int_0^{2\piup}f(z)\dd{t}.
+        \int_{\partial D(z,\varepsilon)}\frac{f(\zeta)\ddzeta}{\zeta-z}=\int_0^{2\muppi}\frac{f\paren{z+\varepsilon\ee^{\ii t}}}{\varepsilon\ee^{\ii t}}\cdot\ii\varepsilon\ee^{\ii t}\dd{t}=\ii\int_0^{2\muppi}f(z+\varepsilon\ee^{\ii t})\dd{t}\\
+        =\ii\int_0^{2\muppi}\qty(f\paren{z+\varepsilon\ee^{\ii t}}-f(z))\dd{t}+\ii\int_0^{2\muppi}f(z)\dd{t}.
     \end{gather*}
-    Because \(f\in C^1\qty(\overline{U})\), by \cref{prop:c1lipschitz}, \(f\) is Lipschitz continuous on \(\overline{U}\), and \(\exists M\in\mathbb{R}_{>0}\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). On \(\partial D(z,\varepsilon)\), we get that \(\abs{f(z+\varepsilon\ee^{\ii t})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\piup}\qty(f\qty(z+\varepsilon\ee^{\ii t})-f(z))\dd{t}}\leq\int_0^{2\piup}\abs{f\qty(z+\varepsilon\ee^{\ii t})-f(z)}\dd{t}\leq 2M\piup\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain
+    Because \(f\in C^1\qty(\overline{U})\), by \cref{prop:c1lipschitz}, \(f\) is Lipschitz continuous on \(\overline{U}\), and \(\exists M\in\mathbb{R}_{>0}\) such that \(\forall z_0,z_1\in\overline{U}\), \(\abs{f\paren{z_1}-f\paren{z_0}}\le M\abs{z_1-z_0}\). On \(\partial D(z,\varepsilon)\), we get that \(\abs{f(z+\varepsilon\ee^{\ii t})-f(z)}\leq M\varepsilon\). Therefore, \[\abs{\int_0^{2\muppi}\qty(f\qty(z+\varepsilon\ee^{\ii t})-f(z))\dd{t}}\leq\int_0^{2\muppi}\abs{f\qty(z+\varepsilon\ee^{\ii t})-f(z)}\dd{t}\leq 2M\muppi\varepsilon,\] which approaches 0 as \(\varepsilon\to0\). Taking this limit, we obtain
     \begin{equation}
-        2\piup\ii f(z)=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}+\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}. \label{eq:pompeiu_epsilonlimitintermediate}
+        2\muppi\ii f(z)=\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}+\lim_{\varepsilon\to0}\int_{D(z,\varepsilon)}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}. \label{eq:pompeiu_epsilonlimitintermediate}
     \end{equation}
     We then aim to prove that
     \begin{equation}
@@ -90,18 +90,18 @@ The theorem above is only a specific case of the Stokes-Cartan Theorem (\cref{th
     \[M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{r\ee^{\ii\theta}}\dd{\paren{z+r\ee^{-\ii\theta}}}\wedge\dd{\paren{z+r\ee^{\ii\theta}}}},\] and by expansion of the wedge product,
     \begin{align}
         M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{2\ii}{\ee^{\ii\theta}}\dd{r}\wedge\dd{\theta}} & =2M'\lim_{\varepsilon\to0}\abs{\int_{D(z,\varepsilon)}\frac{1}{\ee^{\ii\theta}}\dd{r}\wedge\dd{\theta}}\label{eq:pompeiu_weaksingularityvanishes} \\
-        & =2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\piup}\int_0^\varepsilon\ee^{-\ii\theta}\dd{r}\dd{\theta}}\nonumber                                       \\
+        & =2M'\lim_{\varepsilon\to0}\abs{\int_0^{2\muppi}\int_0^\varepsilon\ee^{-\ii\theta}\dd{r}\dd{\theta}}\nonumber                                       \\
         & =0.\nonumber
     \end{align}
     Then from rearranging \cref{eq:pompeiu_epsilonlimitintermediate}, we obtain:
-    \[f(z)=\frac{1}{2\piup\ii}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\qedhere\]
+    \[f(z)=\frac{1}{2\muppi\ii}\paren{\int_{\partial U}\frac{f(\zeta)\ddzeta}{\zeta-z}-\int_{U}\pdv{f}{\overline{\zeta}}\cdot\frac{\dd{\overline{\zeta}}\wedge\ddzeta}{\zeta-z}}.\qedhere\]
 \end{proof}
 \begin{corollary}\label{cor:pompeiuwithoutcauchyterm}
     Let \(f:\mathbb{C}\to\mathbb{C}\) be a continuously differentiable, compactly supported function.
-    Then \[f(z)=-\frac{1}{\piup}\iint_{\mathbb{C}}\pdv{f}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\] for all \(z\in\mathbb{C}\) where \(\zeta=\xi+\ii\eta\).
+    Then \[f(z)=-\frac{1}{\muppi}\iint_{\mathbb{C}}\pdv{f}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\] for all \(z\in\mathbb{C}\) where \(\zeta=\xi+\ii\eta\).
 \end{corollary}
 \begin{proof}
-    Choose \(R>0\) such that \(D(0,R)\supset\supp(f)\). By the Cauchy--Pompeiu Theorem (\cref{thm:pompeiu}), we have \[f(z)=\frac1\piup\qty(\frac1{2\ii}\int_{\partial D(0,R)}\frac{f(\zeta)\ddzeta}{\zeta-z}-\iint_{D(0,R)}\pdv{f}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{\zeta-z}).\]
+    Choose \(R>0\) such that \(D(0,R)\supset\supp(f)\). By the Cauchy--Pompeiu Theorem (\cref{thm:pompeiu}), we have \[f(z)=\frac1\muppi\qty(\frac1{2\ii}\int_{\partial D(0,R)}\frac{f(\zeta)\ddzeta}{\zeta-z}-\iint_{D(0,R)}\pdv{f}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{\zeta-z}).\]
     Then the proof is complete given that \(f\) vanishes on \(\partial D(0,R)\) and by letting \(R\to\infty\).
 \end{proof}
 In complex analysis, when integrating over a region that contains a singularity, it is common to exclude a small disk of radius \(\varepsilon\) around the singularity, perform the integration over the punctured region, and then take the limit as \(\varepsilon\to0\). As in the proof above, the steps calculating the integral over the removed disk as in \cref{eq:pompeiu_areadiskstatement} are still necessary in confirmation, although they are typically tacitly elided.
@@ -110,7 +110,7 @@ From the above result, we can directly obtain the following theorem:
 \begin{theorem}[Cauchy's Integral Formula]\label{thm:cauchyintegralformula}
     Let \(U\subset\mathbb{C}\) be an open region with a piecewise \(C^1\) boundary \(\partial U\), and let \(f\in C^1\qty(\overline{U})\) be holomorphic on \(U\). Then for all \(z\in U\),
     \begin{equation}
-        f(z)=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
+        f(z)=\frac{1}{2\muppi\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\dd{\zeta}.\label{eq:cauchyintegralformula}
     \end{equation}
 \end{theorem}
 \begin{proof}
@@ -120,38 +120,38 @@ From the above result, we can directly obtain the following theorem:
     Let \(U\subset\mathbb{C}\) be an open region with piecewise \(C^1\) boundary \(\partial U\). For a function \(f(z)\in C^1\paren{\overline{U}}\) holomorphic over \(U\), \[\oint_{\partial U}f(\zeta)\ddzeta=0.\]
 \end{theorem}
 \begin{proof}
-    Let \(\psi(z)=zf(z)\). Applying \cref{thm:cauchyintegralformula} on \(\psi(\zeta)\) with \(z=0\), we obtain \[0=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{\psi(\zeta)}{\zeta}\ddzeta=\frac{1}{2\piup\ii}\oint_{\partial U} f\paren{\zeta}\ddzeta.\]
+    Let \(\psi(z)=zf(z)\). Applying \cref{thm:cauchyintegralformula} on \(\psi(\zeta)\) with \(z=0\), we obtain \[0=\frac{1}{2\muppi\ii}\oint_{\partial U}\frac{\psi(\zeta)}{\zeta}\ddzeta=\frac{1}{2\muppi\ii}\oint_{\partial U} f\paren{\zeta}\ddzeta.\]
     Alternatively, we can use Green's Theorem (\cref{thm:complexgreen}) with \(\omega=f(\zeta)\ddzeta\):
     \[\oint_{\partial U}f(\zeta)\ddzeta=\oint_{\partial U}\omega=\int_{U}\dd{\omega}=\int_U\pdv{f}{\overline{\zeta}}\dd{\overline{\zeta}}\wedge\ddzeta=0.\qedhere\]
 \end{proof}
 \begin{theorem}\label{thm:onedimensionalpartialconjugatesolution}
     For a compactly supported function \(\psi(z)\in C^1\paren{\mathbb{C}}\), a solution satisfying \(u(z)\in C^1\paren{\mathbb{C}}\) to the non-homogeneous Cauchy--Riemann equation \[\pdv{u(z)}{\overline{z}}=\psi(z)\] is
     \begin{equation}
-        u(z)=-\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta.\label{eq:onedimensionalpartialconjugatesolution}
+        u(z)=-\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta.\label{eq:onedimensionalpartialconjugatesolution}
     \end{equation}
 \end{theorem}
 \begin{proof}
-    Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(\overline{D\paren{z,\varepsilon}}\).\ \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\piup\ii}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \cref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\piup\ii}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\]
-    Therefore, \cref{eq:onedimensionalpartialconjugatesolution} is continuous. A trivial substitution can be used to rewrite \[u(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta+z)}{\zeta}\dd{\zeta}\wedge\dd{\overline{\zeta}}\] Then,
+    Split \(\mathbb{C}\) into \(\mathbb{C}\setminus D\paren{z,\varepsilon}\) and \(\overline{D\paren{z,\varepsilon}}\).\ \(\forall\varepsilon>0\), the integral \[-\frac{1}{2\muppi\ii}\int_{\mathbb{C}\setminus D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\] is continuous. Since \(\psi(\zeta)\) is compactly supported over \(\mathbb{C}\) and continuous, by \cref{thm:continuousfunctionboundedoncompact}, it is bounded. Then the limit \[\lim_{\varepsilon\to0}\paren{-\frac{1}{2\muppi\ii}\int_{D\paren{z,\varepsilon}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta}=0.\]
+    Therefore, \cref{eq:onedimensionalpartialconjugatesolution} is continuous. A trivial substitution can be used to rewrite \[u(z)=\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\frac{\psi(\zeta+z)}{\zeta}\dd{\zeta}\wedge\dd{\overline{\zeta}}\] Then,
     \begin{equation}
-        \frac{u(z+\Delta z)-u\paren{z}}{\Delta z}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta+z+\Delta z)-\psi\paren{\zeta+z}}{\Delta z\zeta}\dd{\zeta}\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
+        \frac{u(z+\Delta z)-u\paren{z}}{\Delta z}=\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\frac{\psi(\zeta+z+\Delta z)-\psi\paren{\zeta+z}}{\Delta z\zeta}\dd{\zeta}\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr}
     \end{equation}
     For a fixed \(z\), the value of \[\frac{\psi(\zeta+z+\Delta z)-\psi\paren{\zeta+z}}{\Delta z}\] tends to \(\pdv{\psi}{\zeta}\paren{\zeta+z}\) as \(\Delta z\to0\). Because \(\psi(\zeta)=\psi\qty(\zeta+z)\) has compact support and is \(C^1\), by \cref{prop:c1lipschitz}, it is Lipschitz continuous for a constant \(M\).
 
     Let \(\abs{\Delta z}<1\) and let \(K=\cbraces{w\in\mathbb{C}}{\inf_{\zeta\in\supp\varphi}\abs{w-\zeta}\leq1}\). Then, \[\abs{\frac{\psi(\zeta+z+\Delta z)-\psi\paren{\zeta+z}}{\Delta z}}\leq M,\] and specifically, when \(\zeta+z\notin K\), \[\frac{\psi(\zeta+z+\Delta z)-\psi\paren{\zeta+z}}{\Delta z}=0.\]
     As shown above, the integrand is uniformly bounded by \(M\), which has a convergent integral of \(\int_{K}M\dd{\zeta}\wedge\dd{\overline{\zeta}}\), the limit \(\Delta z\to0\) may commute with the integral in \cref{eq:onedimensionalpartialconjugatesolution_differenceexpr}. Let \(\zeta=\xi+\ii\eta\). From the real axis,
     \begin{equation}
-        \pdv{u}{x}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\zeta}\pdv{\psi}{\xi}\paren{\zeta+z}\dd{\zeta}\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\xi}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
+        \pdv{u}{x}(z)=\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\frac{1}{\zeta}\pdv{\psi}{\xi}\paren{\zeta+z}\dd{\zeta}\wedge\dd{\overline{\zeta}}=\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\xi}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative}
     \end{equation}
     From the imaginary axis,
     \begin{equation}
-        \pdv{u}{y}(z)=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{1}{\zeta}\pdv{\psi}{\eta}\paren{\zeta+z}\dd{\zeta}\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\eta}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}
+        \pdv{u}{y}(z)=\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\frac{1}{\zeta}\pdv{\psi}{\eta}\paren{\zeta+z}\dd{\zeta}\wedge\dd{\overline{\zeta}}=\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\pdv{\psi(\zeta)}{\eta}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\label{eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}
     \end{equation}
-    Since \(\psi\in C^1\paren{\mathbb{C}}\) and has Lipschitz constant \(M\), \cref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative,eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative} are both continuous (by the same argument for the continuity of \(u(z)\)). Thus, \(u\in C^1(\mathbb{C})\). It follows from the two equations that \[\pdv{u}{\overline{z}}=\frac{1}{2\piup\ii}\int_{\mathbb{C}}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}=\frac{1}{2\piup\ii}\int_{K}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\]
+    Since \(\psi\in C^1\paren{\mathbb{C}}\) and has Lipschitz constant \(M\), \cref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative,eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative} are both continuous (by the same argument for the continuity of \(u(z)\)). Thus, \(u\in C^1(\mathbb{C})\). It follows from the two equations that \[\pdv{u}{\overline{z}}=\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}=\frac{1}{2\muppi\ii}\int_{K}\pdv{\psi}{\overline{\zeta}}\cdot\frac{1}{\zeta-z}\ddzeta\wedge\dd{\overline{\zeta}}.\]
     By \cref{cor:pompeiuwithoutcauchyterm}, \[\pdv{u}{\overline{z}}=\psi(z).\qedhere\]
 \end{proof}
 \begin{remark}
-    In the first part, we established that a function \(\psi(z)\in C^0(\mathbb{C})\) with compact support satisfies \[u(z)=-\frac{1}{2\piup\ii}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\in C^0(\mathbb{C}).\]
+    In the first part, we established that a function \(\psi(z)\in C^0(\mathbb{C})\) with compact support satisfies \[u(z)=-\frac{1}{2\muppi\ii}\int_{\mathbb{C}}\frac{\psi(\zeta)}{\zeta-z}\dd{\overline{\zeta}}\wedge\ddzeta\in C^0(\mathbb{C}).\]
     If \(\psi(z)\in C^1(\mathbb{C})\), then the first order derivatives of \(u(z)\) can be written in the same form (\cref{eq:onedimensionalpartialconjugatesolution_differenceexpr_realaxisderivative,eq:onedimensionalpartialconjugatesolution_differenceexpr_imaginaryaxisderivative}) since \(\pdv{\psi}{\xi},\pdv{\psi}{\eta}\in C^0(\mathbb{C})\) and are also compactly supported. Then they too are continuous functions, and \(u(z)\in C^1(\mathbb{C})\).
 
     Then using the same argument, In general, for \(\psi(z)\in C^k(\mathbb{C})\), the same process can be used recursively to find that \(u(z)\in C^k(\mathbb{C})\) as well.
@@ -402,18 +402,18 @@ When Cauchy formalized \cref{thm:cauchyintegralformula,thm:cauchyintegraltheorem
 \begin{theorem}[\textsc{Cauchy--Goursat}]\label{thm:cauchygoursatformula}
     Let \(U\subset\mathbb{C}\) be an open region bounded with a simple closed boundary \(\partial U\), and let \(f:U\to\mathbb{C}\) be a holomorphic function continuous on \(\overline{U}\). Then for all \(z\in U\),
     \begin{equation}
-        f(z)=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\label{eq:cauchygoursatformula}
+        f(z)=\frac{1}{2\muppi\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\label{eq:cauchygoursatformula}
     \end{equation}
 \end{theorem}
 \begin{proof}
     By the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}), \[\int_{\partial\paren{U\setminus D(z,\varepsilon)}}\frac{f(\zeta)}{\zeta-z}\ddzeta=\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta-\oint_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=0.\]
-    From rearrangement, \[\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta=2\piup\ii f(z)+\ii\int_0^{2\piup}\paren{f\paren{z+\varepsilon\ee^{\ii t}}-f(z)}\dd{t}.\]
+    From rearrangement, \[\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta=2\muppi\ii f(z)+\ii\int_0^{2\muppi}\paren{f\paren{z+\varepsilon\ee^{\ii t}}-f(z)}\dd{t}.\]
     Since \(f\in C^0(\partial D(z,\varepsilon))\), as \(\varepsilon\to0\),
     \begin{align*}
-        \abs{\int_0^{2\piup}\paren{f\paren{z+\varepsilon\ee^{\ii t}}-f(z)}\dd{t}} & \leq\int_0^{2\piup}\abs{f\paren{z+\varepsilon\ee^{\ii t}}-f(z)}\dd{t}            \\
-        & \leq2\piup\max_{t\in[0,2\piup]}\abs{f\paren{z+\varepsilon\ee^{\ii t}}-f(z)}\to0.
+        \abs{\int_0^{2\muppi}\paren{f\paren{z+\varepsilon\ee^{\ii t}}-f(z)}\dd{t}} & \leq\int_0^{2\muppi}\abs{f\paren{z+\varepsilon\ee^{\ii t}}-f(z)}\dd{t}            \\
+        & \leq2\muppi\max_{t\in[0,2\muppi]}\abs{f\paren{z+\varepsilon\ee^{\ii t}}-f(z)}\to0.
     \end{align*}
-    By rearrangement, \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\qedhere\]
+    By rearrangement, \[f(z)=\frac{1}{2\muppi\ii}\oint_{\partial U}\frac{f(\zeta)}{\zeta-z}\ddzeta.\qedhere\]
 \end{proof}
 \begin{remark}
     In the proof of \cref{thm:pompeiu}, we used Lipschitz continuity for a smooth function, which was a stronger condition than necessary. The true necessity of smoothness was to be able to apply Green's Theorem (\cref{thm:complexgreen}).
@@ -423,42 +423,42 @@ This profound theorem is extremely important and helpful in complex integration 
     Evaluate the integral \(\oint_{\partial D(0,2)}\frac{\ddz}{z^n-1}\), where \(n\in\mathbb{N}_{\geq 2}\).
 \end{example}
 \begin{proof}
-    Since \(z^n-1=\prod_{k=0}^{n-1}\qty(z-\omega^k_n)\), where \(\omega^k_n=\ee^{\ii\piup\frac{k}{n}}\), the integrand has singularities at every \(n\)-th zero of unity. Then the integral is equal to:
+    Since \(z^n-1=\prod_{k=0}^{n-1}\qty(z-\omega^k_n)\), where \(\omega^k_n=\ee^{\ii\muppi\frac{k}{n}}\), the integrand has singularities at every \(n\)-th zero of unity. Then the integral is equal to:
     \begin{equation}
         \oint_{\partial D(0,2)}\frac{\ddz}{\prod_{j=0}^{n-1}\qty(z-\omega_j)}=\oint_{\partial D(0,2)}\sum_{j=0}^{n-1}\frac{c_j}{z-\omega_j}\ddz,\label{eq:cauchygoursatformulazerosofunity}
     \end{equation}
-    where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \cref{eq:cauchygoursatformulazerosofunity} becomes: \[\sum_{k=0}^{n-1}\oint_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\piup\ii\sum_{k=0}^{n-1}c_k.\]
+    where \(\cbraces{c_j}\) are the coefficients of the partial fraction decomposition. By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \cref{eq:cauchygoursatformulazerosofunity} becomes: \[\sum_{k=0}^{n-1}\oint_{\partial D(0,2)}\frac{c_k}{z-\omega_k}\ddz=2\muppi\ii\sum_{k=0}^{n-1}c_k.\]
     Observe that \(\sum_{k=0}^{n-1} c_k=\lim_{z\to\infty}\sum_{k=0}^{n-1}\frac{zc_k}{z-\omega_k}=\lim_{z\to\infty}\frac{z}{z^n-1}=0\) since \(n\geq2\). Therefore, \[\oint_{\partial D(0,2)}\frac{\ddz}{z^n-1}=0.\qedhere\]
 \end{proof}
 We have also already seen the utility of parameterization via a polar transformation. Many useful identities in classical calculus can also be derived from concepts in its generalization:
 \begin{example}
-    Prove that \(\forall n\in\mathbb{N}\), \[\int_{0}^{2\piup}\cos^{2n}\theta\dd{\theta}=2\piup\prod_{k=1}^n\frac{2k-1}{2k}.\]
+    Prove that \(\forall n\in\mathbb{N}\), \[\int_{0}^{2\muppi}\cos^{2n}\theta\dd{\theta}=2\muppi\prod_{k=1}^n\frac{2k-1}{2k}.\]
 \end{example}
 \begin{proof}
     Consider the integral \[\oint_{\partial\mathbb{D}}\qty(z+\frac{1}{z})^{2n}\frac{\ddz}{z}.\]
-    Letting \(z=\ee^{\ii\theta}\), we get \(\oint_{\partial\mathbb{D}}\qty(\ee^{\ii\theta}+\ee^{-\ii\theta})^{2n}\ee^{-\ii\theta}\ddz=2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}\). Alternatively, we can expand the integrand and get \[\oint_{\partial\mathbb{D}}\sum_{k=0}^{2n}\binom{2n}{k}z^{2k-2n}\frac{\ddz}{z}=\sum_{k=0}^{2n}\oint_{\partial\mathbb{D}}\binom{2n}{k}z^{2k-2n-1}\ddz.\]
-    When \(2k-2n-1\ge0\), the integrand is holomorphic. The integral is then equal to \[\binom{2n}{0}\oint_{\partial\mathbb{D}}z^{-2n-1}\ddz+\binom{2n}{1}\oint_{\partial\mathbb{D}}z^{-2n+1}\ddz+\cdots+\binom{2n}{n}\oint_{\partial\mathbb{D}}\frac{\ddz}{z}=2\piup\ii\binom{2n}{n},\]
+    Letting \(z=\ee^{\ii\theta}\), we get \(\oint_{\partial\mathbb{D}}\qty(\ee^{\ii\theta}+\ee^{-\ii\theta})^{2n}\ee^{-\ii\theta}\ddz=2^{2n}\ii\int_0^{2\muppi}\cos^{2n}\theta\dd{\theta}\). Alternatively, we can expand the integrand and get \[\oint_{\partial\mathbb{D}}\sum_{k=0}^{2n}\binom{2n}{k}z^{2k-2n}\frac{\ddz}{z}=\sum_{k=0}^{2n}\oint_{\partial\mathbb{D}}\binom{2n}{k}z^{2k-2n-1}\ddz.\]
+    When \(2k-2n-1\ge0\), the integrand is holomorphic. The integral is then equal to \[\binom{2n}{0}\oint_{\partial\mathbb{D}}z^{-2n-1}\ddz+\binom{2n}{1}\oint_{\partial\mathbb{D}}z^{-2n+1}\ddz+\cdots+\binom{2n}{n}\oint_{\partial\mathbb{D}}\frac{\ddz}{z}=2\muppi\ii\binom{2n}{n},\]
     since all the higher order terms vanish:
-    \[\oint_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\ii\int_0^{2\piup}\ee^{2\ii\theta(k-n)}\dd{\theta}=
+    \[\oint_{\partial\mathbb{D}}z^{2k-2n-1}\ddz=\ii\int_0^{2\muppi}\ee^{2\ii\theta(k-n)}\dd{\theta}=
         \begin{dcases}
             0         & \qif* k<n, \\
-            2\piup\ii & \qif* k=n.
+            2\muppi\ii & \qif* k=n.
     \end{dcases}\]
-    Therefore, \[2^{2n}\ii\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=2\piup\ii\binom{2n}{n}\Longleftrightarrow\int_0^{2\piup}\cos^{2n}\theta\dd{\theta}=\frac{2\piup\qty(2n)!}{2^{2n}\qty(n!)^2}=\frac{2\piup\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}{\qty(2k)}^2}.\]
-    From simple cancellation, we get \[2\piup\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\piup\prod_{k=1}^n\frac{2k-1}{2k},\]
+    Therefore, \[2^{2n}\ii\int_0^{2\muppi}\cos^{2n}\theta\dd{\theta}=2\muppi\ii\binom{2n}{n}\Longleftrightarrow\int_0^{2\muppi}\cos^{2n}\theta\dd{\theta}=\frac{2\muppi\qty(2n)!}{2^{2n}\qty(n!)^2}=\frac{2\muppi\prod_{k=1}^{2n}k}{\prod_{k=1}^{n}{\qty(2k)}^2}.\]
+    From simple cancellation, we get \[2\muppi\frac{\prod_{k=1}^{n}\qty(2k-1)}{\prod_{k=1}^n\qty(2k)}=2\muppi\prod_{k=1}^n\frac{2k-1}{2k},\]
     as expected.
 \end{proof}
 \begin{example}[Cauchy--Goursat Formula on the Exterior]\label{ex:cauchygoursatformulaexterior}
     Let \(\gamma\subset\mathbb{C}\) be a simple closed curve, and suppose that \(f:\mathrm{ext}(\gamma)\to\mathbb{C}\) is holomorphic and continuous on \(\overline{\mathrm{ext}(\gamma)}=\mathbb{C}\setminus\mathrm{int}(\gamma)\), where \(\mathrm{int}\) and \(\mathrm{ext}\) respectively denote the interior and exterior as in \cref{thm:jordancurve}.
     \begin{enumerate}
-        \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=
+        \item If \(f\) has a removable singularity at \(\infty\), or if \(w=\lim_{z\to\infty} f(z)\) exists and is finite, then \(\forall z\in\mathbb{C}\setminus\gamma\), \[\frac{1}{2\muppi\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=
                 \begin{dcases}
                     w      & \qif* z\in\mathrm{int}(\gamma), \\
                     w-f(z) & \qif* z\in\mathrm{ext}(\gamma).
             \end{dcases}\]
         \item If \(\gamma\) encloses the origin, then \(\forall z\in\mathbb{C}\setminus\gamma\), then
             \begin{equation}
-                \frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
+                \frac{1}{2\muppi\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
                 \begin{dcases}
                     0    & \qif* z\in\mathrm{int}(\gamma),                                                       \\
                     f(z) & \qif* z\in\mathrm{ext}(\gamma).\label{eq:cauchygoursatformulaexteriorpart2_statement}
@@ -468,19 +468,19 @@ We have also already seen the utility of parameterization via a polar transforma
 \end{example}
 \begin{proof}
     \begin{enumerate}
-        \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \cref{thm:cauchygoursatformula} or \cref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\piup\ii}\oint_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+
+        \item By the compactness of \(\gamma\), it can be completely contained within a sufficiently large disk centered at the origin (\(\gamma\subset D(0,R)\)). Then by applying \cref{thm:cauchygoursatformula} or \cref{thm:cauchygoursattheorem} on the set \(D(0,R)\cap\mathrm{ext}(\gamma)=D(0,R)\setminus\overline{\mathrm{int}(\gamma)}\), we get that \[\frac{1}{2\muppi\ii}\oint_{\partial D(0,R)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\muppi\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta+
                 \begin{dcases}
                     0    & \qif* z\in\mathrm{int}(\gamma),            \\
                     f(z) & \qif* z\in D(0,R)\cap\mathrm{ext}(\gamma).
             \end{dcases}\]
-            By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\lim_{R\to\infty}\int_0^{2\piup}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
+            By letting \(R\to\infty\) and letting \(\zeta=R\ee^{\ii\theta}\), we get that \[\frac{1}{2\muppi\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\muppi}\lim_{R\to\infty}\int_0^{2\muppi}\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{dcases}
                     0    & \qif* z\in\mathrm{int}(\gamma), \\
                     f(z) & \qif* z\in\mathrm{ext}(\gamma).
             \end{dcases}\]
             By the continuity of \(f\) on \(\partial D(0,R)\), it attains its maximum \(M\). For sufficiently large \(R\), \(\abs{1-\frac{z}{R\ee^{\ii\theta}}}\) attains a positive minimum. Then the integrand is uniformly bounded in \(R\) and \(\theta\), and hence the order of the limit and the integral may be exchanged. Hence,
             \begin{align*}
-                \frac{1}{2\piup\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\piup}\int_0^{2\piup}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
+                \frac{1}{2\muppi\ii}\oint_\gamma\frac{f(\zeta)}{\zeta-z}\ddzeta & =\frac{1}{2\muppi}\int_0^{2\muppi}\frac{w}{1-\lim_{R\to\infty}\frac{z}{R\ee^{\ii\theta}}}\dd{\theta}-
                 \begin{dcases}
                     0    & \qif* z\in\mathrm{int}(\gamma), \\
                     f(z) & \qif* z\in\mathrm{ext}(\gamma),
@@ -493,19 +493,19 @@ We have also already seen the utility of parameterization via a polar transforma
         \item Under the partial fraction decomposition of \cref{eq:cauchygoursatformulaexteriorpart2_statement}, we get that
             \begin{align}
                 I & =\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=\oint_\gamma\qty(\frac{f(\zeta)}{\zeta}-\frac{f(\zeta)}{\zeta-z})\ddzeta\nonumber \\
-                & =\int_0^{2\piup}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
+                & =\int_0^{2\muppi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}+
                 \begin{dcases}
                     0              & \qif* z\in\mathrm{int}(\gamma),            \\
-                    2\piup\ii f(z) & \qif* z\in\mathrm{ext}(\gamma)\cap D(0,R),
+                    2\muppi\ii f(z) & \qif* z\in\mathrm{ext}(\gamma)\cap D(0,R),
                 \end{dcases}\label{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}
             \end{align} when \(\gamma\subset D(0,R)\).
             We will analyze the first integral as \(R\to\infty\). By the triangle and reverse triangle inequalities,
             \begin{align*}
-                \qty|\int_0^{2\piup}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}| & \leq\int_0^{2\piup}\qty|\frac{z}{R\ee^{\ii\theta}-z}|\dd{\theta}                             \\
-                & \leq\int_0^{2\piup}\frac{\abs{z}}{R-\abs{z}}\dd{\theta}=\frac{2\piup\abs{z}}{R-\abs{z}}\to0.
+                \qty|\int_0^{2\muppi}\qty(f\qty(R\ee^{\ii\theta})-\frac{f\qty(R\ee^{\ii\theta})}{1-\frac{z}{R\ee^{\ii\theta}}})\dd{\theta}| & \leq\int_0^{2\muppi}\qty|\frac{z}{R\ee^{\ii\theta}-z}|\dd{\theta}                             \\
+                & \leq\int_0^{2\muppi}\frac{\abs{z}}{R-\abs{z}}\dd{\theta}=\frac{2\muppi\abs{z}}{R-\abs{z}}\to0.
             \end{align*}
     \end{enumerate}
-    By substituting the result into \cref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\piup\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
+    By substituting the result into \cref{eq:cauchygoursatformulaexteriorpart2_prelimitintegral}, and letting \(R\to\infty\), we get that \[\frac{1}{2\muppi\ii}\oint_\gamma\frac{zf(\zeta)}{z\zeta-\zeta^2}\ddzeta=
         \begin{dcases}
             0    & \qif* z\in\mathrm{int}(\gamma), \\
             f(z) & \qif* z\in\mathrm{ext}(\gamma),

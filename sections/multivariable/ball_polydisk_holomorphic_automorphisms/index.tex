@@ -1,16 +1,16 @@
 \subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{D}^n\)}{the Unit Polydisk} and \texorpdfstring{\(B^n\)}{the Unit Ball}}
-A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms on complex domains in higher dimensions.
+A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textit{holomorphic} iff each of its component functions is holomorphic. It is important to allow for vector-valued outputs, since we are interested in automorphisms on complex domains in higher dimensions.
 
 For the aforesaid purpose, we require a generalization of the Schwarz Lemma (\cref{lem:schwarz}), which is equivalent to several results of Cartan.
 
 In preparation, we will introduce several relevant concepts.
 \begin{definition}[Multi-Index Notation]\label{def:multiindex}
-    A \textscsl{multi-index} is an \(n\)-tuple of nonnegative integers \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\geq0}^n\).
+    A \textit{multi-index} is an \(n\)-tuple of nonnegative integers \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\geq0}^n\).
     We define
     \[\abs{\vb{k}}=\sum_{j=1}^n k_j,\qquad\vb{z}^{\vb{k}}=\prod_{j=1}^n z_j^{k_j},\qquad\partial^{\vb{k}}=\pdv[\vb{k}]{}{\vb{z}}=\prod_{j=1}^n\pdv[k_j]{z_j},\qquad\vb{z}=\qty(z_1,\dots,z_n)\in\mathbb{C}^n.\]
 \end{definition}
 \begin{definition}\label{def:homogeneouspolynomial}
-    A polynomial \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
+    A polynomial \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textit{homogeneous of degree \(d\)} iff
     \[\vb*{\psi}(\lambda\vb{z})=\lambda^d\vb*{\psi}(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n,\]
     or equivalently, iff \(\vb*{\psi}\) can be written as
     \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\] where \(\vb{k}\in\mathbb{N}_{\ge0}^n\) is a multi-index.
@@ -65,16 +65,16 @@ In preparation, we will introduce several relevant concepts.
     Since \(\vb*{\psi}_m\not\equiv 0\), there exists \(\vb*{\alpha}\) satisfying \(\abs{\vb*{\alpha}}=m\) such that \[\partial^{\vb*{\alpha}}\vb*{\psi}_m\equiv\vb{c}\neq\vb{0}\] is a nonzero constant by \cref{prop:homogeneouspolynomialderivatives}. Consequently, \[\partial^{\vb*{\alpha}}\qty(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a})\] is a homogeneous polynomial with degree \(\geq 1\) and thus vanishes as \(\vb{z}\to\vb{a}\). Similarly, \(\vb{z}\mapsto\vb{z}\) is homogeneous with degree \(1<m\) and thus \(\partial^{\vb*{\alpha}}z\) vanishes. Therefore, \[\partial^{\vb*{\alpha}}\vb{f}_k(\vb{a})=k\vb{c},\] which diverges as \(k\to\infty\). Weierstrass' Convergence Theorem (\cref{thm:weierstrassconvergencemultivar}) gives that \(\partial^{\vb*{\alpha}}\vb{f}_{k_l}(\vb{a})\to\partial^{\vb*{\alpha}}\widetilde{\vb{f}}(\vb{a})\) which must be finite by holomorphy, contradicting the divergence. Hence, the assumed value for \(m\) cannot exist and hence \(\vb*{\psi}_j\equiv 0\) for all \(j\geq 2\). Thus, \(\vb{f}(\vb{z})\equiv\vb{z}\) on some polydisk centered at \(\vb{a}\). By the Identity Theorem (\cref{thm:identitymultivar}), \(\vb{f}(\vb{z})\equiv\vb{z}\) on \(\Omega\).
 \end{proof}
 \begin{definition}[Reinhardt Domain]\label{def:reinhardtdomain}
-    An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{Reinhardt domain} centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), \[\cbraces{\qty(z_1,\ldots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}=\abs{\zeta_k-a_k},1\leq k\leq n}\] is fully contained in \(\Omega\). In other words, \(\Omega\) is invariant under all rotations about the center \(\vb{a}\) in each coordinate.
+    An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textit{Reinhardt domain} centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), \[\cbraces{\qty(z_1,\ldots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}=\abs{\zeta_k-a_k},1\leq k\leq n}\] is fully contained in \(\Omega\). In other words, \(\Omega\) is invariant under all rotations about the center \(\vb{a}\) in each coordinate.
 \end{definition}
 \begin{definition}\label{def:completereinhardtdomain}
-    A Reinhardt domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textscsl{complete} iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), the polydisk \[\cbraces{\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}\leq\abs{\zeta_k-a_k},1\leq k\leq n}\] is contained in \(\Omega\).
+    A Reinhardt domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textit{complete} iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), the polydisk \[\cbraces{\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}\leq\abs{\zeta_k-a_k},1\leq k\leq n}\] is contained in \(\Omega\).
 \end{definition}
 \begin{definition}[Circular Domain]\label{def:circulardomain}
-    An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{circular domain} centered at \(\vb{a}\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\ee^{\ii\theta}\qty(\vb*{\zeta}-\vb{a})}{0\leq\theta<2\piup}\] is fully contained in \(\Omega\).
+    An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textit{circular domain} centered at \(\vb{a}\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\ee^{\ii\theta}\qty(\vb*{\zeta}-\vb{a})}{0\leq\theta<2\muppi}\] is fully contained in \(\Omega\).
 \end{definition}
 \begin{definition}\label{def:completecirculardomain}
-    A circular domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textscsl{complete} iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\mu\qty(\vb*{\zeta}-\vb{a})}{\forall\mu\in\overline{\mathbb{D}}}\] is contained in \(\Omega\).
+    A circular domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textit{complete} iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\mu\qty(\vb*{\zeta}-\vb{a})}{\forall\mu\in\overline{\mathbb{D}}}\] is contained in \(\Omega\).
 \end{definition}
 \begin{proposition}\label{prop:jacobianchainrule}
     Let \(U_0\subseteq\mathbb{C}^{n_0}, U_1\subseteq\mathbb{C}^{n_1}, U_2\subseteq\mathbb{C}^{n_2}\) be open domains with \(n_i\geq 1\) for each \(i\), and let \(\vb{f}:U_1\to U_2\) and \(\vb{g}:U_0\to U_1\) be holomorphic maps. Define the composition \(\vb{h}:U_0\to U_2\) by \(\vb{h}(\vb{z})=\vb{f}(\vb{g}(\vb{z}))\). Then for every \(\vb{z}\in U_0\), the complex Jacobian matrix of \(\vb{h}\) at \(\vb{z}\) is
@@ -108,7 +108,7 @@ In preparation, we will introduce several relevant concepts.
     \begin{equation*}
         \vb*{\rho}_\theta\circ\vb{f}(\vb{z})=\ee^{\ii\theta}\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta}\vb{z}^{\vb{k}}.
     \end{equation*}
-    Hence, by the uniqueness of power series expansions, we must either have that \(\vb{a}_{\vb{k}}=\vb{0}\), \(\ee^{\ii\theta}\equiv\ee^{\ii\theta\abs{\vb{k}}}\), or equivalently, that \[\abs{\vb{k}}\equiv 1\pmod{2\piup}.\] This is only possible when \(\abs{\vb{k}}=1\) by irrationality, and thus \(\vb{a}_{\vb{k}}=\vb{0}\) for all \(\abs{\vb{k}}\neq 1\). Therefore, \(\vb{f}\) must be linear.
+    Hence, by the uniqueness of power series expansions, we must either have that \(\vb{a}_{\vb{k}}=\vb{0}\), \(\ee^{\ii\theta}\equiv\ee^{\ii\theta\abs{\vb{k}}}\), or equivalently, that \[\abs{\vb{k}}\equiv 1\pmod{2\muppi}.\] This is only possible when \(\abs{\vb{k}}=1\) by irrationality, and thus \(\vb{a}_{\vb{k}}=\vb{0}\) for all \(\abs{\vb{k}}\neq 1\). Therefore, \(\vb{f}\) must be linear.
 \end{proof}
 \begin{remark}
     If \(n=1\), then \(\Omega=D(0,R)\) for some \(R>0\) and any automorphism \(f\) with a fixed point \(0\) is a rotation in the form of \(z\mapsto\ee^{\ii\theta}z\), hence linear, the effective statement of the Schwarz Lemma (\cref{lem:schwarz}).
@@ -153,10 +153,10 @@ In preparation, we will introduce several relevant concepts.
     as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, each automorphism of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
 \end{proof}
 \begin{definition}
-    The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{U}\) is defined as \(\vb{U}^\dagger=\overline{\vb{U}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
+    The \textit{conjugate transpose} or \textit{Hermitian transpose} of a complex matrix \(\vb{U}\) is defined as \(\vb{U}^\dagger=\overline{\vb{U}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
 \end{definition}
 \begin{definition}
-    A matrix \(\vb{U}\) is said to be \textscsl{unitary} iff its inverse is its conjugate transpose, or iff \(\vb{U}^\dagger\vb{U}=\vb{U}\vb{U}^\dagger=\vb{I}\).
+    A matrix \(\vb{U}\) is said to be \textit{unitary} iff its inverse is its conjugate transpose, or iff \(\vb{U}^\dagger\vb{U}=\vb{U}\vb{U}^\dagger=\vb{I}\).
 \end{definition}
 \begin{theorem}[\textsc{Spectral Theorem}]\label{thm:unitaryspectraltheorem}
     For any unitary matrix \(\vb{U}\), there exists a unitary matrix \(\vb{V}\) such that \(\vb{U}=\vb{VD}\vb{V}^\dagger\), where \(\vb{D}\) is a diagonal matrix whose diagonal entries are all of unit modulus.
@@ -169,7 +169,7 @@ In preparation, we will introduce several relevant concepts.
     so \(\vb{Uw}\in\vb{v}_1^\perp\). Hence \(\vb{v}_1^\perp\) is invariant under \(\vb{U}\). The restriction of \(\vb{U}\) to \(\vb{v}_1^\perp\), \(\vb{U}{\restriction_{\vb{v}_1^\perp}}\), yields another eigenvalue \(\lambda_2\in\partial\mathbb{D}\) with eigenvector \(\vb{v}_2\in\vb{v}_1^\perp\) satisfying \(\abs{\lambda_2}=1\) and \(\norm{\vb{v}_2}=1\). Similarly, we may define \(\vb{v}_2^\perp\subset\vb{v}_1^\perp\), which is an \((n-2)\)-dimensional subspace invariant under \(\vb{U}\). Repeating this process inductively, we obtain an orthonormal basis \(\cbraces{\vb{v}_1,\ldots,\vb{v}_n}\) of eigenvectors of \(\vb{U}\) with corresponding eigenvalues \(\lambda_1,\ldots,\lambda_n\in\partial\mathbb{D}\). Setting \[\vb{V}=\mqty(\vb{v}_1&\cdots&\vb{v}_n),\qquad\vb{D}=\operatorname{diag}\qty(\lambda_1,\ldots,\lambda_n)\] gives that \[\vb{V}^\dagger\vb{UV}=\vb{V}^\dagger\mqty(\vb{U}\vb{v}_1&\cdots&\vb{U}\vb{v}_n)=\vb{V}^\dagger\mqty(\lambda_1\vb{v}_1&\cdots&\lambda_n\vb{v}_n)=\vb{V}^\dagger\vb{VD}.\]
     The \(k\)-th diagonal entry of \(\vb{V}^\dagger\vb{V}\) is equal to \(\vb{v}_k^\dagger\vb{v}_k=\norm{\vb{v}_k}^2=1\), while the non-diagonal entries correspond to \(\vb{v}_k^\dagger\vb{v}_l\) for some \(k\neq l\), which vanish by orthogonality in construction. Thus, \(\vb{V}^\dagger\vb{V}=\vb{I}\) (unitary) and \(\vb{VD}\vb{V}^\dagger=\vb{U}\).
 \end{proof}
-A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U}\vb{z}\), where \(\vb{U}\) is a unitary matrix.
+A \textit{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U}\vb{z}\), where \(\vb{U}\) is a unitary matrix.
 \begin{proposition}\label{prop:unitballsimpleautomorphism}
     For any \(a\in\mathbb{D}\),
     \begin{equation}
@@ -213,7 +213,7 @@ A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U
     so \(\vb{f}\) maps \(B^n\) to \(B^n\). Since \(\vb{U}\) is invertible with unitary inverse \(\vb{U}^\dagger\), the map \(\vb{f}\) is bijective with inverse \(\vb{f}^{-1}(\vb{w})=\vb{U}^\dagger\vb{w}\), which also maps \(B^n\) to \(B^n\). Therefore, \(\vb{f}\in\Aut\qty(B^n)\) and \(\vb{f}(\vb{0})=\vb{0}\).
 \end{proof}
 \begin{definition}
-    A group \(G\) (under juxtaposition) is said to be \textscsl{divisible} iff for every \(g\in G\) and every positive integer \(n\), there exists some \(h\in G\) such that \(h^n=g\).
+    A group \(G\) (under juxtaposition) is said to be \textit{divisible} iff for every \(g\in G\) and every positive integer \(n\), there exists some \(h\in G\) such that \(h^n=g\).
 \end{definition}
 \begin{proposition}\label{prop:groupdivisibilitypreservedunderisomorphisms}
     The divisibility of a group is preserved under group isomorphisms.

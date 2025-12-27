@@ -1,5 +1,5 @@
 \subsection{Complex Differentiation}\label{sec:complexdifferentiation}
-For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is \textscsl{complex differentiable} at \(z\in U\) if the following limit exists, regardless of the direction \(\Delta z\) approaches 0 at:
+For \(U\subseteq \mathbb{C}\) and a complex function \(f:U\to\mathbb{C}\), \(f(z)\) is \textit{complex differentiable} at \(z\in U\) if the following limit exists, regardless of the direction \(\Delta z\) approaches 0 at:
 \[\lim_{\Delta z\to0}\frac{f(z+\Delta z)-f(z)}{\Delta z}.\]
 We can consider \(f(z)\) to be a bivariate function \(f(x,y)\) for \(z=x+\ii y\). Two main cases we are concerned with are when \(\Delta z\) approaches 0 from the real and imaginary axes:
 \[\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\Delta z)-f(z)}{\Delta z}=\lim_{\substack{\Delta z\to0\\\Delta z\in\mathbb{R}}}\frac{f(z+\ii\Delta z)-f(z)}{\ii \Delta z}.\] Expressing \(f(z)\) as \(f(x,y)=u(x,y)+\ii v(x,y)\),
@@ -13,17 +13,17 @@ By multiplying the second equation by \(\ii\) and adding it to the first, we obt
 \begin{equation}
     \pdv{f}{x}=-\ii\pdv{f}{y}\label{eq:cauchyriemanneqs2}
 \end{equation}
-\cref{eq:cauchyriemanneqs1,eq:cauchyriemanneqs2} are known as the \textscsl{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\abs{\Re(z)\Im(z)}}\). Let \(z=x+\ii y\), \(x=\alpha t\), and \(y=\beta t\). Then
+\cref{eq:cauchyriemanneqs1,eq:cauchyriemanneqs2} are known as the \textit{Cauchy--Riemann equations}. Although this condition is necessary, it is not sufficient. Consider the function \(f(z)=\sqrt{\abs{\Re(z)\Im(z)}}\). Let \(z=x+\ii y\), \(x=\alpha t\), and \(y=\beta t\). Then
 \[\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}=\lim_{t\to0}\frac{\sqrt{\abs{\alpha\beta t^2}}}{\alpha t+\ii\beta t}=\frac{\sqrt{\abs{\alpha\beta}}}{\alpha+\ii\beta}.\]
 The derivative along \(\alpha=1\), \(\beta=0\) (or the real axis) vanishes. Along \(\alpha=0\), \(\beta=1\) (or the imaginary axis), it also vanishes. However, the limit is different for any other pair of \(\alpha\) and \(\beta\), or the consequent direction of approach.
 \begin{definition}[Holomorphy]\label{def:holomorphy}
-    A function \(f:U\to\mathbb{C}\) is said to be \textscsl{holomorphic} at \(z_0\in U\) if it is complex differentiable on a neighborhood of \(z_0\). If \(f(z)\) is holomorphic for every point in an open connected set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over compact set \(K\) if it is holomorphic on a neighborhood of \(K\).
+    A function \(f:U\to\mathbb{C}\) is said to be \textit{holomorphic} at \(z_0\in U\) if it is complex differentiable on a neighborhood of \(z_0\). If \(f(z)\) is holomorphic for every point in an open connected set \(U\), then it is said to be holomorphic over \(U\). A function is holomorphic over compact set \(K\) if it is holomorphic on a neighborhood of \(K\).
 \end{definition}
 Weierstrass provided the following classification:
 \begin{definition}
-    A function is \textscsl{entire} if it is holomorphic over \(\mathbb{C}\).
+    A function is \textit{entire} if it is holomorphic over \(\mathbb{C}\).
 \end{definition}
-For the purpose of the following contents, a \textscsl{region} or \textscsl{domain} will denote a nonempty, open, connected subset of the complex plane.
+For the purpose of the following contents, a \textit{region} or \textit{domain} will denote a nonempty, open, connected subset of the complex plane.
 \begin{theorem}\label{thm:holomorphycondition}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be a function. Then \(f\) is holomorphic on \(U\) iff \(f\in C^1(U)\) and satisfies the Cauchy--Riemann equations.
 \end{theorem}
@@ -43,7 +43,7 @@ For the purpose of the following contents, a \textscsl{region} or \textscsl{doma
 We will prove later in \cref{sec:analyticityandholomorphy} that the complex derivative of a holomorphic function \(f(z)=u(z)+\ii v(z)\) is holomorphic. Under this assumption, \(f(z)\) has continuous second-order partial derivatives, and therefore, \[\pdv[2]{u}{x}{y}=\pdv[2]{u}{y}{x},\quad\pdv[2]{v}{x}{y}=\pdv[2]{v}{y}{x},\] and by the Cauchy--Riemann equations, \[\pdv[2]{u}{x}=\pdv[2]{v}{x}{y},\quad\pdv[2]{u}{y}=-\pdv[2]{v}{y}{x},\]
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
-This type of equation is called the \textscsl{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textscsl{Laplacian}) \[(\Delta=)\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a \textscsl{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
+This type of equation is called the \textit{Laplace equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textit{Laplacian}) \[(\Delta=)\laplacian=\div{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying the Laplace equation \(\laplacian u=0\) is a \textit{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
 \begin{proposition}\label{prop:realvaluedholomorphicfunctionconstant}
     Let \(U\subseteq\mathbb{C}\) be open and connected and \(f:U\to\mathbb{R}\) be holomorphic. It follows that \(f\) is constant over \(U\).
 \end{proposition}

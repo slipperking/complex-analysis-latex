@@ -3,22 +3,22 @@ Before we address our main issue, we will first formalize the concept of
 homotopy. Informally, it is a continuous deformation or ``smooth
 interpolation'' between two curves (that lies entirely within a provided set).
 \begin{definition}[Homotopy]\label{def:homotopy}
-    Let \(U\subseteq\mathbb{C}\) be an open set. Two curves \(\gamma_1,\gamma_2:[0,1]\to U\) are said to be \textscsl{homotopic} if there exists a continuous function \(H:[0,1]\times[0,1]\to U\) such that:
+    Let \(U\subseteq\mathbb{C}\) be an open set. Two curves \(\gamma_1,\gamma_2:[0,1]\to U\) are said to be \textit{homotopic} if there exists a continuous function \(H:[0,1]\times[0,1]\to U\) such that:
     \begin{enumerate}
         \item \(H(0,t)=\gamma_1(t)\) for all \(t\in[0,1]\),
         \item \(H(1,t)=\gamma_2(t)\) for all \(t\in[0,1]\).
     \end{enumerate}
-    The function \(H\) is known as a \textscsl{homotopy} between \(\gamma_1\) and \(\gamma_2\).
+    The function \(H\) is known as a \textit{homotopy} between \(\gamma_1\) and \(\gamma_2\).
 \end{definition}
-We are primarily concerned with homotopies with \textscsl{fixed endpoints} (under the pretense that \(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), or that the homotopy \(H\) satisfies \(H(s,0)=\gamma_1(0)=\gamma_2(0)\) and \(H(s,1)=\gamma_1(1)=\gamma_2(1)\) for any \(s\in[0,1]\).
+We are primarily concerned with homotopies with \textit{fixed endpoints} (under the pretense that \(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), or that the homotopy \(H\) satisfies \(H(s,0)=\gamma_1(0)=\gamma_2(0)\) and \(H(s,1)=\gamma_1(1)=\gamma_2(1)\) for any \(s\in[0,1]\).
 \begin{definition}
-    Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(U\subseteq\Omega\) be an open disk centered at \(P\in\Omega\). Suppose \(\qty(f,U)\) is an analytic function element. If there is an analytic continuation of \(\qty(f,U)\) along any curve \(\gamma\) from \(P\), then \((f,U)\) has \textscsl{unrestricted continuation} in \(\Omega\).
+    Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(U\subseteq\Omega\) be an open disk centered at \(P\in\Omega\). Suppose \(\qty(f,U)\) is an analytic function element. If there is an analytic continuation of \(\qty(f,U)\) along any curve \(\gamma\) from \(P\), then \((f,U)\) has \textit{unrestricted continuation} in \(\Omega\).
 \end{definition}
 As for our question in interest:
 \begin{quote}
     Let \(\gamma_1:[0,1]\to\mathbb{C}\) and \(\gamma_2\to\mathbb{C}\) be two curves with the same endpoints (\(\gamma_1(0)=\gamma_2(0)\) and \(\gamma_1(1)=\gamma_2(1)\)), and let \(\cbraces{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\cbraces{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) be the unique analytic continuations along \(\gamma_1\) and \(\gamma_2\) respectively. Under what conditions will the terminal analytic function elements be equivalent (when will it be satisfied that \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\))?
 \end{quote}
-This question is not necessarily an affirmative. The principal branch logarithm on \(D\qty(1,1)\), when analytically continued on the unit upper semicircle \(\cbraces{\ee^{\piup\ii\theta}}_{0\leq t\leq 1}\) and unit lower semicircle \(\cbraces{\ee^{-\piup\ii\theta}}_{0\leq t\leq 1}\), yields inequivalent terminal analytic function elements (differing by \(2\piup\ii\)). The general answer to the question is given below:
+This question is not necessarily an affirmative. The principal branch logarithm on \(D\qty(1,1)\), when analytically continued on the unit upper semicircle \(\cbraces{\ee^{\muppi\ii\theta}}_{0\leq t\leq 1}\) and unit lower semicircle \(\cbraces{\ee^{-\muppi\ii\theta}}_{0\leq t\leq 1}\), yields inequivalent terminal analytic function elements (differing by \(2\muppi\ii\)). The general answer to the question is given below:
 \begin{theorem}[\textsc{Monodromy Theorem}]\label{thm:monodromy}
     Let \(\Omega\subseteq\mathbb{C}\) be a region, and suppose \(U\subseteq\Omega\) is a disk centered at \(P\), and let \(\gamma_1\) and \(\gamma_2\) be two curves in \(\Omega\) with the same endpoints (\(P=\gamma_1(0)=\gamma_2(0)\) and \(Q=\gamma_1(1)=\gamma_2(1)\)). Let \(\cbraces{\qty(f_t,U_t)}_{0\leq t\leq 1}\) and \(\cbraces{\qty(\widetilde{f}_t,\widetilde{U}_t)}_{0\leq t\leq 1}\) be the unique analytic continuations along \(\gamma_1\) and \(\gamma_2\) respectively. If \(\gamma_1\) and \(\gamma_2\) are homotopic in \(\Omega\) and \(\qty(f,U)\) has unrestricted continuation in \(\Omega\), then \(f_1\equiv\widetilde{f}_1\) on \(U_1\cap\widetilde{U}_1\).
 \end{theorem}

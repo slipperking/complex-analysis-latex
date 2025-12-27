@@ -3,14 +3,14 @@ A useful corollary of \cref{thm:cauchygoursatformula} is the Maximum Modulus Pri
 
 Before the theorem, we first introduce the mean-value property of holomorphic functions.
 \begin{lemma}\label{lem:holomorphicmeanvalueproperty}
-    Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall\varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
+    Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall\varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\muppi\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
 \end{lemma}
 \begin{proof}
-    By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\piup\ii}\oint_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}.\]
+    By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\muppi\ii}\oint_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\muppi}\int_0^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}.\]
     Observe that
     \begin{align*}
-        f(z)=\frac{1}{2\piup\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}} & =\frac{1}{2\piup\varepsilon}\int_{0}^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\abs{\ii\varepsilon\ee^{\ii t}\dd{t}} \\
-                                                                                                  & =\frac{1}{2\piup}\int_{0}^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t},
+        f(z)=\frac{1}{2\muppi\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}} & =\frac{1}{2\muppi\varepsilon}\int_{0}^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\abs{\ii\varepsilon\ee^{\ii t}\dd{t}} \\
+                                                                                                  & =\frac{1}{2\muppi}\int_{0}^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t},
     \end{align*}
     and the conclusion follows.
 \end{proof}
@@ -26,15 +26,15 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
 
     Since \(S\subseteq V\) and \(V\) are both open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \cref{lem:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
     \begin{align*}
-        |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}\leq\frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
-               & \leq\frac{1}{2\piup}\int_0^{2\piup}\abs{f(z)}\dd{t}=\abs{f(z)}.
+        |f(z)| & =\abs{\frac{1}{2\muppi}\int_0^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}\leq\frac{1}{2\muppi}\int_0^{2\muppi}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
+               & \leq\frac{1}{2\muppi}\int_0^{2\muppi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
     It follows that all inequalities above are equalities, or that
     \begin{align*}
-        |f(z)| & =\abs{\frac{1}{2\piup}\int_0^{2\piup}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}=\frac{1}{2\piup}\int_0^{2\piup}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
-               & =\frac{1}{2\piup}\int_0^{2\piup}\abs{f(z)}\dd{t}=\abs{f(z)}.
+        |f(z)| & =\abs{\frac{1}{2\muppi}\int_0^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}=\frac{1}{2\muppi}\int_0^{2\muppi}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
+               & =\frac{1}{2\muppi}\int_0^{2\muppi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
-    From the equality of the last two integrals, \(\int_{0}^{2\piup}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon\ee^{\ii t}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\cref{thm:identity}).
+    From the equality of the last two integrals, \(\int_{0}^{2\muppi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon\ee^{\ii t}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\cref{thm:identity}).
 \end{proof}
 \begin{remark}
     If \(f\) is holomorphic and non-constant on an open region \(U\subseteq\mathbb{C}\), then for any compact set \(K\subset U\), the maximum of \(f\) in \(K\) lies on \(\partial K\). Otherwise, \(f\) would attain a maximum at some \(z\in\interior{K}\), and contradict the statement of \cref{thm:maximummodulus} under the assumption of being non-constant.
@@ -63,21 +63,21 @@ The following important result can be directly obtained from the Maximum Modulus
 
     Next, assume only that \(\abs{f'(0)}=1\). It follows that \(\abs{g(0)}=1\). Since \(\abs{g(z)}\leq 1\) for all \(z\in\mathbb{D}\), it follows from \cref{thm:maximummodulus} that \(g\) is constant with magnitude 1, or in the form of \(\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is a constant. Consequently, \(f(z)=z\exp(\ii\tau)\).
 \end{proof}
-To discuss the main topic of this section, we will first introduce the concept of a \textscsl{group}.
+To discuss the main topic of this section, we will first introduce the concept of a \textit{group}.
 \begin{definition}[Group]\label{def:group}
-    A group is a nonempty set \(G\) and a binary operation (we will denote this as \(*\)) satisfying the four \textscsl{group axioms}:
+    A group is a nonempty set \(G\) and a binary operation (we will denote this as \(*\)) satisfying the four \textit{group axioms}:
     \begin{enumerate}
         \item Closure: \(\forall a,b\in G\), \(a*b\in G\).
         \item Associativity: \(\forall a,b,c\in G\), \((a*b)*c=a*(b*c)\).
         \item Identity Element: \(\exists e\in G\) such that \(\forall a\in G\), \(a*e=e*a=a\). Note that \(e\) is unique; if \(e,f\in G\) were both identity elements, then \(e*f=f*e=e=f\), and are equal.
         \item Inverse Element: \(\forall a\in G\), \(\exists a^{-1}\in G\) such that \(a*a^{-1}=e=a^{-1}*a\), where \(e\) is the identity element. Note that \(a^{-1}\) is unique. Assume \(b,c\) were both inverses of \(a\). Then, \(b=b*e=b*(a*c)=(b*a)*c=c\), and are equal.
     \end{enumerate}
-    A \textscsl{subgroup} \(H\) of \(G\) is a subset of \(G\) that is also a group under the same operation as \(G\). This relationship is denoted by \(H\leq G\) or \(H<G\) for \textscsl{proper subgroups}.
+    A \textit{subgroup} \(H\) of \(G\) is a subset of \(G\) that is also a group under the same operation as \(G\). This relationship is denoted by \(H\leq G\) or \(H<G\) for \textit{proper subgroups}.
 \end{definition}
 
-Group operations are not necessarily commutative. In the case that they are, (specifically if \(a,b\in G\Rightarrow a*b=b*a\)), then \(G\) is an \textscsl{abelian group}.
+Group operations are not necessarily commutative. In the case that they are, (specifically if \(a,b\in G\Rightarrow a*b=b*a\)), then \(G\) is an \textit{abelian group}.
 
-If \(U\subseteq\mathbb{C}\) is connected and \(f:U\to U\) is holomorphic on \(U\) and bijective, \(f\) is a \textscsl{holomorphic automorphism} on \(U\). The \textscsl{group of holomorphic automorphisms} on \(U\) is denoted by \(\Aut(U)\), which is the set of all holomorphic automorphisms such as \(f\), with the operation of composition (\(f\circ g\)).
+If \(U\subseteq\mathbb{C}\) is connected and \(f:U\to U\) is holomorphic on \(U\) and bijective, \(f\) is a \textit{holomorphic automorphism} on \(U\). The \textit{group of holomorphic automorphisms} on \(U\) is denoted by \(\Aut(U)\), which is the set of all holomorphic automorphisms such as \(f\), with the operation of composition (\(f\circ g\)).
 
 First we will show that \(\forall a\in\mathbb{D}\),
 \begin{equation}
@@ -100,7 +100,7 @@ Next, we will solve for the inverse of \(\varphi_a\). Let \(z=\varphi_a(w)=\frac
 \begin{equation}
     z-\overline{a}zw=w-a\Longleftrightarrow w=\frac{z+a}{1+\overline{a}z}.\label{eq:inversemobiustransformation}
 \end{equation}
-It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in\mathbb{D}\)) are known as \textscsl{Möbius transformations}, and the group of all such transformations is known as the \textscsl{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textscsl{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
+It follows that \(\varphi_{-a}=\qty(\varphi_a)^{-1}\). Thus \(\varphi_a\) is surjective and a bijective automorphism. It follows that \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement} is true. Functions in the form of \(\varphi_a\) (where \(a\in\mathbb{D}\)) are known as \textit{Möbius transformations}, and the group of all such transformations is known as the \textit{Möbius transformation group on the unit disk}, which is a subgroup of \(\Aut(\mathbb{D})\). Functions in the form of \(\rho_\tau(z)=z\exp(\ii\tau)\), where \(\tau\in\mathbb{R}\) is constant, form a group known as the \textit{rotation group}, which is also a subgroup of \(\Aut(\mathbb{D})\).
 \begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{D}\)]\label{thm:holomorphicautomorphismgrouponunitdisk}
     \(\forall f\in\Aut(\mathbb{D})\), \(f\) is a composition between a Möbius transformation and a rotation. In other words, \(\exists |a|<1\) and \(\exists\tau\in\mathbb{R}\) such that \[f(z)=\varphi_a\circ\rho_\tau(z).\] Moreover, all such functions are in \(\Aut(\mathbb{D})\).
 \end{theorem}
@@ -135,6 +135,6 @@ As a direct consequence of \cref{thm:holomorphicautomorphismgrouponunitdisk}, we
     By the Schwarz Lemma (\cref{lem:schwarz}), under the equality condition that \[\abs{\varphi_{w_1}'\qty(w_1)f'\qty(z_1)\varphi_{-z_1}'(0)}=1,\] we have that \(\varphi_{w_1}\circ f\circ\varphi_{-z_1}=\ee^{\ii\tau}\), where \(\tau\in\mathbb{R}\) is constant. It follows that \[f=\varphi_{-w_1}\circ\ee^{\ii\tau}\circ\varphi_{z_1}\in\Aut(\mathbb{D}).\qedhere\]
 \end{proof}
 \begin{remark}
-    In \cref{sec:differentialgeometry}, we will introduce the \textscsl{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
+    In \cref{sec:differentialgeometry}, we will introduce the \textit{hyperbolic metric} on \(\mathbb{D}\), defined as \[\dd{s}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}.\]
     From \cref{eq:schwarzpick_nonincreasingmetric}, we get that the hyperbolic metric does not increase under a holomorphic mapping of \(\mathbb{D}\) to itself. This metric is invariant (the equality condition) under all functions in \(\Aut(\mathbb{D})\). This gives a geometric explanation for \cref{lem:schwarz}.
 \end{remark}

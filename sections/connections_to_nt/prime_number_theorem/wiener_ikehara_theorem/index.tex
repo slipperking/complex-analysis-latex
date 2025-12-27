@@ -2,7 +2,7 @@
 Previously we have seen the subtle relation between \(\zeta\) and \(\psi\).
 Given the properties of the Laplace transform of \(\psi\circ\exp\) and certain
 conditions established above, we apply now prove what is known as a
-\textscsl{Tauberian} theorem to extract sufficient information (such as
+\textit{Tauberian} theorem to extract sufficient information (such as
 convergence) of the function itself.
 
 For arbitrary \(x\in\mathbb{R}\) and \(\lambda>0\), define a triangular kernel
@@ -13,28 +13,28 @@ cutoff by \[K_\lambda(x)=
 \end{dcases}\qquad\supp K_\lambda=\qty[-2\lambda,2\lambda],\] and a normalized Fejér kernel by
 \[k_\lambda(x)=
     \begin{dcases}
-        \frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2 & x\neq 0, \\
-        \frac{2\lambda}{\sqrt{2\piup}}                                          & x=0.
+        \frac{2\lambda}{\sqrt{2\muppi}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2 & x\neq 0, \\
+        \frac{2\lambda}{\sqrt{2\muppi}}                                          & x=0.
 \end{dcases}\]
 The two kernels are related by a angular unitary Fourier transform:
 \begin{lemma}\label{lem:wienerikehara_kernels_fouriertransform}
-    For every \(\lambda>0\), we have that \[\mathcal{F}\cbraces{K_\lambda}(x)=\mathcal{F}^{-1}\cbraces{K_\lambda}(x)=k_\lambda(x),\qquad\mathcal{F}\cbraces{k_\lambda}(x)=\mathcal{F}^{-1}\cbraces{k_\lambda}(x)=K_\lambda(x),\] where we define \[\mathcal{F}\cbraces{f}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)\ee^{-\ii xt}\ddt,\qquad\mathcal{F}^{-1}\cbraces{f}(x)=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)\ee^{\ii xt}\ddt.\]
+    For every \(\lambda>0\), we have that \[\mathcal{F}\cbraces{K_\lambda}(x)=\mathcal{F}^{-1}\cbraces{K_\lambda}(x)=k_\lambda(x),\qquad\mathcal{F}\cbraces{k_\lambda}(x)=\mathcal{F}^{-1}\cbraces{k_\lambda}(x)=K_\lambda(x),\] where we define \[\mathcal{F}\cbraces{f}(x)=\frac1{\sqrt{2\muppi}}\int_{-\infty}^\infty f(t)\ee^{-\ii xt}\ddt,\qquad\mathcal{F}^{-1}\cbraces{f}(x)=\frac1{\sqrt{2\muppi}}\int_{-\infty}^\infty f(t)\ee^{\ii xt}\ddt.\]
 \end{lemma}
 \begin{proof}
     The equivalence between the Fourier and inverse Fourier transforms follows from the evenness of both kernels. We hence prove only the forward transform equivalences.
 
     Since \(\supp K_\lambda=\qty[-2\lambda,2\lambda]\), we have that
     \begin{align*}
-        \mathcal{F}\cbraces{K_\lambda}(x) & =\frac1{\sqrt{2\piup}}\int_{-2\lambda}^{2\lambda}\qty(1-\frac{\abs{t}}{2\lambda})\ee^{-\ii xt}\ddt=\frac{1}{\sqrt{2\piup}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\qty(\ee^{-\ii xt}+\ee^{\ii xt})\ddt \\
-        & =\frac{\sqrt{2}}{\sqrt{\piup}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\cos\qty(xt)\ddt                                                                                                                 \\
-        & =\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\eval{\frac{\sin(xt)}x}_0^{2\lambda}-\eval{\frac{t\sin(xt)}{2\lambda x}}_0^{2\lambda}+\int_0^{2\lambda}\frac{\sin(xt)}{2\lambda x}\ddt]                                \\
-        & =\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\frac{\sin(2\lambda x)}x-\frac{\sin(2\lambda x)}{x}-\eval{\frac{\cos(xt)}{2\lambda x^2}}_0^{2\lambda}]                                                                 \\
-        & =\frac{\sqrt{2}}{\sqrt{\piup}}\qty[\frac{1-\cos(2\lambda x)}{2\lambda x^2}]=\frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2=k_\lambda(x).
+        \mathcal{F}\cbraces{K_\lambda}(x) & =\frac1{\sqrt{2\muppi}}\int_{-2\lambda}^{2\lambda}\qty(1-\frac{\abs{t}}{2\lambda})\ee^{-\ii xt}\ddt=\frac{1}{\sqrt{2\muppi}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\qty(\ee^{-\ii xt}+\ee^{\ii xt})\ddt \\
+        & =\frac{\sqrt{2}}{\sqrt{\muppi}}\int_0^{2\lambda}\qty(1-\frac{t}{2\lambda})\cos\qty(xt)\ddt                                                                                                                 \\
+        & =\frac{\sqrt{2}}{\sqrt{\muppi}}\qty[\eval{\frac{\sin(xt)}x}_0^{2\lambda}-\eval{\frac{t\sin(xt)}{2\lambda x}}_0^{2\lambda}+\int_0^{2\lambda}\frac{\sin(xt)}{2\lambda x}\ddt]                                \\
+        & =\frac{\sqrt{2}}{\sqrt{\muppi}}\qty[\frac{\sin(2\lambda x)}x-\frac{\sin(2\lambda x)}{x}-\eval{\frac{\cos(xt)}{2\lambda x^2}}_0^{2\lambda}]                                                                 \\
+        & =\frac{\sqrt{2}}{\sqrt{\muppi}}\qty[\frac{1-\cos(2\lambda x)}{2\lambda x^2}]=\frac{2\lambda}{\sqrt{2\muppi}}\qty(\frac{\sin(\lambda x)}{\lambda x})^2=k_\lambda(x).
     \end{align*}
     On the other hand,
     \begin{align*}
-        \mathcal{F}\cbraces{k_\lambda}(x) & =\frac{2\lambda}{2\piup}\int_{-\infty}^\infty\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ee^{-\ii xt}\ddt=\frac2{\piup\lambda}\int_{0}^\infty\frac{\sin^2(\lambda t)}{t^2}\cos(xt)\ddt \\
-        & =\frac{1}{\piup\lambda}\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt.
+        \mathcal{F}\cbraces{k_\lambda}(x) & =\frac{2\lambda}{2\muppi}\int_{-\infty}^\infty\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ee^{-\ii xt}\ddt=\frac2{\muppi\lambda}\int_{0}^\infty\frac{\sin^2(\lambda t)}{t^2}\cos(xt)\ddt \\
+        & =\frac{1}{\muppi\lambda}\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt.
     \end{align*}
     Let \(I(x)=\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\cos(xt)\ddt\). Differentiation under the integral sign yields \[\dv{I}{x}=\int_0^\infty\pdv{x}\qty(\frac{1-\cos(2\lambda t)}{t^2}\cos(xt))\ddt=\int_0^\infty\qty(\frac{\cos(2\lambda t)-1}{t})\sin(xt)\ddt.\] % TODO: prove the conditions required for the commute
     By the product-to-sum formulas, this can be rewritten as \[\dv{I}{x}=\int_0^\infty\frac{\sin(xt+2\lambda t)}{2t}\ddt+\int_0^\infty\frac{\sin(xt-2\lambda t)}{2t}\ddt-\int_0^\infty\frac{\sin(xt)}t\ddt=\mathrm{I}+\mathrm{I\!I}-\mathrm{I\!I\!I}.\]
@@ -46,14 +46,14 @@ The two kernels are related by a angular unitary Fourier transform:
         \begin{dcases}
             +\infty & x-2\lambda>0, \\
             -\infty & x-2\lambda<0.
-    \end{dcases}\] By the Dirichlet integral \(\int_0^\infty\frac{\sin u}u\dd{u}=\frac\piup2\), we
-    have that \[\mathrm{I}=\frac\piup4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\piup4\operatorname{sgn}(x-2\lambda).\] Similarly, \(\mathrm{I\!I\!I}=\frac\piup2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\piup4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)],\] and \[I(0)+\int_0^x\dv{I}{x}\ddx=I(0)+
+    \end{dcases}\] By the Dirichlet integral \(\int_0^\infty\frac{\sin u}u\dd{u}=\frac\muppi2\), we
+    have that \[\mathrm{I}=\frac\muppi4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\muppi4\operatorname{sgn}(x-2\lambda).\] Similarly, \(\mathrm{I\!I\!I}=\frac\muppi2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\muppi4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)],\] and \[I(0)+\int_0^x\dv{I}{x}\ddx=I(0)+
         \begin{dcases}
-            \frac\piup 4\qty[\eval{-x-x+2x}_{-2\lambda}^x]+I\qty(-2\lambda^+)-I(0) & x<-2\lambda,   \\
-            \frac\piup 4(x-x+2x)=\frac{\piup x}{2}                                 & -2\lambda<x<0, \\
-            \frac\piup 4(x-x-2x)=-\frac{\piup x}{2}                                & 0<x<2\lambda,  \\
-            \frac\piup 4\qty[\eval{x+x-2x}_{2\lambda}^x]+I\qty(2\lambda^-)-I(0)    & x>2\lambda,
-    \end{dcases},\] which after simplification, becomes \[I(x)=I(0)+\piup
+            \frac\muppi 4\qty[\eval{-x-x+2x}_{-2\lambda}^x]+I\qty(-2\lambda^+)-I(0) & x<-2\lambda,   \\
+            \frac\muppi 4(x-x+2x)=\frac{\muppi x}{2}                                 & -2\lambda<x<0, \\
+            \frac\muppi 4(x-x-2x)=-\frac{\muppi x}{2}                                & 0<x<2\lambda,  \\
+            \frac\muppi 4\qty[\eval{x+x-2x}_{2\lambda}^x]+I\qty(2\lambda^-)-I(0)    & x>2\lambda,
+    \end{dcases},\] which after simplification, becomes \[I(x)=I(0)+\muppi
         \begin{dcases}
             -\lambda  & x<-2\lambda,   \\
             \frac x2  & -2\lambda<x<0, \\
@@ -63,13 +63,13 @@ The two kernels are related by a angular unitary Fourier transform:
     Since
     \begin{align*}
         I(0) & =\int_0^\infty\frac{1-\cos(2\lambda t)}{t^2}\ddt=\eval{\frac{\cos(2\lambda t)-1}{t}}_0^\infty+\int_0^\infty 2\lambda\frac{\sin(2\lambda t)}{t}\ddt \\
-        & =\lim_{t\to 0}\frac{1-\cos(2\lambda t)}{t}+2\lambda\frac\piup2=\piup\lambda,
+        & =\lim_{t\to 0}\frac{1-\cos(2\lambda t)}{t}+2\lambda\frac\muppi2=\muppi\lambda,
     \end{align*}
     we obtain \[I=
         \begin{dcases}
             0                           & x<-2\lambda,   \\
-            \piup\qty(\lambda+\frac x2) & -2\lambda<x<0, \\
-            \piup\qty(\lambda-\frac x2) & 0<x<2\lambda,  \\
+            \muppi\qty(\lambda+\frac x2) & -2\lambda<x<0, \\
+            \muppi\qty(\lambda-\frac x2) & 0<x<2\lambda,  \\
             0                           & x>2\lambda,
         \end{dcases}\implies\mathcal{F}\cbraces{k_\lambda}(x)=
         \begin{dcases}
@@ -80,44 +80,44 @@ The two kernels are related by a angular unitary Fourier transform:
     \end{dcases}\] which confirms the second equivalence.
 \end{proof}
 \begin{definition}
-    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textscsl{slowly decreasing} if \[\liminf_{\delta\to0^+}\liminf_{x\to+\infty}\qty[f(x+\delta)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
+    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textit{slowly decreasing} if \[\liminf_{\delta\to0^+}\liminf_{x\to+\infty}\qty[f(x+\delta)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
     \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
 \begin{proof}[Proof of equivalence]
 
 \end{proof}
 \begin{proposition}\label{prop:wienerikehara_intermediatetauberiantheorem}
-    Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the limit of the convolution \(f*k_\lambda\) given by \[L\equiv\lim_{x\to+\infty}\qty(f*k_\lambda)(x)=\lim_{x\to+\infty}\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}f(x)=L\).
+    Let \(f:\mathbb{R}\to\mathbb{R}\) be a slowly decreasing function bounded by \(M>0\). If the limit of the convolution \(f*k_\lambda\) given by \[L\equiv\lim_{x\to+\infty}\qty(f*k_\lambda)(x)=\lim_{x\to+\infty}\frac1{\sqrt{2\muppi}}\int_{-\infty}^\infty f(t)k_\lambda(x-t)\ddt\] is independent of \(\lambda>0\), then \(\lim_{x\to+\infty}f(x)=L\).
 \end{proposition}
 \begin{proof}
     Let \(\varepsilon>0\) be arbitrary. Assume, for the sake of contradiction, that \(f\not\to L\) as \(x\to\infty\). Then there exists some sequence \(\cbraces{x_n}_{n\in\mathbb{N}}\) such that \(\abs{f(x_n)-L}>\varepsilon\) for all \(n\). From here, we may extract an infinite subsequence (continued to be denoted by \(\cbraces{x_n}\)) such that one of the two cases is assumed:
     \begin{enumerate}
         \item \(f(x_n)-L>\varepsilon\) for all \(n\in\mathbb{N}\). By the slow decrease of \(f\), there exist \(\delta>0\) and \(N\in\mathbb{N}\) such that \[f(y)>f\qty(x_n)-\frac{\varepsilon}{2}>L+\frac\varepsilon2\] for any \(n>N\) and \(0<y-x_n<2\delta\). Then we have
             \begin{align*}
-                \qty(f*k_\lambda)\qty(x+\delta) & =\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x+\delta-t)\ddt                                                                                                    \\
-                & =\frac1{\sqrt{2\piup}}\qty(\int_x^{x+2\delta}+\int_{-\infty}^x+\int_{x+2\delta}^\infty)f(t)k_\lambda\qty(x+\delta-t)\ddt                                                         \\
-                & >\frac{1}{\sqrt{2\piup}}\int_x^{x+2\delta}\qty(L+\frac{\varepsilon}2)k_\lambda\qty(x+\delta-t)\ddt                                                                               \\
-                & \quad-\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^x+\int_{x+2\delta}^\infty)k_\lambda\qty(x+\delta-t)\ddt                                                                          \\
-                & >\frac{2L+\varepsilon}{2\sqrt{2\piup}}\int_x^{x+2\delta}k_\lambda\qty(x+\delta-t)\ddt-\frac M{\sqrt{2\piup}}\qty(\int_\delta^\infty+\int_{-\infty}^{-\delta})k_\lambda(u)\dd{u}.
+                \qty(f*k_\lambda)\qty(x+\delta) & =\frac1{\sqrt{2\muppi}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x+\delta-t)\ddt                                                                                                    \\
+                & =\frac1{\sqrt{2\muppi}}\qty(\int_x^{x+2\delta}+\int_{-\infty}^x+\int_{x+2\delta}^\infty)f(t)k_\lambda\qty(x+\delta-t)\ddt                                                         \\
+                & >\frac{1}{\sqrt{2\muppi}}\int_x^{x+2\delta}\qty(L+\frac{\varepsilon}2)k_\lambda\qty(x+\delta-t)\ddt                                                                               \\
+                & \quad-\frac M{\sqrt{2\muppi}}\qty(\int_{-\infty}^x+\int_{x+2\delta}^\infty)k_\lambda\qty(x+\delta-t)\ddt                                                                          \\
+                & >\frac{2L+\varepsilon}{2\sqrt{2\muppi}}\int_x^{x+2\delta}k_\lambda\qty(x+\delta-t)\ddt-\frac M{\sqrt{2\muppi}}\qty(\int_\delta^\infty+\int_{-\infty}^{-\delta})k_\lambda(u)\dd{u}.
             \end{align*}
             Because
             \begin{align*}
-                \frac{1}{\sqrt{2\piup}}\int_{-\infty}^\infty k_{\lambda}(t)\ddt & =\frac{\lambda}{\piup}\int_{\mathbb{R}}\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ddt=\frac{1}{\piup}\int_{\mathbb{R}}\qty(\frac{\sin t}t)^2\ddt    \\
-                & =-\eval{\frac{\sin^2 t}{\piup t}}_{-\infty}^\infty+\int_{\mathbb{R}}\frac{\dd(\sin^2 t)}{\piup t}=\int_{\mathbb{R}}\frac{\sin(2t)}{\piup t}\ddt=1,
+                \frac{1}{\sqrt{2\muppi}}\int_{-\infty}^\infty k_{\lambda}(t)\ddt & =\frac{\lambda}{\muppi}\int_{\mathbb{R}}\qty(\frac{\sin(\lambda t)}{\lambda t})^2\ddt=\frac{1}{\muppi}\int_{\mathbb{R}}\qty(\frac{\sin t}t)^2\ddt    \\
+                & =-\eval{\frac{\sin^2 t}{\muppi t}}_{-\infty}^\infty+\int_{\mathbb{R}}\frac{\dd(\sin^2 t)}{\muppi t}=\int_{\mathbb{R}}\frac{\sin(2t)}{\muppi t}\ddt=1,
             \end{align*}
-            we then have for any \(n>N\), that \[\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)\geq\frac{2L+\varepsilon}{2\sqrt{2\piup}}\int_{-\delta}^{\delta}\frac{2\lambda}{\sqrt{2\piup}}\qty(\frac{\sin\qty(\lambda u)}{\lambda u})^2\dd{u}-\frac{2M}{\piup}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt.\]
-            Letting \(\lambda\to\infty\), we have \[\frac{2L+\varepsilon}{2\piup}\int_{-\delta\lambda}^{\delta\lambda}\qty(\frac{\sin t}{t})^2\ddt-\frac{2M}{\piup}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt\to\frac{2L+\varepsilon}{2\piup}\int_{\mathbb{R}}\qty(\frac{\sin t}{t})^2\ddt=L+\frac{\varepsilon}{2}.\]
+            we then have for any \(n>N\), that \[\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)\geq\frac{2L+\varepsilon}{2\sqrt{2\muppi}}\int_{-\delta}^{\delta}\frac{2\lambda}{\sqrt{2\muppi}}\qty(\frac{\sin\qty(\lambda u)}{\lambda u})^2\dd{u}-\frac{2M}{\muppi}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt.\]
+            Letting \(\lambda\to\infty\), we have \[\frac{2L+\varepsilon}{2\muppi}\int_{-\delta\lambda}^{\delta\lambda}\qty(\frac{\sin t}{t})^2\ddt-\frac{2M}{\muppi}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt\to\frac{2L+\varepsilon}{2\muppi}\int_{\mathbb{R}}\qty(\frac{\sin t}{t})^2\ddt=L+\frac{\varepsilon}{2}.\]
             Because \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)=L\geq
             L+\frac\varepsilon2\), we reach a contradiction.
         \item \(f(x_n)-L<-\varepsilon\). Then there exist \(\delta>0\), \(N\in\mathbb{N}\) such that \[f\qty(x_n)-f(y)>-\frac\varepsilon2\implies f(y)<f\qty(x_n)+\frac\varepsilon2<L-\frac\varepsilon2\] for any \(n>N\) and \(0<x_n-y<2\delta\). Splitting the convolution integral
             into \(\int_\infty^{x_n-2\delta}\), \(\int_{x_n-2\delta}^{x_n}\), and
             \(\int_{x_n}^\infty\), we have
             \begin{align*}
-                \qty(f*k_\lambda)\qty(x_n-\delta) & =\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x_n-\delta-t)\ddt                                                                                              \\
-                & =\frac1{\sqrt{2\piup}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n-2\delta}^{x_n}+\int_{x_n}^\infty)f(t)k_\lambda\qty(x_n-\delta-t)\ddt                                       \\
-                & <\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n}^\infty)k_\lambda\qty(x_n-\delta-t)\ddt                                                                   \\
-                & \quad+\frac{1}{\sqrt{2\piup}}\int_{x_n-2\delta}^{x_n}\qty(L-\frac{\varepsilon}2)k_\lambda\qty(x_n-\delta-t)\ddt                                                              \\
-                & <\frac M{\sqrt{2\piup}}\qty(\int_{-\infty}^{-\delta}+\int_{\delta}^\infty)k_\lambda(u)\dd{u}+\frac{2L-\varepsilon}{2\sqrt{2\piup}}\int_{-\delta}^{\delta}k_\lambda(u)\dd{u}.
+                \qty(f*k_\lambda)\qty(x_n-\delta) & =\frac1{\sqrt{2\muppi}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x_n-\delta-t)\ddt                                                                                              \\
+                & =\frac1{\sqrt{2\muppi}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n-2\delta}^{x_n}+\int_{x_n}^\infty)f(t)k_\lambda\qty(x_n-\delta-t)\ddt                                       \\
+                & <\frac M{\sqrt{2\muppi}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n}^\infty)k_\lambda\qty(x_n-\delta-t)\ddt                                                                   \\
+                & \quad+\frac{1}{\sqrt{2\muppi}}\int_{x_n-2\delta}^{x_n}\qty(L-\frac{\varepsilon}2)k_\lambda\qty(x_n-\delta-t)\ddt                                                              \\
+                & <\frac M{\sqrt{2\muppi}}\qty(\int_{-\infty}^{-\delta}+\int_{\delta}^\infty)k_\lambda(u)\dd{u}+\frac{2L-\varepsilon}{2\sqrt{2\muppi}}\int_{-\delta}^{\delta}k_\lambda(u)\dd{u}.
             \end{align*}
             Letting \(\lambda\to\infty\), we have similarly that \[\lim_{n\to\infty}(f*k_\lambda)\qty(x_n-\delta)\leq L-\frac{\varepsilon}2,\] contradicting \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n-\delta)=L\).
     \end{enumerate}
@@ -147,23 +147,23 @@ The two kernels are related by a angular unitary Fourier transform:
             0 & t<0.
     \end{dcases}\]
     The convergence of \cref{eq:wienerikehara_laplacetransform} implies that for
-    \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\piup}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt\] converges. Since \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of
+    \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\muppi}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt\] converges. Since \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of
     \cref{lem:wienerikehara_kernels_fouriertransform}, that
     \begin{align*}
-        I_{\lambda,\varepsilon}(x) & =\frac{1}{2\piup}\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\varepsilon t}}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii(x-t)y}\ddy\ddt             \\
-        & =\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\int_0^\infty\frac{a(t)-A(t)}{\ee^{(\varepsilon+\ii y)t}}\ddt\ddy                 \\
-        & =\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\qty[\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}]\ddy.
+        I_{\lambda,\varepsilon}(x) & =\frac{1}{2\muppi}\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\varepsilon t}}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii(x-t)y}\ddy\ddt             \\
+        & =\frac{1}{2\muppi}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\int_0^\infty\frac{a(t)-A(t)}{\ee^{(\varepsilon+\ii y)t}}\ddt\ddy                 \\
+        & =\frac{1}{2\muppi}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\qty[\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}]\ddy.
     \end{align*}
-    Now \(\forall\varepsilon'>0\), by the local uniform convergence of \(g\) in \cref{eq:wienerikehara_gfunction}, there exists some \(\delta>0\) such that \[\forall\abs{y}<2\lambda,\quad\abs{\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}-g(y)}<\frac{\piup\varepsilon'}{\lambda}.\] Hence, we have that \[\abs{I_{\lambda,\varepsilon}(x)-\frac1{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}g(y)\ddy}\leq\frac{1}{2\piup}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\frac{\piup\varepsilon'}{\lambda}\ddy=\varepsilon'.\] Therefore, \[\lim_{\varepsilon\to 0^+}I_{\lambda,\varepsilon}(x)=\frac1{2\piup}\int_{-2\lambda}^{2\lambda} K_\lambda(y)\ee^{\ii xy}g(y)\ddy,\] or when the limit is exchanged with the integral. By parts, we have that \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac{1}{2\piup}\qty(\eval{K_\lambda(y)g(y)\frac{\ee^{\ii x y}}{\ii x}}_{-2\lambda}^{2\lambda}-\frac{1}{\ii x}\int_{-2\lambda}^{2\lambda}\qty(K_\lambda g)'(y)\ee^{\ii xy}\ddy).\]
-    This implies that \(\lim_{x\to+\infty}\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)\equiv 0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\piup}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\] The Lebesgue's Dominated Convergence Theorem then gives \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac1{\sqrt{2\piup}}\int_0^\infty k_\lambda(x-t)\qty(a(t)-A(t))\ddt=(a*k_\lambda-A*k_\lambda)(x)\to0\] as \(x\to+\infty\). Since \((A*k_\lambda)(x)=c\) for all \(x\), we have that
+    Now \(\forall\varepsilon'>0\), by the local uniform convergence of \(g\) in \cref{eq:wienerikehara_gfunction}, there exists some \(\delta>0\) such that \[\forall\abs{y}<2\lambda,\quad\abs{\mathcal{L}\cbraces{f}(1+\varepsilon+\ii y)-\frac c{\varepsilon+\ii y}-g(y)}<\frac{\muppi\varepsilon'}{\lambda}.\] Hence, we have that \[\abs{I_{\lambda,\varepsilon}(x)-\frac1{2\muppi}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}g(y)\ddy}\leq\frac{1}{2\muppi}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\frac{\muppi\varepsilon'}{\lambda}\ddy=\varepsilon'.\] Therefore, \[\lim_{\varepsilon\to 0^+}I_{\lambda,\varepsilon}(x)=\frac1{2\muppi}\int_{-2\lambda}^{2\lambda} K_\lambda(y)\ee^{\ii xy}g(y)\ddy,\] or when the limit is exchanged with the integral. By parts, we have that \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac{1}{2\muppi}\qty(\eval{K_\lambda(y)g(y)\frac{\ee^{\ii x y}}{\ii x}}_{-2\lambda}^{2\lambda}-\frac{1}{\ii x}\int_{-2\lambda}^{2\lambda}\qty(K_\lambda g)'(y)\ee^{\ii xy}\ddy).\]
+    This implies that \(\lim_{x\to+\infty}\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)\equiv 0\). On the other hand, manual calculation yields \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\lim_{\varepsilon\to0^+}\frac1{\sqrt{2\muppi}}\qty(\int_0^\infty k_\lambda(x-t)a(t)\ee^{-\varepsilon t}\ddt-\int_0^\infty k_\lambda(x-t)A(t)\ee^{-\varepsilon t}\ddt).\] The Lebesgue's Dominated Convergence Theorem then gives \[\lim_{\varepsilon\to0^+}I_{\lambda,\varepsilon}(x)=\frac1{\sqrt{2\muppi}}\int_0^\infty k_\lambda(x-t)\qty(a(t)-A(t))\ddt=(a*k_\lambda-A*k_\lambda)(x)\to0\] as \(x\to+\infty\). Since \((A*k_\lambda)(x)=c\) for all \(x\), we have that
     \begin{equation}
         \lim_{x\to+\infty}(a*k_\lambda)(x)=c.\label{eq:wienerikehara_convolutionlimit}
     \end{equation}
-    Therefore, \(\exists x_0>0\) such that \[\qty(a*k_\lambda)(x)<c+1\implies\frac{1}{\piup}\int_{-\infty}^\infty\qty(\frac{\sin t}{t})^2a\qty(x-\frac t\lambda)\ddt<c+1\] for all \(x>x_0\). Substituting \(x+\frac2{\sqrt{\lambda}}\) for \(x\) in the integral, we have (after further restricting the integration bounds, which preserves the inequality)
-    \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2a\qty(x+\frac{2\sqrt{\lambda}-t}\lambda)\ddt<\piup(c+1)\]
+    Therefore, \(\exists x_0>0\) such that \[\qty(a*k_\lambda)(x)<c+1\implies\frac{1}{\muppi}\int_{-\infty}^\infty\qty(\frac{\sin t}{t})^2a\qty(x-\frac t\lambda)\ddt<c+1\] for all \(x>x_0\). Substituting \(x+\frac2{\sqrt{\lambda}}\) for \(x\) in the integral, we have (after further restricting the integration bounds, which preserves the inequality)
+    \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2a\qty(x+\frac{2\sqrt{\lambda}-t}\lambda)\ddt<\muppi(c+1)\]
     Since \(\ee^{u}a(u)=f(u)\) (for \(u=x+\frac{2\sqrt{\lambda}-t}\lambda>0\)) is
     non-decreasing in \(u\), it is bounded below by
-    \(f\qty(x+\frac{\sqrt{\lambda}}\lambda)>f(x)\). Thus, we have \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\exp\qty(\frac{t-2\sqrt{\lambda}}{\lambda}-x)f\qty(x)\ddt<\piup\qty(c+1),\] implying that \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ee^{\frac{t-2\sqrt{\lambda}}{\lambda}}a\qty(x)\ddt<\piup\qty(c+1)\implies a(x)\ee^{-\frac{3}{\sqrt{\lambda}}}\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ddt<\piup(c+1),\]
+    \(f\qty(x+\frac{\sqrt{\lambda}}\lambda)>f(x)\). Thus, we have \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\exp\qty(\frac{t-2\sqrt{\lambda}}{\lambda}-x)f\qty(x)\ddt<\muppi\qty(c+1),\] implying that \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ee^{\frac{t-2\sqrt{\lambda}}{\lambda}}a\qty(x)\ddt<\muppi\qty(c+1)\implies a(x)\ee^{-\frac{3}{\sqrt{\lambda}}}\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ddt<\muppi(c+1),\]
     which is satisfied for all \(\lambda>0\) and \(x>x_0\). Letting \(\lambda\to\infty\), we have that \(a(x)<c+1\). Compactness shows that \(a\)
     is bounded on \([0,x_0]\) (\cref{thm:continuousfunctionboundedoncompact}).
     Hence, \(a\) is bounded (above) on \(\mathbb{R}\) by some \(M>0\).
@@ -181,7 +181,7 @@ The two kernels are related by a angular unitary Fourier transform:
     \(\lim_{x\to+\infty}a(x)=c\), or equivalently,
     \(\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c\).
 \end{proof}
-\begin{theorem}[name=\textscsl{Prime Number Theorem},store=thm:primenumber]\label{thm:primenumber}
+\begin{theorem}[name=\textit{Prime Number Theorem},store=thm:primenumber]\label{thm:primenumber}
     The prime counting function \(\pi(x)\) is asymptotically equal to \(\frac x{\log x}\), i.e., \(\lim_{x\to+\infty}\frac{\pi(x)\log x}x=1\).
 \end{theorem}
 \begin{proof}

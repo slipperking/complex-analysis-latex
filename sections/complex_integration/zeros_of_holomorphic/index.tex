@@ -1,5 +1,5 @@
 \subsection{Zeros of a Holomorphic Function}
-For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textscsl{zero} of \(f\) iff \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
+For a region \(U\subseteq\mathbb{C}\) and a holomorphic function \(f:U\to\mathbb{C}\), a point \(z_0\in U\) is a \textit{zero} of \(f\) iff \(f\paren{z_0}=0\). Furthermore, if \(f\) has the Taylor expansion at \(z_0\) of \[a_m\paren{z-z_0}^m+a_{m+1}\paren{z-z_0}^{m+1}+\cdots,\qquad m\in\mathbb{N},a_m\neq0,\] then the zero at \(z_0\) has multiplicity \(m\).
 
 We will introduce a fundamental application of Liouville's Theorem (\cref{thm:liouville}) below.
 \begin{theorem}[Fundamental Theorem of Algebra]\label{thm:fundamentaltheoremofalgebra}
@@ -41,8 +41,8 @@ We will introduce a fundamental application of Liouville's Theorem (\cref{thm:li
 \end{proof}
 \begin{theorem}[Holomorphic Argument Principle]\label{thm:argumentprincipleholomorphic}
     Let \(U\subseteq\mathbb{C}\) be a region and \(f:U\to\mathbb{C}\) be holomorphic. Let \(\gamma\subset U\) be a simple, closed, positively oriented curve that is null-homotopic in \(U\). If \(f\) has no zeros on \(\gamma\), then \(f\) has finitely many zeros in the region bounded by \(\gamma\), and this number, counting multiplicities, is given by
-    \[k=\frac{1}{2\piup\ii}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
-    Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k=\frac{1}{2\piup}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
+    \[k=\frac{1}{2\muppi\ii}\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz.\]
+    Let \(\Gamma\) be the image of \(\gamma\) under the map \(w=f(z)\). Then \(k=\frac{1}{2\muppi}\Delta_\Gamma\arg(w)\), where \(\Delta_\Gamma\arg(w)\) denotes the total change in argument of \(w\) as it traverses \(\Gamma\).
 \end{theorem}
 \begin{proof}
     Let \(z_1,\ldots,z_n\) be the distinct zeros of \(f\) enclosed by \(\gamma\) with the respective multiplicities \(k_1,\ldots,k_n\). Choose disjoint disks \(D\qty(z_j,\varepsilon_j)\) centered at each \(z_j\) with radii \(\varepsilon_j>0\), each contained in the interior of \(\gamma\) and avoiding \(\gamma\). The function \[\frac{f'(z)}{f(z)}\]
@@ -57,13 +57,13 @@ We will introduce a fundamental application of Liouville's Theorem (\cref{thm:li
     Since \(h_j\) is holomorphic and non-vanishing on \(D\paren{z_j,\varepsilon_j}\), the function \(\frac{h_j'}{h_j}\) is holomorphic there. By the Cauchy--Goursat Theorem,
     \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{h_j'(z)}{h_j(z)}\ddz=0.\]
     The Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}) gives
-    \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{k_j}{z-z_j}\ddz=2\piup\ii k_j.\]
+    \[\oint_{\partial D\paren{z_j,\varepsilon_j}}\frac{k_j}{z-z_j}\ddz=2\muppi\ii k_j.\]
     Combining results,
-    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\piup\ii k_j=2\piup\ii k.\]
+    \[\oint_{\gamma}\frac{f'(z)}{f(z)}\ddz=\sum_{j=1}^n2\muppi\ii k_j=2\muppi\ii k.\]
     Finally, parameterize \(\Gamma\) by \(w=f(z)\). Then \(\dd{w}=f'(z)\ddz\), and
-    \[k=\frac{1}{2\piup\ii}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\piup\ii}\Delta_\Gamma\log(w)=\frac{1}{2\piup}\Delta_\Gamma\arg(w),\] which proves the result.
+    \[k=\frac{1}{2\muppi\ii}\oint_{\Gamma}\frac{\dd{w}}{w}=\frac{1}{2\muppi\ii}\Delta_\Gamma\log(w)=\frac{1}{2\muppi}\Delta_\Gamma\arg(w),\] which proves the result.
 \end{proof}
-Thus, one defines the \textscsl{winding index} to quantify how many times a closed curve winds counterclockwise around a given point in the complex plane. Formally, if \(\gamma=\gamma([0,1])\) is a counterclockwise-oriented closed curve and \(z\) is a point satisfying \(z\notin\gamma\), then \[\mathrm{Ind}_{\gamma}(z)=\frac{1}{2\piup\ii}\int_\gamma\frac{\ddzeta}{\zeta-z}=\frac{1}{2\piup\ii}\int_0^1\frac{\gamma'(t)\ddt}{\gamma(t)-z}.\]
+Thus, one defines the \textit{winding index} to quantify how many times a closed curve winds counterclockwise around a given point in the complex plane. Formally, if \(\gamma=\gamma([0,1])\) is a counterclockwise-oriented closed curve and \(z\) is a point satisfying \(z\notin\gamma\), then \[\mathrm{Ind}_{\gamma}(z)=\frac{1}{2\muppi\ii}\int_\gamma\frac{\ddzeta}{\zeta-z}=\frac{1}{2\muppi\ii}\int_0^1\frac{\gamma'(t)\ddt}{\gamma(t)-z}.\]
 \begin{theorem}\label{thm:hurwitzsimplecase}
     Let \(\cbraces{f_n(z)}\) be a sequence of holomorphic functions on the open set \(U\subseteq\mathbb{C}\) that uniformly converges to \(f(z)\) on every compact subset of \(U\). If \(\forall n\in\mathbb{N}\), \(f_n(z)\) has no zeros in \(U\), then \(f\) is either identically 0 or has no zeros in \(U\).
 \end{theorem}

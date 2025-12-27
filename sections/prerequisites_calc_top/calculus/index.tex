@@ -22,11 +22,11 @@ and \[\dv{x}(f(x)g(x))=f'(x)g(x)+f(x)g'(x)\] corresponds to \[\int f(x)g'(x)\ddx
 \begin{theorem}[Mean Value Theorem, Integral Form]
     If \(f(x)\) is continuous over \([a,b]\), then \(\exists \xi\in[a,b]\) such that \[\int_a^b f(x)\ddx=f(\xi)(b-a).\]
 \end{theorem}
-A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\qty(P(t),Q(t),R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textscsl{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textscsl{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textscsl{piecewise smooth}. If it is of finite length, then the curve is said to be \textscsl{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textscsl{simple} if it is simple (non-self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textscsl{Jordan curve}.
+A curve is a one-dimensional manifold embedded within a higher dimensional space. They can be parameterized with a vector \(\va{F}(t)=\qty(P(t),Q(t),R(t))\) of one parameter. In the complex plane, a curve is a complex-valued function \(\gamma(t)\) for a real parameter \(\alpha\leq t\leq\beta\). A curve is \textit{closed} if \(\gamma(\alpha)=\gamma(\beta)\). It is \textit{smooth} if it is continuously differentiable, and its direction is defined to be the direction as \(t\) increases. If it is smooth everywhere except at a finite number of points, it is \textit{piecewise smooth}. If it is of finite length, then the curve is said to be \textit{rectifiable}. Piecewise smooth curves are rectifiable. A curve is \textit{simple} if it is simple (non-self-intersecting), or if \(\gamma\paren{t_1}=\gamma\paren{t_2}\) implies that \(t_1=t_2\). A simple closed curve is also called a \textit{Jordan curve}.
 \begin{theorem}[Jordan Curve Theorem]\label{thm:jordancurve}
     Let \(\gamma\) be a Jordan curve in \(\mathbb{R}^2\). Then the set \(\mathbb{R}^2\setminus\gamma\) consists of exactly two connected subsets. One of them is the interior, denoted by \(\operatorname{int}(\gamma)\), and is a bounded set, while the other is the exterior, denoted by \(\operatorname{ext}(\gamma)\), which is unbounded. Both of the two sets share the common boundary \(\gamma\).
 \end{theorem}
-The theorem above seems trivial, but its rigorous proof in topology is extremely complex. The theorem itself can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textscsl{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is doubly connected, and a region bound by \(n\) non-intersecting Jordan curves is traditionally known as \(n\)-connected. Lastly, any closed curve can degenerate to a single point or slit.
+The theorem above seems trivial, but its rigorous proof in topology is extremely complex. The theorem itself can also be stated on \(\mathbb{C}\) instead of \(\mathbb{R}^2\). For a region \(U\), the boundary is denoted \(\partial U\). If the region bounded by any closed curve in \(U\) also lies in \(U\), then it is a \textit{simply connected} region. A connected region that is not simply connected is multiply connected. A region bound by 2 non-intersecting Jordan curves is doubly connected, and a region bound by \(n\) non-intersecting Jordan curves is traditionally known as \(n\)-connected. Lastly, any closed curve can degenerate to a single point or slit.
 
 Generalizations of the differential and integral exist for multivariate functions. The partial differentials of \(f(x,y,z)\), \(\pdv{f}{x}\ddx\), \(\pdv{f}{y}\ddy\), and \(\pdv{f}{z}\ddz\) sum up to form the total differential, denoted by \(\dd{f}\). An important result in multivariable calculus allows the calculation of the derivatives of a definite integral with respect to its parameter.
 \begin{theorem}[Leibniz Integral Rule]\label{thm:leibnizintegralrule}
@@ -67,7 +67,7 @@ which is the definition of the total differential. For a 1-form in 3-dimensional
 \end{align*}
 Similarly, we can differentiate a 2-form \(\omega=P\ddy\wedge\dd{z}+Q\ddz\wedge\ddx+R\ddx\wedge\ddy\) to get:
 \[\qty(\pdv{P}{x}+\pdv{Q}{y}+\pdv{R}{z})\ddx\wedge\ddy\wedge\ddz.\]
-The two results above resemble the curl and divergence of \(\qty(P,Q,R)\). A differential form \(\omega\) is \textscsl{closed} if \(\dd{\omega}=0\), and is \textscsl{exact} if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
+The two results above resemble the curl and divergence of \(\qty(P,Q,R)\). A differential form \(\omega\) is \textit{closed} if \(\dd{\omega}=0\), and is \textit{exact} if there exists \(\eta\) such that \(\omega=\dd{\eta}\).
 \begin{lemma}[Poincaré]\label{lem:poincare}
     For any differential form \(\omega\) on an open, contractible set \(U\subseteq\mathbb{R}^n\), if \(\omega\) is closed, then it is also exact.
 \end{lemma}
@@ -83,13 +83,13 @@ Real analysis is the subject dedicated to rigorously defining concepts such as l
 \begin{definition}[Epsilon--Delta]\label{def:epsilondelta}
     Let \(f:U\to\mathbb{R}\) be a function defined over an open set \(U\subseteq\mathbb{R}\) such that \(a\) is an accumulation point of \(U\). We say that \(\lim_{x\to a}f(x)=L\) if \(\forall\varepsilon>0\), \(\exists\delta>0\) such that for all \(x\in U\) with \(0<\abs{x-a}<\delta\), we have \(\abs{f(x)-L}<\varepsilon\).
 
-    Similarly, we define the \textscsl{right-handed limit} \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(\abs{f(x)-L}<\varepsilon\).
+    Similarly, we define the \textit{right-handed limit} \(\lim_{x\to a^+}f(x)=L\) if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(0<x-a<\delta\), we have \(\abs{f(x)-L}<\varepsilon\).
 
-    Likewise, the \textscsl{left-hand limit} \(\lim_{x\to a^-}f(x)=L\) exists if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(-\delta<x-a<0\), we have \(\abs{f(x)-L}<\varepsilon\).
+    Likewise, the \textit{left-hand limit} \(\lim_{x\to a^-}f(x)=L\) exists if for every \(\varepsilon>0\), there exists \(\delta>0\) such that for all \(x\in U\) with \(-\delta<x-a<0\), we have \(\abs{f(x)-L}<\varepsilon\).
 \end{definition}
 We also have the definition of the limit of a sequence:
 \begin{definition}[Epsilon--N]\label{def:epsilonn}
-    Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. If \(\exists a_\infty\in\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\cbraces{a_n}\) \textscsl{converges} to \(a_\infty\).
+    Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. If \(\exists a_\infty\in\mathbb{R}\) such that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(\abs{a_n-a_\infty}<\varepsilon\), then \(\cbraces{a_n}\) \textit{converges} to \(a_\infty\).
 \end{definition}
 \begin{theorem}[Cauchy Criterion]\label{thm:cauchycriterionsequenceconvergence}
     Let \(\cbraces{a_n}_{n\in\mathbb{N}}\subset\mathbb{R}\) be a sequence. Then \(\cbraces{a_n}\) is convergent iff \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n,m>N\), \(\abs{a_n-a_m}<\varepsilon\).
@@ -105,7 +105,7 @@ We also have the definition of the limit of a sequence:
         \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n<a+\varepsilon\),
         \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n>a-\varepsilon\),
     \end{enumerate}
-    then the \textscsl{superior limit} of \(\cbraces{a_n}\) is \(a\), denoted by \(\varlimsup_{n\to\infty}a_n=\limsup_{n\to\infty}a_n=a\).
+    then the \textit{superior limit} of \(\cbraces{a_n}\) is \(a\), denoted by \(\varlimsup_{n\to\infty}a_n=\limsup_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{definition}[Limit Inferior]\label{def:liminf}
     For a number sequence \(\cbraces{a_n}\subset\mathbb{R}\), if \(\exists a\in\mathbb{R}\) such that:
@@ -113,7 +113,7 @@ We also have the definition of the limit of a sequence:
         \item \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \(a_n>a-\varepsilon\),
         \item \(\forall\varepsilon>0\), \(\forall N\in\mathbb{N}\), \(\exists n>N\) such that \(a_n<a+\varepsilon\),
     \end{enumerate}
-    then the \textscsl{inferior limit} of \(\cbraces{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
+    then the \textit{inferior limit} of \(\cbraces{a_n}\) is \(a\), denoted by \(\varliminf_{n\to\infty}a_n=\liminf_{n\to\infty}a_n=a\).
 \end{definition}
 \begin{lemma}
     A number sequence \(\cbraces{a_n}\) is convergent iff \(\varlimsup_{n\to\infty} a_n=\varliminf_{n\to\infty}a_n\).
@@ -128,7 +128,7 @@ We also have the definition of the limit of a sequence:
 \begin{definition}[Continuity]\label{def:continuity}
     A function \(f:U \to \mathbb{R}\), defined on an open set \(U \subseteq \mathbb{R}\) containing a point \(a \in U\), is said to be continuous at \(a\) iff if \[\lim_{x\to a}f(x)=f(a).\]
 \end{definition}
-It is important to note that in the case of multiple \emph{explicit} variables, a distinction is made between (separate) continuity (where there are two \(\delta\)'s on which variable varies, and does not guarantee a single \(\delta\) for when both variables vary simultaneously) and \textscsl{joint} continuity (where a single \(\delta\) controls both variables at once). To illustrate this, let \(\qty(x_0,y_0)\) be fixed. The former is commonly written as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{x-x_0}<\delta,\abs{f\qty(x,y_0)-f\qty(x_0,y_0)}<\varepsilon\] in conjunction with \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{y-y_0}<\delta,\abs{f\qty(x_0,y)-f\qty(x_0,y_0)}<\varepsilon,\] whereas the latter is expressed as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{\qty(x-x_0,y-y_0)}<\delta,\abs{f\qty(x,y)-f\qty(x_0,y_0)}<\varepsilon.\]
+It is important to note that in the case of multiple \emph{explicit} variables, a distinction is made between (separate) continuity (where there are two \(\delta\)'s on which variable varies, and does not guarantee a single \(\delta\) for when both variables vary simultaneously) and \textit{joint} continuity (where a single \(\delta\) controls both variables at once). To illustrate this, let \(\qty(x_0,y_0)\) be fixed. The former is commonly written as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{x-x_0}<\delta,\abs{f\qty(x,y_0)-f\qty(x_0,y_0)}<\varepsilon\] in conjunction with \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{y-y_0}<\delta,\abs{f\qty(x_0,y)-f\qty(x_0,y_0)}<\varepsilon,\] whereas the latter is expressed as \[\forall\varepsilon>0, \exists\delta>0\text{ such that }\forall\abs{\qty(x-x_0,y-y_0)}<\delta,\abs{f\qty(x,y)-f\qty(x_0,y_0)}<\varepsilon.\]
 \begin{theorem}\label{thm:continuousfunctionboundedoncompact}
     Any continuous function on a compact set \(K\) is bounded on \(K\).
 \end{theorem}
