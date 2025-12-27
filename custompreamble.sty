@@ -1,7 +1,8 @@
 % \usepackage[utf8]{inputenc}
 \usepackage{fontspec}
+\usepackage{unicode-math}
 \usepackage[fixamsmath]{mathtools}
-\usepackage{amssymb, amsfonts, amsthm}
+\usepackage{amsfonts, amsthm}
 \usepackage{parskip}
 \usepackage{cancel}
 \usepackage{pgfplots}
@@ -10,6 +11,7 @@
 \usepackage{csquotes}
 \usepackage{pifont}
 \usepackage{xparse}
+\usepackage[narrowiints]{kpfonts-otf}
 \usepackage{physics}
 \usepackage[labelfont=bf, textfont=it]{caption}
 \usepackage{subcaption}
@@ -119,15 +121,20 @@
 \renewcommand{\@pnumwidth}{1.65em}
 \renewcommand{\@tocrmarg}{2.2em}
 \makeatother
-\usepackage[lightmath, narrowiints]{kpfonts-otf}
-\setmathfont{KpMath-Light.otf}[version=light]
 
-\let\swapRe\Re%
-\let\Re\real%
-\let\real\swapRe%
-\let\swapIm\Im%
-\let\Im\imaginary%
-\let\imaginary\swapIm%
+\setmainfont{KpRoman}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+]
+\setmathfont{STIXTwoMath-Regular.otf}
 
-%\usepgfplotslibrary{external} 
+\DeclareMathOperator{\fRe}{\mathfrak{Re}}
+\DeclareMathOperator{\fIm}{\mathfrak{Im}}
+\let\Re\fRe
+\let\Im\fIm
+
+%\usepgfplotslibrary{external}
 %\tikzexternalize

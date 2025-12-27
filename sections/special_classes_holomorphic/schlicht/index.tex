@@ -6,10 +6,18 @@ The power series expansion of schlicht \(f\) around 0 is of the form
 \[f(z)=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}z^n,\qquad z\in\mathbb{D},\] which by assumption, simplifies to
 \[f(z)=z+\sum_{n=2}^{\infty}a_nz^n,\qquad z\in\mathbb{D},\] where \(a_n=\frac{f^{(n)}(0)}{n!}\) for \(n\geq 2\). Two historic results regarding schlicht functions state that
 \begin{enumerate}
-    \item The only schlicht functions satisfying \(\exists n\in\mathbb{N}\) with \(|a_n|=1\) are the Koebe functions.
+    \item The only schlicht functions satisfying \(\exists n\in\mathbb{N}\) with \(\abs{a_n}=n\) are the Koebe functions in the form of \[z\mapsto\frac{z}{\qty(1-\ee^{\ii\theta}z)^2}.\] The Koebe functions are more extremal in that it satisfies the conclusion \(\abs{a_n}=n\) for all \(n\in\mathbb{N}\); its power series is given by \[z\mapsto\sum_{n=1}^\infty n\ee^{\ii\theta(n-1)}z^n.\]
     \item For any schlicht \(f\) and \(\forall n\in\mathbb{N}\), it holds that \(|a_n|\leq n\).
 \end{enumerate} Both were solved in the 20th century by Louis de Branges in the affirmative. The second statement is known as the \textit{Bieberbach Conjecture} as it was originally hypothesized by Ludwig Bieberbach.
-\begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
 
+We will introduce two of the oldest results regarding schlicht functions, namely \(\abs{a_2}\leq 2\) and the Koebe Quarter Theorem (\cref{thm:koebequarter}). There are many applications of the latter, for instance, we used it in the proof of Mergelyan's Theorem (\cref{thm:mergelyan}).
+\begin{lemma}
+    Let \(f:\mathbb{D}\to\mathbb{C}\) be schlicht and define \(h(z)=\frac1{f(z)}\). 
+\end{lemma}
+\begin{theorem}\label{thm:schlichta2leq2}
+    If \(f:\mathbb{D}\to\mathbb{C}\) is schlicht and expands to \(\sum_{n=1}^\infty a_nz^n\), then \(\abs{a_2}\leq 2\).
+\end{theorem}
+\begin{theorem}[\textsc{Koebe Quarter Theorem}]\label{thm:koebequarter}
+    If \(f:\mathbb{D}\to\mathbb{C}\) is schlicht, then the image \(f(\mathbb{D})\) contains the open disk of radius \(\frac{1}{4}\) centered at \(f(0)\).
 \end{theorem}
 \subimport{bieberbach_conjecture/}{index.tex}
