@@ -1,0 +1,96 @@
+\subsection{Hartogs' Phenomenon}
+One of the most prominent results of complex function theory is \textscsl{Hartogs' phenomenon}, which reveals a fundamental difference between holomorphic functions of one variable and those of several variables. First
+discovered by Friedrich Hartogs in 1906, it essentially states that holomorphic
+functions in several complex variables exhibit a surprising rigidity.
+
+To understand the sense of Hartogs' phenomenon, consider the simple example of
+\(z\mapsto\frac1z\) in one complex variable. This function is holomorphic on
+\(\mathbb{C}^*\) with a singularity at 0 that cannot be removed. However, in
+the case of several complex variables, Hartogs' phenomenon asserts that if a
+function is holomorphic in a domain that excludes a compact subset, it can be
+extended to a holomorphic function on the entire domain, including the excluded
+subset. One immediate conclusion from this is that isolated singularities are
+\emph{always} removable in higher dimensions.
+\begin{theorem}[\textsc{Hartogs' Extension Theorem}]\label{thm:hartogsextensiontheorem}
+    Let \(\Omega\subseteq\mathbb{C}^n\) (\(n\ge2\)) be a domain and \(K\subseteq\Omega\) be a compact subset such that \(\Omega\setminus K\) is connected. Then any holomorphic function \(f:\Omega\setminus K\to\mathbb{C}\) has a unique extension to a holomorphic function \(\widetilde{f}:\Omega\to\mathbb{C}\) such that \(\widetilde{f}\equiv f\) on \(\Omega\setminus K\).
+\end{theorem}
+Hartogs, in 1906, first proved his extension theorem using an integral formula, but was considered to be incomplete with gaps. In 1939, Fueter gave a proof for the case \(n=2\), and later Bochner and Martinelli developed more general integral kernel methods for higher dimensions. Finally, Ehrenpreis, in 1961, provided a succinct and analytic proof using the \(\overline{\partial}\) operator: by multiplying the function by a
+smooth cutoff or bump function and then solving a \(\overline{\partial}\)-problem to correct the non-holomorphy introduced by the cutoff, one can construct the desired extension.
+
+The general study of complex function theory in multiple variables is made
+practical with the definition of differential forms in multiple variables and
+in particular the \(\overline\partial\)-problem, whose utility in a single
+variable has already been preluded to many times before.
+
+Only certain cases of \cref{thm:hartogsextensiontheorem} are proved here.
+\begin{proposition}\label{prop:reinhardtlaurentexpansion}
+    Let \(\Omega\subseteq\mathbb{C}^n\) be a Reinhardt domain centered at \(\vb{0}\) and let \(f:\Omega\to\mathbb{C}\) be holomorphic. Then \(\vb{f}\) admits the unique Laurent expansion
+    \begin{equation}
+        \vb{f}(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}},\qquad\vb{a}_{\vb{k}}\in\mathbb{C},\label{eq:reinhardtlaurentexpansion}
+    \end{equation} converging absolutely and uniformly on compact subsets of \(\Omega\).
+\end{proposition}
+\begin{proof}
+    Let \(\vb{w}=\qty(w_1,\dots,w_n)\in\Omega\) with each \(w_j\neq0\). Since \(\Omega\) is a Reinhardt domain, for every \(\vb*{\theta}=\qty(\theta_1,\dots,\theta_n)\in[-\piup,\piup]^n\) the point
+    \[z_j=w_j\ee^{\ii\theta_j},\qquad j\in\mathbb{N}_{\leq n}\]
+    lies in \(\Omega\); moreover, the set of all such points, \(K\), is compact in
+    \(\Omega\). Assuming that a Laurent expansion exists and converges uniformly on
+    this compact set, termwise integration gives
+    \[a_{\mathbf{k}}=\frac{1}{\qty(2\piup\ii)^n}\int_K\frac{f(\vb{z})}{\vb{z}^{\vb{k}+\qty(1,\dots,1)}}\dd{\vb{z}}=\frac{\vb{w}^{-\vb{k}}}{\qty(2\piup)^n}\mathmakebox[\widthof{\(\int_{-\piup}\)}][l]{\int_{[-\piup,\piup]^n}}
+    f\qty(w_1\ee^{\ii\theta_1},\dots,w_n\ee^{\ii\theta_n})\ee^{-\ii(k_1\theta_1+\cdots+k_n\theta_n)}\dd{\vb*{\theta}},\]
+    which shows that the coefficients \(a_{\mathbf{k}}\) are uniquely determined.
+
+    To prove the existence of such an expansion, again fix \(w\in\Omega\). Because
+    \(\Omega\) is Reinhardt, there exists \(\varepsilon>0\) such that the
+    polyannulus
+    \[\Omega\qty(\vb{w},\varepsilon)=\cbraces{\vb{z}=\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\abs{w_j}-\varepsilon<\abs{z_j}<\abs{w_j}+\varepsilon,j\in\mathbb{N}_{\leq n}}\] is contained in \(\Omega\). On this set one may perform one-variable Laurent
+    expansions (\cref{thm:laurentexpansionofholomorphicfunction}) successively in
+    each coordinate, holding the others fixed. Since \(f\) is holomorphic on
+    \(\Omega\), this procedure yields
+    \[f(\vb{z})=\sum_{\mathbf{k}\in\mathbb{Z}^n}a_{\mathbf{k}}(\vb{w})\vb{z}^{\mathbf{k}},\]
+    a Laurent series converging uniformly on a neighborhood of \(w\). If
+    \(\vb{w}'\in\Omega(\vb{w},\varepsilon)\), then the same construction gives
+    \[f(z)=\sum_{\mathbf{k}\in\mathbb{Z}^n}a_{\mathbf{k}}(\vb{w}')z^{\mathbf{k}}.\]
+    By uniqueness of Laurent coefficients (in the one-variable expansions), it
+    follows that \(a_{\mathbf{k}}(\vb{w}')=a_{\mathbf{k}}(\vb{w})\). Thus the
+    coefficient functions \(a_{\mathbf{k}}(\vb{w})\) are locally constant on
+    \(\Omega\), and since \(\Omega\) is connected they are constant throughout
+    \(\Omega\); we therefore write them simply as \(a_{\mathbf{k}}\).
+
+    Consequently,
+    \[f(\vb{z})=\sum_{\mathbf{k}\in\mathbb{Z}^n}a_{\mathbf{k}}\vb{z}^{\mathbf{k}}\]
+    holds in a neighborhood of every point in \(\Omega\). If \(K\subset\Omega\) is
+    compact, then it lies inside some polyannulus
+    \(\Omega(\vb{w},\varepsilon)\subset\Omega\), and on this polyannulus the series
+    converges uniformly; therefore it converges uniformly on \(K\). The absolute
+    convergence follow from the absolute convergence of the one-variable Laurent
+    expansions used in the construction.
+\end{proof}
+\begin{proposition}\label{prop:hartogslaurentexpansionnonnegative}
+    Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain centered at \(\vb{0}\) such that \(\Omega\)
+    satisfies the condition that for every \(j\in\mathbb{N}_{\leq n}\), there
+    exists a point in \(\Omega\) of the form \(w_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(w_j\notin\mathbb{C}^*\)). Then any holomorphic function \(f:\Omega\to\mathbb{C}\) has the expansion \[f(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\vb{z}^{\vb{k}},\] which converges locally uniformly and absolutely on \(\Omega\).
+\end{proposition}
+\begin{proof}
+    By \cref{prop:reinhardtlaurentexpansion}, \(f\) has an expansion matching the form of \cref{eq:reinhardtlaurentexpansion}. Now for a fixed \(j\in\mathbb{N}_{\leq n}\), if not all \(a_{\vb{k}}\)'s with \(k_j<0\) are zero, then fixing all variables except \(z_j\) gives a Laurent expansion that does not uniformly converge on all compact neighborhoods of \(w_j\vb{e}_j\in\Omega\) (either a pole or an essential singularity with respect to \(z_j\)). Thus, we are left only with \(\vb{k}\) containing nonnegative components, and the conclusion holds.
+\end{proof}
+\begin{theorem}[Hartogs' Extension Theorem for Reinhardt Domains]\label{thm:hartogsextensiontheoremforreinhardtdomains}
+    Let \(\Omega\subset\mathbb{C}^n\) be a Reinhardt domain centered at \(\vb{0}\) such that \(\Omega\)
+    satisfies the condition that for every \(j\in\mathbb{N}_{\leq n}\), there
+    exists a point in \(\Omega\) of the form \(a_j\vb{e}_j\) (\(\vb{e}_j\) is the \(j\)-th unit vector and \(a_j\notin\mathbb{C}^*\)). Let \(f:\Omega\to\mathbb{C}\) be
+    holomorphic. Then \(f(\vb{z})\) can be
+    analytically continued to the complete Reinhardt domain \(\widetilde{\Omega}\) defined by \[\widetilde{\Omega}=\cbraces{\qty(\rho_1z_1,\rho_2z_2,\dots,\rho_nz_n)\in\mathbb{C}^n}{0\leq\rho_j\leq 1,j\in\mathbb{N}_{\leq n},\qty(z_1,\dots,z_n)\in\Omega}\]
+    In other words, \(\exists\widetilde{f}:\widetilde{\Omega}\to\mathbb{C}\)
+    holomorphic such that \(\widetilde{f}\equiv f\) on \(\Omega\).
+\end{theorem}
+\begin{proof}
+    By \cref{prop:hartogslaurentexpansionnonnegative}, \(f\) has the expansion
+    \[f(\vb{z})=\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\vb{z}^{\vb{k}},\] which absolutely converges on \(\Omega\). Substituting
+    \(\qty(\rho_1z_1,\dots,\rho_nz_n)\) for \(\vb{z}\in\Omega\) with
+    \(0\leq\rho_j\leq1\) for each \(j\in\mathbb{N}_{\leq n}\) gives
+    \[\abs{\widetilde{f}(\rho_1z_1,\dots,\rho_nz_n)}=\abs{\sum_{\vb{k}\in\mathbb{Z}^n_{\geq 0}}a_{\vb{k}}\qty(\rho_1z_1)^{k_1}\cdots\qty(\rho_nz_n)^{k_n}}\leq\sum_{\vb{k}\in\mathbb{Z}^n_{\geq0}}\abs{a_{\vb{k}}\vb{z}^{\vb{k}}},\] which converges. The function \(\widetilde{f}:\widetilde{\Omega}\to\mathbb{C}\)
+    is then holomorphic as it is given by a power series expansion, and it
+    satisfies \(\widetilde{f}\equiv f\) on \(\Omega\).
+\end{proof}
+\begin{example}
+    Set \(r>0\) and let \[\Omega\qty(r)=B^n\setminus r\overline{B^n}=\cbraces{\vb{z}}{r<\norm{\vb{z}}<1}\] define a Reinhardt domain. Then any holomorphic function \(f:\Omega(r)\to\mathbb{C}\) can be analytically continued to the entire unit ball \(B^n\) by \cref{thm:hartogsextensiontheoremforreinhardtdomains}.
+\end{example}

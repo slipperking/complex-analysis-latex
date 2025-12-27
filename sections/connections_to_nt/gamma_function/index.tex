@@ -1,0 +1,161 @@
+\subsection{The \texorpdfstring{\(\Gamma\)}{Gamma}-Function}\label{sec:gammafunction}
+\begin{definition}\label{def:gammafunction}
+    The Gamma function is defined by
+    \begin{equation}
+        \Gamma(z)=\int_0^\infty\ee^{-t}t^{z-1}\dd{t},\label{eq:gammafunction}
+    \end{equation} where \(z\in\mathbb{C}\).
+\end{definition}
+By letting \(z=x+\ii y\) where \(x,y\in\mathbb{R}\), we have \(\abs{\ee^{-t}t^{z-1}}=\ee^{-t}t^{x-1}\). Notice that for \(x>0\),
+\begin{align*}
+    \abs{\Gamma(x)} & =\int_0^1\ee^{-t}t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt                                           \\
+                    & \leq\int_0^1 t^{x-1}\ddt+\int_1^\infty\ee^{-t}t^{x-1}\ddt=\frac{1}{x}+\int_1^\infty\ee^{-t}t^{x-1}\ddt.
+\end{align*}
+Since \(\int_1^\infty\frac{\ddt}{t^2}\) is convergent and \(\lim_{t\to\infty}\frac{\ee^{-t}t^{z-1}}{t^{-2}}=0\), then by comparison, the second integral is convergent.
+
+Therefore, \(\Gamma(x)\) is convergent on \(\mathbb{R}_{>0}\). It follows that \(\Gamma(z)\) is absolutely convergent on the right half-plane \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\).
+\begin{theorem}
+    The \(\Gamma\)-function is holomorphic on \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\).
+\end{theorem}
+\begin{proof}
+    Let \(\gamma\subset\cbraces{z\in\mathbb{C}}{\Re(z)>0}\) be an arbitrary simple, closed, rectifiable curve. By Morera's Theorem (\cref{thm:morera}), it suffices to show that \(\oint_\gamma\Gamma(z)\ddz=0\). We have
+    \begin{align*}
+        \oint_\gamma\Gamma(z)\ddz & =\oint_\gamma\qty(\int_0^\infty\ee^{-t}t^{z-1}\ddt)\ddz=\int_0^\infty\ee^{-t}\qty(\oint_\gamma t^{z-1}\ddz)\ddt=0,
+    \end{align*}
+    where the integral exchange is justified by uniform convergence of \(\Gamma\) on compact subsets of \(\cbraces{z\in\mathbb{C}}{\Re(z)>0}\) (by the Weierstrass \(M\)--Test, \cref{thm:weierstrassmtest}).
+\end{proof}
+From integration by parts, we obtain
+\[\Gamma(z+1)=\int_0^\infty\ee^{-t}t^z\ddt=-\eval{\ee^{-t}t^z}_0^\infty+z\int_0^\infty\ee^{-t}t^{z-1}\ddt.=z\Gamma(z).\]
+Additionally, \[\Gamma(1)=\int_0^\infty\ee^{-t}\ddt=-\eval{\ee^{-t}}_0^\infty=1.\]
+Hence, we have \(\Gamma(z+1)=z!\), and the \(\Gamma\)-function generalizes the factorial. We also have \[\Gamma(z+n)=\Gamma(z)\prod_{k=0}^{n-1}(z+k),\quad\Re(z)>0, n\in\mathbb{N}.\]
+Therefore, can derive its analytic continuation via
+\[\Gamma(z)=\frac{\Gamma(z+n)}{\prod_{k=0}^{n-1}(z+k)},\quad\Re(z)>-n.\]
+Since the numerator is holomorphic on \(\Re(z)>-n\) and \(n\) was arbitrary, the analytic continuation of \(\Gamma\) has simple poles at each of \(\mathbb{Z}_{\leq0}\). Hence, \(\Gamma(z)\) is meromorphic on \(\mathbb{C}\).
+
+By \cref{eq:residueatpole}, the residue at each pole is equal to
+\[\residue_{z=-n}\Gamma(z)=\lim_{z\to -n}\frac{\Gamma(z+n+1)}{\prod_{k=0}^{n-1}(z+k)}=\frac{1}{\prod_{k=1}^n(-k)}=\frac{{(-1)}^n}{n!}.\]
+We will now study two representations for the Gamma function.
+\begin{theorem}[Gauss]\label{thm:gammafunctiongaussformula}
+    The Gamma function satisfies
+    \begin{equation}
+        \Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n(z+k)},\qquad\Re z>0.\label{eq:gammafunctiongaussformula}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Define the sequence of functions
+    \[f_n(z)=\int_0^n{\qty(1-\frac{t}{n})}^n t^{z-1}\ddt=n^z\int_0^1{\qty(1-t)}^n t^{z-1}\ddt,\quad\Re(z)>0.\]
+    By integration by parts, we have
+    \begin{align}
+        f_n(z) & =n^z\qty[\eval{\frac{t^z}{z}{(1-t)}^n}_0^1+\frac{n}{z}\int_0^1{(1-t)}^{n-1}t^z\ddt]                                     \nonumber  \\
+               & =\qty(\frac{n}{n-1})^{z+1}\frac{f_{n-1}\qty(z+1)}{z}=\qty[\frac{n^{z+1}(n-1)}{{(n-2)}^{z+2}}]\frac{f_{n-2}(z+2)}{z(z+1)}\nonumber  \\
+               & =n^{z+1}(n-1)!\frac{f_1(z+n-1)}{\prod_{k=0}^{n-2}(z+k)}                                                                  \nonumber \\
+               & =\frac{n^z n!}{\prod_{k=0}^n(z+k)}.\label{eq:gammafunctiongaussformulaprelimit}
+    \end{align}
+    Let us now analyze the difference
+    \begin{equation}
+        \lim_{n\to\infty}\qty[\int_0^n\ee^{-t}t^{z-1}\ddt-f_n(z)]=\lim_{n\to\infty}\int_0^n\ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt.\label{eq:gammafunction_gaussformulaintermediate1}
+    \end{equation}
+    Since \[\dv{t}(\ee^t{\qty(1-\frac{t}{n})}^n)=\ee^t
+        \qty(1-\frac{t}{n})^n-\ee^t\qty(1-\frac{t}{n})^{n-1}=-\ee^t\frac{t}{n}{\qty(1-\frac{t}{n})}^{n-1},\]
+    we have
+    \begin{equation}
+        1-\ee^t\qty(1-\frac{t}{n})^n=\frac{1}{n}\int_0^t u\ee^u\qty(1-\frac{u}{n})^{n-1}\dd{u}.\label{eq:gammafunction_gaussformulaintermediate2}
+    \end{equation}
+    Additionally, since
+    \[\dv{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\ee^u\qty(1-\frac{u}{n})^{n-1}-\frac{n-1}{n}\ee^u\qty(1-\frac{u}{n})^{n-2}=\frac{\ee^u}{n}\qty(1-\frac{u}{n})^{n-2}\qty(1-u)\] has zeros at \(u=1\) and at \(u=n\), and \[\dv[2]{u}(\ee^u\qty(1-\frac{u}{n})^{n-1})=\frac{\ee^u}{n^2}\qty(1-\frac{u}{n})^{n-3}\qty(u^{2}-2u-n+2),\]
+    evaluates to \(-\frac{\ee(n-1)^{n-2}}{n^{n-1}}<0\) at \(u=1\) and evaluates to \[\frac{\ee^n}{n^{n-1}}\qty(n-u)^{n-3}(n-2)(n-1)\to0^+\] as \(u\to n^-\), \(\ee^u{\qty(1-\frac{u}{n})}^{n-1}\) attains its maximum of \(\ee{\qty(\frac{n-1}{n})}^{n-1}\) at \(u=1\). For \(n>1\), \(\ee\qty(\frac{n-1}{n})^{n-1}\leq\ee\). From \cref{eq:gammafunction_gaussformulaintermediate2}, we have \[1-\ee^{t}\qty(1-\frac{t}{n})^n\leq\frac{\ee t^2}{2n}.\] Moreover, since for \(0\leq u\leq t\leq n\), \[u\ee^u\qty(1-\frac{u}{n})^{n-1}>0,\]
+    it follows that \(1-\ee^{t}{\qty(1-\frac{t}{n})}^n\) is positive. By \cref{eq:gammafunction_gaussformulaintermediate1}, we have \[\abs{\int_0^n\ee^{-t}t^{z-1}\qty[1-\ee^{t}{\qty(1-\frac{t}{n})}^n]\ddt}\leq\frac{\ee}{2n}\abs{\int_0^n\ee^{-t}t^{z+1}\ddt}<\frac{1}{2n}\abs{\Gamma(z+2)}\to 0\] as \(n\to\infty\). From \cref{eq:gammafunctiongaussformulaprelimit}, we have \(\Gamma(z)=\lim_{n\to\infty}\frac{n^z n!}{\prod_{k=0}^n\qty(z+k)}\), or \cref{eq:gammafunctiongaussformula}
+\end{proof}
+The \textscsl{Weierstrass formula} is a direct consequence of the Gauss formula.
+\begin{theorem}[Weierstrass]\label{thm:gammafunction_weierstrassformula}
+    The reciprocal Gamma function has the entire Weierstrass factorization of
+    \begin{equation}
+        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\ee^{z\gamma},\label{eq:gammafunction_weierstrassformula}
+    \end{equation} where \(\gammaup=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\).
+\end{theorem}
+\begin{proof}
+    Since the Gauss formula agrees with \cref{eq:gammafunction} on the right half-plane, the analytic continuation of \(\Gamma(z)\) is unique on the entire complex plane except for the poles at \(\mathbb{Z}_{\leq0}\) by the Identity Theorem (\cref{thm:identity}). Since
+    \begin{align*}
+        \frac{n^z n!}{\prod_{k=0}^n\qty(z+k)} & =\frac{\exp\qty[z\log(n)]}{z\prod_{k=1}^n\qty(1+\frac{z}{k})}                                                                                                \\
+                                              & =\frac{\exp\qty[z\int_1^n\frac{1}{x}\ddx]}{z\prod_{k=1}^n\qty(1+\frac{z}{k})}\frac{\exp\qty[-z\sum_{k=1}^n\frac{1}{k}]}{\prod_{k=1}^n\exp\qty[-\frac{z}{k}]} \\
+                                              & =\frac{1}{z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]}\exp\qty[-z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)].
+    \end{align*}
+    Therefore,
+    \begin{align*}
+        \frac{1}{\Gamma(z)} & =\lim_{n\to\infty}\frac{\prod_{k=0}^n(z+k)}{n^z n!}                                                                                           \\
+                            & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)] \\
+                            & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\gammaup).
+    \end{align*}
+    The constant \(\gammaup=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textscsl{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\piup^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
+\end{proof}
+We have two famous identities on the \(\Gamma\)-function:
+\begin{theorem}[Euler's Reflection Formula]\label{thm:gammafunction_eulerreflection}
+    The analytic continuation of the \(\Gamma\)-function can be analytically continued to the left half-plane with the functional equation of
+    \begin{equation}
+        \Gamma(z)\Gamma(1-z)=\piup\csc(\piup z)\label{eq:gammafunction_eulerreflection}
+    \end{equation} for \(z\in\mathbb{C}\setminus\mathbb{N}\).
+\end{theorem}
+\begin{proof}
+    By the Weierstrass Formula (\cref{thm:gammafunction_weierstrassformula}), we have
+    \begin{equation*}
+        \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\ee^{z\gammaup},\quad\frac{1}{\Gamma(-z)}=-z\prod_{k=1}^n\qty[\qty(1-\frac{z}{k})\ee^{\frac{z}{k}}]\ee{-z\gammaup}.
+    \end{equation*}
+    Since the Weierstrass elementary factors form an absolutely convergent infinite product, we may rearrange its terms. Hence, by \cref{ex:sinproductformula}, we have \[\frac{1}{\Gamma(z)\Gamma(1-z)}=-\frac{1}{z\Gamma(z)\Gamma(-z)}=z\prod_{k=1}^n\qty(1-\frac{z^2}{k^2})=\frac{\sin(\piup z)}{\piup},\] which confirms \cref{eq:gammafunction_eulerreflection}.
+\end{proof}
+\begin{example}\label{ex:gammafunction_onehalf}
+    Evaluate \(\Gamma\qty(\frac{1}{2})\).
+\end{example}
+\begin{proof}
+    By the Reflection Formula (\cref{thm:gammafunction_eulerreflection}), we have that \[\Gamma\qty(\frac{1}{2})^2=\piup\csc(\frac{\piup}{2})=\piup,\]
+    and it follows that \(\Gamma\qty(\frac{1}{2})=\sqrt{\piup}\) as it is positive.
+\end{proof}
+\begin{theorem}[Legendre's Duplication Formula]\label{thm:gammafunction_legendreduplication}
+    For any \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{2})\), we have
+    \begin{equation}
+        \Gamma(z)\Gamma\qty(z+\frac{1}{2})=2^{1-2z}\sqrt{\piup}\Gamma(2z).\label{eq:gammafunction_legendreduplication}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    From \cref{thm:gammafunctiongaussformula}, we have \[\Gamma(z)\Gamma\qty(z+\frac{1}{2})=\lim_{n\to\infty}\frac{n^{2z+\frac{1}{2}}n!^2}{\prod_{k=0}^n(z+k)\qty(z+k+\frac{1}{2})}=\lim_{n\to\infty}\frac{2^{2n+2}n^{2z+\frac{1}{2}}n!^2}{\prod_{k=0}^{2n+1}(2z+k)}\]
+    where the left-hand side is defined since \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{2})\). By expansion of the value, we have
+    \begin{align*}
+        \Gamma(z)\Gamma\qty(z+\frac{1}{2}) & =\lim_{n\to\infty}\frac{\qty(2n)^{2z}(2n)!}{\prod_{k=0}^{2n}(2z+k)}\cdot\frac{n^{\frac{1}{2}}n!^2 2^{2n+2-2z}}{\qty(2z+2n+1)(2n)!} \\
+                                           & =\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!^2 2^{2-2z}}{(2z+2n+1)\prod_{k=0}^{n-1}\qty(k+\frac{1}{2})\prod_{k=1}^n k}      \\
+                                           & =2^{2-2z}\Gamma(2z)\lim_{n\to\infty}\frac{n^{\frac{1}{2}}n!}{\prod_{k=0}^n\qty(k+\frac{1}{2})}\cdot\frac{n+\frac12}{2z+2n+1}       \\
+                                           & =2^{1-2z}\Gamma(2z)\Gamma\qty(\frac{1}{2})                                                                                         \\
+                                           & =2^{1-2z}\Gamma(2z)\sqrt{\piup},
+    \end{align*}
+    where the last step is derived from \cref{ex:gammafunction_onehalf}.
+\end{proof}
+The identity above is a special case of the following result:
+\begin{theorem}[Gauss Multiplication Theorem]
+    Suppose \(m\in\mathbb{N}_{\geq 2}\). Let \(z\in\mathbb{C}\setminus\qty(-\frac{\mathbb{N}}{m})\). Then we have
+    \begin{equation}
+        \Gamma(z)\Gamma\qty(z+\frac{1}{m})\cdots\Gamma\qty(z+\frac{m-1}{m})=\qty(2\piup)^{\frac{m-1}{2}}m^{\frac{1}{2}-mz}\Gamma(mz).\label{eq:gammafunction_gaussmultiplication}
+    \end{equation}
+\end{theorem}
+The Gamma function as in \cref{eq:gammafunction} is commonly referred to as the \textscsl{Euler Integral of the Second Kind}. The \textscsl{Euler Integral of the First Kind} is also known as the \textscsl{Beta function}, and is defined by \[\operatorname{B}\qty(z_1,z_2)=\int_0^1 t^{z_1-1}(1-t)^{z_2-1}\ddt.\] By a change of variables (by letting \(\tau=1-t\)), we derive the symmetry of the Beta function: \[\operatorname{B}\qty(z_1,z_2)=\int_0^1\tau^{z_2-1}(1-\tau)^{z_1-1}\dd\tau=\operatorname{B}\qty(z_2,z_1).\]
+The Beta function is commonly treated as an auxiliary function in many cases of integral evaluation due to its connection with the Gamma function:
+\begin{theorem}\label{thm:betagammafunctionrelationship}
+    For any \(\Re\qty(z_1),\Re\qty(z_2)>0\), we have \[\operatorname{B}\qty(z_1,z_2)=\frac{\Gamma\qty(z_1)\Gamma\qty(z_2)}{\Gamma\qty(z_1+z_2)}.\]
+\end{theorem}
+\begin{proof}
+    Consider the product \(\Gamma\qty(z_1)\Gamma\qty(z_2)\). By letting \(s=ut\) and \(v=t(u+1)\), we have
+    \begin{align}
+        \Gamma\qty(z_1)\Gamma\qty(z_2) & =\int_0^\infty\ee^{-s}s^{z_2-1}\qty[\int_0^\infty\ee^{-t} t^{z_1-1}\ddt]\dd{s}\nonumber                                                                       \\
+                                       & =\int_0^\infty u^{z_2-1}\qty[\int_0^\infty\ee^{-v}\qty(\frac{v}{u+1})^{z_1+z_2-1}\dd(\frac{v}{u+1})]\dd{u}.\nonumber                                          \\
+                                       & =\int_0^\infty\frac{u^{z_2-1}}{\qty(u+1)^{z_1+z_2}}\qty[\int_0^\infty\ee^{-v}v^{z_1+z_2-1}\dd{v}]\dd{u}.\label{eq:betagammafunctionrelationship_intermediate}
+    \end{align}
+    Let \(r=\frac{u}{u+1}\), \(u=\frac{r}{1-r}\), and \(\dd{u}=\frac{1}{(1-r)^2}\). Then we have \[\Gamma\qty(z_1)\Gamma\qty(z_2)=\Gamma\qty(z_1+z_2)\int_0^1 r^{z_2-1}(1-r)^{z_1-1}\dd{r}=\Gamma\qty(z_1+z_2)\operatorname{B}\qty(z_1,z_2).\qedhere\]
+\end{proof}
+\begin{example}[MIT Integration Bee 2023 Finals \#1]
+    Evaluate \[\int_0^{\frac{\piup}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx.\]
+\end{example}
+\begin{proof}
+    By rewriting the integral, and letting \(u=\tan(x)\), we have
+    \begin{align*}
+        I=\int_0^{\frac{\piup}{2}}\frac{\sqrt[3]{\tan(x)}}{(\sin(x)+\cos(x))^2}\ddx & =\int_0^\infty\frac{u^{\frac{1}{3}}\sec[2](x)\ddx}{(u+1)^2} \\
+                                                                                    & =\int_0^\infty\frac{u^{\frac{1}{3}}\dd{u}}{(u+1)^2}         \\
+                                                                                    & =\operatorname{B}\qty(\frac{4}{3},\frac{2}{3}),
+    \end{align*}
+    where the last step recognizes the form of \cref{eq:betagammafunctionrelationship_intermediate}. \Cref{thm:betagammafunctionrelationship} then gives \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] Lastly, the Reflection Formula (\cref{thm:gammafunction_eulerreflection}) gives that \[I=\frac{\piup}{3\sin(\frac{\piup}{3})}=\frac{2\piup\sqrt{3}}{9}.\qedhere\]
+\end{proof}

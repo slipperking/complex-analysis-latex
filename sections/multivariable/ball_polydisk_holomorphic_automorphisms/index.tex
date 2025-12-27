@@ -1,0 +1,347 @@
+\subsection{The Group of Holomorphic Automorphisms on \texorpdfstring{\(\mathbb{D}^n\)}{the Unit Polydisk} and \texorpdfstring{\(B^n\)}{the Unit Ball}}
+A function \[\vb{f}:\Omega\subseteq\mathbb{C}^m\to\mathbb{C}^n\] is called \textscsl{holomorphic} iff each of its component functions is
+holomorphic. It is important to allow for vector-valued outputs, since we are
+interested in automorphisms on complex domains in higher dimensions.
+
+For the aforesaid purpose, we require a generalization of the Schwarz Lemma
+(\cref{lem:schwarz}), which is equivalent to several results of Cartan.
+
+In preparation, we will introduce several relevant concepts.
+\begin{definition}[Multi-Index Notation]\label{def:multiindex}
+    A \textscsl{multi-index} is an \(n\)-tuple of nonnegative integers \(\vb{k}=(k_1,\ldots,k_n)\in\mathbb{N}_{\geq0}^n\).
+    We define
+    \[\abs{\vb{k}}=\sum_{j=1}^n k_j,\qquad\vb{z}^{\vb{k}}=\prod_{j=1}^n z_j^{k_j},\qquad\partial^{\vb{k}}=\pdv[\vb{k}]{}{\vb{z}}=\prod_{j=1}^n\pdv[k_j]{z_j},\qquad\vb{z}=\qty(z_1,\dots,z_n)\in\mathbb{C}^n.\]
+\end{definition}
+\begin{definition}\label{def:homogeneouspolynomial}
+    A polynomial \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) of several variables is said to be \textscsl{homogeneous of degree \(d\)} iff
+    \[\vb*{\psi}(\lambda\vb{z})=\lambda^d\vb*{\psi}(\vb{z})\qquad\forall\lambda\in\mathbb{C},\vb{z}\in\mathbb{C}^n,\]
+    or equivalently, iff \(\vb*{\psi}\) can be written as
+    \[\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\] where \(\vb{k}\in\mathbb{N}_{\ge0}^n\) is a multi-index.
+\end{definition}
+\begin{proposition}\label{prop:homogeneouspolynomialderivatives}
+    Let \(\vb*{\psi}:\mathbb{C}^n\to\mathbb{C}^m\) be a homogeneous polynomial of degree \(d\).
+    \begin{enumerate}
+        \item For any multi-index \(\vb*{\alpha}=(\alpha_1,\ldots,\alpha_n)\) with
+            \(\abs{\vb*{\alpha}}=r\leq d\), \[\partial^{\vb{\alpha}}\vb*{\psi}(\vb{z})=\frac{\partial^r\vb*{\psi}}{\partial z_1^{\alpha_1}\cdots\partial z_n^{\alpha_n}}(\vb{z})\] is a homogeneous polynomial of degree
+            \(d-r\).\label{itm:homogeneouspolynomialderivatives_less}
+        \item If \(r=d\neq 0\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\) is constant (and
+                there exists a multi-index \(\vb*{\alpha}\) with \(\abs{\vb*{\alpha}}=d\) such
+                that \(\partial^{\vb{\alpha}}\vb*{\psi}\) is
+            nonzero).\label{itm:homogeneouspolynomialderivatives_equality}
+        \item If \(r>d\), then \(\partial^{\vb{\alpha}}\vb*{\psi}\equiv
+            0\).\label{itm:homogeneouspolynomialderivatives_greater}
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Writing \(\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\) with coefficients \(\vb{a}_{\vb{k}}\in\mathbb{C}^m\), we compute
+    \[\partial^{\vb*{\alpha}}\vb*{\psi}(\vb{z})=\sum_{\abs{\vb{k}}=d}\vb{a}_{\vb{k}}\prod_{j=1}^n\frac{k_j!}{(k_j-\alpha_j)!}z_j^{k_j-\alpha_j},\qquad\vb{k}=\qty(k_1,\dots,k_n),\]
+    where terms with \(k_j<\alpha_j\) vanish. For each remaining term, the total
+    degree is
+    \[(k_1-\alpha_1)+\cdots+(k_n-\alpha_n)=d-\abs{\vb*{\alpha}}.\]
+    Hence, \(\partial^{\vb*{\alpha}}\vb*{\psi}\) is a homogeneous polynomial of
+    degree \(d-\abs{\vb*{\alpha}}\), establishing
+    \cref{itm:homogeneouspolynomialderivatives_less}.
+
+    If \(r=d\), every surviving monomial has degree \(0\), so
+    \(\partial^{\vb*{\alpha}}\vb*{\psi}\) is constant. Moreover, since
+    \(\vb*{\psi}\) has degree exactly \(d\), there exists some multi-index
+    \(\vb{k}\) with \(\abs{\vb{k}}=d\) and \(\vb{a}_{\vb{k}}\neq\vb{0}\); choosing
+    \(\vb*{\alpha}=\vb{k}\) yields a nonzero constant derivative. This proves
+    \cref{itm:homogeneouspolynomialderivatives_equality}.
+
+    Finally, if \(r>d\), then for every term in the expansion, at least one
+    \(k_j<\alpha_j\), so all summands vanish identically. Thus
+    \(\partial^{\vb*{\alpha}}\vb*{\psi}\equiv 0\), verifying
+    \cref{itm:homogeneouspolynomialderivatives_greater}.
+\end{proof}
+\begin{lemma}[Cartan]\label{lem:multivarcartan1}
+    Let \(\Omega\subset\mathbb{C}^n\) be a bounded region, and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is holomorphic. If \(\exists\vb{a}\in\Omega\) such that \(\vb{f}\qty(\vb{a})=\vb{a}\) and the complex Jacobian at \(\vb{a}\) is the identity matrix, or equivalently, if
+    \begin{equation}
+        \vb{J}_{\vb{f}}\qty(\vb{a})=\mqty(\pdv{f_1}{z_1}&\cdots&\pdv{f_1}{z_n}\\\vdots&\ddots&\vdots\\\pdv{f_n}{z_1}&\cdots&\pdv{f_n}{z_n})(\vb{a})=\vb{I}=\mqty(1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&1),\label{eq:multivarcartan1_jacobian}
+    \end{equation} then \(\vb{f}(\vb{z})\equiv\vb{z}\) is the identity map.
+\end{lemma}
+\begin{proof}
+    By \cref{thm:taylorexpansionmultivariable}, we have the expansion
+    \begin{equation}
+        \vb{f}(\vb{z})=\sum_{\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}(\vb{z}-\vb{a})^{\vb{k}}=\sum_{j=0}^\infty\vb*{\psi}_j(\vb{z}-\vb{a})=\vb{a}+\sum_{j=1}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}},\label{eq:multivarcartan1_taylorseries}
+    \end{equation} which is absolutely convergent on some polydisk centered at \(\vb{a}\), where \(\vb{a}_{\vb{k}}=\frac{\partial^{\vb{k}}\vb{f}(\vb{a})}{\prod_{j=1}^n k_j!}\) and \(\vb{k}=\qty(k_1,\dots,k_n)\). The terms have been rearranged (from absolute convergence) so that the inner summation is a homogeneous polynomial \(\vb*{\psi}_j\) with a zero at \(\vb{z}=\vb{a}\) and degree \(j\).
+
+    Trivially,
+    \(\vb{a}_{1,0,\dots,0}=\pdv{\vb{f}}{z_1}(\vb{a})=\qty(1,0,\ldots,0)\) by
+    \cref{eq:multivarcartan1_jacobian}. Similarly,
+    \(\vb{a}_{0,1,0,\ldots,0}=\qty(0,1,0,\ldots,0),\ldots,\vb{a}_{0,\ldots,0,1}=\qty(0,\ldots,0,1)\).
+    Hence, the linear homogeneous polynomial of
+    \cref{eq:multivarcartan1_taylorseries} equals \[\qty(z_1-a_1,\dots,z_n-a_n)=\vb{z}-\vb{a},\] and the entire expansion is thus equal to \[\vb{f}(\vb{z})=\vb{z}+\sum_{j=2}^\infty\sum_{\abs{\vb{k}}=j}\vb{a}_{\vb{k}}\qty(\vb{z}-\vb{a})^{\vb{k}}.\]
+    Define a sequence of holomorphic functions
+    \(\cbraces{\vb{f}_k(\vb{z})}_{k\in\mathbb{N}}\) by \[\vb{f}_1=\vb{f},\qquad\vb{f}_{k+1}=\vb{f}_k\circ\vb{f}\qquad\forall k\in\mathbb{N}.\]
+    Assume the existence of some \(m\in\mathbb{N}\), the smallest \(j\geq 2\) such
+    that \(\vb*{\psi}\) is not identically zero. Because \[\vb{f}_1(z)=\vb{z}+\vb*{\psi}_m\qty(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j\qty(\vb{z}-\vb{a}),\] it then follows that
+    \begin{align*}
+        \vb{f}_2(\vb{z}) & =\vb{z}+\vb*{\psi}_m(\vb{z}-\vb{a})+\sum_{j>m}\vb*{\psi}_j(\vb{z}-\vb{a})+\vb*{\psi}_m\qty(\vb{z}-\vb{a}+\sum_{j\geq m}\vb*{\psi}_j(\vb{z}-\vb{a}))+\sum_{j>m}\vb*{\psi}_j(\vb{f}(\vb{z})-\vb{a}) \\
+        & =\vb{z}+2\vb*{\psi}_m(\vb{z}-\vb{a})+(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a}).
+    \end{align*}
+    Assume, for induction, that \[\vb{f}_k(\vb{z})=\vb{z}+k\vb*{\psi}_m(\vb{z}-\vb{a})+\qty(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a}).\]
+    Then we have
+    \begin{align*}
+        \vb{f}_{k+1}(\vb{z}) & =\vb{z}+\sum_{j\geq m}\vb*{\psi}_j(\vb{z}-\vb{a})+k\vb*{\psi}_m\qty(\vb{z}-\vb{a}+\sum_{j\geq m}\qty(\text{degree \(j\) hom. polynomial})(\vb{z}-\vb{a})) \\
+        & \quad+\sum_{j>m}\qty(\text{homogeneous polynomial of degree \(j\)})\qty(\vb{f}(\vb{z})-\vb{a})                                                            \\
+        & =\vb{z}+(k+1)\vb*{\psi}_m(\vb{z}-\vb{a})+\qty(\text{degree \(>m\) homogeneous polynomials})(\vb{z}-\vb{a}).
+    \end{align*}
+    Since \(\vb{f}_k(\Omega)\subseteq\Omega\) for any \(k\), the sequence \(\cbraces{\vb{f}_k}_{k\in\mathbb{N}}\) is uniformly bounded on \(\Omega\). By Montel's Theorem (\cref{thm:montelmultivar}), there exists a subsequence \(\cbraces{\vb{f}_{k_l}}_{l\in\mathbb{N}}\) that converges locally uniformly to some holomorphic function \(\widetilde{\vb{f}}\) by virtue of Weierstrass (\cref{thm:weierstrassconvergencemultivar}).
+
+    Since \(\vb*{\psi}_m\not\equiv 0\), there exists \(\vb*{\alpha}\) satisfying
+    \(\abs{\vb*{\alpha}}=m\) such that \[\partial^{\vb*{\alpha}}\vb*{\psi}_m\equiv\vb{c}\neq\vb{0}\] is a nonzero constant by \cref{prop:homogeneouspolynomialderivatives}.
+    Consequently, \[\partial^{\vb*{\alpha}}\qty(\text{homogeneous polynomials of degree \(>m\)})(\vb{z}-\vb{a})\] is a homogeneous polynomial with degree \(\geq 1\) and thus vanishes as
+    \(\vb{z}\to\vb{a}\). Similarly, \(\vb{z}\mapsto\vb{z}\) is homogeneous with
+    degree \(1<m\) and thus \(\partial^{\vb*{\alpha}}z\) vanishes. Therefore, \[\partial^{\vb*{\alpha}}\vb{f}_k(\vb{a})=k\vb{c},\] which diverges as \(k\to\infty\). Weierstrass' Convergence Theorem
+    (\cref{thm:weierstrassconvergencemultivar}) gives that
+    \(\partial^{\vb*{\alpha}}\vb{f}_{k_l}(\vb{a})\to\partial^{\vb*{\alpha}}\widetilde{\vb{f}}(\vb{a})\)
+    which must be finite by holomorphy, contradicting the divergence. Hence, the
+    assumed value for \(m\) cannot exist and hence \(\vb*{\psi}_j\equiv 0\) for all
+    \(j\geq 2\). Thus, \(\vb{f}(\vb{z})\equiv\vb{z}\) on some polydisk centered at
+    \(\vb{a}\). By the Identity Theorem (\cref{thm:identitymultivar}),
+    \(\vb{f}(\vb{z})\equiv\vb{z}\) on \(\Omega\).
+\end{proof}
+\begin{definition}[Reinhardt Domain]\label{def:reinhardtdomain}
+    An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{Reinhardt domain} centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), \[\cbraces{\qty(z_1,\ldots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}=\abs{\zeta_k-a_k},1\leq k\leq n}\] is fully contained in \(\Omega\). In other words, \(\Omega\) is invariant under
+    all rotations about the center \(\vb{a}\) in each coordinate.
+\end{definition}
+\begin{definition}\label{def:completereinhardtdomain}
+    A Reinhardt domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textscsl{complete} iff \(\forall\vb*{\zeta}=\qty(\zeta_1,\dots,\zeta_n)\in\Omega\), the polydisk \[\cbraces{\qty(z_1,\dots,z_n)\in\mathbb{C}^n}{\abs{z_k-a_k}\leq\abs{\zeta_k-a_k},1\leq k\leq n}\] is contained in \(\Omega\).
+\end{definition}
+\begin{definition}[Circular Domain]\label{def:circulardomain}
+    An open domain \(\Omega\subseteq\mathbb{C}^n\) is a \textscsl{circular domain} centered at \(\vb{a}\in\mathbb{C}^n\) iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\ee^{\ii\theta}\qty(\vb*{\zeta}-\vb{a})}{0\leq\theta<2\piup}\] is fully contained in \(\Omega\).
+\end{definition}
+\begin{definition}\label{def:completecirculardomain}
+    A circular domain \(\Omega\subseteq\mathbb{C}^n\) centered at \(\vb{a}=\qty(a_1,\ldots,a_n)\) is said to be \textscsl{complete} iff \(\forall\vb*{\zeta}\in\Omega\), \[\cbraces{\vb{a}+\mu\qty(\vb*{\zeta}-\vb{a})}{\forall\mu\in\overline{\mathbb{D}}}\] is contained in \(\Omega\).
+\end{definition}
+\begin{proposition}\label{prop:jacobianchainrule}
+    Let \(U_0\subseteq\mathbb{C}^{n_0}, U_1\subseteq\mathbb{C}^{n_1}, U_2\subseteq\mathbb{C}^{n_2}\) be open domains with \(n_i\geq 1\) for each \(i\), and let \(\vb{f}:U_1\to U_2\) and \(\vb{g}:U_0\to U_1\) be holomorphic maps. Define the composition \(\vb{h}:U_0\to U_2\) by \(\vb{h}(\vb{z})=\vb{f}(\vb{g}(\vb{z}))\). Then for every \(\vb{z}\in U_0\), the complex Jacobian matrix of \(\vb{h}\) at \(\vb{z}\) is
+    \[\vb{J}_{\vb{h}}(\vb{z})=\vb{J}_{\vb{f}}(\vb{g}(\vb{z}))\cdot\vb{J}_{\vb{g}}(\vb{z}).\]
+\end{proposition}
+\begin{proof}
+    Fix \(\vb{z}\in U_0\) and let \(\vb{w}=\vb{g}(\vb{z})\in U_1\). Write \[\vb{h}(\vb{z})=(h_1(\vb{z}),\dots,h_{n_2}(\vb{z})),\] where each \(h_l:U_0\to\mathbb{C}\) is holomorphic for \(l=1,\dots,n_2\).
+    Similarly, write \[\vb{g}(\vb{z})=(g_1(\vb{z}),\dots,g_{n_1}(\vb{z})),\qquad\vb{f}(\vb{z})=(f_1(\vb{z}),\dots,f_{n_2}(\vb{z})),\] where each \(g_p:U_0\to\mathbb{C}\) and each \(f_l:U_1\to\mathbb{C}\) is
+    holomorphic for \(p=1,\dots,n_1\) and \(l=1,\dots,n_2\). Then
+    \(h_l(\vb{z})=f_l(\vb{g}(\vb{z}))\) for each \(l\). By the chain multivariable
+    rule, the complex Jacobian of \(\vb{h}\) at \(\vb{z}\) is the \(n_2\times n_0\)
+    matrix
+    \begin{align*}
+        \vb{J}_{\vb{h}}      & =\mqty(\pdv{h_1}{z_1}             & \cdots             & \pdv{h_1}{z_{n_0}}             \\\vdots&\ddots&\vdots\\\pdv{h_{n_2}}{z_1}&\cdots&\pdv{h_{n_2}}{z_{n_0}})=\mqty(\sum_{p=1}^{n_1}\pdv{f_1}{g_p}\qty(\vb{g})\pdv{g_p}{z_1}&\cdots&\sum_{p=1}^{n_1}\pdv{f_1}{g_p}\qty(\vb{g})\pdv{g_p}{z_{n_0}}\\\vdots&\ddots&\vdots\\\sum_{p=1}^{n_1}\pdv{f_{n_2}}{g_p}\qty(\vb{g})\pdv{g_p}{z_1}&\cdots&\sum_{p=1}^{n_1}\pdv{f_{n_2}}{g_p}\qty(\vb{g})\pdv{g_p}{z_{n_0}})\\
+        & =\mqty(\pdv{f_1}{g_1}\qty(\vb{g}) & \cdots             & \pdv{f_1}{g_{n_1}}\qty(\vb{g}) \\\vdots&\ddots&\vdots\\\pdv{f_{n_2}}{g_1}\qty(\vb{g}) & \cdots & \pdv{f_{n_2}}{g_{n_1}}\qty(\vb{g}))
+        \mqty(\pdv{g_1}{z_1} & \cdots                            & \pdv{g_1}{z_{n_0}}                                  \\\vdots&\ddots&\vdots\\\pdv{g_{n_1}}{z_1}&\cdots&\pdv{g_{n_1}}{z_{n_0}})=\vb{J}_{\vb{f}}(\vb{g})\cdot\vb{J}_{\vb{g}}.\qedhere
+    \end{align*}
+\end{proof}
+\begin{lemma}[Cartan]\label{lem:multivarcartan2}
+    Let \(\Omega\subset\mathbb{C}^n\) be a bounded complete circular domain centered at \(\vb{0}\), and suppose that \(\vb{f}=\qty(f_1,\ldots,f_n):\Omega\to\Omega\) is a biholomorphism. If \(\vb{f}(\vb{0})=\vb{0}\), then \(\vb{f}\) is linear.
+\end{lemma}
+\begin{proof}
+    Let \(\vb*{\rho}_\theta(\vb{z})=\ee^{\ii\theta}\vb{z}\) for all \(\theta\in\mathbb{R}\) and suppose that \(\vb*{\varphi}=\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}\). By \cref{prop:jacobianchainrule}, we must have that
+    \begin{align*}
+        \vb{J}_{\vb*{\varphi}}(\vb{z}) & =\vb{J}_{\vb*{\rho}_{-\theta}}\qty(\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}}\qty(\vb*{\rho}_\theta\circ\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta}\qty(\vb{f}(\vb{z}))\cdot\vb{J}_{\vb*{\rho}_{-\theta}\circ\vb{f}^{-1}\circ\vb*{\rho}_\theta\circ\vb{f}}\qty(\vb{z})              \\
+        \vb{J}_{\vb*{\varphi}}(\vb{0}) & =\mqty(\ee^{-\ii\theta}                                                                                                                                                                                                                                                                                                                                                         & \cdots & 0 \\\vdots&\ddots&\vdots\\0&\cdots&\ee^{-\ii\theta})\cdot\vb{J}_{\vb{f}^{-1}}(\vb{0})\cdot\mqty(\ee^{\ii\theta}&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\ee^{\ii\theta})\cdot\vb{J}_{\vb{f}}(\vb{0})=\ee^{-\ii\theta}\ee^{\ii\theta}\qty(\vb{J}_{\vb{f}^{-1}}\cdot\vb{J}_{\vb{f}})(\vb{0})=\vb{I}.
+    \end{align*}
+    By \cref{lem:multivarcartan1}, \(\vb*{\varphi}(\vb{z})\equiv\vb{z}\) on \(\Omega\). Hence, \(\vb{f}\circ\vb*{\rho}_\theta=\vb*{\rho}_\theta\circ\vb{f}\) for all \(\theta\in\mathbb{R}\). Together with \cref{thm:taylorexpansionmultivariable}, write
+    \begin{equation}
+        \vb{f}(\vb{z})=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}\label{eq:multivarcartan2_taylorseries}
+    \end{equation} on a polydisk centered at \(\vb{0}\). Thus,
+    \begin{equation*}
+        \vb{f}\circ\vb*{\rho}(\vb{z})=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\qty(\ee^{\ii\theta}\vb{z})^{\vb{k}}=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta\abs{\vb{k}}}\vb{z}^{\vb{k}}.
+    \end{equation*}
+    On the other hand, composing with \(\vb*{\rho}_\theta\) with \cref{eq:multivarcartan2_taylorseries} gives
+    \begin{equation*}
+        \vb*{\rho}_\theta\circ\vb{f}(\vb{z})=\ee^{\ii\theta}\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\vb{z}^{\vb{k}}=\sum_{\vb{k}:\abs{\vb{k}}=0}^\infty\vb{a}_{\vb{k}}\ee^{\ii\theta}\vb{z}^{\vb{k}}.
+    \end{equation*}
+    Hence, by the uniqueness of power series expansions, we must either have that \(\vb{a}_{\vb{k}}=\vb{0}\), \(\ee^{\ii\theta}\equiv\ee^{\ii\theta\abs{\vb{k}}}\), or equivalently, that \[\abs{\vb{k}}\equiv 1\pmod{2\piup}.\] This is only possible when \(\abs{\vb{k}}=1\) by irrationality, and thus
+    \(\vb{a}_{\vb{k}}=\vb{0}\) for all \(\abs{\vb{k}}\neq 1\). Therefore,
+    \(\vb{f}\) must be linear.
+\end{proof}
+\begin{remark}
+    If \(n=1\), then \(\Omega=D(0,R)\) for some \(R>0\) and any automorphism \(f\) with a fixed point \(0\) is a rotation in the form of \(z\mapsto\ee^{\ii\theta}z\), hence linear, the effective statement of the Schwarz Lemma (\cref{lem:schwarz}).
+\end{remark}
+\begin{theorem}[The Holomorphic Automorphism Group on \(\mathbb{D}^n\)]\label{thm:holomorphicautomorphismgrouponpolydisk}
+    The holomorphic automorphism group of the polydisk \(\mathbb{D}^n\) consists solely of biholomorphisms in the form of
+    \begin{equation}
+        \vb{z}=\qty(z_1,\ldots,z_n)\mapsto\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\label{eq:holomorphicautomorphismgrouponpolydisk_statement}
+    \end{equation} where \(\vb{P}\) is a \(n\times n\) permutation matrix (for coordinate permutations), \(\qty(\theta_1,\dots,\theta_n)\in\mathbb{R}^n\), and \(\qty(a_1,\ldots,a_n)\in\mathbb{D}^n\). Moreover, every such map is indeed an automorphism.
+\end{theorem}
+\begin{proof}
+    Let \(\vb{f}\in\Aut\qty(\mathbb{D}^n)\) be arbitrary, and set \(\vb*{\alpha}=\qty(\alpha_1,\ldots,\alpha_n)=\vb{f}(\vb{0})\). Define the Möbius transformation \(\vb*{\varphi}\qty(z_1,\ldots,z_n)=\qty(\frac{z_1-\alpha_1}{1-\overline{\alpha_1}z_1},\ldots,\frac{z_n-\alpha_n}{1-\overline{\alpha_n}z_n})\in\Aut\qty(\mathbb{D}^n)\). It follows that \(\vb*{\varphi}\circ\vb{f}(\vb{0})=\vb{0}\) and \(\vb*{\varphi}\circ\vb{f}\in\Aut\qty(\mathbb{D}^n)\).
+
+    By \cref{lem:multivarcartan2}, the map \(\vb*{\varphi}\circ\vb{f}\) is linear,
+    so \(\vb*{\varphi}\circ\vb{f}\qty(\vb{z})=\vb{A}\vb{z}\) for some invertible
+    constant matrix
+    \(\vb{A}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n})\).
+    Thus,
+    \[\abs{\sum_{j=1}^n\zeta_{k,j}z_j}<1\qquad\forall\vb{z}\in\mathbb{D}^n,\ \forall k\in\cbraces{1,\ldots,n},\]
+    which implies \(\abs{\zeta_{k,j}}\leq1\) for all \(j,k\in\cbraces{1,\ldots,n}\)
+    (for if \(\abs{\zeta_{k,j}}>1\), then choosing
+        \(z_j=\frac1{\abs{\zeta_{k,j}}}+\varepsilon\) with
+        \(0<\varepsilon<1-\frac1{\abs{\zeta_{k,j}}}\) and \(z_l=0\) for \(l\neq j\)
+    yields a contradiction).
+
+    For each \(j\in\cbraces{1,\ldots,n}\), define the sequence
+    \(\cbraces{\vb{z}_{j,k}}_{k\in\mathbb{N}}\) by
+    \[\vb{z}_{j,k}=\qty(z_{j,k,1},\dots,z_{j,k,n})=\qty(\qty(1-\frac{1}{k})\frac{\abs{\zeta_{j,1}}}{\zeta_{j,1}},\dots,\qty(1-\frac{1}{k})\frac{\abs{\zeta_{j,n}}}{\zeta_{j,n}})\in\mathbb{D}^n\qquad\forall k\in\mathbb{N},\]
+    where we informally let \(\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}=0\) if
+    \(\zeta_{j,i}=0\). Then, for all \(j\in\cbraces{1,\ldots,n}\) and
+    \(k\in\mathbb{N}\),
+    \[\qty(\vb*{\varphi}\circ\vb{f})\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{1,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{j,i},\dots,\sum_{i=1}^n\frac{\abs{\zeta_{j,i}}}{\zeta_{j,i}}\zeta_{n,i})\in\mathbb{D}^n.\]
+    In particular, the \(j\)-th component is
+    \[\qty(1-\frac{1}{k})\sum_{i=1}^n\abs{\zeta_{j,i}}\in\mathbb{D}.\]
+    As \(k\to\infty\),
+    \begin{equation}
+        \sum_{i=1}^n\abs{\zeta_{j,i}}\in\overline{\mathbb{D}}\qquad\forall j\in\cbraces{1,\ldots,n}.\label{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}
+    \end{equation}
+    Now consider, for each \(j\in\cbraces{1,\ldots,n}\), the sequence \(\vb{z}_{j,k}=\qty(0,\ldots,0,1-\frac{1}{k},0,\ldots,0)\), where \(1-\frac{1}{k}\) is in the \(j\)-th position. Then
+    \[\vb*{\varphi}\circ\vb{f}\qty(\vb{z}_{j,k})=\qty(1-\frac{1}{k})\qty(\zeta_{1,j},\ldots,\zeta_{n,j}).\]
+    As \(k\to\infty\), \(\vb{z}_{j,k}\to\vb{e}_j\in\partial\qty(\mathbb{D}^n)\)
+    (the \(j\)-th unit basis vector), so the limit
+    \[\qty(\zeta_{1,j},\ldots,\zeta_{n,j})\in\partial\qty(\mathbb{D}^n)\]
+    holds by continuity (extending across the boundary in this direction). Thus,
+    \(\max_{i\in\cbraces{1,\ldots,n}}\abs{\zeta_{i,j}}=1\). Combined with
+    \cref{eq:holomorphicautomorphismgrouponpolydisk_absolutesumestimate}, this
+    forces exactly one entry in the \(j\)-th column of \(\vb{A}\) to have absolute
+    value \(1\) (of the form \(\ee^{\ii\theta_j}\)), with all others zero.
+
+    Invertibility of \(\vb{A}\) ensures each column has at least one nonzero entry,
+    so \(\vb{A}\) is a monomial matrix, which factors to
+    \[\vb{A}=\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\]
+    for some permutation matrix \(\vb{P}\). Therefore,
+    \[\vb{f}\qty(\vb{z})=\vb*{\varphi}^{-1}\circ\qty(\vb{P}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\vb{z}).\]
+    Let \(\sigma:\mathbb{N}_{\leq n}\to\mathbb{N}_{\leq n}\) be the permutation
+    induced by \(\vb{P}\). The map \(\vb{A}\) multiplies the \(m\)-th input
+    coordinate \(z_m\) by \(\ee^{\ii\theta_m}\) and permutes to place it in the
+    \(\sigma(m)\)-th output position, so the \(\sigma(m)\)-th coordinate of
+    \(\vb{A}\vb{z}\) is \(\ee^{\ii\theta_m}z_m\). Applying \(\vb*{\varphi}^{-1}\)
+    componentwise then gives, for the \(k\)-th output coordinate,
+    \[\qty(\vb{f}\qty(\vb{z}))_k=\varphi_{\alpha_k}^{-1}\qty(\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)})=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}.\]
+    Set
+    \(a_{\sigma^{-1}(k)}=-\alpha_k\ee^{-\ii\theta_{\sigma^{-1}(k)}}\in\mathbb{D}\).
+    Then
+    \[\qty(\vb{f}\qty(\vb{z}))_k=\frac{\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}+\alpha_k}{1+\overline{\alpha_k}\ee^{\ii\theta_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}=\ee^{\ii\theta_{\sigma^{-1}(k)}}\frac{z_{\sigma^{-1}(k)}-a_{\sigma^{-1}(k)}}{1-\overline{a_{\sigma^{-1}(k)}}z_{\sigma^{-1}(k)}}.\] Hence, \[\qty(\vb{f}\qty(\vb{z}))_{\sigma(k)}=\ee^{\ii\theta_{k}}\frac{z_{k}-a_k}{1-\overline{a_k}z_{k}}\Longleftrightarrow\vb{f}(\vb{z})=\vb{P}\qty(\ee^{\ii\theta_1}\frac{z_1-a_1}{1-\overline{a_1}z_1},\ldots,\ee^{\ii\theta_n}\frac{z_n-a_n}{1-\overline{a_n}z_n}),\]
+    as in \cref{eq:holomorphicautomorphismgrouponpolydisk_statement}. Finally, each
+    automorphism of this form lies in \(\Aut\qty(\mathbb{D}^n)\) trivially.
+\end{proof}
+\begin{definition}
+    The \textscsl{conjugate transpose} or \textscsl{Hermitian transpose} of a complex matrix \(\vb{U}\) is defined as \(\vb{U}^\dagger=\overline{\vb{U}}^\top\), or the transpose of the matrix with each element replaced with its complex conjugate.
+\end{definition}
+\begin{definition}
+    A matrix \(\vb{U}\) is said to be \textscsl{unitary} iff its inverse is its conjugate transpose, or iff \(\vb{U}^\dagger\vb{U}=\vb{U}\vb{U}^\dagger=\vb{I}\).
+\end{definition}
+\begin{theorem}[\textsc{Spectral Theorem}]\label{thm:unitaryspectraltheorem}
+    For any unitary matrix \(\vb{U}\), there exists a unitary matrix \(\vb{V}\) such that \(\vb{U}=\vb{VD}\vb{V}^\dagger\), where \(\vb{D}\) is a diagonal matrix whose diagonal entries are all of unit modulus.
+\end{theorem}
+\begin{proof}
+    Because \(\norm{\vb{U}\vb{z}}^2=\vb{z}^\dagger\vb{U}^\dagger\vb{U}\vb{z}=\norm{\vb{z}}^2\) for any \(\vb{z}\in\mathbb{C}^n\), any eigenvalue \(\lambda_1\) (existence given by the Fundamental Theorem of Algebra in \cref{thm:fundamentaltheoremofalgebra} on the characteristic equation) of \(\vb{U}\) must satisfy \[\vb{U}\vb{v}_1=\lambda_1\vb{v}_1\implies\norm{\vb{U}\vb{v}_1}=\norm{\vb{v}_1}=\abs{\lambda_1}\norm{\vb{v}_1}\implies\abs{\lambda_1}=1,\]
+    where \(\norm{\vb{v}_1}=1\) is the corresponding eigenvector in
+    \(\mathbb{C}^n\). Then \[\vb{U}^{-1}\vb{U}\vb{v}_1=\vb{U}^{-1}\lambda_1\vb{v}_1=\lambda_1\vb{U}^{-1}\vb{v}_1\implies\frac1\lambda_1\vb{v}_1=\vb{U}^{-1}\vb{v}_1\implies\overline{\lambda_1}\vb{v}_1=\vb{U}^\dagger\vb{v}_1.\]
+    Let
+    \(\vb{v}_1^\perp=\cbraces{\vb{w}:\vb{v}_1^\dagger\vb{w}=\vb{0}}\subset\mathbb{C}^n\)
+    be an \((n-1)\)-dimensional subspace. For any \(\vb{w}\in\vb{v}_1^\perp\),
+    \[\vb{v}_1^\dagger\vb{Uw}=\qty(\vb{U}^\dagger\vb{v}_1)^\dagger\vb{w}=\qty(\overline{\lambda_1}\vb{v}_1)^\dagger\vb{w}=\lambda_1\vb{v}_1^\dagger\vb{w}=0,\]
+    so \(\vb{Uw}\in\vb{v}_1^\perp\). Hence \(\vb{v}_1^\perp\) is invariant under
+    \(\vb{U}\). The restriction of \(\vb{U}\) to \(\vb{v}_1^\perp\),
+    \(\vb{U}{\restriction_{\vb{v}_1^\perp}}\), yields another eigenvalue
+    \(\lambda_2\in\partial\mathbb{D}\) with eigenvector
+    \(\vb{v}_2\in\vb{v}_1^\perp\) satisfying \(\abs{\lambda_2}=1\) and
+    \(\norm{\vb{v}_2}=1\). Similarly, we may define
+    \(\vb{v}_2^\perp\subset\vb{v}_1^\perp\), which is an \((n-2)\)-dimensional
+    subspace invariant under \(\vb{U}\). Repeating this process inductively, we
+    obtain an orthonormal basis \(\cbraces{\vb{v}_1,\ldots,\vb{v}_n}\) of
+    eigenvectors of \(\vb{U}\) with corresponding eigenvalues
+    \(\lambda_1,\ldots,\lambda_n\in\partial\mathbb{D}\). Setting \[\vb{V}=\mqty(\vb{v}_1&\cdots&\vb{v}_n),\qquad\vb{D}=\operatorname{diag}\qty(\lambda_1,\ldots,\lambda_n)\] gives that \[\vb{V}^\dagger\vb{UV}=\vb{V}^\dagger\mqty(\vb{U}\vb{v}_1&\cdots&\vb{U}\vb{v}_n)=\vb{V}^\dagger\mqty(\lambda_1\vb{v}_1&\cdots&\lambda_n\vb{v}_n)=\vb{V}^\dagger\vb{VD}.\]
+    The \(k\)-th diagonal entry of \(\vb{V}^\dagger\vb{V}\) is equal to
+    \(\vb{v}_k^\dagger\vb{v}_k=\norm{\vb{v}_k}^2=1\), while the non-diagonal
+    entries correspond to \(\vb{v}_k^\dagger\vb{v}_l\) for some \(k\neq l\), which
+    vanish by orthogonality in construction. Thus, \(\vb{V}^\dagger\vb{V}=\vb{I}\)
+    (unitary) and \(\vb{VD}\vb{V}^\dagger=\vb{U}\).
+\end{proof}
+A \textscsl{unitary transformation} is a map in the form of \(\vb{z}\mapsto\vb{U}\vb{z}\), where \(\vb{U}\) is a unitary matrix.
+\begin{proposition}\label{prop:unitballsimpleautomorphism}
+    For any \(a\in\mathbb{D}\),
+    \begin{equation}
+        \vb{w}=\qty(w_1,\dots,w_n)=\vb*{\varphi}_{a}(\vb{z})=\qty(\frac{z_1-a}{1-\overline{a}z_1},z_2\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},z_3\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1},\ldots,z_n\frac{\sqrt{1-\abs{a}^2}}{1-\overline{a}z_1})\label{eq:unitballsimpleautomorphism_statement}
+    \end{equation} lies in \(\Aut\qty(B^n)\), where \(\vb{z}=\qty(z_1,\dots,z_n)\). Moreover, \(\vb*{\varphi}_a^{-1}=\vb*{\varphi}_{-a}\).
+\end{proposition}
+\begin{proof}
+    For \(\vb{z}=\qty(z_1,\dots,z_n)\in B^n\), because \(\sum_{k=2}^n\abs{z_k}^2<1-\abs{z_1}^2\),
+    \begin{align*}
+        \norm{\vb*{\varphi}_a(\vb{z})}^2 & =\frac{1}{\abs{1-\overline{a}z_1}^2}\qty[\abs{z_1-a}^2+\sum_{k=2}^n\qty(1-\abs{a}^2)\abs{z_k}^2]                                                 \\
+        & <\frac{1}{\qty(1-\overline{a}z_1)\qty(1-a\overline{z_1})}\qty[\qty(z_1-a)\qty(\overline{z_1}-\overline{a})+\qty(1-\abs{z_1}^2)\qty(1-\abs{a}^2)] \\
+        & =\frac{\abs{z_1}^2+\abs{a}^2-2\Re\qty(\overline{a}z_1)+1+\abs{az_1}^2-\abs{a}^2-\abs{z_1}^2}{1+\abs{az_1}^2-2\Re\qty(\overline{a}z_1)}=1.
+    \end{align*}
+    Hence, \(\vb*{\varphi}_a\) maps \(B^n\) to \(B^n\). A simple calculation shows that \[w_1=\frac{z_1-a}{1-\overline{a}z_1}\implies z_1=\frac{w_1+a}{1+\overline{a}w_1},\quad z_k=w_k\frac{1-\overline{a}z_1}{\sqrt{1-\abs{a}^2}}=w_k\frac{\sqrt{1-\abs{a}^2}}{1+\overline{a}w_1},\] and hence \(\vb*{\varphi}_a\) is bijective, admitting the inverse
+    \(\vb*{\varphi}_{-a}\). Therefore, \(\vb*{\varphi}_a\in\Aut\qty(B^n)\).
+\end{proof}
+\begin{proposition}\label{prop:unitballautomorphismfixedpointatzero}
+    A function \(\vb{f}\) is a unitary transformation iff \(\vb{f}\in\Aut\qty(B^n)\) and \(\vb{f}(\vb{0})=\vb{0}\).
+\end{proposition}
+\begin{proof}
+    Because \(B^n\) is a bounded complete circular domain centered at \(\vb{0}\), from \cref{lem:multivarcartan2} we have that \(\vb{f}\equiv\vb{U}\) for some constant invertible matrix \[\vb{U}=\mqty(\zeta_{1,1}&\cdots&\zeta_{1,n}\\\vdots&\ddots&\vdots\\\zeta_{n,1}&\cdots&\zeta_{n,n}).\]
+    Similarly, we have \(\vb{f}^{-1}=\vb{U}^{-1}\), so
+    \(\norm{\vb{z}}=\norm{\vb{U}^{-1}\vb{U}\vb{z}}\). Observe that \[\norm{\frac1{\norm{\vb{z}}}\vb{f}\qty(\vb{z})}=\norm{\vb{f}\qty(\frac{\vb{z}}{\norm{\vb{z}}})}=1\implies\norm{\vb{Uz}}^2=\norm{\vb{z}}^2.\]
+    More explicitly, we have \[\vb{U}\vb{z}=\qty(\sum_{k=1}^n\zeta_{1,k}z_k,\ldots,\sum_{k=1}^n\zeta_{n,k}z_k)\implies\norm{\vb{Uz}}^2=\sum_{j=1}^n\abs{\sum_{k=1}^n\zeta_{j,k}z_k}^2.\]
+    Letting \(\vb{z}=\vb{e}_i\) (\(1\leq i\leq n\)) be the \(i\)-th unit basis
+    vector, we obtain
+    \begin{equation}
+        \norm{\vb{Uz}}=1=\norm{\qty(\zeta_{1,i},\ldots,\zeta_{n,i})}^2=\sum_{k=1}^n\abs{\zeta_{k,i}}^2=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,i}}.\label{eq:unitballautomorphismfixedpointatzero_diagonalentries}
+    \end{equation}
+    Letting \(\vb{z}=\frac{\sqrt{2}}{2}\qty(\vb{e}_i+\vb{e}_j)\) (\(i\neq j\)), we have
+    \begin{align*}
+        \norm{\vb{Uz}}=1 & =\frac12\norm{\qty(\zeta_{1,i}+\zeta_{1,j},\dots,\zeta_{n,i}+\zeta_{n,j})}^2=\frac12\sum_{k=1}^n\abs{\zeta_{k,i}+\zeta_{k,j}}^2                                         \\
+        & =\frac12\sum_{k=1}^n\qty(\abs{\zeta_{k,i}^2}+\abs{\zeta_{k,j}^2}+2\Re\qty(\zeta_{k,i}\overline{\zeta_{k,j}}))=1+\sum_{k=1}^n\Re\qty(\zeta_{k,i}\overline{\zeta_{k,j}}),
+    \end{align*}
+    which implies that \(\sum_{k=1}^n\Re\qty(\zeta_{k,i}\overline{\zeta_{k,j}})=0\). Similarly, letting \(\vb{z}=\frac{\sqrt{2}}{2}\qty(\vb{e}_i+\ii\vb{e}_j)\) gives
+    \begin{align*}
+        \norm{\vb{Uz}}=1 & =\frac12\norm{\qty(\zeta_{1,i}+\ii\zeta_{1,j},\dots,\zeta_{n,i}+\ii\zeta_{n,j})}^2=\frac12\sum_{k=1}^n\abs{\zeta_{k,i}+\ii\zeta_{k,j}}^2                                \\
+        & =\frac12\sum_{k=1}^n\qty(\abs{\zeta_{k,i}^2}+\abs{\zeta_{k,j}^2}+2\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}}))=1+\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}}),
+    \end{align*}
+    which implies that \(\sum_{k=1}^n\Im\qty(\zeta_{k,i}\overline{\zeta_{k,j}})=0\). Therefore, by \cref{eq:unitballautomorphismfixedpointatzero_diagonalentries}, for all \(i,j\in\cbraces{1,\ldots,n}\), observe that
+    \[\qty(\vb{U}^\dagger\vb{U})_{j,i}=\sum_{k=1}^n\zeta_{k,i}\overline{\zeta_{k,j}}=\delta_{j,i},\] where \(\delta_{j,i}\) is the Kronecker delta. Hence, we have
+    \(\vb{U}^\dagger\vb{U}=\vb{I}\), and thus \(\vb{U}\) is unitary.
+
+    Conversely, if \(\vb{f}(\vb{z})=\vb{U}\vb{z}\) for some unitary matrix
+    \(\vb{U}\), then for any \(\vb{z}\in B^n\), \[\norm{\vb{f}(\vb{z})}^2=\norm{\vb{Uz}}^2=\vb{z}^\dagger\vb{U}^\dagger\vb{U}\vb{z}=\vb{z}^\dagger\vb{z}=\norm{z}^2,\]
+    so \(\vb{f}\) maps \(B^n\) to \(B^n\). Since \(\vb{U}\) is invertible with
+    unitary inverse \(\vb{U}^\dagger\), the map \(\vb{f}\) is bijective with
+    inverse \(\vb{f}^{-1}(\vb{w})=\vb{U}^\dagger\vb{w}\), which also maps \(B^n\)
+    to \(B^n\). Therefore, \(\vb{f}\in\Aut\qty(B^n)\) and
+    \(\vb{f}(\vb{0})=\vb{0}\).
+\end{proof}
+\begin{definition}
+    A group \(G\) (under juxtaposition) is said to be \textscsl{divisible} iff for every \(g\in G\) and every positive integer \(n\), there exists some \(h\in G\) such that \(h^n=g\).
+\end{definition}
+\begin{proposition}\label{prop:groupdivisibilitypreservedunderisomorphisms}
+    The divisibility of a group is preserved under group isomorphisms.
+\end{proposition}
+\begin{proof}
+    Let \(\varphi:G\to H\) be a group isomorphism between groups \(G\) and \(H\) with juxtaposition.
+
+    Assume \(G\) is divisible. Fix \(y\in H\) and a positive integer \(n\). Since
+    \(\varphi\) is bijective there is \(x\in G\) with \(\varphi(x)=y\). By
+    divisibility of \(G\) there exists \(h\in G\) with \(h^n=x\). Applying
+    \(\varphi\) and using the homomorphism property gives
+    \[\varphi(h)^n=\varphi\qty(h^n)=\varphi(x)=y.\]
+    Thus every element of \(H\) has an \(n\)-th root, so \(H\) is divisible.
+
+    Conversely, if \(H\) is divisible then the same argument applied to
+    \(\varphi^{-1}:H\to G\) shows \(G\) is divisible. Therefore divisibility is
+    preserved under group isomorphisms.
+\end{proof}
+\begin{theorem}[The Holomorphic Automorphism Group on \(B^n\)]\label{thm:holomorphicautomorphismgrouponunitball}
+    The holomorphic automorphism group \(\Aut\qty(B^n)\) consists solely of biholomorphisms in the form of
+    \begin{equation}
+        \vb{z}\mapsto\vb{U}^{-1}\vb*{\varphi}_{a}\circ\vb{V}\vb{z},\label{eq:holomorphicautomorphismgrouponunitball_statement}
+    \end{equation} where \(\vb{U},\vb{V}\) are unitary matrices, \(a\in\mathbb{D}\), and \(\vb*{\varphi}_a\) is defined as in \cref{eq:unitballsimpleautomorphism_statement} (and every such function lies in \(\Aut\qty(B^n)\)).
+\end{theorem}
+\begin{proof}
+    Let \(\vb{f}\in\Aut\qty(B^n)\) be arbitrary, and set \(\vb*{\alpha}=\vb{f}(\vb{0})\). Then there exists a unitary matrix \(\vb{U}\) such that \(\vb{U}\vb*{\alpha}=\qty(\abs{\alpha},0,\ldots,0)\).
+
+    Now let \(\vb*{\varphi}_{\abs{\vb*{\alpha}}}\) be as in
+    \cref{prop:unitballsimpleautomorphism}, mapping
+    \(\qty(\abs{\vb*{\alpha}},0,\ldots,0)\) to \(\vb{0}\). Then, the map
+    \(\vb*{\varphi}_{\abs{\vb*{\alpha}}}\circ\vb{U}\vb{f}\in\Aut\qty(B^n)\) fixes
+    \(\vb{0}\), so by \cref{prop:unitballautomorphismfixedpointatzero} it is a
+    unitary transformation, say \(\vb{V}\). Therefore, \[\vb*{\varphi}_{\abs{\vb*{\alpha}}}\circ\vb{U}\vb{f}\equiv\vb{V}\implies\vb{f}(\vb{z})\equiv\vb{U}^{-1}\vb*{\varphi}_{\abs{\vb*{\alpha}}}^{-1}\circ\vb{Vz}.\] The converse is trivial.
+\end{proof}

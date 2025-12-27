@@ -1,0 +1,46 @@
+\subsubsection{In Harmonic Analysis}
+Consider \(R=1\), \(\zeta=\ee^{\ii\tau}\), and \(z=\rho\ee^{\ii\theta}\) in \cref{eq:poissonintegralformula2}:
+\begin{gather}
+    u(z)=\frac{1}{2\piup}\int_0^{2\piup} u(\zeta)\frac{1-\abs{z}^2}{\abs{\zeta-z}^2}\dd{\tau}=\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{\qty(\ee^{\ii\tau}-\rho\ee^{\ii\theta})\qty(\ee^{-\ii\tau}-\rho\ee^{-\ii\theta})}\nonumber \\
+    =\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})\dd{\tau}}{1+\rho^2-2\rho\cos(\theta-\tau)}.\label{eq:poissonintegralformulatrigonometricsubstitution}
+\end{gather}
+Since \(u\qty(z)\) is continuous on \(\partial\mathbb{D}\) and \(u\circ\exp(\ii\theta)\) is periodic with period \(2\piup\), it admits a Fourier series representation
+\begin{equation}
+    u\qty(\ee^{\ii\theta})\sim\sum_{n=-\infty}^\infty a_n\ee^{\ii n\theta},\qquad a_n=\frac{1}{2\piup}\int_0^{2\piup} u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau}. \label{eq:poissonintegralformulafourierseries}
+\end{equation}
+This series may diverge. Observe that continuity of \(u\) on the compact set \(\partial\mathbb{D}\) implies uniform boundedness: \(\exists M>0\) such that \(\abs{u\qty(\ee^{\ii\theta})}\leq M\) for all \(\theta\) (\cref{thm:continuousfunctionboundedoncompact}). Consequently, \(\abs{a_n}\leq M\). Introducing factors \(\rho^{\abs{n}}\) with \(\abs{\rho}<1\) yields a convergent series:
+\[\sum_{n=-\infty}^\infty a_n\ee^{\ii n\theta}\rho^{\abs{n}},\quad\abs{\sum_{n=-\infty}^\infty a_n\ee^{\ii n\theta}\rho^{\abs{n}}}\leq\sum_{n=-\infty}^\infty\abs{a_n}\rho^{\abs{n}}\leq M\frac{1+\abs{\rho}}{1-\abs{\rho}}.\]
+Substituting the coefficients gives
+\begin{align*}
+    \sum_{n=-\infty}^\infty a_n\ee^{\ii n\theta}\rho^{\abs{n}} & =\sum_{n=-\infty}^\infty\qty(\frac{1}{2\piup}\int_0^{2\piup}u\qty(\ee^{\ii\tau})\ee^{-\ii n\tau}\dd{\tau})\ee^{\ii n\theta}\rho^{\abs{n}} \\
+                                                               & =\frac{1}{2\piup}\sum_{n=-\infty}^\infty\int_0^{2\piup}\rho^{\abs{n}} u\qty(\ee^{\ii\tau})\ee^{\ii n(\theta-\tau)}\dd{\tau}.
+\end{align*}
+By \cref{thm:weierstrassmtest,thm:limitintegralswitch},
+\begin{equation}
+    \frac{1}{2\piup}\sum_{n=-\infty}^\infty \int_0^{2\piup} \rho^{\abs{n}}u\qty(\ee^{\ii\tau}) \ee^{\ii n(\theta-\tau)} \dd{\tau}=\frac{1}{2\piup} \int_0^{2\piup} u\qty(\ee^{\ii\tau})\sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)}\dd{\tau}.\label{eq:poissonintegralformulafourierseriespostintegralsummationswitch}
+\end{equation}
+The summation simplifies as follows:
+\begin{align*}
+    \sum_{n=-\infty}^\infty \rho^{\abs{n}} \ee^{\ii n(\theta-\tau)} & =\sum_{n=0}^\infty \rho^n \ee^{\ii n(\theta-\tau)}+\sum_{n=1}^\infty \rho^n \ee^{-\ii n(\theta-\tau)} \\
+                                                                    & =1+2\sum_{n=1}^\infty\rho^n\cos[n(\theta-\tau)]                                                       \\
+                                                                    & =1+2\Re\sum_{n=1}^\infty\rho^n \ee^{\ii n(\theta-\tau)}                                               \\
+                                                                    & =1+2\Re\qty[\frac{\rho \ee^{\ii(\theta-\tau)}}{1-\rho \ee^{\ii(\theta-\tau)}}]                        \\
+                                                                    & =\frac{1-\rho^2}{1+\rho^2-2\rho\cos(\theta-\tau)}.
+\end{align*}
+Substituting into \cref{eq:poissonintegralformulafourierseriespostintegralsummationswitch} yields
+\[\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=\frac{1}{2\piup}\int_0^{2\piup}\frac{\qty(1-\rho^2)u\qty(\ee^{\ii\tau})}{1+\rho^2-2\rho\cos(\theta-\tau)}\dd{\tau}=u\qty(\rho \ee^{\ii\theta}).\]
+Furthermore, by the proof of \cref{thm:dirichletproblemwithlaplaceequationsolution} (specifically \cref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}),
+\[\lim_{\rho\to1^-}\sum_{n=-\infty}^\infty a_n \ee^{\ii n\theta}\rho^{\abs{n}}=u\qty(\ee^{\ii\theta}).\]
+Thus, for any continuous function \(u\) on \(\partial\mathbb{D}\), its Fourier series is \textscsl{Abel summable} to \(u\).
+
+We now establish that real-valued continuous functions satisfying the mean-value property are harmonic.
+\begin{theorem}\label{thm:meanvaluepropertysolutionsareharmonic}
+    Let \(U\subseteq\mathbb{C}\) be open and \(f:U\to\mathbb{R}\) continuous. Suppose for every \(z_0\in U\), there exists \(\lambda>0\) with \(\overline{D\qty(z_0,\lambda)}\subseteq U\) such that for all \(0<\varepsilon\leq\lambda\),
+    \[f\qty(z_0)=\frac{1}{2\piup}\int_0^{2\piup} f\qty(z_0+\varepsilon \ee^{\ii t})\dd{t}.\]
+    Then \(f\) is harmonic on \(U\).
+\end{theorem}
+\begin{proof}
+    Fix \(z_0\in U\) arbitrarily and choose \(\lambda>0\) such that \(\overline{D\qty(z_0,\lambda)}\subset U\). Because \(f\in C^0\qty(\partial D\qty(z_0,\lambda))\), \cref{thm:dirichletproblemwithlaplaceequationsolution} guarantees the existence of a unique harmonic function \(u\) on \(D\qty(z_0,\lambda)\) satisfying
+    \[u(z)=\int_0^{2\piup}f(\zeta)P\qty(\zeta,z) \dd{\tau},\]
+    with \(u=f\) on \(\partial D\qty(z_0,\lambda)\). Define \(\psi=f-u\) on \(\overline{D\qty(z_0,\lambda)}\). Then \(\psi\) is continuous, satisfies the mean-value property, and vanishes on \(\partial D\qty(z_0,\lambda)\). By the proof of \cref{thm:maximummodulus}, which relies solely on the mean-value property, \(\psi\equiv 0\) on \(\overline{D\qty(z_0,\lambda)}\). Thus, \(f\equiv u\) on \(\overline{D\qty(z_0,\lambda)}\), implying \(f\) is harmonic at \(z_0\). The arbitrariness of \(z_0\) establishes harmonicity on \(U\).
+\end{proof}

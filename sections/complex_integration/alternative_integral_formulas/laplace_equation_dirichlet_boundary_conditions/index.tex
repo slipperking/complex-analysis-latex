@@ -1,0 +1,83 @@
+\subsubsection{Laplace's Equation under Dirichlet Boundary Conditions on a Disk}
+A fundamental problem in the theory of partial differential equations is to find a function \(u\) that is continuous on the closed disk \(\overline{D(0,R)}\), harmonic on the open disk \(D(0,R)\), and identically equal to a given boundary function on \(\partial D(0,R)\). This is known as the \textscsl{Dirichlet problem} for the Laplace equation on a disk.
+\begin{theorem}\label{thm:dirichletproblemwithlaplaceequationsolution}
+    For a continuous function \(\varphi\in C^0(\partial D(0,R))\), the unique real-valued solution \(u\in C^0\qty(\overline{D(0,R)})\) that solves \[\laplacian u(z)=0\quad\forall z\in D(0,R),\qquad u(z)=\varphi(z)\quad\forall z\in\partial D(0,R)\] is given by the Poisson integral formula:
+    \begin{equation}
+        u(z)=\int_0^{2\piup}\varphi(\zeta)P(\zeta,z)\dd{\tau},\label{eq:dirichletproblemwithlaplaceequationsolution}
+    \end{equation}
+    where \(\zeta=R\ee^{\ii\tau}\).
+\end{theorem}
+\begin{proof}
+    Since \(P(\zeta,z)=\frac{1}{4\piup}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}\), from \cref{eq:laplaciancomplexform}, we have that \(\laplacian_z P(\zeta,z)=4\pdv{P(\zeta,z)}{z}{\overline{z}}=0\) (since each term is independent of either \(z\) or \(\overline{z}\)). Then by \cref{thm:leibnizintegralrule}, \cref{eq:dirichletproblemwithlaplaceequationsolution} becomes \[\laplacian u(z)=\laplacian\int_0^{2\piup}\varphi(\zeta)P(\zeta,z)\dd{\tau}=\int_0^{2\piup}\laplacian\qty[\varphi(\zeta)P(\zeta,z)]\dd{\tau}=0.\]
+    Our goal is to show that for fixed \(\xi=R\ee^{\ii\vartheta}\in\partial D(0,R)\),
+    \begin{equation}
+        \lim_{\substack{z\to\xi\\z\in D(0,R)}}u(z)=\varphi(\xi).\label{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary}
+    \end{equation}
+    Let \(0<\rho<R\) and \(z=\rho\ee^{\ii\theta}\). Then,
+    \[\abs{\varphi(\xi)-u(z)}=\abs{\varphi\qty(R\ee^{\ii\vartheta})-u\qty(\rho\ee^{\ii\theta})}=\abs{\varphi\qty(R\ee^{\ii\vartheta})-\int_0^{2\piup}P(\zeta,z)\varphi\qty(\zeta)\dd{\tau}}.\]
+    For a constant harmonic function identically equal to 1, we get \(\int_0^{2\piup}P(\zeta,z)\dd{\tau}=1\) from \cref{eq:poissonintegralformula2}. Hence, \[\abs{\varphi(\xi)-u(z)}=\abs{\int_0^{2\piup}P(\zeta,z)\qty(\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta))\dd{\tau}}.\]
+    By the continuity of \(\varphi\), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\qty|\vartheta-\tau|<\delta<\frac{\piup}{2}\), we have that \(\abs{\varphi(R\ee^{\ii\vartheta})-\varphi(\zeta)}<\varepsilon\). Therefore,
+    \begin{align*}
+        \abs{\varphi(\xi)-u(z)} & =\abs{\qty(\int_{\abs{\vartheta-\tau}<\delta}+\int_{\abs{\vartheta-\tau}>\delta})P(\zeta,z)\paren{\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta)}\dd{\tau}} \\&=\abs{I_1+I_2}\leq\abs{I_1}+\abs{I_2}.
+    \end{align*}
+    Since the Poisson kernel is non-negative, \[\qty|I_1|<\varepsilon\int_{\abs{\vartheta-\tau}<\delta}P(\zeta,z)\dd{\tau}<\varepsilon.\]
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \coordinate (zeta) at (4.924, 0.868);
+            \coordinate (z) at (2.2, 4.2);
+            \coordinate (xi) at (0.868, 4.924);
+            \coordinate (auxiliary1) at ($(0,0)!0.948!(zeta)$);
+
+            \draw[-{Stealth}, thick] (-0.5, 0) -- (5.5, 0);
+            \draw[-{Stealth}, thick] (0, -0.5) -- (0, 5.5);
+            \draw[thin] (5,0) arc[start angle=0, end angle=90, radius=5];
+            \draw[thin] (0, 0) -- (zeta);
+            \draw[thin] (0, 0) -- (xi);
+            \draw[thin] (0, 0) -- (z);
+            \draw[thin] (z) -- (xi);
+            \draw[thin] (z) -- (auxiliary1);
+            \draw[dashed, thin] (z) -- (zeta);
+            \draw[thin] ($(0,0)!0.08!(zeta)$) arc[start angle=10, end angle=62.35, radius=0.4];
+            \draw[thin] ($(0,0)!0.3!(zeta)$) arc[start angle=10, end angle=80, radius=1.5];
+            \draw[thin] (2,0) arc[start angle=0, end angle=10, radius=2];
+            \draw[thin] (1,0) arc[start angle=0, end angle=80, radius=1];
+            \draw[dashed] (z) arc[start angle=-27.65, end angle=-100, radius=1.516];
+            \draw[dotted] (z) arc[start angle=62.35, end angle=80, radius=4.741];
+
+            \node[anchor=west] at (zeta) {\(\zeta\)};
+            \node[anchor=north] at ([yshift=-3pt] z) {\(z\)};
+            \node[anchor=south] at (xi) {\(\xi\)};
+            \node[anchor=south] at ($(0,0)!0.5!(zeta)$) {\(\rho\)};
+            \node[anchor=north] at ($(z)!0.5!(xi)$) {\small\(\eta^-\)};
+            \node[anchor=west] at ($(0,0)!0.5!(xi)$) {\(R\)};
+            \node[anchor=west] at ($(z)!0.5!(0,0)$) {\(\rho\)};
+            \node[anchor=north] at (0.57,0.75) {\small \(\tfrac{\delta}{2}^+\)};
+            \node[anchor=north] at (0.95,0.95) {\small\(\vartheta\)};
+            \node[anchor=north] at (1.25,1.55) {\small\(\delta^+\)};
+            \node[anchor=north] at (2.2,0.4) {\(\tau\)};
+            \node[anchor=east] at ([yshift=-6pt, xshift=-2pt] $(z)!0.5!(zeta)$) {\(|\zeta-z|^-\)};
+        \end{tikzpicture}
+        \caption{\(\zeta\), \(\xi\), and \(z\) when \(\abs{\vartheta-\tau}>\delta\), with angles and distances marked. The use of \(+\) and \(-\) denote a value more or less (respectively) than the preceding value.}
+        \label{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}
+    \end{figure}By continuity of \(\varphi\) compact set \(\partial D(0,R)\), by \cref{thm:heinecantor}, it is bounded and \(M=\sup_{\qty|\zeta|=R}\abs{\varphi(\zeta)}\) is finite. The Poisson kernel can be rewritten as \[P(\zeta,z)=\frac{R^2-\rho^2}{2\piup\qty|\zeta-z|^2},\]
+    where \(\zeta=R\ee^{\ii\tau}\) and \(z=\rho\ee^{\ii\theta}\), with \(\abs{\vartheta-\tau}>\delta\). Then \(\exists\eta>0\) such that \(\forall z\) with \(|\xi-z|<\eta\),
+    \begin{equation}
+        \abs{\theta-\tau}>\frac{\delta}{2}\label{eq:dirichletproblemwithlaplaceequationsolution_constraint1},
+    \end{equation} and
+    \begin{equation}
+        \rho>\frac{R}{2}\Longrightarrow\eta\leq\frac{R}{2}\label{eq:dirichletproblemwithlaplaceequationsolution_constraint2}
+    \end{equation} (these can be arbitrarily chosen for different resulting bounds) as in \cref{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}. Then, \[|\zeta-z|^2>4\rho^2\sin[2](\frac{\delta}{4})>\frac{1}{2}R^2\qty(1-\cos(\frac{\delta}{2})).\]
+
+    We aim to prove that \(\abs{I_2}<\varepsilon\). Since \(\abs{\varphi\qty(R\ee^{\ii\vartheta})-\varphi(\zeta)}<2M\), the condition is satisfied if \(\int_{\abs{\vartheta-\tau}>\delta}\frac{R^2-\rho^2}{\piup R^2\qty(1-\cos(\frac{\delta}{2}))}\dd{\tau}<2\frac{R^2-\rho^2}{R^2\qty(1-\cos(\frac{\delta}{2}))}<\frac{\varepsilon}{2M}\), and from rearrangement, we can tighten the constraint with:
+    \begin{equation}
+        R^2-\rho^2<\frac{\varepsilon}{4M}R^2\paren{1-\cos(\frac{\delta}{2})}\Longleftarrow R-\rho<\frac{\varepsilon}{8M}R\paren{1-\cos(\frac{\delta}{2})}.\label{eq:dirichletproblemwithlaplaceequationsolution_constraint3}
+    \end{equation}
+    From \cref{fig:dirichletproblemwithlaplaceequationsolution_secondintegral}, it is evident that \(R-\rho<|\xi-z|<\eta\). In order for \cref{eq:dirichletproblemwithlaplaceequationsolution_constraint1} to be true, we can enforce that \(\abs{\vartheta-\theta}<\frac{\delta}{2}\). In other words \(\abs{\xi-z}^2<R^2+\rho^2-2R\rho\cos(\frac{\delta}{2})\).
+
+    Obviously, this is satisfied if \(|\xi-z|^2<\frac{R^2}{2}\paren{1-\cos(\frac{\delta}{2})}<2\rho^2\qty(1-\cos(\frac{\delta}{2}))\). This can be rearranged into \(|\xi-z|<\frac{R\sqrt{2}}{2}\sqrt{1-\cos(\frac{\delta}{2})}=R\sin\qty(\frac{\delta}{4})\). Therefore, we can choose \[\eta=\min\qty[\frac{\varepsilon}{8M}R\paren{1-\cos(\frac{\delta}{2})},R\sin\qty(\frac{\delta}{4}),\frac{R}{2}]>0,\] under which \cref{eq:dirichletproblemwithlaplaceequationsolution_constraint1,eq:dirichletproblemwithlaplaceequationsolution_constraint2,eq:dirichletproblemwithlaplaceequationsolution_constraint3} are satisfied.
+
+    Hence, \(\forall\varepsilon>0\), \(\exists\eta>0\) such that \(\forall z\) with \(0<\abs{\xi-z}<\eta\), we have \(\abs{\varphi(\xi)-u(z)}<2\varepsilon\). Then \cref{eq:dirichletproblemwithlaplaceequationsolution_limittoboundary} follows.
+
+    We will now show that \(u(z)\) is unique. Assume that \(v\not\equiv u\) on \(\overline{D(0,R)}\) also solves the problem. Then \(u-v\) is harmonic and vanishes on \(\partial D(0,R)\). By the Poisson Integral Formula (\cref{eq:poissonintegralformula2}), \(u(z)-v(z)=\int_0^{2\piup}P(\zeta,z)\qty[u(\zeta)-v(\zeta)]\dd{\tau}=0\) for all \(z\in D(0,R)\). Since \(u-v\) vanishes, we have a contradiction.
+\end{proof}
