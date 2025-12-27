@@ -7,7 +7,7 @@ SCRIPTS_DIR = ROOT / "scripts"
 
 def run_python_scripts():
     print("Running preprocessing scripts...")
-    for script in sorted(SCRIPTS_DIR.glob("*.py")):
+    for script in sorted(SCRIPTS_DIR.rglob("*.py")):
         print(f"  → {script}")
         result = subprocess.run([sys.executable, str(script)])
         if result.returncode != 0:
