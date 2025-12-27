@@ -260,7 +260,7 @@ def main():
     SCRIPT_DIR = Path(__file__).parent.resolve()
     PROJECT_ROOT = Path.cwd()
     INPUT_JSON = SCRIPT_DIR / "curves.json"
-    OUTPUT_ROOT = PROJECT_ROOT / "build" / "erosion_output"
+    OUTPUT_ROOT = PROJECT_ROOT / "build" / "visual_output"
 
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 

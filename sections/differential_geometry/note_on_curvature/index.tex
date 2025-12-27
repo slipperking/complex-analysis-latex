@@ -1,6 +1,5 @@
 \subsection{A Note on Curvature}
-We will give a brief introduction to the curvature of a surface for
-convenience.
+We will give a brief introduction to the curvature of a surface for convenience.
 
 Suppose \(U\subseteq\mathbb{R}^2\) is a region, and let \(\qty(u,v)\in U\). Consider a surface parameterized via \[\va{r}(u,v)=\qty(x(u,v),y(u,v),z(u,v))\in\mathbb{R}^3,\] where \(x,y,z\in C^2\qty(U)\). If \(\va{r}'_u\times\va{r}'_v\) never vanishes for \(\qty(u,v)\in U\), then \(\va{r}(U)\) defines a smooth surface \(\Sigma\). For a fixed \(\qty(u,v)\in U\), the vectors \(\va{r}'_u\) and \(\va{r}'_v\) form the basis of the tangent space (a plane) of \(\Sigma\) at \(P=\va{r}\qty(u,v)\), denoted by \(T_P\Sigma=\mathrm{span}\qty(\va{r}'_u(P),\va{r}'_v(P))\).
 
@@ -30,16 +29,9 @@ It follows that \(L=-\va{r}'_u\cdot\vu{n}'_u\), \(M=-\va{r}'_u\cdot\vu{n}'_v=-\v
 Let \(\gamma\subset\Sigma\) be a curve parameterized by arc length, \(\va{r}(s)=\va{r}\qty(u(s),v(s))\). Then the unit tangent vector at \(P=\va{r}(s)\) is \[\va{T}(s)=\dv{\va{r}}{s}=\va{r}'_u\dv{u}{s}+\va{r}'_v\dv{v}{s}.\]
 Consequently, \[\va{T}'(s)=\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2+\va{r}'_u\dv[2]{u}{s}+\va{r}'_v\dv[2]{v}{s},\]
 where the last two terms are in \(T_P\Sigma\). Because \(\norm{\va{T}(s)}=1\) for all \(s\) by the arc-length parameterization, we have \[0=\dv{s}(\norm{\va{T}(s)}^2)=\dv{s}(\va{T}(s)\cdot\va{T}(s))=2\va{T}(s)\cdot\va{T}'(s).\]
-Hence, \(\va{T}(s)\) and \(\va{T}'(s)\) are orthogonal and \(\va{T}'(s)\) is a normal to the curve \(\gamma\). Let \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\)
-be the unit normal to \(\Sigma\) at \(P\). The \textscsl{normal curvature} of \(\gamma\) at \(P\) in \(\Sigma\) is defined as \[\kappa_n=\va{T}'(s)\cdot\vu{n}=\qty[\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2]\cdot\vu{n}.\]
+Hence, \(\va{T}(s)\) and \(\va{T}'(s)\) are orthogonal and \(\va{T}'(s)\) is a normal to the curve \(\gamma\). Let \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\) be the unit normal to \(\Sigma\) at \(P\). The \textscsl{normal curvature} of \(\gamma\) at \(P\) in \(\Sigma\) is defined as \[\kappa_n=\va{T}'(s)\cdot\vu{n}=\qty[\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2]\cdot\vu{n}.\]
 The quotient \[\kappa_n=\frac{\mathrm{I\!I}}{\mathrm{I}}=\frac{L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2}{E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2},\] varies depending on the curve traversing \(\Sigma\) (and ultimately, depending on the direction induced by \(\dd{u}\) and \(\dd{v}\)). On \(\gamma\), the two representations are equivalent since \(\mathrm{I}=\dd{s}^2\). The maximum and minimum values of \(\kappa_n\) are known as the \textscsl{principal curvatures} \(\kappa_1\) and \(\kappa_2\) of \(\Sigma\) at \(P\), achieved along the \textscsl{principle directions} of the (unit) tangent vectors at \(P\).
 
-The \textscsl{mean curvature} of \(\Sigma\) at \(P\) is defined to be
-\(H=\frac{\kappa_1+\kappa_2}{2}\). Let \(r_1,r_2\) be the radii of curvature
-corresponding to \(\kappa_1\) and \(\kappa_2\). Hence, we have \[H=\frac{\frac{1}{r_1}+\frac{1}{r_2}}{2}=\frac{r_1+r_2}{2r_1r_2}=\kappa_1\kappa_2\frac{r_1+r_2}{2}.\] The product of the two principle curvatures is known as the \textscsl{Gaussian
-curvature} of \(\Sigma\) at \(P\), denoted by \(K=\kappa_1\kappa_2\). We will
-now derive the explicit formulas for \(H\) and \(K\) in terms of
-\(E,F,G,L,M,N\).
+The \textscsl{mean curvature} of \(\Sigma\) at \(P\) is defined to be \(H=\frac{\kappa_1+\kappa_2}{2}\). Let \(r_1,r_2\) be the radii of curvature corresponding to \(\kappa_1\) and \(\kappa_2\). Hence, we have \[H=\frac{\frac{1}{r_1}+\frac{1}{r_2}}{2}=\frac{r_1+r_2}{2r_1r_2}=\kappa_1\kappa_2\frac{r_1+r_2}{2}.\] The product of the two principle curvatures is known as the \textscsl{Gaussian curvature} of \(\Sigma\) at \(P\), denoted by \(K=\kappa_1\kappa_2\). We will now derive the explicit formulas for \(H\) and \(K\) in terms of \(E,F,G,L,M,N\).
 
-Obviously, the matrix \(\mqty(E&F\\F&G)\) is symmetric and positive definite.
-Indeed, by Sylvester's Criterion, the assertion follows from the fact that \[\det\mqty(E&F\\F&G)=EG-F^2=\norm{\va{r}'_u}^2\norm{\va{r}'_v}^2-\qty(\va{r}'_u\cdot\va{r}'_v)^2=\norm{\va{r}'_u\times\va{r}'_v}^2>0\] and \(E=\norm{\va{r}_u}^2>0\).
+Obviously, the matrix \(\mqty(E&F\\F&G)\) is symmetric and positive definite. Indeed, by Sylvester's Criterion, the assertion follows from the fact that \[\det\mqty(E&F\\F&G)=EG-F^2=\norm{\va{r}'_u}^2\norm{\va{r}'_v}^2-\qty(\va{r}'_u\cdot\va{r}'_v)^2=\norm{\va{r}'_u\times\va{r}'_v}^2>0\] and \(E=\norm{\va{r}_u}^2>0\).

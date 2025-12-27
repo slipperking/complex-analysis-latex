@@ -1,45 +1,24 @@
 \subsection{The Great Picard, Bloch, Landau, and Schottky Theorems}
-Recall the Casorati--Weierstrass Theorem, one of the earliest results on the value distribution near essential singularities:
-\getkeytheorem{thm:casoratiweierstrass} We will now prove a more advanced characterization of this distribution by methods of differential geometry.
+Recall the Casorati--Weierstrass Theorem, one of the earliest results on the value distribution near essential singularities: \getkeytheorem{thm:casoratiweierstrass} We will now prove a more advanced characterization of this distribution by methods of differential geometry.
 \begin{theorem}[name=\textsc{Picard's Great Theorem},store=thm:greatpicard]\label{thm:greatpicard}
     Suppose \(f\) is holomorphic on a punctured neighborhood \(D^*\qty(z_0,\delta)\) of \(z_0\). If \(z_0\) is an essential singularity of \(f\), then \(f\qty(D^*\qty(z_0,\delta))\) omits at most one value of \(\mathbb{C}\).
 \end{theorem}
 \begin{proof}
     Without loss of generality, assume \(z_0=0\) and that \(f\) omits the values \(0\) and \(1\) (otherwise, consider \(z\mapsto\frac1{\beta-\alpha}(f\qty(z+z_0)-\alpha)\), where \(\alpha\) and \(\beta\) are the omitted values). Define the family
     \[\mathcal{F}=\cbraces{z\mapsto f\qty(\frac zn)}{n\in\mathbb{N}}\]
-    of holomorphic functions on \(D^*\qty(0,\delta)\). Since \(f\) omits \(0\) and
-    \(1\), each element of \(\mathcal{F}\) does as well. By the Fundamental
-    Normality Test (\cref{thm:fundamentalnormalitytest}), \(\mathcal{F}\) is
-    spherically normal. Thus, there exists a subsequence
-    \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\subseteq\mathcal{F}\) that converges
-    locally uniformly on \(D^*\qty(0,\delta)\) in the spherical metric. By
-    \cref{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit},
-    this subsequence converges locally uniformly either to a holomorphic function
-    on \(D^*\qty(0,\delta)\) or to \(\infty\) thereon.
+    of holomorphic functions on \(D^*\qty(0,\delta)\). Since \(f\) omits \(0\) and \(1\), each element of \(\mathcal{F}\) does as well. By the Fundamental Normality Test (\cref{thm:fundamentalnormalitytest}), \(\mathcal{F}\) is spherically normal. Thus, there exists a subsequence \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\subseteq\mathcal{F}\) that converges locally uniformly on \(D^*\qty(0,\delta)\) in the spherical metric. By \cref{prop:locallyuniformlysphericallyconvergentholomorphicsequenceuniformlimit}, this subsequence converges locally uniformly either to a holomorphic function on \(D^*\qty(0,\delta)\) or to \(\infty\) thereon.
     \begin{enumerate}
-        \item Suppose \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to a
-            holomorphic function on \(D^*\qty(0,\delta)\). Then
-            \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) is uniformly bounded on \(\partial
-            D\qty(0,\frac\delta2)\). Hence, there exists \(M>0\) such that
-            \[\abs{f\qty(\frac z{n_k})}=\abs{f_{n_k}(z)}<M\qquad\forall z\in\partial D\qty(0,\frac\delta2),\ k\in\mathbb{N}.\]
-            In other words, \(f\) is bounded by \(M\) on every circle \(\partial
-            D\qty(0,\frac{\delta}{2n_k})\) for \(k\in\mathbb{N}\). By the Maximum Modulus
-            Principle (\cref{thm:maximummodulus}), \(f\) is then bounded by \(M\) on each
-            annulus \(\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus
-            D\qty(0,\frac{\delta}{2n_{k+1}})\) for \(k\in\mathbb{N}\). As
-            \[\bigcup_{k\in\mathbb{N}}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})=\overline{D\qty(0,\frac\delta{2n_1})}\setminus\cbraces{0},\]
-            it follows that \(f\) is bounded on \(D^*\qty(0,\frac\delta2)\). By Riemann's
-            Removable Singularity Theorem (\cref{thm:riemannremovablesingularities}), \(f\)
-            therefore extends holomorphically to \(0\).
+        \item Suppose \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to a holomorphic function on \(D^*\qty(0,\delta)\). Then \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) is uniformly bounded on \(\partial D\qty(0,\frac\delta2)\). Hence, there exists \(M>0\) such that
+              \[\abs{f\qty(\frac z{n_k})}=\abs{f_{n_k}(z)}<M\qquad\forall z\in\partial D\qty(0,\frac\delta2),\ k\in\mathbb{N}.\]
+              In other words, \(f\) is bounded by \(M\) on every circle \(\partial D\qty(0,\frac{\delta}{2n_k})\) for \(k\in\mathbb{N}\). By the Maximum Modulus Principle (\cref{thm:maximummodulus}), \(f\) is then bounded by \(M\) on each annulus \(\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})\) for \(k\in\mathbb{N}\). As
+              \[\bigcup_{k\in\mathbb{N}}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})=\overline{D\qty(0,\frac\delta{2n_1})}\setminus\cbraces{0},\]
+              it follows that \(f\) is bounded on \(D^*\qty(0,\frac\delta2)\). By Riemann's Removable Singularity Theorem (\cref{thm:riemannremovablesingularities}), \(f\) therefore extends holomorphically to \(0\).
 
-        \item Suppose \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to
-            \(\infty\) on \(D^*\qty(0,\delta)\). Then, for every \(\varepsilon>0\), there
-            exists \(N\in\mathbb{N}\) such that, for all \(k>N\),
-            \[\abs{\frac{1}{f\qty(\frac{z}{n_k})}}=\abs{\frac1{f_{n_k}(z)}}<\varepsilon\qquad\forall z\in\partial D\qty(0,\frac\delta2).\]
-            By the same reasoning as in the previous case, \(\abs{\frac1f}<\varepsilon\) on
-            \[\bigcup_{k>N}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})\supset D^*\qty(0,\frac{\delta}{2n_{N+1}}).\]
-            Thus, by the definition of the limit, \(\lim_{z\to 0}1/f(z)=0\), so \(f\) has a
-            pole at \(0\).
+        \item Suppose \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\) converges locally uniformly to \(\infty\) on \(D^*\qty(0,\delta)\). Then, for every \(\varepsilon>0\), there exists \(N\in\mathbb{N}\) such that, for all \(k>N\),
+              \[\abs{\frac{1}{f\qty(\frac{z}{n_k})}}=\abs{\frac1{f_{n_k}(z)}}<\varepsilon\qquad\forall z\in\partial D\qty(0,\frac\delta2).\]
+              By the same reasoning as in the previous case, \(\abs{\frac1f}<\varepsilon\) on
+              \[\bigcup_{k>N}\overline{D\qty(0,\frac{\delta}{2n_k})}\setminus D\qty(0,\frac{\delta}{2n_{k+1}})\supset D^*\qty(0,\frac{\delta}{2n_{N+1}}).\]
+              Thus, by the definition of the limit, \(\lim_{z\to 0}1/f(z)=0\), so \(f\) has a pole at \(0\).
     \end{enumerate}
     In either case, we have derived a meromorphic continuation of \(f\) to \(0\), contradicting the assumption that \(0\) is an essential singularity of \(f\).
 \end{proof}
@@ -57,26 +36,13 @@ Picard's Great Theorem is also a generalization of Picard's Little Theorem (\cre
 \begin{proof}
     Let \(g(z)=f\qty(\frac 1z)\) with an isolated singularity at 0 and a removable singularity at \(\infty\). By Picard's Great Theorem (\cref{thm:greatpicard}), \(g(z)\) has a meromorphic extension to \(z=0\). If \(z=0\) is removable, by virtue of \cref{prop:removablesingularityatinftyentireconstant,thm:liouville}, the constancy of \(g\) and \(f\) follows.
 
-    If instead \(z=0\) is a pole of \(g\), then \(z=\infty\) is a pole of \(f\),
-    and hence \(f\) is a polynomial. Assume, for the sake of contradiction that
-    \(f\) is constant. Then \(\forall w\in\mathbb{C}\), the Fundamental Theorem of
-    Algebra (\cref{thm:fundamentaltheoremofalgebra}) gives the existence of some
-    \(z\in\mathbb{C}\) such that \(f(z)=w\). Hence, \(f\) attains every value
-    \(w\in\mathbb{C}\). This contradicts the statement and hence \(f\) is constant.
+    If instead \(z=0\) is a pole of \(g\), then \(z=\infty\) is a pole of \(f\), and hence \(f\) is a polynomial. Assume, for the sake of contradiction that \(f\) is constant. Then \(\forall w\in\mathbb{C}\), the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}) gives the existence of some \(z\in\mathbb{C}\) such that \(f(z)=w\). Hence, \(f\) attains every value \(w\in\mathbb{C}\). This contradicts the statement and hence \(f\) is constant.
 \end{proof}
 The efforts of many mathematicians resulted in several alternative proofs following that of Picard; the geometric realization of Ahlfors (\cref{thm:schwarzahlforspick}) was followed by results discovered by R. M. Robinson. Other approaches from Nevanlinna theory appeared later in the 20th century.
 
-Picard's original proof, providing an advanced characterization of the value
-distribution at essential singularities, relied primarily on the properties of
-the elliptic modular function (as a ``covering map''). From this, Picard
-deduced that the function would necessarily extend holomorphically across the
-singularity, contradicting its essential nature. Thus, his proof established
-that near an essential singularity, a holomorphic function attains every
-complex value, with at most one exception, infinitely often.
+Picard's original proof, providing an advanced characterization of the value distribution at essential singularities, relied primarily on the properties of the elliptic modular function (as a ``covering map''). From this, Picard deduced that the function would necessarily extend holomorphically across the singularity, contradicting its essential nature. Thus, his proof established that near an essential singularity, a holomorphic function attains every complex value, with at most one exception, infinitely often.
 
-More importantly, we have shown the utility of even seemingly fundamental
-differential geometry, which can also be used in the proof of many other
-important results.
+More importantly, we have shown the utility of even seemingly fundamental differential geometry, which can also be used in the proof of many other important results.
 \begin{theorem}[name=\textsc{Bloch}]\label{thm:bloch}
     Let \(f:\mathbb{D}\to\mathbb{C}\) be holomorphic such that \(f'(0)=1\). Then \(f(\mathbb{D})\) contains a disk with a radius of at least \(\frac{1}{72}\).
 \end{theorem}
@@ -86,18 +52,11 @@ important results.
 \begin{remark}
     The estimate \(\frac{1}{72}\) is far from optimal. Bloch's constant \(B\) is defined as the supremum of the radii of such disks that can be contained in \(f(\mathbb{D})\) for any holomorphic function \(f:\mathbb{D}\to\mathbb{C}\) satisfying \(f'(0)=1\).
 
-    The precise value of \(B\) remains unknown to this day. In 1937, H. Grunsky and
-    L. Ahlfors established the bounds
+    The precise value of \(B\) remains unknown to this day. In 1937, H. Grunsky and L. Ahlfors established the bounds
     \[\frac{\sqrt{3}}{4}\leq B\leq\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}},\]
-    where \(\Gamma\) denotes the Gamma function (as in \cref{eq:gammafunction}). M.
-    Bonk later refined the lower bound to
-    \(B\geq\frac{\sqrt{3}}{4}+\frac{10^{-12}}{13}\). This was further improved in
-    1996 by H. Chen and P. M. Gauthier to
-    \(B\geq\frac{\sqrt{3}}{4}+\frac{1}{5000}\).
+    where \(\Gamma\) denotes the Gamma function (as in \cref{eq:gammafunction}). M. Bonk later refined the lower bound to \(B\geq\frac{\sqrt{3}}{4}+\frac{10^{-12}}{13}\). This was further improved in 1996 by H. Chen and P. M. Gauthier to \(B\geq\frac{\sqrt{3}}{4}+\frac{1}{5000}\).
 
-    Grunsky and Ahlfors actually conjectured that the upper bound in their
-    inequality is exact---that is,
-    \(B=\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}}\).
+    Grunsky and Ahlfors actually conjectured that the upper bound in their inequality is exact---that is, \(B=\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}}\).
 \end{remark}
 \begin{theorem}[\textsc{Landau}]
     Let \(f(z)=\sum_{n=0}^\infty a_n z^n\) such that \(a_1\neq0\).
