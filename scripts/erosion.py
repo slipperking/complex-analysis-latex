@@ -4,17 +4,14 @@ import json
 import shutil
 import time
 from typing import List
+from pathlib import Path
 
 import numpy as np
 from shapely.geometry import Point, Polygon, MultiPolygon, LineString, MultiLineString, GeometryCollection
 from shapely.geometry.polygon import orient
 from shapely.ops import unary_union
 
-# ---------------------------
-# IO / JSON parsing
-# ---------------------------
-
-def read_input_json(filename: str = "curves.json"):
+def read_input_json(filename: Path):
     with open(filename, "r") as f:
         data = json.load(f)
 
@@ -44,10 +41,6 @@ def read_input_json(filename: str = "curves.json"):
         "disk_points": disk_points,
     }
 
-# ---------------------------
-# Geometry helpers
-# ---------------------------
-
 def tikz_bezier_sample(points, tension: float = 0.55, samples_per_seg: int = 20):
     pts = np.array(points)
     n = len(pts)
@@ -76,10 +69,6 @@ def number_to_letters(n: int) -> str:
         n, rem = divmod(n, 26)
         result = chr(65 + rem) + result
     return result if result else "A"
-
-# ---------------------------
-# Region builders
-# ---------------------------
 
 def compute_polygon_region(curves, samples_per_segment: int):
     outer_polys = []
@@ -113,10 +102,6 @@ def compute_eroded_region(curves, global_offset: float, samples_per_segment: int
 def compute_support_region(curves, samples_per_segment: int):
     return compute_polygon_region(curves, samples_per_segment)
 
-# ---------------------------
-# Output helpers
-# ---------------------------
-
 def coords_to_tikz_path(coords: np.ndarray) -> str:
     return " ".join(f"({x:.6f},{y:.6f})" for x, y in coords)
 
@@ -131,7 +116,6 @@ def write_region_boundaries(folder: str, geom, prefix: str, list_macro: str):
         print(f"  Empty geometry → empty list in {path}")
         return
 
-    # Collect all linear rings: exteriors and interiors treated equally
     rings = []
     polys = geom.geoms if isinstance(geom, (MultiPolygon, GeometryCollection)) else [geom]
     for poly in polys:
@@ -154,7 +138,6 @@ def write_region_boundaries(folder: str, geom, prefix: str, list_macro: str):
         print(f"  Written curve {i} to {file_path}")
         macros.append(f"\\{macro}")
 
-    # all.tex with list of all curves
     all_path = os.path.join(folder, "all.tex")
     with open(all_path, "w") as f:
         list_content = ",".join(macros)
@@ -216,7 +199,7 @@ def write_wkt(folder: str, name: str, geom):
         f.write(content)
     print(f"Written WKT for {name} to {path} (empty: {geom is None or geom.is_empty})")
 
-def write_metadata_tex_all(root: str = "erosion_output"):
+def write_metadata_tex_all(root: str):
     os.makedirs(root, exist_ok=True)
     imports_path = os.path.join(root, "imports.tex")
     tex_files = []
@@ -235,16 +218,9 @@ def write_metadata_tex_all(root: str = "erosion_output"):
         if existing == "\n".join(lines).strip():
             print(f"No changes to {imports_path}")
             return
-        backup = imports_path + f".bak.{int(time.time())}"
-        shutil.copy2(imports_path, backup)
-        print(f"Backed up {imports_path} to {backup}")
     with open(imports_path, "w") as f:
         f.write("\n".join(lines) + "\n")
     print(f"Written metadata to {imports_path}")
-
-# ---------------------------
-# Pruning
-# ---------------------------
 
 def prune_redundant_disks(centers: List[np.ndarray], r_sub: float, covered_region, nocenters_region) -> List[np.ndarray]:
     if not centers:
@@ -280,12 +256,15 @@ def prune_redundant_disks(centers: List[np.ndarray], r_sub: float, covered_regio
     print(f"Pruned subcover disks: {len(centers)} → {len(pruned)} (strict: zero-contribution only)")
     return pruned
 
-# ---------------------------
-# Main
-# ---------------------------
-
 def main():
-    cfg = read_input_json("curves.json")
+    SCRIPT_DIR = Path(__file__).parent.resolve()
+    PROJECT_ROOT = Path.cwd()
+    INPUT_JSON = SCRIPT_DIR / "curves.json"
+    OUTPUT_ROOT = PROJECT_ROOT / "build" / "erosion_output"
+
+    OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
+
+    cfg = read_input_json(INPUT_JSON)
 
     K = compute_input_region(cfg["pre_erosion_curves"], cfg["samples_per_segment"])
     Eroded = compute_eroded_region(cfg["pre_erosion_curves"], cfg["global_offset"], cfg["samples_per_segment"])
@@ -297,22 +276,18 @@ def main():
     D = unary_union([Point(p).buffer(disk_r, resolution=256) for p in cfg["disk_points"]]) if cfg["disk_points"] else None
     NoCentersRegion = unary_union([g for g in [K, D] if g])
 
-    # Write WKTs
     for name, geom in [("K_region", K), ("ErodedRegion", Eroded), ("support_region", Support),
                        ("CoveredRegion", CoveredRegion), ("D_region", D), ("NoCentersRegion", NoCentersRegion)]:
-        write_wkt("erosion_output", name, geom)
+        write_wkt(str(OUTPUT_ROOT), name, geom)
 
-    # Input disks
-    write_input_disks("erosion_output/input_disks", cfg["disk_points"], disk_r)
+    write_input_disks(str(OUTPUT_ROOT / "input_disks"), cfg["disk_points"], disk_r)
 
-    # Region boundaries (all rings treated as regular numbered curves)
-    write_region_boundaries("erosion_output/pre_erosion_region", K, "PreErosionRegion", "PreErosionRegionList")
-    write_region_boundaries("erosion_output/eroded_region", Eroded, "ErodedRegion", "ErodedRegionList")
-    write_region_boundaries("erosion_output/support_region", Support, "SupportRegion", "SupportRegionList")
-    write_region_boundaries("erosion_output/covered_region", CoveredRegion, "CoveredRegion", "CoveredRegionList")
-    write_region_boundaries("erosion_output/no_centers_region", NoCentersRegion, "NoCentersRegion", "NoCentersRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "pre_erosion_region"), K, "PreErosionRegion", "PreErosionRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "eroded_region"), Eroded, "ErodedRegion", "ErodedRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "support_region"), Support, "SupportRegion", "SupportRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "covered_region"), CoveredRegion, "CoveredRegion", "CoveredRegionList")
+    write_region_boundaries(str(OUTPUT_ROOT / "no_centers_region"), NoCentersRegion, "NoCentersRegion", "NoCentersRegionList")
 
-    # Subcovers
     r_sub = cfg["global_offset"] * cfg["subcover_disk_radius_scalar"]
     l = max(0, (cfg["subcover_disk_radius_scalar"] - 1) / 8 * cfg["global_offset"])
 
@@ -369,7 +344,6 @@ def main():
             y += row_spacing
             row += 1
 
-    # Repair
     for _ in range(10):
         sub_disks = [Point(p).buffer(r_sub, resolution=256) for p in sub_centers]
         union_sub = unary_union(sub_disks) if sub_disks else Polygon()
@@ -387,18 +361,11 @@ def main():
                 possible = cent.buffer(r_sub).difference(NoCentersRegion)
                 if not possible.is_empty:
                     sub_centers.append(np.array([possible.centroid.x, possible.centroid.y]))
-
-    # Prune strictly
     sub_centers = prune_redundant_disks(sub_centers, r_sub, CoveredRegion, NoCentersRegion)
-
-    # Write subcover
-    write_subcover_centers("erosion_output/subcover", sub_centers)
-
-    # Final union WKT
+    write_subcover_centers(str(OUTPUT_ROOT / "subcover"), sub_centers)
     final_union = unary_union([Point(p).buffer(r_sub, resolution=256) for p in sub_centers]) if sub_centers else Polygon()
-    write_wkt("erosion_output", "SubcoverRegion", final_union)
-
-    write_metadata_tex_all()
+    write_wkt(str(OUTPUT_ROOT), "SubcoverRegion", final_union)
+    write_metadata_tex_all(str(OUTPUT_ROOT))
 
 if __name__ == "__main__":
     main()

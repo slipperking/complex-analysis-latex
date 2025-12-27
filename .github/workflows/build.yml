@@ -1,34 +1,38 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/xu-cheng/texlive-debian:latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build LaTeX
-        uses: xu-cheng/latex-action@4.0.0
-        with:
-          root_file: main.tex
-          latexmk_shell_escape: true
-          extra_system_packages: "inkscape"
+      - name: Install Python and venv support
+        run: |
+          apt-get update
+          apt-get install -y python3 python3-pip python3-venv inkscape
 
+      - name: Set up virtual environment
+        run: |
+          python3 -m venv venv
+          echo "VIRTUAL_ENV=$GITHUB_WORKSPACE/venv" >> $GITHUB_ENV
+          echo "$GITHUB_WORKSPACE/venv/bin" >> $GITHUB_PATH
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run build
+        run: python build.py
+      
       - name: Upload Artifact
         uses: actions/upload-artifact@v5.0.0
         with:
-          name: PDF Document
+          name: pdf_document
           path: main.pdf
