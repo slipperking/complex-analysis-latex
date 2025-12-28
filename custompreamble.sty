@@ -9,7 +9,6 @@
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{decorations.markings, calc, arrows.meta, hobby, intersections, decorations.pathreplacing, calligraphy, patterns, patterns.meta, pgfplots.fillbetween}
 \usepackage{csquotes}
-\usepackage{pifont}
 \usepackage{xparse}
 \usepackage[narrowiints]{kpfonts-otf}
 \usepackage{physics}
@@ -129,12 +128,15 @@
     ItalicFont     = *-Italic,
     BoldItalicFont = *-BoldItalic,
 ]
-\setmathfont{STIXTwoMath-Regular.otf}
-
-\DeclareMathOperator{\fRe}{\mathfrak{Re}}
-\DeclareMathOperator{\fIm}{\mathfrak{Im}}
-\let\Re\fRe
-\let\Im\fIm
+\setmathfont{STIXTwoMath-Regular.otf}[Scale=MatchUppercase]
+\setmathfont{STIXTwoMath-Regular.otf}[range={cal,bfcal}, StylisticSet=1,Scale=MatchUppercase]
+\setmathfont{KpMath-Regular.otf}[range={frak,bffrak,bb,bbit}]
+\AtBeginDocument{
+    \RenewDocumentCommand{\Re}{}{\mathop{\symfrak{Re}}}
+    \RenewDocumentCommand{\Im}{}{\mathop{\symfrak{Im}}}
+}
+\RenewDocumentCommand{\vu}{m}{\hat{\symbf{#1}}}
+\RenewDocumentCommand{\va}{m}{\vec{\symbf{#1}}}
 
 %\usepgfplotslibrary{external}
 %\tikzexternalize

@@ -3,14 +3,14 @@ A useful corollary of \cref{thm:cauchygoursatformula} is the Maximum Modulus Pri
 
 Before the theorem, we first introduce the mean-value property of holomorphic functions.
 \begin{lemma}\label{lem:holomorphicmeanvalueproperty}
-    Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall\varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\muppi\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
+    Let \(U\subseteq\mathbb{C}\) be open and simply connected, and let \(f:U\to\mathbb{C}\) be holomorphic. Then \(\forall z\in U\) and \(\forall\varepsilon>0\) such that \(\overline{D(z,\varepsilon)}\subset U\), \(f(z)\) is the average of \(f(\zeta)\) where \(\zeta\in D(z,\varepsilon)\) is uniform. In other words, \[f(z)=\frac{1}{2\uppi\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}}.\]
 \end{lemma}
 \begin{proof}
-    By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\muppi\ii}\oint_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\muppi}\int_0^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}.\]
+    By the Cauchy--Goursat Formula (\cref{thm:cauchygoursatformula}), \[f(z)=\frac{1}{2\uppi\ii}\oint_{\partial D(z,\varepsilon)}\frac{f(\zeta)}{\zeta-z}\ddzeta=\frac{1}{2\uppi}\int_0^{2\uppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}.\]
     Observe that
     \begin{align*}
-        f(z)=\frac{1}{2\muppi\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}} & =\frac{1}{2\muppi\varepsilon}\int_{0}^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\abs{\ii\varepsilon\ee^{\ii t}\dd{t}} \\
-                                                                                                  & =\frac{1}{2\muppi}\int_{0}^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t},
+        f(z)=\frac{1}{2\uppi\varepsilon}\oint_{\partial D(z,\varepsilon)}f(\zeta)\abs{\dd{\zeta}} & =\frac{1}{2\uppi\varepsilon}\int_{0}^{2\uppi}f\paren{z+\varepsilon\ee^{\ii t}}\abs{\ii\varepsilon\ee^{\ii t}\dd{t}} \\
+                                                                                                  & =\frac{1}{2\uppi}\int_{0}^{2\uppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t},
     \end{align*}
     and the conclusion follows.
 \end{proof}
@@ -26,15 +26,15 @@ Since the real and imaginary parts of holomorphic functions are real-valued harm
 
     Since \(S\subseteq V\) and \(V\) are both open, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D(z,\lambda)\subseteq V\). By \cref{lem:holomorphicmeanvalueproperty}, \(\forall 0<\varepsilon<\lambda\),
     \begin{align*}
-        |f(z)| & =\abs{\frac{1}{2\muppi}\int_0^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}\leq\frac{1}{2\muppi}\int_0^{2\muppi}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
-               & \leq\frac{1}{2\muppi}\int_0^{2\muppi}\abs{f(z)}\dd{t}=\abs{f(z)}.
+        |f(z)| & =\abs{\frac{1}{2\uppi}\int_0^{2\uppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}\leq\frac{1}{2\uppi}\int_0^{2\uppi}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
+               & \leq\frac{1}{2\uppi}\int_0^{2\uppi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
     It follows that all inequalities above are equalities, or that
     \begin{align*}
-        |f(z)| & =\abs{\frac{1}{2\muppi}\int_0^{2\muppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}=\frac{1}{2\muppi}\int_0^{2\muppi}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
-               & =\frac{1}{2\muppi}\int_0^{2\muppi}\abs{f(z)}\dd{t}=\abs{f(z)}.
+        |f(z)| & =\abs{\frac{1}{2\uppi}\int_0^{2\uppi}f\paren{z+\varepsilon\ee^{\ii t}}\dd{t}}=\frac{1}{2\uppi}\int_0^{2\uppi}\abs{f\paren{z+\varepsilon\ee^{\ii t}}}\dd{t} \\
+               & =\frac{1}{2\uppi}\int_0^{2\uppi}\abs{f(z)}\dd{t}=\abs{f(z)}.
     \end{align*}
-    From the equality of the last two integrals, \(\int_{0}^{2\muppi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon\ee^{\ii t}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\cref{thm:identity}).
+    From the equality of the last two integrals, \(\int_{0}^{2\uppi}\qty(\abs{f(z)}-\abs{f\paren{z+\varepsilon\ee^{\ii t}}})\dd{t}=0\). Since this integrand is strictly non-negative, we have equality. Thus, \(\forall z\in S\), \(\exists\lambda>0\) such that \(D\paren{z,\lambda}\subseteq S\). In other words, every \(z\in S\) has an open neighborhood that also lies in \(S\). Therefore, \(S\) is open and \(S=V\) as it is a nonempty clopen subset. Since \(V\) is nonempty and open, it has an accumulation point in \(U\). It follows that \(f(z)\equiv f\paren{z_0}\) over \(U\) by the Identity Theorem (\cref{thm:identity}).
 \end{proof}
 \begin{remark}
     If \(f\) is holomorphic and non-constant on an open region \(U\subseteq\mathbb{C}\), then for any compact set \(K\subset U\), the maximum of \(f\) in \(K\) lies on \(\partial K\). Otherwise, \(f\) would attain a maximum at some \(z\in\interior{K}\), and contradict the statement of \cref{thm:maximummodulus} under the assumption of being non-constant.

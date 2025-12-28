@@ -126,22 +126,22 @@ In fact, it is almost always true that such an extension exists. We will give th
             \end{tikzpicture}
             \caption{Concept configuration of \(\varphi\qty(\gamma_r)\)}\label{fig:osgoodtaylorcaratheodory_subwedgeimage}
         \end{minipage}
-    \end{figure}For \(0<r<\frac12\), we now introduce polar coordinates \((r,\theta)\) centered at \(1\) with angles offset by \(\muppi\). Let \(\theta_0(r)\) be the supremum of \(\theta\) for fixed \(r\) such that \(1-r\ee^{\ii\theta}\in V\). Define \(\gamma_r:\qty(-\theta_0(r),\theta_0(r))\to V\) to be the curve with \(\theta\mapsto 1-r\ee^{\ii\theta}\) (as in \cref{fig:osgoodtaylorcaratheodory_gammarconfiguration}).
+    \end{figure}For \(0<r<\frac12\), we now introduce polar coordinates \((r,\theta)\) centered at \(1\) with angles offset by \(\uppi\). Let \(\theta_0(r)\) be the supremum of \(\theta\) for fixed \(r\) such that \(1-r\ee^{\ii\theta}\in V\). Define \(\gamma_r:\qty(-\theta_0(r),\theta_0(r))\to V\) to be the curve with \(\theta\mapsto 1-r\ee^{\ii\theta}\) (as in \cref{fig:osgoodtaylorcaratheodory_gammarconfiguration}).
     \begin{lemma}\label{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}
-        Let \(l_r\) be the length of \(\varphi\circ\gamma_r\). Then \[\int_0^{\frac12}\frac{l_r^2}{\muppi r}\dd{r}\] is finite.
+        Let \(l_r\) be the length of \(\varphi\circ\gamma_r\). Then \[\int_0^{\frac12}\frac{l_r^2}{\uppi r}\dd{r}\] is finite.
     \end{lemma}
     \begin{proof}
         Notice that \[l_r=\int_{\varphi\circ\gamma_r\qty(\qty[-\theta_0(r),\theta_0(r)])}\abs{\ddz}=\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\dv{\theta}\varphi\qty(1-r\ee^{\ii\theta})}\dd{\theta}=\int_{-\theta_0(r)}^{\theta_0(r)}r\abs{\varphi'\qty(1-r\ee^{\ii\theta})}\dd{\theta}.\] Hence,
         \begin{align*}
-            \int_0^{\frac12}\frac{l_r^2}{\muppi r}\dd{r} & =&&\int_0^{\frac12}\frac{1}{\muppi r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}r\dd{\theta}]^2\dd{r}\\
-            &=&&\int_0^{\frac12}\frac{1}{\muppi r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}\sqrt{r}\sqrt{r}\dd{\theta}]^2\dd{r}\\
-            &\underset{\mathclap{\substack{\text{Cauchy}\\\text{Schwarz}}}}{\leq}&&\int_0^{\frac12}\frac{1}{\muppi r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}]\qty[\int_{-\theta_0(r)}^{\theta_0(r)}r\dd{\theta}]\dd{r}\\
+            \int_0^{\frac12}\frac{l_r^2}{\uppi r}\dd{r} & =&&\int_0^{\frac12}\frac{1}{\uppi r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}r\dd{\theta}]^2\dd{r}\\
+            &=&&\int_0^{\frac12}\frac{1}{\uppi r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}\sqrt{r}\sqrt{r}\dd{\theta}]^2\dd{r}\\
+            &\underset{\mathclap{\substack{\text{Cauchy}\\\text{Schwarz}}}}{\leq}&&\int_0^{\frac12}\frac{1}{\uppi r}\qty[\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}]\qty[\int_{-\theta_0(r)}^{\theta_0(r)}r\dd{\theta}]\dd{r}\\
             &\leq&&\int_0^{\frac12}\int_{-\theta_0(r)}^{\theta_0(r)}\abs{\varphi'\qty(1-r\ee^{\ii\theta})}^2 r\dd{\theta}\dd{r}\\
             &=&&\iint_V\abs{\varphi'(z)}^2\dd{A}=M,
         \end{align*}
         where the last step uses the Jacobian matrix (see \cref{thm:lusinarea}).
     \end{proof}
-    Assume that \(\exists c>0,\varepsilon>0\) such that \(l_r\geq c\) for all \(0<r<\varepsilon\). Then, this implies that \[\int_0^{\frac12}\frac{l_r^2}{\muppi r}\dd{r}\geq\int_0^{\varepsilon}\frac{l_r^2}{\muppi r}\dd{r}\geq\int_0^{\varepsilon}\frac{c^2}{\muppi r}\dd{r}=\frac{c^2}{\muppi}\int_0^\varepsilon\frac{\dd{r}}r,\] which is a divergent integral. This contradicts \cref{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}. Therefore, we must have \(\varliminf_{r\to 0^+}l_r=0\). Thus, there exists a sequence \(\cbraces{r_j}_{j\in\mathbb{N}}\subset\qty(0,\frac12)\) such that \(r_j\to 0\) and \(l_{r_j}\to 0\) as \(j\to\infty\).
+    Assume that \(\exists c>0,\varepsilon>0\) such that \(l_r\geq c\) for all \(0<r<\varepsilon\). Then, this implies that \[\int_0^{\frac12}\frac{l_r^2}{\uppi r}\dd{r}\geq\int_0^{\varepsilon}\frac{l_r^2}{\uppi r}\dd{r}\geq\int_0^{\varepsilon}\frac{c^2}{\uppi r}\dd{r}=\frac{c^2}{\uppi}\int_0^\varepsilon\frac{\dd{r}}r,\] which is a divergent integral. This contradicts \cref{lem:osgoodtaylorcaratheodory_lengthintegralfiniteness}. Therefore, we must have \(\varliminf_{r\to 0^+}l_r=0\). Thus, there exists a sequence \(\cbraces{r_j}_{j\in\mathbb{N}}\subset\qty(0,\frac12)\) such that \(r_j\to 0\) and \(l_{r_j}\to 0\) as \(j\to\infty\).
     \begin{proposition}\label{prop:osgoodtaylorcaratheodory_limitsexistence}
         For each such \(r_j\) as above, the limits \[\lim_{\theta\to\theta_0(r_j)^-}\varphi\qty(1-r_j\ee^{\ii\theta})\qand\lim_{\theta\to-\theta_0(r_j)^+}\varphi\qty(1-r_j\ee^{\ii\theta})\] exist.
     \end{proposition}
@@ -236,7 +236,7 @@ In fact, it is almost always true that such an extension exists. We will give th
 
         Let \(D_j=D\qty(a_j,l_{r_j}+\eta\qty(l_{r_j}))\) (or \(D_j=D\qty(p_j,l_{r_j}+\eta\qty(l_{r_j}))\) in the case of the same point) for each \(j\). By the previous diameter estimate, the entire Jordan curve \(\varphi\qty(\gamma_{r_j})\cup\tau_j\) lies in \(D_j\), and hence \(W_j\subset D_j\). This implies that
         \begin{equation}
-            \operatorname{area}W_j\leq\operatorname{area}D_j=\muppi\qty(l_{r_j}+\eta\qty(l_{r_j}))^2\to0\qq{as}j\to\infty.\label{eq:osgoodtaylorcaratheodory_vanishingareasanddiameters_areaestimation2}
+            \operatorname{area}W_j\leq\operatorname{area}D_j=\uppi\qty(l_{r_j}+\eta\qty(l_{r_j}))^2\to0\qq{as}j\to\infty.\label{eq:osgoodtaylorcaratheodory_vanishingareasanddiameters_areaestimation2}
         \end{equation}\qedhere
     \end{proof}
     \begin{lemma}\label{lem:osgoodtaylorcaratheodory_matchingareas}

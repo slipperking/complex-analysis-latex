@@ -3,9 +3,9 @@ After Riemann and Weierstrass refined the understanding of analytic functions an
 \begin{definition}[Residue]\label{def:residue}
     For some \(r\in\mathbb{R}_{>0}\), \(a\in U\), suppose \(f:D^*(a,r)\to \mathbb{C}\) is holomorphic. Then the \textit{residue} of \(f\) at \(a\), denoted by \(\residue_{z=a}f(z)\) or \(\Res(f,a)\), is equal to
     \begin{equation}
-        \residue_{z=a}f(z)=\frac{1}{2\muppi\ii}\oint_{\partial D(a,\rho)}f(z)\ddz,\label{eq:residue}
+        \residue_{z=a}f(z)=\frac{1}{2\uppi\ii}\oint_{\partial D(a,\rho)}f(z)\ddz,\label{eq:residue}
     \end{equation}
-    where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\muppi\ii}\oint_{\partial D(a,\rho)}\frac{f(z)\ddz}{(z-a)^{n+1}},\] we get that the residue of \(f\) at \(a\) is equal to the first term \(c_{-1}\) of the principal part of its Laurent expansion.
+    where \(0<\rho<r\) is arbitrary. Since \(f\) has a Laurent expansion at \(a\), being \[\sum_{n=-\infty}^\infty c_n(z-a)^n,\qquad c_n=\frac{1}{2\uppi\ii}\oint_{\partial D(a,\rho)}\frac{f(z)\ddz}{(z-a)^{n+1}},\] we get that the residue of \(f\) at \(a\) is equal to the first term \(c_{-1}\) of the principal part of its Laurent expansion.
 \end{definition}
 It then follows that the residue at a removable singularity is 0. As a direct consequence of \cref{eq:residue}, we can derive explicit formulas for the calculation of residues at poles. If \(U\subseteq\mathbb{C}\) is open, \(a\in U\) is an isolated singularity (a pole of order \(m\neq\infty\)) of \(f:U\setminus\cbraces{a}\to\mathbb{C}\) that is holomorphic, then locally:
 \[f(z)=c_{-m}(z-a)^{-m}+c_{1-m}(z-a)^{1-m}+\cdots+c_{-1}(z-a)^{-1}+\cdots.\]
@@ -14,15 +14,15 @@ By the definition of a Taylor series, we find that
 \begin{equation}
     c_{-1}=\residue_{z=a}f(z)=\frac{1}{(m-1)!}\lim_{z\to a}\dv[m-1]{z}\qty[(z-a)^m f(z)].\label{eq:residueatpole}
 \end{equation}
-Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\muppi\ii}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
+Let \(z=\infty\) be an isolated singularity of \(f(z)\), which is holomorphic in \(\mathbb{C}\setminus\overline{D(0,R)}\), for sufficiently large finite \(R\). Then for finite \(\rho>R\), the residue at \(z=\infty\) is \textit{defined} as (notice the orientation) \[\residue_{z=\infty}f(z)=\frac{1}{2\uppi\ii}\ointclockwise_{\partial D(0,\rho)}f(z)\ddz.\]
 Let \(\zeta=\frac{1}{z}\). Then we get that
 \begin{align*}
-    \residue_{z=\infty}f(z) & =-\frac{1}{2\muppi\ii}\ointctrclockwise_{\partial D(0,\rho)}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})                                                                         \\
-                            & =\frac{1}{2\muppi\ii}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.
+    \residue_{z=\infty}f(z) & =-\frac{1}{2\uppi\ii}\ointctrclockwise_{\partial D(0,\rho)}f\qty(\frac{1}{\zeta})\dd(\frac{1}{\zeta})                                                                         \\
+                            & =\frac{1}{2\uppi\ii}\ointclockwise_{\partial D\qty(0,\frac{1}{\rho})}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\ddzeta=-\residue_{\zeta=0}\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}.
 \end{align*}
 In this definition, if \[f(z)=\sum_{n=-\infty}^\infty c_nz^n\Longleftrightarrow \frac{f\qty(\frac{1}{\zeta})}{\zeta^2}=\sum_{n=-\infty}^\infty c_n\zeta^{-n-2},\] the residue at \(z=\infty\) is equal to \(-c_{-1}\). We will later explain the reasoning behind this definition.
 \begin{theorem}[\textsc{Residue Theorem}]\label{thm:residuethm}
-    Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary curve \(\partial U\). Suppose \(\cbraces{z_n}\subset U\) is a finite set and \(f(z)\) is holomorphic on \(U\setminus\cbraces{z_n}\) and continuous on \(\overline{U}\setminus\cbraces{z_n}\). Then, \[\oint_{\partial U}f(z)\ddz=2\muppi\ii\sum_{k=1}^n\residue_{z=z_k}f(z)\]
+    Let \(U\subset\mathbb{C}\) be an open set with a simple closed boundary curve \(\partial U\). Suppose \(\cbraces{z_n}\subset U\) is a finite set and \(f(z)\) is holomorphic on \(U\setminus\cbraces{z_n}\) and continuous on \(\overline{U}\setminus\cbraces{z_n}\). Then, \[\oint_{\partial U}f(z)\ddz=2\uppi\ii\sum_{k=1}^n\residue_{z=z_k}f(z)\]
 \end{theorem}
 \begin{proof}
     Since \(U\) is open, there exists a small disk centered at each isolated singularity \(z_k\) of radii \(\delta_k\). By the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}), we get that \[\int_{\bigcup_{k=1}^nD\qty(z_k,\delta_k)^-\cup\partial U^+}f(z)\ddz=0.\]
@@ -33,7 +33,7 @@ This result itself is fairly trivial. Now we will explain the significance of th
     If \(\cbraces{z_1,\ldots z_n,\infty}\) is discrete and finite, and \(f:\extcomplex\setminus\cbraces{z_1,\ldots z_n,\infty}\to\mathbb{C}\) is holomorphic, and these points are the isolated singularities of \(f\), then the sum of the residues at each of these isolated singularities is zero, or \[\sum_{k=1}^n\residue_{z=z_k} f(z)+\residue_{z=\infty}f(z)=0.\]
 \end{theorem}
 \begin{proof}
-    Let \(R>\max_{j\in\mathbb{N}_{\leq n}}\qty|z_n|\) be arbitrary. By the Residue Theorem (\cref{thm:residuethm}), \[-\residue_{z=\infty}f(z)=\frac{1}{2\muppi\ii}\oint_{\partial D(0,R)}f(z)\ddz=\sum_{k=1}^n\residue_{z=z_k}f(z)\]
+    Let \(R>\max_{j\in\mathbb{N}_{\leq n}}\qty|z_n|\) be arbitrary. By the Residue Theorem (\cref{thm:residuethm}), \[-\residue_{z=\infty}f(z)=\frac{1}{2\uppi\ii}\oint_{\partial D(0,R)}f(z)\ddz=\sum_{k=1}^n\residue_{z=z_k}f(z)\]
     as desired. This is merely a restatement of \cref{thm:residuethm}.
 \end{proof}
 There is not a directly trivial reason for the definition of the residue at \(\infty\), except for the fact that it seemingly ``unifies'' the Riemann sphere.
@@ -43,7 +43,7 @@ There is not a directly trivial reason for the definition of the residue at \(\i
     \caption{The orientation of a neighborhood that does not enclose \(\infty\) after projection.}\label{fig:stereographicprojectionofneighborhood}
 \end{figure}However, if we take a neighborhood of an arbitrary point in \(\mathbb{C}\) on the Riemann sphere and traverse its boundary clockwise (from the perspective of outside the sphere), its projection onto \(\mathbb{C}\) will be counterclockwise (\cref{fig:stereographicprojectionofneighborhood}). However, the boundary of a neighborhood of \(\infty\) in \(S^2\) will have a clockwise projection (hence the difference in orientation). We define its equality with the residue of \(-\frac{f\qty(\frac{1}{\zeta})}{\zeta^2}\) at \(\zeta=0\), rather than \(f\qty(\frac{1}{\zeta})\), because we compose the differential form \(f(z)\ddz\) with the inversion, as opposed to \(f(z)\).
 
-For any closed rectifiable curve \(\gamma\subset U\) (here we are not bound under the assumption of simpleness), the Residue Theorem can be generalized into: \[\oint_{\gamma}f(z)\ddz=2\muppi\ii\sum_{k}\operatorname{Ind}_{\gamma}\qty(z_k)\residue_{z=z_k}f(z)\] where \(z_k\) are the singularities of \(f\) in \(U\) and \(\operatorname{Ind}_\gamma\) is the winding index.
+For any closed rectifiable curve \(\gamma\subset U\) (here we are not bound under the assumption of simpleness), the Residue Theorem can be generalized into: \[\oint_{\gamma}f(z)\ddz=2\uppi\ii\sum_{k}\operatorname{Ind}_{\gamma}\qty(z_k)\residue_{z=z_k}f(z)\] where \(z_k\) are the singularities of \(f\) in \(U\) and \(\operatorname{Ind}_\gamma\) is the winding index.
 
 Residues are extremely important as they allow for simple evaluation of definite (most commonly improper) real-valued integrals. This is because oftentimes, residues at poles are generally easy to calculate and have an integral representation. We can integrate over a contour (a smooth closed curve) that contains the important part of the real interval. Oftentimes this is the most non-trivial step.
 \begin{example}
@@ -82,13 +82,13 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{align*}
     The singularity at \(z=-\ii\) is not relevant, as it is not enclosed by the contour. By the Residue Theorem (\cref{thm:residuethm}), we have
     \begin{align*}
-        \oint_{\gamma} \frac{1}{\qty(z^2+1)^{n+1}}\ddz & =\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^\muppi\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta} \\
-                                                       & =2\muppi\ii\residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\muppi}{2^{2n}(n!)^2}.
+        \oint_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz & =\int_{-R}^R\frac{1}{\qty(x^2+1)^{n+1}}\ddx+\int_0^{\uppi}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta} \\
+                                                       & =2\uppi\ii\residue_{z=\ii}\frac{1}{\qty(z^2+1)^{n+1}}=\frac{(2n)!\uppi}{2^{2n}(n!)^2}.
     \end{align*}
-    We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii \ee^{\ii\theta}}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2\ee^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\muppi]\), and we can commute the limit with the integral. Therefore, we have
+    We will now show that the integral over the semicircle vanishes as \(R\to\infty\). Under the assumption that \(R\geq 2\), since \[\abs{\frac{R\ii \ee^{\ii\theta}}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}}=\frac{R}{\abs{R^2\ee^{2\ii\theta}+1}^{n+1}}\leq\frac{R}{\abs{R^2-1}}\leq\frac{2}{3},\] which is integrable over \([0,\uppi]\), and we can commute the limit with the integral. Therefore, we have
     \begin{align*}
         \int_{-\infty}^\infty \frac{1}{\qty(x^2+1)^{n+1}}\ddx & =\lim_{R\to\infty}\oint_{\gamma}\frac{1}{\qty(z^2+1)^{n+1}}\ddz                                                                                        \\
-                                                              & \quad-\int_0^{\muppi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\muppi}{2^{2n}(n!)^2}.\qedhere
+                                                              & \quad-\int_0^{\uppi}\lim_{R\to\infty}\frac{R\ii}{\qty(R^2\ee^{2\ii\theta}+1)^{n+1}}\ee^{\ii\theta}\dd{\theta}=\frac{(2n)!\uppi}{2^{2n}(n!)^2}.\qedhere
     \end{align*}
 \end{proof}
 \begin{example}[Dirichlet Integral]
@@ -127,24 +127,24 @@ Residues are extremely important as they allow for simple evaluation of definite
     \end{figure}Let \(f(z)=\frac{\ee^{\ii z}}{z}\). Consider a closed contour \(\gamma\) in the form of \cref{fig:indentedsemicircularcontour}, consisting of a semicircle of radius \(R\) in \(\overline{\mathbb{H}^+}\) (\(C_R\)), a line segment from \(-R\) to \(-\varepsilon\), a smaller semicircle of radius \(\varepsilon\) in the upper half-plane (\(C_\varepsilon\)), and a line segment from \(\varepsilon\) to \(R\).
 
     By the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}), we have that \[\oint_{\gamma}f(z)\ddz=\int_{C_R}f(z)\ddz+\int_{-R}^{-\varepsilon}f(z)\ddz+\int_{C_\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz=0.\]
-    We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^\muppi\frac{\exp(\ii R\ee^{\ii\theta})}{R\ee^{\ii\theta}}Ri\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\muppi}\ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}.\]
-    Notice that \(\frac{2}{\muppi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\):
+    We will now analyze each integral. The first integral is \[\int_{C_R}f(z)\ddz=\int_0^{\uppi}\frac{\exp(\ii R\ee^{\ii\theta})}{R\ee^{\ii\theta}}R\ii\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\uppi}\ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}.\]
+    Notice that \(\frac{2}{\uppi}\theta\leq\sin(\theta)\leq\theta\) over the integration range. We want to observe the behavior as \(R\to\infty\):
     \begin{align*}
-        \abs{\ii\int_0^\muppi \ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\muppi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\muppi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                      \\
-                                                                                 & <2\int_0^{\frac{\muppi}{2}}\ee^{-R\frac{2}{\muppi}\theta}\dd{\theta}=\eval{-\frac{\muppi}{R}\ee^{-R\frac{2}{\muppi}\theta}}_0^{\frac{\muppi}{2}} \\
-                                                                                 & =\frac{\muppi}{R}\qty(1-\ee^{-R})\to 0.
+        \abs{\ii\int_0^{\uppi}\ee^{\ii R\cos\theta}\ee^{-R\sin\theta}\dd{\theta}} & \leq\int_0^{\uppi}\ee^{-R\sin\theta}\dd{\theta}=2\int_0^{\frac{\uppi}{2}}\ee^{-R\sin\theta}\dd{\theta}                                      \\
+                                                                                 & <2\int_0^{\frac{\uppi}{2}}\ee^{-R\frac{2}{\uppi}\theta}\dd{\theta}=\eval{-\frac{\uppi}{R}\ee^{-R\frac{2}{\uppi}\theta}}_0^{\frac{\uppi}{2}} \\
+                                                                                 & =\frac{\uppi}{R}\qty(1-\ee^{-R})\to 0.
     \end{align*}
-    Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=\ii\int_{\muppi}^0\exp(\varepsilon\qty(\ii\cos\theta-\sin\theta))\dd{\theta}=\ii\int_\muppi^0\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}.\]
+    Let us evaluate the integral on \(\gamma_\varepsilon\) as \(\varepsilon\to 0\): \[\int_{C_\varepsilon}f(z)\ddz=\ii\int_{\uppi}^0\exp(\varepsilon\qty(\ii\cos\theta-\sin\theta))\dd{\theta}=\ii\int_{\uppi}^0\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}.\]
     Obviously, \[\abs{\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}}\leq 1,\]
     and therefore, the integral and the limit may commute:
-    \[\lim_{\varepsilon\to 0}\int_{C_\varepsilon}f(z)\ddz=\ii\int_{\muppi}^0\lim_{\varepsilon\to 0^+}\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}=\ii\int_{\muppi}^0\dd{\theta}=-\ii\muppi.\]
+    \[\lim_{\varepsilon\to 0}\int_{C_\varepsilon}f(z)\ddz=\ii\int_{\uppi}^0\lim_{\varepsilon\to 0^+}\ee^{-\varepsilon\sin\theta}\ee^{\ii\varepsilon\cos\theta}\dd{\theta}=\ii\int_{\uppi}^0\dd{\theta}=-\ii\uppi.\]
     Evaluating the integral over the line segments, we have
     \begin{align*}
         \int_{-R}^{-\varepsilon}f(z)\ddz+\int_{\varepsilon}^{R}f(z)\ddz & =\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}+\int_{\varepsilon}^{R}\frac{\ee^{\ii z}}{z}\ddz      \\
                                                                         & =\int_{-R}^{-\varepsilon}\frac{\ee^{\ii z}}{z}\dd{z}-\int_{-R}^{-\varepsilon}\frac{\ee^{-\ii z}}{z}\dd{z} \\
                                                                         & \to2\ii\int_{-\infty}^0\frac{\sin{z}}{z}\ddz=2\ii\int_0^{\infty}\frac{\sin{z}}{z}\ddz.
     \end{align*}
-    Hence, \[-\ii\muppi+2\ii\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\muppi}{2}.\qedhere\]
+    Hence, \[-\ii\uppi+2\ii\int_{0}^\infty\frac{\sin(z)}{z}\ddz=0\Longleftrightarrow\int_{0}^\infty\frac{\sin{z}}{z}\ddz=\frac{\uppi}{2}.\qedhere\]
 \end{proof}
 \begin{example}[Fresnel Integral]
     Evaluate the improper integrals \[I_1=\int_0^\infty\cos\qty(x^2)\ddx,\qquad I_2=\int_0^\infty\sin\qty(x^2)\ddx.\]
@@ -168,7 +168,7 @@ Residues are extremely important as they allow for simple evaluation of definite
             \draw[-{Stealth}, thick] (2.47487, 2.47487) -- (0, 0);
             \node[anchor=north, xshift=-2pt] at (4.5, 0) {\(\Re(z)\)};
             \node[anchor=east, yshift=-2pt] at (0, 4) {\(\Im(z)\)};
-            \node[anchor=west] at (0.4,0.25) {\(\tfrac{\muppi}{4}\)};
+            \node[anchor=west] at (0.4,0.25) {\(\tfrac{\uppi}{4}\)};
             \node[anchor=north] at (1.75,0) {\(\Gamma_1\)};
             \node[anchor=south east] at (1.4,1.4) {\(\Gamma_2\)};
             \node[anchor=north] at (3.6,1.5) {\(C_R\)};
@@ -178,39 +178,39 @@ Residues are extremely important as they allow for simple evaluation of definite
         \caption{A wedge contour with orientation marked.}\label{fig:wedgecontour}
     \end{figure}Let \(f(z)=\ee^{\ii z^2}\). Choose the wedge contour composed of
     \begin{gather*}
-        \Gamma_1=\cbraces{x\in\mathbb{R}}{0\leq x\leq R},\qquad\Gamma_2=\cbraces{r\ee^{\ii\frac{\muppi}{4}}}{0\leq r\leq R},\\
-        C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\frac{\muppi}{4}}
+        \Gamma_1=\cbraces{x\in\mathbb{R}}{0\leq x\leq R},\qquad\Gamma_2=\cbraces{r\ee^{\ii\frac{\uppi}{4}}}{0\leq r\leq R},\\
+        C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\frac{\uppi}{4}}
     \end{gather*}
     as in \cref{fig:wedgecontour}. By the Cauchy--Goursat Theorem (\cref{thm:cauchygoursattheorem}), we have that
     \begin{equation}
         \int_{\Gamma_1}f(z)\ddz+\int_{\Gamma_2}f(z)\ddz+\int_{C_R}f(z)\ddz=0.\label{eq:fresnelwedgecontourintegral}
-    \end{equation} The third integral can be written as \[\int_{C_R}f(z)\ddz=R\ii\int_0^{\frac{\muppi}{4}}\exp[\ii{\qty(R\ee^{\ii\theta})}^2]\ee^{\ii\theta}\dd{\theta}.\]
-    Using the fact that \(\frac{4}{\muppi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as
+    \end{equation} The third integral can be written as \[\int_{C_R}f(z)\ddz=R\ii\int_0^{\frac{\uppi}{4}}\exp[\ii{\qty(R\ee^{\ii\theta})}^2]\ee^{\ii\theta}\dd{\theta}.\]
+    Using the fact that \(\frac{4}{\uppi}\theta<\sin(2\theta)\) on the integration range, it can be bounded as
     \begin{align*}
-        \abs{\int_{C_R}f(z)\ddz} & \leq R{\int_0^{\frac{\muppi}{4}}\ee^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\muppi}{4}}\ee^{-\frac{4}{\muppi}R^2\theta}\dd{\theta} \\
-                                 & =-\frac{\muppi}{4R}\eval{\ee^{-\frac{4}{\muppi}R^2\theta}}_0^{\frac{\muppi}{4}}=\frac{\muppi}{4R}\qty(1-\ee^{-R^2}).
+        \abs{\int_{C_R}f(z)\ddz} & \leq R{\int_0^{\frac{\uppi}{4}}\ee^{-R^2\sin(2\theta)}\dd{\theta}}<R\int_0^{\frac{\uppi}{4}}\ee^{-\frac{4}{\uppi}R^2\theta}\dd{\theta} \\
+                                 & =-\frac{\uppi}{4R}\eval{\ee^{-\frac{4}{\uppi}R^2\theta}}_0^{\frac{\uppi}{4}}=\frac{\uppi}{4R}\qty(1-\ee^{-R^2}).
     \end{align*}
-    As \(R\to\infty\), this integral tends to 0. Let \(z=r\ee^{\ii\frac{\muppi}{4}}\) on \(\Gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\Gamma_2}f(z)\ddz=\int_\infty^0\exp[\ii\qty(r\ee^{\ii\frac{\muppi}{4}})^2]\ee^{\ii\frac{\muppi}{4}}\dd{r}=\ee^{\ii\frac{\muppi}{4}}\int_\infty^0\exp(-r^2)\dd{r}.\]
-    From \cref{eq:fresnelwedgecontourintegral}, we have that \[\int_0^\infty \ee^{\ii r^2}\dd{r}=\ee^{\ii\frac{\muppi}{4}}\int_0^\infty \ee^{-r^2}\dd{r}.\] Since \(\int_0^\infty \ee^{-r^2}\dd{r}=\frac{\sqrt{\muppi}}{2}\), we have \[\int_0^\infty \ee^{\ii r^2}\dd{r}=\qty(\frac{\sqrt{2}}{2}+\ii\frac{\sqrt{2}}{2})\frac{\sqrt{\muppi}}{2}.\]
+    As \(R\to\infty\), this integral tends to 0. Let \(z=r\ee^{\ii\frac{\uppi}{4}}\) on \(\Gamma_2\). Then, we have \[\lim_{R\to\infty}\int_{\Gamma_2}f(z)\ddz=\int_\infty^0\exp[\ii\qty(r\ee^{\ii\frac{\uppi}{4}})^2]\ee^{\ii\frac{\uppi}{4}}\dd{r}=\ee^{\ii\frac{\uppi}{4}}\int_\infty^0\exp(-r^2)\dd{r}.\]
+    From \cref{eq:fresnelwedgecontourintegral}, we have that \[\int_0^\infty \ee^{\ii r^2}\dd{r}=\ee^{\ii\frac{\uppi}{4}}\int_0^\infty \ee^{-r^2}\dd{r}.\] Since \(\int_0^\infty \ee^{-r^2}\dd{r}=\frac{\sqrt{\uppi}}{2}\), we have \[\int_0^\infty \ee^{\ii r^2}\dd{r}=\qty(\frac{\sqrt{2}}{2}+\ii\frac{\sqrt{2}}{2})\frac{\sqrt{\uppi}}{2}.\]
     Since \(\ee^{\ii r^2}=\cos(r^2)+\ii\sin(r^2)\), we have
     \begin{gather*}
-        \int_0^\infty\cos(r^2)\dd{r}=\Re\qty[\int_0^\infty \ee^{\ii r^2}\dd{r}]=\frac{\sqrt{2\muppi}}{4},\\
-        \int_0^\infty\sin(r^2)\dd{r}=\Im\qty[\int_0^\infty \ee^{\ii r^2}\dd{r}]=\frac{\sqrt{2\muppi}}{4},
+        \int_0^\infty\cos(r^2)\dd{r}=\Re\qty[\int_0^\infty \ee^{\ii r^2}\dd{r}]=\frac{\sqrt{2\uppi}}{4},\\
+        \int_0^\infty\sin(r^2)\dd{r}=\Im\qty[\int_0^\infty \ee^{\ii r^2}\dd{r}]=\frac{\sqrt{2\uppi}}{4},
     \end{gather*}
     as desired.
 \end{proof}
 \begin{example}
-    Evaluate the integrals \(\int_0^{2\muppi}\Phi(\cos\theta,\sin\theta)\dd{\theta}\), where \(\Phi(\xi,\eta)\) is a rational function of \(\xi\) and \(\eta\) that is continuous on \(\theta\in[0,2\muppi]\).
+    Evaluate the integrals \(\int_0^{2\uppi}\Phi(\cos\theta,\sin\theta)\dd{\theta}\), where \(\Phi(\xi,\eta)\) is a rational function of \(\xi\) and \(\eta\) that is continuous on \(\theta\in[0,2\uppi]\).
 \end{example}
 \begin{proof}
-    Let \(z=\ee^{\ii\theta}\). Consequently, we have \(\cos\theta=\frac{z+z^{-1}}{2}\), \(\sin\theta=\frac{z-z^{-1}}{2\ii}\), and \(\ddz=\ii\ee^{\ii\theta}\dd{\theta}\), implying that \(\dd{\theta}=\frac{\ddz}{\ii z}\). Therefore, by the Residue Theorem (\cref{thm:residuethm}), letting \(f(z)=\frac{1}{\ii z}\Phi\qty(\frac{z+z^{-1}}{2},\frac{z-z^{-1}}{2\ii})\), we have \[\int_0^{2\muppi}\Phi(\cos\theta,\sin\theta)\dd{\theta}=\oint_{\partial\mathbb{D}}f(z)\ddz=2\muppi\ii\sum_{k=1}^n\residue_{z=z_k}f(z),\]
+    Let \(z=\ee^{\ii\theta}\). Consequently, we have \(\cos\theta=\frac{z+z^{-1}}{2}\), \(\sin\theta=\frac{z-z^{-1}}{2\ii}\), and \(\ddz=\ii\ee^{\ii\theta}\dd{\theta}\), implying that \(\dd{\theta}=\frac{\ddz}{\ii z}\). Therefore, by the Residue Theorem (\cref{thm:residuethm}), letting \(f(z)=\frac{1}{\ii z}\Phi\qty(\frac{z+z^{-1}}{2},\frac{z-z^{-1}}{2\ii})\), we have \[\int_0^{2\uppi}\Phi(\cos\theta,\sin\theta)\dd{\theta}=\oint_{\partial\mathbb{D}}f(z)\ddz=2\uppi\ii\sum_{k=1}^n\residue_{z=z_k}f(z),\]
     where \(z_k\) where \(k=1,\ldots,n\) are the isolated singularities of \(f\) in \(\mathbb{D}\).
 \end{proof}
 \begin{example}
     Evaluate \(I=\int_0^\infty\frac{x^\alpha}{1+x^\beta}\ddx\), where \(0<\alpha+1<\beta\).
 \end{example}
 \begin{proof}
-    Let \(f(z)=\frac{z^\alpha}{1+z^\beta}\) and let \(-\muppi<\Arg(z)\leq \muppi\) in the principal branches of \(z^\alpha=\ee^{\alpha\Log(z)}\) and \(z^\beta=\ee^{\beta\Log(z)}\). Then except for at the zeros of \(1+z^\beta\), \(f\) is holomorphic.
+    Let \(f(z)=\frac{z^\alpha}{1+z^\beta}\) and let \(-\uppi<\Arg(z)\leq \uppi\) in the principal branches of \(z^\alpha=\ee^{\alpha\Log(z)}\) and \(z^\beta=\ee^{\beta\Log(z)}\). Then except for at the zeros of \(1+z^\beta\), \(f\) is holomorphic.
 
     \begin{figure}
         \centering
@@ -241,37 +241,37 @@ Residues are extremely important as they allow for simple evaluation of definite
             \node[anchor=south east] at (0.9,0.8) {\(\varepsilon\)};
         \end{tikzpicture}
         \caption{An indented wedge contour with orientation marked.}\label{fig:indentedwedgecontour}
-    \end{figure}The solutions to \(z^\beta=-1\) are \(z=\exp(\ii\frac{\muppi}{\beta}+2\ii k\frac{\muppi}{\beta})\). Choose an indented wedge contour (as there is a logarithmic branch point singularity at the origin) with an angle of \(\frac{2\muppi}{\beta}\) (as in \cref{fig:wedgecontour}). The only singularity it encloses is \(\exp(\ii\frac{\muppi}{\beta})\). Since it is a simple zero of \(\frac{1}{f}\), this singularity is a simple pole.
+    \end{figure}The solutions to \(z^\beta=-1\) are \(z=\exp(\ii\frac{\uppi}{\beta}+2\ii k\frac{\uppi}{\beta})\). Choose an indented wedge contour (as there is a logarithmic branch point singularity at the origin) with an angle of \(\frac{2\uppi}{\beta}\) (as in \cref{fig:wedgecontour}). The only singularity it encloses is \(\exp(\ii\frac{\uppi}{\beta})\). Since it is a simple zero of \(\frac{1}{f}\), this singularity is a simple pole.
 
     The contour is the union of the following curves:\
     \begin{gather*}
-        \Gamma_1=\cbraces{x\in\mathbb{R}}{\varepsilon\leq x\leq R},\qquad\Gamma_2=\cbraces{r\exp(\ii\frac{2\muppi}{\beta})}{\varepsilon\leq r\leq R},\\
-        C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\muppi}{\beta}},\qquad C_\varepsilon=\cbraces{\varepsilon\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\muppi}{\beta}}
+        \Gamma_1=\cbraces{x\in\mathbb{R}}{\varepsilon\leq x\leq R},\qquad\Gamma_2=\cbraces{r\exp(\ii\frac{2\uppi}{\beta})}{\varepsilon\leq r\leq R},\\
+        C_R=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\uppi}{\beta}},\qquad C_\varepsilon=\cbraces{\varepsilon\ee^{\ii\theta}}{0\leq\theta\leq \frac{2\uppi}{\beta}}
     \end{gather*}
-    where \(R>1\) and \(0<\varepsilon<1\). By the Residue Theorem (\cref{thm:residuethm}), we get that \[\lim_{\varepsilon\to 0}\lim_{R\to\infty}\qty(\int_{\Gamma_1}+\int_{\Gamma_2}+\int_{C_R}+\int_{C_\varepsilon})f(z)\ddz=2\muppi\ii\Res[f,\exp(\ii\frac{\muppi}{\beta})].\]
+    where \(R>1\) and \(0<\varepsilon<1\). By the Residue Theorem (\cref{thm:residuethm}), we get that \[\lim_{\varepsilon\to 0}\lim_{R\to\infty}\qty(\int_{\Gamma_1}+\int_{\Gamma_2}+\int_{C_R}+\int_{C_\varepsilon})f(z)\ddz=2\uppi\ii\Res[f,\exp(\ii\frac{\uppi}{\beta})].\]
     By \cref{eq:residueatpole}, it follows that
     \begin{align*}
-        \residue\qty[f,\exp(\ii\frac{\muppi}{\beta})] & =\lim_{z\to\exp(\ii\frac{\muppi}{\beta})}\flatfrac{\qty[z-\exp(\ii\frac{\muppi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]} \\
-                                                     & =\lim_{z\to\exp(\ii\frac{\muppi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}                                       \\
-                                                     & =\lim_{z\to\exp(\ii\frac{\muppi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}                               \\
-                                                     & =-\frac{1}{\beta}\exp(\ii\frac{\muppi}{\beta}(\alpha+1)).
+        \residue\qty[f,\exp(\ii\frac{\uppi}{\beta})] & =\lim_{z\to\exp(\ii\frac{\uppi}{\beta})}\flatfrac{\qty[z-\exp(\ii\frac{\uppi}{\beta})]}{\qty[\frac{1+z^\beta}{z^\alpha}]} \\
+                                                     & =\lim_{z\to\exp(\ii\frac{\uppi}{\beta})}{\dv{z}(z^{-\alpha}+z^{\beta-\alpha})}^{-1}                                       \\
+                                                     & =\lim_{z\to\exp(\ii\frac{\uppi}{\beta})}\frac{z^{\alpha+1}}{(\beta-\alpha)z^{\beta}-\alpha}                               \\
+                                                     & =-\frac{1}{\beta}\exp(\ii\frac{\uppi}{\beta}(\alpha+1)).
     \end{align*}
     We can write the integral on \(\Gamma_2\) in terms of \(I\):
     \begin{align*}
-        \lim_{\substack{R\to\infty                                                                 \\\varepsilon\to 0}}\int_{\Gamma_2}f(z)\ddz & =\lim_{\substack{R\to\infty\\\varepsilon\to 0}}\int_R^0 f\qty[r\exp(\ii\frac{2\muppi}{\beta})]\exp(\ii\frac{2\muppi}{\beta})\dd{r}   \\
-         & =-\exp[\ii\frac{2\muppi}{\beta}(1+\alpha)]\int_0^\infty\frac{r^\alpha}{1+r^\beta}\dd{r}.
+        \lim_{\substack{R\to\infty                                                                 \\\varepsilon\to 0}}\int_{\Gamma_2}f(z)\ddz & =\lim_{\substack{R\to\infty\\\varepsilon\to 0}}\int_R^0 f\qty[r\exp(\ii\frac{2\uppi}{\beta})]\exp(\ii\frac{2\uppi}{\beta})\dd{r}   \\
+         & =-\exp[\ii\frac{2\uppi}{\beta}(1+\alpha)]\int_0^\infty\frac{r^\alpha}{1+r^\beta}\dd{r}.
     \end{align*}
-    We also have \[\int_{C_R}f(z)\ddz=R\ii\int_{0}^{\frac{2\muppi}{\beta}}f\qty(R\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\frac{2\muppi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}.\] It can also be shown that the integral is bounded by a vanishing function as \(R\to\infty\):
-    \[\abs{\int_0^{\frac{2\muppi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\muppi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=\frac{2\muppi}{\beta}\frac{R^{\alpha+1}}{R^\beta-1}\to 0.\]
-    Similarly, as \(\varepsilon\to 0\), \[\abs{\int_{C_\varepsilon}f(z)\ddz}\leq\varepsilon\int_0^{\frac{2\muppi}{\beta}}\abs{f\qty(\varepsilon\ee^{\ii\theta})}\dd{\theta}=\int_0^{\frac{2\muppi}{\beta}}\frac{\varepsilon^{\alpha+1}}{1-\varepsilon^\beta}\dd{\theta}=\frac{2\muppi}{\beta}\frac{\varepsilon^{\alpha+1}}{1-\varepsilon^{\beta}}\to 0.\]
-    By letting \(R\to\infty\) and \(\varepsilon\to 0\), we have \[\qty[1-\exp(\ii\frac{2\muppi}{\beta}(1+\alpha))]I=-\frac{2\muppi\ii}{\beta}\exp(\ii\frac{\muppi}{\beta}(\alpha+1)).\]
-    It follows that \[I=\frac{2\muppi\ii}{\beta}\brackets{\exp(\ii\frac{\muppi}{\beta}(\alpha+1))-\exp(-\ii\frac{\muppi}{\beta}(\alpha+1))}^{-1}=\frac{\muppi}{\beta}\csc(\frac{\muppi}{\beta}(\alpha+1)).\qedhere\]
+    We also have \[\int_{C_R}f(z)\ddz=R\ii\int_{0}^{\frac{2\uppi}{\beta}}f\qty(R\ee^{\ii\theta})\ee^{\ii\theta}\dd{\theta}=\ii\int_0^{\frac{2\uppi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}.\] It can also be shown that the integral is bounded by a vanishing function as \(R\to\infty\):
+    \[\abs{\int_0^{\frac{2\uppi}{\beta}}\frac{R^{\alpha+1}}{1+R^\beta \ee^{\ii\beta\theta}}\exp[\ii\theta(1+\alpha)]\dd{\theta}}\leq\int_0^{\frac{2\uppi}{\beta}}\frac{R^{\alpha+1}}{R^\beta-1}\dd{\theta}=\frac{2\uppi}{\beta}\frac{R^{\alpha+1}}{R^\beta-1}\to 0.\]
+    Similarly, as \(\varepsilon\to 0\), \[\abs{\int_{C_\varepsilon}f(z)\ddz}\leq\varepsilon\int_0^{\frac{2\uppi}{\beta}}\abs{f\qty(\varepsilon\ee^{\ii\theta})}\dd{\theta}=\int_0^{\frac{2\uppi}{\beta}}\frac{\varepsilon^{\alpha+1}}{1-\varepsilon^\beta}\dd{\theta}=\frac{2\uppi}{\beta}\frac{\varepsilon^{\alpha+1}}{1-\varepsilon^{\beta}}\to 0.\]
+    By letting \(R\to\infty\) and \(\varepsilon\to 0\), we have \[\qty[1-\exp(\ii\frac{2\uppi}{\beta}(1+\alpha))]I=-\frac{2\uppi\ii}{\beta}\exp(\ii\frac{\uppi}{\beta}(\alpha+1)).\]
+    It follows that \[I=\frac{2\uppi\ii}{\beta}\brackets{\exp(\ii\frac{\uppi}{\beta}(\alpha+1))-\exp(-\ii\frac{\uppi}{\beta}(\alpha+1))}^{-1}=\frac{\uppi}{\beta}\csc(\frac{\uppi}{\beta}(\alpha+1)).\qedhere\]
 \end{proof}
 \begin{example}
-    Prove that the Fourier transform of \(\sech(\muppi x)\) is itself, or that \[I(\xi)=\int_{-\infty}^\infty\exp(-2\muppi \ii x\xi)\sech(\muppi x)\ddx=\sech(\muppi\xi).\]
+    Prove that the Fourier transform of \(\sech(\uppi x)\) is itself, or that \[I(\xi)=\int_{-\infty}^\infty\exp(-2\uppi \ii x\xi)\sech(\uppi x)\ddx=\sech(\uppi\xi).\]
 \end{example}
 \begin{proof}
-    Fix \(\xi\in\mathbb{R}\) and let \(f(z)=\frac{\exp(-2\muppi \ii z\xi)}{\cosh(\muppi z)}\). Its poles in \(\mathbb{C}\) occur when \(\ee^{\muppi z}+\ee^{-\muppi z}=0\), or equivalently, when \(z=\ii\qty(n+\frac{1}{2})\), where \(n\in\mathbb{Z}\).
+    Fix \(\xi\in\mathbb{R}\) and let \(f(z)=\frac{\exp(-2\uppi \ii z\xi)}{\cosh(\uppi z)}\). Its poles in \(\mathbb{C}\) occur when \(\ee^{\uppi z}+\ee^{-\uppi z}=0\), or equivalently, when \(z=\ii\qty(n+\frac{1}{2})\), where \(n\in\mathbb{Z}\).
 
     \begin{figure}
         \centering
@@ -298,43 +298,43 @@ Residues are extremely important as they allow for simple evaluation of definite
             \node[anchor=south east] at (0,2) {\(\ii\)};
         \end{tikzpicture}
         \caption{A rectangular contour with orientation marked.}\label{fig:rectangularcontour}
-    \end{figure}Since \[\cosh(\muppi(z+\ii))=-\cosh(\muppi z),\qquad\exp(-2\muppi\ii(z+\ii)\xi)=\exp(2\muppi\xi)\exp(-2\muppi \ii z\xi),\] we have that \(f(z)\) is a constant multiple of \(f(z+\ii)\). In particular, \(f(z+\ii)=-\exp(2\muppi\xi)f(z)\). Therefore, we can use a rectangular contour as shown in \cref{fig:rectangularcontour}. Let the sides be denoted by
+    \end{figure}Since \[\cosh(\uppi(z+\ii))=-\cosh(\uppi z),\qquad\exp(-2\uppi\ii(z+\ii)\xi)=\exp(2\uppi\xi)\exp(-2\uppi \ii z\xi),\] we have that \(f(z)\) is a constant multiple of \(f(z+\ii)\). In particular, \(f(z+\ii)=-\exp(2\uppi\xi)f(z)\). Therefore, we can use a rectangular contour as shown in \cref{fig:rectangularcontour}. Let the sides be denoted by
     \begin{gather*}
         \overleftarrow{\Gamma}=\cbraces{x+\ii}{-R\leq x\leq R,x\in\mathbb{R}},\qquad\overrightarrow{\Gamma}x=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R}\\
         \overset{\downarrow}{\Gamma}=\cbraces{-R+\ii y}{y\in[0,1]},\qquad\overset{\uparrow}{\Gamma}=\cbraces{R+\ii y}{y\in[0,1]}.
     \end{gather*}
     The only enclosed singularity is a simple pole at \(z=\frac{\ii}{2}\) (simple by evaluation of the Taylor expansion of the denominator). By the Residue Theorem (\cref{thm:residuethm}), we get that
     \begin{equation}
-        \qty(\int_{\overrightarrow{\Gamma}}+\int_{\overset{\uparrow}{\Gamma}}+\int_{\overleftarrow{\Gamma}}+\int_{\overset{\downarrow}{\Gamma}})f(z)\ddz=2\muppi\ii\Res(f,\frac{\ii}{2}).\label{eq:fouriertransformofsechpix_rectangularcontourintegral}
+        \qty(\int_{\overrightarrow{\Gamma}}+\int_{\overset{\uparrow}{\Gamma}}+\int_{\overleftarrow{\Gamma}}+\int_{\overset{\downarrow}{\Gamma}})f(z)\ddz=2\uppi\ii\Res(f,\frac{\ii}{2}).\label{eq:fouriertransformofsechpix_rectangularcontourintegral}
     \end{equation}
     By \cref{eq:residueatpole}, we have
     \begin{align*}
-        \Res(f,\frac{\ii}{2}) & =\lim_{z\to\frac{\ii}{2}}\qty(z-\frac{\ii}{2})\frac{\exp(-2\muppi \ii z\xi)}{\cosh(\muppi z)}            \\
-                              & =\lim_{z\to\frac{\ii}{2}}\dv{z}(\frac{\cosh(\muppi z)}{\exp(-2\muppi \ii z\xi)})^{-1}                    \\
-                              & =\lim_{z\to\frac{\ii}{2}}\frac{\exp(-2\muppi \ii z\xi)}{\muppi\sinh(\muppi z)+2\muppi\ii\xi\cosh(\muppi z)} \\
-                              & =\frac{\exp(\muppi\xi)}{\muppi \ii}.
+        \Res(f,\frac{\ii}{2}) & =\lim_{z\to\frac{\ii}{2}}\qty(z-\frac{\ii}{2})\frac{\exp(-2\uppi \ii z\xi)}{\cosh(\uppi z)}            \\
+                              & =\lim_{z\to\frac{\ii}{2}}\dv{z}(\frac{\cosh(\uppi z)}{\exp(-2\uppi \ii z\xi)})^{-1}                    \\
+                              & =\lim_{z\to\frac{\ii}{2}}\frac{\exp(-2\uppi \ii z\xi)}{\uppi\sinh(\uppi z)+2\uppi\ii\xi\cosh(\uppi z)} \\
+                              & =\frac{\exp(\uppi\xi)}{\uppi \ii}.
     \end{align*}
     The sum of the horizontal line integrals is equal to
     \begin{align*}
-        \int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+\ii)\ddz & =\int_{-R}^R f(z)\ddz-\int_R^{-R}\ee^{2\muppi\xi}f(z)\ddz \\
-                                                     & =\qty(1+\ee^{2\muppi\xi})\int_{-R}^R f(z)\ddz.
-    \end{align*} As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+\ee^{2\muppi\xi})I(\xi)\).
+        \int_{-R}^R f(z)\ddz+\int_R^{-R}f(z+\ii)\ddz & =\int_{-R}^R f(z)\ddz-\int_R^{-R}\ee^{2\uppi\xi}f(z)\ddz \\
+                                                     & =\qty(1+\ee^{2\uppi\xi})\int_{-R}^R f(z)\ddz.
+    \end{align*} As \(R\to\infty\), we have \(\int_{\overrightarrow{\Gamma}}f(z)\ddz+\int_{\overleftarrow{\Gamma}}f(z)\ddz\to\qty(1+\ee^{2\uppi\xi})I(\xi)\).
     The remaining two integrals can be written as
     \begin{align*}
-        \int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\muppi\ii(R+\ii z)\xi)}{\cosh(\muppi(R+\ii z))}\ddz \\
-        \int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\muppi\ii(R-\ii z)\xi)}{\cosh(\muppi(-R+\ii z))}\ddz.
+        \int_{\overset{\uparrow}{\Gamma}}f(z)\ddz=\int_0^1 \frac{\exp(-2\uppi\ii(R+\ii z)\xi)}{\cosh(\uppi(R+\ii z))}\ddz \\
+        \int_{\overset{\downarrow}{\Gamma}}f(z)\ddz=\int_1^0 \frac{\exp(2\uppi\ii(R-\ii z)\xi)}{\cosh(\uppi(-R+\ii z))}\ddz.
     \end{align*}
     They can be bounded with
     \begin{align*}
-        \abs{\int_0^1 \frac{\exp(-2\muppi\ii(R+\ii z)\xi)}{\cosh(\muppi(R+\ii z))}\ddz} & \leq 2\int_0^1\frac{\exp(2\muppi z\xi)}{\abs{\ee^{\muppi R}\ee^{\muppi \ii z}+\ee^{-\muppi R}\ee^{-\muppi \ii z}}}\ddz \\
-                                                                                      & \leq2\int_0^1\frac{\exp(2\muppi z\xi)}{\abs{\ee^{\muppi R}-\ee^{-\muppi R}}}\ddz
+        \abs{\int_0^1 \frac{\exp(-2\uppi\ii(R+\ii z)\xi)}{\cosh(\uppi(R+\ii z))}\ddz} & \leq 2\int_0^1\frac{\exp(2\uppi z\xi)}{\abs{\ee^{\uppi R}\ee^{\uppi \ii z}+\ee^{-\uppi R}\ee^{-\uppi \ii z}}}\ddz \\
+                                                                                      & \leq2\int_0^1\frac{\exp(2\uppi z\xi)}{\abs{\ee^{\uppi R}-\ee^{-\uppi R}}}\ddz
     \end{align*} and
     \begin{align*}
-        \abs{\int_1^0 \frac{\exp(2\muppi\ii(R-\ii z)\xi)}{\cosh(\muppi(-R+\ii z))}\ddz} & \leq 2\int_0^1\frac{\exp(2\muppi z\xi)}{\abs{\ee^{-\muppi R}\ee^{\muppi \ii z}+\ee^{\muppi R}\ee^{-\muppi \ii z}}}\ddz \\
-                                                                                      & \leq2\int_0^1\frac{\exp(2\muppi z\xi)}{\abs{\ee^{\muppi R}-\ee^{-\muppi R}}}\ddz
+        \abs{\int_1^0 \frac{\exp(2\uppi\ii(R-\ii z)\xi)}{\cosh(\uppi(-R+\ii z))}\ddz} & \leq 2\int_0^1\frac{\exp(2\uppi z\xi)}{\abs{\ee^{-\uppi R}\ee^{\uppi \ii z}+\ee^{\uppi R}\ee^{-\uppi \ii z}}}\ddz \\
+                                                                                      & \leq2\int_0^1\frac{\exp(2\uppi z\xi)}{\abs{\ee^{\uppi R}-\ee^{-\uppi R}}}\ddz
     \end{align*}
-    Since the integrands are continuous and uniformly convergent to \(0\) with respect to \(z\), we have \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz+\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz\to 0\] as \(R\to\infty\). By rearrangement of \cref{eq:fouriertransformofsechpix_rectangularcontourintegral}, \[I(\xi)\qty(1+\ee^{2\muppi\xi})=2\exp(\muppi\xi),\]
-    or that \[I(\xi)=\frac{2}{\ee^{-\muppi\xi}+\ee^{\muppi\xi}}=\sech(\muppi\xi),\] which proves the result.
+    Since the integrands are continuous and uniformly convergent to \(0\) with respect to \(z\), we have \[\int_{\overset{\uparrow}{\Gamma}}f(z)\ddz+\int_{\overset{\downarrow}{\Gamma}}f(z)\ddz\to 0\] as \(R\to\infty\). By rearrangement of \cref{eq:fouriertransformofsechpix_rectangularcontourintegral}, \[I(\xi)\qty(1+\ee^{2\uppi\xi})=2\exp(\uppi\xi),\]
+    or that \[I(\xi)=\frac{2}{\ee^{-\uppi\xi}+\ee^{\uppi\xi}}=\sech(\uppi\xi),\] which proves the result.
 \end{proof}
 Contour integration provides a powerful method for evaluating real improper integrals by leveraging the Residue Theorem (\cref{thm:residuethm}). The primary challenge often lies in constructing a suitable contour in the complex plane that encloses the relevant singularities of the integrand \(f\) while ensuring that the contribution from the contributions from the remaining segments of the contour either vanishes or can be calculated with ease.
 
@@ -378,9 +378,9 @@ In the case that a branch point singularity is present on the contour, we may at
         I & =\frac{1}{2}\int_{-\infty}^\infty\frac{\log\qty(x^2+1)}{x^2+1}=\int_{-\infty}^\infty\frac{\log\sqrt{(x+i)(x-i)}}{x^2+1}\nonumber                               \\
           & =\int_{-\infty}^\infty\frac{\log\abs{x\pm i}}{x^2+1}=\Re\int_{-\infty}^\infty\frac{\log\qty(x+i)}{x^2+1}.\label{eq:branchpointpoleconcurrenceintegral_rewrite}
     \end{align}
-    Let \(\gamma=\Gamma\cup C_{R}\), where concretely, \[\Gamma=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R},\qquad C_{R}=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\muppi}\] and \(R>2\), and let \(f(z)=\frac{\Log(z+\ii)}{z^2+1}\), where the branch for \(\Log\) is chosen to satisfy \([0,\muppi]\subset\Im\log\qty(\mathbb{C}^*)\), such as the principal branch. The only singularity of \(f\) in the upper half plane is a simple pole at \(z=\ii\). By the Residue Theorem (\cref{thm:residuethm}), we have \[\lim_{R\to\infty}\oint_{\gamma}f(z)\ddz=\lim_{R\to\infty}\qty(\int_\Gamma+\int_{C_R})f(z)\ddz=2\muppi\ii\residue_{z=\ii}f(z).\]
-    By \cref{eq:residueatpole}, we have \[\residue_{z=\ii}f(z)=\lim_{z\to\ii}\qty(z-\ii)\frac{\log(z+\ii)}{z^2+1}=\lim_{z\to\ii}\frac{\log(z+\ii)}{z+\ii}=\frac{\log(2\ii)}{2\ii}=\frac{\muppi}{4}-\ii\frac{\log(2)}{2}.\]
-    Additionally, for \(z\in C_R\), since as \(R\to\infty\), \(\abs{f(z)}=\abs{\frac{\Log(z+i)}{z^2+1}}\leq\frac{\abs{\log\abs{z+i}}+\muppi}{R^2-1}\leq\frac{\log\abs{R+1}+\muppi}{R^2-1}<\frac{R+1+\muppi}{R^2-1}\to 0\) by virtue of \(R>2\), it follows that \(\int_{C_R}f(z)\ddz\to 0\).
+    Let \(\gamma=\Gamma\cup C_{R}\), where concretely, \[\Gamma=\cbraces{x\in\mathbb{R}}{-R\leq x\leq R},\qquad C_{R}=\cbraces{R\ee^{\ii\theta}}{0\leq\theta\leq\uppi}\] and \(R>2\), and let \(f(z)=\frac{\Log(z+\ii)}{z^2+1}\), where the branch for \(\Log\) is chosen to satisfy \([0,\uppi]\subset\Im\log\qty(\mathbb{C}^*)\), such as the principal branch. The only singularity of \(f\) in the upper half plane is a simple pole at \(z=\ii\). By the Residue Theorem (\cref{thm:residuethm}), we have \[\lim_{R\to\infty}\oint_{\gamma}f(z)\ddz=\lim_{R\to\infty}\qty(\int_\Gamma+\int_{C_R})f(z)\ddz=2\uppi\ii\residue_{z=\ii}f(z).\]
+    By \cref{eq:residueatpole}, we have \[\residue_{z=\ii}f(z)=\lim_{z\to\ii}\qty(z-\ii)\frac{\log(z+\ii)}{z^2+1}=\lim_{z\to\ii}\frac{\log(z+\ii)}{z+\ii}=\frac{\log(2\ii)}{2\ii}=\frac{\uppi}{4}-\ii\frac{\log(2)}{2}.\]
+    Additionally, for \(z\in C_R\), since as \(R\to\infty\), \(\abs{f(z)}=\abs{\frac{\Log(z+i)}{z^2+1}}\leq\frac{\abs{\log\abs{z+i}}+\uppi}{R^2-1}\leq\frac{\log\abs{R+1}+\uppi}{R^2-1}<\frac{R+1+\uppi}{R^2-1}\to 0\) by virtue of \(R>2\), it follows that \(\int_{C_R}f(z)\ddz\to 0\).
 
-    Since \(\lim_{R\to\infty}\int_\Gamma f(z)\ddz=\int_{-\infty}^\infty f(z)\ddz\) and \[\int_{-\infty}^\infty f(z)\ddz=\frac{\muppi^2\ii}{2}+\muppi\log(2),\] by \cref{eq:branchpointpoleconcurrenceintegral_rewrite}, we have \(I=\Re\int_{-\infty}^\infty f(z)\ddz=\muppi\log(2)\).
+    Since \(\lim_{R\to\infty}\int_\Gamma f(z)\ddz=\int_{-\infty}^\infty f(z)\ddz\) and \[\int_{-\infty}^\infty f(z)\ddz=\frac{\uppi^2\ii}{2}+\uppi\log(2),\] by \cref{eq:branchpointpoleconcurrenceintegral_rewrite}, we have \(I=\Re\int_{-\infty}^\infty f(z)\ddz=\uppi\log(2)\).
 \end{proof}

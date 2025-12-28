@@ -1,51 +1,51 @@
 \subsection{Alternative Integral Formulas}
 As in the Cauchy Integral Formula (\cref{thm:cauchygoursatformula}), we can write holomorphic functions in terms of an integral representation. We define the \textit{Cauchy kernel} to be equal to
-\[H(\zeta,z)=\frac{1}{2\muppi\ii\paren{\zeta-z}}.\]
+\[H(\zeta,z)=\frac{1}{2\uppi\ii\paren{\zeta-z}}.\]
 Then \cref{eq:cauchygoursatformula} can be written as:
 \[f(z)=\oint_{\partial U}f(\zeta)H(\zeta,z)\ddzeta.\] There also exist other integral formulas for functions, varying in the kernel of the expression.
 
-Let \(z\in\mathbb{D}\) and notice that \(\varphi_z(\zeta)=\frac{\zeta-z}{1-\overline{z}\zeta}\in\Aut(\mathbb{D})\) maps \(\partial\mathbb{D}\) to \(\partial\mathbb{D}\) bijectively. Let \(\Phi:\mathbb{D}\to\mathbb{R}\) be harmonic such that \(\Phi\) is continuous on \(\overline{\mathbb{D}}\). By the mean-value property introduced in \cref{lem:holomorphicmeanvalueproperty}, we have \[\Phi (0)=\frac{1}{2\muppi\rho}\int_0^{2\muppi}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi},\]
-where \(0<\rho<1\). By the uniform continuity of \(\Phi\) on \(\overline{\mathbb{D}}\) (\cref{thm:heinecantor}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\rho\in\qty(\frac{1}{2},1)\) satisfying \(1-\rho<\delta\) and \(\forall\psi\in[0,2\muppi]\), \[\abs{\Phi\qty(\ee^{\ii\psi})-\Phi\qty(\rho\ee^{\ii\psi})}<\varepsilon.\] It then follows that \[\abs{\frac{1}{2\muppi\rho}\int_0^{2\muppi}\Phi\qty(\ee^{\ii\psi})\dd{\psi}-\frac{1}{2\muppi\rho}\int_0^{2\muppi}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi}}<\frac{\varepsilon}{\rho}<2\varepsilon.\]
+Let \(z\in\mathbb{D}\) and notice that \(\varphi_z(\zeta)=\frac{\zeta-z}{1-\overline{z}\zeta}\in\Aut(\mathbb{D})\) maps \(\partial\mathbb{D}\) to \(\partial\mathbb{D}\) bijectively. Let \(\Phi:\mathbb{D}\to\mathbb{R}\) be harmonic such that \(\Phi\) is continuous on \(\overline{\mathbb{D}}\). By the mean-value property introduced in \cref{lem:holomorphicmeanvalueproperty}, we have \[\Phi (0)=\frac{1}{2\uppi\rho}\int_0^{2\uppi}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi},\]
+where \(0<\rho<1\). By the uniform continuity of \(\Phi\) on \(\overline{\mathbb{D}}\) (\cref{thm:heinecantor}), \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\rho\in\qty(\frac{1}{2},1)\) satisfying \(1-\rho<\delta\) and \(\forall\psi\in[0,2\uppi]\), \[\abs{\Phi\qty(\ee^{\ii\psi})-\Phi\qty(\rho\ee^{\ii\psi})}<\varepsilon.\] It then follows that \[\abs{\frac{1}{2\uppi\rho}\int_0^{2\uppi}\Phi\qty(\ee^{\ii\psi})\dd{\psi}-\frac{1}{2\uppi\rho}\int_0^{2\uppi}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi}}<\frac{\varepsilon}{\rho}<2\varepsilon.\]
 Hence,
 \begin{equation}
-    \lim_{\rho\to1^-}\frac{1}{2\muppi\rho}\int_0^{2\muppi}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi}=\frac{1}{2\muppi}\int_0^{2\muppi}\Phi\qty(\ee^{\ii\psi})\dd{\psi}=\Phi(0).\label{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}
+    \lim_{\rho\to1^-}\frac{1}{2\uppi\rho}\int_0^{2\uppi}\Phi\qty(\rho\ee^{\ii\psi})\dd{\psi}=\frac{1}{2\uppi}\int_0^{2\uppi}\Phi\qty(\ee^{\ii\psi})\dd{\psi}=\Phi(0).\label{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}
 \end{equation}
 Let \(u(\zeta)=\Phi\circ\varphi_z(\zeta)\), which is also harmonic on \(\mathbb{D}\). By the univalence of \(\varphi_z\), let \(\ee^{\ii\psi}=\varphi_z\qty(\ee^{\ii\tau})\). It follows that
 \begin{gather*}
     \ii\ee^{\ii\psi}\dd{\psi}=\ii\frac{1-\overline{z}z}{(1-\overline{z}\ee^{\ii\tau})^2}\ee^{\ii\tau}\dd{\tau},\\
     \dd{\psi}=\frac{1-\overline{z}z}{(1-\overline{z}\ee^{\ii\tau})^2}\frac{1-\overline{z}\ee^{\ii\tau}}{\ee^{\ii\tau}-z}\ee^{\ii\tau}\dd{\tau}=\frac{1-\abs{z}^2}{\abs{1-\overline{z}\ee^{\ii\tau}}^2}\dd{\tau}.
 \end{gather*}
-Then from \cref{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}, since \(\Phi(0)=u\circ\varphi_{-z}(0)=u(z)\), \[\Phi(0)=\frac{1}{2\muppi}\int_0^{2\muppi}u\qty(\ee^{\ii\tau})\frac{1-\abs{z}^2}{\abs{1-\overline{z}\ee^{\ii\tau}}^2}\dd{\tau}=u(z).\]
-Let \(P(\zeta,z)=\frac{1-\abs{z}^2}{2\muppi\qty|1-\overline{z}\zeta|^2}=\frac{1-\abs{z}^2}{2\muppi\abs{\zeta-z}^2}\), known as the \textit{Poisson kernel}. Then,
+Then from \cref{eq:harmonicfunctionmeanvalueoverboundaryofunitdisk}, since \(\Phi(0)=u\circ\varphi_{-z}(0)=u(z)\), \[\Phi(0)=\frac{1}{2\uppi}\int_0^{2\uppi}u\qty(\ee^{\ii\tau})\frac{1-\abs{z}^2}{\abs{1-\overline{z}\ee^{\ii\tau}}^2}\dd{\tau}=u(z).\]
+Let \(P(\zeta,z)=\frac{1-\abs{z}^2}{2\uppi\qty|1-\overline{z}\zeta|^2}=\frac{1-\abs{z}^2}{2\uppi\abs{\zeta-z}^2}\), known as the \textit{Poisson kernel}. Then,
 \begin{equation}
-    u(z)=\int_0^{2\muppi}u\qty(\zeta)P(\zeta,z)\dd{\tau},\label{eq:poissonintegralformula}
+    u(z)=\int_0^{2\uppi}u\qty(\zeta)P(\zeta,z)\dd{\tau},\label{eq:poissonintegralformula}
 \end{equation}
 where \(\zeta=\ee^{\ii\tau}\). \Cref{eq:poissonintegralformula} is also known as the \textit{Poisson Integral Formula}.
-\(\forall z\in D(0,R)\), \(\forall R>0\), we can apply the transformation \(\widetilde{\varphi}_z\qty(\zeta)=R\varphi_{\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\) to extend the automorphism to \(D(0,R)\). Let \(\Phi\) instead be harmonic on \(D(0,R)\) and continuous on \(\overline{D(0,R)}\). Then, \[\Phi(0)=\frac{1}{2\muppi}\int_0^{2\muppi}\Phi\qty(R\ee^{\ii\psi})\dd{\psi}.\]
+\(\forall z\in D(0,R)\), \(\forall R>0\), we can apply the transformation \(\widetilde{\varphi}_z\qty(\zeta)=R\varphi_{\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\) to extend the automorphism to \(D(0,R)\). Let \(\Phi\) instead be harmonic on \(D(0,R)\) and continuous on \(\overline{D(0,R)}\). Then, \[\Phi(0)=\frac{1}{2\uppi}\int_0^{2\uppi}\Phi\qty(R\ee^{\ii\psi})\dd{\psi}.\]
 It follows that \(u=\Phi\circ\widetilde{\varphi}_z\) is also harmonic on \(D(0,R)\) with \(\Phi(0)=u\circ\widetilde{\varphi}_{-z}(0)=u(z)\), and from the bijectivity of \(R\ee^{\ii\psi}=\widetilde{\varphi}_z\qty(R\ee^{\ii\tau})\),
 \begin{equation}
     \dd{\psi}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}^2}\ee^{\ii\tau}\ee^{-\ii\psi}\dd{\tau}=\frac{1-\frac{\abs{z}^2}{R^2}}{\paren{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}^2}\frac{1-\frac{\overline{z}}{R}\ee^{\ii\tau}}{1-\frac{z}{R}\ee^{-\ii\tau}}\dd{\tau}=\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\tau}-z}^2}\dd{\tau}.\label{eq:poissonintegralformula2_differentialcomputation}
 \end{equation}
 Then because \(\widetilde{\varphi}_z^{-1}(\zeta)=R\varphi_{-\flatfrac{z}{R}}\qty(\frac{\zeta}{R})\),
-\[u(z)=\frac{1}{2\muppi}\int_0^{2\muppi}u\qty(R\ee^{\ii\tau})\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\tau}-z}^2}\dd{\tau}.\]
-The expression \(P(\zeta,z)=\frac{\abs{\zeta}^2-\abs{z}^2}{2\muppi\abs{\zeta-z}^2}\) is a general form of the Poisson kernel. Then with \(\zeta=R\ee^{\ii\tau}\),
+\[u(z)=\frac{1}{2\uppi}\int_0^{2\uppi}u\qty(R\ee^{\ii\tau})\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\tau}-z}^2}\dd{\tau}.\]
+The expression \(P(\zeta,z)=\frac{\abs{\zeta}^2-\abs{z}^2}{2\uppi\abs{\zeta-z}^2}\) is a general form of the Poisson kernel. Then with \(\zeta=R\ee^{\ii\tau}\),
 \begin{equation}
-    u(z)=\int_0^{2\muppi}u(\zeta)P(\zeta,z)\dd{\tau}.\label{eq:poissonintegralformula2}
+    u(z)=\int_0^{2\uppi}u(\zeta)P(\zeta,z)\dd{\tau}.\label{eq:poissonintegralformula2}
 \end{equation}
 The Poisson kernel can also be rewritten as
 \begin{equation}
-    P(\zeta,z)=\frac{|\zeta|^2-\abs{z}^2}{2\muppi\paren{\zeta-z}\paren{\overline{\zeta}-\overline{z}}}=\frac{1}{4\muppi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}=\frac{1}{2\muppi}\Re\qty(\frac{\zeta+z}{\zeta-z}).\label{eq:poissonkernelgeneralform}
+    P(\zeta,z)=\frac{|\zeta|^2-\abs{z}^2}{2\uppi\paren{\zeta-z}\paren{\overline{\zeta}-\overline{z}}}=\frac{1}{4\uppi}\paren{\frac{\zeta+z}{\zeta-z}+\frac{\overline{\zeta}+\overline{z}}{\overline{\zeta}-\overline{z}}}=\frac{1}{2\uppi}\Re\qty(\frac{\zeta+z}{\zeta-z}).\label{eq:poissonkernelgeneralform}
 \end{equation}
 Thus, \cref{eq:poissonintegralformula2} is equivalent to:
-\[u(z)=\frac{1}{2\muppi}\int_0^{2\muppi}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
-Since \(\ddzeta=\ii R\ee^{\ii\tau}\dd{\tau}\), \(\dd{\tau}=\frac{\ddzeta}{\ii\zeta}\), and \[u(z)=\frac{1}{2\muppi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Re\qty(\frac{\zeta+z}{\zeta-z})\ddzeta=\Re\qty[\frac{1}{2\muppi\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta],\]
-where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \[\frac{1}{2\muppi\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\] is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\muppi\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+\ii c\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \cref{prop:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+\ii v(z)\),
+\[u(z)=\frac{1}{2\uppi}\int_0^{2\uppi}u(\zeta)\Re\qty(\frac{\zeta+z}{\zeta-z})\dd{\tau}.\]
+Since \(\ddzeta=\ii R\ee^{\ii\tau}\dd{\tau}\), \(\dd{\tau}=\frac{\ddzeta}{\ii\zeta}\), and \[u(z)=\frac{1}{2\uppi\ii}\int_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Re\qty(\frac{\zeta+z}{\zeta-z})\ddzeta=\Re\qty[\frac{1}{2\uppi\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta],\]
+where \(z\in D(0,R)\). Since \(R>0\) and \(\zeta-z\neq0\), the function \[\frac{1}{2\uppi\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta\] is holomorphic on \(D(0,R)\). Therefore, \(u(z)\) is the real part of a holomorphic function \(f(z)=\frac{1}{2\uppi\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\frac{\zeta+z}{\zeta-z}\ddzeta+\ii c\), where \(c\in\mathbb{R}\). Since \(c\in\mathbb{R}\) is holomorphic, by \cref{prop:realvaluedholomorphicfunctionconstant}, \(c\) is constant. For \(f(z)=u(z)+\ii v(z)\),
 \begin{equation}
-    v(z)=c+\frac{1}{2\muppi\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Im\qty(\frac{\zeta+z}{\zeta-z})\ddzeta.\label{eq:schwarzintegralformulaimaginarypart}
+    v(z)=c+\frac{1}{2\uppi\ii}\oint_{\partial D(0,R)}\frac{u(\zeta)}{\zeta}\Im\qty(\frac{\zeta+z}{\zeta-z})\ddzeta.\label{eq:schwarzintegralformulaimaginarypart}
 \end{equation}
 Letting \(z=0\), the integral vanishes, and we obtain \(c=v(0)=\Im(f(0))\).
 
-Define the \textit{Schwarz kernel} to be \[S(\zeta,z)=\frac{\zeta+z}{2\muppi\ii(\zeta-z)\zeta}.\]
+Define the \textit{Schwarz kernel} to be \[S(\zeta,z)=\frac{\zeta+z}{2\uppi\ii(\zeta-z)\zeta}.\]
 Then for a holomorphic function \(f\) on \(D(0,R)\) that is continuous on \(\overline{D(0,R)}\), we obtain the \textit{Schwarz Integral Formula}:
 \begin{equation}
     f(z)=\oint_{\partial D(0,R)}\Re\qty(f(\zeta))S(\zeta,z)\ddzeta+\ii\Im\qty(f(0)).\label{eq:schwarzintegralformula}
@@ -53,8 +53,8 @@ Then for a holomorphic function \(f\) on \(D(0,R)\) that is continuous on \(\ove
 The significance of this alternative formula implies that a holomorphic function can be recovered from the real part on the boundary of a disk and the imaginary part at a single point.
 
 From \cref{eq:schwarzintegralformulaimaginarypart}, we can rewrite \[\Im\qty(\frac{\zeta+z}{\zeta-z})=\Im\qty(1+\frac{2z}{\zeta-z})=\Im\qty(\frac{2z\paren{\overline{\zeta}-\overline{z}}}{\abs{\zeta-z}^2})=\frac{2\Im\qty(z\overline{\zeta})}{\abs{\zeta-z}^2}.\label{eq:harmonicconjugate}\]
-Let \(Q(\zeta,z)=\frac{\Im\qty(z\overline{\zeta})}{\muppi\abs{\zeta-z}^2}\), which is known as the \textit{conjugate Poisson kernel}. Then \cref{eq:schwarzintegralformulaimaginarypart} yields yet another integral representation of harmonic functions:
-\[v(z)=v(0)+\int_0^{2\muppi}u(\zeta)Q(\zeta,z)\dd{\tau},\]
+Let \(Q(\zeta,z)=\frac{\Im\qty(z\overline{\zeta})}{\uppi\abs{\zeta-z}^2}\), which is known as the \textit{conjugate Poisson kernel}. Then \cref{eq:schwarzintegralformulaimaginarypart} yields yet another integral representation of harmonic functions:
+\[v(z)=v(0)+\int_0^{2\uppi}u(\zeta)Q(\zeta,z)\dd{\tau},\]
 where \(\zeta=R\ee^{\ii\tau}\). Two harmonic functions are said to be \textit{conjugate} if they are the real and imaginary parts of a holomorphic function. As seen above, on open disks, any harmonic function will admit a unique conjugate, (up to an additive constant \(v(0)\)). For a harmonic function \(u\), we can construct its harmonic conjugate from \cref{eq:harmonicconjugate}.
 
 The Poisson kernel is important in many branches of mathematics. We will introduce two of the important uses below.

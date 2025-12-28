@@ -51,7 +51,8 @@ Let \(z=f^{-1}(w)\). Then we have
 \begin{proof}
     For brevity, assume \(a=0\).
 
-    Let \(\widetilde{\varphi}\) be a conformal mapping from \(\extcomplex\setminus K\) to \(\mathbb{D}\), such that \(\widetilde{\varphi}(\infty)=0\) and \(\alpha=\widetilde{\varphi}'(\infty)\in\mathbb{R}_{>0}\). Let \(\varphi(z)=\frac{1}{\alpha}\widetilde{\varphi}(z)\). It follows that \(\varphi'(\infty)=1\), \(\varphi(\infty)=0\). By \cref{prop:complementbiholomorphismquarterestimate}, \[\abs{\alpha}\geq\frac{1}{4}\diam(K)\Longleftrightarrow\abs{\varphi(z)}\leq\frac{4\abs{\widetilde{\varphi}(z)}}{\diam(K)}.\] Consequently, we have the crucial estimate of \(\varphi\qty(\extcomplex\setminus K)\subseteq D\qty(0,\frac{4}{\diam(K)})\subseteq D\qty(0,\frac{8}{r})\). For fixed \(\zeta\in D(0,r)\), define \[\phi_\zeta(z)=\varphi(z)+(\zeta-\beta)\varphi^2(z),\qquad z\in\extcomplex\setminus K\]
+    Let \(\widetilde{\varphi}\) be a conformal mapping from \(\extcomplex\setminus K\) to \(\mathbb{D}\), such that \(\widetilde{\varphi}(\infty)=0\) and \(\alpha=\widetilde{\varphi}'(\infty)\in\mathbb{R}_{>0}\). Let \(\varphi(z)=\frac{1}{\alpha}\widetilde{\varphi}(z)\). It follows that \(\varphi'(\infty)=1\), \(\varphi(\infty)=0\). By \cref{prop:complementbiholomorphismquarterestimate}, \[\abs{\alpha}\geq\frac{1}{4}\diam(K)\Longleftrightarrow\abs{\varphi(z)}\leq\frac{4\abs{\widetilde{\varphi}(z)}}{\diam(K)}.\]
+    Consequently, we have the crucial estimate of \(\varphi\qty(\extcomplex\setminus K)\subseteq D\qty(0,\frac{4}{\diam(K)})\subseteq D\qty(0,\frac{8}{r})\). For fixed \(\zeta\in D(0,r)\), define \[\phi_\zeta(z)=\varphi(z)+(\zeta-\beta)\varphi^2(z),\qquad z\in\extcomplex\setminus K\]
     where \(\beta=\frac{\varphi''(\infty)}{2}\). The application of Cauchy's Estimate (\cref{thm:cauchysestimate}) on \(\qty(z\mapsto\frac{1}{z})\qty(\extcomplex\setminus D(0,r))=D\qty(0,\frac{1}{r})\) gives: \[\abs{\beta}=\frac{1}{2}\abs{\eval{\dv[2]{z}(\varphi\qty(\frac{1}{z}))}_{z=0}}\leq\frac{\sup_{D\qty(0,\frac1r)}\abs{\varphi\qty(\frac{1}{z})}}{\operatorname{dist}\qty(0,\partial D\qty(0,\frac{1}{r}))^2}=8r.\]
     Hence, \[\abs{\phi_\zeta(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\abs{\varphi(z)}+\abs{\zeta-\beta}\abs{\varphi^2(z)}\leq\frac{8}{r}+9r\frac{64}{r^2}=\frac{584}{r}.\] This is \cref{itm:complementbiholomorphism584r4767r2estimates_absolute584}. Suppose that \(\abs{z-\zeta}>2r\). It follows from \(\abs{\zeta}<r\) that \(\abs{z}>r\) (from the reverse triangle inequality) and hence disjoint from \(K\) and \(\zeta\). On this infinite annulus, we have the Laurent expansion (from \cref{thm:laurentexpansionofholomorphicfunction}) that \[\varphi(z)=\sum_{k=1}^\infty\frac{\mu_k}{\qty(z-\zeta)^k}=\frac{1}{z-\zeta}+\frac{\mu}{(z-\zeta)^2}+\order{\frac1{\qty(z-\zeta)^3}}\] where \(\mu_1=1\) because \(\varphi\sim\frac{1}{z}\) as \(z\to\infty\). Since \(\abs{z}>r\), we have the global Laurent expansion \[\varphi(z)=\frac1z+\frac\beta{z^2}+\order{\frac1{z^3}}.\]
     Hence,
@@ -75,14 +76,14 @@ Let \(z=f^{-1}(w)\). Then we have
         \begin{dcases}
             \qty(1-\abs{z}^2)^2 & \qif*\abs{z}<1,   \\
             0                   & \qif*\abs{z}\ge1,
-        \end{dcases}\qquad\lambda_r(z)=\frac{3}{\muppi r^2}\lambda\qty(\frac{z}{r})\quad\forall r>0\label{eq:diracdeltaapproximation_lambdadefinition}
+        \end{dcases}\qquad\lambda_r(z)=\frac{3}{\uppi r^2}\lambda\qty(\frac{z}{r})\quad\forall r>0\label{eq:diracdeltaapproximation_lambdadefinition}
     \end{equation}
     For fixed \(r\), the function \(\lambda_r\) satisfies:
     \begin{enumerate}
         \item \(\int_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\wedge\dd{\eta}=1\), where \(\zeta=\xi+\ii\eta\).\label{itm:diracdeltaapproximation_integralto1}
         \item \(\lambda_r\in C^1(\mathbb{C})\) and is compactly supported.\label{itm:diracdeltaapproximation_compactsupportcontinuousdifferentiability}
         \item \(\int_{\mathbb{C}}\pdv{\lambda_r}{\overline{\zeta}}\dd{\xi}\wedge\dd{\eta}=0\).\label{itm:diracdeltaapproximation_antiholomorphicderivativeintegral}
-        \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\wedge\dd{\eta}\leq\frac{2\muppi}{r}\).\label{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}
+        \item \(\int_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\wedge\dd{\eta}\leq\frac{2\uppi}{r}\).\label{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}
         \item \(\norm{\grad{\lambda_r(z)}}\leq\frac4{r^3}\) for all \(z\), where \(\grad=\qty(\pdv{}{x},\pdv{}{y})\) denotes the vector differential operator.\label{itm:diracdeltaapproximation_gradientstatement}
         \item\label{itm:diracdeltaapproximation_integralformula} For any \(z\in\mathbb{C}\) such that \(f\) is a holomorphic function on \(D(z,r)\), we have the integral formula
             \begin{equation}
@@ -93,19 +94,19 @@ Let \(z=f^{-1}(w)\). Then we have
 \begin{proof}
     Let \(\zeta=\rho\ee^{\ii\theta}\). Then we have
     \begin{align*}
-        \iint_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\dd{\eta} & =\int_{0}^{2\muppi}\int_0^r\lambda_r\qty(\rho\ee^{\ii\theta})\rho\dd{\rho}\dd{\theta}=\int_{0}^{2\muppi}\int_0^r\frac{3\rho}{\muppi r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}\dd{\theta} \\
+        \iint_{\mathbb{C}}\lambda_r(\zeta)\dd{\xi}\dd{\eta} & =\int_{0}^{2\uppi}\int_0^r\lambda_r\qty(\rho\ee^{\ii\theta})\rho\dd{\rho}\dd{\theta}=\int_{0}^{2\uppi}\int_0^r\frac{3\rho}{\uppi r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}\dd{\theta} \\
         & =\frac{6}{r^2}\int_0^r\qty(\rho+\frac{\rho^5}{r^4}-2\frac{\rho^3}{r^2})\dd{\rho}=\frac{6}{r^2}\qty(\frac{r^2}{2}+\frac{r^6}{6r^4}-\frac{r^4}{2r^2})=1,
     \end{align*}
     which confirms \cref{itm:diracdeltaapproximation_integralto1}. Let \(z\in\mathbb{C}\) be arbitrary. The integral in \cref{eq:diracdeltaapproximation_integralformula} is equal to
     \begin{align*}
-        \iint_{D(0,R)}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\dd{\eta} & =\int_0^r\frac{3\rho}{\muppi r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\int_0^{2\muppi}f\qty(z-\rho\ee^{\ii\theta})\dd{\theta}\dd{\rho} \\
-        & =2\muppi f(z)\int_0^r\frac{3\rho}{\muppi r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}=f(z)
+        \iint_{D(0,R)}f(z-\zeta)\lambda_r(\zeta)\dd{\xi}\dd{\eta} & =\int_0^r\frac{3\rho}{\uppi r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\int_0^{2\uppi}f\qty(z-\rho\ee^{\ii\theta})\dd{\theta}\dd{\rho} \\
+        & =2\uppi f(z)\int_0^r\frac{3\rho}{\uppi r^2}\qty(1-\qty(\frac{\rho}{r})^2)^2\dd{\rho}=f(z)
     \end{align*} by the mean-value property (\cref{lem:holomorphicmeanvalueproperty}), proving \cref{itm:diracdeltaapproximation_integralformula}. For \(z\in\mathbb{D}\), we have \[\norm{\grad{\lambda(z)}}=
     2\qty(1-\abs{z}^2)\norm{\grad(\abs{z}^2)}=2\qty(1-\abs{z}^2)2\abs{z}\norm{\grad\sqrt{x^2+y^2}}=4\qty(1-\abs{z}^2)\abs{z}.\]
-    Hence, \[\norm{\grad\lambda_r(z)}=\frac{3}{\muppi
-        r^2}\norm{\grad\qty[\lambda\qty(\frac{z}{r})]}=\frac{3}{\muppi
-        r^2}\norm{(\grad\lambda)\qty(\frac{z}{r})}\frac{1}{r}=\frac{12}{\muppi
-    r^3}\qty(1-\abs{z}^2)\abs{z}<\frac{4}{r^3},\] which confirms \cref{itm:diracdeltaapproximation_gradientstatement}. Since \(\abs{\pdv{\lambda_r}{\overline{\zeta}}}=\abs{\frac{1}{2}\qty(\pdv{\lambda_r}{\xi}+\ii\pdv{\lambda_r}{\eta})}=\frac{1}{2}\norm{\grad\lambda_r(\zeta)}<\frac{2}{r^3}\), we have \[\iint_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}=\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}<\muppi r^2\frac{2}{r^3}=\frac{2\muppi}{r}\] since \(\supp\qty(\lambda_r)=\overline{D(0,r)}\) which verifies the inequality in \cref{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}.
+    Hence, \[\norm{\grad\lambda_r(z)}=\frac{3}{\uppi
+        r^2}\norm{\grad\qty[\lambda\qty(\frac{z}{r})]}=\frac{3}{\uppi
+        r^2}\norm{(\grad\lambda)\qty(\frac{z}{r})}\frac{1}{r}=\frac{12}{\uppi
+    r^3}\qty(1-\abs{z}^2)\abs{z}<\frac{4}{r^3},\] which confirms \cref{itm:diracdeltaapproximation_gradientstatement}. Since \(\abs{\pdv{\lambda_r}{\overline{\zeta}}}=\abs{\frac{1}{2}\qty(\pdv{\lambda_r}{\xi}+\ii\pdv{\lambda_r}{\eta})}=\frac{1}{2}\norm{\grad\lambda_r(\zeta)}<\frac{2}{r^3}\), we have \[\iint_{\mathbb{C}}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}=\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\dd{\xi}\dd{\eta}<\uppi r^2\frac{2}{r^3}=\frac{2\uppi}{r}\] since \(\supp\qty(\lambda_r)=\overline{D(0,r)}\) which verifies the inequality in \cref{itm:diracdeltaapproximation_absoluteantiholomorphicderivativeintegral}.
 
     The \cref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} is also true since
     \begin{align*}
@@ -151,11 +152,11 @@ where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproxi
 \begin{proposition}\label{prop:integralofcontinuousextensionofholomorphicproperties}
     The function \(\Phi\) as in \cref{eq:integralofcontinuousextensionofholomorphic} satisfies:
     \begin{enumerate}
-        \item \(\Phi\in\mathbb{C}^1(\mathbb{C})\) and has compact support.\label{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}
+        \item \(\Phi\in C^1(\mathbb{C})\) and has compact support.\label{itm:integralofcontinuousextensionofholomorphicproperties_continuousdifferentiabilitycompactsupport}
         \item \(\Phi\equiv f\) on \(U=\cbraces{z\in K}{\operatorname{dist}\qty(z,\mathbb{C}\setminus K)>r}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_equivalenceonU}
         \item \(\abs{f(z)-\Phi(z)}\leq\omega_f(r)\) for all \(z\in\mathbb{C}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_differbymodulusofcontinuity}
-        \item For all \(z\in\mathbb{C}\), \(\abs{\pdv{\Phi}{\overline{z}}(z)}\leq\frac{4\muppi\omega_f(r)}{r}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}
-        \item \(\Phi(z)=-\frac1\muppi\iint_H\pdv{\Phi}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\), where \(H=\supp(\Phi)\setminus U\).\label{itm:integralofcontinuousextensionofholomorphicproperties_integralformula}
+        \item For all \(z\in\mathbb{C}\), \(\abs{\pdv{\Phi}{\overline{z}}(z)}\leq\frac{4\uppi\omega_f(r)}{r}\).\label{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}
+        \item \(\Phi(z)=-\frac1\uppi\iint_H\pdv{\Phi}{\overline{\zeta}}(\zeta)\frac{\dd{\xi}\dd{\eta}}{\zeta-z}\) for \(z\in\mathbb{C}\), where \(H=\supp(\Phi)\setminus U\).\label{itm:integralofcontinuousextensionofholomorphicproperties_integralformula}
     \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -175,7 +176,7 @@ where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproxi
     by \cref{itm:diracdeltaapproximation_antiholomorphicderivativeintegral} of \cref{prop:diracdeltaapproximation}. Hence,
     \begin{align*}
         \abs{\pdv{\Phi}{\overline{z}}} & \leq\iint_{D(0,r)}\abs{\pdv{\lambda_r}{\overline{\zeta}}}\abs{f(z-\zeta)-f(z)}\dd{\xi}\dd{\eta}\leq\omega_f(r)\iint_{D(0,r)}\norm{\grad{\lambda_r}}\dd{\xi}\dd{\eta} \\
-        & \leq\frac{4\omega_f(r)}{r^3}\iint_{D(0,r)}\dd{\xi}\dd{\eta}\leq\frac{4\omega_f(r)}{r^3}\cdot\muppi r^2=\frac{4\muppi\omega_f(r)}{r},
+        & \leq\frac{4\omega_f(r)}{r^3}\iint_{D(0,r)}\dd{\xi}\dd{\eta}\leq\frac{4\omega_f(r)}{r^3}\cdot\uppi r^2=\frac{4\uppi\omega_f(r)}{r},
     \end{align*}
     by \cref{itm:diracdeltaapproximation_gradientstatement} of \cref{prop:diracdeltaapproximation}, confirming \cref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound}. Finally, \cref{itm:integralofcontinuousextensionofholomorphicproperties_integralformula} follows from \cref{cor:pompeiuwithoutcauchyterm} (since outside the support the integral trivially vanishes and within \(U\), \(\pdv{\Phi}{\overline{\zeta}}\) vanishes as a consequence of holomorphy).
 \end{proof}
@@ -263,7 +264,7 @@ where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproxi
                 %\tikztemporarygrid{-3}{3}{-3}{3}
                 \draw[thick,dotted]\tikzcenterarc(0,0)(0:360:2);
                 \draw[thick, solid] (0,0) node[anchor=north] {\(p_k\)} -- (-0.5,1) -- (0.25,1.5) -- (1,0.8) -- (0.9,0.1) node[anchor=west] {\(\gamma_{k}^{(j)}\)} -- (0.6,-0.4) -- (1.7,-0.7) -- ({1.7*cos(-55)},{1.7*sin(-55)}) -- ({2*cos(-55)},{2*sin(-55)});
-                \draw[thick, dashed] ({2*cos(-55)},{2*sin(-55)}) -- ({3*cos(-55)},{3*sin(-55)}) node[point,label={right:{\(\zeta^{(j)}_k\)}}] {};
+                \draw[thick, dashed] ({2*cos(-55)},{2*sin(-55)}) -- ({2.5*cos(-55)},{2.5*sin(-55)}) -- (0.2,-1.6) -- (-0.4,-1.7) -- (-1.7,-1.9) node[point,label={left:{\(\zeta^{(j)}_k\)}}] {};
             \end{tikzpicture}
             \caption{The construction of \(E_k^{j}\).}\label{fig:mergelyan_eset}
         \end{minipage}
@@ -278,7 +279,7 @@ where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproxi
                     }
                 };
             \end{tikzpicture}
-            \caption{A concept construction of \(\qty{H_k^{(j)}}\).}\label{fig:mergelyan_hkjsets}
+            \caption{A conceptual construction of \(\qty{H_k^{(j)}}\), which unions to \(H\).}\label{fig:mergelyan_hkjsets}
         \end{minipage}
     \end{figure}Hence, the intersection \(\overline{D\qty(\zeta_k^{(j)},\frac34r)}\cap\gamma_{k}^{(j)}\) consists of at least one connected component joining \(\zeta_k^{(j)}\) to a point on \(\partial D\qty(\zeta_k^{(j)},\frac34 r)\). Denote the connected component of this intersection by \(E_k^{(j)}\), satisfying \(\diam E_k^{(j)}\geq\frac34r>\frac r2\) and \(E_k^{(j)}\cap K=\varnothing\).
 
@@ -287,16 +288,16 @@ where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproxi
         \abs{\phi_{\zeta,k}^{(j)}(z)}\leq\frac{584}r,\quad\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\leq\frac{4676}{\abs{z-\zeta}^3},\qquad\forall z\in\extcomplex\setminus E_k^{(j)}.\label{eq:mergelyan_familybounds}
     \end{equation}
     Let \(\widetilde{H}_k^{(j)}=H\cap D\qty(\zeta_k^{(j)},\frac54r)\), for each \(j,k\) and construct the disjoint sets \[H_k^{(j)}=\widetilde{H}_k^{(j)}\setminus\qty(\bigcup_{j'<j}\widetilde{H}_k^{\qty(j')}\cup\bigcup_{k'<k}\bigcup_{j'\leq m_{k'}}\widetilde{H}_{k'}^{\qty(j')})\text{ if }j\neq 1,\qquad H_1^{(1)}=\widetilde{H}_1^{(1)}.\]
-    Thus the union \[\bigcup_{k=1}^n\bigcup_{j=1}^{m_k}H_k^{(j)}=H\cap\qty(\bigcup D\qty(\zeta_k^{(j)},\frac54r))=H\] since the set of all \(D\qty(\zeta_k^{(j)},\frac54r)\) covers \(H\). Let \[\Psi(z)=\frac{1}{\muppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\wedge\dd{\eta}\qq{where}\zeta=\xi+\ii\eta,\quad\forall z\notin\bigcup E_k^{(j)}.\]
-    Because \[\frac{\Psi(z+\Delta x)-\Psi(z)}{\Delta x}=\frac{1}{\muppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\frac{\phi_{\zeta,k}^{(j)}(z+\Delta x)-\phi_{\zeta,k}^{(j)}(z)}{\Delta x}\dd{\xi}\wedge\dd{\eta},\]
+    Thus the union \[\bigcup_{k=1}^n\bigcup_{j=1}^{m_k}H_k^{(j)}=H\cap\qty(\bigcup D\qty(\zeta_k^{(j)},\frac54r))=H\] since the set of all \(D\qty(\zeta_k^{(j)},\frac54r)\) covers \(H\). Let \[\Psi(z)=\frac{1}{\uppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\wedge\dd{\eta}\qq{where}\zeta=\xi+\ii\eta,\quad\forall z\notin\bigcup E_k^{(j)}.\]
+    Because \[\frac{\Psi(z+\Delta x)-\Psi(z)}{\Delta x}=\frac{1}{\uppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\frac{\phi_{\zeta,k}^{(j)}(z+\Delta x)-\phi_{\zeta,k}^{(j)}(z)}{\Delta x}\dd{\xi}\wedge\dd{\eta},\]
     and both \(\pdv{\Phi}{\overline{\zeta}}\) and the integrand is continuous on a set (we only need to consider the term involving \(\phi_{\zeta,k}^{(j)}\) since \(\pdv{\Phi}{\overline{\zeta}}\) is independent from \(z\)) by Cauchy's Estimates and the first bound of \cref{eq:mergelyan_familybounds}, Lebesgue's Dominate Convergence gives that
-    \[\pdv{\Psi}{x}=\frac{1}{\muppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{x}\qty(z)\dd{\xi}\wedge\dd{\eta},\] and in analogous fashion, \[\pdv{\Psi}{y}=\frac{1}{\muppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{y}\qty(z)\dd{\xi}\wedge\dd{\eta}.\]
+    \[\pdv{\Psi}{x}=\frac{1}{\uppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{x}\qty(z)\dd{\xi}\wedge\dd{\eta},\] and in analogous fashion, \[\pdv{\Psi}{y}=\frac{1}{\uppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\int_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\pdv{\phi_{\zeta,k}^{(j)}}{y}\qty(z)\dd{\xi}\wedge\dd{\eta}.\]
     Hence, \(\Psi\) is holomorphic on \(\extcomplex\setminus\bigcup_{k=1}^n\bigcup_{j=1}^{m_k} E_{k}^{(j)}\), a neighborhood of \(K\). Since \(\forall z\in\extcomplex\setminus\bigcup E_k^{(j)}\), by \cref{itm:complementbiholomorphism584r4767r2estimates_absolutedifference4676} of \cref{prop:complementbiholomorphism584r4767r2estimates},
     \begin{align*}
-        \abs{\Psi(z)-\Phi(z)} & =\abs{\frac{1}{\muppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\dd{\eta}-\frac1\muppi\iint_H\pdv{\Phi}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{z-\zeta}} \\
-        & =\frac1{\muppi}\abs{\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\qty(\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta})\dd{\xi}\dd{\eta}}                                                           \\
-        & \leq\frac1{\muppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\abs{\pdv{\Phi}{\overline{\zeta}}}\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\dd{\xi}\dd{\eta}                                                        \\
-        & \leq\frac{1}{\muppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\qty(\iint_{H_k^{(j)}\cap D(z,2r)}+\iint_{H_k^{(j)}\setminus D(z,2r)})\abs{\pdv{\Phi}{\overline{\zeta}}}\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\dd{\xi}\dd{\eta}
+        \abs{\Psi(z)-\Phi(z)} & =\abs{\frac{1}{\uppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\phi_{\zeta,k}^{(j)}(z)\dd{\xi}\dd{\eta}-\frac1\uppi\iint_H\pdv{\Phi}{\overline{\zeta}}\frac{\dd{\xi}\dd{\eta}}{z-\zeta}} \\
+        & =\frac1{\uppi}\abs{\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\pdv{\Phi}{\overline{\zeta}}\qty(\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta})\dd{\xi}\dd{\eta}}                                                           \\
+        & \leq\frac1{\uppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\iint_{H_k^{(j)}}\abs{\pdv{\Phi}{\overline{\zeta}}}\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\dd{\xi}\dd{\eta}                                                        \\
+        & \leq\frac{1}{\uppi}\sum_{k=1}^n\sum_{j=1}^{m_k}\qty(\iint_{H_k^{(j)}\cap D(z,2r)}+\iint_{H_k^{(j)}\setminus D(z,2r)})\abs{\pdv{\Phi}{\overline{\zeta}}}\abs{\phi_{\zeta,k}^{(j)}(z)-\frac{1}{z-\zeta}}\dd{\xi}\dd{\eta}
     \end{align*}
     The estimates in \cref{itm:integralofcontinuousextensionofholomorphicproperties_antiholomorphicderivativebound} of \cref{prop:integralofcontinuousextensionofholomorphicproperties}, in tandem with those from \cref{eq:mergelyan_familybounds} now give that
     \begin{align*}
@@ -306,10 +307,10 @@ where \(\lambda_r\) employs the same definition as in \cref{eq:diracdeltaapproxi
     \end{align*}
     through a linear change of variables. Now evaluation via polar coordinates (with \(\rho\ee^{\ii\theta}=\xi+\ii\eta\), \(\dd{\xi}\wedge\dd{\eta}=\rho\dd{\rho}\wedge\dd{\theta}\)) yields a revised upper bound of
     \begin{multline*}
-        18704r\omega_f(r)\int_0^{2\muppi}\int_{2r}^\infty\frac{\dd{\rho}\dd{\theta}}{\rho^2}+\frac{4\omega_f(r)}{r}\qty(\frac{584}{r}\operatorname{area}D(0,2r)+\int_0^{2\muppi}\int_0^{2r}\dd{\rho}\dd{\theta})\\
-        =18704r\omega_f(r)2\muppi\eval{\frac{1}{\rho}}_{\infty}^{2r}+\frac{9344\muppi\omega_f(r)r^2}{r^2}+\frac{4\omega_f(r)}{r}4r\muppi\\
-        =18704\muppi\omega_f(r)+9344\muppi\omega_f(r)+16\muppi\omega_f(r)=28064\muppi\omega_f(r).
+        18704r\omega_f(r)\int_0^{2\uppi}\int_{2r}^\infty\frac{\dd{\rho}\dd{\theta}}{\rho^2}+\frac{4\omega_f(r)}{r}\qty(\frac{584}{r}\operatorname{area}D(0,2r)+\int_0^{2\uppi}\int_0^{2r}\dd{\rho}\dd{\theta})\\
+        =18704r\omega_f(r)2\uppi\eval{\frac{1}{\rho}}_{\infty}^{2r}+\frac{9344\uppi\omega_f(r)r^2}{r^2}+\frac{4\omega_f(r)}{r}4r\uppi\\
+        =18704\uppi\omega_f(r)+9344\uppi\omega_f(r)+16\uppi\omega_f(r)=28064\uppi\omega_f(r).
     \end{multline*}
-    Runge's Theorem (\cref{thm:runge}) provides the existence of some rational function \(\psi\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-\Psi(z)}\leq\muppi\omega_f(r)\] since \(\Psi\) is holomorphic on a neighborhood of \(K\) (to assure this bound is positive, we assume \(f\) is not identically zero, otherwise the assertion is trivial). Therefore, for all \(z\in K\), we have \[\sup_{z\in K}\abs{\psi(z)-\Phi(z)}\leq\sup_{z\in K}\abs{\psi(z)-\Psi(z)}+\abs{\Psi(z)-\Phi(z)}\leq 28065\muppi\omega_f(r).\] Because \(\lim_{r\to0^+}\omega_f(r)=0\), for any \(\varepsilon>0\), there exists a \(r>0\) such that \[\omega_f(r)<\frac{\varepsilon}{28065\muppi}.\]
-    Hence for any such \(\varepsilon\), we now construct \(\psi\) in accordance with an \(r\) satisfying \(28065\muppi\omega_f(r)<\varepsilon\).
+    Runge's Theorem (\cref{thm:runge}) provides the existence of some rational function \(\psi\) with poles in \(E\) such that \[\sup_{z\in K}\abs{\psi(z)-\Psi(z)}\leq\uppi\omega_f(r)\] since \(\Psi\) is holomorphic on a neighborhood of \(K\) (to assure this bound is positive, we assume \(f\) is not identically zero, otherwise the assertion is trivial). Therefore, for all \(z\in K\), we have \[\sup_{z\in K}\abs{\psi(z)-\Phi(z)}\leq\sup_{z\in K}\abs{\psi(z)-\Psi(z)}+\abs{\Psi(z)-\Phi(z)}\leq 28065\uppi\omega_f(r).\] Because \(\lim_{r\to0^+}\omega_f(r)=0\), for any \(\varepsilon>0\), there exists a \(r>0\) such that \[\omega_f(r)<\frac{\varepsilon}{28065\uppi}.\]
+    Hence for any such \(\varepsilon\), we now construct \(\psi\) in accordance with an \(r\) satisfying \(28065\uppi\omega_f(r)<\varepsilon\).
 \end{proof}

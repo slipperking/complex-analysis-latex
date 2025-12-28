@@ -94,11 +94,11 @@ in increasing order.
         \label{fig:keyholecontour}
     \end{minipage}
 \end{figure}Now consider the \textit{Hankel contour}, which consists of an arc and two rays oriented as in \cref{fig:hankelcontour} (note that this contour is not actually closed):
-\[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii \theta}}{\asin(\frac{\delta}{\varepsilon})\leq \theta\leq2\muppi-\asin(\frac{\delta}{\varepsilon})},\quad\overset{\pm}{\Gamma}_\varepsilon=\cbraces{x\pm \ii\delta}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
+\[C_{\varepsilon}=\cbraces{\varepsilon\ee^{\ii \theta}}{\asin(\frac{\delta}{\varepsilon})\leq \theta\leq2\uppi-\asin(\frac{\delta}{\varepsilon})},\quad\overset{\pm}{\Gamma}_\varepsilon=\cbraces{x\pm \ii\delta}{\sqrt{\varepsilon^2-\delta^2}\leq x<\infty}.\]
 Define the auxiliary function \[F_{\varepsilon,\delta}(s)=\int_{C_\varepsilon\cup\qty{\overset{\pm}{\Gamma}_\varepsilon}}\frac{(-z)^{s-1}}{\ee^z-1}\ddz=\qty(\int_{C_\varepsilon}+\int_{\overset+\Gamma_\varepsilon}+\int_{\overset-\Gamma_\varepsilon})\frac{(-z)^{s-1}}{\ee^z-1}\ddz,\quad\Re(s)>1\] where the branch cut of the power function lies on the negative real axis. It
 is important to note that \(F_{\varepsilon,\delta}\) is independent of
 \(\varepsilon\ge\delta\). To see this, suppose that
-\(\delta\le\varepsilon_1<\varepsilon_2<2\muppi\) is arbitrarily chosen. Then we
+\(\delta\le\varepsilon_1<\varepsilon_2<2\uppi\) is arbitrarily chosen. Then we
 have
 \begin{align*}
     F_{\varepsilon_2,\delta}(s)-F_{\varepsilon_1,\delta}(s) & =\qty(\int_{\mathmakebox[0.5em][l]{C_{\varepsilon_2}}}-\int_{\mathmakebox[0.5em][l]{C_{\varepsilon_1}}}+\int_{\mathmakebox[0.5em][l]{\overset+\Gamma_{\varepsilon_2}}}+\int_{\mathmakebox[0.5em][l]{\overset-\Gamma_{\varepsilon_2}}}-\int_{\mathmakebox[0.5em][l]{\overset+\Gamma_{\varepsilon_1}}}-\int_{\overset-\Gamma_{\varepsilon_1}})\frac{(-z)^{s-1}\ddz}{\ee^{z}-1}=\oint_{\gamma}\frac{\qty(-z)^{s-1}\ddz}{\ee^z-1},
@@ -108,7 +108,7 @@ For brevity, let \(\vartheta=\asin(\frac\delta\varepsilon)\) and let
 \(\widetilde{\delta}=\sqrt{\varepsilon^2-\delta^2}\). Then
 \(F_{\varepsilon,\delta}\) can be expanded as
 \begin{align}
-    F_{\varepsilon,\delta}(s) & =\int_{\vartheta}^{2\muppi-\vartheta}\frac{\qty(-\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}\varepsilon\ii\ee^{\ii \theta}\dd{\theta}+\int_{\widetilde{\delta}}^\infty\frac{(\ii\delta-x)^{s-1}}{\ee^{-\ii\delta+x}-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{(-\ii\delta-x)^{s-1}}{\ee^{\ii\delta+x}-1}\ddx\label{eq:riemannzetafunction_remainingthreeintegralshankelcontour} \\
+    F_{\varepsilon,\delta}(s) & =\int_{\vartheta}^{2\uppi-\vartheta}\frac{\qty(-\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}\varepsilon\ii\ee^{\ii \theta}\dd{\theta}+\int_{\widetilde{\delta}}^\infty\frac{(\ii\delta-x)^{s-1}}{\ee^{-\ii\delta+x}-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{(-\ii\delta-x)^{s-1}}{\ee^{\ii\delta+x}-1}\ddx\label{eq:riemannzetafunction_remainingthreeintegralshankelcontour} \\
     & =\quad\mathrm{I}\quad+\quad\mathrm{I\!I}\quad+\quad\mathrm{I\!I\!I}.\nonumber
 \end{align}
 By the Maclaurin expansion with respect to \(\varepsilon\ee^{\ii\theta}\), we have \[\ee^{\varepsilon\ee^{\ii\theta}}-1=\varepsilon\ee^{\ii \theta}+\frac{\qty(\varepsilon\ee^{\ii \theta})^2}{2!}+\cdots=\varepsilon\ee^{\ii \theta}+R(\varepsilon,\theta)\] (where we have \(\abs{R(\varepsilon,\theta)}=\order{\varepsilon^2}< c\varepsilon^2\), where \(c>0\) is independent of \(\theta\)) by absolute convergence, which implies that for \(\varepsilon<\frac1{c}\) (so that \(\varepsilon-\abs{R(\varepsilon,\theta)}>0\)), \[\abs{\ee^{\varepsilon\ee^{\ii \theta}}-1}=\abs{\varepsilon\ee^{\ii \theta}+R(\varepsilon,\theta)}\geq\varepsilon-\abs{R(\varepsilon,\theta)}>\varepsilon-c\varepsilon^2>0.\]
@@ -116,9 +116,9 @@ Then for \(\varepsilon<\frac{1}{2c}\), we have that
 \(c<\frac{1}{2\varepsilon}\), and thus \(\abs{\ee^{\varepsilon\ee^{\ii
 \theta}}-1}>\frac{\varepsilon}{2}\). Therefore,
 \begin{align*}
-    \abs{\mathrm{I}} & \leq\varepsilon\int_\vartheta^{2\muppi-\vartheta}\abs{\frac{\qty(\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}}\dd{\theta}\leq2\muppi\varepsilon^{\Re(s)}\sup_{\vartheta\leq \theta\leq2\muppi-\vartheta}\frac{\abs{\ee^{\ii \theta(s-1)}}}{\frac{\varepsilon}2} \\
-    & =4\muppi\varepsilon^{\Re(s)-1}\sup_\theta\abs{\ee^{\theta(\ii\qty(\Re(s)-1)-\Im(s))}}=4\muppi\varepsilon^{\Re(s)-1}\sup_\theta\ee^{-\theta\Im(s)}                                                                                                                                          \\
-    & \leq4\muppi\varepsilon^{\Re(s)-1}\ee^{2\muppi\abs{\Im(s)}}\to0\qq{as}\varepsilon\to 0.
+    \abs{\mathrm{I}} & \leq\varepsilon\int_\vartheta^{2\uppi-\vartheta}\abs{\frac{\qty(\varepsilon\ee^{\ii \theta})^{s-1}}{\ee^{\varepsilon\ee^{\ii \theta}}-1}}\dd{\theta}\leq2\uppi\varepsilon^{\Re(s)}\sup_{\vartheta\leq \theta\leq2\uppi-\vartheta}\frac{\abs{\ee^{\ii \theta(s-1)}}}{\frac{\varepsilon}2} \\
+    & =4\uppi\varepsilon^{\Re(s)-1}\sup_\theta\abs{\ee^{\theta(\ii\qty(\Re(s)-1)-\Im(s))}}=4\uppi\varepsilon^{\Re(s)-1}\sup_\theta\ee^{-\theta\Im(s)}                                                                                                                                          \\
+    & \leq4\uppi\varepsilon^{\Re(s)-1}\ee^{2\uppi\abs{\Im(s)}}\to0\qq{as}\varepsilon\to 0.
 \end{align*}
 On the contrary,
 \begin{align}
@@ -126,24 +126,24 @@ On the contrary,
     \abs{\mathrm{I\!I}+\mathrm{I\!I\!I}} & \leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Re\qty[\Log(\ii\delta-x)(s-1)]}}{\ee^x-1}\ddx+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Re\qty[\Log(-\ii\delta-x)(s-1)]}}{\ee^x-1}\ddx\nonumber                                                             \\
     & \leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{\delta^2+x^2}(\Re(s)-1)-\Arg\qty(\ii\delta-x)\Im(s)}}{\ee^x-1}\ddx\nonumber                                                                                                                          \\
     & \quad+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{\delta^2+x^2}(\Re(s)-1)-\Arg\qty(-\ii\delta-x)\Im(s)}}{\ee^x-1}\ddx\nonumber                                                                                                                       \\
-    & \leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{1+x^2}(\Re(s)-1)+\muppi\Im(s)}}{\ee^x-1}\ddx\nonumber                                                                                                                                                 \\
-    & \quad+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{1+x^2}(\Re(s)-1)+\muppi\Im(s)}}{\ee^x-1}\ddx\nonumber
-\end{align} where we choose the principal branch logarithm such that \(\arg(z)\in(-\muppi,\muppi]\) and take \(0<\delta\leq1\). It is trivial to see that the bounding integrals (now independent of \(\delta\)) are convergent for fixed \(s\). Then Lebesgue's Dominated Convergence Theorem applies to \cref{eq:riemannzetafunction_remainingtwointegralshankelcontour} as \(\delta\to 0^+\), resulting in
+    & \leq\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{1+x^2}(\Re(s)-1)+\uppi\Im(s)}}{\ee^x-1}\ddx\nonumber                                                                                                                                                 \\
+    & \quad+\int_{\widetilde{\delta}}^\infty\frac{\ee^{\Log\sqrt{1+x^2}(\Re(s)-1)+\uppi\Im(s)}}{\ee^x-1}\ddx\nonumber
+\end{align} where we choose the principal branch logarithm such that \(\arg(z)\in(-\uppi,\uppi]\) and take \(0<\delta\leq1\). It is trivial to see that the bounding integrals (now independent of \(\delta\)) are convergent for fixed \(s\). Then Lebesgue's Dominated Convergence Theorem applies to \cref{eq:riemannzetafunction_remainingtwointegralshankelcontour} as \(\delta\to 0^+\), resulting in
 \begin{align}
-    \mathrm{I\!I}+\mathrm{I\!I\!I} & \to\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log\qty(x)+\ii\muppi]}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log(x)-\ii\muppi]}}{\ee^x-1}\ddx\nonumber                                                      \\
-    & =\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{\ii\muppi(s-1)}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{-\ii\muppi(s-1)}}{\ee^x-1}\ddx\nonumber                                                                         \\
-    & =\qty(\ee^{-\ii\muppi s}-\ee^{\ii\muppi s})\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}=-2\ii\sin\qty(\muppi s)\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}.\label{eq:riemannzetafunction_remainingtwointegralslimit}
+    \mathrm{I\!I}+\mathrm{I\!I\!I} & \to\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log\qty(x)+\ii\uppi]}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{\ee^{(s-1)\qty[\log(x)-\ii\uppi]}}{\ee^x-1}\ddx\nonumber                                                      \\
+    & =\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{\ii\uppi(s-1)}}{\ee^x-1}\ddx-\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ee^{-\ii\uppi(s-1)}}{\ee^x-1}\ddx\nonumber                                                                         \\
+    & =\qty(\ee^{-\ii\uppi s}-\ee^{\ii\uppi s})\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}=-2\ii\sin\qty(\uppi s)\int_{\widetilde{\delta}}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}.\label{eq:riemannzetafunction_remainingtwointegralslimit}
 \end{align}
 Now under the limiting operations \(\delta\to 0^+\) and \(\varepsilon\to0^+\), we have
 \begin{equation}
-    F(s)=F_\varepsilon(s)(\forall\varepsilon<2\muppi)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\muppi s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
+    F(s)=F_\varepsilon(s)(\forall\varepsilon<2\uppi)=\lim_{\varepsilon\to 0^+}F_\varepsilon(s)=\lim_{\varepsilon\to 0}\lim_{\delta\to0}\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}=-2\ii\sin\qty(\uppi s)\Gamma(s)\zeta(s)\label{eq:riemannzetafunctionthreeintegralslimit}
 \end{equation} by virtue of \cref{thm:riemannzetafunctiongammaintegral}. The integral \(\mathrm{I}+\mathrm{I\!I}+\mathrm{I\!I\!I}\) for any \(\varepsilon\) and \(\delta\) defines an entire function of \(s\)---by expressing each integral in its parametric form as in \cref{eq:riemannzetafunction_remainingthreeintegralshankelcontour}, a simple calculation yields that \(\dv{F_\varepsilon(s)}{\overline{s}}\equiv 0\) (either through differentiation under the integral sign, or by Lebesgue's Dominated Convergence) and hence the entireness of each \(F_\varepsilon\) follows.
 
 Thus \cref{eq:riemannzetafunctionthreeintegralslimit} defines an analytic
 continuation of \(\zeta(s)\) by
 \begin{equation}
-    \zeta(s)=\frac{\lim_{\varepsilon\to 0^+}F_\varepsilon(s)}{-2\ii\sin(\muppi s)\Gamma(s)},\label{eq:riemannzetafunction_analyticcontinuationcontourintegral}
-\end{equation} whose singularities lie within \(\mathbb{Z}\) (the \(\Gamma\)-function never vanishes since \(\frac1\Gamma\) is entire by its Weierstrass factorization in \cref{thm:gammafunction_weierstrassformula}). By the series definition, the singularities at \(s\in\mathbb{N}_{\ge2}\) are removable and hence unimportant to our consideration, while the simple zeros of the \(\sin(\muppi s)\) function at each \(s\in\mathbb{Z}_{\le0}\) cancel with the simple poles of the \(\Gamma\)-function and hence those are removable singularities of \(\zeta\) as well. Our final consideration is of the singularity at \(s=1\):
+    \zeta(s)=\frac{\lim_{\varepsilon\to 0^+}F_\varepsilon(s)}{-2\ii\sin(\uppi s)\Gamma(s)},\label{eq:riemannzetafunction_analyticcontinuationcontourintegral}
+\end{equation} whose singularities lie within \(\mathbb{Z}\) (the \(\Gamma\)-function never vanishes since \(\frac1\Gamma\) is entire by its Weierstrass factorization in \cref{thm:gammafunction_weierstrassformula}). By the series definition, the singularities at \(s\in\mathbb{N}_{\ge2}\) are removable and hence unimportant to our consideration, while the simple zeros of the \(\sin(\uppi s)\) function at each \(s\in\mathbb{Z}_{\le0}\) cancel with the simple poles of the \(\Gamma\)-function and hence those are removable singularities of \(\zeta\) as well. Our final consideration is of the singularity at \(s=1\):
 \begin{theorem}
     The Riemann \(\zeta\)-function is holomorphic on \(\mathbb{C}\setminus\cbraces{1}\). The singularity at \(s=1\) is a simple pole with a residue of \(1\).
 \end{theorem}
@@ -151,79 +151,79 @@ continuation of \(\zeta(s)\) by
     Our previous characterizations of the removable singularities in \(\mathbb{Z}\setminus\cbraces{1}\) allow for its analytic continuation to \(\mathbb{C}\setminus\cbraces{1}\). Hence we are left to show the nature of the singularity at \(s=1\).
 
     The \(\mathrm{I\!I}\) and \(\mathrm{I\!I\!I}\) integrals vanish at \(s=1\)
-    since \(\sin(\muppi)=0\) (in
-    \cref{eq:riemannzetafunction_remainingtwointegralslimit}). Now because \[\mathrm{I}\to\oint_{\partial D\qty(0,\varepsilon)}\frac{\ddz}{\ee^z-1}=2\muppi\ii\residue_{z=0}\qty(\frac1{\ee^z-1})\] as \(\delta\to 0^+\), the integrand has a simple pole at \(z=0\). Its residue,
+    since \(\sin(\uppi)=0\) (in
+    \cref{eq:riemannzetafunction_remainingtwointegralslimit}). Now because \[\mathrm{I}\to\oint_{\partial D\qty(0,\varepsilon)}\frac{\ddz}{\ee^z-1}=2\uppi\ii\residue_{z=0}\qty(\frac1{\ee^z-1})\] as \(\delta\to 0^+\), the integrand has a simple pole at \(z=0\). Its residue,
     calculated via \cref{eq:residueatpole}, is equal to \[\residue_{z=0}\qty(\frac1{\ee^z-1})=\lim_{z\to 0}\frac{z}{\ee^z-1}=\lim_{z\to 0}\frac{1}{\ee^z}=1.\]
-    Hence, \(F(1)=2\muppi\ii\). Now the expression
-    \(\zeta(1)=-\frac{\muppi}{\sin(\muppi)\Gamma(1)}\) shows that the singularity at
+    Hence, \(F(1)=2\uppi\ii\). Now the expression
+    \(\zeta(1)=-\frac{\uppi}{\sin(\uppi)\Gamma(1)}\) shows that the singularity at
     \(s=1\) is a simple pole (contributed from the simple zero of \(\sin\)). By
     \cref{eq:residueatpole} once more, the residue at \(s=1\) is equal to
     \begin{align*}
-        \residue_{s=1}\zeta(s) & =\lim_{s\to 1}(s-1)\zeta(s)=\lim_{s\to 1}(1-s)\qty(\frac{F_\varepsilon(s)}{2\ii\sin(\muppi s)\Gamma(s)})                          \\
-        & =\frac{2\muppi\ii}{2\ii\Gamma(1)}\lim_{s\to 1}\frac{1-s}{\sin(\muppi s)}=-\muppi\lim_{s\to1}\frac{1}{\muppi\cos(\muppi s)}=1.\qedhere
+        \residue_{s=1}\zeta(s) & =\lim_{s\to 1}(s-1)\zeta(s)=\lim_{s\to 1}(1-s)\qty(\frac{F_\varepsilon(s)}{2\ii\sin(\uppi s)\Gamma(s)})                          \\
+        & =\frac{2\uppi\ii}{2\ii\Gamma(1)}\lim_{s\to 1}\frac{1-s}{\sin(\uppi s)}=-\uppi\lim_{s\to1}\frac{1}{\uppi\cos(\uppi s)}=1.\qedhere
     \end{align*}
 \end{proof}
 The functional equation as provided by Riemann in his original paper gives a more advanced characterization of the \(\zeta\)-function's continuation:
 \begin{theorem}[Riemann's Reflection Formula]\label{thm:riemannzetafunction_functionalequation}
     For any \(s\neq 0\), we have
     \begin{equation}
-        \zeta(1-s)=2\zeta(s)\Gamma(s)\cos(\frac\muppi2s)(2\muppi)^{-s}.\label{eq:riemannzetafunction_functionalequation}
+        \zeta(1-s)=2\zeta(s)\Gamma(s)\cos(\frac\uppi2s)(2\uppi)^{-s}.\label{eq:riemannzetafunction_functionalequation}
     \end{equation}
 \end{theorem}
 \begin{proof}
-    We restrict our consideration to \(s\neq 0,-1,-2,\ldots\) (and the usage of limits suffices to extend the relation to all of \(\mathbb{C}^*\)). The integrand \(\frac{(-z)^{s-1}}{\ee^z-1}\) (as a function of \(z\)) has a branch cut singularity on \(\mathbb{R}_{\geq 0}\) (a region excluded by all Hankel contours and thus irrelevant to our interest). The denominator vanishes (simply) when \(\ee^z=1\) or when \(z\in2\muppi\ii\mathbb{Z}\) and thus has simple poles at these points.
+    We restrict our consideration to \(s\neq 0,-1,-2,\ldots\) (and the usage of limits suffices to extend the relation to all of \(\mathbb{C}^*\)). The integrand \(\frac{(-z)^{s-1}}{\ee^z-1}\) (as a function of \(z\)) has a branch cut singularity on \(\mathbb{R}_{\geq 0}\) (a region excluded by all Hankel contours and thus irrelevant to our interest). The denominator vanishes (simply) when \(\ee^z=1\) or when \(z\in2\uppi\ii\mathbb{Z}\) and thus has simple poles at these points.
 
     Suppose that \(\Re s<0\). Now the Residue Theorem (\cref{thm:residuethm}) gives
-    that \[F_{(2n+1)\muppi}(s)-F_{\varepsilon}(s)=2\muppi\ii\sum_{\mathclap{\substack{z\in2\muppi\ii\mathbb{Z}\\z\in\text{ contour}}}}\residue_z\frac{(-z)^{s-1}}{\ee^z-1},\qquad\varepsilon<2\muppi\] where the contour is the keyhole contour in \cref{fig:keyholecontour} with a
-    larger radius of \((2n+1)\muppi\) and a smaller one of \(\varepsilon\). Then we
+    that \[F_{(2n+1)\uppi}(s)-F_{\varepsilon}(s)=2\uppi\ii\sum_{\mathclap{\substack{z\in2\uppi\ii\mathbb{Z}\\z\in\text{ contour}}}}\residue_z\frac{(-z)^{s-1}}{\ee^z-1},\qquad\varepsilon<2\uppi\] where the contour is the keyhole contour in \cref{fig:keyholecontour} with a
+    larger radius of \((2n+1)\uppi\) and a smaller one of \(\varepsilon\). Then we
     have, by virtue of \cref{eq:residueatpole}:
     \begin{multline*}
-        \frac1{2\muppi\ii}\qty(F_{(2n+1)\muppi}(s)-F_\varepsilon(s))=\sum_{\substack{k=-n\\k\neq 0}}^{n}\lim_{\zeta\to2\pi\ii k}\frac{\qty(\zeta-2\muppi\ii k)(-\zeta)^{s-1}}{\ee^\zeta-1}\\
-        =\sum_{\substack{k=-n\\k\neq 0}}^n\lim_{\zeta\to 2\muppi\ii k}\frac{2\muppi\ii k(s-1)(-\zeta)^{s-2}+s(-\zeta)^{s-1}}{\ee^\zeta}\\
-        =\sum_{\substack{k=-n\\k\neq0}}^n\qty[2\muppi\ii k(s-1)(-2\muppi\ii k)^{s-2}+s(-2\muppi\ii k)^{s-1}]=\sum_{\substack{k=-n\\k\neq0}}^n(-2\muppi\ii k)^{s-1},
+        \frac1{2\uppi\ii}\qty(F_{(2n+1)\uppi}(s)-F_\varepsilon(s))=\sum_{\substack{k=-n\\k\neq 0}}^{n}\lim_{\zeta\to2\pi\ii k}\frac{\qty(\zeta-2\uppi\ii k)(-\zeta)^{s-1}}{\ee^\zeta-1}\\
+        =\sum_{\substack{k=-n\\k\neq 0}}^n\lim_{\zeta\to 2\uppi\ii k}\frac{2\uppi\ii k(s-1)(-\zeta)^{s-2}+s(-\zeta)^{s-1}}{\ee^\zeta}\\
+        =\sum_{\substack{k=-n\\k\neq0}}^n\qty[2\uppi\ii k(s-1)(-2\uppi\ii k)^{s-2}+s(-2\uppi\ii k)^{s-1}]=\sum_{\substack{k=-n\\k\neq0}}^n(-2\uppi\ii k)^{s-1},
     \end{multline*}
     where we utilize the principal branch logarithm:
     \begin{align*}
-        F_{(2n+1)\muppi}(s)-F_\varepsilon(s) & =2\muppi\ii\sum_{k=1}^n\qty[\ee^{\Log(2\muppi\ii k)\qty(s-1)}+\ee^{\Log(-2\muppi\ii k)\qty(s-1)}]                                   \\
-        & =2\muppi\ii\sum_{k=1}^n\qty[\ee^{\Log(2\muppi k)\qty(s-1)}\ee^{\Log(\ii)(s-1)}+\ee^{\Log(2\muppi k)\qty(s-1)}\ee^{\Log(-\ii)(s-1)}] \\
-        & =2\muppi\ii\sum_{k=1}^n(2\muppi k)^{s-1}\qty[\ee^{\ii\frac{\muppi}{2}(s-1)}+\ee^{-\ii\frac{\muppi}{2}(s-1)}]                         \\
-        & =4\muppi\ii\cos\qty(\frac\muppi2(s-1))\sum_{k=1}^n(2\muppi k)^{s-1}.
+        F_{(2n+1)\uppi}(s)-F_\varepsilon(s) & =2\uppi\ii\sum_{k=1}^n\qty[\ee^{\Log(2\uppi\ii k)\qty(s-1)}+\ee^{\Log(-2\uppi\ii k)\qty(s-1)}]                                   \\
+        & =2\uppi\ii\sum_{k=1}^n\qty[\ee^{\Log(2\uppi k)\qty(s-1)}\ee^{\Log(\ii)(s-1)}+\ee^{\Log(2\uppi k)\qty(s-1)}\ee^{\Log(-\ii)(s-1)}] \\
+        & =2\uppi\ii\sum_{k=1}^n(2\uppi k)^{s-1}\qty[\ee^{\ii\frac{\uppi}{2}(s-1)}+\ee^{-\ii\frac{\uppi}{2}(s-1)}]                         \\
+        & =4\uppi\ii\cos\qty(\frac\uppi2(s-1))\sum_{k=1}^n(2\uppi k)^{s-1}.
     \end{align*}
     Now as \(n\to\infty\),
     \begin{align}
-        \abs{F_{(2n+1)\muppi}(s)} & \le\abs{\oint_{\partial D(0,R)}\frac{\qty(-z)^{s-1}\ddz}{\ee^z-1}}+2\abs{\sin(\muppi s)\int_{R}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}},\quad R=(2n+1)\muppi\nonumber                                                                                                          \\
-        & \leq2\muppi R^{\Re s}\sup_{\theta\in[0,2\muppi]}\abs{\qty(-\ee^{\ii\theta})^{s-1}}\sup_{z\in\partial D(0,R)}\frac{1}{\abs{\ee^z-1}}+2\abs{\sin(\muppi s)\int_{R}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}}.\label{eq:riemannzetafunction_functionalequation_contourintegralbound}
+        \abs{F_{(2n+1)\uppi}(s)} & \le\abs{\oint_{\partial D(0,R)}\frac{\qty(-z)^{s-1}\ddz}{\ee^z-1}}+2\abs{\sin(\uppi s)\int_{R}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}},\quad R=(2n+1)\uppi\nonumber                                                                                                          \\
+        & \leq2\uppi R^{\Re s}\sup_{\theta\in[0,2\uppi]}\abs{\qty(-\ee^{\ii\theta})^{s-1}}\sup_{z\in\partial D(0,R)}\frac{1}{\abs{\ee^z-1}}+2\abs{\sin(\uppi s)\int_{R}^\infty\frac{x^{s-1}\ddx}{\ee^x-1}}.\label{eq:riemannzetafunction_functionalequation_contourintegralbound}
     \end{align}
     As \(n\to\infty\), the second integral vanishes by the definition of convergent improper integrals. Now observe that \(\qty(-\ee^{\ii\theta})^{s-1}\) depends only on \(s\) and \(\theta\) and is independent of \(n\), and hence is insignificant. We now aim to prove that \(\frac1{\abs{\ee^z-1}}\) is above by a positive constant for all \(z\in\bigsqcup\partial D(0,R)\). Observe that
     \begin{align*}
         \abs{\ee^z-1}^2 & =\ee^{2x}-2\ee^x\cos y+1=2\ee^x\qty(\cosh x-\cos y)                                               \\
         & =2\ee^x\qty(2\sinh^2{\frac x2}+2\sin^2{\frac y2})=4\ee^x\qty(\sinh^2{\frac x2}+\sin^2{\frac y2}),
-    \end{align*} (by the double argument/angle formulas) where \(x^2+y^2=R^2\) for some \(R=(2n+1)\muppi\). Now we observe two cases:
+    \end{align*} (by the double argument/angle formulas) where \(x^2+y^2=R^2\) for some \(R=(2n+1)\uppi\). Now we observe two cases:
     \begin{enumerate}
         \item If \(\abs{x}\geq2\), then
             \(\abs{\ee^z-1}\geq\abs{\abs{\ee^z}-1}=\abs{\ee^x-1}\geq 1-\ee^{-2}\).
         \item If \(\abs{x}<2\), then \(\ee^x>\ee^{-2}\). Assume, without loss of generality,
             that \(y>0\) (\(y<0\) gives the same conclusion since \(\sin^2\frac y2\) is
             even, and \(y=0\) cannot happen for the given range of \(x\)). Since \[\sin\qty(\frac y2)=\sin\qty(\xi-\eta)=\sin\xi\cos\eta-\sin\eta\cos\xi\quad\xi=\frac R2,\eta=\xi-\frac y2.\]
-            Because \(\xi=n\muppi+\frac\muppi2\), we deduce that \[\sin(\frac y2)=(-1)^n\cos\eta\implies\sin[2](\frac y2)=\cos^2\eta=\cos[2](\frac R2\qty(1-\sqrt{1-\frac{x^2}{R^2}})).\]
+            Because \(\xi=n\uppi+\frac\uppi2\), we deduce that \[\sin(\frac y2)=(-1)^n\cos\eta\implies\sin[2](\frac y2)=\cos^2\eta=\cos[2](\frac R2\qty(1-\sqrt{1-\frac{x^2}{R^2}})).\]
             Since \(\abs{x}<2\), we have that \(0\leq\frac{x^2}{R^2}<\frac4{R^2}<1\), which
-            implies that \[\sqrt{1-\frac{x^2}{R^2}}\geq 1-\frac{x^2}{R^2}\] (since concavity of \(\sqrt{1-t}\) for \(t\in(0,1)\) suffices to ensure that the tangent line at \(0\) is an over-approximation). Therefore, we have \[1-\sqrt{1-\frac{x^2}{R^2}}\leq\frac{x^2}{R^2}\implies\frac{R}{2}\qty(1-\sqrt{1-\frac{x^2}{R^2}})\leq\frac{x^2}{2R}\leq\frac{2}{R}\leq\frac{2}{\muppi}\] since \(R\geq\muppi\). On this range \(\cos\) is decreasing and we hence obtain \[\sin^2\frac y2=\cos^2\eta\geq\cos[2](\frac2\muppi)\implies\abs{\ee^z-1}^2\geq\frac4{\ee^2}\cos[2](\frac2\muppi).\]
+            implies that \[\sqrt{1-\frac{x^2}{R^2}}\geq 1-\frac{x^2}{R^2}\] (since concavity of \(\sqrt{1-t}\) for \(t\in(0,1)\) suffices to ensure that the tangent line at \(0\) is an over-approximation). Therefore, we have \[1-\sqrt{1-\frac{x^2}{R^2}}\leq\frac{x^2}{R^2}\implies\frac{R}{2}\qty(1-\sqrt{1-\frac{x^2}{R^2}})\leq\frac{x^2}{2R}\leq\frac{2}{R}\leq\frac{2}{\uppi}\] since \(R\geq\uppi\). On this range \(\cos\) is decreasing and we hence obtain \[\sin^2\frac y2=\cos^2\eta\geq\cos[2](\frac2\uppi)\implies\abs{\ee^z-1}^2\geq\frac4{\ee^2}\cos[2](\frac2\uppi).\]
     \end{enumerate}
-    We have thus shown that \(\abs{\ee^z-1}\) is bounded below by a positive constant \[\min\cbraces{1-\ee^{-2},\frac2{\ee}\cos(\frac2\muppi)}>0\] for all \(z\in\bigsqcup_{n=1}^\infty\partial D\qty(0,(2n+1)\muppi)\) (and hence
+    We have thus shown that \(\abs{\ee^z-1}\) is bounded below by a positive constant \[\min\cbraces{1-\ee^{-2},\frac2{\ee}\cos(\frac2\uppi)}>0\] for all \(z\in\bigsqcup_{n=1}^\infty\partial D\qty(0,(2n+1)\uppi)\) (and hence
     \(\frac1{\abs{\ee^z-1}}\) is bounded). Therefore, from
     \cref{eq:riemannzetafunction_functionalequation_contourintegralbound} we have
-    that \(\abs{F_{(2n+1)\muppi}(s)}\to 0\) as \(n\to\infty\) for \(\Re s<0\).
-    Hence, we may deduce that for \(\Re s<0\), \[-F_\varepsilon(s)=4\muppi\ii\cos\qty(\frac\muppi2(s-1))(2\muppi)^{s-1}\sum_{k=1}^nk^{s-1}=4\muppi\ii\cos\qty(\frac\muppi2(s-1))(2\muppi)^{s-1}\zeta(1-s).\]
+    that \(\abs{F_{(2n+1)\uppi}(s)}\to 0\) as \(n\to\infty\) for \(\Re s<0\).
+    Hence, we may deduce that for \(\Re s<0\), \[-F_\varepsilon(s)=4\uppi\ii\cos\qty(\frac\uppi2(s-1))(2\uppi)^{s-1}\sum_{k=1}^nk^{s-1}=4\uppi\ii\cos\qty(\frac\uppi2(s-1))(2\uppi)^{s-1}\zeta(1-s).\]
     The left-hand side can be simplified by
     \cref{eq:riemannzetafunction_analyticcontinuationcontourintegral} to give
     \begin{align*}
-        \sin(\muppi s)\Gamma(s)\zeta(s)                             & =\cos\qty(\frac\muppi2(s-1))(2\muppi)^{s}\zeta(1-s)=\sin\qty(\frac\muppi2s)(2\muppi)^{s}\zeta(1-s) \\
-        2\sin\qty(\frac\muppi2s)\cos\qty(\frac\muppi2s)(2\muppi)^{-s} & =\sin(\frac{\muppi}2s)\zeta(1-s),
+        \sin(\uppi s)\Gamma(s)\zeta(s)                             & =\cos\qty(\frac\uppi2(s-1))(2\uppi)^{s}\zeta(1-s)=\sin\qty(\frac\uppi2s)(2\uppi)^{s}\zeta(1-s) \\
+        2\sin\qty(\frac\uppi2s)\cos\qty(\frac\uppi2s)(2\uppi)^{-s} & =\sin(\frac{\uppi}2s)\zeta(1-s),
     \end{align*}
     which we now extend to all of \(\mathbb{C}^*\) by analytic continuation.
 \end{proof}
 \begin{remark}
-    Suppose that \[\xi(s)=\frac12s(s-1)\muppi^{-\frac s2}\Gamma\qty(\frac s2)\zeta(s).\]
+    Suppose that \[\xi(s)=\frac12s(s-1)\uppi^{-\frac s2}\Gamma\qty(\frac s2)\zeta(s).\]
     Then the functional equation can simply be rewritten as \(\xi(1-s)=\xi(s)\).
 \end{remark}
 \begin{proposition}\label{prop:riemannzetafunction_trivialzeros}
@@ -232,9 +232,9 @@ The functional equation as provided by Riemann in his original paper gives a mor
 \begin{proof}
     By the Euler Product Formula (\cref{thm:riemannzetafunction_infiniteproduct}), \(\zeta\) has no zeros for \(\Re s>1\). Now by the functional equation
     (\cref{thm:riemannzetafunction_functionalequation}), we have that
-    \[\zeta(1-s)=2\zeta(s)\Gamma(s)\cos\qty(\frac\muppi2s)(2\muppi)^{-s}.\] for \(\Re s>1\). On this range, \(\zeta\), \(\Gamma\), and \((2\muppi)^{-s}\)
+    \[\zeta(1-s)=2\zeta(s)\Gamma(s)\cos\qty(\frac\uppi2s)(2\uppi)^{-s}.\] for \(\Re s>1\). On this range, \(\zeta\), \(\Gamma\), and \((2\uppi)^{-s}\)
     are all nonzero. The \(\cos\) function vanishes only at odd multiples of
-    \(\frac\muppi2\), or when \(s=1+2n\) for \(n\in\mathbb{N}\). Therefore, the only
+    \(\frac\uppi2\), or when \(s=1+2n\) for \(n\in\mathbb{N}\). Therefore, the only
     zeros of \(\zeta(1-s)\) for \(\Re s>1\) occur at \(s=3,5,7,\ldots\), or when
     \(1-s=-2,-4,\ldots\), completing the proof.
 \end{proof}

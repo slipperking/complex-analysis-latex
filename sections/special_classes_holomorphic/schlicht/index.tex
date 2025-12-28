@@ -7,13 +7,17 @@ The power series expansion of schlicht \(f\) around 0 is of the form
 \[f(z)=z+\sum_{n=2}^{\infty}a_nz^n,\qquad z\in\mathbb{D},\] where \(a_n=\frac{f^{(n)}(0)}{n!}\) for \(n\geq 2\). Two historic results regarding schlicht functions state that
 \begin{enumerate}
     \item The only schlicht functions satisfying \(\exists n\in\mathbb{N}\) with \(\abs{a_n}=n\) are the Koebe functions in the form of \[z\mapsto\frac{z}{\qty(1-\ee^{\ii\theta}z)^2}.\] The Koebe functions are more extremal in that it satisfies the conclusion \(\abs{a_n}=n\) for all \(n\in\mathbb{N}\); its power series is given by \[z\mapsto\sum_{n=1}^\infty n\ee^{\ii\theta(n-1)}z^n.\]
-    \item For any schlicht \(f\) and \(\forall n\in\mathbb{N}\), it holds that \(|a_n|\leq n\).
+    \item For any schlicht \(f\) and \(\forall n\in\mathbb{N}\), it holds that \(\abs{a_n}\leq n\).
 \end{enumerate} Both were solved in the 20th century by Louis de Branges in the affirmative. The second statement is known as the \textit{Bieberbach Conjecture} as it was originally hypothesized by Ludwig Bieberbach.
 
 We will introduce two of the oldest results regarding schlicht functions, namely \(\abs{a_2}\leq 2\) and the Koebe Quarter Theorem (\cref{thm:koebequarter}). There are many applications of the latter, for instance, we used it in the proof of Mergelyan's Theorem (\cref{thm:mergelyan}).
 \begin{lemma}
-    Let \(f:\mathbb{D}\to\mathbb{C}\) be schlicht and define \(h(z)=\frac1{f(z)}\). 
+    Let \(f:\mathbb{D}\to\mathbb{C}\) be schlicht and define \(h(z)=\frac1{f(z)}=\frac1z+\sum_{n=0}^\infty b_nz^n\). Let \[A_r=\cbraces{z\in\mathbb{C}}{r<\abs{z}<1}\] be an annulus for \(0<r<1\). Then \(\exists\eta>0\) such that \(\forall r\in(0,1)\) (\(\eta\) independent of \(r\)), \(h\qty(A_r)\) lies in an ellipse with a semi-major axis \(\alpha=\qty(\frac1r+\abs{b_1}\eta)\sqrt{1+\eta r^3}\) and a semi-minor axis \(\beta=\qty(\frac1r-\abs{b_1}\eta)\sqrt{1+\eta r^3}\).
 \end{lemma}
+\begin{proof}
+    Let \(\widetilde{h}(z)=\sqrt{\frac{\overline{b_1}}{\abs{b_1}}}h\qty(z\frac{\overline{b_1}}{\abs{b_1}})-\sqrt{\frac{\overline{b_1}}{b_1}}b_0\), so that \[\widetilde{h}(z)=\frac1z+\sum_{n=1}^\infty\qty(\frac{\overline{b_1}}{\abs{b_1}})^{\frac{1+n}{2}}b_nz^n.\]
+    Heuristically, we apply a rigid transformation to \(h\) so that \(\widetilde{h}\) satisfies the theorem hypothesis. Trivially, if the conclusions of the statement are satisfied for \(\widetilde{h}\), then they naturally follow for \(h\). Hence, without loss of generality, we consider only \(h(z)\) such that \(b_0=0\) and \(b_1\in\mathbb{R}\), or when \(h(z)=\frac1z+b_1z+\phi(z)\) where \(\phi(z)=\order{z^2}\). For \(z=r\ee^{\ii\theta}\), \[h(z)=\frac1{r}\qty(\cos\theta-\ii\sin\theta)+\]
+\end{proof}
 \begin{theorem}\label{thm:schlichta2leq2}
     If \(f:\mathbb{D}\to\mathbb{C}\) is schlicht and expands to \(\sum_{n=1}^\infty a_nz^n\), then \(\abs{a_2}\leq 2\).
 \end{theorem}
