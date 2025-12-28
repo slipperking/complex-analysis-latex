@@ -5,6 +5,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).parent
 BUILD_DIR = ROOT / "build"
+SVG_INKSCAPE_DIR = ROOT / "svg-inkscape"
 
 def clean_latex():
     print("Cleaning LaTeX auxiliary files...")
@@ -20,9 +21,17 @@ def clean_build_dir():
     else:
         print("No build directory was found")
 
+def clean_svg_inkscape():
+    if SVG_INKSCAPE_DIR.exists():
+        print("Removing SVG Inkscape directory...")
+        shutil.rmtree(SVG_INKSCAPE_DIR)
+    else:
+        print("No SVG Inkscape directory was found")
+
 def main():
     clean_latex()
     clean_build_dir()
+    clean_svg_inkscape()
     print("Cleanup complete.")
 
 if __name__ == "__main__":
