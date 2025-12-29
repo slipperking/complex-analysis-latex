@@ -19,7 +19,8 @@ def run_latex():
     print("Running LaTeX build...")
     cmd = [
         "latexmk",
-        #"-interaction=nonstopmode",
+        "-synctex=1",
+        "-interaction=nonstopmode",
         "-file-line-error",
         "--shell-escape",
         "-lualatex",
