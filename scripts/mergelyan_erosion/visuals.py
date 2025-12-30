@@ -114,7 +114,7 @@ def coords_to_tikz_path(coords: np.ndarray) -> str:
     return " ".join(f"({x:.6f},{y:.6f})" for x, y in coords)
 
 
-def write_region_boundaries(folder: str, geom_list, prefix: str, list_macro: str):
+def write_region_boundaries(folder: str, geom_list, prefix: str, list_macro: str, generate_individuals: bool = True):
     os.makedirs(folder, exist_ok=True)
     print(f"Writing region boundaries to {folder}")
 
@@ -135,26 +135,39 @@ def write_region_boundaries(folder: str, geom_list, prefix: str, list_macro: str
         rings.append(poly.exterior)
         rings.extend(poly.interiors)
 
-    macros = []
-    for i, ring in enumerate(rings, 1):
-        letter = number_to_letters(i)
-        macro = f"{prefix}{letter}"
-
-        coords = np.array(ring.coords)
-        path_str = coords_to_tikz_path(coords)
-
-        file_path = os.path.join(folder, f"{i}.tex")
-        with open(file_path, "w") as f:
-            f.write(f"\\def\\{macro}{{{path_str}}}\n")
-        print(f"  Written curve {i} to {file_path}")
-        macros.append(f"\\{macro}")
-
     all_path = os.path.join(folder, "all.tex")
     with open(all_path, "w") as f:
-        list_content = ",".join(macros)
+        path_defs = []
+        macro_refs = []
+
+        for i, ring in enumerate(rings, 1):
+            letter = number_to_letters(i)
+            macro = f"{prefix}{letter}"
+
+            coords = np.array(ring.coords)
+            path_str = coords_to_tikz_path(coords)
+
+            if generate_individuals:
+                # Write individual file
+                file_path = os.path.join(folder, f"{i}.tex")
+                with open(file_path, "w") as individual_file:
+                    individual_file.write(f"\\def\\{macro}{{{path_str}}}\n")
+                print(f"  Written curve {i} to {file_path}")
+                macro_refs.append(f"\\{macro}")
+            else:
+                path_defs.append(path_str)
+
+        if generate_individuals:
+            list_content = ",".join(macro_refs)
+        else:
+            list_content = ",\n".join(f"{{{path}}}" for path in path_defs)
+
         f.write(f"\\def\\{list_macro}{{{list_content}}}\n")
-    print(
-        f"  Written list macro \\{list_macro} with {len(macros)} curves to {all_path}")
+
+    if generate_individuals:
+        print(f"  Written list macro \\{list_macro} with {len(macro_refs)} references to {all_path}")
+    else:
+        print(f"  Written list macro \\{list_macro} with {len(path_defs)} inline paths to {all_path}")
 
 
 def write_input_disks(folder: str, disk_points: List[np.ndarray], disk_r: float):
@@ -285,7 +298,7 @@ def main():
     SCRIPT_DIR = Path(__file__).parent.resolve()
     PROJECT_ROOT = Path.cwd()
     INPUT_JSON = SCRIPT_DIR / "curves.json"
-    OUTPUT_ROOT = PROJECT_ROOT / "build" / "visual_output"
+    OUTPUT_ROOT = PROJECT_ROOT / "build" / "visual_output" / "mergelyan_erosion"
 
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
 
@@ -433,7 +446,7 @@ def main():
         else:
             current_union = current_union.union(contrib)
     write_region_boundaries(str(OUTPUT_ROOT / "covered_disjoint_union_region"),
-                            covered_disjoint_union_region, "CoveredDisjointUnionRegion", "CoveredDisjointUnionRegionList")
+                            covered_disjoint_union_region, "CoveredDisjointUnionRegion", "CoveredDisjointUnionRegionList",False)
     write_metadata_tex_all(str(OUTPUT_ROOT))
 
 
