@@ -47,13 +47,18 @@ The two kernels are related by a angular unitary Fourier transform:
             +\infty & x-2\lambda>0, \\
             -\infty & x-2\lambda<0.
     \end{dcases}\] By the Dirichlet integral \(\int_0^\infty\frac{\sin u}u\dd{u}=\frac\uppi2\), we
-    have that \[\mathrm{I}=\frac\uppi4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\uppi4\operatorname{sgn}(x-2\lambda).\] Similarly, \(\mathrm{I\!I\!I}=\frac\uppi2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\uppi4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)],\] and \[I(0)+\int_0^x\dv{I}{x}\ddx=I(0)+
+    have that \[\mathrm{I}=\frac\uppi4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\uppi4\operatorname{sgn}(x-2\lambda).\]
+    Similarly, \(\mathrm{I\!I\!I}=\frac\uppi2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\uppi4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)]=\frac{\uppi}4\begin{dcases}
+        0& \abs{x}>2\lambda, \\
+        1& -2\lambda<x<0, \\
+        -1& 0<x<2\lambda,
+    \end{dcases}\] and \[I(0)+\int_0^x\dv{I}{t}\ddt=I(0)+
         \begin{dcases}
-            \frac\uppi 4\qty[\eval{-x-x+2x}_{-2\lambda}^x]+I\qty(-2\lambda^+)-I(0) & x<-2\lambda,   \\
-            \frac\uppi 4(x-x+2x)=\frac{\uppi x}{2}                                 & -2\lambda<x<0, \\
-            \frac\uppi 4(x-x-2x)=-\frac{\uppi x}{2}                                & 0<x<2\lambda,  \\
-            \frac\uppi 4\qty[\eval{x+x-2x}_{2\lambda}^x]+I\qty(2\lambda^-)-I(0)    & x>2\lambda,
-    \end{dcases},\] which after simplification, becomes \[I(x)=I(0)+\uppi
+            \qty(\mathmakebox[\widthof{\(\int^-\)}][l]{\int_0^{-2\lambda}}+\int_{-2\lambda}^x)\dv{I}{t}\ddt & x<-2\lambda,   \\
+            \int_0^x\dv{I}{t}\ddt                                   & -2\lambda<x<0, \\
+            \int_0^x\dv{I}{t}\ddt & 0<x<2\lambda,  \\
+            \qty(\mathmakebox[\widthof{\(\int^-\)}][l]{\int_0^{2\lambda}}+\int_{2\lambda}^x)\dv{I}{t}\ddt                           & x>2\lambda,
+    \end{dcases}\] which after simplification, becomes \[I(x)=I(0)+\uppi
         \begin{dcases}
             -\lambda  & x<-2\lambda,   \\
             \frac x2  & -2\lambda<x<0, \\
@@ -106,7 +111,7 @@ The two kernels are related by a angular unitary Fourier transform:
                 & =-\eval{\frac{\sin^2 t}{\uppi t}}_{-\infty}^\infty+\int_{\mathbb{R}}\frac{\dd(\sin^2 t)}{\uppi t}=\int_{\mathbb{R}}\frac{\sin(2t)}{\uppi t}\ddt=1,
             \end{align*}
             we then have for any \(n>N\), that \[\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)\geq\frac{2L+\varepsilon}{2\sqrt{2\uppi}}\int_{-\delta}^{\delta}\frac{2\lambda}{\sqrt{2\uppi}}\qty(\frac{\sin\qty(\lambda u)}{\lambda u})^2\dd{u}-\frac{2M}{\uppi}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt.\]
-            Letting \(\lambda\to\infty\), we have \[\frac{2L+\varepsilon}{2\uppi}\int_{-\delta\lambda}^{\delta\lambda}\qty(\frac{\sin t}{t})^2\ddt-\frac{2M}{\uppi}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt\to\frac{2L+\varepsilon}{2\uppi}\int_{\mathbb{R}}\qty(\frac{\sin t}{t})^2\ddt=L+\frac{\varepsilon}{2}.\]
+            Letting \(\lambda\to\infty\), we have \[\frac{2L+\varepsilon}{2\uppi}\int_{-\delta\lambda}^{\delta\lambda}\mathmakebox[\widthof{\(\qty(\frac{\sin t}{t})\)}][l]{\qty(\frac{\sin t}{t})^2}\ddt-\frac{2M}{\uppi}\int_{\delta\lambda}^\infty\mathmakebox[\widthof{\(\qty(\frac{\sin t}{t})\)}][l]{\qty(\frac{\sin t}{t})^2}\ddt\to\frac{2L+\varepsilon}{2\uppi}\int_{\mathbb{R}}\mathmakebox[\widthof{\(\qty(\frac{\sin t}{t})\)}][l]{\qty(\frac{\sin t}{t})^2}\ddt=L+\frac{\varepsilon}{2}.\]
             Because \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)=L\geq
             L+\frac\varepsilon2\), we reach a contradiction.
         \item \(f(x_n)-L<-\varepsilon\). Then there exist \(\delta>0\), \(N\in\mathbb{N}\) such that \[f\qty(x_n)-f(y)>-\frac\varepsilon2\implies f(y)<f\qty(x_n)+\frac\varepsilon2<L-\frac\varepsilon2\] for any \(n>N\) and \(0<x_n-y<2\delta\). Splitting the convolution integral
@@ -170,7 +175,11 @@ The two kernels are related by a angular unitary Fourier transform:
 
     The final hypothesis required is the slow decrease of \(a\): for any
     \(\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y>0\) with
-    \(0<y-x<\delta\), we have \[a(y)-a(x)=\ee^{-x}\qty(\ee^{x-y}f(y)-f(x))>\ee^{-x}f(x)\qty(\ee^{-\delta}-1)=a(x)\qty(\ee^{-\delta}-1)>-M\qty(1-\ee^{-\delta}).\]
+    \(0<y-x<\delta\), we have 
+    \begin{align*}
+        a(y)-a(x)&=\ee^{-x}\qty(\ee^{x-y}f(y)-f(x))>\ee^{-x}f(x)\qty(\ee^{-\delta}-1)\\
+        &=a(x)\qty(\ee^{-\delta}-1)>M\qty(\ee^{-\delta}-1).
+    \end{align*}
     If \(\delta\) is chosen so that \(M\qty(1-\ee^{-\delta})<\varepsilon\), namely
     \(0<\delta<\ln\qty(\frac M{M-\varepsilon})\), then \(a(y)-a(x)>-\varepsilon\),
     and \(a\) then exhibits slow decrease.

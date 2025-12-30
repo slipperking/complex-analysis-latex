@@ -6,7 +6,13 @@ import xml.etree.ElementTree as ET
 import subprocess
 from pathlib import Path
 
-matplotlib.rcParams.update({"text.usetex": True, "font.family": "serif"})
+matplotlib.rcParams.update({
+    "text.usetex": True,
+    "font.family": "serif",
+    "font.serif": ["Computer Modern Roman"],
+    "axes.unicode_minus": False}
+)
+
 OUT_SVG = Path("build/svg/riemann_sphere.svg")
 FIGSIZE = (10, 10)
 

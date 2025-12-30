@@ -67,7 +67,7 @@ We will now study two representations for the Gamma function.
 \end{proof}
 The \textit{Weierstrass formula} is a direct consequence of the Gauss formula.
 \begin{theorem}[Weierstrass]\label{thm:gammafunction_weierstrassformula}
-    The reciprocal Gamma function has the entire Weierstrass factorization of
+    The reciprocal \(\Gamma\)-function has the entire Weierstrass factorization of
     \begin{equation}
         \frac{1}{\Gamma(z)}=z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\ee^{z\gamma},\label{eq:gammafunction_weierstrassformula}
     \end{equation} where \(\upgamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\).
@@ -85,7 +85,9 @@ The \textit{Weierstrass formula} is a direct consequence of the Gauss formula.
                             & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\lim_{n\to\infty}\exp\qty[z\qty(\int_1^n\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx)] \\
                             & =z\prod_{k=1}^n\qty[\qty(1+\frac{z}{k})\ee^{-\frac{z}{k}}]\exp\qty(z\upgamma).
     \end{align*}
-    The constant \(\upgamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. By the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\uppi^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
+    The constant \(\upgamma=\int_1^\infty\qty(\frac{1}{\floor{x}}-\frac{1}{x})\ddx\) is known as the \textit{Euler--Mascheroni constant}. For each \(x\), \(0\leq\frac1{\floor{x}}-\frac1x<\frac1{\floor{x}}-\frac1{\floor{x}+1}\), and the integral is bounded by \(\sum_{n=1}^\infty\qty(\frac1n-\frac1{n+1})<1\), and hence the integral is convergent. The properties of \(\upgamma\) still largely remain unknown. 
+    
+    By the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), if we let \(a_n=-n\) and \(p_n=1\), it follows that \[\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}=R^2\sum_{n=1}^\infty\frac{1}{n^2}=\frac{R^2\uppi^2}{6}\] is convergent. Thus, the Weierstrass formula defines an entire function with zeros at each of \(\mathbb{Z}_{\leq 0}\).
 \end{proof}
 We have two famous identities on the \(\Gamma\)-function:
 \begin{theorem}[Euler's Reflection Formula]\label{thm:gammafunction_eulerreflection}
