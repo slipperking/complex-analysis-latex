@@ -3,9 +3,9 @@ While Schwarz Lemma in \cref{lem:schwarz} concerns self-maps of \(\mathbb{D}\) w
 
 In 1938, Lars Ahlfors provided a further generalization by curvature, prompting the study of complex functions from a differential-geometric approach.
 
-The hyperbolic metric \(\lambda\) in \cref{eq:poincaremetricdefinition} does not increase under any holomorphic \(f:\mathbb{D}\to\mathbb{D}\). It was realized that this was a consequence of the constant negative curvature \(-1\) of \(\lambda\).
+The hyperbolic metric \(\lambda\) in \cref{eq:poincaremetricdefinition} does not increase under any holomorphic \(f:\mathbb{D}\to\mathbb{D}\). It was realized that this was a consequence of the constant negative curvature \(-1\) of \(\lambda\). The results we now provide are simplifications of those from~\cite{ahlforsanextensionofschwarzlemma}.
 \begin{theorem}[\textsc{Schwarz--Ahlfors--Pick}]\label{thm:schwarzahlforspick}
-    Let \(f\) be holomorphic on \(\mathbb{D}\). Suppose that \(\rho\) is a conformal metric defined on an open neighborhood \(U\supseteq f(\mathbb{D})\), where \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) and \(K_\rho(z)\leq -1\) for all \(z\in U\). Then \[f^*\rho(z)\leq\lambda(z)\quad\forall z\in\mathbb{D},\] where \(\lambda\) is the Poincaré metric, and equivalently, \[\dd{s}^2_{f^*\rho}\leq\dd{s}^2_\lambda,\] or that the metric \(\rho\) does not exceed the hyperbolic metric under the map \(f\).
+    Let \(f\) be holomorphic on \(\mathbb{D}\). Suppose that \(\rho\) is a regular metric defined on an open neighborhood \(U\supseteq f(\mathbb{D})\), where \(\dd{s}^2_\rho=\rho^2(w)\abs{\dd{w}}^2\) and \(K_\rho(w)\leq -1\) for all \(w\in U\). Then \[f^*\rho(z)\leq\lambda(z)\quad\forall z\in\mathbb{D},\] where \(\lambda\) is the Poincaré metric, and equivalently, \[\dd{s}^2_{f^*\rho}\leq\dd{s}^2_\lambda,\] or that the metric \(\rho\) does not exceed the hyperbolic metric under the map \(f\).
 \end{theorem}
 \begin{proof}
     Define
@@ -17,11 +17,38 @@ The hyperbolic metric \(\lambda\) in \cref{eq:poincaremetricdefinition} does not
     \begin{align*}
         \qty(\laplacian{\log(u_r)})\qty(\tau_r) & =\qty(\laplacian{\log\qty(f^*\rho)})\qty(\tau_r)-\qty(\laplacian{\log\qty(\lambda_r)})\qty(\tau_r) \\
                                                 & =-K_{f^*\rho}\qty(\tau_r)f^*\rho\qty(\tau_r)^2+K_{\lambda_r}\qty(\tau_r)\lambda_r\qty(\tau_r)^2    \\
-                                                & =-K_{f^*\rho}(\tau_r)f^*\rho\qty(\tau_r)^2-\lambda_r(\tau_r)^2.
+                                                & =-K_{f^*\rho}(\tau_r)f^*\rho\qty(\tau_r)^2-\lambda_r(\tau_r)^2.\label{eq:schwarzahlforspick_curvaturenumeratoratmaximum}
     \end{align*}
     By assumption, we have \(-K_{f^*\rho}\qty(\tau_r)\geq 1\). Hence, \(\qty(\laplacian{\log(u_r)})\qty(\tau_r)\geq f^*\rho\qty(\tau_r)^2-\lambda_r\qty(\tau_r)^2\). Since \(\log\) is increasing in \(\mathbb{R}\), \(\tau_r\) is a local maximum of \(\log\circ u_r\) and hence \(\qty(\laplacian{\log(u_r)})\qty(\tau_r)\leq 0\). Thus, we have \[f^*\rho\qty(\tau_r)^2-\lambda_r\qty(\tau_r)^2\leq 0\Longleftrightarrow M_r\leq 1.\] Now let \(r\to 1^-\), and it follows that \(M_r\to\sup_{z\in\mathbb{D}}\frac{f^*\rho(z)}{\lambda(z)}\leq 1\).
 \end{proof}
-The result above indeed generalizes the Schwarz--Pick Theorem when \(\rho\) is chosen to be \(\lambda\) and \(f\) is chosen such that \(f(\mathbb{D})\subseteq\mathbb{D}\).
+\begin{theorem}\label{thm:schwarzahlforspickextension1}
+    Let \(f:\mathbb{D}\to U\) be holomorphic. Let \(\rho:U\subseteq\mathbb{C}\to\mathbb{R}_{>0}\) define a regular metric such that at every point \(w\in U\), either
+    \begin{enumerate}
+        \item The second derivatives of \(\log\lambda\) are continuous (\(C^2\)) and \[\laplacian\qty(\log\lambda)(w)\geq\lambda^2\]
+        \item There exist two opposite directions \(\vu{n}',\vu{n}''\) such that 
+        \begin{equation}
+            \nabla_{\vu{n}'}\qty(\log\rho)(w)+\nabla_{\vu{n}''}\qty(\log\rho)(w)>0\label{eq:schwarzahlforspickextension1_directionalderivatives}
+        \end{equation} (the directional derivatives).
+    \end{enumerate} Then the metric \(f^*\rho\) does not exceed the hyperbolic metric \(\lambda\).
+\end{theorem}
+\begin{proof}
+    The first case is equivalent to \(K_{\rho}\leq -1\). 
+
+    The only modification to the proof of \cref{thm:schwarzahlforspick} is to consider the case of the inequality involving directional derivatives for each \(\tau_r\) (which by definition, is where the maximum value of \(u_r\) is attained within \(D(0,r)\)). By the increasing nature of \(\log\), \(\tau_r\) is also a local maximum of \(\phi\equiv\log u_r\equiv\log f^*\rho-\log\lambda_r\).
+
+    Since \(\tau_r\) is a local maximum, we must have \[\nabla_{\vu{n}'}\phi\qty(\tau_r)\leq0,\quad\nabla_{\vu{n}''}\phi\qty(\tau_r)\leq0\implies\nabla_{\vu{n}'}\phi\qty(\tau_r)+\nabla_{\vu{n}''}\phi\qty(\tau_r)\leq0.\]
+    This implies that \[\nabla_{\vu{n}'}\qty(\log f^*\rho)\qty(\tau_r)+\nabla_{\vu{n}''}\qty(\log f^*\rho)\qty(\tau_r)\leq\nabla_{\vu{n}'}\qty(\log \lambda_r)\qty(\tau_r)+\nabla_{\vu{n}''}\qty(\log\lambda_r)\qty(\tau_r)=0\] by the symmetry of the hyperbolic metric and the fact that the two directions are opposite to each other. Pulling back to \(\rho\) contradicts with \cref{eq:schwarzahlforspickextension1_directionalderivatives}. Thus, \(\tau_r\) cannot both simultaneously be the location of a maximum while satisfying said inequality; therefore the theorem follows.
+\end{proof}
+\begin{theorem}\label{thm:schwarzahlforspicksupportingmetric}
+    Let \(f:\mathbb{D}\to U\) be holomorphic. Let \(\rho:U\subseteq\mathbb{C}\to\mathbb{R}_{>0}\) be a continuous conformal metric (but not necessarily \(C^2\)) such that at each point \(w\), there exists a neighborhood \(V_w\supset w\) in \(U\) and a regular metric \(\rho_w\) thereon such that \(\rho_w(w)=\rho(w)\) and \(\rho_w<\rho\) everywhere else. If each \(K_{\rho_w}\leq-1\) everywhere, then the conclusion of \cref{thm:schwarzahlforspick} continues to hold.
+\end{theorem}
+\begin{proof}
+    By assumption, we have \[f^*\rho_{\tau_r}\qty(\tau_r)=f^*\rho\qty(\tau_r),\qquad f^*\rho_{\tau_r}\qty(z)<f^*\rho\qty(z)\qfor z\neq\tau_r.\]
+    Let \(\widetilde{u}_r(z)=\frac{f^*\rho_{\tau_r}(z)}{\lambda_r(z)}\), which attains is maximum of \(M_r\) at \(\tau_r\) as well.
+
+    The calculations in \cref{thm:schwarzahlforspick} on \(\widetilde{u}_r(z)\) (whose curvature calculations are now valid by \(C^2\)) give that \(f^*{\rho_{\tau_r}}\qty(\tau_r)^2-\lambda_r\qty(\tau_r)^2\leq 0\), which implies \(M_r\leq 1\). (We have used the supporting metric, rather than \(\rho\), to derive this inequality) The rest of the theorem follows naturally.
+\end{proof}
+\Cref{thm:schwarzahlforspick} generalizes the Schwarz--Pick Theorem when \(\rho\) is chosen to be \(\lambda\) and \(f\) is chosen such that \(f(\mathbb{D})\subseteq\mathbb{D}\).
 
 For the purpose of the proceeding generalization, we define the conformal metric
 \begin{equation}
@@ -33,22 +60,22 @@ Its Gaussian curvature is
                             & =-4\alpha\pdv[2]{}{\overline{z}}{z}\qty[\log(\frac{2r}{r^2-\abs{z}^2})]\qty(\frac{r^2-\abs{z}^2}{2r})^2=\alpha K_{\lambda_r}(z)=-\alpha,
 \end{align*} via the results and definitions in \cref{eq:poincaremetriconscaleddisks}.
 \begin{corollary}\label{cor:generalizedahlfors}
-    Let \(r>0\) and suppose \(f:D(0,r)\to U\) is holomorphic, where \(U\subseteq\mathbb{C}\) is a region. For any \(\beta>0\), define \(\rho\) to be a conformal metric on \(U\) with \(\dd{s}^2_\rho=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho\qty(z)\leq-\beta,\qquad\forall z\in U.\] Then \(\forall\alpha>0\), \[f^*\rho(z)\leq\sqrt{\frac{\alpha}{\beta}}\lambda_r^\alpha(z)\] for any \(z\in D(0,r)\), where \(f^*\rho(z)=(\rho\circ f)\abs{f'}\) is the metric pullback.
+    Let \(r>0\) and suppose \(f:D(0,r)\to U\) is holomorphic, where \(U\subseteq\mathbb{C}\) is a region. For any \(\beta>0\), define \(\rho\) to be a regular metric on \(U\) with \(\dd{s}^2_\rho=\rho^2(w)\abs{\dd{w}}^2\) such that \[K_\rho\qty(w)\leq-\beta,\qquad\forall w\in U.\] Then \(\forall\alpha>0\), \[f^*\rho(z)\leq\sqrt{\frac{\alpha}{\beta}}\lambda_r^\alpha(z)\] for any \(z\in D(0,r)\), where \(f^*\rho(z)=(\rho\circ f)\abs{f'}\) is the metric pullback.
 \end{corollary}
 \begin{proof}
     Consider the \(\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})\), a conformal metric pullback of \(\rho\sqrt{\beta}\) to \(\mathbb{D}\), which satisfies \[K_{\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})}\leq -1.\] By Schwarz--Ahlfors--Pick (\cref{thm:schwarzahlforspick}), we have \[\qty(z\mapsto zr)^*f^*\qty(\rho\sqrt{\beta})(z)\leq\lambda(z)=\sqrt{\alpha}\qty(z\mapsto rz)^*\lambda_r^\alpha(z)\qfor z\in\mathbb{D}.\]
     Since \(r\neq 0\), this implies that \[f^*\qty(\rho\sqrt{\beta})(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z)\qfor z\in D(0,r).\] Since \(\sqrt{\beta}\) is a constant, \[\sqrt{\beta}f^*\rho(z)\leq\sqrt{\alpha}\lambda_r^\alpha(z),\qquad\forall z\in D(0,r).\qedhere\]
 \end{proof}
 \begin{corollary}[\textsc{Generalized Liouville}]\label{cor:generalizedliouville}
-    If \(f:\mathbb{C}\to U\) is entire and \(U\) admits a conformal metric of curvature bounded above by a negative constant, then \(f\) must be constant.
+    If \(f:\mathbb{C}\to U\) is entire and \(U\) admits a regular metric of curvature bounded above by a negative constant, then \(f\) must be constant.
 \end{corollary}
 \begin{proof}
-    By assumption, \(\exists\beta>0\) such that \(\sup_{z\in U}\qty(K_\rho(z))\leq-\beta\). Then \cref{cor:generalizedahlfors} gives that \[f^*\rho(z)\leq\frac{1}{\sqrt{\beta}}\lambda_r(z)\qquad\forall z\in D(0,r)\] for any \(r>0\). As \(r\to\infty\), \(\lambda_r\to 0\). Hence, \(f^*\rho(z)=0\), implying that \(\qty(\rho\circ f)(z)\abs{f'}=0\). Hence, \(f\) is constant.
+    By assumption, \(\exists\beta>0\) such that \(\sup_{w\in U}K_\rho(w)\leq-\beta\). Then \cref{cor:generalizedahlfors} gives that \[f^*\rho(z)\leq\frac{1}{\sqrt{\beta}}\lambda_r(z)\qquad\forall z\in D(0,r)\] for any \(r>0\). As \(r\to\infty\), \(\lambda_r\to 0\). Hence, \(f^*\rho(z)=0\), implying that \(\qty(\rho\circ f)(z)\abs{f'}=0\). Hence, \(f\) is constant.
 \end{proof}
 \begin{remark}
     \Cref{cor:generalizedliouville} implies Liouville's Theorem (\cref{thm:liouville}). To justify this differential-geometric generalization, suppose \(f:\mathbb{C}\to U\) is entire such that \(U\) is bounded. There then exists some \(R>0\) such that \(U\subseteq D(0,R)\). The metric \(\lambda_R\) has constant negative curvature \(K=-1\) on \(D(0,R)\), and hence, under \(\beta=1\), \cref{cor:generalizedliouville} implies that \(f\) is constant.
 \end{remark}
-It is understood that a entire function is guaranteed to be constant if it is bounded. This is a statement of sufficiency, but it begs the question of the capacity for possible generalization of boundedness under which constancy is still always satisfied.
+It is understood that an entire function is guaranteed to be constant if it is bounded. This is a statement of sufficiency, but it begs the question of the capacity for possible generalization of boundedness under which constancy is still always satisfied.
 
 Consider an entire function \(f:\mathbb{C}\to U\), where \(U\) is an unbounded region such that \(\mathbb{C}\setminus U\) has positive area. Fix \(\zeta\in\operatorname{int}\qty(\mathbb{C}\setminus U)\). Then the map \(z\mapsto\frac{1}{z-\zeta}\) maps \(U\) to a bounded region and hence \(z\mapsto\frac{1}{f(z)-\zeta}\) is constant by Liouville's Theorem (\cref{thm:liouville}), implying the constancy of \(f\) (the essential proof of \cref{thm:casoratiweierstrassentire}).
 
@@ -63,14 +90,14 @@ Similar to in the proof of the Riemann Mapping Theorem (\cref{thm:riemannmapping
 
     Now fix \(\xi\in\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\). By the Open Mapping Theorem (\cref{thm:openmapping}), \(\exists\varepsilon>0\) such that \(D(\xi,\varepsilon)\subseteq\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\). Consequently, \(D(-\xi,\varepsilon)\cap\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})=\varnothing\). Lastly, the function \(\phi(z)=\frac{\varepsilon}{z+\xi}\) maps \(\psi\qty(\mathbb{C}^*\setminus\mathbb{R}_{\geq 1})\) to \(\mathbb{D}\). By Liouville (\cref{thm:liouville}), \(\phi\circ\psi\circ\varphi\circ f\) is constant, which implies \(f\) is constant by the injectivity of \(\phi\), \(\psi\), and \(\varphi\).
 \end{proof}
-The preceding examples show that if the omitted set is sufficiently ``large'' (in the sense of having positive area or disconnecting the plane in certain ways), then any entire function avoiding it must reduce to a constant. However, there are natural limits to the smallness of the omitted set. For instance, the exponential function \(\exp\) is an entire nonconstant function whose image is \(\mathbb{C}^*\), omitting only a single point. Thus, the property that \emph{an entire function omits a set} is not by itself sufficient to guarantee constancy unless that set is suitably substantial. This observation is formalized by Picard's Little Theorem (\cref{thm:littlepicard}), which as preluded to before, asserts that any nonconstant entire function can omit at most one complex value.
+The preceding examples show that if the omitted set is sufficiently ``large'' (in the sense of having positive area or disconnecting the plane in certain ways), then any entire function avoiding it must reduce to a constant. However, there are natural limits to the smallness of the omitted set. For instance, the exponential function \(\exp\) is an entire nonconstant function whose image is \(\mathbb{C}^*\), omitting only a single point. Thus, the property that \emph{an entire function omits a set} is not by itself sufficient to guarantee constancy unless that set is suitably substantial. This observation is formalized by Picard's Little Theorem (\cref{thm:littlepicard}), which as preluded to before, asserts that any non-constant entire function can omit at most one complex value.
 \begin{proposition}\label{prop:conformalmetricnegativecurvatureexistencewhenomits2points}
     Let \(U\subset\mathbb{C}\) be an open set such that \(\mathbb{C}\setminus U\) contains at least two points. Then \(U\) admits a conformal metric \(\rho\in C^2(U)\), \(\dd{s}_\rho^2=\rho^2(z)\abs{\ddz}^2\) such that \[K_\rho(z)\leq -\beta<0\qquad\forall z\in U\] for some \(\beta>0\).
 \end{proposition}
 \begin{proof}
     Without loss of generality, we may assume that \(\cbraces{0,1}\subseteq\mathbb{C}\setminus U\) (if not, a linear transformation \(z\mapsto\frac{z-\xi_1}{\xi_2-\xi_1}\) where \(\xi_1,\xi_2\in\mathbb{C}\setminus U\) are distinct will suffice to transform \(U\) to such a region).
 
-    Define a conformal metric with
+    Define a regular metric with
     \begin{equation}
         \rho(z)=\frac{\sqrt{1+\abs{z}^{\frac{1}{3}}}\sqrt{1+\abs{z-1}^{\frac{1}{3}}}}{\abs{z}^{\frac{5}{6}}\abs{z-1}^{\frac{5}{6}}},\qquad\dd{s}_{\rho}^2=\rho^2(z)\abs{\dd{z}}^2\label{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric}
     \end{equation} on \(\mathbb{C}\setminus\cbraces{0,1}\).

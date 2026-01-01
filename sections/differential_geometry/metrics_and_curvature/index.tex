@@ -1,7 +1,7 @@
 \subsection{Metrics and Curvature}
-Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(\rho\in C^2(\Omega)\) be a nonnegative function. The \textit{conformal metric} (or just \textit{metric}) induced by \(\rho\) is given by \[\dd{s}=\rho(z)\abs{\dd{z}}\qor\dd{s}^2=\rho^2(z)\abs{\dd{z}}^2.\] Note here that the term ``conformal'' here refers not to the holomorphy of \(\rho\), but rather, the geometric emphasis that only lengths are not preserved, and the scaling factor by \(\rho\) vanishes in the calculation of angles. The distance between two points \(z_1,z_2\in\Omega\) is defined as \[d\qty(z_1,z_2)=\inf_{\gamma\subset\Omega}\int_\gamma\rho(z)\abs{\dd{z}},\] where the infimum is taken over all piecewise smooth curves \(\gamma\) in \(\Omega\) joining \(z_1\) and \(z_2\).
+Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(\rho\in C^0(\Omega)\) be a positive function. The \textit{conformal metric} (or just \textit{metric}) induced by \(\rho\) is given by \[\dd{s}=\rho(z)\abs{\dd{z}}\qor\dd{s}^2=\rho^2(z)\abs{\dd{z}}^2.\] Note here that the term ``conformal'' here refers not to the holomorphy of \(\rho\), but rather, the geometric emphasis that only lengths are not preserved, and the scaling factor by \(\rho\) vanishes in the calculation of angles. The distance between two points \(z_1,z_2\in\Omega\) is defined as \[d\qty(z_1,z_2)=\inf_{\gamma\subset\Omega}\int_\gamma\rho(z)\abs{\dd{z}},\] where the infimum is taken over all piecewise smooth curves \(\gamma\) in \(\Omega\) joining \(z_1\) and \(z_2\).
 
-The (Gaussian) \textit{curvature} of the metric \(\rho\) at \(z\in\Omega\) is defined as
+A \(C^2\) metric is said to be \textit{regular}. The (Gaussian) \textit{curvature} of the regular metric \(\rho\) at \(z\in\Omega\) is defined as
 \begin{equation}
     K_\rho(z)=-\frac{\laplacian(\log\rho)(z)}{\rho(z)^2},\label{eq:curvatureofmetric}
 \end{equation} where \(\laplacian=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in TO BE CONTINUED.
@@ -117,7 +117,7 @@ that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by
 \end{equation} defines a metric on \(\Omega_1\), referred to as the \textit{metric pullback of} \(\rho\) \textit{by} \(f\).
 
 Curvature as defined in \cref{eq:curvatureofmetric} is invariant under
-pullbacks of conformal mappings, or in the case above, we now aim to show that
+pullbacks of conformal mappings, or in the case above, we now aim to show that (under assumptions of regularity)
 \begin{equation}
     K_\rho(f(z))=K_{f^*\rho}(z).\label{eq:curvatureinvarianceunderholomorphicpullback}
 \end{equation}

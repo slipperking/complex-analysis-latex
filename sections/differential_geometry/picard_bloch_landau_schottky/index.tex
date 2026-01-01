@@ -44,23 +44,34 @@ Picard's original proof, providing an advanced characterization of the value dis
 
 More importantly, we have shown the utility of even seemingly fundamental differential geometry, which can also be used in the proof of many other important results.
 \begin{theorem}[name=\textsc{Bloch}]\label{thm:bloch}
-    Let \(f:\mathbb{D}\to\mathbb{C}\) be holomorphic such that \(f'(0)=1\). Then \(f(\mathbb{D})\) contains a disk with a radius of at least \(\frac{1}{72}\).
+    Let \(f:\mathbb{D}\to\mathbb{C}\) be holomorphic such that \(\abs{f'(0)}=1\). Then there is a region \(S\subseteq\mathbb{D}\) on which \(f\) is univalent such that \(f(S)\) contains a disk with a radius of at least \(\frac{\sqrt{3}}{4}\) (known as a schlicht disk).
 \end{theorem}
 \begin{proof}
-
+    For \(w\in f(S)\), let \(\phi(w)\) denote the radius of the largest schlicht disk in \(f(S)\) centered at \(w\) (it is mapped to univalently by \(f\) on some subdomain). Trivially, \(\phi\) is \(C^0\).
+    
+    Define the metric \[\rho(w)=\]
 \end{proof}
 \begin{remark}
-    The estimate \(\frac{1}{72}\) is far from optimal. Bloch's constant \(B\) is defined as the supremum of the radii of such disks that can be contained in \(f(\mathbb{D})\) for any holomorphic function \(f:\mathbb{D}\to\mathbb{C}\) satisfying \(f'(0)=1\).
+    \textit{Bloch's constant} \(B\) is defined as the supremum of the radii of such disks that can be contained in \(f(\mathbb{D})\) for any holomorphic function \(f:\mathbb{D}\to\mathbb{C}\) satisfying \(f'(0)=1\).
 
-    The precise value of \(B\) remains unknown to this day. In 1937, H. Grunsky and L. Ahlfors established the bounds
-    \[\frac{\sqrt{3}}{4}\leq B\leq\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}},\]
-    where \(\Gamma\) denotes the Gamma function (as in \cref{eq:gammafunction}). M. Bonk later refined the lower bound to \(B\geq\frac{\sqrt{3}}{4}+\frac{10^{-12}}{13}\). This was further improved in 1996 by H. Chen and P. M. Gauthier to \(B\geq\frac{\sqrt{3}}{4}+\frac{1}{5000}\).
+    The precise value of \(B\) remains unknown to this day. In 1937, H. Grunsky and L. Ahlfors established the bound
+    \[B\leq\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}},\]
+    where \(\Gamma\) denotes the Gamma function (as in \cref{eq:gammafunction}). Later the lower bound of \(\frac{\sqrt{3}}{4}\) was given, then to be refined to \(B\geq\frac{\sqrt{3}}{4}+\frac{10^{-12}}{13}\) by M. Bonk, which was further improved to \(B\geq\frac{\sqrt{3}}{4}+\frac{1}{5000}\) in 1996 by H. Chen and P. M. Gauthier.
 
     Grunsky and Ahlfors actually conjectured that the upper bound in their inequality is exact---that is, \(B=\frac{\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{11}{12})}{\Gamma\qty(\frac{1}{4})}\sqrt{\frac{\sqrt{3}-1}{2}}\).
 \end{remark}
 \begin{theorem}[\textsc{Landau}]
-    Let \(f(z)=\sum_{n=0}^\infty a_n z^n\) such that \(a_1\neq0\).
+    The image of any holomorphic function \(f\) in \(\mathbb{D}\) satisfying \(f(0)=0\) and \(f'(0)=1\) contains a disk with radius of at least \(\frac12\).
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+\begin{remark}
+    Similarly, the estimate \(\frac12\) is not optimal. It was established that the corresponding \textit{Landau's constant} lies between \(\frac12\) and \(\frac{\Gamma\qty(\frac13)\Gamma\qty(\frac56)}{\Gamma\qty(\frac16)}\).
+\end{remark}
+\begin{theorem}[\textsc{Landau--Carathéodory}]
+    Let \(f(z)=\sum_{n=0}^\infty a_n z^n\) such that \(a_1\neq0\) and \(f\) is holomorphic on \(D(0,r)\). If \(f\) omits 0 and 1, then \(\exists R\) dependent only on \(a_0\) and \(a_1\) such that \(r\leq R\).
 \end{theorem}
 \begin{theorem}[\textsc{Schottky}]
-    Suppose that \(f(z)=\sum_{n=0}^\infty a_n z^n\) is a function sequence.
+    Suppose that \(f(z)=\sum_{n=0}^\infty a_n z^n\) defines an analytic function on \(D(0,r)\) omitting 0 and 1.
 \end{theorem}
