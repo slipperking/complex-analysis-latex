@@ -327,15 +327,15 @@ def main():
                       cfg["disk_points"], disk_r)
 
     write_region_boundaries(str(OUTPUT_ROOT / "pre_erosion_region"),
-                            [K], "PreErosionRegion", "PreErosionRegionList")
+                            [K], "PreErosionRegion", "PreErosionRegionList",False)
     write_region_boundaries(str(OUTPUT_ROOT / "eroded_region"),
-                            [Eroded], "ErodedRegion", "ErodedRegionList")
+                            [Eroded], "ErodedRegion", "ErodedRegionList",False)
     write_region_boundaries(str(OUTPUT_ROOT / "support_region"),
-                            [Support], "SupportRegion", "SupportRegionList")
+                            [Support], "SupportRegion", "SupportRegionList",False)
     write_region_boundaries(str(OUTPUT_ROOT / "covered_region"),
-                            [CoveredRegion], "CoveredRegion", "CoveredRegionList")
+                            [CoveredRegion], "CoveredRegion", "CoveredRegionList",False)
     write_region_boundaries(str(OUTPUT_ROOT / "no_centers_region"),
-                            [NoCentersRegion], "NoCentersRegion", "NoCentersRegionList")
+                            [NoCentersRegion], "NoCentersRegion", "NoCentersRegionList",False)
 
     r_sub = cfg["global_offset"] * cfg["subcover_disk_radius_scalar"]
     l = max(0, (cfg["subcover_disk_radius_scalar"] - 1) /

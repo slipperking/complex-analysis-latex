@@ -47,9 +47,16 @@ More importantly, we have shown the utility of even seemingly fundamental differ
     Let \(f:\mathbb{D}\to\mathbb{C}\) be holomorphic such that \(\abs{f'(0)}=1\). Then there is a region \(S\subseteq\mathbb{D}\) on which \(f\) is univalent such that \(f(S)\) contains a disk with a radius of at least \(\frac{\sqrt{3}}{4}\) (known as a schlicht disk).
 \end{theorem}
 \begin{proof}
-    For \(w\in f(S)\), let \(\phi(w)\) denote the radius of the largest schlicht disk in \(f(S)\) centered at \(w\) (it is mapped to univalently by \(f\) on some subdomain). Trivially, \(\phi\) is \(C^0\).
+    For \(w\in f(\mathbb{D})\), let \(\phi(w)\) denote the radius of the largest schlicht disk in \(f(\mathbb{D})\) centered at \(w\) (it is mapped to univalently by \(f\) on some subdomain). Trivially, \(\phi\) is \(C^0\) and vanishes at points where \(f'=0\) and towards the boundary of \(f(\mathbb{D})\).
     
-    Define the metric \[\rho(w)=\]
+    Define the metric \[\rho(w)=\frac{A}{\sqrt{\phi(w)}\qty(A^2-\phi(w))},\qquad\dd{s}=\rho(w)\abs{\dd{w}}\] for \(w\in f(\mathbb{D})\) and \(\rho(w)\neq 0\), where \(A^2>\sup_w\rho(w)\) is a constant. We may assume that \(\sup_w\rho(w)\) is finite, since otherwise the theorem is already proved for \(f\).
+
+    At a point (an \textit{algebraic} branch point) where \(f'=0\) corresponding to some \(a\in f(\mathbb{D})\), \(f-a\) has a zero of multiplicity \(n\geq 2\). On a neighborhood of \(a\), we have \(\phi(w)=\abs{w-a}\) (since \(f'=0\) is isolated in the interior of \(f(\mathbb{D})\)). Hence in this neighborhood, letting \(w_1=(w-a)^{\frac1n}\), the metric has equivalent form \(\dd{s}=\frac{n\phi(w)^{\frac12-\frac1n}}{A^2-\phi(w)}\abs{\dd{w_1}}\).
+
+    For every non-singular point \(w_0\), the bounding circle corresponding to \(\phi\qty(w_0)\) passes through a (at least one) branch point or a boundary, denoted by \(b=b_{w_0}\). Let \(\phi_{w_0}(w)=\abs{w-b}\) and let \[\rho_{w_0}(w)=\frac{A}{\sqrt{\phi_{w_0}(w)}\qty(A^2-\phi_{w_0}(w))},\qquad w\in D\qty(w_0,\phi(w_0)).\]
+    By the definition of \(\phi\), we have \(\phi_{w_0}\geq\phi\) everywhere in this neighborhood. Since \(\rho_{w_0}(w)=\frac{A}{\phi'\qty(A^2-\phi^2)}=\qty(\sqrt{\phi_{w_0}(w)})^*\qty(\phi'\mapsto\frac{2A}{\qty(A^2-\phi^2)})\) is the pullback of the hyperbolic metric in \cref{eq:poincaremetricscaledcurvature}, the metric \(\rho_{w_0}(w)\) has the constant negative curvature of \(-1\). 
+
+    Our goal is to construct \(\rho_{w_0}\) so that it is the function of a supporting metric for \(\rho\) (satisfies the criteria for \cref{thm:schwarzahlforspicksupportingmetric}). For \(\rho_{w_0}\leq\rho\) to be satisfied, we consider \[\sqrt{\phi_{w_0}(w)}\qty(A^2-\phi_{w_0}(w))\geq\sqrt{\phi(w)}\qty(A^2-\phi(w)),\qquad\phi_{w_0}(w)\geq\phi(w).\] In particular, we want \[t\mapsto\sqrt{t}\qty(A^2-t)\] to be increasing 
 \end{proof}
 \begin{remark}
     \textit{Bloch's constant} \(B\) is defined as the supremum of the radii of such disks that can be contained in \(f(\mathbb{D})\) for any holomorphic function \(f:\mathbb{D}\to\mathbb{C}\) satisfying \(f'(0)=1\).
