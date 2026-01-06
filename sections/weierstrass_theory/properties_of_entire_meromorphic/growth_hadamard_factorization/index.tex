@@ -46,9 +46,9 @@
         &=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^n\abs{\frac{a_j}R}+\sum_{j=1}^m\abs{\frac{b_j}R}.\qedhere
     \end{align*}
 \end{proof}
-Since the summation on the right is negative, we have the following consequence:
+Since the summation on the right is nonpositive, we have the following consequence:
 \begin{corollary}[Jensen's Inequality]\label{cor:jensensinequality}
-    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\). It follows that \[\log\abs{f(0)}\leq\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
+    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) and \(f(0)\neq 0\). It follows that \[\log\abs{f(0)}\leq\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
 \end{corollary}
 \begin{theorem}[\textsc{Poisson--Jensen Formula}]\label{thm:poissonjensenformula}
     Suppose \(f\) is a meromorphic function on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\) and is non-vanishing on \(\partial D(0,R)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
@@ -86,9 +86,9 @@ Since the summation on the right is negative, we have the following consequence:
     Let \(f:\mathbb{D}\to\mathbb{C}\) be a non-constant bounded holomorphic function whose zeros are \(a_1,a_2,\ldots\), counted according to their multiplicities, ordered such that \(\abs{a_n}\leq \abs{a_{n+1}}\) for all \(n\in\mathbb{N}\). Then, \[\sum_{n=1}^\infty\qty(1-\abs{a_n})\] is convergent.
 \end{lemma}
 \begin{proof}
-    First assume \(f(0)\neq 0\) and choose \(M\) such that \(f\leq M\) on \(\mathbb{D}\). The magnitudes \(\cbraces{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\cbraces{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside \(D(0,R)\). By Jensen's Formula (\cref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_{0}^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}\leq \log(M)+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
-    Let \(R\to 1^{-}\). It follows that \[\log\abs{f(0)}\leq\log\abs{M}+\sum_{k=1}^\infty\log\abs{a_k}.\]
-    For any \(0<a<1\), we have \(-\log(a)=1-a+\sum_{n=2}^\infty\qty(1-a)^n a^n>1-a\). Hence, \[0\leq\sum_{k=1}^\infty\qty(1-\abs{a_k})<-\sum_{k=1}^\infty\log\abs{a_k}\leq\log\abs{M}-\log\abs{f(0)}.\]
+    First assume \(f(0)\neq 0\) and choose \(M\) such that \(\abs{f}\leq M\) on \(\mathbb{D}\). The magnitudes \(\cbraces{\abs{a_n}}\) are countable in \(\mathbb{D}\), and therefore we can choose \(R\) to be arbitrarily near \(1\) without coinciding with \(\cbraces{\abs{a_n}}\). Let \(n(R)\) count the number of zeros, according to multiplicities, inside \(D(0,R)\). By Jensen's Formula (\cref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_{0}^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}\leq\log{M}+\sum_{k=1}^{n(R)}\log\abs{\frac{a_k}{R}}.\]
+    Let \(R\to 1^{-}\). It follows that \[\log\abs{f(0)}\leq\log{M}+\sum_{k=1}^\infty\log\abs{a_k}.\]
+    For any \(0<a<1\), we have \(-\log(a)=1-a+\sum_{n=2}^\infty\qty(1-a)^n a^n>1-a\). Hence, \[0\leq\sum_{k=1}^\infty\qty(1-\abs{a_k})<-\sum_{k=1}^\infty\log\abs{a_k}\leq\log{M}-\log\abs{f(0)}.\]
     If \(f\) has a zero of multiplicity \(m\) at \(0\), then the argument applies to \(z\mapsto \frac{f(z)}{z^m}\).
 \end{proof}
 \begin{theorem}[\textsc{Blaschke Product}]\label{thm:blaschkeproduct}
