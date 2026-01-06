@@ -19,9 +19,28 @@
     \end{align}
     Since for fixed \(k\), \[\log\abs{\varphi_{\frac{a_k}{R}}(0)}=\log\abs{\frac{a_k}{R}}\qand\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}=\log(1)=0,\]
     \cref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
-    Suppose \(f\) has additional zeros at each \(\cbraces{b_j=R\ee^{\ii\vartheta_j}}_{1\leq j\leq m}\subset\partial D(0,R)\), each with multiplicity \(k_j\). Since the zeros here are discrete, we can cover them with disks \(D\qty(b_j,\varepsilon_j)\) within the domain of holomorphy of \(f\) such that their closures are disjoint and do not intersect any \(a_k\). Notice that near each \(b_j\), \(f(z)=\qty(z-b_j)^{k_j}h_j(z)\), where \(h_j\) is nonzero on \(D\qty(b_j,\varepsilon_j)\). Thus, \(\log\abs{f\qty(R\ee^{\ii\theta})}=k_j\log\abs{z-b_j}+\log\abs{h_j(z)}\).
-
-    Let \(\rho\) satisfy \(\max_{1\leq j\leq m}\qty(R-\varepsilon_j)<\rho<R\) and for simplicity, define \(\tau_j=2\arcsin(\frac{\varepsilon_j}{2R})\) to be half the angle subtended by the arc \(K_j=\partial D(0,R)\cap\overline{D\qty(b_j,\varepsilon_j)}\). By the previous result, we have \[\log\abs{f(0)}=\frac{1}{2\uppi}\qty(\int_{R\ee^{\ii\theta}\notin\bigcup \interior{K_j}}+\sum_{j=1}^m\int_{\vartheta_j-\tau_j}^{\vartheta_j+\tau_j})\log\abs{f\qty(\rho\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\abs{\frac{a_k}{\rho}}.\] % TODO
+    Suppose \(f\) has additional zeros at each \(\cbraces{b_j=R\ee^{\ii\vartheta_j}}_{1\leq j\leq m}\subset\partial D(0,R)\) (each \(0\leq\vartheta_j<2\uppi\)), each with multiplicity \(k_j\). Then \(f\) can be canonically factored into \[f(z)=g(z)\prod_{j=1}^m\qty(z-b_j)^{k_j},\]
+    where \(g\) does not vanish at the boundary. By the previous result, we have 
+    \begin{equation}
+        \log\abs{g(0)}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{g\qty(R\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^n\log\abs{\frac{a_j}R}.\label{eq:jensensformula_formulanonvanishingboundary}
+    \end{equation}
+    Fix \(1\leq j\leq m\). Consider the integral \[\frac1{2\uppi}\int_0^{2\uppi}\log\qty[\abs{R\ee^{\ii\theta}-b_j}^{k_j}]\dd{\theta}=\lim_{\varepsilon\to 0^+}\frac1{2\uppi}\int_{\substack{0\leq\theta\leq2\uppi\\\abs{\vartheta_j-\theta}>\varepsilon\\\abs{\vartheta_j-2\uppi-\theta}>\varepsilon\\\abs{\vartheta_j+2\uppi-\theta}>\varepsilon}}k_j\log\abs{R\ee^{\ii\theta}-R\ee^{\ii\vartheta_j}}\dd{\theta}.\]
+    Observe that
+    \begin{align*}
+        \log\abs{R\ee^{\ii\theta}-R\ee^{\ii\vartheta_j}}&=\log\abs{R\exp\qty(\ii\frac{\theta+\vartheta_j}{2})\qty(\exp(\ii\frac{\theta-\vartheta_j}{2})-\exp\qty(\ii\frac{\vartheta_j-\theta}{2}))}\\
+        &=\log\qty[2R\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}]=\log(2R)+\log\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}.
+    \end{align*}
+    In particular, consider \[I=\int_0^{2\uppi}\log\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}\dd{\theta}=2\int_{-\frac{\vartheta_j}2}^{\uppi-\frac{\vartheta_j}2}\log\abs{\sin\theta}\dd{\theta}=2\int_0^{\uppi}\log\abs{\sin\theta}\dd{\theta}\] (since the integrand becomes \(\uppi\)-periodic). By symmetry, we have 
+    \begin{align*}
+        I&=4\int_0^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}=4\int_0^{\frac{\uppi}4}\log\abs{\sin\theta}\dd{\theta}+4\int_{\frac{\uppi}4}^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}\\
+        &=4\int_0^{\frac{\uppi}4}\log\abs{\sin\theta}\dd{\theta}+4\int_0^{\frac{\uppi}4}\log\abs{\cos\theta}\dd{\theta}=4\int_0^{\frac{\uppi}4}\log\abs{\sin(2\theta)}\dd{\theta}-\uppi\log 2\\
+        &=2\int_0^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}-\uppi\log2=\frac I2-\uppi\log2\implies I=-2\uppi\log2.
+    \end{align*}
+    Therefore, 
+    \begin{equation}
+        \frac1{2\uppi}\int_0^{2\uppi}\log\qty[\abs{R\ee^{\ii\theta}-b_j}^{k_j}]\dd{\theta}=k_j\log{R},\label{eq:jensensformula_integratedlogsingularity}
+    \end{equation} which implies that \[\log\abs{f(0)}=\log\abs{g(0)}+\sum_{j=1}^m \log\abs{-b_j}^{k_j}=\log\abs{g(0)}+\sum_{j=1}^m k_j\log R.\]
+    Recognizing the forms of \cref{eq:jensensformula_integratedlogsingularity,eq:jensensformula_formulanonvanishingboundary}, we thus have \[\log\abs{f(0)}=\frac1{2\uppi}\int_0^{2\uppi}\qty(\log\abs{g\qty(R\ee^{\ii\vartheta_j})}+\sum_{j=1}^m\log\qty[\abs{R\ee^{\ii\theta}-b_j}^{k_j}])\dd{\theta}+\sum_{j=1}^n\abs{\frac{a_j}R}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^n\abs{\frac{a_j}R}+\sum_{j=1}^m\abs{\frac{b_j}R}.\qedhere\]
 \end{proof}
 Since the summation on the right is negative, we have the following consequence:
 \begin{corollary}[Jensen's Inequality]\label{cor:jensensinequality}
