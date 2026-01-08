@@ -127,9 +127,38 @@ The subjects to be discussed here are relevant and preliminary to Nevanlinna the
 \begin{definition}[Growth Order of Entire Functions]
     An entire function \(f\) is said to be of \textit{finite order} if there exists \(\alpha, R_\alpha\in\mathbb{R}\) such that \[\abs{f(z)}\leq\exp\qty(\abs{z}^\alpha),\qquad\forall\abs{z}>R_\alpha,\] or in loose terms, \(f\) is of finite order if it grows at most exponentially for large \(z\). The \textit{order} of \(f\), or \(\lambda\qty(f)\) is defined to be the infimum of all \(\alpha\) satisfying the previous condition.
 \end{definition}
+\begin{proposition}
+    Let \(f\) be entire; then if there exist \(a,b,\alpha,R_{\alpha,\beta}>0\) such that \[\abs{f(z)}\leq\exp\qty(a\abs{z}^\alpha+b),\qquad\forall\abs{z}>R_{\alpha,\beta},\] then \(\lambda(f)\leq \alpha\).
+\end{proposition}
+\begin{proof}
+    Since \(\abs{z}^\varepsilon\to\infty\) as \(\abs{z}\to\infty\), for any \(\varepsilon>0\), there exists \(R_\varepsilon\) such that \[\abs{z}^{\varepsilon}\geq 2a\implies\frac12\abs{z}^{\alpha+\varepsilon}\geq a\abs{z}^\alpha\] for \(\abs{z}>R_{\varepsilon}\). There exists \(R'_\varepsilon>0\) such that \[\abs{z}>R'_\varepsilon\implies b\leq\frac12\abs{z}^{\alpha+\varepsilon}.\]
+    For simplicity, let the value \(\max\qty{R_\varepsilon,R'_\varepsilon}\) be denoted by \(R_\varepsilon\). Then \[\abs{z}>R_\varepsilon\implies a\abs{z}^\alpha+b\leq\abs{z}^{\alpha+\varepsilon}.\] By assumption, we have \[\abs{f(z)}\leq\exp\qty(\abs{z}^{\alpha+\varepsilon})\implies \alpha+\varepsilon\geq\lambda(f).\]
+    Letting \(\varepsilon\to 0^+\), the assertion follows.
+\end{proof}
+\begin{theorem}
+    The order of an entire \(f\) may be explicitly given by \[\lambda(f)=\limsup_{R\to\infty}\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}.\]
+\end{theorem}
+\begin{proof}
+    By assumption, we have \(\forall\varepsilon'>0\), \(\exists 0<\varepsilon<\varepsilon'\) such that \[\sup_{\abs{z}=R}\abs{f(z)}\leq\exp\qty(R^{\lambda(f)+\varepsilon})\] for some \(R'\) and any \(R>R'\).
+    Taking logarithms twice we have \[\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}\leq\limsup_{R\to\infty}\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}\leq\lambda(f)+\varepsilon\to\lambda(f)\]
+    as \(\varepsilon'\to 0\). Moreover, for any \(\varepsilon>0, R'>0\), \(\exists R>R'\) such that \[\sup_{\abs{z}=R}\abs{f(z)}>\exp\qty(R^{\lambda(f)-\varepsilon})\implies\varlimsup_{R\to\infty}\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}\geq\lambda(f)-\varepsilon\to\lambda(f)\] as \(\varepsilon\to 0\). Therefore, \[\lambda(f)\leq\limsup_{R\to\infty}\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}\leq\lambda(f).\qedhere\]
+\end{proof}
 \begin{example}
     The function \(\sin\) is of order 1, while \(\exp\circ\exp\) is not of finite order.
 \end{example}
+\begin{proof}
+    We consider the two examples separately:
+    \begin{enumerate}
+        \item Observe that \[\sup_{\abs{z}=R}\abs{\sin(z)}\leq\sup_{\abs{z}=R}\frac{\abs{\ee^{\ii z}}+\abs{\ee^{-\ii z}}}{2}=\sup_{\abs{z}=R}\frac{\ee^{\abs{y}}+\ee^{-\abs{y}}}{2}\leq\sup_{\abs{z}=R}\ee^{\abs{y}}=\ee^R.\]
+        For \(R>1\), we have \(\ee^{-R}<1<\frac12\ee^R\), and hence for \(z=\ii R\), we have \[\abs{\sin(z)}=\frac{\ee^{R}-\ee^{-R}}{2}>\frac14\ee^R.\]
+        Therefore, \[\frac14\ee^R<\sup_{\abs{z}=R}\abs{\sin(z)}\leq\ee^R\implies\lambda(f)=\limsup_{R\to\infty}\frac{\log\qty(R+\order{1})}{\log R}=1.\]
+        \item Let \(z=R\), then 
+        \begin{align*}
+            \sup_{\abs{z}=R}\abs{\exp\circ\exp}\geq\exp\circ\exp(R)&\implies\log\circ\log\sup_{\abs{z}=R}\abs{f(z)}\geq R\\
+            &\implies\lambda(f)\geq\limsup_{R\to\infty}\frac{R}{\log R}=\infty.\qedhere
+        \end{align*}
+    \end{enumerate}
+\end{proof}
 The goal of the classification is to find the implications of \(\lambda\) on the rate of which zeros tend to \(\infty\).
 \begin{example}\label{ex:sinproductformula}
     Prove that \[\sin(\uppi z)=\uppi z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
