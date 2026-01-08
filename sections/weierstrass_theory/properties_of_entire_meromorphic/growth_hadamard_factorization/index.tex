@@ -96,8 +96,8 @@ Since the summation on the right is nonpositive, we have the following consequen
     Let \(\cbraces{a_k}_{k\in\mathbb{N}}\subset \mathbb{D}^*=\mathbb{D}\setminus\cbraces{0}\) be a sequence such that the series \(\sum_{k=1}^\infty \qty(1-\abs{a_k})\) is convergent (known as the \textit{Blaschke condition}). Then the \textit{Blaschke product}, defined by
     \begin{equation}
         B(z)=\prod_{k=1}^\infty \qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_k}(z)],\label{eq:blaschkeproduct_statement}
-    \end{equation} where \(\varphi_a(z
-    )\) is a Möbius transformation in the form of \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}, is uniformly convergent on compact subsets of \(\mathbb{D}\) to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\cbraces{a_k}\).
+    \end{equation} (where \(\varphi_a(z
+    )\) is a Möbius transformation in the form of \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}), locally uniformly converges to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\cbraces{a_k}_{k\in\mathbb{N}}\), counted according to multiplicities.
 \end{theorem}
 \begin{proof}
     If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \cref{lem:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,R)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
@@ -115,11 +115,16 @@ Since the summation on the right is nonpositive, we have the following consequen
 \begin{remark}
     A more general Blaschke product has an additional factor of \(z^m\) to account for a zero at the origin, similar to the case of the Weierstrass product.
 \end{remark}
-\begin{corollary}
-    Let \(f:\mathbb{D}\to\mathbb{C}\) be bounded and holomorphic whose multiplicity of the zero at 0 is \(m\) (if \(f\) does not vanish at 0, then \(m=0\)). If \(\cbraces{a_n}_{n\in\mathbb{N}}\) are its zeros in \(\mathbb{D}^*\), counting multiplicities, then \[f(z)=F(z)z^m\prod_{n=1}^{\infty}\qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_n}(z)],\] where \(F\) is bounded, holomorphic, and non-vanishing on \(\mathbb{D}\). Moreover, \[\sup_{z\in\mathbb{D}}\abs{f(z)}=\sup_{z\in\mathbb{D}}\abs{F(z)}.\]
+\begin{corollary}\label{cor:blaschkeproductfactorization}
+    Let \(f:\mathbb{D}\to\mathbb{C}\) be bounded and holomorphic whose multiplicity of the zero at 0 is \(m\) (if \(f\) does not vanish at 0, then \(m=0\)). If \(\cbraces{a_n}_{n\in\mathbb{N}}\) are its zeros in \(\mathbb{D}^*\), counting multiplicities, then \[f(z)=F(z)z^m\prod_{n=1}^{\infty}\qty[-\frac{\abs{a_n}}{a_n}\varphi_{a_n}(z)],\] where \(F\) is bounded, holomorphic, and non-vanishing on \(\mathbb{D}\). Moreover, \[\sup_{z\in\mathbb{D}}\abs{f(z)}=\sup_{z\in\mathbb{D}}\abs{F(z)}.\]
 \end{corollary}
 \begin{proof}
-    
+    Let \[F(z)=\frac{f(z)}{z^m\prod_{n=1}^\infty\qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_n}(z)]}.\] By construction, \(F\) extends to its removable singularities to a holomorphic function that does not vanish. Because \[\sup_{z\in\mathbb{D}}\abs{z^m\prod_{n=1}^\infty\qty[-\frac{\abs{a_n}}{a_n}\varphi_{a_n}(z)]}\leq 1,\] it follows that 
+    \begin{equation}
+        \sup_{z\in\mathbb{D}}\abs{F(z)}\geq\sup_{z\in\mathbb{D}}\abs{f(z)}.\label{eq:blaschkeproductfactorization_supremuminequalities}
+    \end{equation}
+    The partial products \[B_n(z)=\prod_{k=1}^n\qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_k}(z)]\] give for fixed \(\theta\in\mathbb{R},\varepsilon>0\), the existence of \(0<r'<1\) such that \(r'<r<1\) implies \[\abs{B_n\qty(r\ee^{\ii\theta})}>1-\varepsilon.\]
+    Then \[\sup_{z\in\mathbb{D}}\abs{\frac{f\qty(z)}{z^m B_n(z)}}=\sup_{z\in\mathbb{D}\setminus\overline{D(0,r)}}\abs{\frac{f\qty(z)}{z^mB_n(z)}}\leq\frac1{r^m\qty(1-\varepsilon)}\sup_{z\in\mathbb{D}}\abs{f\qty(z)}\to\frac1{1-\varepsilon}\sup_{z\in\mathbb{D}}\abs{f(z)}\] as \(r\to 1^-\) by the Maximum Modulus Principle (\cref{thm:maximummodulus}). Letting \(\varepsilon\to 0^+\), \(n\to\infty\) gives \[\sup_{z\in\mathbb{D}}\abs{F(z)}\leq\sup_{z\in\mathbb{D}}\abs{f(z)},\] which in conjunction with \cref{eq:blaschkeproductfactorization_supremuminequalities}, completes the final assertion.
 \end{proof}
 From the results above, a recurring theme in complex analysis is hinted at; the rate of growth of functions provides insight towards the distribution of its zeros.
 
