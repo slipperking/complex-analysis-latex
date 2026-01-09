@@ -1,94 +1,95 @@
 \subsubsection{Classifying Growth and the Hadamard Factorization Theorem}
 \begin{lemma}\label{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}
-    Let \(f:\overline{D(0,R)}\to\mathbb{C}^*\) (where \(R>0\)) be a nowhere-vanishing holomorphic function. It follows that \[\log\qty|f(0)|=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
+    Let \(f:\overline{D(0,r)}\to\mathbb{C}^*\) (where \(r>0\)) be a nowhere-vanishing holomorphic function. It follows that \[\log\qty|f(0)|=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}.\]
 \end{lemma}
 \begin{proof}
-    Without loss of generality, assume \(R=1\). Since \(f\) is non-vanishing and \(\overline{\mathbb{D}}\) is simply connected, we may define the \textit{holomorphic logarithm} as \[\log(f(z))=\int_\gamma \frac{f'(z)}{f(z)}\ddz+\log\qty(f\qty(z_0))\] for any fixed \(z_0\in \overline{\mathbb{D}}\) and all \(z\in\overline{\mathbb{D}}\), where \(\gamma\subset\overline{\mathbb{D}}\) is any piecewise smooth curve from \(z_0\) to \(z\).
+    Without loss of generality, assume \(r=1\). Since \(f\) is non-vanishing and \(\overline{\mathbb{D}}\) is simply connected, we may define the \textit{holomorphic logarithm} as \[\log(f(z))=\int_\gamma \frac{f'(z)}{f(z)}\ddz+\log\qty(f\qty(z_0))\] for any fixed \(z_0\in \overline{\mathbb{D}}\) and all \(z\in\overline{\mathbb{D}}\), where \(\gamma\subset\overline{\mathbb{D}}\) is any piecewise smooth curve from \(z_0\) to \(z\).
 
     Hence, \(\log\abs{f(z)}=\Re\qty[\log\qty(f(z))]\) and is therefore harmonic. The assertion then follows from the mean-value property.
 \end{proof}
 \begin{theorem}[Jensen's Formula]\label{thm:jensensformula}
-    Let \(f:D(0,R)\to\mathbb{C}\) be holomorphic such that \(f(0)\neq 0\). Suppose that \(f\) is continuous on \(\overline{D(0,R)}\). If \(a_1,\ldots,a_n\) are the zeros of \(f\) in \(\overline{D(0,R)}\), counted with multiplicities, then \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_{0}^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
+    Let \(f:D(0,r)\to\mathbb{C}\) be holomorphic such that \(f(0)\neq 0\). Suppose that \(f\) is continuous on \(\overline{D(0,r)}\). If \(a_1,\ldots,a_n\) are the zeros of \(f\) in \(\overline{D(0,r)}\), counted with multiplicities, then \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_{0}^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{r}}.\]
 \end{theorem}
 \begin{proof}
-    First assume that no zeros lie on \(\partial D(0,R)\). It follows that \(\forall 1\leq k\leq n\), \[\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_k)}{R^2-\overline{a_k}z}\] is holomorphic on \(\overline{D(0,R)}\), and has a simple zero at \(z=a_j\). Additionally, the transformation maps \(\partial D(0,R)\) to \(\partial\mathbb{D}\). The function \[g(z)=\frac{f(z)}{\prod_{k=1}^n\varphi_{\frac{a_k}{R}}\qty(\frac{z}{R})}\] is then holomorphic and non-vanishing in \(\overline{D(0,R)}\). Hence, by \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}, \[\log\qty|g(0)|=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{g\qty(R\ee^{\ii\theta})}\dd{\theta},\]
+    First assume that no zeros lie on \(\partial D(0,r)\). It follows that \(\forall 1\leq k\leq n\), \[\varphi_{\frac{a_k}{r}}\qty(\frac{z}{r})=\frac{r\qty(z-a_k)}{r^2-\overline{a_k}z}\] is holomorphic on \(\overline{D(0,r)}\), and has a simple zero at \(z=a_j\). Additionally, the transformation maps \(\partial D(0,r)\) to \(\partial\mathbb{D}\). The function \[g(z)=\frac{f(z)}{\prod_{k=1}^n\varphi_{\frac{a_k}{r}}\qty(\frac{z}{r})}\] is then holomorphic and non-vanishing in \(\overline{D(0,r)}\). Hence, by \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}, \[\log\qty|g(0)|=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{g\qty(r\ee^{\ii\theta})}\dd{\theta},\]
     implying that
     \begin{align}
-        \log\abs{f(0)}-\sum_{k=1}^n\log\abs{\varphi_{\frac{a_k}{R}}(0)} & =\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}\nonumber                                                                     \\
-                                                                        & \quad-\frac{1}{2\uppi}\sum_{k=1}^n\int_0^{2\uppi}\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:jensensformula_intermediate}
+        \log\abs{f(0)}-\sum_{k=1}^n\log\abs{\varphi_{\frac{a_k}{r}}(0)} & =\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\nonumber                                                                     \\
+        & \quad-\frac{1}{2\uppi}\sum_{k=1}^n\int_0^{2\uppi}\log\abs{\varphi_{\frac{a_k}{r}}\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:jensensformula_intermediate}
     \end{align}
-    Since for fixed \(k\), \[\log\abs{\varphi_{\frac{a_k}{R}}(0)}=\log\abs{\frac{a_k}{R}}\qand\log\abs{\varphi_{\frac{a_k}{R}}\qty(\ee^{\ii\theta})}=\log(1)=0,\]
-    \cref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{R}}.\]
-    Suppose \(f\) has additional zeros at each \(\cbraces{b_j=R\ee^{\ii\vartheta_j}}_{1\leq j\leq m}\subset\partial D(0,R)\) (each \(0\leq\vartheta_j<2\uppi\)), each with multiplicity \(k_j\). Then \(f\) can be canonically factored into \[f(z)=g(z)\prod_{j=1}^m\qty(z-b_j)^{k_j},\]
-    where \(g\) does not vanish at the boundary. By the previous result, we have 
+    Since for fixed \(k\), \[\log\abs{\varphi_{\frac{a_k}{r}}(0)}=\log\abs{\frac{a_k}{r}}\qand\log\abs{\varphi_{\frac{a_k}{r}}\qty(\ee^{\ii\theta})}=\log(1)=0,\]
+    \cref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^n\log\abs{\frac{a_k}{r}}.\]
+    Suppose \(f\) has additional zeros at each \(\cbraces{b_j=r\ee^{\ii\vartheta_j}}_{1\leq j\leq m}\subset\partial D(0,r)\) (each \(0\leq\vartheta_j<2\uppi\)), each with multiplicity \(k_j\). Then \(f\) can be canonically factored into \[f(z)=g(z)\prod_{j=1}^m\qty(z-b_j)^{k_j},\]
+    where \(g\) does not vanish at the boundary. By the previous result, we have
     \begin{equation}
-        \log\abs{g(0)}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{g\qty(R\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^n\log\abs{\frac{a_j}R}.\label{eq:jensensformula_formulanonvanishingboundary}
+        \log\abs{g(0)}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{g\qty(r\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^n\log\abs{\frac{a_j}r}.\label{eq:jensensformula_formulanonvanishingboundary}
     \end{equation}
-    Fix \(1\leq j\leq m\). Consider the integral \[\frac1{2\uppi}\int_0^{2\uppi}\log\qty[\abs{R\ee^{\ii\theta}-b_j}^{k_j}]\dd{\theta}=\lim_{\varepsilon\to 0^+}\frac1{2\uppi}\int_{\substack{0\leq\theta\leq2\uppi\\\abs{\vartheta_j-\theta}>\varepsilon\\\abs{\vartheta_j-2\uppi-\theta}>\varepsilon\\\abs{\vartheta_j+2\uppi-\theta}>\varepsilon}}k_j\log\abs{R\ee^{\ii\theta}-R\ee^{\ii\vartheta_j}}\dd{\theta}.\]
+    Fix \(1\leq j\leq m\). Consider the integral \[\frac1{2\uppi}\int_0^{2\uppi}\log\qty[\abs{r\ee^{\ii\theta}-b_j}^{k_j}]\dd{\theta}=\lim_{\varepsilon\to 0^+}\frac1{2\uppi}\int_{\substack{0\leq\theta\leq2\uppi\\\abs{\vartheta_j-\theta}>\varepsilon\\\abs{\vartheta_j-2\uppi-\theta}>\varepsilon\\\abs{\vartheta_j+2\uppi-\theta}>\varepsilon}}k_j\log\abs{r\ee^{\ii\theta}-r\ee^{\ii\vartheta_j}}\dd{\theta}.\]
     Observe that
     \begin{align*}
-        \log\abs{R\ee^{\ii\theta}-R\ee^{\ii\vartheta_j}}&=\log\abs{R\exp\qty(\ii\frac{\theta+\vartheta_j}{2})\qty(\exp(\ii\frac{\theta-\vartheta_j}{2})-\exp\qty(\ii\frac{\vartheta_j-\theta}{2}))}\\
-        &=\log\qty[2R\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}]=\log(2R)+\log\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}.
+        \log\abs{r\ee^{\ii\theta}-r\ee^{\ii\vartheta_j}}&=\log\abs{r\exp\qty(\ii\frac{\theta+\vartheta_j}{2})\qty(\exp(\ii\frac{\theta-\vartheta_j}{2})-\exp\qty(\ii\frac{\vartheta_j-\theta}{2}))}\\
+        &=\log\qty[2r\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}]=\log(2r)+\log\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}.
     \end{align*}
-    In particular, consider \[I=\int_0^{2\uppi}\log\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}\dd{\theta}=2\int_{-\frac{\vartheta_j}2}^{\uppi-\frac{\vartheta_j}2}\log\abs{\sin\theta}\dd{\theta}=2\int_0^{\uppi}\log\abs{\sin\theta}\dd{\theta}\] (since the integrand becomes \(\uppi\)-periodic). By symmetry, we have 
+    In particular, consider \[I=\int_0^{2\uppi}\log\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}\dd{\theta}=2\int_{-\frac{\vartheta_j}2}^{\uppi-\frac{\vartheta_j}2}\log\abs{\sin\theta}\dd{\theta}=2\int_0^{\uppi}\log\abs{\sin\theta}\dd{\theta}\] (since the integrand becomes \(\uppi\)-periodic). By symmetry, we have
     \begin{align*}
         I&=4\int_0^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}=4\int_0^{\frac{\uppi}4}\log\abs{\sin\theta}\dd{\theta}+4\int_{\frac{\uppi}4}^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}\\
         &=4\int_0^{\frac{\uppi}4}\log\abs{\sin\theta}\dd{\theta}+4\int_0^{\frac{\uppi}4}\log\abs{\cos\theta}\dd{\theta}=4\int_0^{\frac{\uppi}4}\log\abs{\sin(2\theta)}\dd{\theta}-\uppi\log 2\\
         &=2\int_0^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}-\uppi\log2=\frac I2-\uppi\log2\implies I=-2\uppi\log2.
     \end{align*}
-    Therefore, 
+    Therefore,
     \begin{equation}
-        \frac1{2\uppi}\int_0^{2\uppi}\log\qty[\abs{R\ee^{\ii\theta}-b_j}^{k_j}]\dd{\theta}=k_j\log{R},\label{eq:jensensformula_integratedlogsingularity}
-    \end{equation} which implies that \[\log\abs{f(0)}=\log\abs{g(0)}+\sum_{j=1}^m \log\abs{-b_j}^{k_j}=\log\abs{g(0)}+\sum_{j=1}^m k_j\log R.\]
-    Recognizing the forms of \cref{eq:jensensformula_integratedlogsingularity,eq:jensensformula_formulanonvanishingboundary}, we thus have 
+        \frac1{2\uppi}\int_0^{2\uppi}\log\qty[\abs{r\ee^{\ii\theta}-b_j}^{k_j}]\dd{\theta}=k_j\log{r},\label{eq:jensensformula_integratedlogsingularity}
+    \end{equation} which implies that \[\log\abs{f(0)}=\log\abs{g(0)}+\sum_{j=1}^m \log\abs{-b_j}^{k_j}=\log\abs{g(0)}+\sum_{j=1}^m k_j\log{r}.\]
+    Recognizing the forms of \cref{eq:jensensformula_integratedlogsingularity,eq:jensensformula_formulanonvanishingboundary}, we thus have
     \begin{align*}
-        \log\abs{f(0)}&=\frac1{2\uppi}\int_0^{2\uppi}\qty(\log\abs{g\qty(R\ee^{\ii\vartheta_j})}+\sum_{j=1}^m\log\qty[\abs{R\ee^{\ii\theta}-b_j}^{k_j}])\dd{\theta}+\sum_{j=1}^n\abs{\frac{a_j}R}\\
-        &=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^n\abs{\frac{a_j}R}+\sum_{j=1}^m\abs{\frac{b_j}R}.\qedhere
+        \log\abs{f(0)}&=\frac1{2\uppi}\int_0^{2\uppi}\qty(\log\abs{g\qty(r\ee^{\ii\vartheta_j})}+\sum_{j=1}^m\log\qty[\abs{r\ee^{\ii\theta}-b_j}^{k_j}])\dd{\theta}+\sum_{j=1}^n\abs{\frac{a_j}r}\\
+        &=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^n\abs{\frac{a_j}r}+\sum_{j=1}^m\abs{\frac{b_j}r}.\qedhere
     \end{align*}
 \end{proof}
 Since the summation on the right is nonpositive, we have the following consequence:
 \begin{corollary}[Jensen's Inequality]\label{cor:jensensinequality}
-    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) and \(f(0)\neq 0\). It follows that \[\log\abs{f(0)}\leq\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}.\]
+    Let \(f\) be holomorphic on \(\overline{D(0,r)}\) such that \(f\not\equiv 0\) and \(f(0)\neq 0\). It follows that \[\log\abs{f(0)}\leq\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}.\]
 \end{corollary}
 \begin{theorem}[\textsc{Poisson--Jensen Formula}]\label{thm:poissonjensenformula}
-    Suppose \(f\) is a meromorphic function on \(\overline{D(0,R)}\) such that \(f\not\equiv 0\) on \(D(0,R)\) and is non-vanishing on \(\partial D(0,R)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,R)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
+    Suppose \(f\) is a meromorphic function on \(\overline{D(0,r)}\) such that \(f\not\equiv 0\) on \(D(0,r)\) and is non-vanishing on \(\partial D(0,r)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,r)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
     \begin{align}
         \log\abs{f(z)} & =\int_0^{2\uppi}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                                          \\
-                       & \quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
+        & \quad+\sum_{j=1}^m\log\abs{\frac{r\qty(z-a_j)}{r^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{r\qty(z-b_k)}{r^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
     \end{align}
-    where \(\zeta=R\ee^{\ii\theta}\), \(z\in D(0,R)\setminus\qty(\cbraces{a_j}_{j=1}^m\cup\cbraces{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in \cref{eq:poissonkernelgeneralform}.
+    where \(\zeta=r\ee^{\ii\theta}\), \(z\in D(0,r)\setminus\qty(\cbraces{a_j}_{j=1}^m\cup\cbraces{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in \cref{eq:poissonkernelgeneralform}.
 \end{theorem}
 \begin{proof}
-    Let \(\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}\) and let \(\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})=\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}\) for all \(1\leq j\leq m\) and \(1\leq k\leq n\). Consider the function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})},\]
-    which is holomorphic and nonzero on \(\overline{D(0,R)}\). Fix \(z\in D(0,R)\setminus\qty(\cbraces{a_j}_{j=1}^m\cup\cbraces{b_k}_{j=1}^n)\) and let \(\Phi(\xi)=g\circ\qty(R\varphi_{-\frac{z}{R}})\qty(\xi)\), where \(R\varphi_{-\frac{z}{R}}\qty(\xi)=\frac{R^2\xi+Rz}{R+\overline{z}\xi}\) is holomorphic on \(\overline{\mathbb{D}}\) with \(\Phi(0)=z\). Since \(g\) is non-vanishing in \(\overline{D(0,R)}\), \(\Phi\) is non-vanishing in \(\overline{\mathbb{D}}\). By \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty} on \(\Phi\),
+    Let \(\varphi_{\frac{a_j}r}\qty(\frac zr)=\frac{r\qty(z-a_j)}{r^2-\overline{a_j}z}\) and let \(\varphi_{\frac{b_k}{r}}\qty(\frac{z}{r})=\frac{r\qty(z-b_k)}{r^2-\overline{b_k}z}\) for all \(1\leq j\leq m\) and \(1\leq k\leq n\). Consider the function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}r}\qty(\frac{z}r)}{\prod_{j=1}^m\varphi_{\frac{a_j}r}\qty(\frac{z}r)},\]
+    which is holomorphic and nonzero on \(\overline{D(0,r)}\). Fix \(z\in D(0,r)\setminus\qty(\cbraces{a_j}_{j=1}^m\cup\cbraces{b_k}_{j=1}^n)\) and let \(\Phi(\xi)=g\circ\qty(r\varphi_{-\frac{z}{r}})\qty(\xi)\), where \(r\varphi_{-\frac zr}\qty(\xi)=\frac{r^2\xi+rz}{r+\overline{z}\xi}\) is holomorphic on \(\overline{\mathbb{D}}\) with \(\Phi(0)=z\). Since \(g\) is non-vanishing in \(\overline{D(0,r)}\), \(\Phi\) is non-vanishing in \(\overline{\mathbb{D}}\). By \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty} on \(\Phi\),
     \begin{equation}
-        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{\Phi\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:poissonjensenformula_intermediate1}
+        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{r}}\qty(\frac{z}{r})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{r}}\qty(\frac{z}{r})}=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{\Phi\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:poissonjensenformula_intermediate1}
     \end{equation}
     Observe that
     \begin{equation}
-        \log\abs{\Phi\qty(\ee^{\ii\theta})}=\log\abs{f\qty(R\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{R}}\qty(\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}{\prod_{j=1}^m\varphi_{\frac{a_j}{R}}\qty(\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}}=\log\abs{f\qty(R\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta}))}.\label{eq:poissonjensenformula_intermediate2}
+        \log\abs{\Phi\qty(\ee^{\ii\theta})}=\log\abs{f\qty(r\varphi_{-\frac{z}{r}}\qty(\ee^{\ii\theta}))\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{r}}\qty(\varphi_{-\frac{z}{r}}\qty(\ee^{\ii\theta}))}{\prod_{j=1}^m\varphi_{\frac{a_j}{r}}\qty(\varphi_{-\frac{z}{r}}\qty(\ee^{\ii\theta}))}}=\log\abs{f\qty(r\varphi_{-\frac{z}r}\qty(\ee^{\ii\theta}))}.\label{eq:poissonjensenformula_intermediate2}
     \end{equation}
-    By letting \(\ee^{\ii\psi}=\varphi_{-\frac{z}{R}}\qty(\ee^{\ii\theta})\), it follows that \(\ee^{\ii\theta}=\varphi_{\frac{z}{R}}\qty(\ee^{\ii\psi})\), and we obtain that
+    By letting \(\ee^{\ii\psi}=\varphi_{-\frac{z}{r}}\qty(\ee^{\ii\theta})\), it follows that \(\ee^{\ii\theta}=\varphi_{\frac{z}{r}}\qty(\ee^{\ii\psi})\), and we obtain that
     \begin{equation}
-        \dd{\theta}=\frac{R^2-\abs{z}^2}{\abs{R\ee^{\ii\psi}-z}^2}\dd{\psi}=2\uppi P(\zeta,z)\dd{\psi},\qquad\zeta=R\ee^{\ii\psi}\label{eq:poissonjensenformula_intermediate3}
+        \dd{\theta}=\frac{r^2-\abs{z}^2}{\abs{r\ee^{\ii\psi}-z}^2}\dd{\psi}=2\uppi P(\zeta,z)\dd{\psi},\qquad\zeta=r\ee^{\ii\psi}\label{eq:poissonjensenformula_intermediate3}
     \end{equation} after much simplification (the full computation of which can be found in \cref{eq:poissonintegralformula2_differentialcomputation} under different variables).
 
     Hence, by substituting \cref{eq:poissonjensenformula_intermediate2,eq:poissonjensenformula_intermediate3} into \cref{eq:poissonjensenformula_intermediate1}, we have
     \begin{align*}
-        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{R}}\qty(\frac{z}{R})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{R}}\qty(\frac{z}{R})}=\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\psi})}P(\zeta,z)\dd{\psi},
+        \log\abs{f(z)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{r}}\qty(\frac{z}{r})}-\sum_{j=1}^m\log\abs{\varphi_{\frac{a_j}{r}}\qty(\frac{z}{r})}=\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\psi})}P(\zeta,z)\dd{\psi},
     \end{align*}
     and the conclusion follows from simple rearrangement.
 \end{proof}
 \begin{remark}
-    Jensen's Formula (\cref{thm:jensensformula}) can also be generalized for meromorphic functions; by letting \(z=0\) in \cref{eq:poissonjensenformula_statement}, we have: \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^m\log\abs{\frac{a_j}{R}}-\sum_{k=1}^n\log\abs{\frac{b_k}{R}}.\]
+    Jensen's Formula (\cref{thm:jensensformula}) can also be generalized for meromorphic functions; by letting \(z=0\) in \cref{eq:poissonjensenformula_statement}, we have: \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^m\log\abs{\frac{a_j}{r}}-\sum_{k=1}^n\log\abs{\frac{b_k}{r}}.\]
 \end{remark}
 \begin{lemma}\label{lem:boundedholomorphicfunctionblaschkecondition}
     Let \(f:\mathbb{D}\to\mathbb{C}\) be a non-constant bounded holomorphic function whose zeros are \(a_1,a_2,\ldots\), counted according to their multiplicities, ordered such that \(\abs{a_n}\leq \abs{a_{n+1}}\) for all \(n\in\mathbb{N}\). Then, \[\sum_{n=1}^\infty\qty(1-\abs{a_n})\] is convergent.
 \end{lemma}
 \begin{proof}
-    First assume \(f(0)\neq 0\) and choose \(M\) such that \(\abs{f}\leq M\) on \(\mathbb{D}\). Let \(n\qty(R,\frac1f)\) count the number of zeros of \(f\), according to multiplicities, inside \(D(0,R)\). By Jensen's Formula (\cref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_{0}^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\dd{\theta}+\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(R,\frac1f)}}\log\abs{\frac{a_k}{R}}\leq\log(M)+\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(R,\frac1f)}}\log\abs{\frac{a_k}{R}}.\]
-    For any fixed positive integer \(k\), choose \(R\) such that \(\abs{a_k}<R<1\). Then \(n\qty(R,\frac1f)\geq k\) and \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(R,\frac1f)}}\log\abs{\frac{a_j}{R}}\leq\sum_{j=1}^{k}\log\abs{\frac{a_j}{R}},\]
-    since each \(\log\abs{\frac{a_j}{R}}<0\) for \(j=k+1,\dots,n\qty(R,\frac1f)\). Therefore, \[\log\abs{f(0)}\leq\log(M)+\sum_{j=1}^{k}\log\abs{\frac{a_j}{R}}=\log(M)+\sum_{j=1}^{k}\log\abs{a_j}-k\log R.\] Rearranging, \[\sum_{j=1}^{k}\log\abs{a_j}\geq\log\abs{f(0)}-\log(M)+k\log R.\] Now let \(R\to1^-\) with \(R>\abs{a_k}\). Since \(k\log R\to0\), it follows that \[\sum_{j=1}^{k}\log\abs{a_j}\geq\log\abs{f(0)}-\log(M).\] This holds for every \(k\). Since \(\log\abs{a_j}<0\) for all \(j\), the partial sums \(\sum_{j=1}^{k}\log\abs{a_j}\) are decreasing and bounded below by \(\log\abs{f(0)}-\log(M)\), hence converge to some finite limit, and \[\sum_{j=1}^{\infty}\log\abs{a_j}\geq\log\abs{f(0)}-\log(M),\] or equivalently, \[\log\abs{f(0)}\leq\log\abs{M}+\sum_{k=1}^\infty\log\abs{a_k}.\]
+    First assume \(f(0)\neq 0\) and choose \(M\) such that \(\abs{f}\leq M\) on \(\mathbb{D}\). Let \(n\qty(r,0,f)\) count the number of zeros of \(f\), according to multiplicities, inside \(D(0,r)\). By Jensen's Formula (\cref{thm:jensensformula}), we have \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_{0}^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}+\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(r,0,f)}}\log\abs{\frac{a_k}{r}}\leq\log(M)+\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(r,0,f)}}\log\abs{\frac{a_k}{r}}.\]
+    For any fixed positive integer \(k\), choose \(r\) such that \(\abs{a_k}<r<1\). Then \(n\qty(r,0,f)\geq k\) and \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(r,0,f)}}\log\abs{\frac{a_j}{r}}\leq\sum_{j=1}^{k}\log\abs{\frac{a_j}{r}},\]
+    since each \(\log\abs{\frac{a_j}{r}}<0\) for \(j=k+1,\dots,n\qty(r,0,f)\). Therefore, \[\log\abs{f(0)}\leq\log{M}+\sum_{j=1}^{k}\log\abs{\frac{a_j}{r}}=\log{M}+\sum_{j=1}^{k}\log\abs{a_j}-k\log{r}.\]
+    Rearranging, \[\sum_{j=1}^{k}\log\abs{a_j}\geq\log\abs{f(0)}-\log{M}+k\log{r}.\] Now let \(r\to1^-\) with \(r>\abs{a_k}\). Since \(k\log r\to0\), it follows that \[\sum_{j=1}^{k}\log\abs{a_j}\geq\log\abs{f(0)}-\log{M}.\] This holds for every \(k\). Since \(\log\abs{a_j}<0\) for all \(j\), the partial sums \(\sum_{j=1}^{k}\log\abs{a_j}\) are decreasing and bounded below by \(\log\abs{f(0)}-\log{M}\), hence converge to some finite limit, and \[\sum_{j=1}^{\infty}\log\abs{a_j}\geq\log\abs{f(0)}-\log{M},\] or equivalently, \[\log\abs{f(0)}\leq\log\abs{M}+\sum_{k=1}^\infty\log\abs{a_k}.\]
     For any \(0<a<1\), we have \(-\log(a)=1-a+\sum_{n=2}^\infty\qty(1-a)^n a^n>1-a\). Hence, \[0\leq\sum_{k=1}^\infty\qty(1-\abs{a_k})<-\sum_{k=1}^\infty\log\abs{a_k}\leq\log\abs{M}-\log\abs{f(0)}.\]
     If \(f\) has a zero of multiplicity \(m\) at \(0\), then the argument applies to \(z\mapsto \frac{f(z)}{z^m}\).
 \end{proof}
@@ -100,15 +101,15 @@ Since the summation on the right is nonpositive, we have the following consequen
     )\) is a Möbius transformation in the form of \cref{eq:mobiustransformationgroupofholomorphicautomorphismsunitdisk_statement}), locally uniformly converges to an analytic function on \(\mathbb{D}\) such that \(\abs{B}\leq 1\) on \(\mathbb{D}\), and its only zeros are precisely at each of \(\cbraces{a_k}_{k\in\mathbb{N}}\), counted according to multiplicities.
 \end{theorem}
 \begin{proof}
-    If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \cref{lem:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,R)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
+    If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \cref{lem:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,r)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
     \begin{align*}
         \abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1} & =\abs{\frac{\overline{a_k}}{\abs{a_k}}\frac{a_k-z}{1-\overline{a_k}z}-1}=\abs{\frac{\abs{a_k}^2-\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}-1} \\
-                                                                     & =\abs{\frac{\abs{a_k}^2-\overline{a_k}z-\abs{a_k}+\abs{a_k}\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                        \\
-                                                                     & =\abs{\frac{\overline{a_k}z\qty(\abs{a_k}-1)+\abs{a_k}\qty(\abs{a_k}-1)}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                           \\
-                                                                     & =\abs{\frac{\qty(\overline{a_k}z+\abs{a_k})\qty(1-\abs{a_k})}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                                      \\
-                                                                     & \leq\qty(1-\abs{a_k})\frac{\abs{\overline{a_k}}(1+R)}{\abs{a_k}\qty(1-\abs{a_k}R)}<\qty(1-\abs{a_k})\frac{1+R}{1-R}.
+        & =\abs{\frac{\abs{a_k}^2-\overline{a_k}z-\abs{a_k}+\abs{a_k}\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                        \\
+        & =\abs{\frac{\overline{a_k}z\qty(\abs{a_k}-1)+\abs{a_k}\qty(\abs{a_k}-1)}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                           \\
+        & =\abs{\frac{\qty(\overline{a_k}z+\abs{a_k})\qty(1-\abs{a_k})}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                                      \\
+        & \leq\qty(1-\abs{a_k})\frac{\abs{\overline{a_k}}(1+r)}{\abs{a_k}\qty(1-\abs{a_k}r)}<\qty(1-\abs{a_k})\frac{1+r}{1-r}.
     \end{align*}
-    Since \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}<\frac{1+R}{1-R}\sum_{k=1}^\infty\qty(1-\abs{a_k})\] is convergent (Blaschke condition), by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), \(\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\) converges uniformly on \(\overline{D(0,R)}\). By \cref{lem:infiniteproductlocallyuniformconvergencecriterion2}, the infinite product in \cref{eq:blaschkeproduct_statement} converges uniformly on compact subsets of \(\mathbb{D}\). The properties of its zeros follow from the lemma.
+    Since \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}<\frac{1+r}{1-r}\sum_{k=1}^\infty\qty(1-\abs{a_k})\] is convergent (Blaschke condition), by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), \(\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\) converges uniformly on \(\overline{D(0,r)}\). By \cref{lem:infiniteproductlocallyuniformconvergencecriterion2}, the infinite product in \cref{eq:blaschkeproduct_statement} converges uniformly on compact subsets of \(\mathbb{D}\). The properties of its zeros follow from the lemma.
 
     Lastly, since \(\abs{\varphi_{a_k}}\leq 1\) and each partial product is bounded by 1, it follows that \(\abs{B(z)}\leq 1\) on \(\mathbb{D}\).
 \end{proof}
@@ -119,7 +120,7 @@ Since the summation on the right is nonpositive, we have the following consequen
     Let \(f:\mathbb{D}\to\mathbb{C}\) be bounded and holomorphic whose multiplicity of the zero at 0 is \(m\) (if \(f\) does not vanish at 0, then \(m=0\)). If \(\cbraces{a_n}_{n\in\mathbb{N}}\) are its zeros in \(\mathbb{D}^*\), counting multiplicities, then \[f(z)=F(z)z^m\prod_{n=1}^{\infty}\qty[-\frac{\abs{a_n}}{a_n}\varphi_{a_n}(z)],\] where \(F\) is bounded, holomorphic, and non-vanishing on \(\mathbb{D}\). Moreover, \[\sup_{z\in\mathbb{D}}\abs{f(z)}=\sup_{z\in\mathbb{D}}\abs{F(z)}.\]
 \end{corollary}
 \begin{proof}
-    Let \[F(z)=\frac{f(z)}{z^m\prod_{n=1}^\infty\qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_n}(z)]}.\] By construction, \(F\) extends to its removable singularities to a holomorphic function that does not vanish. Because \[\sup_{z\in\mathbb{D}}\abs{z^m\prod_{n=1}^\infty\qty[-\frac{\abs{a_n}}{a_n}\varphi_{a_n}(z)]}\leq 1,\] it follows that 
+    Let \[F(z)=\frac{f(z)}{z^m\prod_{n=1}^\infty\qty[-\frac{\abs{a_k}}{a_k}\varphi_{a_n}(z)]}.\] By construction, \(F\) extends to its removable singularities to a holomorphic function that does not vanish. Because \[\sup_{z\in\mathbb{D}}\abs{z^m\prod_{n=1}^\infty\qty[-\frac{\abs{a_n}}{a_n}\varphi_{a_n}(z)]}\leq 1,\] it follows that
     \begin{equation}
         \sup_{z\in\mathbb{D}}\abs{F(z)}\geq\sup_{z\in\mathbb{D}}\abs{f(z)}.\label{eq:blaschkeproductfactorization_supremuminequalities}
     \end{equation}
@@ -129,24 +130,26 @@ Since the summation on the right is nonpositive, we have the following consequen
 From the results above, a recurring theme in complex analysis is hinted at; the rate of growth of functions provides insight towards the distribution of its zeros.
 
 The subjects to be discussed here are relevant and preliminary to Nevanlinna theory, or the study of holomorphic value distribution.
+
+For an entire function \(f\), let \(M(r,f)=\sup_{\abs{z}=r}\abs{f(z)}=\sup_{\abs{z}\leq r}\abs{f(z)}\) (by the Maximum Modulus Principle in \cref{thm:maximummodulus}).
 \begin{definition}[Growth Order of Entire Functions]
-    An entire function \(f\) is said to be of \textit{finite order} if there exists \(\alpha, R_\alpha\in\mathbb{R}\) such that \[\abs{f(z)}\leq\exp\qty(\abs{z}^\alpha),\qquad\forall\abs{z}>R_\alpha,\] or in loose terms, \(f\) is of finite order if it grows at most exponentially for large \(z\). The \textit{order} of \(f\), or \(\lambda\qty(f)\) is defined to be the infimum of all \(\alpha\) satisfying the previous condition.
+    An entire function \(f\) is said to be of \textit{finite order} if there exists \(\alpha, r_\alpha\in\mathbb{R}\) such that \[M\qty(r,f)\leq\exp\qty(r^\alpha),\qquad\forall r>r_\alpha,\] or in loose terms, \(f\) is of finite order if it grows at most exponentially for large \(z\). The \textit{order} of \(f\), or \(\lambda\qty(f)\) is defined to be the infimum of all \(\alpha\) satisfying the previous condition.
 \end{definition}
 \begin{proposition}
-    Let \(f\) be entire; then if there exist \(a,b,\alpha,R_{\alpha,\beta}>0\) such that \[\abs{f(z)}\leq\exp\qty(a\abs{z}^\alpha+b),\qquad\forall\abs{z}>R_{\alpha,\beta},\] then \(\lambda(f)\leq \alpha\).
+    Let \(f\) be entire; then if there exist \(a,b,\alpha,r_{\alpha,\beta}>0\) such that \[M(r,f)\leq\exp\qty(ar^\alpha+b),\qquad\forall r>r_{\alpha,\beta},\] then \(\lambda(f)\leq \alpha\).
 \end{proposition}
 \begin{proof}
-    Since \(\abs{z}^\varepsilon\to\infty\) as \(\abs{z}\to\infty\), for any \(\varepsilon>0\), there exists \(R_\varepsilon\) such that \[\abs{z}^{\varepsilon}\geq 2a\implies\frac12\abs{z}^{\alpha+\varepsilon}\geq a\abs{z}^\alpha\] for \(\abs{z}>R_{\varepsilon}\). There exists \(R'_\varepsilon>0\) such that \[\abs{z}>R'_\varepsilon\implies b\leq\frac12\abs{z}^{\alpha+\varepsilon}.\]
-    For simplicity, let the value \(\max\qty{R_\varepsilon,R'_\varepsilon}\) be denoted by \(R_\varepsilon\). Then \[\abs{z}>R_\varepsilon\implies a\abs{z}^\alpha+b\leq\abs{z}^{\alpha+\varepsilon}.\] By assumption, we have \[\abs{f(z)}\leq\exp\qty(\abs{z}^{\alpha+\varepsilon})\implies \alpha+\varepsilon\geq\lambda(f).\]
+    For \(\varepsilon>0\), since \(r^\varepsilon\to\infty\) as \(r\to\infty\), for any \(\varepsilon>0\), there exists \(r_\varepsilon\) such that \[r^{\varepsilon}\geq 2a\implies\frac12 r^{\alpha+\varepsilon}\geq ar^\alpha\] for \(r>r_{\varepsilon}\). There exists \(r'_\varepsilon>0\) such that \[r>r'_\varepsilon\implies\frac12r^{\alpha+\varepsilon}\geq b.\]
+    For simplicity, let the value \(\max\qty{r_\varepsilon,r'_\varepsilon}\) be denoted by \(r_\varepsilon\). Then \[r>r_\varepsilon\implies ar^\alpha+b\leq \frac12r^{\alpha+\varepsilon}+\frac12r^{\alpha+\varepsilon}=r^{\alpha+\varepsilon}.\] By assumption, we have \[M(r,f)\leq\exp\qty(ar^\alpha+b)\leq\exp\qty(r^{\alpha+\varepsilon})\implies\alpha+\varepsilon\geq\lambda(f).\]
     Letting \(\varepsilon\to 0^+\), the assertion follows.
 \end{proof}
 \begin{theorem}
-    The order of an entire \(f\) may be explicitly given by \[\lambda(f)=\limsup_{R\to\infty}\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}.\]
+    The order of an entire \(f\) may be explicitly given by \[\lambda(f)=\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log{r}}.\]
 \end{theorem}
 \begin{proof}
-    By assumption, we have \(\forall\varepsilon'>0\), \(\exists 0<\varepsilon<\varepsilon'\) such that \[\sup_{\abs{z}=R}\abs{f(z)}\leq\exp\qty(R^{\lambda(f)+\varepsilon})\] for some \(R'\) and any \(R>R'\).
-    Taking logarithms twice we have \[\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}\leq\limsup_{R\to\infty}\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}\leq\lambda(f)+\varepsilon\to\lambda(f)\]
-    as \(\varepsilon'\to 0\). Moreover, for any \(\varepsilon>0, R'>0\), \(\exists R>R'\) such that \[\sup_{\abs{z}=R}\abs{f(z)}>\exp\qty(R^{\lambda(f)-\varepsilon})\implies\varlimsup_{R\to\infty}\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}\geq\lambda(f)-\varepsilon\to\lambda(f)\] as \(\varepsilon\to 0\). Therefore, \[\lambda(f)\leq\limsup_{R\to\infty}\frac{\log\qty(\log\sup_{\abs{z}=R}\abs{f(z)})}{\log R}\leq\lambda(f).\qedhere\]
+    By assumption, we have \(\forall\varepsilon'>0\), \(\exists 0<\varepsilon<\varepsilon'\) such that \[M(r,f)\leq\exp\qty(r^{\lambda(f)+\varepsilon})\] for some \(r'\) and any \(r>r'\).
+    Taking logarithms twice we have \[\frac{\log\qty(\log M(r,f))}{\log{r}}\leq\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log{r}}\leq\lambda(f)+\varepsilon\to\lambda(f)\]
+    as \(\varepsilon'\to 0\). Moreover, for any \(\varepsilon>0, r'>0\), \(\exists r>r'\) such that \[M(r,f)>\exp\qty(r^{\lambda(f)-\varepsilon})\implies\varlimsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log r}\geq\lambda(f)-\varepsilon\to\lambda(f)\] as \(\varepsilon\to 0\). Therefore, \[\lambda(f)\leq\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log r}\leq\lambda(f).\qedhere\]
 \end{proof}
 \begin{example}
     The function \(\sin\) is of order 1, while \(\exp\circ\exp\) is not of finite order.
@@ -154,28 +157,38 @@ The subjects to be discussed here are relevant and preliminary to Nevanlinna the
 \begin{proof}
     We consider the two examples separately:
     \begin{enumerate}
-        \item Observe that \[\sup_{\abs{z}=R}\abs{\sin(z)}\leq\sup_{\abs{z}=R}\frac{\abs{\ee^{\ii z}}+\abs{\ee^{-\ii z}}}{2}=\sup_{\abs{z}=R}\frac{\ee^{\abs{y}}+\ee^{-\abs{y}}}{2}\leq\sup_{\abs{z}=R}\ee^{\abs{y}}=\ee^R.\]
-        For \(R>1\), we have \(\ee^{-R}<1<\frac12\ee^R\), and hence for \(z=\ii R\), we have \[\abs{\sin(z)}=\frac{\ee^{R}-\ee^{-R}}{2}>\frac14\ee^R.\]
-        Therefore, \[\frac14\ee^R<\sup_{\abs{z}=R}\abs{\sin(z)}\leq\ee^R\implies\lambda(f)=\limsup_{R\to\infty}\frac{\log\qty(R+\order{1})}{\log R}=1.\]
-        \item Let \(z=R\), then 
-        \begin{align*}
-            \sup_{\abs{z}=R}\abs{\exp\circ\exp}\geq\exp\circ\exp(R)&\implies\log\circ\log\sup_{\abs{z}=R}\abs{f(z)}\geq R\\
-            &\implies\lambda(f)\geq\limsup_{R\to\infty}\frac{R}{\log R}=\infty.\qedhere
-        \end{align*}
+        \item Observe that \[\sup_{\abs{z}=r}\abs{\sin(z)}\leq\sup_{\abs{z}=r}\frac{\abs{\ee^{\ii z}}+\abs{\ee^{-\ii z}}}{2}=\sup_{\abs{z}=r}\frac{\ee^{\abs{y}}+\ee^{-\abs{y}}}{2}\leq\sup_{\abs{z}=r}\ee^{\abs{y}}=\ee^r.\]
+            For \(r>1\), we have \(\ee^{-r}<1<\frac12\ee^r\), and hence for \(z=\ii r\), we have \[\abs{\sin(z)}=\frac{\ee^{r}-\ee^{-r}}{2}>\frac14\ee^r.\]
+            Therefore, \[\frac14\ee^r<\sup_{\abs{z}=r}\abs{\sin(z)}\leq\ee^r\implies\lambda(f)=\limsup_{r\to\infty}\frac{\log\qty(r+\order{1})}{\log{r}}=1.\]
+        \item Let \(z=r\), then
+            \begin{align*}
+                \sup_{\abs{z}=r}\abs{\exp\circ\exp}\geq\exp\circ\exp(r)&\implies\log\circ\log\sup_{\abs{z}=r}\abs{f(z)}\geq r\\
+                &\implies\lambda(f)\geq\limsup_{r\to\infty}\frac{r}{\log r}=\infty.\qedhere
+            \end{align*}
     \end{enumerate}
 \end{proof}
-The goal of the classification is to find the implications of \(\lambda\) on the rate of which zeros tend to \(\infty\).
+The utility of \(\lambda\) is that it gives implications on the rate of which the zeros of an entire function tend to \(\infty\). This is quantified technically by the convergence range of the sum given by \[\sum_{n=1}^\infty\frac{1}{\abs{a_n}^{k+1}},\] where each \(a_n\) is a zero.
+Specifically, the infimum of all such \(k\) under which the prescribed sum converges correlates to this right. For example, let \(a_n=n\) for each \(n\). Then for any \(k>0\), the integral test gives the convergence of the series, while if \(a_n=\sqrt{a_n}\) (corresponding to a slower approach to \(\infty\)), the series converges for \(k>1\).
+
+For the following discussions, let \(n\qty(r,0,f)\) count the zeros of \(f\) in \(D(0,r)\) according to multiplicity.
+\begin{lemma}
+    If \(f\) is entire with \(f(0)=1\), then \[\log{2}\cdot n(r,0,f)\leq\log M(2r,f).\]
+\end{lemma}
+\begin{proof}
+    By Jensen's formula (\cref{thm:jensensformula}), for \(r>0\), we have
+    \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta},\] where \(a_1,\dots,a_{n(2r,0,f)}\) are the zeros of \(f\) in \(D(0,2r)\), ordered such that each \(\abs{a_k}\leq\abs{a_{k+1}}\). Then \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{\mathmakebox[\widthof{\(\sum\)}][l]{n(r,0,f)}}}\log2\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}\log\abs{\frac{2r}{a_k}}\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta}\leq\log M(2r,f).\qedhere\] 
+\end{proof}
 \begin{example}\label{ex:sinproductformula}
     Prove that \[\sin(\uppi z)=\uppi z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
-    is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,R)}\).
+    is convergent and defines an entire function that uniformly converges on any compact disk \(\overline{D(0,r)}\).
 \end{example}
 \begin{proof}
     The zeros of \(\sin(\uppi z)\) are simple at each of \(\mathbb{Z}\). Aside from the simple zero at \(z=0\), let \[a_n=
         \begin{dcases}
             -\frac{n}{2}  & \qif* n\in 2\mathbb{N},                     \\
             \frac{n+1}{2} & \qif* n\in \mathbb{N}\setminus 2\mathbb{N}.
-        \end{dcases}\]
-    For each \(R>0\), the series \(\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^2=\frac{R^2\uppi^2}{3}\) converges. Therefore, \[\sin(\uppi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
+    \end{dcases}\]
+    For each \(r>0\), the series \(\sum_{n=1}^\infty\abs{\frac{r}{a_n}}^2=\frac{r^2\uppi^2}{3}\) converges. Therefore, \[\sin(\uppi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
     \begin{equation*}
         \sin(\uppi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty[1-\frac{z^2}{n^2}].
     \end{equation*}
