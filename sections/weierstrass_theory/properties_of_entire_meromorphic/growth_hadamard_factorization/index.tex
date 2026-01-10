@@ -147,7 +147,8 @@ For an entire function \(f\), let \(M(r,f)=\sup_{\abs{z}=r}\abs{f(z)}=\sup_{\abs
     The order of an entire \(f\) may be explicitly given by \[\lambda(f)=\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log{r}}.\]
 \end{theorem}
 \begin{proof}
-    By assumption, we have \(\forall\varepsilon'>0\), \(\exists 0<\varepsilon<\varepsilon'\) such that \[M(r,f)\leq\exp\qty(r^{\lambda(f)+\varepsilon})\] for some \(r'\) and any \(r>r'\).
+    By assumption, we have \(\forall\varepsilon'>0\), \(\exists 0<\varepsilon<\varepsilon'\) (or simply just \(\forall\varepsilon>0\) by the nature of the exponential) such that
+    \[M(r,f)\leq\exp\qty(r^{\lambda(f)+\varepsilon})\] for some \(r'\) and any \(r>r'\).
     Taking logarithms twice we have \[\frac{\log\qty(\log M(r,f))}{\log{r}}\leq\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log{r}}\leq\lambda(f)+\varepsilon\to\lambda(f)\]
     as \(\varepsilon'\to 0\). Moreover, for any \(\varepsilon>0, r'>0\), \(\exists r>r'\) such that \[M(r,f)>\exp\qty(r^{\lambda(f)-\varepsilon})\implies\varlimsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log r}\geq\lambda(f)-\varepsilon\to\lambda(f)\] as \(\varepsilon\to 0\). Therefore, \[\lambda(f)\leq\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log r}\leq\lambda(f).\qedhere\]
 \end{proof}
@@ -176,7 +177,7 @@ For the following discussions, let \(n\qty(r,0,f)\) count the zeros of \(f\) in 
 \end{lemma}
 \begin{proof}
     By Jensen's formula (\cref{thm:jensensformula}), for \(r>0\), we have
-    \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta},\] where \(a_1,\dots,a_{n(2r,0,f)}\) are the zeros of \(f\) in \(D(0,2r)\), ordered such that each \(\abs{a_k}\leq\abs{a_{k+1}}\). Then \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{\mathmakebox[\widthof{\(\sum\)}][l]{n(r,0,f)}}}\log2\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}\log\abs{\frac{2r}{a_k}}\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta}\leq\log M(2r,f).\qedhere\] 
+    \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta},\] where \(a_1,\dots,a_{n(2r,0,f)}\) are the zeros of \(f\) in \(D(0,2r)\), ordered such that each \(\abs{a_k}\leq\abs{a_{k+1}}\). Then \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{\mathmakebox[\widthof{\(\sum\)}][l]{n(r,0,f)}}}\log2\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}\log\abs{\frac{2r}{a_k}}\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta}\leq\log M(2r,f).\qedhere\]
 \end{proof}
 \begin{theorem}
     For an entire function \(f\) of finite order \(\lambda(f)\) whose zeros are at \(\qty{a_k}_{k\in\mathbb{N}}\) counting multiplicities (such that \(\abs{a_1}\leq\abs{a_2}\), etc.), the sum \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{\lambda(f)+\eta}}\] converges for any \(\eta>0\).
@@ -188,8 +189,24 @@ For the following discussions, let \(n\qty(r,0,f)\) count the zeros of \(f\) in 
     For sufficiently large \(k\in\mathbb{N}\), by the ordering of zeros, it follows that \[k\leq n\qty(\abs{a_k}+\delta,0,f)\leq\qty(\abs{a_k}+\delta)^{\lambda(f)+2\varepsilon}\] for sufficiently small \(\delta\). As \(\delta\to 0^+\), we have \[k\leq\abs{a_k}^{\lambda(f)+2\varepsilon}\implies\frac1k\geq\frac{1}{\abs{a_k}^{\lambda(f)+2\varepsilon}}\implies \frac1{k^{\frac{\lambda(f)+\eta}{\lambda(f)+2\varepsilon}}}\geq\frac1{\abs{a_k}^{\lambda(f)+\eta}}.\]
     The left-hand side as a summation is convergent for \(2\varepsilon<\eta\) or lower, and hence we have the convergence of \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{\lambda(f)+\eta}}.\qedhere\]
 \end{proof}
-Therefore, for any \(r>0\), the series \[\sum_{k=1}^\infty\abs{\frac{r}{a_k}}^{\lambda(f)+\eta}\leq\sum_{k=1}^\infty\abs{\frac{r}{a_k}}^{\floor{\lambda}+1}\qq{for sufficiently small }\eta\]
-converges. Then by the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), \[f(z)=z^m\ee^{\varphi(z)}\prod_{k=1}^\infty E_{\floor{\lambda}}\qty(\frac z{a_n}).\]
+Therefore, for any \(r>0\), the series \[\sum_{k=1}^\infty\abs{\frac{r}{a_k}}^{\lambda(f)+\eta}\leq\sum_{k=1}^\infty\abs{\frac{r}{a_k}}^{\floor{\lambda}+1}\quad\text{for sufficiently small }\eta\]
+converges. Then by the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), \[f(z)=z^m\ee^{\varphi(z)}\prod_{k=1}^\infty E_{\floor{\lambda}}\qty(\frac z{a_n})\]
+locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This particular Weierstrass factorization is the \textit{Weierstrass canonical factorization} of \(f\). Now that we have indulged in the implications of \(\lambda(f)\) to its zero distribution, we now turn to the function \(\varphi\) in the exponential.
+\begin{lemma}
+    Let \(f\) be entire with finite order such that \(f(0)=1\). Let \(\cbraces{a_k}_{k\in\mathbb{N}}\) be the zeros of \(f\), listed with multiplicities, such that \(\abs{a_1}\leq\abs{a_2}\leq\abs{a_3}\leq\cdots\). Suppose \(p>\lambda(f)-1\); then for any \(z\in\mathbb{C}\),
+    \[\lim_{r\to\infty}\mathop{\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}}\overline{a_k}^{p+1}\qty(r^2-\overline{a_k}z)^{-p-1}=0.\]
+\end{lemma}
+\begin{proof}
+    For fixed \(z\), let \(r>2\abs{z}\) such that \(a_1,\dots,a_{n(r,0,f)}\) lie in \(D(0,r)\). For each \(k\) we obtain \[\abs{r^2-\overline{a_k}z}\geq r^2-\abs{a_k}\abs{z}>r^2-r\frac r2=\frac{r^2}2\implies\abs{a_k}^{p+1}\abs{r^2-\overline{a_k}z}^{-p-1}<\qty(\frac2r)^{p+1}\] since \(\lambda(f)\geq 0\) by the logarithm formula. Now by definition of \(\lambda(f)\), \cref{lem:maximummoduluszerocountingdoubleradius} gives the estimate for sufficiently large \(r\) and arbitrarily small \(\varepsilon>0\): \[n(r,0,f)r^{-p-1}\leq\frac{\log M(2r,0,f)}{\log 2}r^{-p-1}\leq\frac{(2r)^{\lambda(f)+\varepsilon}r^{-p-1}}{\log 2}.\]
+    \newlength{\sumlength}%
+    \newlength{\longsumlength}%
+    \setlength{\sumlength}{\widthof{\(\sum\)}}%
+    \setlength{\longsumlength}{\widthof{\(\sum_{k=1}^{n(r,0,f)}\)}}%
+    Thus,
+    \[\abs{\mathop{\mathmakebox[\dimexpr 0.5\sumlength+0.5\longsumlength\relax][l]{\sum_{k=1}^{n(r,0,f)}}}\overline{a_k}^{p+1}\qty(r^2-\overline{a_k}z)^{-p-1}}\leq n(r,0,f)\qty(\frac2r)^{p+1}\leq\frac{r^{\lambda(f)+\varepsilon-p-1}2^{\lambda(f)+\varepsilon+p+1}}{\log 2}.\]
+    Letting \(\varepsilon=\frac{p+1-\lambda(f)}2\) (positive by theorem assumption), we obtain
+    \[\abs{\mathop{\mathmakebox[\dimexpr 0.5\sumlength+0.5\longsumlength\relax][l]{\sum_{k=1}^{n(r,0,f)}}}\overline{a_k}^{p+1}\qty(r^2-\overline{a_k}z)^{-p-1}}\leq\frac{2^{\frac{3p+3-\lambda(f)}2}r^{-\varepsilon}}{\log 2}\to 0\qq{as}r\to\infty.\qedhere\]
+\end{proof}
 \subsubsection{Hadamard Factorization Theorem}
 \begin{example}\label{ex:sinproductformula}
     Prove that \[\sin(\uppi z)=\uppi z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]
