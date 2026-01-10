@@ -212,15 +212,15 @@ locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This
     \[\lim_{r\to\infty}\int_0^{2\uppi}\frac{r\ee^{\ii\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}=0.\]
 \end{theorem}
 \begin{proof}
-    For fixed \(z\), \(r>\abs{z}\), we have \[\int_0^{2\uppi}\frac{\ii r\ee^{\ii\theta}\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}=\ointctrclockwise_{\partial D(0,r)}\frac{\dd{w}}{(w-z)^{p+2}}=2\uppi\ii\residue_{w=z}\frac{1}{\qty(w-z)^{p+2}}\]
+    For fixed \(z\), \(r>2\abs{z}\), we have \[\int_0^{2\uppi}\frac{\ii r\ee^{\ii\theta}\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}=\ointctrclockwise_{\partial D(0,r)}\frac{\dd{w}}{(w-z)^{p+2}}=2\uppi\ii\residue_{w=z}\frac{1}{\qty(w-z)^{p+2}}\]
     by the Residue Theorem (\cref{thm:residuethm}). Since \(p+2>\lambda(f)+1\geq 1\) where \(p\) is an integer, we must have \(p+2\geq 2\) and thus 
     \[\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}=0.\]
     Therefore, 
     \begin{align*}
         \abs{\int_0^{2\uppi}\frac{2r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}}&=\abs{\int_0^{2\uppi}\frac{2r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}-\int_0^{2\uppi}\frac{2r\ee^{\ii\theta}M(r,f)\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}}\\
         &=\abs{\int_0^{2\uppi}\frac{2r\ee^{\ii\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\qty[\log\abs{f\qty(r\ee^{\ii\theta})}-M(r,f)]\dd{\theta}}\\
-        &\leq\int_0^{2\uppi}\frac{2r}{}\qty[M(r,f)-\log\abs{f\qty(r\ee^{\ii\theta})}]\dd{\theta}
-    \end{align*} % bound denom for sufficienlty large r now
+        &\leq\int_0^{2\uppi}\frac{2r}{\qty(r/2)^{p+2}}\qty[M(r,f)-\log\abs{f\qty(r\ee^{\ii\theta})}]\dd{\theta}
+    \end{align*} % TBC
 \end{proof}
 \subsubsection{Hadamard Factorization Theorem}
 \begin{example}\label{ex:sinproductformula}
