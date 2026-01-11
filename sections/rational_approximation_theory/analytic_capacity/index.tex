@@ -12,21 +12,34 @@ Intuitively, \(\gamma\) measures the extent to which bounded analytic functions 
 \begin{proof}
     For any \(f:\extcomplex\setminus K\to\mathbb{C}\) holomorphic with \(f\qty(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}\), since \(f\) is bounded, the Riemann's Theorem for removable singularities (\cref{thm:riemannremovablesingularities}) allows for an analytic continuation onto all of \(\extcomplex\). Then Liouville's Theorem (\cref{thm:liouville}) implies that \(f\) is constant and \(f'(\infty)=0\). Hence \(\gamma(K)=0\).
 \end{proof}
-\begin{theorem}
+\begin{theorem}\label{thm:analyticcapacitymonotonicity}
     For \(K_1\subseteq K_2\) both compact in \(\mathbb{C}\), \(\gamma\qty(K_1)\leq\gamma\qty(K_2)\).
 \end{theorem}
 \begin{proof}
     This follows directly from the definition and the fact that any function holomorphic on \(\extcomplex\setminus K_1\) is also holomorphic on \(\extcomplex\setminus K_2\).
 \end{proof}
-The preceding results above hint at the monotonous behavior of capacity. However, currently it is not known whether a general \textit{subadditivity} property holds for analytic capacity, or that \[\gamma\qty(K_1\cup K_2)\leq\gamma\qty(K_1)+\gamma\qty(K_2).\]
-Recent results hint the affirmative, as many special cases of the relation have been proved.
+The preceding results above hint at the monotonous behavior of capacity. However, currently it is not known whether a general \textit{subadditivity} property holds for analytic capacity, or that \[\gamma\qty(K_1\cup K_2)\mathrel{\overset{?}{\leq}}\gamma\qty(K_1)+\gamma\qty(K_2).\]
+Recent results hint the affirmative, as many special cases of the relation have been proved; the question of subadditivity has been proved in the affirmative for disjoint compact continua, and recent findings by Xavier Tolsa show that capacity is (countably) semi-(sub)additive (the existence of an absolute constant \(C\) such that \(\gamma\qty(K_1\cup K_2)\leq C\qty[\gamma\qty(K_1)+\gamma\qty(K_2)]\)).
 
-We now give some quantifying examples of how analytic capacity measures a type of ``largeness'' of compact sets. First we define a specific classification of compact sets.
+We now give some quantifying examples of how analytic capacity measures a type of ``largeness'' of compact sets, (rather much like area, which satisfies the subadditivity relation). First we define a specific classification of compact sets.
 
 A compact set \(K\subset\mathbb{C}\) is a \textit{continuum} if it is connected, \(\mathbb{C}\setminus K\) is connected, and if it is not a singleton (\(K\) contains at least 2 distinct points).
-\begin{proposition}
+\begin{proposition}\label{prop:analyticcapacitycontinuumbiholomorphism}
     Let \(K\subset\mathbb{C}\) be a continuum. Then \(\gamma(K)=\abs{f'(\infty)}\) where \(f:\extcomplex\setminus K\to\mathbb{D}\) is a biholomorphism satisfying \(f(\infty)=0\) (or that the maximal \(\abs{f'(\infty)}\) is attained when \(f\) is biholomorphic).
 \end{proposition}
 \begin{proof}
     Let \(f\) be the biholomorphism, \(g:\extcomplex\setminus K\to\mathbb{D}\) be holomorphic (not necessarily surjective) mapping \(\infty\) to 0. Since \(h\equiv g\circ f^{-1}:\mathbb{D}\to\mathbb{D}\) and maps 0 to 0, the Schwarz Lemma (\cref{lem:schwarz}) implies that \[\abs{h(z)}\leq\abs{z}\] for all \(z\in\mathbb{D}\). Thus, \(\abs{g(z)}\leq\abs{f(z)}\), and \[\abs{g'(\infty)}=\lim_{z\to\infty}\abs{zg(z)}\leq\lim_{z\to\infty}\abs{zf(z)}=\abs{f'(\infty)}.\qedhere\]
+\end{proof}
+\begin{proposition}\label{prop:analyticcapacitycloseddisk}
+    The analytic capacity of any closed disk is the radius.
+\end{proposition}
+\begin{proof}
+    Since \(\overline{D(a,r)}\) is a continuum, a biholomorphism \(f:\extcomplex\setminus\overline{D(a,r)}\to\mathbb{D}\) such that \(f(\infty)=0\). One such biholomorphism is given by \[f(z)=\frac{r}{z-a},\qquad f'(\infty)=\lim_{z\to 0}\dv{}{z}\qty(\frac{r}{\frac1z-a})=r.\]
+    Hence, \cref{prop:analyticcapacitycontinuumbiholomorphism}, gives that \(\gamma\qty(\overline{D(a,r)})=r\).
+\end{proof}
+\begin{proposition}
+    If \(K\subset\mathbb{C}\) is a continuum, then \[\frac{\diam K}4\leq\gamma(K)\leq\diam K.\]
+\end{proposition}
+\begin{proof}
+    Assume \(f:\extcomplex\setminus K\to\mathbb{D}\) is a biholomorphism mapping \(\infty\) to 0. The lower bound follows directly from \cref{prop:complementbiholomorphismquarterestimate}. Let \(p\in K\) be arbitrary, then for any \(q\in K\), we obtain \(\abs{p-q}\leq\diam K\), implying that \(K\subseteq\overline{D\qty(p,\diam K)}\). By \cref{prop:analyticcapacitycloseddisk}, we have \(\gamma\qty(\overline{D\qty(p,\diam K)})=\diam K\), and \cref{thm:analyticcapacitymonotonicity} consequently gives the upper bound of \[\gamma(K)\leq\diam K.\qedhere\]
 \end{proof}
