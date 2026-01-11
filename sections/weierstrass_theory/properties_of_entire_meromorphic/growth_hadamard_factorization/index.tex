@@ -51,7 +51,7 @@ Since the summation on the right is nonpositive, we have the following consequen
     Let \(f\) be holomorphic on \(\overline{D(0,r)}\) such that \(f\not\equiv 0\) and \(f(0)\neq 0\). It follows that \[\log\abs{f(0)}\leq\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}.\]
 \end{corollary}
 \begin{theorem}[\textsc{Poisson--Jensen Formula}]\label{thm:poissonjensenformula}
-    Suppose \(f\) is a meromorphic function on \(\overline{D(0,r)}\) such that \(f\not\equiv 0\) on \(D(0,r)\) and is non-vanishing on \(\partial D(0,r)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,r)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
+    Suppose \(f\) is a meromorphic function on \(\overline{D(0,r)}\) such that \(f\not\equiv 0\) on \(D(0,r)\) and is non-vanishing and non-infinity on \(\partial D(0,r)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,r)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
     \begin{align}
         \log\abs{f(z)} & =\int_0^{2\uppi}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                                          \\
         & \quad+\sum_{j=1}^m\log\abs{\frac{r\qty(z-a_j)}{r^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{r\qty(z-b_k)}{r^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
@@ -226,6 +226,9 @@ locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This
 
     Now by assumption, we have \[\log M(r,f)\leq r^{\lambda+\varepsilon}\] for any \(\varepsilon>0\) and sufficiently large \(r\). Hence, \[\abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}}\leq 2^{p+4}r^{\lambda(f)+\varepsilon-p-1}\uppi=2^{p+4}r^{\frac{\lambda(f)-p-1}{2}}\uppi\] at \(\varepsilon=\frac{p+1-\lambda(f)}{2}\). Then since \(\frac{\lambda(f)-p-1}{2}<0\), the expression vanishes as \(R\to\infty\).
 \end{proof}
+\begin{proposition}
+    Let \(f\) be entire, non-constant, and of finite order such that \(f(0)=1\). Let \(\qty{a_k}_{k\in\mathbb{N}}\) be the zeros of \(f\) counted according to multiplicities such that \(\abs{a_1}\leq\abs{a_2}\leq\abs{a_3}\leq\cdots\). If \(p>\lambda(f)-1\) is an integer, then \[\dv[p]{}{z} \qty(\frac{f'(z)}{f(z)})\equiv-p!\sum_{k=1}^\infty\frac{1}{\qty(a_k-z)^{p+1}}\] for all \(z\in\mathbb{C}\).
+\end{proposition}
 \subsubsection{Hadamard Factorization Theorem}
 \begin{example}\label{ex:sinproductformula}
     Prove that \[\sin(\uppi z)=\uppi z\prod_{n=1}^\infty\qty(1-\frac{z^2}{n^2})\]

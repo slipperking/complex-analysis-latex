@@ -1,6 +1,12 @@
 \subsection{Analytic Capacity}
 The theory of rational approximation is essentially built upon the concept of \textit{analytic capacity}, which was introduced in 1940 by Finnish mathematician Lars Ahlfors. Our purpose here is to give a brief and elementary introduction. Despite its importance, still many trivially simple results remain conjecture.
 \begin{definition}[Analytic Capacity]\label{def:analyticcapacity}
-    Let \(K\subset\mathbb{C}\) be compact. The \textit{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\cbraces{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}.
+    Let \(K\subset\mathbb{C}\) be compact. The \textit{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\cbraces{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f\qty(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}.
 \end{definition}
-Intuitively,
+Intuitively, \(\gamma\) measures the extent to which bounded analytic functions outside \(K\) can deviate from constancy. Generally, the ``larger'' \(K\) is, the lower the capacity is.
+\begin{example}
+    If \(K\subset\mathbb{C}\) is a compact set of discrete points, then \(\lambda(K)=0\).
+\end{example}
+\begin{proof}
+    For any \(f:\extcomplex\setminus K\to\mathbb{C}\) holomorphic with \(f\qty(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}\), since \(f\) is bounded, the Riemann's Theorem for removable singularities (\cref{thm:riemannremovablesingularities}) allows for an analytic continuation onto all of \(\extcomplex\). Then Liouville's Theorem (\cref{thm:liouville}) implies that \(f\) is constant and \(f'(\infty)=0\). Hence \(\gamma(K)=0\).
+\end{proof}
