@@ -209,7 +209,7 @@ locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This
 \end{proof}
 \begin{theorem}
     Let \(f\) be entire with \(f(0)=1\). Then for \(p>\lambda(f)-1\) (\(p\) integer) and \(z\in\mathbb{C}\),
-    \[\lim_{r\to\infty}\int_0^{2\uppi}\frac{r\ee^{\ii\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}=0.\]
+    \[\lim_{r\to\infty}\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}=0.\]
 \end{theorem}
 \begin{proof}
     For fixed \(z\), \(r>2\abs{z}\), we have \[\int_0^{2\uppi}\frac{\ii r\ee^{\ii\theta}\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}=\ointctrclockwise_{\partial D(0,r)}\frac{\dd{w}}{(w-z)^{p+2}}=2\uppi\ii\residue_{w=z}\frac{1}{\qty(w-z)^{p+2}}\]
@@ -217,10 +217,14 @@ locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This
     \[\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}=0.\]
     Therefore, 
     \begin{align*}
-        \abs{\int_0^{2\uppi}\frac{2r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}}&=\abs{\int_0^{2\uppi}\frac{2r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}-\int_0^{2\uppi}\frac{2r\ee^{\ii\theta}M(r,f)\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}}\\
-        &=\abs{\int_0^{2\uppi}\frac{2r\ee^{\ii\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\qty[\log\abs{f\qty(r\ee^{\ii\theta})}-M(r,f)]\dd{\theta}}\\
-        &\leq\int_0^{2\uppi}\frac{2r}{\qty(r/2)^{p+2}}\qty[M(r,f)-\log\abs{f\qty(r\ee^{\ii\theta})}]\dd{\theta}
-    \end{align*} % TBC
+        \abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}}&=\abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\qty[\log\abs{f\qty(r\ee^{\ii\theta})}-\log M(r,f)]\dd{\theta}}\\
+        &\leq\int_0^{2\uppi}\frac{r}{\qty(r/2)^{p+2}}\qty[\log M(r,f)-\log\abs{f\qty(r\ee^{\ii\theta})}]\dd{\theta}\\
+        &=2^{p+3}r^{-p-1}\qty[2\uppi\log M(r,f)-\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}]\\
+        &\leq 2^{p+4}r^{-p-1}\uppi\log M(r,f),
+    \end{align*}
+    where the last expression uses the inequality derived from Jensen's formula (\cref{cor:jensensinequality}) on the remaining integral. 
+
+    Now by assumption, we have \[\log M(r,f)\leq r^{\lambda+\varepsilon}\] for any \(\varepsilon>0\) and sufficiently large \(r\). Hence, \[\abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}}\leq 2^{p+4}r^{\lambda(f)+\varepsilon-p-1}\uppi=2^{p+4}r^{\frac{\lambda(f)-p-1}{2}}\uppi\] at \(\varepsilon=\frac{p+1-\lambda(f)}{2}\). Then since \(\frac{\lambda(f)-p-1}{2}<0\), the expression vanishes as \(R\to\infty\).
 \end{proof}
 \subsubsection{Hadamard Factorization Theorem}
 \begin{example}\label{ex:sinproductformula}
