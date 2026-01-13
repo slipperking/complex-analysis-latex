@@ -3,7 +3,7 @@ The theory of rational approximation is essentially built upon the concept of \t
 
 The uses of analytic capacity are present in many other topics of complex analysis. Analytic capacity serves as a natural framework for general rational approximation theory. Our purpose here is to hint at how analytic capacity theory relates to the proof of \cref{thm:mergelyan} and pertinent problems in general.
 \begin{definition}[Analytic Capacity]\label{def:analyticcapacity}
-    Let \(K\subset\mathbb{C}\) be compact. The \textit{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\cbraces{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f\qty(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}.
+    Let \(K\subset\mathbb{C}\) be compact. The \textit{analytic capacity} of \(K\) is defined as \[\gamma(K)=\sup\cbraces{\abs{f'(\infty)}:f\text{ is holomorphic on \(\extcomplex\setminus K\)}\wedge f(\infty)=0\wedge f\qty(\extcomplex\setminus K)\subseteq\overline{\mathbb{D}}},\] where \(f'(\infty)\) is defined as in \cref{eq:derivativeatinfinity}. For an arbitrary set \(U\subseteq\mathbb{C}\), we define \[\sup\cbraces{\gamma(K)}{K\subseteq U:K\text{ is compact}}.\]
 \end{definition}
 Intuitively, \(\gamma\) measures the extent to which bounded analytic functions outside \(K\) can deviate from constancy. Generally, the ``larger'' \(K\) is, the greater the capacity is.
 \begin{proposition}
@@ -37,9 +37,17 @@ A compact set \(K\subset\mathbb{C}\) is a \textit{continuum} if it is connected,
     Since \(\overline{D(a,r)}\) is a continuum, a biholomorphism \(f:\extcomplex\setminus\overline{D(a,r)}\to\mathbb{D}\) such that \(f(\infty)=0\). One such biholomorphism is given by \[f(z)=\frac{r}{z-a},\qquad f'(\infty)=\lim_{z\to 0}\dv{}{z}\qty(\frac{r}{\frac1z-a})=r.\]
     Hence, \cref{prop:analyticcapacitycontinuumbiholomorphism}, gives that \(\gamma\qty(\overline{D(a,r)})=r\).
 \end{proof}
-\begin{proposition}
+\begin{proposition}\label{prop:analyticcapacitycontinuuminequalities}
     If \(K\subset\mathbb{C}\) is a continuum, then \[\frac{\diam K}4\leq\gamma(K)\leq\diam K.\]
 \end{proposition}
 \begin{proof}
     Assume \(f:\extcomplex\setminus K\to\mathbb{D}\) is a biholomorphism mapping \(\infty\) to 0. The lower bound follows directly from \cref{prop:complementbiholomorphismquarterestimate}. Let \(p\in K\) be arbitrary, then for any \(q\in K\), we obtain \(\abs{p-q}\leq\diam K\), implying that \(K\subseteq\overline{D\qty(p,\diam K)}\). By \cref{prop:analyticcapacitycloseddisk}, we have \(\gamma\qty(\overline{D\qty(p,\diam K)})=\diam K\), and \cref{thm:analyticcapacitymonotonicity} consequently gives the upper bound of \[\gamma(K)\leq\diam K.\qedhere\]
 \end{proof}
+We outline the precise connections to rational approximation:
+\begin{theorem}
+    Let \(K\subset\mathbb{C}\) be compact such that \(\exists c>0\) such that \(\forall\delta>0\), \(\forall p\in\partial K\), \[\gamma\qty(D(p,\delta)\setminus K)\geq c\delta.\]
+    Then \(\forall f\in C^0(K)\) holomorphic on \(\interior{K}\) can be uniformly and rationally approximated on \(K\) with poles in \(\extcomplex\setminus K\).
+\end{theorem}
+\begin{corollary}
+    Let \(K\subset\mathbb{C}\) be compact. If the connected components \(U_j\) of \(\extcomplex\setminus K\) give the uniform existence of some \(\delta>0\) such that \(\forall j\), \(\diam U_j\geq\delta\), then \(\forall f\in C^0(K)\) holomorphic on \(\interior{K}\) can be uniformly and rationally approximated on \(K\) with poles in \(\extcomplex\setminus K\).
+\end{corollary}
