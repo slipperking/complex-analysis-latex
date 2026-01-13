@@ -1,4 +1,4 @@
-\subsection{The Concept of Riemann Surfaces}\label{sec:riemannsurfaces}
+\subsection{Formal Definition of Riemann Surfaces}
 Let \(X=(X,\tau)\) be a \textit{connected} topological space, and let \(x\in X\) be a fixed point. If \(\exists U\in\tau\) such that \(x\in U\), then \(U\) is a \textit{neighborhood} of \(x\). If any two points \(x,y\in X\) have disjoint neighborhoods, then \(X\) is a \textit{Hausdorff space}.
 
 For two topological spaces \(X\) and \(Y\), a function \(f:X\to Y\) is a \textit{homeomorphism} (also known as a \textit{bicontinuous function}) if it is a bijection such that both \(f\) and \(f^{-1}\) are continuous. If such a function exists, then \(X\) and \(Y\) are \textit{homeomorphic}.
@@ -29,24 +29,4 @@ We will now give examples of Riemann surfaces (we will distinguish between \(\ex
     Consider the open sets \(U_N=S^2\setminus (0,0,1)\) and \(U_S=S^2\setminus (0,0,-1)\) that cover \(S^2\). Define their stereographic projection homeomorphisms \(\varphi_N:U_N\to\mathbb{C}\) and \(\varphi_S:U_S\to\mathbb{C}\) with centers \((0,0,1)\) and \((0,0,-1)\), respectively. By taking the conjugate of \(\varphi_S\) (this is necessary to ensure that the transition map is not anti-holomorphic), we form an atlas \(\cbraces{\qty(U_N,\varphi_N),\qty(U_S,\overline{\varphi_S})}\) with two charts. More explicitly, we can assume \[\varphi_N(x_1,x_2,x_3)=\frac{x_1+\ii x_2}{1-x_3}\qquad\overline{\varphi_S}(x_1,x_2,x_3)=\frac{x_1-\ii x_2}{1+x_3}.\]
     On \(\varphi_N\qty(S^2\setminus\qty((0,0,1)\cup(0,0,-1)))=\extcomplex\setminus\qty(\cbraces{0}\cup\cbraces{\infty})=\mathbb{C}^*\), the transition map \[\overline{\varphi_S}\circ\varphi_N^{-1}(z)=\frac{\Re(z)\qty(1-x_3)-\ii\Im(z)\qty(1-x_3)}{1+x_3}=\overline{z}\frac{1-x_3}{1+x^3}=\frac{\overline{z}}{\abs{z}^2}=\frac{1}{z}\] is biholomorphic. Hence, by the holomorphy of the atlas, \(S^2\) is a Riemann surface.
 \end{proof}
-Riemann surfaces are particularly useful when considering multi-valued functions. These functions cannot be defined \emph{globally} as single-valued holomorphic maps, but they can be made into well-defined holomorphic functions if we enlarge the domain, passing on to a Riemann surface.
-
-Consider \(\log(z)=\log\abs{z}=\ii\arg(z)\) on \(\mathbb{C}^*\), where \(\arg\) is multi-valued. The most common solution to this problem is achieved by restricting the range of \(\arg\), say to \((-\uppi,\uppi]\), effectively selecting a branch of \(\log\), inducing a discontinuity along the branch cut (here, along \(\mathbb{R}_{\leq0}\)).
-
-The geometric solution is to construct a new topological space \(X\), where the branches or sheets of the logarithm are \emph{glued} together. More explicitly, we take infinite copies of \(\mathbb{C}^*\), each copy indexed by an integer \(k\in\mathbb{Z}\), and glue them along the consecutive branch cuts such that after traversing a counterclockwise loop around the origin, one moves from the \(k\)-th sheet to the \((k+1)\)-th sheet (also called a branch).
-
-Note that the concatenation along a different branch cut (for example, along \(\ii\mathbb{R}_{\leq0}\)) yields an identical Riemann surface, although it is important to specify the branch cut before the construction.
-
-A point that connects multiple branches or sheets is known as a \textit{branch point}. In the case of the above construction, the origin is a branch point. In general, a branch point does not need to connect \emph{all} sheets; if it connects \(n\) sheets, it is known as a branch point of order \(n-1\).
-
-The set \(W=\cbraces{(z,w)}{w\in\mathbb{C},z=\ee^w}\) under the one chart \((W,\varphi)\) where \((z,w)\mapsto w\). Then the function \(F:W\to\mathbb{C}\) corresponding to the complex logarithm is simply \(\varphi\). We define the \textit{projection map} \(\pi:W\to\mathbb{C}\) via \((z,w)\mapsto z\), which simply recovers the original variable. Then we have the relationship (written slightly informally) \(F(\mathfrak{z})=\log\circ\pi(\mathfrak{z})\). Indeed, the most trivial method for defining a Riemann surface as the domain of a multi-valued function is the set of \(z,w\) points.
-
-We now provide another definition for a potential Riemann surface for the logarithm. Let \(W=\cbraces{(r,\theta)\in\mathbb{R}^2}{r>0}\), with the chart \(\qty(W,\qty(r,\theta)\mapsto\log(r)+\ii\theta)\). Here the corresponding function is \(F:(r,\theta)\mapsto\log(r)+\ii\theta\), and the projection map is \(\pi(r,\theta)=r\ee^{\ii\theta}\). Once more, the relationship can be heuristically described by \(F(\mathfrak{z})=\log\circ\pi(\mathfrak{z})\), or more accurately by \(\log^{-1}\circ F(\mathfrak{z})=\pi(\mathfrak{z})\).
-
-Similarly, a single-valued holomorphic function can be made injective by mapping to Riemann surfaces.
-
-We now briefly touch on the importance of \(\mathbb{D}\), \(\mathbb{C}\), and \(\extcomplex\) below.
-\begin{theorem}[\textsc{Uniformization}]\label{thm:uniformization}
-    Any simply connected Riemann surface is biholomorphically equivalent to either \(\mathbb{D}\), \(\mathbb{C}\), or \(\extcomplex\).
-\end{theorem}
-We are yet to define generalizations such as analyticity over Riemann surfaces. However, the theory of Riemann surfaces relates closely to the generalizations of \cref{sec:analyticcontinuation} via germs, sheaves, and germs, as well as topological concepts such as covering spaces, which is explained in detail in~\cite{functionsofonecomplexvariablei}.
+TO BE CONTINUED
