@@ -55,11 +55,22 @@ Notice here that no restrictions are imposed on the finiteness of the number of 
 
 The counterexample we now provide due to~\cite{gamelin2001}, we provide the construction of the compact set \(K\).
 \begin{example}
-    There exists a compact set \(K\subset\mathbb{C}\) and \(f\in C^(K)\), such that \(f\) cannot be rationally approximated on \(K\). 
+    There exists a compact set \(K\subset\mathbb{C}\) and \(f\in C^0(K)\), such that \(f\) is holomorphic on \(\interior{K}\) and cannot be rationally approximated on \(K\).
 \end{example}
 \begin{proof}
-    Begin with \(\overline{\mathbb{D}}\) and let \(S=\qty{s_k}_{k\in\mathbb{N}}\) be a countably dense set of points in \(\mathbb{D}\). 
+    Let \(S=\qty{s_k}_{k\in\mathbb{N}}\) be a countably dense set of points in \(\mathbb{D}\) (use a bijection \(\mathbb{N}\to\mathbb{Q}\) and Cantor's pairing function \(\mathbb{N}\to\mathbb{N}^2\) to get a surjection \(\mathbb{N}\to\mathbb{Q}^2\cap\mathbb{D}\)).
 
-    Fix \(0<\varepsilon<1\). Let \(z_1=s_1\) and \(r_1=\frac\varepsilon2<\varepsilon\), \(r_1^2<1\). For each \(k\in\mathbb{N}\), let \(z_k\) be the first to be the first point in the dense sequence \(S\) such that \[c_k\notin\bigcup_{j=1}^{k-1}\overline{D\qty(z_j,r_j)}.\]
-    Then choose \(r_k\) such that \(D\qty(z_k,r_k)\) does not intersect any previous \(D\qty(z_j,r_j)\) for \(j<k\) (possible by the fact that each \(z_j\) does not lie on the boundary of the previous disks) and so that \[r_k\leq\frac\varepsilon2-\frac12\sum_{j=1}^{k-1}r_j>0.\] Under the inductive hypothesis that \(\sum_{j=1}^{k-1}r_j<\varepsilon\), we now have \(\sum_{j=1}^{k}r_j<\varepsilon\). Apply another bound, so that \[r_k^2\leq\frac12-\frac12\sum_{j=1}^{k-1}r_j^2>0.\] Under the additional hypothesis that \(\sum_{j=1}^{k-1}r_j^2<1\), we then have that \(\sum_{j=1}^kr_j^2<1\). Define \[K=\overline{\mathbb{D}}\setminus\bigcup_{j=1}^\infty D\qty(z_j,r_j).\]
+    Fix \(0<\varepsilon'<1\). Let \(z_1=s_1\) and \(r_1=\frac\varepsilon2<\varepsilon'\), \(\textstyle r_1^2<\frac12\). For each \(k\in\mathbb{N}\), let \(z_k\) be the first to be the first point in the dense sequence \(S\) such that \[c_k\notin\bigcup_{j=1}^{k-1}\overline{D\qty(z_j,r_j)}.\]
+    Then choose \(r_k\) such that \(D\qty(z_k,r_k)\) lies in \(\mathbb{D}\) and does not intersect any previous \(D\qty(z_j,r_j)\) for \(j<k\) (possible by the fact that each \(z_j\) does not lie on the boundary of the previous disks) and so that \[0<r_k\leq\frac\varepsilon2-\frac12\sum_{j=1}^{k-1}r_j<\varepsilon'-\sum_{j=1}^{k-1}r_j\implies\sum_{j=1}^k<\varepsilon'\] under the inductive hypothesis that \(\textstyle\sum_{j=1}^{k-1}r_j<\varepsilon'\). Apply another bound, so that \[0<r_k^2\leq\frac14-\frac12\sum_{j=1}^{k-1}r_j^2<\frac12-\sum_{j=1}^{k-1}r_j^2\implies\sum_{j=1}^kr_j^2<\frac12\]
+    under the additional assumption that \(\textstyle\sum_{j=1}^{k-1}r_j^2<\frac12\). Repeat this process inductively for all \(k\in\mathbb{N}\). Define \[K=\overline{\mathbb{D}}\setminus\bigcup_{j=1}^\infty D\qty(z_j,r_j),\] which is compact. For any point \(z\in K\), no disk centered at \(z\) exists such that \(D(z,\delta)\) is contained in \(K\), since a subsequence of \(S\) accumulating to \(z\) in \(\overline{\mathbb{D}}\) is removed from \(K\). Hence, \(\interior{K}=\emptyset\). Hence, any \(f\in C^0(K)\) is holomorphic on the interior.
+
+    (This general construction of \(K\) is known as the \textit{Swiss cheese set})
+
+    We now show that \(z\mapsto\overline{z}\) cannot be uniformly rationally approximated on \(K\). By explicit calculation or Green's Theorem (\cref{eq:complexgreen}), we have \[\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_{\partial D\qty(z_j,r_j)}}}\overline{z}\ddz=\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_{D\qty(z_j,r_j)}}}\dd(\overline{z}\ddz)=2\ii\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_{D\qty(z_j,r_j)}}}\ddx\wedge\ddy=2\uppi\ii r_j^2\implies\abs{\sum_{j=1}^{\infty}\mathmakebox[\widthof{\(\int_{\partial D\qty(z_j,r_j)}\)}][l]{\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_{\partial D\qty(z_j,r_j)}}}\overline{z}\ddz}}\leq\uppi,\] and by similar reasoning
+    \[\abs{\int_{\partial\mathbb{D}}\overline{z}\ddz}=2\uppi\implies\abs{\qty(\int_{\partial\mathbb{D}}-\sum_{j=1}^\infty\int_{\partial D\qty(z_j,r_j)})\overline{z}\ddz}\geq\uppi.\]
+    For any rational \(\psi\) with poles off \(K\),
+    \[\qty(\int_{\partial\mathbb{D}}-\sum_{j=1}^\infty\int_{\partial D\qty(z_j,r_j)})\psi(z)\ddz=0\] by \cref{thm:cauchyintegraltheorem}. The summation's convergence follows from \(\textstyle\abs{\sum\int_{\partial D\qty(z_j,r_j)}\psi\ddz}\) being termwise absolutely bounded by \(\sum 2\uppi Mr_j\), which converges by construction. Now, if \(\textstyle\abs{\overline{z}-\psi(z)}<\frac14\) on \(K\), then 
+    \begin{align*}
+        \uppi\leq\abs{\qty(\int_{\partial\mathbb{D}}-\sum_{j=1}^\infty\int_{\partial D\qty(z_j,r_j)})\overline{z}\ddz}&\leq\abs{\int_{\partial\mathbb{D}}-\sum_{j=1}^\infty\int_{\partial D\qty(z_j,r_j)}}\abs{\psi(z)-\overline{z}}\abs{\ddz}\\&\leq2\uppi\qty(1-\sum_{j=1}^\infty r_j)\frac14\leq\frac{\uppi}2,
+    \end{align*} which is impossible.
 \end{proof}
