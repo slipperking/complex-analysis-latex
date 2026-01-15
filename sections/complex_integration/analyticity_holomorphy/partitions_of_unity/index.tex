@@ -9,23 +9,77 @@
     The collection \(\tau\) is called a \textit{topology} on \(X\), and its elements are referred to as \textit{open sets} under the topology \(\tau\).
 \end{definition}
 Obviously the statement ``let \(X\) be a topological space'' itself has little meaning. However, when the topology is implicitly obvious then it may be verbally elided.
+\begin{definition}
+    A subset \(A\) of a topological space \(X\) is \textit{closed} iff \(X\setminus A\) is open.
+\end{definition}
+It is immediate from definition that the trivial sets \(X\) and \(\varnothing\) are always closed. It is equally trivial from definition that the union of finitely many closed sets is closed, and the intersection of any collection of closed sets is closed.
 
+If \(\exists U\in\tau\) such that \(x\in U\), then \(U\) is an (open) \textit{neighborhood} of \(x\). If \(\forall x,y\in X\) (different) have disjoint neighborhoods, then \(X\) is a \textit{Hausdorff space}.
+
+The following discussions involved with topological spaces here will always be of Hausdorff spaces, although making such distinction is important for future extensibility.
+\begin{definition}
+    For a topological space \(X\), a set \(A\subseteq X\) is compact iff every open cover has a finite subcover.
+\end{definition}
+\begin{definition}
+    A point \(a\) is an accumulation point of a set \(A\) in a topological space \(X\) iff any open \(U\ni a\) implies that \(U\cap A\) contains a point other than \(a\).
+\end{definition}
+\begin{proposition}
+    A set \(A\) in a topological space \(X\) is closed iff it contains all its accumulation points.
+\end{proposition}
+\begin{proof}
+    We first prove the forward implications under the assumption that \(A\) is closed. Since \(X\setminus A\) is open, and suppose for contradiction, that \(a\in X\setminus A\). Then for \(a\in U=X\setminus A\) open, \(U\cap A=\varnothing\) (and hence \(a\) cannot be an accumulation point by contradiction of definition).
+
+    Assume the converse assumption that \(A\) contains all its accumulation points. Let \(x\in X\setminus A\) be arbitrary. By assumption, \(x\) is not an accumulation point of \(A\). Hence, for some open set \(U\supset x\), \(U\cap A\) does not contain a point other than \(x\) (which it also cannot contain), implying that \(U\cap A=\varnothing\), and hence \(U\subseteq X\setminus A\).
+
+    For each \(x\in X\setminus A\), we hence construct some open neighborhood fully contained in \(X\setminus A\). Together, they must union (by the definition of a topology) to an open set, being \(X\setminus A\). Therefore, \(A\) is closed.
+\end{proof}
 We now provide a formal definition of the connectivity of sets:
 \begin{definition}
     A topological space \(X\) is \textit{disconnected} if it can be written as the union of two nonempty disjoint open sets. Otherwise, it is \textit{connected}.
 \end{definition}
-A topology allows the definition and general conceptualization of continuity, convergence, and connectivity in a general setting, without necessarily relying on a notion of distance (a metric). For example, in a topological space, a function \(f:X\to Y\) between two topological spaces is said to be \emph{continuous} if the preimage of every open set in \(Y\) is an open set in \(X\). For the case of metric spaces, this generalizes the \(\varepsilon\)--\(\delta\) notion of continuity.
+A topology allows the definition and general conceptualization of continuity, convergence, and connectivity in a general setting, without necessarily relying on a notion of distance (a metric).
+\begin{definition}
+    A function \(f:X\to Y\) between two topological spaces is said to be \textit{continuous} if the \textit{pre-image} of every open set in \(Y\) (\(\cbraces{x\in X}{f(x)\in Y}\)) is an open set in \(X\).
+\end{definition}
+For the case of metric spaces, this generalizes the \(\varepsilon\)--\(\delta\) notion of continuity.
 \begin{example}
     Consider the function \(f:\mathbb{R}\to\mathbb{R}\) defined by
     \[f(x)=
         \begin{dcases}
             1 & \qif* x\ge0, \\
             0 & \qif* x<0.
-        \end{dcases}\]
-    We equip both the domain and codomain with the standard topology on \(\mathbb{R}\). Let \(V=(0.5,1.5)\subseteq\mathbb{R}\). Then the preimage of \(V\) is
-    \[f^{-1}(V)=\cbraces{x\in\mathbb{R}}{f(x)\in(0.5,1.5)}=\mathbb{R}_{\ge0},\]
+    \end{dcases}\]
+    We equip both the domain and codomain with the standard topology on \(\mathbb{R}\). Let \(V=(0.5,1.5)\subseteq\mathbb{R}\). Then the pre-image of \(V\) is
+    \[f^{-1}(V)=\cbraces{x\in\mathbb{R}}{f(x)\in V}=\mathbb{R}_{\ge0},\]
     which is not an open set in the standard topology on \(\mathbb{R}\). Thus, \(f\) is not continuous.
 \end{example}
+For two topological spaces \(X\) and \(Y\), a function \(f:X\to Y\) is a \textit{homeomorphism} (also known as a \textit{bicontinuous function}) if it is a bijection such that both \(f\) and \(f^{-1}\) are continuous. If such a function exists, then \(X\) and \(Y\) are \textit{homeomorphic}.
+
+The continuity of the inverse is essential. Consider the two topological spaces \(S^1=\cbraces{(x_1,x_2)\in\mathbb{R}^2}{x_1^2+x_2^2=1}\) and \([0,2\uppi)=\cbraces{t\in\mathbb{R}}{0\leq t<2\uppi}\) under the standard topology.
+
+The function \(f:[0,2\uppi)\to S^1\) with \(f(t)=\qty(\cos(t),\sin(t))\) is indeed continuous, but the inverse \(f^{-1}\qty(x_1,x_2)\) is discontinuous at \(\qty(x_1,x_2)=(1,0)\).
+\begin{proposition}\label{prop:topologicalcontinuityequivalents}
+    Let \(\qty(X,\tau_1),\qty(Y,\tau_2)\) be two topological spaces. Then for \(f:X\to Y\), the following conditions are equivalent:
+    \begin{enumerate}
+        \item \(f\) is continuous.\label{itm:topologicalcontinuityequivalents_cont}
+        \item If \(A\subseteq Y\) is closed, then the pre-image \(f^{-1}(A)\) is closed.\label{itm:topologicalcontinuityequivalents_closed}
+        \item If \(a\in X\) and \(A\in\tau_2\) is an open neighborhood of \(f(a)\) in \(Y\), then there is some \(U\in\tau_1\) that is a neighborhood of \(a\) such that \(f(U)\subseteq A\).\label{itm:topologicalcontinuityequivalents_fitopenset}
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    We first show that \cref{itm:topologicalcontinuityequivalents_cont} implies \cref{itm:topologicalcontinuityequivalents_closed}. By continuity, for \(A\subseteq Y\) closed, \(Y\setminus A\in\tau_2\), then \[f^{-1}\qty(Y\setminus A)=\cbraces{x\in X}{f(x)\in Y\setminus A}=X\setminus f^{-1}(A).\]
+    Assume the conditions of \cref{itm:topologicalcontinuityequivalents_closed} for the converse. Let \(U\in\tau_2\) be open, \(Y\setminus U\) closed, then \(f^{-1}\qty(Y\setminus U)\) is closed. Similar logic shows \(f^{-1}\qty(Y\setminus U)=X\setminus f^{-1}(U)\), which implies \(f^{-1}\qty(U)\) is open.
+
+    Next we aim to show that continuity implies \cref{itm:topologicalcontinuityequivalents_fitopenset}. By assumption, the pre-image of any open \(A\subseteq Y\) is \(f^{-1}(A)\) and open and \(a\in f^{-1}(A)\). The property is complete under \(U=f^{-1}(A)\).
+
+    Assume the conditions of \cref{itm:topologicalcontinuityequivalents_fitopenset} for the converse.
+    \newlength{\cuplength}%
+    \newlength{\longcuplength}%
+    \setlength{\cuplength}{\widthof{\(\bigcup\)}}%
+    \setlength{\longcuplength}{\widthof{\(\bigcup_{a\in f^{-1}(A)}\)}}%
+    Let \(A\in\tau_2\) be arbitrary. We aim to show that \(f^{-1}(A)\in\tau_1\). If \(f^{-1}(A)=\varnothing\), then the conclusion is satisfied trivially. Hence, assume that \(\exists a\in f^{-1}(A)\). For any such \(a\), there exists a neighborhood \(U_a\in\tau_1\) such that \(f\qty(U_a)\subseteq A\). Hence \(U_a\subseteq f^{-1}(A)\) for any \(a\in f^{-1}(A)\). Therefore, we obtain \[\mathop{\mathmakebox[\dimexpr 0.5\cuplength+0.5\longcuplength\relax][l]{\(\bigcup_{a\in f^{-1}(A)}\)}}\overline{a_k}^{p+1}U_a\subseteq f^{-1}(A),\quad\mathop{\mathmakebox[\cuplength][c]{\(\bigcup_{a\in f^{-1}(A)}\)}}U_a\supset\mathop{\mathmakebox[\cuplength][c]{\(\bigcup_{a\in f^{-1}(A)}\)}}\qty{a}=f^{-1}(A)\implies\mathop{\mathmakebox[\cuplength][c]{\(\bigcup_{a\in f^{-1}(A)}\)}}U_a=f^{-1}(A).\]
+    By the definition of topologies, \[\bigcup_{a\in f^{-1}(A)}U_a\in\tau_1.\qedhere\]
+\end{proof}
 \begin{definition}[Basis of a Topology]
     For a topological space \((X,\tau)\), a \textit{basis} \(\mathfrak{B}\subseteq\tau\) is a subcollection of \(\tau\) such that every set in \(\tau\) is equal to the union of some subcollection of \(\mathfrak{B}\).
 \end{definition}
@@ -45,22 +99,6 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
 
     Now consider \(X=\bigcup_{n\in2\mathbb{Z}}(n,n+1)\), equipped with the topology \(\tau\) generated by the basis \(\cbraces{(n,n+1)}{n\in2\mathbb{Z}}\). This space is disconnected. For instance, \((0,1)\subset X\) is open (as it is in \(\tau\)) and closed (since its complement in \(X\) is \(\bigcup_{\substack{n\in2\mathbb{Z}\\n\neq0}}(n,n+1)\in\tau\)). In fact, every set in \(\tau\) is clopen.
 \end{example}
-\begin{definition}
-    For a topological space \(X\), a set \(A\subseteq X\) is compact iff every open cover has a finite subcover.
-\end{definition}
-\begin{definition}
-    An point \(a\) is an accumulation point of a set \(A\) in a topological space \(X\) iff any open \(U\ni a\) implies that \(U\cap A\) contains a point other than \(a\).
-\end{definition}
-\begin{proposition}
-    A set \(A\) in a topological space \(X\) is closed iff it contains all its accumulation points.
-\end{proposition}
-\begin{proof}
-    We first prove the forward implications under the assumption that \(A\) is closed. Since \(X\setminus A\) is open, and suppose for contradiction, that \(a\in X\setminus A\). Then for \(a\in U=X\setminus A\) open, \(U\cap A=\varnothing\) (and hence \(a\) cannot be an accumulation point by contradiction of definition).
-
-    Assume the converse assumption that \(A\) contains all its accumulation points. Let \(x\in X\setminus A\) be arbitrary. By assumption, \(x\) is not an accumulation point of \(A\). Hence, for some open set \(U\supset x\), \(U\cap A\) does not contain a point other than \(x\) (which it also cannot contain), implying that \(U\cap A=\varnothing\), and hence \(U\subseteq X\setminus A\).
-
-    For each \(x\in X\setminus A\), we hence construct some open neighborhood fully contained in \(X\setminus A\). Together, they must union (by the definition of a topology) to an open set, being \(X\setminus A\). Therefore, \(A\) is closed.
-\end{proof}
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
     For a topological space \(X\), an \textit{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\) such that \(K_n\subset\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\) and \(X=\bigcup_{n\in\mathbb{N}}K_n\).
 \end{definition}
@@ -84,41 +122,41 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
     \centering
     \begin{tikzpicture}
         \draw[line width=0.35] plot[smooth cycle] coordinates {
-                (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
-            };
+            (-0.8,1) (2,-0.7) (4,0.2) (6,2) (4.5,6) (1,5.8) (0.2,4.2) (-0.7,2)
+        };
         \draw[line width=0.5] plot[smooth cycle] coordinates {
-                (-0.5,1) (2,-0.3) (4,0.6) (5.3,2.3) (4.3,5.3) (1.7,5.5) (0.6,4.2) (-0.3,2)
-            };
+            (-0.5,1) (2,-0.3) (4,0.6) (5.3,2.3) (4.3,5.3) (1.7,5.5) (0.6,4.2) (-0.3,2)
+        };
         \draw[line width=0.65] plot[smooth cycle] coordinates {
-                (0,1) (2,0) (4,1) (5,3.1) (4,4.7) (2,5) (1,4) (0,2)
-            };
+            (0,1) (2,0) (4,1) (5,3.1) (4,4.7) (2,5) (1,4) (0,2)
+        };
         \draw[thick] plot[smooth cycle] coordinates {
-                (0.2,1.5) (2,0.5) (3.5,1.4) (4.2,2.7) (4.4,4) (2,4.5) (1.5,4) (1,3)
-            };
+            (0.2,1.5) (2,0.5) (3.5,1.4) (4.2,2.7) (4.4,4) (2,4.5) (1.5,4) (1,3)
+        };
         \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4.4,4.3) (4.5,5.4) (2.7,5.7) (2.5,4.6) (3.5,4.7)
-            };
+            (4.4,4.3) (4.5,5.4) (2.7,5.7) (2.5,4.6) (3.5,4.7)
+        };
         \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
-            };
+            (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
+        };
         \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
-            };
+            (1.2,4) (0.7,4.5) (1.2,5.4) (1.6,5.7) (2.7,5.6) (2.4,4.8) (1.5,4.4)
+        };
         \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (-0.5,2) (-0.2,3) (0.6,4.6) (1.5,4.3) (0.7,3) (0.2,2) (0,1.2)
-            };
+            (-0.5,2) (-0.2,3) (0.6,4.6) (1.5,4.3) (0.7,3) (0.2,2) (0,1.2)
+        };
         \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (0,0.5) (2.2,-0.6) (2,0.1) (1,0.5) (0,1.3) (-0.3,2) (-0.5,2) (-0.7,1.2)
-            };
+            (0,0.5) (2.2,-0.6) (2,0.1) (1,0.5) (0,1.3) (-0.3,2) (-0.5,2) (-0.7,1.2)
+        };
         \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (2,0.2) (3.5,0.8) (4,1.7) (5.2,1.7) (3.5,0.1) (1.8,-0.4)
-            };
+            (2,0.2) (3.5,0.8) (4,1.7) (5.2,1.7) (3.5,0.1) (1.8,-0.4)
+        };
         \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (4,1.2) (4.3,2.2) (5.5,3) (5.6,2)
-            };
+            (4,1.2) (4.3,2.2) (5.5,3) (5.6,2)
+        };
         \draw[thick, dotted] plot[smooth cycle] coordinates {
-                (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
-            };
+            (5.5,2.4) (4.8,2.5) (4.6,3.8) (4.2,4.4) (4.4,4.8) (4.9,4.9)
+        };
 
         \node[anchor=north] at (2.5,2.8) {\(K_{n-2}\)};
         \node[anchor=north] at (2.7,5) {\(V_{n-1}\)};
@@ -151,7 +189,7 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
         \begin{dcases}
             \exp\qty(\frac{1}{\abs{z}^2-1}) & \qif*\abs{z}<1,   \\
             0                               & \qif*\abs{z}\ge1.
-        \end{dcases}\]
+    \end{dcases}\]
     For \(\varepsilon>0\) let \(\theta_\varepsilon(z)=\varepsilon^{-2}\theta\qty(\frac z\varepsilon)\), which has support \(\overline{D(0,\varepsilon)}\) and satisfies \[\int_{\mathbb{C}}\theta_\varepsilon(z)\ddx\wedge\ddy=1.\]
     Define \(\beta_j(z)=\theta_{r_{z_j}}\qty(z-z_j)\), so \(\supp(\beta_j)=\overline{D\qty(z_j,r_{z_j})}\subset\Omega_{k_{z_j}}\).
 
