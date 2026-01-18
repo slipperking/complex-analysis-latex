@@ -11,48 +11,26 @@
     Let \(f:\overline{D(0,r)}\to\mathbb{C}\) be meromorphic such that \(f(0)\neq 0\). If \(a_1,\ldots,a_m\), \(b_1,\dots,b_n\) are the zeros and poles of \(f\) in \(\overline{D(0,r)}\), counted with multiplicities and orders, respectively, then \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_{0}^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^m\log\abs{\frac{a_k}{r}}-\sum_{k=1}^n\log\abs{\frac{b_k}{r}}.\]
 \end{theorem}
 \begin{proof}
-    First assume that no zeros and poles lie on \(\partial D(0,r)\). It follows that \[\varphi_{\frac{a_k}{r}}\qty(\frac{z}{r})=\frac{r\qty(z-a_k)}{r^2-\overline{a_k}z}\quad\forall 1\leq k\leq m,\qquad\varphi_{\frac{b_k}{r}}\qty(\frac{z}{r})=\frac{r\qty(z-a_k)}{r^2-\overline{a_k}z}\quad\forall 1\leq k\leq n\]
-    are holomorphic on \(\overline{D(0,r)}\), and have simple zeros at \(z=a_k,b_k\). Additionally, the transformation maps \(\partial D(0,r)\) to \(\partial\mathbb{D}\). The function \[g(z)=f(z)\frac{\prod_{k=1}^n\varphi_{\frac{b_k}{r}}\qty(\frac{z}{r})}{\prod_{k=1}^m\varphi_{\frac{a_k}{r}}\qty(\frac{z}{r})}\]
-    is then holomorphic and non-vanishing in \(\overline{D(0,r)}\). Hence, by \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty}, \[\log\qty|g(0)|=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{g\qty(r\ee^{\ii\theta})}\dd{\theta},\]
-    implying that
-    \begin{align}
-        \log\abs{f(0)}-\sum_{k=1}^m\log\abs{\varphi_{\frac{a_k}{r}}(0)}+\sum_{k=1}^n\log\abs{\varphi_{\frac{b_k}{r}}(0)} & =\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\nonumber                                                                     \\
-        & \quad-\frac{1}{2\uppi}\sum_{k=1}^m\int_0^{2\uppi}\log\abs{\varphi_{\frac{a_k}{r}}\qty(\ee^{\ii\theta})}\dd{\theta}\nonumber\\
-        &\qquad+\frac{1}{2\uppi}\sum_{k=1}^n\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\log\abs{\varphi_{\frac{b_k}{r}}\qty(\ee^{\ii\theta})}\dd{\theta}.\label{eq:jensensformula_intermediate}
-    \end{align}
-    Since for fixed \(k\), 
+    For simplicity, assume \(a_1,\ldots,a_{m_0}\) are the zeros in \(D(0,r)\) and \(a_{m_0+1},\ldots,a_m\) are the zeros on \(\partial D(0,r)\). Similarly, let \(b_1,\ldots,b_{n_0}\) be the poles in \(D(0,r)\) and \(b_{n_0+1},\ldots,b_n\) be the poles on \(\partial D(0,r)\). Let \[f(z)=g(z)\frac{\prod_{j=1}^m\qty(z-a_j)}{\prod_{k=1}^n\qty(z-b_k)},\]
+    where \(g\) is holomorphic and non-vanishing on \(\overline{D(0,r)}\). Since \[\log\abs{f(0)}=\log\abs{g(0)}+\sum_{j=1}^{m}\log\abs{a_j}-\sum_{k=1}^{n}\log\abs{b_k},\] by \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty} on \(g\),
     \begin{align*}
-        \log\abs{\varphi_{\frac{a_k}{r}}(0)}=\log\abs{\frac{a_k}{r}},&\qquad\log\abs{\varphi_{\frac{a_k}{r}}\qty(\ee^{\ii\theta})}=\log{1}=0\\
-        \log\abs{\varphi_{\frac{b_k}{r}}(0)}=\log\abs{\frac{b_k}{r}},&\qquad\log\abs{\varphi_{\frac{b_k}{r}}\qty(\ee^{\ii\theta})}=\log{1}=0,
+        \log\abs{f(0)}&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})\frac{\prod_{k=1}^{n}\qty(r\ee^{\ii\theta}-b_k)}{\prod_{j=1}^{m}\qty(r\ee^{\ii\theta}-a_j)}}\dd{\theta}+\sum_{j=1}^{m}\log\abs{a_j}-\sum_{k=1}^{n}\log\abs{b_k}\\
+        &\!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{a_j}-\sum_{k=1}^{n}\log\abs{b_k}\\
+        &\!\!\!\!\quad+\frac1{2\uppi}\int_0^{2\uppi}\qty[\sum_{k=1}^{n}\qty(\log{r}+\log\abs{1-\frac{b_k}{r\ee^{\ii\theta}}})-\sum_{j=1}^{m}\qty(\log r+\log\abs{1-\frac{a_j}{r\ee^{\ii\theta}}})]\dd{\theta}\\
+        &\!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{\frac{a_j}r}-\sum_{k=1}^{n}\log\abs{\frac{b_k}r}\\
+        &\!\!\!\!\quad+\Re\frac1{2\uppi\ii}\qty[\qty(\sum_{j=1}^{m}\varointclockwise_{\partial D\qty(0,\abs{\frac{a_j}{r}})}-\sum_{k=1}^{n}\varointclockwise_{\partial D\qty(0,\abs{\frac{b_k}{r}})})\frac{\Log\qty(1-z)\ddz}{z}]\\
+        &\!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{\frac{a_j}r}-\sum_{k=1}^{n}\log\abs{\frac{b_k}r}\\
+        &\!\!\!\!\quad+\Re\frac1{2\uppi\ii}\qty(\sum_{k=n_0+1}^{n}-\sum_{j=m_0+1}^{m})\ointctrclockwise_{\partial\mathbb{D}}\frac{\Log\qty(1-z)\ddz}{z}
     \end{align*}
-    \cref{eq:jensensformula_intermediate} becomes \[\log\abs{f(0)}=\frac{1}{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{k=1}^m\log\abs{\frac{a_k}{r}}-\sum_{k=1}^n\log\abs{\frac{b_k}{r}}.\]
-    Suppose \(f\) has additional zeros at each \(\textstyle\cbraces{a'_j=r\ee^{\ii\vartheta_j}}_{1\leq j\leq m'}\) and poles at each \(\textstyle\cbraces{b'_j=r\ee^{\ii\vartheta'_j}}_{1\leq j\leq n'}\subset\partial D(0,r)\) (where each \(0\leq\vartheta_j,\vartheta'_j<2\uppi\)), each with multiplicity \(k_j\) and order \(k'_j\), respectively. Then \(f\) can be written as \[f(z)=g(z)\frac{\prod_{j=1}^{m'}\qty(z-a'_j)^{k_j}}{\prod_{j=1}^{n'}\qty(z-b'_j)^{k'_j}},\]
-    where \(g\) does not vanish or diverge at the boundary. By the previous result, we have
-    \begin{equation}
-        \log\abs{g(0)}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{g\qty(r\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^m\log\abs{\frac{a_j}r}-\sum_{j=1}^n\log\abs{\frac{b_j}r}.\label{eq:jensensformula_formulanonvanishingboundary}
-    \end{equation}
-    Fix \(1\leq j\leq m'\). Consider the integral \[\frac1{2\uppi}\int_0^{2\uppi}\log\abs{r\ee^{\ii\theta}-a'_j}^{k_j}\dd{\theta}=\lim_{\varepsilon\to 0^+}\frac1{2\uppi}\int_{\substack{0\leq\theta\leq2\uppi\\\abs{\vartheta_j-\theta}>\varepsilon\\\abs{\vartheta_j-2\uppi-\theta}>\varepsilon\\\abs{\vartheta_j+2\uppi-\theta}>\varepsilon}}k_j\log\abs{r\ee^{\ii\theta}-r\ee^{\ii\vartheta_j}}\dd{\theta}.\]
-    Observe that
+    where \(z=\flatfrac{b_k}{r\ee^{\ii\theta}}\), \(\dd{\theta}=\flatfrac{\ii\ddz}{z}\) and the leftover integrals for interior points vanish by Cauchy--Goursat (\cref{thm:cauchygoursattheorem}), since \(\flatfrac{\Log(1-z)}z\) has a removable singularity at \(z=0\).
+    
+    We now are left to prove that the remaining integral \(I\) vanishes as well, which is not as immediate since the integrand does not extend continuously to the boundary. Let \(z=\ee^{\ii\theta}\), \(\ddz=\ii\ee^{\ii\theta}\), then (by \(\psi=\frac{\theta}{2}\))
     \begin{align*}
-        \log\abs{r\ee^{\ii\theta}-r\ee^{\ii\vartheta_j}}&=\log\abs{r\exp\qty(\ii\frac{\theta+\vartheta_j}{2})\qty(\exp(\ii\frac{\theta-\vartheta_j}{2})-\exp\qty(\ii\frac{\vartheta_j-\theta}{2}))}\\
-        &=\log\abs{2r\sin\qty(\frac{\theta-\vartheta_j}{2})}=\log(2r)+\log\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}.
+        I&=\mathop{\mathmakebox[\widthof{\(\ointctrclockwise\)}][l]{\ointctrclockwise_{\partial\mathbb{D}}}}\frac{\Log\qty(1-z)\ddz}{z}=\int_0^{2\uppi}\log\abs{1-\ee^{\ii\theta}}\dd{\theta}=2\int_0^{\uppi}\log\abs{\ee^{-\ii\psi}-\ee^{\ii\psi}}\dd{\psi}\\
+        &=2\uppi\log 2+2\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{\uppi}}}\log\abs{\sin\psi}\dd{\psi}=2\uppi\log 2+4\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{\frac{\uppi}2}}}\log\abs{\sin\psi}\dd{\psi}=2\uppi\log 2+4J.
     \end{align*}
-    In particular, consider \[I=\int_0^{2\uppi}\log\abs{\sin\qty(\frac{\theta-\vartheta_j}{2})}\dd{\theta}=2\int_{-\frac{\vartheta_j}2}^{\uppi-\frac{\vartheta_j}2}\log\abs{\sin\theta}\dd{\theta}=2\int_0^{\uppi}\log\abs{\sin\theta}\dd{\theta}\] (since the integrand becomes \(\uppi\)-periodic). By symmetry, we have
-    \begin{align*}
-        I&=4\int_0^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}=4\int_0^{\frac{\uppi}4}\log\abs{\sin\theta}\dd{\theta}+4\int_{\frac{\uppi}4}^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}\\
-        &=4\int_0^{\frac{\uppi}4}\log\abs{\sin\theta}\dd{\theta}+4\int_0^{\frac{\uppi}4}\log\abs{\cos\theta}\dd{\theta}=4\int_0^{\frac{\uppi}4}\log\abs{\sin(2\theta)}\dd{\theta}-\uppi\log 2\\
-        &=2\int_0^{\frac{\uppi}2}\log\abs{\sin\theta}\dd{\theta}-\uppi\log2=\frac I2-\uppi\log2\implies I=-2\uppi\log2.
-    \end{align*}
-    Therefore, (applying the same logic for each \(b'_j\))
-    \begin{equation}
-        \frac1{2\uppi}\int_0^{2\uppi}\log\abs{r\ee^{\ii\theta}-a'_j}^{k_j}\dd{\theta}=k_j\log{r},\quad\frac1{2\uppi}\int_0^{2\uppi}\log\abs{r\ee^{\ii\theta}-b'_j}^{k'_j}\dd{\theta}=k'_j\log{r}\label{eq:jensensformula_integratedlogsingularity}
-    \end{equation} and the factorization form yields \[\log\abs{f(0)}=\log\abs{g(0)}+\sum_{j=1}^{m'}k_j\log{r}-\sum_{j=1}^{n'}k'_j\log r.\]
-    Recognizing the forms of \cref{eq:jensensformula_integratedlogsingularity,eq:jensensformula_formulanonvanishingboundary}, we thus have
-    \begin{align*}
-        \log\abs{f(0)}&=\frac1{2\uppi}\int_0^{2\uppi}\qty(\log\abs{g\qty(r\ee^{\ii\vartheta_j})}+\sum_{j=1}^{m'}\log\abs{r\ee^{\ii\theta}-a'_j}^{k_j}-\sum_{j=1}^{n'}\log\abs{r\ee^{\ii\theta}-a'_j}^{k_j})\dd{\theta}\\
-        &\quad+\sum_{j=1}^m\abs{\frac{a_j}r}-\sum_{j=1}^n\abs{\frac{b_j}r}\\
-        &=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\vartheta_j})}\dd{\theta}+\sum_{j=1}^m\abs{\frac{a_j}r}-\sum_{j=1}^n\abs{\frac{b_j}r}+\sum_{j=1}^{m'}\abs{\frac{a'_j}r}-\sum_{j=1}^{n'}\abs{\frac{b'_j}r}.\qedhere
-    \end{align*}
+    Splitting at \(\frac{\uppi}4\) and using \(\cos\) with a substitution for the second integral then yields \[J=\int_0^{\frac{\uppi}4}\log\abs{\sin\psi}\dd{\psi}+\int_{0}^{\frac{\uppi}4}\log\abs{\cos\psi}\dd{\psi}=\int_0^{\frac{\uppi}4}\log\abs{\frac12\sin{2\psi}}\dd{\psi}.\]
+    Changing back to \(\theta=2\psi\), we have \[J=\frac J2-\frac{\uppi}4\log2\implies 4J=-2\uppi\log 2\implies I=0.\qedhere\]
 \end{proof}
 As an immediate consequence, we have:
 \begin{corollary}[Jensen's Inequality]\label{cor:jensensinequality}
