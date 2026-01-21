@@ -14,20 +14,20 @@
     For simplicity, assume \(a_1,\ldots,a_{m_0}\) are the zeros in \(D(0,r)\) and \(a_{m_0+1},\ldots,a_m\) are the zeros on \(\partial D(0,r)\). Similarly, let \(b_1,\ldots,b_{n_0}\) be the poles in \(D(0,r)\) and \(b_{n_0+1},\ldots,b_n\) be the poles on \(\partial D(0,r)\). Let \[f(z)=g(z)\frac{\prod_{j=1}^m\qty(z-a_j)}{\prod_{k=1}^n\qty(z-b_k)},\]
     where \(g\) is holomorphic and non-vanishing on \(\overline{D(0,r)}\). Since \[\log\abs{f(0)}=\log\abs{g(0)}+\sum_{j=1}^{m}\log\abs{a_j}-\sum_{k=1}^{n}\log\abs{b_k},\] by \cref{lem:nonvanishingholomorphiclogarithmabsolutemeanvalueproperty} on \(g\),
     \begin{align*}
-        \log\abs{f(0)}&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})\frac{\prod_{k=1}^{n}\qty(r\ee^{\ii\theta}-b_k)}{\prod_{j=1}^{m}\qty(r\ee^{\ii\theta}-a_j)}}\dd{\theta}+\sum_{j=1}^{m}\log\abs{a_j}-\sum_{k=1}^{n}\log\abs{b_k}\\
-        &\!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{a_j}-\sum_{k=1}^{n}\log\abs{b_k}\\
-        &\!\!\!\!\quad+\frac1{2\uppi}\int_0^{2\uppi}\qty[\sum_{k=1}^{n}\qty(\log{r}+\log\abs{1-\frac{b_k}{r\ee^{\ii\theta}}})-\sum_{j=1}^{m}\qty(\log r+\log\abs{1-\frac{a_j}{r\ee^{\ii\theta}}})]\dd{\theta}\\
-        &\!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{\frac{a_j}r}-\sum_{k=1}^{n}\log\abs{\frac{b_k}r}\\
-        &\!\!\!\!\quad+\Re\frac1{2\uppi\ii}\qty[\qty(\sum_{j=1}^{m}\varointclockwise_{\partial D\qty(0,\abs{\frac{a_j}{r}})}-\sum_{k=1}^{n}\varointclockwise_{\partial D\qty(0,\abs{\frac{b_k}{r}})})\frac{\Log\qty(1-z)\ddz}{z}]\\
-        &\!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{\frac{a_j}r}-\sum_{k=1}^{n}\log\abs{\frac{b_k}r}\\
-        &\!\!\!\!\quad+\Re\frac1{2\uppi\ii}\qty(\sum_{k=n_0+1}^{n}-\sum_{j=m_0+1}^{m})\ointctrclockwise_{\partial\mathbb{D}}\frac{\Log\qty(1-z)\ddz}{z}
+        \log\abs{f(0)} & =\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})\frac{\prod_{k=1}^{n}\qty(r\ee^{\ii\theta}-b_k)}{\prod_{j=1}^{m}\qty(r\ee^{\ii\theta}-a_j)}}\dd{\theta}+\sum_{j=1}^{m}\log\abs{a_j}-\sum_{k=1}^{n}\log\abs{b_k} \\
+                       & \!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{a_j}-\sum_{k=1}^{n}\log\abs{b_k}                                                                                    \\
+                       & \!\!\!\!\quad+\frac1{2\uppi}\int_0^{2\uppi}\qty[\sum_{k=1}^{n}\qty(\log{r}+\log\abs{1-\frac{b_k}{r\ee^{\ii\theta}}})-\sum_{j=1}^{m}\qty(\log r+\log\abs{1-\frac{a_j}{r\ee^{\ii\theta}}})]\dd{\theta}                          \\
+                       & \!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{\frac{a_j}r}-\sum_{k=1}^{n}\log\abs{\frac{b_k}r}                                                                    \\
+                       & \!\!\!\!\quad+\Re\frac1{2\uppi\ii}\qty[\qty(\sum_{j=1}^{m}\varointclockwise_{\partial D\qty(0,\abs{\frac{a_j}{r}})}-\sum_{k=1}^{n}\varointclockwise_{\partial D\qty(0,\abs{\frac{b_k}{r}})})\frac{\Log\qty(1-z)\ddz}{z}]      \\
+                       & \!\!\!\!=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{h\qty(r\ee^{\ii\theta})}\dd{\theta}+\sum_{j=1}^{m}\log\abs{\frac{a_j}r}-\sum_{k=1}^{n}\log\abs{\frac{b_k}r}                                                                    \\
+                       & \!\!\!\!\quad+\Re\frac1{2\uppi\ii}\qty(\sum_{k=n_0+1}^{n}-\sum_{j=m_0+1}^{m})\ointctrclockwise_{\partial\mathbb{D}}\frac{\Log\qty(1-z)\ddz}{z}
     \end{align*}
     where \(z=\flatfrac{b_k}{r\ee^{\ii\theta}}\), \(\dd{\theta}=\flatfrac{\ii\ddz}{z}\) and the leftover integrals for interior points vanish by Cauchy--Goursat (\cref{thm:cauchygoursattheorem}), since \(\flatfrac{\Log(1-z)}z\) has a removable singularity at \(z=0\).
-    
+
     We now are left to prove that the remaining integral \(I\) vanishes as well, which is not as immediate since the integrand does not extend continuously to the boundary. Let \(z=\ee^{\ii\theta}\), \(\ddz=\ii\ee^{\ii\theta}\), then (by \(\psi=\frac{\theta}{2}\))
     \begin{align*}
-        I&=\mathop{\mathmakebox[\widthof{\(\ointctrclockwise\)}][l]{\ointctrclockwise_{\partial\mathbb{D}}}}\frac{\Log\qty(1-z)\ddz}{z}=\int_0^{2\uppi}\log\abs{1-\ee^{\ii\theta}}\dd{\theta}=2\int_0^{\uppi}\log\abs{\ee^{-\ii\psi}-\ee^{\ii\psi}}\dd{\psi}\\
-        &=2\uppi\log 2+2\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{\uppi}}}\log\abs{\sin\psi}\dd{\psi}=2\uppi\log 2+4\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{\frac{\uppi}2}}}\log\abs{\sin\psi}\dd{\psi}=2\uppi\log 2+4J.
+        I & =\mathop{\mathmakebox[\widthof{\(\ointctrclockwise\)}][l]{\ointctrclockwise_{\partial\mathbb{D}}}}\frac{\Log\qty(1-z)\ddz}{z}=\int_0^{2\uppi}\log\abs{1-\ee^{\ii\theta}}\dd{\theta}=2\int_0^{\uppi}\log\abs{\ee^{-\ii\psi}-\ee^{\ii\psi}}\dd{\psi} \\
+          & =2\uppi\log 2+2\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{\uppi}}}\log\abs{\sin\psi}\dd{\psi}=2\uppi\log 2+4\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{\frac{\uppi}2}}}\log\abs{\sin\psi}\dd{\psi}=2\uppi\log 2+4J.
     \end{align*}
     Splitting at \(\frac{\uppi}4\) and using \(\cos\) with a substitution for the second integral then yields \[J=\int_0^{\frac{\uppi}4}\log\abs{\sin\psi}\dd{\psi}+\int_{0}^{\frac{\uppi}4}\log\abs{\cos\psi}\dd{\psi}=\int_0^{\frac{\uppi}4}\log\abs{\frac12\sin{2\psi}}\dd{\psi}.\]
     Changing back to \(\theta=2\psi\), we have \[J=\frac J2-\frac{\uppi}4\log2\implies 4J=-2\uppi\log 2\implies I=0.\qedhere\]
@@ -40,7 +40,7 @@ As an immediate consequence, we have:
     Suppose \(f\) is a meromorphic function on \(\overline{D(0,r)}\) such that \(f\not\equiv 0\) on \(D(0,r)\) and is non-vanishing and non-infinity on \(\partial D(0,r)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,r)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
     \begin{align}
         \log\abs{f(z)} & =\int_0^{2\uppi}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                                          \\
-        & \quad+\sum_{j=1}^m\log\abs{\frac{r\qty(z-a_j)}{r^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{r\qty(z-b_k)}{r^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
+                       & \quad+\sum_{j=1}^m\log\abs{\frac{r\qty(z-a_j)}{r^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{r\qty(z-b_k)}{r^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
     \end{align}
     where \(\zeta=r\ee^{\ii\theta}\), \(z\in D(0,r)\setminus\qty(\cbraces{a_j}_{j=1}^m\cup\cbraces{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in \cref{eq:poissonkernelgeneralform}.
 \end{theorem}
@@ -69,10 +69,10 @@ As an immediate consequence, we have:
     If it can be shown that \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\] locally uniformly converges, we can use \cref{lem:infiniteproductlocallyuniformconvergencecriterion2} to show that the infinite product converges uniformly on compact subsets of \(\mathbb{D}\). Let \(\overline{D(0,r)}\subset\mathbb{D}\) be a compact subset. The summand can be bounded with
     \begin{align*}
         \abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1} & =\abs{\frac{\overline{a_k}}{\abs{a_k}}\frac{a_k-z}{1-\overline{a_k}z}-1}=\abs{\frac{\abs{a_k}^2-\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}-1} \\
-        & =\abs{\frac{\abs{a_k}^2-\overline{a_k}z-\abs{a_k}+\abs{a_k}\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                        \\
-        & =\abs{\frac{\overline{a_k}z\qty(\abs{a_k}-1)+\abs{a_k}\qty(\abs{a_k}-1)}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                           \\
-        & =\abs{\frac{\qty(\overline{a_k}z+\abs{a_k})\qty(1-\abs{a_k})}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                                      \\
-        & \leq\qty(1-\abs{a_k})\frac{\abs{\overline{a_k}}(1+r)}{\abs{a_k}\qty(1-\abs{a_k}r)}<\qty(1-\abs{a_k})\frac{1+r}{1-r}.
+                                                                     & =\abs{\frac{\abs{a_k}^2-\overline{a_k}z-\abs{a_k}+\abs{a_k}\overline{a_k}z}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                        \\
+                                                                     & =\abs{\frac{\overline{a_k}z\qty(\abs{a_k}-1)+\abs{a_k}\qty(\abs{a_k}-1)}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                           \\
+                                                                     & =\abs{\frac{\qty(\overline{a_k}z+\abs{a_k})\qty(1-\abs{a_k})}{\abs{a_k}\qty(1-\overline{a_k}z)}}                                                      \\
+                                                                     & \leq\qty(1-\abs{a_k})\frac{\abs{\overline{a_k}}(1+r)}{\abs{a_k}\qty(1-\abs{a_k}r)}<\qty(1-\abs{a_k})\frac{1+r}{1-r}.
     \end{align*}
     Since \[\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}<\frac{1+r}{1-r}\sum_{k=1}^\infty\qty(1-\abs{a_k})\] is convergent (Blaschke condition), by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}), \(\sum_{k=1}^\infty\abs{\frac{\abs{a_k}}{a_k}\frac{a_k-z}{1-\overline{a_k}z}-1}\) converges uniformly on \(\overline{D(0,r)}\). By \cref{lem:infiniteproductlocallyuniformconvergencecriterion2}, the infinite product in \cref{eq:blaschkeproduct_statement} converges uniformly on compact subsets of \(\mathbb{D}\). The properties of its zeros follow from the lemma.
 
@@ -113,8 +113,7 @@ For an entire function \(f\), let \(M(r,f)=\sup_{\abs{z}=r}\abs{f(z)}=\sup_{\abs
 \end{theorem}
 \begin{proof}
     By assumption, we have \(\forall\varepsilon'>0\), \(\exists 0<\varepsilon<\varepsilon'\) (or simply just \(\forall\varepsilon>0\) by the nature of the exponential) such that
-    \[M(r,f)\leq\exp\qty(r^{\lambda(f)+\varepsilon})\] for some \(r'\) and any \(r>r'\).
-    Taking logarithms twice we have \[\frac{\log\qty(\log M(r,f))}{\log{r}}\leq\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log{r}}\leq\lambda(f)+\varepsilon\to\lambda(f)\]
+    \[M(r,f)\leq\exp\qty(r^{\lambda(f)+\varepsilon})\] for some \(r'\) and any \(r>r'\). Taking logarithms twice we have \[\frac{\log\qty(\log M(r,f))}{\log{r}}\leq\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log{r}}\leq\lambda(f)+\varepsilon\to\lambda(f)\]
     as \(\varepsilon'\to 0\). Moreover, for any \(\varepsilon>0, r'>0\), \(\exists r>r'\) such that \[M(r,f)>\exp\qty(r^{\lambda(f)-\varepsilon})\implies\varlimsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log r}\geq\lambda(f)-\varepsilon\to\lambda(f)\] as \(\varepsilon\to 0\). Therefore, \[\lambda(f)\leq\limsup_{r\to\infty}\frac{\log\qty(\log M(r,f))}{\log r}\leq\lambda(f).\qedhere\]
 \end{proof}
 \begin{example}
@@ -124,17 +123,16 @@ For an entire function \(f\), let \(M(r,f)=\sup_{\abs{z}=r}\abs{f(z)}=\sup_{\abs
     We consider the two examples separately:
     \begin{enumerate}
         \item Observe that \[\sup_{\abs{z}=r}\abs{\sin(z)}\leq\sup_{\abs{z}=r}\frac{\abs{\ee^{\ii z}}+\abs{\ee^{-\ii z}}}{2}=\sup_{\abs{z}=r}\frac{\ee^{\abs{y}}+\ee^{-\abs{y}}}{2}\leq\sup_{\abs{z}=r}\ee^{\abs{y}}=\ee^r.\]
-            For \(r>1\), we have \(\ee^{-r}<1<\frac12\ee^r\), and hence for \(z=\ii r\), we have \[\abs{\sin(z)}=\frac{\ee^{r}-\ee^{-r}}{2}>\frac14\ee^r.\]
-            Therefore, \[\frac14\ee^r<\sup_{\abs{z}=r}\abs{\sin(z)}\leq\ee^r\implies\lambda(f)=\limsup_{r\to\infty}\frac{\log\qty(r+\order{1})}{\log{r}}=1.\]
+              For \(r>1\), we have \(\ee^{-r}<1<\frac12\ee^r\), and hence for \(z=\ii r\), we have \[\abs{\sin(z)}=\frac{\ee^{r}-\ee^{-r}}{2}>\frac14\ee^r.\]
+              Therefore, \[\frac14\ee^r<\sup_{\abs{z}=r}\abs{\sin(z)}\leq\ee^r\implies\lambda(f)=\limsup_{r\to\infty}\frac{\log\qty(r+\order{1})}{\log{r}}=1.\]
         \item Let \(z=r\), then
-            \begin{align*}
-                \sup_{\abs{z}=r}\abs{\exp\circ\exp}\geq\exp\circ\exp(r)&\implies\log\circ\log\sup_{\abs{z}=r}\abs{f(z)}\geq r\\
-                &\implies\lambda(f)\geq\limsup_{r\to\infty}\frac{r}{\log r}=\infty.\qedhere
-            \end{align*}
+              \begin{align*}
+                  \sup_{\abs{z}=r}\abs{\exp\circ\exp}\geq\exp\circ\exp(r) & \implies\log\circ\log\sup_{\abs{z}=r}\abs{f(z)}\geq r                      \\
+                                                                          & \implies\lambda(f)\geq\limsup_{r\to\infty}\frac{r}{\log r}=\infty.\qedhere
+              \end{align*}
     \end{enumerate}
 \end{proof}
-The utility of \(\lambda\) is that it gives implications on the rate of which the zeros of an entire function tend to \(\infty\). This is quantified technically by the convergence range of the sum given by \[\sum_{n=1}^\infty\frac{1}{\abs{a_n}^{k+1}},\] where each \(a_n\) is a zero.
-Specifically, the infimum of all such \(k\) under which the prescribed sum converges correlates to this right. For example, let \(a_n=n\) for each \(n\). Then for any \(k>0\), the integral test gives the convergence of the series, while if \(a_n=\sqrt{a_n}\) (corresponding to a slower approach to \(\infty\)), the series converges for \(k>1\).
+The utility of \(\lambda\) is that it gives implications on the rate of which the zeros of an entire function tend to \(\infty\). This is quantified technically by the convergence range of the sum given by \[\sum_{n=1}^\infty\frac{1}{\abs{a_n}^{k+1}},\] where each \(a_n\) is a zero. Specifically, the infimum of all such \(k\) under which the prescribed sum converges correlates to this right. For example, let \(a_n=n\) for each \(n\). Then for any \(k>0\), the integral test gives the convergence of the series, while if \(a_n=\sqrt{a_n}\) (corresponding to a slower approach to \(\infty\)), the series converges for \(k>1\).
 
 For the following discussions, let \(n\qty(r,0,f)\) count the zeros of \(f\) in \(D(0,r)\) according to multiplicity.
 \begin{lemma}\label{lem:maximummoduluszerocountingdoubleradius}
@@ -144,7 +142,7 @@ For the following discussions, let \(n\qty(r,0,f)\) count the zeros of \(f\) in 
     By Jensen's formula (\cref{thm:jensensformula}), for \(r>0\), we have
     \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta},\] where \(a_1,\dots,a_{n(2r,0,f)}\) are the zeros of \(f\) in \(D(0,2r)\), ordered such that each \(\abs{a_k}\leq\abs{a_{k+1}}\). Then \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{\mathmakebox[\widthof{\(\sum\)}][l]{n(r,0,f)}}}\log2\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}\log\abs{\frac{2r}{a_k}}\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta}\leq\log M(2r,f).\qedhere\]
 \end{proof}
-\begin{theorem}
+\begin{theorem}\label{thm:entirefunctionfiniteorderzerossummationconvergence}
     For an entire function \(f\) (\(f(0)=1\)) of finite order \(\lambda(f)\) whose zeros are at \(\qty{a_k}_{k\in\mathbb{N}}\) counting multiplicities (such that \(\abs{a_1}\leq\abs{a_2}\), etc.), the sum \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{\lambda(f)+\eta}}\] converges for any \(\eta>0\).
 \end{theorem}
 \begin{proof}
@@ -155,8 +153,8 @@ For the following discussions, let \(n\qty(r,0,f)\) count the zeros of \(f\) in 
     The left-hand side as a summation is convergent for \(2\varepsilon<\eta\) or lower, and hence we have the convergence of \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{\lambda(f)+\eta}}.\qedhere\]
 \end{proof}
 Therefore, for any \(r>0\), the series \[\sum_{k=1}^\infty\abs{\frac{r}{a_k}}^{\lambda(f)+\eta}\leq\sum_{k=1}^\infty\abs{\frac{r}{a_k}}^{\floor{\lambda}+1}\quad\text{for sufficiently small }\eta\]
-converges. Then by the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), \[f(z)=z^m\ee^{\varphi(z)}\prod_{k=1}^\infty E_{\floor{\lambda}}\qty(\frac z{a_n})\]
-locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This particular Weierstrass factorization is the \textit{Weierstrass canonical factorization} of \(f\). Now that we have indulged in the implications of \(\lambda(f)\) to its zero distribution, we now turn to the function \(\varphi\) in the exponential.
+converges. Then by the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), \[f(z)=z^m\ee^{\varphi(z)}\prod_{k=1}^\infty E_{\floor{\lambda}}\qty(\frac z{a_k})\]
+locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This particular Weierstrass factorization is the \textit{Weierstrass canonical factorization} of \(f\) (the portion corresponding to the product of elementary factors itself is the \textit{Weierstrass canonical product}). Now that we have indulged in the implications of \(\lambda(f)\) to its zero distribution, we now turn to the function \(\varphi\) in the exponential.
 \begin{lemma}\label{lem:entirefunctionfiniteorderserieslimitzero}
     Let \(f\) be entire with finite order such that \(f(0)=1\). Let \(\cbraces{a_k}_{k\in\mathbb{N}}\) be the zeros of \(f\), listed with multiplicities, such that \(\abs{a_1}\leq\abs{a_2}\leq\abs{a_3}\leq\cdots\). Suppose \(p>\lambda(f)-1\); then for any \(z\in\mathbb{C}\),
     \[\lim_{r\to\infty}\mathop{\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}}\overline{a_k}^{p+1}\qty(r^2-\overline{a_k}z)^{-p-1}=0.\]
@@ -172,7 +170,7 @@ locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This
     Letting \(\varepsilon=\frac{p+1-\lambda(f)}2\) (positive by theorem assumption), we obtain
     \[\abs{\mathop{\mathmakebox[\dimexpr 0.5\sumlength+0.5\longsumlength\relax][l]{\sum_{k=1}^{n(r,0,f)}}}\overline{a_k}^{p+1}\qty(r^2-\overline{a_k}z)^{-p-1}}\leq\frac{2^{\frac{3p+3-\lambda(f)}2}r^{-\varepsilon}}{\log 2}\to 0\qq{as}r\to\infty.\qedhere\]
 \end{proof}
-\begin{theorem}
+\begin{theorem}\label{thm:poissonjensenlogdiffintegralterm}
     Let \(f\) be entire with \(f(0)=1\). Then for \(p>\lambda(f)-1\) (\(p\) integer) and \(z\in\mathbb{C}\),
     \[\lim_{r\to\infty}\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}=0.\]
 \end{theorem}
@@ -182,20 +180,62 @@ locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This
     \[\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}=0.\]
     Therefore,
     \begin{align*}
-        \abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}}&=\abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\qty[\log\abs{f\qty(r\ee^{\ii\theta})}-\log M(r,f)]\dd{\theta}}\\
-        &\leq\int_0^{2\uppi}\frac{r}{\qty(r/2)^{p+2}}\qty[\log M(r,f)-\log\abs{f\qty(r\ee^{\ii\theta})}]\dd{\theta}\\
-        &=2^{p+3}r^{-p-1}\qty[2\uppi\log M(r,f)-\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}]\\
-        &\leq 2^{p+4}r^{-p-1}\uppi\log M(r,f),
+        \abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}} & =\abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\qty[\log\abs{f\qty(r\ee^{\ii\theta})}-\log M(r,f)]\dd{\theta}} \\
+                                                                                                                                 & \leq\int_0^{2\uppi}\frac{r}{\qty(r/2)^{p+2}}\qty[\log M(r,f)-\log\abs{f\qty(r\ee^{\ii\theta})}]\dd{\theta}                                  \\
+                                                                                                                                 & =2^{p+3}r^{-p-1}\qty[2\uppi\log M(r,f)-\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}]                                         \\
+                                                                                                                                 & \leq 2^{p+4}r^{-p-1}\uppi\log M(r,f),
     \end{align*}
     where the last expression uses the inequality derived from Jensen's formula (\cref{cor:jensensinequality}) on the remaining integral.
 
     Now by assumption, we have \[\log M(r,f)\leq r^{\lambda+\varepsilon}\] for any \(\varepsilon>0\) and sufficiently large \(r\). Hence, \[\abs{\int_0^{2\uppi}\frac{r\ee^{\ii\theta}\log\abs{f\qty(r\ee^{\ii\theta})}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}\dd{\theta}}\leq 2^{p+4}r^{\lambda(f)+\varepsilon-p-1}\uppi=2^{p+4}r^{\frac{\lambda(f)-p-1}{2}}\uppi\] at \(\varepsilon=\frac{p+1-\lambda(f)}{2}\). Then since \(\frac{\lambda(f)-p-1}{2}<0\), the expression vanishes as \(R\to\infty\).
 \end{proof}
-\begin{proposition}
-    Let \(f\) be entire, non-constant, and of finite order such that \(f(0)=1\). Let \(\qty{a_k}_{k\in\mathbb{N}}\) be the zeros of \(f\) counted according to multiplicities such that \(\abs{a_1}\leq\abs{a_2}\leq\abs{a_3}\leq\cdots\). If \(p>\lambda(f)-1\) is an integer, then \[\dv[p]{}{z} \qty(\frac{f'(z)}{f(z)})\equiv-p!\sum_{k=1}^\infty\frac{1}{\qty(a_k-z)^{p+1}}\] for all \(z\in\mathbb{C}\).
+\begin{proposition}\label{prop:entirefunctionfiniteorderlogdiffderivatives}
+    Let \(f\) be entire, non-constant, and of finite order such that \(f(0)=1\). Let \(\qty{a_k}_{k\in\mathbb{N}}\) be the zeros of \(f\) counted according to multiplicities such that \(\abs{a_1}\leq\abs{a_2}\leq\abs{a_3}\leq\cdots\). If \(p>\lambda(f)-1\) is an integer, then \[\dv[p]{}{z} \qty(\frac{f'(z)}{f(z)})\equiv-\sum_{k=1}^\infty\frac{p!}{\qty(a_k-z)^{p+1}}\] for all \(z\in\mathbb{C}\).
 \end{proposition}
 \begin{proof}
-    
+    Let \(r>2\abs{z}\). By the Poisson--Jensen Formula (\cref{thm:poissonjensenformula}), at each non-singular point, we have (the kernel representation derived in \cref{eq:poissonkernelgeneralform})
+    \[\Re\log{f(z)}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\Re\qty(\frac{r\ee^{\ii\theta}+z}{r\ee^{\ii\theta}-z})\dd{\theta}+\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}\Re\log\paren{\frac{r(z-a_k)}{r^2-\overline{a_k}z}}.\]
+    For any holomorphic \(g=u+\ii v\), we have \[\pdv{\qty(\Re{g(z)})}{z}=\frac12\qty(\pdv{u(z)}{x}-\ii\pdv{u(z)}{y})=\frac12\qty(\pdv{u(z)}{x}+\ii\pdv{v}{x})=\frac12\pdv{g(z)}{x}=\frac{g'(z)}{2}.\]
+    Therefore, by differentiation under the integral sign,
+    \begin{align*}
+        \frac{f'(z)}{f(z)} & =\frac1{\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\frac{r\ee^{\ii\theta}\dd{\theta}}{(r\ee^{\ii\theta}-z)^2}+\sum_{k=1}^{n\qty(r,0,f)}\frac{r^2-\abs{a_k}^2}{\qty(r^2-\overline{a_k}z)\qty(z-a_k)}                                                                                                                 \\
+                           & =\frac1{\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\frac{r\ee^{\ii\theta}\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^2}+\mathop{\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}}\frac{\overline{a_k}}{r^2-\overline{a_k}z}+\mathop{\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}}\frac{1}{z-a_k}.
+    \end{align*}
+    Differentiating \(p\) times from here gives
+    \begin{align*}
+        \dv[p]{}{z}\qty(\frac{f'(z)}{f(z)}) & =\frac1{\uppi}\mathop{\mathmakebox[\widthof{\(int\)}][l]{\int_0^{2\uppi}}}\log\abs{f\qty(r\ee^{\ii\theta})}\frac{r\ee^{\ii\theta}(p+1)!\dd{\theta}}{\qty(r\ee^{\ii\theta}-z)^{p+2}}                                                      \\
+                                            & \quad+\mathop{\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}}\frac{\overline{a_k}^{p+1}p!}{\qty(r^2-\overline{a_k}z)^{p+1}}-\mathop{\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}}\frac{p!}{\qty(a_k-z)^{p+1}}.
+    \end{align*}
+    The first two terms vanish as \(r\to\infty\) by \cref{thm:poissonjensenlogdiffintegralterm,lem:entirefunctionfiniteorderserieslimitzero}.
+\end{proof}
+\begin{lemma}[Logarithmic Factorization]\label{lem:entirefunctionweierstrassproductfiniteorderlogdiffderivatives}
+    Let \(f\) be entire, non-constant, and of finite order \(\lambda\) such that \(f(0)=1\). Let \[P(z)=\prod_{k=1}^\infty E_{\floor{\lambda}}\qty(\frac z{a_k})\] be the associated canonical product. If \(p>\lambda(f)-1\) is an integer, then \[\dv[p]{}{z} \qty(\frac{P'(z)}{P(z)})\equiv-\sum_{k=1}^\infty\frac{p!}{\qty(a_k-z)^{p+1}}\] for all \(z\in\mathbb{C}\).
+\end{lemma}
+\begin{proof}
+    Let \(P_n\) be the \(n\)-th partial product of \(P\). Then \[\frac{P'_n(z)}{P_n(z)}=\sum_{k=1}^n\frac{\dv{}{z}E_{\floor{\lambda}}\qty(\frac{z}{a_k})}{E_{\floor{\lambda}}\qty(\frac{z}{a_k})}=\sum_{k=1}^{\floor{\lambda}}\qty[\frac{1}{z-a_k}+\sum_{j=1}^{\floor{\lambda}}\frac{z^{j-1}}{a_k^j}],\] implying that \[\dv[p]{}{z} \qty(\frac{P_n'(z)}{P_n(z)})=-\sum_{k=1}^n\frac{p!}{\qty(a_k-z)^{p+1}}+\dv[p]{}{z}\sum_{j=1}^{\floor{\lambda}}\sum_{k=1}^n\frac{z^{j-1}}{a_k^j}.\]
+    Since the polynomial in the rightmost term has degree \(\max j-1\leq\floor{\lambda}\), since \(p>\floor{\lambda}-1\), after \(p\) derivatives each term of the expression vanishes. For an arbitrarily chosen compact \(K\subset\mathbb{C}\) avoiding \(a_k\), some \(N\in\mathbb{N}\) such that \(\abs{a_k}\geq\max_{z\in K}\abs{z}\) for all \(k>N\), we have \(\forall z\in K\), \(\abs{a_k-z}\leq\abs{a_k}+\abs{z}\leq2\abs{a_k}\). Then the convergence of \[\sum_{k=1}^\infty\frac1{2\abs{a_k}^{p+1}}\] from \cref{thm:entirefunctionfiniteorderzerossummationconvergence} implies the absolute convergence of \[\sum_{k=1}^\infty\frac1{\qty(a_k-z)^{p+1}}\] in \(K\). Moreover, it can be shown that the uniform convergence of \(P_n\to P\) (from the Weierstrass factorization) and \(P'_n\to P'_n\) (by the Weierstrass Convergence Theorem, \cref{thm:weierstrassconvergence}) in \(K\) implies that of \(\flatfrac{P'(z)}{P(z)}\). Hence, the Weierstrass Convergence Theeorem implies that
+    \[\lim_{n\to\infty}\dv[p]{}{z} \qty(\frac{P_n'(z)}{P_n(z)})=\frac{P'(z)}{P(z)}=-\lim_{n\to\infty}\sum_{k=1}^n\frac{p!}{\qty(a_k-z)^{p+1}}=-\sum_{k=1}^\infty\frac{p!}{\qty(a_k-z)^{p+1}}.\qedhere\]
+\end{proof}
+The two preceding results are similar in conclusion, but \cref{lem:entirefunctionweierstrassproductfiniteorderlogdiffderivatives} is not a special case of \cref{prop:entirefunctionfiniteorderlogdiffderivatives} since we have not asserted that the canonical product is of finite order.
+\begin{theorem}\label{thm:entirefunctionfiniteordercanonicalweierstrassfactorizationpolynomialdegree}
+    Let \(f(z)=\ee^{\varphi(z)}P(z)\) be the Weierstrass canonical factorization of \(f\), where \(f\) is entire with finite order \(\lambda=\lambda(f)\) and \(\lambda(0)=1\). Then \(\varphi\) is a polynomial of degree \(\leq\lambda\).
+\end{theorem}
+\begin{proof}
+    By logarithmic differentiation and by taking \(p>\lambda-1\) subsequent derivatives, we have
+    \[\frac{f'(z)}{f(z)}=\varphi'(z)+\frac{P'(z)}{P(z)}\implies\dv[p]{}{z} \qty(\frac{f'(z)}{f(z)})=\varphi^{\qty(p+1)}(z)+\dv[p]{}{z} \qty(\frac{P'(z)}{P(z)}).\]
+    By applying \cref{prop:entirefunctionfiniteorderlogdiffderivatives,lem:entirefunctionweierstrassproductfiniteorderlogdiffderivatives}, we have \[-\sum_{k=1}^\infty\frac{p!}{\qty(a_k-z)^{p+1}}=\varphi^{\qty(p+1)}(z)-\sum_{k=1}^\infty\frac{p!}{\qty(a_k-z)^{p+1}}\implies \varphi^{(p+1)}\equiv 0.\]
+    Hence, \(\varphi\) is a polynomial of degree \(\leq p\). Choosing \(p=1+\floor{\lambda-1}>\lambda-1\) so that \(p\leq\lambda\), the assertion follows.
+\end{proof}
+\begin{corollary}
+    Let \(f(z)=z^m\ee^{\varphi(z)}P(z)\) be the Weierstrass canonical
+    factorization of \(f\), where \(f\) is entire with finite order
+    \(\lambda=\lambda(f)\). Then \(\varphi\) is a
+    polynomial of degree \(\leq\lambda\).
+\end{corollary}
+\begin{proof}
+    Let \(f(z)=z^m g(z)\), where \(f\) and \(g\) are entire, \(g(0)\neq 0\), and \(f\) has finite order \(\lambda(f)\). It follows that \[M(r,f)=r^m M(r,g)\] for all \(r>0\). Assume \(\lambda(g)>\lambda(f)\). Then the inequality \(M(r,g)\leq\exp(r^{\lambda(g)-\varepsilon})\) fails for small \(\varepsilon>0\), but from \[M(r,g)=\frac{M(r,f)}{r^m}\leq\frac{\exp(r^{\lambda(f)+\varepsilon})}{r^m}=\exp(r^{\lambda(f)+\varepsilon}-m\log r).\] For large \(r\), \(r^{\lambda(f)+\varepsilon}\) dominates \(m\log r\), so \[M(r,g)\leq\exp(r^{\lambda(f)+2\varepsilon}),\] implying \(\lambda(g)\leq\lambda(f)+2\varepsilon\). As \(\varepsilon\to 0^+\), \(\lambda(g)\leq\lambda(f)\), a contradiction. Assume \(\lambda(g)<\lambda(f)\). Then \(M(r,g)\leq\exp(r^{\lambda(g)+\varepsilon})\), so \[M(r,f)\leq r^m\exp(r^{\lambda(g)+\varepsilon})=\exp\qty(m\log r+r^{\lambda(g)+\varepsilon}).\] For large \(r\), this is \(\leq\exp(r^{\lambda(g)+2\varepsilon})\), implying \(\lambda(f)\leq\lambda(g)+2\varepsilon\). As \(\varepsilon\to 0^+\), \(\lambda(f)\leq\lambda(g)\), a contradiction. Thus, \(g\) has finite order and \(\lambda=\lambda(g)=\lambda(f)\).
+
+    Since \(z\mapsto\flatfrac{g(z)}{g(0)}\) is also of order \(\lambda\) and satisfies the hypothesis of \cref{thm:entirefunctionfiniteordercanonicalweierstrassfactorizationpolynomialdegree}, \(\varphi\) is a polynomial of degree \(\leq\lambda\).
 \end{proof}
 \subsubsection{Hadamard Factorization Theorem}
 \begin{example}\label{ex:sinproductformula}
@@ -207,7 +247,7 @@ locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This
         \begin{dcases}
             -\frac{n}{2}  & \qif* n\in 2\mathbb{N},                     \\
             \frac{n+1}{2} & \qif* n\in \mathbb{N}\setminus 2\mathbb{N}.
-    \end{dcases}\]
+        \end{dcases}\]
     For each \(r>0\), the series \(\sum_{n=1}^\infty\abs{\frac{r}{a_n}}^2=\frac{r^2\uppi^2}{3}\) converges. Therefore, \[\sin(\uppi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty(1-\frac{z}{a_n})\exp\qty[\frac{z}{a_n}]\] for some entire function \(\varphi(z)\).
     \begin{equation*}
         \sin(\uppi z)=\ee^{\varphi(z)}z\prod_{n=1}^\infty\qty[1-\frac{z^2}{n^2}].
