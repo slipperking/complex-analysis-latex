@@ -1,4 +1,4 @@
-\subsection{The Quantitative Functions \texorpdfstring{\(N(r,a,f)\)}{N} and \texorpdfstring{\(m(r,a,f)\)}{m}}
+\subsection{Nevanlinna's Counting, Proximity, and Characteristic Functions}
 Let \(f:D(0,R)\to\extcomplex\) be meromorphic such that \[f(z)=\sum_{j=k}^\infty c_jz^j\] where \(c=c_k\neq0\). Then \(z\mapsto\flatfrac{f(z)}{z^k}\) is holomorphic on a neighborhood of 0 and is nonzero at 0. By Jensen's formula (\cref{thm:jensensformula}) on \(\flatfrac{f(z)}{z^k}\),
 \begin{equation}
     \log\abs{r^{m-n}\frac{b_1b_2\cdots b_n}{a_1a_2\cdots a_m}}+k\log r=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}-\log\abs{c},\label{eq:nevanlinnacountingjensensformulaexposition1}
@@ -39,14 +39,15 @@ Since
     \log^+\abs{f\qty(r\ee^{\ii\theta})}-\log^+\abs{\frac1{f\qty(r\ee^{\ii\theta})}}=\log\abs{f\qty(r\ee^{\ii\theta})},
 \end{gather*}
 this implies \[m(r,\infty,f)-m(r,0,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}.\]
-\Cref{eq:nevanlinnacountingjensensformulaexposition2} then can be written as 
+\Cref{eq:nevanlinnacountingjensensformulaexposition2} then can be written as
 \begin{equation}
     N(r,0,f)+m(r,0,f)=N(r,\infty,f)+m(r,\infty,f)-\log\abs{c}.\label{eq:nevanlinnafirsttheorematzero}
 \end{equation}
 \begin{definition}
-    This motivates the sum \(T(r,a,f)\), known as the \textit{Nevanlinna characteristic}, defined by \(m(r,a,f)+N(r,a,f)\), and \(T(r,f)=m(r,f)+N(r,f)\).
+    This motivates the sum \(T(r,f)\), known as the \textit{Nevanlinna characteristic}, defined by \(T(r,f)=m(r,f)+N(r,f)\) (we will also use the notation \(T(r,a,f)=m(r,a,f)+N(r,a,f)\)).
 \end{definition}
 Then \cref{eq:nevanlinnafirsttheorematzero} can be rewritten as:
 \begin{proposition}\label{prop:nevanlinnafirsttheorematzero}
     For any (non-constant) meromorphic \(f\) on \(D(0,R)\) with the innermost Laurent series \(\textstyle f(z)=\sum_{j=k}^\infty c_jz^j\) and any \(0<r<R\), \[T(r,0,f)=T(r,\infty,f)-\log\abs{c_k}.\]
 \end{proposition}
+\subimport{properties_of_characteristic/}{index.tex}

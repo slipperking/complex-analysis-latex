@@ -1,7 +1,7 @@
 \subsection{The First Fundamental Theorem}
 \begin{theorem}[First Fundamental Theorem of Nevanlinna Theory]\label{thm:nevanlinnafirstfundamentaltheorem}
     Let \(f\) be (non-constant) meromorphic on \(D(0,R)\) where \(0<r\leq\infty\). Then for any \(a\in\mathbb{C}\),
-    \[T(r,a,f)=T(r,f)-\log\abs{c_k}+\varepsilon(r,a),\]
+    \[T(r,a,f)=T(r,f)-\log\abs{c_k}+\varepsilon(r,a,f),\]
     where \(\abs{\varepsilon(r,a,f)}\leq\log^+\abs{a}+\log 2\) for \(0<r<R\) and \(c_k\) is the first nonzero coefficient of the innermost Laurent series expansion of \(f(z)-a\) about the origin.
 \end{theorem}
 \begin{proof}
@@ -10,13 +10,13 @@
     Integrating over \(\partial D(0,r)\) implies \[m(r,f-a)\leq\log 2+m(r,f)+\log^+\abs{a}.\]
     From \[\log^+\abs{f(z)-a+a}\leq\log^+\qty(\abs{f(z)-a}+\abs{a})\leq\log 2+\log^+\abs{f(z)-a}+\log^+\abs{a},\] we obtain 
     \[m(r,f)\leq\log 2+m(r,f-a)+\log^+\abs{a}.\]
-    Letting \(\varepsilon(r,a)=m(r,f-a)-m(r,f)\), the two proximity-related inequalities give \[\abs{\varepsilon(r,a)}\leq\log 2+\log^+\abs{a}.\]
+    Letting \(\varepsilon(r,a,f)=m(r,f-a)-m(r,f)\), the two proximity-related inequalities give \[\abs{\varepsilon(r,a,f)}\leq\log 2+\log^+\abs{a}.\]
     Then by \cref{prop:nevanlinnafirsttheorematzero}, and the fact that the poles of \(f\) match those of \(f-a\) (more importantly, \(N(r,0,f-a)=N(r,0,f)\)), 
     \begin{align*}
         T\qty(r,0,f-a)&=N(r,0,f-a)+m(r,0,f-a)\\
         &=N(r,f-a)+m(r,f-a)-\log\abs{c_k}\\
         &=N(r,f)+m(r,f-a)-\log\abs{c_k}\\
-        &=N(r,f)+m(r,f)+\varepsilon(r,a)-\log\abs{c_k}\\
-        &=T(r,f)+\varepsilon(r,a)-\log\abs{c_k}.\qedhere
+        &=N(r,f)+m(r,f)+\varepsilon(r,a,f)-\log\abs{c_k}\\
+        &=T(r,f)+\varepsilon(r,a,f)-\log\abs{c_k}.\qedhere
     \end{align*}
 \end{proof}
