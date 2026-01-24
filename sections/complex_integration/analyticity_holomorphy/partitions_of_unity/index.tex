@@ -174,7 +174,7 @@ In a topological space \(X\), a subset can be open, closed (the complement of so
     The interval \([0,1]\) (under the subspace topology induced by \(\mathbb{R}\)) is connected.
 \end{proposition}
 \begin{proof}
-    Assume, for contradiction, that there exist two disjoint non-empty open sets \(U,V\subset[0,1]\) such that \(U\cup V=[0,1]\). Without loss of generality, assume \(0\in U\) (otherwise switch \(U\) and \(V\)). Let \(a=\inf V\).
+    Assume, for contradiction, that there exist two disjoint nonempty open sets \(U,V\subset[0,1]\) such that \(U\cup V=[0,1]\). Without loss of generality, assume \(0\in U\) (otherwise switch \(U\) and \(V\)). Let \(a=\inf V\).
 
     Since \(U,V\) are also closed in \([0,1]\), either \(a\in V\) or \(a\) is an accumulation point. Either way, \(a\) is contained in \(V\) by \cref{prop:closedsetcontainsaccumulationpoints}. Assume that \(a\neq 0\). Then by openness, there exists some \(0<\delta<a\) such that \[(a-\delta,a)\subseteq(a-\delta,a+\delta)\cap[0,1]\subseteq V.\]
     In particular, \(a-\flatfrac{\delta}2\in V\), which contradicts \(a\) being a lower bound of \(V\).
@@ -189,7 +189,7 @@ Connectivity intuitively means that a space cannot be split into two disjoint op
     A path-connected topological space \(X\) is connected.
 \end{theorem}
 \begin{proof}
-    Assume path-connectivity and suppose \(X\) is disconnected. Then two open non-empty disjoint components \(U,V\subset X\) can be found. Let \(u\in V,v\in V\) be two arbitrary points. Then there exists \(f:[0,1]\to X\) such that \(f(0)=u\), \(f(1)=v\). By continuity, the pre-images of \(U\) and \(V\), namely \(f^{-1}(U)\) and \(f^{-1}(V)\) respectively, are disjoint open subsets of \([0,1]\). Moreover, the pre-image are non-empty as they contain 0 and 1 respectively. This contradicts the connectivity of \([0,1]\) in \cref{prop:unitintervalconnectivity}.
+    Assume path-connectivity and suppose \(X\) is disconnected. Then two open nonempty disjoint components \(U,V\subset X\) can be found. Let \(u\in V,v\in V\) be two arbitrary points. Then there exists \(f:[0,1]\to X\) such that \(f(0)=u\), \(f(1)=v\). By continuity, the pre-images of \(U\) and \(V\), namely \(f^{-1}(U)\) and \(f^{-1}(V)\) respectively, are disjoint open subsets of \([0,1]\). Moreover, the pre-image are nonempty as they contain 0 and 1 respectively. This contradicts the connectivity of \([0,1]\) in \cref{prop:unitintervalconnectivity}.
 \end{proof}
 \begin{definition}[Exhaustion by Compact Sets]\label{def:exhaustionbycompactsets}
     For a topological space \(X\), an \textit{exhaustion by compact sets} is a nested sequence of compact sets \(\cbraces{K_n}_{n\in\mathbb{N}}\subseteq X\) such that \(K_n\subset\interior{K_{n+1}}\) for all \(n\in\mathbb{N}\) and \(X=\bigcup_{n\in\mathbb{N}}K_n\).
