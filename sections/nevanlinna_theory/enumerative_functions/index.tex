@@ -1,19 +1,19 @@
 \subsection{The Quantitative Functions \texorpdfstring{\(N(r,a,f)\)}{N} and \texorpdfstring{\(m(r,a,f)\)}{m}}
-Let \(f:\mathbb{C}\to\extcomplex\) be meromorphic such that \[f(z)=\sum_{j=k}^\infty a_jz^j\] where \(c=a_k\neq0\). Then \(z\mapsto\flatfrac{f(z)}{z^k}\) is holomorphic on a neighborhood of 0 and is nonzero at 0. By Jensen's formula (\cref{thm:jensensformula}) on \(\flatfrac{f(z)}{z^k}\),
+Let \(f:\mathbb{C}\to\extcomplex\) be meromorphic such that \[f(z)=\sum_{j=k}^\infty c_jz^j\] where \(c=c_k\neq0\). Then \(z\mapsto\flatfrac{f(z)}{z^k}\) is holomorphic on a neighborhood of 0 and is nonzero at 0. By Jensen's formula (\cref{thm:jensensformula}) on \(\flatfrac{f(z)}{z^k}\),
 \begin{equation}
     \log\abs{r^{m-n}\frac{b_1b_2\cdots b_n}{a_1a_2\cdots a_m}}+k\log r=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}-\log\abs{c},\label{eq:nevanlinnacountingjensensformulaexposition1}
 \end{equation}
 where \(a_1,\dots,a_m\) and \(b_1,\dots,b_n\) are the zeros and poles of \(f\) in \(\overline{D(0,r)}\) excluding those at 0, ordered in nondecreasing moduli. Observe that { \newlength{\pexprlength}\newlength{\longintlength}\setlength{\pexprlength}{\widthof{\({}+m\)}}\setlength{\longintlength}{\widthof{\(\int_{\abs{a_j}}^{\abs{a_{j+1}}}\)}}%%%
     \[\log\abs{\frac{r^m}{a_1a_2\cdots a_m}}=\log\abs{\frac{a_2}{a_1}\mathmakebox[\widthof{\(\qty(\frac{a_3}{a_2})\)}][l]{\qty(\frac{a_3}{a_2})^2}\cdots\qty(\frac{a_m}{a_{m-1}})^{m-1}\qty(\frac{r}{a_m})^m}=\qty(\sum_{j=1}^{m-1}j\mathmakebox[\dimexpr\longintlength-\pexprlength\relax][l]{\int_{\abs{a_j}}^{\abs{a_{j+1}}}}+m\int_{\abs{a_m}}^r)\frac{\ddx}{x}.\]
 }For any \(j\in\mathbb{N}\) and \(x\) such that \(\abs{a_j}\leq x<\abs{a_{j+1}}\), the number of zeros (multiplicities counted) of \(f\) within \(\overline{D(0,x)}\), denoted \(n(x,0,f)\), is trivially equal to \(n(x,0,f)=j+k\) if \(k>0\), since the zero at 0 has multiplicity \(k\) and the other zeros in \(\overline{D(0,x)}\) are \(a_1,\dots,a_j\); thus, \[\log\abs{\frac{r^m}{a_1a_2\cdots a_m}}=
-    \begin{dcases}\int_0^r\frac{n(x,0,f)-k}{x}\ddx&\qif* k>0,\int_0^r\frac{n(x,0,f)}{x}\ddx\\&\text{otherwise}.
+    \begin{dcases}\int_0^r\frac{n(x,0,f)-k}{x}\ddx&\qif* k>0,\\\int_0^r\frac{n(x,0,f)}{x}\ddx&\text{otherwise}.
 \end{dcases}\]
 In either case, this quantity is given by \[\log\abs{\frac{r^m}{a_1a_2\cdots a_m}}=\int_0^r\frac{n(x,0,f)-n(0,0,f)}{x}\ddx.\]
 Letting \(n(x,\infty,f)\) denote the number of poles, counting orders, in \(\overline{D(0,x)}\), we obtain similarly \[\log\abs{\frac{r^n}{b_1b_2\cdots b_n}}=\int_0^r\frac{n(x,\infty,f)-n(x,\infty,f)}{x}\ddx.\]
 \begin{definition}
-    For \(a\in\extcomplex\), define the \textit{Nevanlinna Counting Function} by \[N(r,a,f)=\int_0^r\frac{n(x,a,f)-n(0,a,f)}{x}\ddx+n(0,a,f)\log r,\] where \(n(x,a,f)\) counts the number of times \(f\) attains \(a\) in \(\overline{D(0,x)}\), counting orders (multiplicities of zeros of \(f-a\), or poles of \(f\) if \(a=\infty\)). In the event that \(a\) is elided, assume \(a=\infty\).
+    For \(a\in\extcomplex\), define the \textit{Nevanlinna counting function} by \[N(r,a,f)=\int_0^r\frac{n(x,a,f)-n(0,a,f)}{x}\ddx+n(0,a,f)\log r,\] where \(n(x,a,f)\) counts the number of times \(f\) attains \(a\) in \(\overline{D(0,x)}\), counting orders (multiplicities of zeros of \(f-a\), or poles of \(f\) if \(a=\infty\)). In the event that \(a\) is elided, assume \(a=\infty\).
 \end{definition}
-Then \cref{eq:nevanlinnacountingjensensformulaexposition1} is simply 
+Then \cref{eq:nevanlinnacountingjensensformulaexposition1} is simply
 \begin{equation}
     N(r,0,f)-N(r,\infty,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}-\log\abs{c}.\label{eq:nevanlinnacountingjensensformulaexposition2}
 \end{equation}
@@ -23,7 +23,7 @@ Define the \textit{nonnegative part of the logarithm}, denoted \(\log^+(x)\), to
     \begin{enumerate}
         \item \(\log^+ x\geq\log x\) for \(x>0\),
         \item \(\log^+ x\leq\log^+ y\) for \(x\leq y\) (nondecreasing),
-        \item \(\log x=\log^+x+\log^+\tfrac1x\) for \(x>0\),
+        \item \(\log x=\log^+x-\log^+\tfrac1x\) for \(x>0\),
         \item \(\textstyle\log^+\qty(\prod_k x_k)\leq\sum_k\log^+x_k\) for (finitely many) positive \(x_k\),\label{itm:lognonnegativepartproperties_multiplicativesubadditivity}
         \item \(\textstyle\log^+\qty(\sum_{k=1}^n x_k)\leq\log n+\sum_{k=1}^n\log^+x_k\) for (finitely many) positive \(x_k\).\label{itm:lognonnegativepartproperties_weaksubadditivity}
     \end{enumerate}
@@ -32,5 +32,18 @@ Define the \textit{nonnegative part of the logarithm}, denoted \(\log^+(x)\), to
     The first four properties are trivial. We now prove \cref{itm:lognonnegativepartproperties_weaksubadditivity}. Observing that \(x_k\leq\ee^{\log^+ x_k}\), it follows that \[\log^+\sum_{k=1}^n x_k\leq\log^+\sum_{k=1}^n\ee^{\log^+ x_k}\mathmakebox[\widthof{\(\quad\)}][c]{\overset{\text{\raisebox{0.7\baselineskip}{(\cref{itm:lognonnegativepartproperties_multiplicativesubadditivity})}}}{\leq}}\log^+n+\log^+\qty(\ee^{\max_{k}\log^+x_k})=\log n+\max_k\log^+x_k.\] The last step uses the fact that \(\log^+\) is simply \(\log\) when the argument \(\geq 1\).
 \end{proof}
 \begin{definition}
-    For \(r>0\), \(a\in\mathbb{C}\), define the \textit{Nevanlinna Characteristic} by \[m(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{\frac1{f\qty(r\ee^{\ii\theta})-a}}\dd{\theta}\] and \[m(r,\infty,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\] in the infinite case. Observe that \(m(r,a,f)=m\qty(r,\infty,\frac1{f-a})\) (for simplicity, we may also omit the argument \(a\) to imply \(\infty\)).
+    For \(r>0\), \(a\in\mathbb{C}\), define the \textit{Nevanlinna proximity function} by \[m(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{\frac1{f\qty(r\ee^{\ii\theta})-a}}\dd{\theta}\] and \[m(r,f)=m(r,\infty,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\] in the infinite case. Observe that \(m(r,a,f)=m\qty(r,\flatfrac1{(f-a)})\).
 \end{definition}
+Since
+\begin{gather*}
+    \log^+\abs{f\qty(r\ee^{\ii\theta})}-\log^+\abs{\frac1{f\qty(r\ee^{\ii\theta})}}=\log\abs{f\qty(r\ee^{\ii\theta})},
+\end{gather*}
+this implies \[m(r,\infty,f)-m(r,0,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}.\]
+\Cref{eq:nevanlinnacountingjensensformulaexposition2} then can be written as \[N(r,0,f)+m(r,0,f)=N(r,\infty,f)+m(r,\infty,f)-\log\abs{c}.\]
+\begin{definition}
+    This motivates the sum \(T(r,a,f)\), known as the \textit{Nevanlinna characteristic}, defined by \(m(r,a,f)+N(r,a,f)\).
+\end{definition}
+Hence:
+\begin{proposition}
+    For any meromorphic \(f\) on \(\mathbb{C}\) with the innermost Laurent series \(f=\sum_{j=k}^\infty c_jz^j\) and any \(r>0\), \[T(r,0,f)=T(r,\infty,f)-\log\abs{c_k}.\]
+\end{proposition}
