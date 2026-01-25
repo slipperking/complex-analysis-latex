@@ -15,11 +15,15 @@
     \Cref{itm:nevanlinnathreefunctionsmiscproperties_mprodsubadd,itm:nevanlinnathreefunctionsmiscproperties_msubaddconst} are clear from \cref{prop:lognonnegativepartproperties}. \Cref{itm:nevanlinnathreefunctionsmiscproperties_Tprodsubadd,itm:nevanlinnathreefunctionsmiscproperties_Tsubaddconst} follow the previous inequalities.
 \end{proof}
 \begin{theorem}\label{thm:nevanlinnacartanidentity}
-    Let \(f:D(0,R)\to\extcomplex\) be meromorphic such that \(\textstyle f(z)=\sum_{j=k}^\infty c_jz^j\) (\(c=c_k\neq 0\)). For \(0<r<R\), \[T\qty(r,f)=\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}+\begin{cases}
-        \log\abs{c}&\qif*{k<0}\\
-        \log^+\abs{c}&\qif*{k=0}\\
-        0&\qif*k>0.
-    \end{cases}\]
+    Let \(f:D(0,R)\to\extcomplex\) be meromorphic such that \(\textstyle f(z)=\sum_{j=k}^\infty c_jz^j\) (\(c=c_k\neq 0\)). For \(0<r<R\), 
+    \begin{align*}
+        T\qty(r,f)&=\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}+\frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}\\
+        &=\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}+\begin{cases}
+            \log\abs{c}&\qif*{k<0}\\
+            \log^+\abs{c}&\qif*{k=0}\\
+            0&\qif*k>0,
+        \end{cases}
+    \end{align*} where \(c_\theta\) is the first nonzero coefficient of the Laurent expansion of \(f-\ee^{\ii\theta}\).
 \end{theorem}
 \begin{proof}
     For \(\theta\in[0,2\uppi]\), from \cref{eq:nevanlinnacountingjensensformulaexposition2} on \(f-\ee^{\ii\theta}\) (let \(c_\theta\) be the first nonzero coefficient of the Laurent series) we obtain \[\log\abs{c_\theta}=N(r,f)-N\qty(r,\ee^{\ii\theta},f)+\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi}-e^{\ii\theta})}\dd{\phi}.\]

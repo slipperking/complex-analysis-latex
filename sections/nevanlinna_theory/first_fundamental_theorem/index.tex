@@ -22,9 +22,18 @@
 \end{proof}
 For \(R=\infty\), we have \[N(r,a,f)+m(r,a,f)=T(r,f)+\order{1},\] which shows that \(T\) is essentially independent of the choice of \(a\), except for a bounded \(\order{1}\) term. Thus, this motivates why \(T\) is \textit{characteristic} of \(f\).
 \begin{corollary}
-    Let \(f\) be (non-constant) meromorphic on \(D(0,R)\) where \(0<r\leq\infty\). Then,
-    \[\frac1{2\uppi}\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta})\dd{\theta}\leq\log 2.\]
+    Let \(f\) be (non-constant) meromorphic on \(D(0,R)\). Then for \(0<r\leq\infty\),
+    \[\frac1{2\uppi}\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta},f)\dd{\theta}\leq\log 2.\]
 \end{corollary}
 \begin{proof}
-    By the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}), we have \[N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f)=T(r,f)-\log\abs{c}+\varepsilon\qty(r,\ee^{\ii\theta},f),\] where \(\abs{\varepsilon\qty(r,\ee^{\ii\theta},f)}\leq\log 2\) and \(c\) is the first nonzero coefficient of the Laurent expansion for \(f-\ee^{\ii\theta}\). Hence, \[T(r,f)=\frac1{2\uppi}\int_0^{2\uppi}\qty(N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f))\dd{\theta}+\log\abs{c}-\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\varepsilon\qty(r,\ee^{\ii\theta},f)\dd{\theta}\]
+    By the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}), we have \[T(r,f)=N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f)+\log\abs{c_\theta}+\varepsilon\qty(r,\ee^{\ii\theta},f),\] where \(\abs{\varepsilon\qty(r,\ee^{\ii\theta},f)}\leq\log 2\) and \(c_\theta\) is the first nonzero coefficient of the Laurent expansion for \(f-\ee^{\ii\theta}\). Hence, 
+    \begin{align*}
+        T(r,f)&=\frac1{2\uppi}\int_0^{2\uppi}\qty[N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f)+\log\abs{c_\theta}+\varepsilon\qty(r,\ee^{\ii\theta},f)]\dd{\theta}.
+    \end{align*}
+    By \cref{thm:nevanlinnacartanidentity}, we thus have 
+    \begin{align*}
+        T(r,f)&=T(r,f)-\frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}+\frac1{2\uppi}\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta},f)\dd{\theta}\\
+        &\quad+\frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}+\frac1{2\uppi}\int_0^{2\uppi}\varepsilon\qty(r,\ee^{\ii\theta},f)\dd{\theta}.
+    \end{align*}
+    This implies that \[\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta},f)\dd{\theta}=-\int_0^{2\uppi}\varepsilon\dd{\theta}\leq2\uppi\log 2.\qedhere\]
 \end{proof}
