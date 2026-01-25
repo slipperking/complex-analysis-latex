@@ -1,1 +1,53 @@
 \subsubsection{Properties of \texorpdfstring{\(T(r,f)\)}{the Nevanlinna Characteristic}}
+\begin{proposition}\label{prop:nevanlinnathreefunctionsmiscproperties}
+    If \(f_k\) (\(k=1,\dots,n\)) are meromorphic in \(D(0,R)\), then for \(0<r<R\),
+    \begin{enumerate}
+        \item \(\textstyle N\qty(r,\sum_{k=1}^nf_k)\leq\sum_{k=1}^n N\qty(r,f_k)\) (subadditivity).\label{itm:nevanlinnathreefunctionsmiscproperties_Nsubadd}
+        \item \(\textstyle m\qty(r,\prod_{k=1}^nf_k)\leq\sum_{k=1}^nm\qty(r,f_k)\).\label{itm:nevanlinnathreefunctionsmiscproperties_mprodsubadd}
+        \item \(\textstyle m\qty(r,\sum_{k=1}^nf_k)\leq\log n+\sum_{k=1}^nm\qty(r,f_k)\).\label{itm:nevanlinnathreefunctionsmiscproperties_msubaddconst}
+        \item \(\textstyle T\qty(r,\prod_{k=1}^nf_k)\leq\sum_{k=1}^nT\qty(r,f_k)\).\label{itm:nevanlinnathreefunctionsmiscproperties_Tprodsubadd}
+        \item \(\textstyle T\qty(r,\sum_{k=1}^nf_k)\leq\log n+\sum_{k=1}^nT\qty(r,f_k)\).\label{itm:nevanlinnathreefunctionsmiscproperties_Tsubaddconst}
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \Cref{itm:nevanlinnathreefunctionsmiscproperties_Nsubadd} is clear from the fact that the order of a pole at \(z\) of \(\textstyle\sum_kf_k\) does not exceed the sum of the pole orders of each \(f_k\) at \(z\).
+    
+    \Cref{itm:nevanlinnathreefunctionsmiscproperties_mprodsubadd,itm:nevanlinnathreefunctionsmiscproperties_msubaddconst} are clear from \cref{prop:lognonnegativepartproperties}. \Cref{itm:nevanlinnathreefunctionsmiscproperties_Tprodsubadd,itm:nevanlinnathreefunctionsmiscproperties_Tsubaddconst} follow the previous inequalities.
+\end{proof}
+\begin{theorem}\label{thm:nevanlinnacartanidentity}
+    Let \(f:D(0,R)\to\extcomplex\) be meromorphic such that \(\textstyle f(z)=\sum_{j=k}^\infty c_jz^j\) (\(c=c_k\neq 0\)). For \(0<r<R\), \[T\qty(r,f)=\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}+\begin{cases}
+        \log\abs{c}&\qif*{k<0}\\
+        \log^+\abs{c}&\qif*{k=0}\\
+        0&\qif*k>0.
+    \end{cases}\]
+\end{theorem}
+\begin{proof}
+    For \(\theta\in[0,2\uppi]\), from \cref{eq:nevanlinnacountingjensensformulaexposition2} on \(f-\ee^{\ii\theta}\) (let \(c_\theta\) be the first nonzero coefficient of the Laurent series) we obtain \[\log\abs{c_\theta}=N(r,f)-N\qty(r,\ee^{\ii\theta},f)+\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi}-e^{\ii\theta})}\dd{\phi}.\]
+    Therefore, by integrating in \(\theta\),
+    \begin{align}
+        \frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}&=N(r,f)-\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}\nonumber\\
+        &\quad+\frac1{2\uppi}\int_0^{2\uppi}\qty[\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi}-e^{\ii\theta})}\dd{\phi}]\dd{\theta}.\label{eq:nevanlinnacartanidentity_intermediate}
+    \end{align}
+    For any \(w\in\mathbb{C}^*\), 
+    \begin{equation}
+        \log^+\abs{w}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{w-\ee^{\ii\theta}}\dd{\theta},\label{eq:jensensformulalinearcase}
+    \end{equation} which follows directly from Jensen's formula on the function \(z\mapsto w-z\) (by considering when \(w\in\overline{\mathbb{D}}\) and \(\abs{w}>1\)). Letting \(\phi\in[0,2\uppi]\), we have by setting \(w=f\qty(r\ee^{\ii\phi})\),
+    \[\log^+\abs{f\qty(r\ee^{\ii\phi})}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi})-\ee^{\ii\theta}}\dd{\theta}.\]
+    Hence, 
+    \begin{align*}
+        m\qty(r,f)&=\frac1{2\uppi}\int_0^{2\uppi}\qty[\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi})-\ee^{\ii\theta}}\dd{\theta}]\dd{\phi}\\
+        &=\frac1{2\uppi}\int_0^{2\uppi}\qty[\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi})-\ee^{\ii\theta}}\dd{\phi}]\dd{\theta}.
+    \end{align*}
+    From \cref{eq:nevanlinnacartanidentity_intermediate}, it follows that \[T(r,f)=\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}+\frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}.\]
+    If \(f(0)=\infty\), then subtracting \(\ee^{\ii\theta}\) from \(f\) does not modify the first nonzero coefficient of the Laurent series (\(c=c_\theta\)). Thus, in this case \[T(r,f)=\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}+\log\abs{c}\]
+    Otherwise, \(c_\theta=f(0)-\ee^{\ii\theta}\) unless this quantity is 0 (cancels), which can happen for at most one \(\theta\) value, which is negligible when integrated. Thus by \cref{eq:jensensformulalinearcase}, \[\frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f(0)-\ee^{\ii\theta}}\dd{\theta}=\begin{cases}
+    \log^+\abs{c}&\qif* f(0)\neq 0\\
+    0&\text{otherwise}.
+    \end{cases}\qedhere\]
+\end{proof}
+\begin{theorem}
+    For meromorphic \(f\) in \(D(0,R)\), \(T(r,f)\) is an increasing function of \(\log r\) (\(0<r<R\)).
+\end{theorem}
+\begin{proof}
+    
+\end{proof}

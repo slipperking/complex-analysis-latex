@@ -1,8 +1,8 @@
 \subsection{The First Fundamental Theorem}
 \begin{theorem}[First Fundamental Theorem of Nevanlinna Theory]\label{thm:nevanlinnafirstfundamentaltheorem}
     Let \(f\) be (non-constant) meromorphic on \(D(0,R)\) where \(0<r\leq\infty\). Then for any \(a\in\mathbb{C}\),
-    \[T(r,a,f)=T(r,f)-\log\abs{c_k}+\varepsilon(r,a,f),\]
-    where \(\abs{\varepsilon(r,a,f)}\leq\log^+\abs{a}+\log 2\) for \(0<r<R\) and \(c_k\) is the first nonzero coefficient of the innermost Laurent series expansion of \(f(z)-a\) about the origin.
+    \[T(r,a,f)=T(r,f)-\log\abs{c}+\varepsilon(r,a,f),\]
+    where \(\abs{\varepsilon(r,a,f)}\leq\log^+\abs{a}+\log 2\) for \(0<r<R\) and \(c\) is the first nonzero coefficient of the innermost Laurent series expansion of \(f(z)-a\) about the origin.
 \end{theorem}
 \begin{proof}
     Since for \(z\in\partial D(0,r)\), by the properties of \(\log^+\) as in \cref{prop:lognonnegativepartproperties},
@@ -14,9 +14,17 @@
     Then by \cref{prop:nevanlinnafirsttheorematzero}, and the fact that the poles of \(f\) match those of \(f-a\) (more importantly, \(N(r,0,f-a)=N(r,0,f)\)), 
     \begin{align*}
         T\qty(r,0,f-a)&=N(r,0,f-a)+m(r,0,f-a)\\
-        &=N(r,f-a)+m(r,f-a)-\log\abs{c_k}\\
-        &=N(r,f)+m(r,f-a)-\log\abs{c_k}\\
-        &=N(r,f)+m(r,f)+\varepsilon(r,a,f)-\log\abs{c_k}\\
-        &=T(r,f)+\varepsilon(r,a,f)-\log\abs{c_k}.\qedhere
+        &=N(r,f-a)+m(r,f-a)-\log\abs{c}\\
+        &=N(r,f)+m(r,f-a)-\log\abs{c}\\
+        &=N(r,f)+m(r,f)+\varepsilon(r,a,f)-\log\abs{c}\\
+        &=T(r,f)+\varepsilon(r,a,f)-\log\abs{c}.\qedhere
     \end{align*}
+\end{proof}
+For \(R=\infty\), we have \[N(r,a,f)+m(r,a,f)=T(r,f)+\order{1},\] which shows that \(T\) is essentially independent of the choice of \(a\), except for a bounded \(\order{1}\) term. Thus, this motivates why \(T\) is \textit{characteristic} of \(f\).
+\begin{corollary}
+    Let \(f\) be (non-constant) meromorphic on \(D(0,R)\) where \(0<r\leq\infty\). Then,
+    \[\frac1{2\uppi}\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta})\dd{\theta}\leq\log 2.\]
+\end{corollary}
+\begin{proof}
+    By the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}), we have \[N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f)=T(r,f)-\log\abs{c}+\varepsilon\qty(r,\ee^{\ii\theta},f),\] where \(\abs{\varepsilon\qty(r,\ee^{\ii\theta},f)}\leq\log 2\) and \(c\) is the first nonzero coefficient of the Laurent expansion for \(f-\ee^{\ii\theta}\). Hence, \[T(r,f)=\frac1{2\uppi}\int_0^{2\uppi}\qty(N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f))\dd{\theta}+\log\abs{c}-\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\varepsilon\qty(r,\ee^{\ii\theta},f)\dd{\theta}\]
 \end{proof}
