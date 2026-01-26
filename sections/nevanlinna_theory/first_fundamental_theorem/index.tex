@@ -8,10 +8,10 @@
     Since for \(z\in\partial D(0,r)\), by the properties of \(\log^+\) as in \cref{prop:lognonnegativepartproperties},
     \[\log^+\abs{f(z)-a}\leq\log^+\qty(\abs{f(z)}+\abs{a})\leq\log 2+\log^+\abs{f(z)}+\log^+\abs{a}.\]
     Integrating over \(\partial D(0,r)\) implies \[m(r,f-a)\leq\log 2+m(r,f)+\log^+\abs{a}.\]
-    From \[\log^+\abs{f(z)-a+a}\leq\log^+\qty(\abs{f(z)-a}+\abs{a})\leq\log 2+\log^+\abs{f(z)-a}+\log^+\abs{a},\] we obtain 
+    From \[\log^+\abs{f(z)-a+a}\leq\log^+\qty(\abs{f(z)-a}+\abs{a})\leq\log 2+\log^+\abs{f(z)-a}+\log^+\abs{a},\] we obtain
     \[m(r,f)\leq\log 2+m(r,f-a)+\log^+\abs{a}.\]
     Letting \(\varepsilon(r,a,f)=m(r,f-a)-m(r,f)\), the two proximity-related inequalities give \[\abs{\varepsilon(r,a,f)}\leq\log 2+\log^+\abs{a}.\]
-    Then by \cref{prop:nevanlinnafirsttheorematzero}, and the fact that the poles of \(f\) match those of \(f-a\) (more importantly, \(N(r,f-a)=N(r,f)\)), 
+    Then by \cref{prop:nevanlinnafirsttheorematzero}, and the fact that the poles of \(f\) match those of \(f-a\) (more importantly, \(N(r,f-a)=N(r,f)\)),
     \begin{align*}
         T\qty(r,0,f-a)&=N(r,0,f-a)+m(r,0,f-a)\\
         &=N(r,f-a)+m(r,f-a)-\log\abs{c}\\
@@ -26,14 +26,26 @@ For \(R=\infty\), we have \[N(r,a,f)+m(r,a,f)=T(r,f)+\order{1},\] which shows th
     \[\frac1{2\uppi}\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta},f)\dd{\theta}\leq\log 2.\]
 \end{corollary}
 \begin{proof}
-    By the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}), we have \[T(r,f)=N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f)+\log\abs{c_\theta}+\varepsilon\qty(r,\ee^{\ii\theta},f),\] where \(\abs{\varepsilon\qty(r,\ee^{\ii\theta},f)}\leq\log 2\) and \(c_\theta\) is the first nonzero coefficient of the Laurent expansion for \(f-\ee^{\ii\theta}\). Hence, 
+    By the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}), we have \[T(r,f)=N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f)+\log\abs{c_\theta}+\varepsilon\qty(r,\ee^{\ii\theta},f),\] where \(\abs{\varepsilon\qty(r,\ee^{\ii\theta},f)}\leq\log 2\) and \(c_\theta\) is the first nonzero coefficient of the Laurent expansion for \(f-\ee^{\ii\theta}\). Hence,
     \begin{align*}
         T(r,f)&=\frac1{2\uppi}\int_0^{2\uppi}\qty[N\qty(r,\ee^{\ii\theta},f)+m\qty(r,\ee^{\ii\theta},f)+\log\abs{c_\theta}+\varepsilon\qty(r,\ee^{\ii\theta},f)]\dd{\theta}.
     \end{align*}
-    By \cref{thm:nevanlinnacartanidentity}, we thus have 
+    By \cref{thm:nevanlinnacartanidentity}, we thus have
     \begin{align*}
         T(r,f)&=T(r,f)-\frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}+\frac1{2\uppi}\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta},f)\dd{\theta}\\
         &\quad+\frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}+\frac1{2\uppi}\int_0^{2\uppi}\varepsilon\qty(r,\ee^{\ii\theta},f)\dd{\theta}.
     \end{align*}
     This implies that \[\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta},f)\dd{\theta}=-\int_0^{2\uppi}\varepsilon\qty(r,\ee^{\ii\theta},f)\dd{\theta}\leq2\uppi\log 2.\qedhere\]
 \end{proof}
+\begin{remark}
+    Since \(m\) is bounded in the integrated sense, if \(T\) is generally large, then for most values, \(N\) will be nearly equal to \(T\).
+\end{remark}
+\begin{theorem}
+    Let \(f\) be holomorphic on \(D(0,R)\) for \(R>0\) and define \(M(r,f)\) to be \(\max_{\abs{z}\leq r}\abs{f(z)}=\max_{\abs{z}=r}\abs{f(z)}\) for \(0<r<R\); then \[T(r,f)\leq\log^+M(r,f)\leq\frac{R+r}{R-r}T(R,f).\]
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{definition}
+    The \textit{order of a meromorphic function} \(f:\mathbb{C}\to\extcomplex\), denoted \(\rho=\rho(f)\), is given by \[\rho=\varlimsup_{r\to\infty}\frac{\log^+T(r,f)}{\log r}.\]
+\end{definition}
