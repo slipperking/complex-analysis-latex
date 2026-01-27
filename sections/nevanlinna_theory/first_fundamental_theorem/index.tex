@@ -40,12 +40,27 @@ For \(R=\infty\), we have \[N(r,a,f)+m(r,a,f)=T(r,f)+\order{1},\] which shows th
 \begin{remark}
     Since \(m\) is bounded in the integrated sense, if \(T\) is generally large, then for most values, \(N\) will be nearly equal to \(T\).
 \end{remark}
-\begin{theorem}
-    Let \(f\) be holomorphic on \(D(0,R)\) for \(R>0\) and define \(M(r,f)\) to be \(\max_{\abs{z}\leq r}\abs{f(z)}=\max_{\abs{z}=r}\abs{f(z)}\) for \(0<r<R\); then \[T(r,f)\leq\log^+M(r,f)\leq\frac{R+r}{R-r}T(R,f).\]
+\begin{theorem}\label{thm:nevanlinnaentirefunctionmaximummodulussandwich}
+    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) for \(R>0\) and define \(M(r,f)\) to be \(\max_{\abs{z}\leq r}\abs{f(z)}=\max_{\abs{z}=r}\abs{f(z)}\) for \(0<r<R\); then \[T(r,f)\leq\log^+M(r,f)\leq\frac{R+r}{R-r}T(R,f).\]
 \end{theorem}
 \begin{proof}
-
+    Since \(f\) is holomorphic in \(D(0,r)\), \(N(r,f)\equiv 0\) and hence \[T(r,f)=m(r,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\leq\frac1{2\uppi}\int_0^{2\uppi}\log^+M(r,f)\dd{\theta},\] which proves the first inequality. Since \(T\geq0\) trivially, if \(M\leq 1\) the second assertion holds trivially. Hence, assume \(M>1\); by the Poisson--Jensen formula (\cref{thm:poissonjensenformula}), letting \(z\in\partial D(0,r)\) be where \(\abs{f}\) attains \(M\), we have
+    \begin{align*}
+        \log^+M(r,f)&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\frac{R^2-r^2}{\abs{R\ee^{\ii\theta}-z}}\dd{\theta}\\
+        &\quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}}\\
+        &\leq\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\frac{R^2-r^2}{\abs{R\ee^{\ii\theta}-z}^2}\dd{\theta}\\
+        &\leq\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\frac{R^2-r^2}{(R-r)^2}\dd{\theta}\\
+        &\leq\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{f\qty(R\ee^{\ii\theta})}\frac{R+r}{R-r}\dd{\theta}=\frac{R+r}{R-r}T(R,f).
+    \end{align*}
+    (The Möbius transformation-like terms of the zeros \(\leq 0\) since they map to the unit disk, and the second summation vanishes since there are no \(b_k\) by holomorphy).
 \end{proof}
-\begin{definition}
+\begin{definition}\label{def:orderofmeromorphicfunction}
     The \textit{order of a meromorphic function} \(f:\mathbb{C}\to\extcomplex\), denoted \(\rho=\rho(f)\), is given by \[\rho=\varlimsup_{r\to\infty}\frac{\log^+T(r,f)}{\log r}.\]
 \end{definition}
+\begin{theorem}
+    Let \(\rho_M\) be the order of a non-constant entire function \(f\) as defined in \cref{sec:classifyinggrowthofentirefunctions} and let \(\rho_T\) be the order as defined in \cref{def:orderofmeromorphicfunction}. Then \(\rho_M=\rho_T\).
+\end{theorem}
+\begin{proof}
+    Since \(f\) is non-constant, for sufficiently large \(r\), \(\log^+ M(r,f)=\log M(r,f)\). For the remainder of this proof we will assume the two are equivalent. From \cref{thm:nevanlinnaentirefunctionmaximummodulussandwich} it is apparent that (under \(R=2r\) for sufficiently large \(r\)) \[\frac{\log^+ T(r,f)}{r}\leq\frac{\log^+\log M(r,f)}r\leq\frac{\log3}r+\frac{\log^+ T(2r,f)}{\log(2r)}\cdot\frac{\log(2r)}r.\]
+    Letting \(r\to\infty\) in the limit superior gives that \[\rho_T\leq\rho_M\leq\rho_T\implies\rho_T=\rho_M.\qedhere\]
+\end{proof}
