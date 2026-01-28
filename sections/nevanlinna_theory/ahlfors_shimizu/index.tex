@@ -1,0 +1,18 @@
+\subsection{The Ahlfors--Shimizu Characteristic}
+We now provide a second formulation of the first fundamental theorem, given by Ahlfors and Shimizu, found independently of each other.
+\begin{lemma}
+    Let \(U\) be a positively oriented bounded region by a piecewise \(C^1\) simple closed boundary. Let \(f\) be a holomorphic function on an open neighborhood of \(\overline{U}\), \(G\in C^2\qty(\cbraces{\abs{f(z)}}{z\in\overline{U}})\). Then \[I=\oint_{\partial U}\nabla_{\vu{n}}G\qty(\abs{f(z)})\abs{\ddz}=\int_Ug\qty(\abs{f(z)})\abs{f'(z)}^2r\dd{r}\wedge\dd{\theta},\]
+    where \(z=r\ee^{\ii\theta}\), \(g(R)=G''(R)+\tfrac1rG'(R)\), and \(\vu{n}\) is the unit normal vector pointing towards the exterior of \(\partial U\).
+\end{lemma}
+\begin{proof}
+    Applying Green's Theorem (\cref{thm:realgreen}) \[\oint_{\partial U}\vb{v}\cdot\vu{n}\dd{s}=\iint_U\divergence{\vb{v}}\dd{A}\] to \(I\), we have
+    \[I=\oint_{\partial U}\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\iint_{U}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\]
+    Letting \(R=\abs{f(z)}=\sqrt{f(z)\overline{f(z)}}\),
+    \[\partial_zR=\frac{\partial_z\qty(f\overline{f})}{2R}=\frac{f'\overline{f}+f\overline{\partial_{\overline{z}}f}}{2R}=\frac{f'\overline{f}}{2R},\qquad\partial_{\overline{z}}R=\frac{\partial_{\overline{z}}\qty(f\overline{f})}{2R}=\frac{f\overline{f'}}{2R},\]
+    and
+    \begin{align*}
+        \qty(\partial_zR)\qty(\partial_{\overline{z}}R)&=\frac{\abs{f}^2\abs{f'}^2}{4R^2}=\frac{\abs{f'}^2}4,&\partial_{z\overline{z}}R&=\partial_{\overline{z}}\qty(\frac{f'\overline{f}}{2R})=\frac{2f'\overline{f'}R-2f'\overline{f}\qty(\frac{f\overline{f'}}{2R})}{4R^2}\\
+        &&&=\frac{2\abs{f'}^2R^2-\abs{f'f}^2}{4R^3}=\frac{\abs{f'}^2}{4R},
+    \end{align*}
+    
+\end{proof}

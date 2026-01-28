@@ -44,6 +44,21 @@ We will prove later in \cref{sec:analyticityandholomorphy} that the complex deri
 and \[\pdv[2]{v}{x}=-\pdv[2]{u}{x}{y},\quad\pdv[2]{v}{y}=\pdv[2]{u}{y}{x}.\]
 Adding the equations, \[\pdv[2]{u}{x}+\pdv[2]{u}{y}=0,\quad\pdv[2]{v}{x}+\pdv[2]{v}{y}=0.\]
 This general type of equation is known as \textit{Laplace's equation}, which is a basic example of an elliptic partial differential equation. Define the operator (the \textit{Laplacian}) \[(\Delta=)\laplacian=\divergence{\grad}=\pdv[2]{}{x}+\pdv[2]{}{y}.\] A function \(u\) satisfying Laplace's equation \(\laplacian u=0\) is a \textit{harmonic function}. Thus, the real and complex parts of a holomorphic function are harmonic functions.
+
+Letting \(x=r\cos\theta\), \(y=r\sin\theta\), the Laplacian is equal to:
+\begin{align}
+    \laplacian&=\pdv[2]{}{x}+\pdv[2]{}{y}=\pdv{}{x}\qty(\pdv{r}{x}\pdv{}{r}+\pdv{\theta}{x}\pdv{}{\theta})+\pdv{}{y}\qty(\pdv{r}{y}\pdv{}{r}+\pdv{\theta}{y}\pdv{}{\theta})\nonumber\\
+    &=\pdv{}{x}\qty(\frac{x}{r}\pdv{}{r}-\frac{y}{r^2}\pdv{}{\theta})+\pdv{}{y}\qty(\frac{y}{r}\pdv{}{r}+\frac{x}{r^2}\pdv{}{\theta})\nonumber\\
+    &=\qty(\frac{x}{r}\pdv{}{r}-\frac{y}{r^2}\pdv{}{\theta})\qty(\frac{x}{r}\pdv{}{r}-\frac{y}{r^2}\pdv{}{\theta})+\qty(\frac{y}{r}\pdv{}{r}+\frac{x}{r^2}\pdv{}{\theta})\qty(\frac{y}{r}\pdv{}{r}+\frac{x}{r^2}\pdv{}{\theta})\nonumber\\
+    &=\qty(\cos\theta\pdv{}{r}-\frac{\sin\theta}{r}\pdv{}{\theta})\qty(\cos\theta\pdv{}{r}-\frac{\sin\theta}{r}\pdv{}{\theta})\nonumber\\
+    &\quad+\qty(\sin\theta\pdv{}{r}+\frac{\cos\theta}{r}\pdv{}{\theta})\qty(\sin\theta\pdv{}{r}+\frac{\cos\theta}{r}\pdv{}{\theta})\nonumber\\
+    &=\cos^2\theta\pdv[2]{}{r}-\cos\theta\sin\theta\qty(-\frac1{r^2}\pdv{}{\theta}+\frac1r\pdv[2]{}{\theta}{r})\nonumber\\
+    &\quad-\frac{\sin\theta}{r}\qty(-\sin\theta\pdv{}{r}+\cos\theta\pdv{}{\theta}{r})+\frac{\sin\theta}{r^2}\qty(\cos\theta\pdv{}{\theta}+\sin\theta\pdv[2]{}{\theta})\nonumber\\
+    &\quad+\sin^2\theta\pdv[2]{}{r}+\sin\theta\cos\theta\qty(-\frac1{r^2}\pdv{}{\theta}+\frac1r\pdv[2]{}{\theta}{r})\nonumber\\
+    &\quad+\frac{\cos\theta}r\qty(\cos\theta\pdv{}{r}+\sin\theta\pdv[2]{}{\theta}{r})+\frac{\cos\theta}{r^2}\qty(-\sin\theta\pdv{}{\theta}+\cos\theta\pdv[2]{}{\theta})\nonumber\\
+    &=\qty(\cos^2\theta+\sin^2\theta)\pdv[2]{}{r}+\qty(\frac{\sin^2\theta}{r^2}+\frac{\cos^2\theta}{r^2})\pdv[2]{}{\theta}+\qty(\frac{\sin^2\theta}r+\frac{\cos^2\theta}r)\pdv{}{r}\nonumber\\
+    &=\pdv[2]{}{r}+\frac1{r^2}\pdv[2]{}{\theta}+\frac1r\pdv{}{r}.\label{eq:laplacianpolarform}
+\end{align}
 \begin{proposition}\label{prop:realvaluedholomorphicfunctionconstant}
     Let \(U\subseteq\mathbb{C}\) be open and connected and \(f:U\to\mathbb{R}\) be holomorphic. It follows that \(f\) is constant over \(U\).
 \end{proposition}

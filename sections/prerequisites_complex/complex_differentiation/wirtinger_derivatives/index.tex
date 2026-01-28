@@ -30,33 +30,55 @@ The Laplacian is equal to
 \end{align}
 Under this definition, we can derive the chain rule:
 \begin{theorem}[Chain Rule]\label{thm:wirtingerchainrule}
-    Let \(\Omega\subseteq\mathbb{C}\) is a region such that \(g\in C^1(\Omega)\) and \(f\in C^1(g(\Omega))\). It follows that
+    Let \(\Omega\subseteq\mathbb{C}\) be a region such that \(g\in C^1(\Omega)\) and \(f\in C^1(g(\Omega))\). Writing \(w=g(z)\), it follows that
     \begin{align*}
-        \pdv{z}(f\circ g)            & =\qty(\pdv{f}{z}\circ g)\pdv{g}{z}+\qty(\pdv{f}{\overline{z}}\circ g)\pdv{\overline{g}}{z}                        \\
-        \pdv{\overline{z}}(f\circ g) & =\qty(\pdv{f}{z}\circ g)\pdv{g}{\overline{z}}+\qty(\pdv{f}{\overline{z}}\circ g)\pdv{\overline{g}}{\overline{z}}.
+        \pdv{z}(f\circ g)            & =\qty(\pdv{f}{w}\circ g)\pdv{g}{z}+\qty(\pdv{f}{\overline{w}}\circ g)\pdv{\overline{g}}{z}                        \\
+        \pdv{\overline{z}}(f\circ g) & =\qty(\pdv{f}{w}\circ g)\pdv{g}{\overline{z}}+\qty(\pdv{f}{\overline{w}}\circ g)\pdv{\overline{g}}{\overline{z}}.
     \end{align*}
 \end{theorem}
 \begin{proof}
     Write \(z=x+\ii y\). Let
-    \[g(z)=\xi(x,y)+\ii\eta(x,y),\qquad\zeta=\xi+\ii\eta\] so that \(\zeta=g(z)\) with \(\xi=\xi(x,y),\eta=\eta(x,y)\). Let \(f\) be regarded as a \(C^1\) function of the real variables \(\xi,\eta\); equivalently we may view \(f\) as \(f\qty(\zeta,\overline{\zeta})\) where \(\overline{\zeta}=\xi-\ii\eta\). The composition is \(h(z)=f\circ g(z)=f\qty(\xi(x,y),\eta(x,y))\).
+    \[g(z)=\xi(x,y)+\ii\eta(x,y),\qquad w=\xi+\ii\eta\]
+    so that \(w=g(z)\) with \(\xi=\xi(x,y),\eta=\eta(x,y)\). Let \(f\) be regarded as a \(C^1\) function of the real variables \(\xi,\eta\); equivalently we may view \(f\) as \(f\qty(w,\overline{w})\) where \(\overline{w}=\xi-\ii\eta\). The composition is \(h(z)=f\circ g(z)=f\qty(\xi(x,y),\eta(x,y))\).
 
     Using the real chain rule (provided by the continuous differentiability), we have
     \[\pdv{h}{x}=\pdv{f}{\xi}\pdv{\xi}{x}+\pdv{f}{\eta}\pdv{\eta}{x},\qquad\pdv{h}{y}=\pdv{f}{\xi}\pdv{\xi}{y}+\pdv{f}{\eta}\pdv{\eta}{y}.\]
-    Hence, \[\pdv{h}{z}=\frac{1}{2}\qty[\pdv{f}{\xi}\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})+\pdv{f}{\eta}\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})].\]
+    Hence,
+    \[\pdv{h}{z}=\frac{1}{2}\qty[\pdv{f}{\xi}\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})+\pdv{f}{\eta}\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})].\]
+
     Now recall
-    \[\pdv{f}{\zeta}=\frac{1}{2}\qty(\pdv{f}{\xi}-\ii\pdv{f}{\eta}),\qquad\pdv{f}{\overline\zeta}=\frac{1}{2}\qty(\pdv{f}{\xi}+\ii\pdv{f}{\eta}).\]
+    \[\pdv{f}{w}=\frac{1}{2}\qty(\pdv{f}{\xi}-\ii\pdv{f}{\eta}),\qquad\pdv{f}{\overline w}=\frac{1}{2}\qty(\pdv{f}{\xi}+\ii\pdv{f}{\eta}).\]
     Thus,
-    \[\pdv{f}{\xi}=\pdv{f}{\zeta}+\pdv{f}{\overline\zeta},\qquad \pdv{f}{\eta}=\ii\qty(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta}).\]
+    \[\pdv{f}{\xi}=\pdv{f}{w}+\pdv{f}{\overline w},\qquad \pdv{f}{\eta}=\ii\qty(\pdv{f}{w}-\pdv{f}{\overline w}).\]
+
     Then by substitution,
     \begin{align*}
-        \pdv{h}{z} & =\frac{1}{2}\qty[\qty(\pdv{f}{\zeta}+\pdv{f}{\overline\zeta})\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})+\ii\qty(\pdv{f}{\zeta}-\pdv{f}{\overline\zeta})\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})]                                           \\
-        & =\pdv{f}{\zeta}\frac{1}{2}\qty[\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})+\ii\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})]+\pdv{f}{\overline\zeta}\frac{1}{2}\qty[\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})-\ii\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})].
+        \pdv{h}{z} & =\frac{1}{2}\qty[\qty(\pdv{f}{w}+\pdv{f}{\overline w})\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})+\ii\qty(\pdv{f}{w}-\pdv{f}{\overline w})\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})]                                                  \\
+        & =\pdv{f}{w}\frac{1}{2}\qty[\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})+\ii\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})]+\pdv{f}{\overline w}\frac{1}{2}\qty[\qty(\pdv{\xi}{x}-\ii\pdv{\xi}{y})-\ii\qty(\pdv{\eta}{x}-\ii\pdv{\eta}{y})].
     \end{align*}
+
     The terms in brackets equal \(\pdv{g}{z}\) and \(\pdv{\overline{g}}{z}\). Thus,
-    \[\pdv{h}{z}=\qty(\pdv{f}{\zeta}\circ g)\pdv{g}{z}+\qty(\pdv{f}{\overline\zeta}\circ g)\pdv{\overline g}{z}.\]
-    Renaming the variables yields
-    \[\pdv{z}\qty(f\circ g)=\qty(\pdv{f}{z}\circ g)\pdv{g}{z}+\qty(\pdv{f}{\overline z}\circ g)\pdv{\overline{g}}{z}.\]
+    \[\pdv{h}{z}=\qty(\pdv{f}{w}\circ g)\pdv{g}{z}+\qty(\pdv{f}{\overline w}\circ g)\pdv{\overline g}{z}.\]
+
     A similar calculation using \cref{eq:wirtingerderivative2} gives
-    \[\pdv{\overline{z}}(f\circ g)=\qty(\pdv{f}{z}\circ g)\pdv{g}{\overline{z}}+\qty(\pdv{f}{\overline z}\circ g)\pdv{\overline{g}}{\overline{z}}.\]
+    \[\pdv{\overline{z}}(f\circ g)=\qty(\pdv{f}{w}\circ g)\pdv{g}{\overline{z}}+\qty(\pdv{f}{\overline w}\circ g)\pdv{\overline{g}}{\overline{z}}.\]
     These are exactly the proclaimed identities.
+\end{proof}
+Last we have taking derivatives of conjugates:
+\begin{theorem}
+    Let \(f\in C^1\qty(\Omega)\) where \(\Omega\subseteq\mathbb{C}\) is a region. Then \[\pdv{\overline{f}}{z}=\overline{\pdv{f}{\overline{z}}},\qquad\pdv{\overline{f}}{\overline{z}}=\overline{\pdv{f}{z}}.\]
+\end{theorem}
+\begin{proof}
+    Write \(z=x+\ii y\) and \(f(z)=u(x,y)+\ii v(x,y)\) with \(u,v\in C^1(\Omega)\). Then \(\overline{f(z)}=u(x,y)-\ii v(x,y)\). We compute
+    \[\pdv{\overline{f}}{z}=\frac12\qty(\pdv{x}-\ii\pdv{y})(u-\ii v)=\frac12\qty(u'_x-v'_y-\ii\qty(v'_x+u'_y)).\]
+    On the other hand,
+    \[\pdv{f}{\overline{z}}=\frac12\qty(\pdv{x}+\ii\pdv{y})(u+\ii v)=\frac12\qty(u'_x-v'_y+\ii\qty(v'_x+u'_y)).\]
+    Taking complex conjugates yields
+    \[\overline{\pdv{f}{\overline{z}}}=\frac12\qty(u'_x-v'_y-\ii\qty(v'_x+u'_y))=\pdv{\overline{f}}{z}.\]
+    Similarly,
+    \[\pdv{\overline{f}}{\overline{z}}=\frac12\qty(\pdv{x}+\ii\pdv{y})(u-\ii v)=\frac12\qty(u'_x+v'_y+\ii\qty(u'_y-v'_x)),\]
+    while
+    \[\pdv{f}{z}=\frac12\qty(\pdv{x}-\ii\pdv{y})(u+\ii v)=\frac12\qty(u'_x+v'_y+\ii\qty(v'_x-u'_y)).\]
+    Taking complex conjugates gives
+    \[\overline{\pdv{f}{z}}=\frac12\qty(u'_x+v'_y+\ii(u'_y-v'_x))=\pdv{\overline{f}}{\overline{z}}.\qedhere\]
 \end{proof}

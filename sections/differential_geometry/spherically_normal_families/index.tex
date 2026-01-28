@@ -29,87 +29,36 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
 \begin{proof}
     A result analogous to \cref{thm:uniformlimit} can be used to show that \(f\) is spherically continuous. Let \(z\in\Omega\) be arbitrary.
     \begin{enumerate}
-        \item If \(f(z)\neq\infty\), then by spherical continuity, \(\exists\delta>0\) such
-            that \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_{n}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
+        \item If \(f(z)\neq\infty\), then by spherical continuity, \(\exists\delta>0\) such that \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_{n}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
             Hence, we have \[d_\sigma\qty(\infty,f(z))-d_\sigma\qty(f(z),f_{n}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(\infty,f_{n}(\zeta))>0.\]
-            By Weierstrass (\cref{thm:weierstrassconvergence}), \(f\) is holomorphic on
-            \(D(z,\delta)\).
-        \item Consider \(f(z)=\infty\). Assume, for the sake of contradiction, \(z\) is an
-            isolated pole of \(f\). Hence, \(\exists\delta\) such that \(f\) is holomorphic
-            on \(D^*(z,\delta)\).
+            By Weierstrass (\cref{thm:weierstrassconvergence}), \(f\) is holomorphic on \(D(z,\delta)\).
+        \item Consider \(f(z)=\infty\). Assume, for the sake of contradiction, \(z\) is an isolated pole of \(f\). Hence, \(\exists\delta\) such that \(f\) is holomorphic on \(D^*(z,\delta)\).
 
-            Because each \(f_n\) is holomorphic on \(D(z,\delta)\), by the Maximum Modulus
-            Principle (\cref{thm:maximummodulus}), \(\forall n\in\mathbb{N}\), \[\abs{f_n(\zeta)}\leq\sup_{\xi\in\partial D(z,\delta)}\abs{f_n(\xi)}\qquad\forall\zeta\in D(z,\delta).\]
-            By letting \(n\to\infty\), we have \[\abs{f(\zeta)}\leq\sup_{\xi\in\partial D(z,\delta)}\abs{f(\xi)}<\infty\qquad\forall\zeta\in D(z,\delta),\] contradicting the assumption that \(f(z)=\infty\) is an isolated pole. Hence,
-            \(z\) must be an accumulation of values evaluating to \(\infty\). By spherical
-            continuity, \(\exists\delta>0\) such that \[d_\sigma\qty(f(\zeta),\infty)<\frac\uppi2\qquad\forall\zeta\in D(z,\delta).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_n(\zeta))<\frac\uppi2.\]
+            Because each \(f_n\) is holomorphic on \(D(z,\delta)\), by the Maximum Modulus Principle (\cref{thm:maximummodulus}), \(\forall n\in\mathbb{N}\), \[\abs{f_n(\zeta)}\leq\sup_{\xi\in\partial D(z,\delta)}\abs{f_n(\xi)}\qquad\forall\zeta\in D(z,\delta).\]
+            By letting \(n\to\infty\), we have \[\abs{f(\zeta)}\leq\sup_{\xi\in\partial D(z,\delta)}\abs{f(\xi)}<\infty\qquad\forall\zeta\in D(z,\delta),\] contradicting the assumption that \(f(z)=\infty\) is an isolated pole. Hence, \(z\) must be an accumulation of values evaluating to \(\infty\). By spherical continuity, \(\exists\delta>0\) such that \[d_\sigma\qty(f(\zeta),\infty)<\frac\uppi2\qquad\forall\zeta\in D(z,\delta).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall n>N\), \[d_\sigma\qty(f(\zeta),f_n(\zeta))<\frac\uppi2.\]
             Hence, we have \[\uppi-d_\sigma\qty(\infty,f_n(\zeta))=d_\sigma(\infty,0)-d_\sigma\qty(\infty,f_n(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(0,f_n(\zeta))>0.\]
-            Hence each \(\frac{1}{f_n}\) is holomorphic on \(D(z,\delta)\) and converges
-            locally uniformly spherically to \(\frac{1}{f}\) on \(D(z,\delta)\). By
-            Weierstrass (\cref{thm:weierstrassconvergence}), \(\frac1f\) is holomorphic on
-            \(D(z,\delta)\) and has zeros that accumulate at \(z\). By the Identity
-            Theorem, \(\frac1f\equiv0\Rightarrow f\equiv\infty\) on \(D(z,\delta)\).
+            Hence each \(\frac{1}{f_n}\) is holomorphic on \(D(z,\delta)\) and converges locally uniformly spherically to \(\frac{1}{f}\) on \(D(z,\delta)\). By Weierstrass (\cref{thm:weierstrassconvergence}), \(\frac1f\) is holomorphic on \(D(z,\delta)\) and has zeros that accumulate at \(z\). By the Identity Theorem, \(\frac1f\equiv0\Rightarrow f\equiv\infty\) on \(D(z,\delta)\).
     \end{enumerate}
     Let \(S\) be the set of all \(z\in\Omega\) such that \(f(z)\) is finite. By the argument above, \(S\) is open. The complement \(\Omega\setminus S\) then consists of all points where \(f(z)=\infty\). By the argument above, \(\Omega\setminus S\) is also open. Since \(\Omega\) is connected, by \cref{thm:connectedtopologicalspaceclopensets}, either \(S=\varnothing\) or \(S=\Omega\). In the former case, \(f\equiv\infty\) on \(\Omega\), and in the latter case, \(f\) is holomorphic on \(\Omega\).
 \end{proof}
 \begin{theorem}[\textsc{Marty's Criterion}]\label{thm:marty}
-    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal iff \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in
-    \(\Omega\).
+    A family of meromorphic functions \(\mathcal{F}\) on some \(\Omega\subseteq\mathbb{C}\) is spherically normal iff \[\cbraces{f^\sharp}{f\in\mathcal{F}},\] or the family of spherical derivatives, is locally uniformly bounded in \(\Omega\).
 \end{theorem}
 \begin{proof}
-    The condition is equivalent to that of \[\frac{2\abs{f'(z)}}{1+\abs{f(z)}^2}\leq M\qquad\forall f\in\mathcal{F}\] for all compact \(K\subset\Omega\), \(\forall z\in K\), where \(M\) depends
-    only on \(K\). Under the assumption that this holds, then \[d_\sigma\qty(f\qty(z_1),f\qty(z_2))=\inf_\gamma\int_{\gamma}\dd{s}_{\sigma}\leq M\abs{z_2-z_1}\qquad\forall f\in\mathcal{F}\] where \(\gamma\) joins \(f\qty(z_1)\) and \(f\qty(z_2)\) where \(z_1,z_2\in
-    K\). Hence, \(\forall\varepsilon>0\), \(\forall z_1,z_2\in K\) such that
-    \(\abs{z_1-z_2}<\frac{\varepsilon}{M}\),
-    \(d_\sigma\qty(f\qty(z_1),f\qty(z_2))<\varepsilon\), and hence \(\mathcal{F}\)
-    is \textit{uniformly spherically equicontinuous}. Since \(d_\sigma\leq\uppi\)
-    for any two points by geometry of \(S^2\), \(\mathcal{F}\) is also
-    \emph{uniformly spherically bounded} (the compactness of \(S^2\)). Then the
-    Arzelà--Ascoli Theorem (\cref{thm:arzelaascoli}) under the spherical metric
-    gives that \(\mathcal{F}\) is a normal family.
+    The condition is equivalent to that of \[\frac{2\abs{f'(z)}}{1+\abs{f(z)}^2}\leq M\qquad\forall f\in\mathcal{F}\] for all compact \(K\subset\Omega\), \(\forall z\in K\), where \(M\) depends only on \(K\). Under the assumption that this holds, then \[d_\sigma\qty(f\qty(z_1),f\qty(z_2))=\inf_\gamma\int_{\gamma}\dd{s}_{\sigma}\leq M\abs{z_2-z_1}\qquad\forall f\in\mathcal{F}\] where \(\gamma\) joins \(f\qty(z_1)\) and \(f\qty(z_2)\) where \(z_1,z_2\in K\). Hence, \(\forall\varepsilon>0\), \(\forall z_1,z_2\in K\) such that \(\abs{z_1-z_2}<\frac{\varepsilon}{M}\), \(d_\sigma\qty(f\qty(z_1),f\qty(z_2))<\varepsilon\), and hence \(\mathcal{F}\) is \textit{uniformly spherically equicontinuous}. Since \(d_\sigma\leq\uppi\) for any two points by geometry of \(S^2\), \(\mathcal{F}\) is also \emph{uniformly spherically bounded} (the compactness of \(S^2\)). Then the Arzelà--Ascoli Theorem (\cref{thm:arzelaascoli}) under the spherical metric gives that \(\mathcal{F}\) is a normal family.
 
-    Conversely, assume for the sake of contradiction that \(\mathcal{F}\) is a
-    normal family such that conclusion is not satisfied. Then, \(\exists
-    K\subset\Omega\) compact and a sequence
-    \(\cbraces{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that the sequence \[\cbraces{\sup_{z\in K}f^\sharp_n(z)}_{n\in\mathbb{N}}\] tends to \(\infty\) (specifically, suppose that \(\forall n\in\mathbb{N}\),
-    \(\sup_{z\in K}f_n^\sharp(z)>n\)). By normality, we may extract a locally
-    uniformly spherically convergent subsequence
-    \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\subseteq\cbraces{f_n}_{n\in\mathbb{N}}\).
-    By \cref{thm:uniformlimit} under the spherical metric, the uniform spherical
-    limit of \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\), \(f\), is spherically
-    continuous on \(\Omega\). For every point \(z\in\Omega\), there are two
-    possibilities:
+    Conversely, assume for the sake of contradiction that \(\mathcal{F}\) is a normal family such that conclusion is not satisfied. Then, \(\exists K\subset\Omega\) compact and a sequence \(\cbraces{f_n}_{n\in\mathbb{N}}\subseteq\mathcal{F}\) such that the sequence \[\cbraces{\sup_{z\in K}f^\sharp_n(z)}_{n\in\mathbb{N}}\] tends to \(\infty\) (specifically, suppose that \(\forall n\in\mathbb{N}\), \(\sup_{z\in K}f_n^\sharp(z)>n\)). By normality, we may extract a locally uniformly spherically convergent subsequence \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\subseteq\cbraces{f_n}_{n\in\mathbb{N}}\). By \cref{thm:uniformlimit} under the spherical metric, the uniform spherical limit of \(\cbraces{f_{n_k}}_{k\in\mathbb{N}}\), \(f\), is spherically continuous on \(\Omega\). For every point \(z\in\Omega\), there are two possibilities:
     \begin{enumerate}
-        \item If \(f(z)\neq\infty\), then by continuity, \(\exists\delta>0\) such that
-            \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[d_\sigma\qty(f(\zeta),f_{n_k}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
+        \item If \(f(z)\neq\infty\), then by continuity, \(\exists\delta>0\) such that \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),f(z))<\frac12d_\sigma\qty(\infty, f(z)).\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[d_\sigma\qty(f(\zeta),f_{n_k}(\zeta))<\frac12d_\sigma\qty(\infty, f(z)).\]
             Hence, we have \[d_\sigma\qty(\infty,f(z))-d_\sigma\qty(f(z),f_{n_k}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(\infty,f_{n_k}(\zeta))>0.\]
-            Hence, the meromorphy of each \(f_{n_k}\) is actually holomorphy. By
-            continuity, \(f\) is locally uniformly bounded on \(D(z,\delta)\). Hence,
-            \(\cbraces{f_{n_k}}_{k>N}\) locally uniformly converges on \(D(z,\delta)\). By
-            a result of Weierstrass (\cref{thm:weierstrassconvergence}), \(f\) is
-            holomorphic on \(D(z,\delta)\) and the sequence \(\cbraces{f'_{n_k}}_{k>N}\)
-            locally uniformly converges to \(f'\) on \(D(z,\delta)\).
+            Hence, the meromorphy of each \(f_{n_k}\) is actually holomorphy. By continuity, \(f\) is locally uniformly bounded on \(D(z,\delta)\). Hence, \(\cbraces{f_{n_k}}_{k>N}\) locally uniformly converges on \(D(z,\delta)\). By a result of Weierstrass (\cref{thm:weierstrassconvergence}), \(f\) is holomorphic on \(D(z,\delta)\) and the sequence \(\cbraces{f'_{n_k}}_{k>N}\) locally uniformly converges to \(f'\) on \(D(z,\delta)\).
 
-            By holomorphy of \(f'\) on \(\overline{D\qty(z,\frac\delta2)}\), \(\exists
-            M'>0\) such that
-            \(\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f'(\zeta)}<M'\). Uniform
-            convergence of \(\cbraces{f'_{n_k}}_{k>N}\) gives the existence of some
-            \(N'>N\) such that \(\forall k>N'\), \[\abs{f'_{n_k}(\zeta)-f'(\zeta)}<1\implies\abs{f'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\cbraces{f'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\cbraces{M'+1}\cup\cbraces{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{f_{n_k}'(\zeta)}}{1+\abs{f_{n_k}(\zeta)}^2}\leq 2\abs{f'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2)\subset\overline{D\qty(z,\frac\delta2)}.\]
+            By holomorphy of \(f'\) on \(\overline{D\qty(z,\frac\delta2)}\), \(\exists M'>0\) such that \(\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f'(\zeta)}<M'\). Uniform convergence of \(\cbraces{f'_{n_k}}_{k>N}\) gives the existence of some \(N'>N\) such that \(\forall k>N'\), \[\abs{f'_{n_k}(\zeta)-f'(\zeta)}<1\implies\abs{f'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\cbraces{f'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\cbraces{M'+1}\cup\cbraces{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{f_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{f_{n_k}'(\zeta)}}{1+\abs{f_{n_k}(\zeta)}^2}\leq 2\abs{f'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2)\subset\overline{D\qty(z,\frac\delta2)}.\]
         \item \(f\qty(z)=\infty\), then by continuity, \(\exists\delta>0\) such that \(\forall\zeta\in D(z,\delta)\), \[d_\sigma\qty(f(\zeta),\infty)<\frac\uppi2.\] Similarly, \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[d_\sigma\qty(f(\zeta),f_{n_k}(\zeta))<\frac\uppi2.\]
             Hence, we have \[\uppi-d_\sigma\qty(\infty,f_{n_k}(\zeta))=d_\sigma(\infty,0)-d_\sigma\qty(\infty,f_{n_k}(\zeta))>0.\] By the reverse triangle inequality, we have \[d_\sigma\qty(0,f_{n_k}(\zeta))>0.\]
-            Hence, each \(g_{n_k}=\frac1{f_{n_k}}\) is holomorphic on \(D(z,\delta)\). By
-            continuity, \(g=\frac1f\) is locally uniformly bounded on \(D(z,\delta)\). It
-            can also be realized that \(\cbraces{g_{n_k}}_{k>N}\) locally uniformly
-            converges on \(D(z,\delta)\). By a result of Weierstrass
-            (\cref{thm:weierstrassconvergence}), \(g\) is holomorphic on \(D(z,\delta)\)
-            and the sequence \(\cbraces{g_{n_k}'}_{k>N}\) locally uniformly converges to
-            \(g'\) on \(D(z,\delta)\).
+            Hence, each \(g_{n_k}=\frac1{f_{n_k}}\) is holomorphic on \(D(z,\delta)\). By continuity, \(g=\frac1f\) is locally uniformly bounded on \(D(z,\delta)\). It can also be realized that \(\cbraces{g_{n_k}}_{k>N}\) locally uniformly converges on \(D(z,\delta)\). By a result of Weierstrass (\cref{thm:weierstrassconvergence}), \(g\) is holomorphic on \(D(z,\delta)\) and the sequence \(\cbraces{g_{n_k}'}_{k>N}\) locally uniformly converges to \(g'\) on \(D(z,\delta)\).
 
-            By holomorphy of \(g'\) on \(\overline{D\qty(z,\frac\delta2)}\), \(\exists
-            M'>0\) such that
-            \(\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g'(\zeta)}<M'\). Uniform
-            convergence of \(\cbraces{g'_{n_k}}_{k>N}\) gives the existence of some
-            \(N'>N\) such that \(\forall k>N'\), \[\abs{g'_{n_k}(\zeta)-g'(\zeta)}<1\implies\abs{g'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\cbraces{g'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\cbraces{M'+1}\cup\cbraces{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{-\frac{g_{n_k}'(\zeta)}{g_{n_k}(\zeta)^2}}}{1+\abs{g_{n_k}(\zeta)}^{-2}}=\frac{2\abs{g_{n_k}'(\zeta)}}{\abs{g_{n_k}(\zeta)}^2+1}\leq 2\abs{g'_{n_k}(\zeta)}\leq 2M\qquad\forall\zeta\in D\qty(z,\frac\delta2).\]
+            By holomorphy of \(g'\) on \(\overline{D\qty(z,\frac\delta2)}\), \(\exists M'>0\) such that \(\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g'(\zeta)}<M'\). Uniform convergence of \(\cbraces{g'_{n_k}}_{k>N}\) gives the existence of some \(N'>N\) such that \(\forall k>N'\), \[\abs{g'_{n_k}(\zeta)-g'(\zeta)}<1\implies\abs{g'_{n_k}(\zeta)}\leq M'+1\qquad\forall\zeta\in\overline{D\qty(z,\frac\delta2)}.\] Therefore, \(\cbraces{g'_{n_k}}_{k>N}\) is uniformly bounded by \[M=\max\qty(\cbraces{M'+1}\cup\cbraces{\sup_{\zeta\in\overline{D\qty(0,\frac\delta2)}}\abs{g_{n_k}'(\zeta)}}_{N<k\leq N'})\] on this compact disk. Hence, \(\forall k>N\), \[f^\sharp_{n_k}(\zeta)=\frac{2\abs{-\frac{g_{n_k}'(\zeta)}{g_{n_k}(\zeta)^2}}}{1+\abs{g_{n_k}(\zeta)}^{-2}}=\frac{2\abs{g_{n_k}'(\zeta)}}{\abs{g_{n_k}(\zeta)}^2+1}\leq 2\abs{g'_{n_k}(\zeta)}\leq 2M,\quad\forall\zeta\in D\qty(z,\frac\delta2).\]
     \end{enumerate}
     In essence, for any point \(z\), there exists an open disk \(D_z\) centered at \(z\) on which the spherical derivatives \(f^\sharp_{n_k}\) are bounded by some constant \(M_z\) for \(k>N_z\). By Heine--Borel (\cref{thm:heineborel}), there exists a finite collection of disks \(\cbraces{D_{z_j}}_{1\leq j\leq n}\) that cover \(K\). Thus, \(\cbraces{f_{n_k}^\sharp(z)}_{k>N}\) is uniformly bounded on \(K\) by \(\max_{1\leq j\leq n}M_{z_j}\), where \(N=\max_{1\leq j\leq n} N_{z_j}\), contradicting the assumption that \(\sup_{z\in K}f^\sharp_n(z)>n\) for all \(n\in\mathbb{N}\).
 \end{proof}
@@ -119,9 +68,7 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
 \begin{proof}
     Map \(\alpha\) and \(\beta\) to \(0,1\) by a linear function \(\varphi(z)=\frac{z-\alpha}{\beta-\alpha}\). Then the family of holomorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\) and \(1\) for all \(z\in\Omega\).
 
-    By \cref{prop:conformalmetricnegativecurvatureexistencewhenomits2points},
-    \(\exists\beta>0\) such that for \[\rho(z)=\frac{\sqrt{1+\abs{z}^{\frac13}}\sqrt{1+\abs{z-1}^{\frac13}}}{\abs{z}^{\frac56}\abs{z-1}^{\frac56}},\qquad\dd{s}^2_{\rho}=\rho(z)^2\abs{\ddz}^2\] as in
-    \cref{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric},
+    By \cref{prop:conformalmetricnegativecurvatureexistencewhenomits2points}, \(\exists\beta>0\) such that for \[\rho(z)=\frac{\sqrt{1+\abs{z}^{\frac13}}\sqrt{1+\abs{z-1}^{\frac13}}}{\abs{z}^{\frac56}\abs{z-1}^{\frac56}},\qquad\dd{s}^2_{\rho}=\rho(z)^2\abs{\ddz}^2\] as in \cref{eq:conformalmetricnegativecurvatureexistencewhenomits2points_metric},
     \[K_\rho(z)\leq-\beta\qquad\forall z\in\mathbb{C}\setminus\cbraces{0,1}.\]
     Therefore, if we let \(\mu=\rho\sqrt{\beta}\), then
     \begin{equation}
@@ -134,38 +81,18 @@ Montel's Theorem for holomorphically normal families in \cref{thm:montel} can be
             0                                            & \qq*{as}w\to 1,     \\
             \frac{2\abs{w}^{-2}}{\abs{w}^{-\frac43}}\to0 & \qq*{as}w\to\infty.
     \end{dcases}\]
-    Hence, there exist open neighborhoods \(U_0,U_1,U_\infty\) of \(0,1,\infty\)
-    respectively on which \(\frac\sigma\mu<1\). Since \(\frac{\sigma}{\mu}\in
-    C^0(\mathbb{C})\), by \cref{thm:continuousfunctionboundedoncompact}, \(\exists
-    M'>0\) such that \(\frac{\sigma}{\mu}<M'\) on \(\mathbb{C}\setminus\qty(U_0\cup
-    U_1\cup U_\infty)\). Let \(M=\max\cbraces{M',1}\), and \[\therefore\sigma\leq M\mu\qq{on}\mathbb{C}\setminus\cbraces{0,1}.\]
-    Hence, \(\forall f\in\widetilde{\mathcal{F}}\), we have by virtue of
-    \cref{eq:fundamentalnormalitytest_f_mu_pullback_inequality}, \[f^\sharp(z)=\sigma\circ f(z)\abs{f'(z)}\leq M\mu\circ f(z)\abs{f'(z)}\leq\frac{2rM}{r_\zeta^2-\abs{z-\zeta}^2}\] for any \(z\in D\qty(\zeta,r_\zeta)\). Now restricting \(z\) to
-    \(D\qty(\zeta,\frac{r_\zeta}{2})\), we have \[\abs{z-\zeta}^2<\frac{r_\zeta^2}4\implies r_\zeta^2-\abs{z-\zeta}^2>\frac{3r_\zeta^2}4\implies\abs{f^\sharp(z)}<\frac{8r_\zeta M}{3r_\zeta^2}=\frac{8M}{3r_\zeta}.\]
-    For any compact \(K\subset\Omega\), the collection of open disks \[\cbraces{D\qty(\zeta,\frac{r_\zeta}{2})}{\zeta\in K}\] forms an open cover of \(K\). Hence, by Heine--Borel (\cref{thm:heineborel}),
-    it admits a finite subcover \[\cbraces{D\qty(\zeta_k,\frac{r_{\zeta_k}}{2})}{1\leq k\leq n}\] for some \(n\in\mathbb{N}\). Then
-    \(\cbraces{f^\sharp}{f\in\widetilde{\mathcal{F}}}\) is uniformly bounded on
-    \(K\) by \[M_K=\max\cbraces{\frac{8M}{3r_{\zeta_k}}}{1\leq k\leq n}\] and is thus locally uniformly bounded on \(\Omega\). Marty's Criterion
-    (\cref{thm:marty}) gives the normality of \(\widetilde{\mathcal{F}}\); since
-    \(\varphi\) is linear, it follows that \(\mathcal{F}\) is also normal on
-    \(\Omega\).
+    Hence, there exist open neighborhoods \(U_0,U_1,U_\infty\) of \(0,1,\infty\) respectively on which \(\frac\sigma\mu<1\). Since \(\frac{\sigma}{\mu}\in C^0(\mathbb{C})\), by \cref{thm:continuousfunctionboundedoncompact}, \(\exists M'>0\) such that \(\frac{\sigma}{\mu}<M'\) on \(\mathbb{C}\setminus\qty(U_0\cup U_1\cup U_\infty)\). Let \(M=\max\cbraces{M',1}\), and \[\therefore\sigma\leq M\mu\qq{on}\mathbb{C}\setminus\cbraces{0,1}.\]
+    Hence, \(\forall f\in\widetilde{\mathcal{F}}\), we have by virtue of \cref{eq:fundamentalnormalitytest_f_mu_pullback_inequality}, \[f^\sharp(z)=\sigma\circ f(z)\abs{f'(z)}\leq M\mu\circ f(z)\abs{f'(z)}\leq\frac{2rM}{r_\zeta^2-\abs{z-\zeta}^2}\] for any \(z\in D\qty(\zeta,r_\zeta)\). Now restricting \(z\) to \(D\qty(\zeta,\frac{r_\zeta}{2})\), we have \[\abs{z-\zeta}^2<\frac{r_\zeta^2}4\implies r_\zeta^2-\abs{z-\zeta}^2>\frac{3r_\zeta^2}4\implies\abs{f^\sharp(z)}<\frac{8r_\zeta M}{3r_\zeta^2}=\frac{8M}{3r_\zeta}.\]
+    For any compact \(K\subset\Omega\), the collection of open disks \[\cbraces{D\qty(\zeta,\frac{r_\zeta}{2})}{\zeta\in K}\] forms an open cover of \(K\). Hence, by Heine--Borel (\cref{thm:heineborel}), it admits a finite subcover \[\cbraces{D\qty(\zeta_k,\frac{r_{\zeta_k}}{2})}{1\leq k\leq n}\] for some \(n\in\mathbb{N}\). Then \(\cbraces{f^\sharp}{f\in\widetilde{\mathcal{F}}}\) is uniformly bounded on \(K\) by \[M_K=\max\cbraces{\frac{8M}{3r_{\zeta_k}}}{1\leq k\leq n}\] and is thus locally uniformly bounded on \(\Omega\). Marty's Criterion (\cref{thm:marty}) gives the normality of \(\widetilde{\mathcal{F}}\); since \(\varphi\) is linear, it follows that \(\mathcal{F}\) is also normal on \(\Omega\).
 \end{proof}
 \begin{corollary}[name=\textsc{Montel--Carathéodory}]\label{cor:montelcaratheodory}
     Let \(\Omega\subseteq\mathbb{C}\) be a region and suppose that \(\mathcal{F}\) is a family of meromorphic functions on \(\Omega\). If there exist three different points \(\alpha,\beta,\gamma\in\extcomplex\) such that \(\cbraces{\alpha,\beta,\gamma}\cap\bigcup_{f\in\mathcal{F}}f(\Omega)=\varnothing\), then \(\mathcal{F}\) must be a spherically normal family.
 \end{corollary}
 \begin{proof}
     Let \(\varphi(z)=\frac{(z-\alpha)(\beta-\gamma)}{(z-\gamma)(\beta-\alpha)}\) be a Möbius transformation mapping \(\alpha,\beta,\gamma\) to \(0,1,\infty\), respectively.
-    Hence, the family of meromorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\), \(1\), and \(\infty\) (and hence each function is holomorphic). By
-    the Fundamental Holomorphic Normality Test
-    (\cref{thm:fundamentalnormalitytest}), \(\widetilde{\mathcal{F}}\) is normal.
+    Hence, the family of meromorphic functions \[\widetilde{\mathcal{F}}=\cbraces{\varphi\circ f}{f\in\mathcal{F}}\] omits \(0\), \(1\), and \(\infty\) (and hence each function is holomorphic). By the Fundamental Holomorphic Normality Test (\cref{thm:fundamentalnormalitytest}), \(\widetilde{\mathcal{F}}\) is normal.
 
-    By \cref{prop:linearfractionaltransformationuniformlysphericallycontinuous},
-    \(\forall\varepsilon>0\), \(\exists\delta>0\) such that
-    \(\forall\abs{w_1-w_2}<\delta\) in \(\mathbb{C}\), \[d_\sigma\qty(\varphi^{-1}\qty(w_1),\varphi^{-1}\qty(w_2))<\varepsilon.\]
-    Let \(\cbraces{\widetilde{f}_n}_{n\in\mathbb{N}}\) be any function sequence in
-    \(\mathcal{F}\) and let \(\cbraces{\widetilde{f}_{n_k}}_{k\in\mathbb{N}}\) be
-    locally uniformly convergent to \(\widetilde{f}\) on a compact set
-    \(K\subset\Omega\). Then \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[\abs{\widetilde{f}_{n_k}(z)-\widetilde{f}(z)}<\delta\qquad\forall z\in K.\]
-    Therefore, \(\forall z\in K\), \(k>N\), we have \[d_\sigma\qty(\varphi^{-1}\circ\widetilde{f}_{n_k}(z),\varphi^{-1}\circ\widetilde{f}(z))=d_\sigma\qty(f_{n_k}(z),f(z))<\varepsilon.\] Hence, every sequence \(f_n\) has a locally uniformly spherically convergent
-    subsequence, and the normality of \(\mathcal{F}\) follows.
+    By \cref{prop:linearfractionaltransformationuniformlysphericallycontinuous}, \(\forall\varepsilon>0\), \(\exists\delta>0\) such that \(\forall\abs{w_1-w_2}<\delta\) in \(\mathbb{C}\), \[d_\sigma\qty(\varphi^{-1}\qty(w_1),\varphi^{-1}\qty(w_2))<\varepsilon.\]
+    Let \(\cbraces{\widetilde{f}_n}_{n\in\mathbb{N}}\) be any function sequence in \(\mathcal{F}\) and let \(\cbraces{\widetilde{f}_{n_k}}_{k\in\mathbb{N}}\) be locally uniformly convergent to \(\widetilde{f}\) on a compact set \(K\subset\Omega\). Then \(\exists N\in\mathbb{N}\) such that \(\forall k>N\), \[\abs{\widetilde{f}_{n_k}(z)-\widetilde{f}(z)}<\delta\qquad\forall z\in K.\]
+    Therefore, \(\forall z\in K\), \(k>N\), we have \[d_\sigma\qty(\varphi^{-1}\circ\widetilde{f}_{n_k}(z),\varphi^{-1}\circ\widetilde{f}(z))=d_\sigma\qty(f_{n_k}(z),f(z))<\varepsilon.\] Hence, every sequence \(f_n\) has a locally uniformly spherically convergent subsequence, and the normality of \(\mathcal{F}\) follows.
 \end{proof}
