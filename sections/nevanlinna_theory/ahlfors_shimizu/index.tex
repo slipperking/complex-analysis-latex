@@ -27,7 +27,7 @@ We now provide a second formulation of the first fundamental theorem, given by A
         \partial_zG'(R)&=G''(R)\partial_zR&&=G''(R)\frac{f'\overline{f}}{2R}\cdot\frac{f\overline{f'}}{2R}+G'(R)\frac{\abs{f'}^2}{4R}\\
         &=\frac{\abs{f'}^2}4\qty(G''(R)+\frac{G'(R)}{R}),
     \end{align*}
-    it follows that \(\laplacian{G\qty(\abs{f(z)})}=g(R)\abs{f'}^2\). Substituting this in \cref{eq:ahlforsshimizugreens_greensapplication} gives \[\qty(\oint_{\partial U^+}-\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}}}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\]
+    it follows that \(\laplacian{G\qty(\abs{f(z)})}=g(R)\abs{f'}^2\). Substituting this in \cref{eq:ahlforsshimizugreens_greensapplication} gives \[\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}}}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\]
     As \(\varepsilon\to 0^+\), the right-hand side is simply the desired quantity in \cref{eq:ahlforsshimizugreens_statement}. By the continuous differentiability of \(G\), \(\exists M>0\) such that \(\abs{\grad{G}\cdot\vu{n}}\leq M\) on \(\textstyle\bigcup_k\overline{D\qty(z_k,\varepsilon)}\), thus
     \[\abs{\oint_{\partial D\qty(z_k,\varepsilon)}\grad{G}\cdot\vu{n}\dd{s}}\leq\int_0^{2\uppi}M\varepsilon\dd\theta\to 0\qq{as}\varepsilon\to 0^+.\]
     Thus, the left-hand side expression of \cref{eq:ahlforsshimizugreens_greensapplication} also tends to that of \cref{eq:ahlforsshimizugreens_statement}.
@@ -47,4 +47,13 @@ By the lemma, {
     \[\qty(\mathmakebox[\dimexpr\intlength-\minuslength\relax][l]{\oint_{\partial D(0,r)}}+\sum_{j=1}^n\oint_{\partial D\qty(b_j,\varepsilon)})\nabla_{\vu{n}}{G\qty(\abs{f(z)})}\abs{\ddz}=\iint_{D(0,r)\setminus\bigcup D\qty(b_j,\varepsilon)}{\frac{2\abs{f'\qty(z)}^2}{\qty(1+\abs{f\qty(z)}^2)^2}}\dd{A}.\]
 }
 which requires the computation \[\oint_{\partial D\qty(b_j,\varepsilon)}\qty(\frac{k_j}\varepsilon+\order{1})\abs{\ddz}=\int_0^{2\uppi}\qty(k_j+\varepsilon\order{1})\dd{\theta}=2\uppi k_j+\order{\varepsilon}.\]
-Taking the limit \(\varepsilon\to 0^+\) hence gives \[\frac{1}{2\uppi}\int_0^{2\uppi}\nabla_{\vu{n}}{G\qty(\abs{f(z)})}\abs{\ddz}+n(r,f)=\frac1{4\uppi}\int_0^{2\uppi}\int_0^r{f^\sharp\qty(\rho\ee^{\ii\theta})^2}\rho\dd{\rho}\dd{\theta}.\]
+Taking the limit \(\varepsilon\to 0^+\) hence gives \[\frac{1}{2\uppi}\int_0^{2\uppi}\nabla_{\vu{n}}{G\qty(\abs{f\qty(r\ee^{\ii\theta})})}r\dd{\theta}+n(r,f)=\frac1{4\uppi}\int_0^{2\uppi}\int_0^r{f^\sharp\qty(\rho\ee^{\ii\theta})^2}\rho\dd{\rho}\dd{\theta},\]
+where \(f^\sharp\) is the spherical derivative (\cref{def:sphericalderivative}). Let the expression on the right-hand side by denoted by \(A(r)\). We thus derive \[A(r)=\frac{r}{2\uppi}\int_0^{2\uppi}\pdv{r}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}+n(r,f).\]
+By dividing by \(r\), changing variables, and integrating from 0 to \(r\), we have 
+\begin{align*}
+    \int_0^r\frac{A(t)\dd{t}}t&=\lim_{\varepsilon\to 0^+}\int_\varepsilon^r\frac{1}{2\uppi}\dv{t}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(t\ee^{\ii\theta})}^2}\dd{\theta}\ddt+\int_\varepsilon^r\frac{n(0,f)}{t}\ddt\\
+    &\quad+N(r,f)-n(0,f)\log r.\\
+    &=\lim_{\varepsilon\to 0^+}\int_\varepsilon^r\frac{n(0,f)}{t}\ddt-\frac{1}{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(\varepsilon\ee^{\ii\theta})}^2}\dd{\theta}\\
+    &\quad+N(r,f)-n(0,f)\log r+\frac{1}{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}.
+\end{align*}
+The integral expression is written in its present form to ensure convergence. 
