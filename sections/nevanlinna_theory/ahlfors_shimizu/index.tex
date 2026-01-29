@@ -10,9 +10,9 @@ We now provide a second formulation of the first fundamental theorem, given by A
 \begin{proof}
     Let the zeros of \(f\) in \(U\) (which are finite, otherwise they accumulate) be \(\qty{z_k}_{k=1}^n\). Choose \(\varepsilon'>0\) so that for any \(0<\varepsilon<\varepsilon'\) the disks \(\qty{D\qty(z_k,\varepsilon)}_{k=1}^n\) each line in the open set \(U\) and are pairwise disjoint from one another.
 
-    Applying Green's Theorem (\cref{thm:realgreen}) \[\qty(\oint_{\partial U}-\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\vb{v}\cdot\vu{n}\dd{s}=\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}\divergence{\vb{v}}\dd{A}\] to \(I\), we have
+    Applying Green's Theorem (\cref{thm:realgreen})\footnote{We define \(\vu{n}\) to be the normal vector pointing into the region, so for the \(\partial U\) integral, \(\vu{n}\) points outwards and for the summation integrals \(\vu{n}\) points into the disks.} \[\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\vb{v}\cdot\vu{n}\dd{s}=\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}\divergence{\vb{v}}\dd{A}\] to \(I\), we have
     \begin{equation}
-        I=\qty(\oint_{\partial U^+}-\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}}}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\label{eq:ahlforsshimizugreens_greensapplication}
+        I=\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}}}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\label{eq:ahlforsshimizugreens_greensapplication}
     \end{equation}
     Letting \(R=\abs{f(z)}=\sqrt{f(z)\overline{f(z)}}\) along with the notation \(\partial_z=\pdv*{z},\partial_{\overline{z}}=\pdv*{\overline{z}}\) etc.,
     \[\partial_zR=\frac{\partial_z\qty(f\overline{f})}{2R}=\frac{f'\overline{f}+f\overline{\partial_{\overline{z}}f}}{2R}=\frac{f'\overline{f}}{2R},\qquad\partial_{\overline{z}}R=\frac{\partial_{\overline{z}}\qty(f\overline{f})}{2R}=\frac{f\overline{f'}}{2R},\]
@@ -33,10 +33,18 @@ We now provide a second formulation of the first fundamental theorem, given by A
     Thus, the left-hand side expression of \cref{eq:ahlforsshimizugreens_greensapplication} also tends to that of \cref{eq:ahlforsshimizugreens_statement}.
 \end{proof}
 We apply \cref{lem:ahlforsshimizugreens} to \[G(R)=\log\sqrt{1+R^2}\implies g(R)=\frac{1-R^2}{\qty(1+R^2)^2}+\frac1R\qty(\frac{R}{1+R^2})=\frac{2}{\qty(1+R^2)^2}.\]
-Let \(f\) be meromorphic on \(\overline{D(0,r)}\) with no poles on the boundary, and let its poles in the interior be at each \(\qty{b_j}_{j=1}^n\) of respective orders \(\qty{k_j}_{j=1}^n\). Let \(\varepsilon'>0\) such that \(\forall 0<\varepsilon<\varepsilon'\), the disks \(\overline{D\qty(b_j,\varepsilon)}\) are disjoint and all lie in \(D(0,r)\). We aim to apply the lemma on this multiply connected region on which \(f\) is holomorphic. 
+Let \(f\) be meromorphic on \(\overline{D(0,r)}\) with no poles on the boundary, and let its poles in the interior be at each \(\qty{b_j}_{j=1}^n\) of respective orders \(\qty{k_j}_{j=1}^n\). Let \(\varepsilon'>0\) such that \(\forall 0<\varepsilon<\varepsilon'\), the disks \(\overline{D\qty(b_j,\varepsilon)}\) are disjoint and all lie in \(D(0,r)\). We aim to apply the lemma on this multiply connected region on which \(f\) is holomorphic.
 
-In a small disk containing a pole (fix \(j\)), \(f\) has the Laurent series \[f(z)=\sum_{i=-k_j}^\infty c_i\qty(z-b_j)^i=\frac{\phi(z)}{\qty(z-b_j)^{k_j}},\] where \(\phi\) is analytic and non-vanishing in the closed disk (choose \(\varepsilon\) such that \(\frac1f\) is analytic therein too). On the boundary \(\partial D\qty(b_j,\varepsilon)\), \[\abs{f(z)}=\abs{\phi(z)}\varepsilon^{-k_j}.\]
-Since \(f\to\infty\) as \(z\to b_j\), \[G(\abs{f(z)})=\log\abs{f(z)}+\log\sqrt{1+\frac1{\abs{f(z)}^2}}=\log\abs{\phi(z)}-k_j\log\varepsilon+\log\sqrt{1+\frac1{\abs{f(z)}^2}}.\]
-On the contour defined by \(\partial D(b_j\varepsilon)\), the outwards normal vector actually points directly into the interior (since the disk is removed from the pertinent region). Hence, on the boundary circle,
-\[\nabla_{\vu{n}}G(\abs{f(z)})=-\pdv{}{\varepsilon}G(\abs{f(z)})=\frac{k_j}{\varepsilon}-\frac{\phi'(z)}{\phi(z)}+\frac{\pdv{\varepsilon}\qty(\frac{1}{\abs{f(z)}^2})}{2+\frac2{\abs{f(z)}^2}}=\frac{k_j}{\varepsilon}+\order{1}\] as \(\varepsilon\to 0^+\).
-Hence, by the lemma, %\[\qty(\oint_{\partial D(0,r)}-   )\grad{\log\sqrt{1+\abs{f(z)}}}\cdot\vu{n}\abs{\ddz}=\iint_{D(0,r)}{\frac{2\abs{f'\qty(\rho\ee^{\ii\theta})}^2}{\qty(1+\abs{f\qty(\rho\ee^{\ii\theta})}^2)^2}}\rho\dd{\rho}\dd{\theta}\]
+In a prescribed small disk containing a pole (fix \(j\)), \(f\) has the Laurent series \[f(z)=\sum_{i=-k_j}^\infty c_i\qty(z-b_j)^i=\frac{\phi(z)}{\qty(z-b_j)^{k_j}},\] where \(\phi\) is analytic and non-vanishing in the closed disk (choose \(\varepsilon\) such that \(\frac1f\) is analytic therein too). On the boundary \(\partial D\qty(b_j,\varepsilon)\), \[\abs{f(z)}=\abs{\phi(z)}\varepsilon^{-k_j}.\]
+This implies that \[G(\abs{f(z)})=\log\abs{f(z)}+\log\sqrt{1+\frac1{\abs{f(z)}^2}}=\log\abs{\phi(z)}-k_j\log\varepsilon+\log\sqrt{1+\frac1{\abs{f(z)}^2}}.\]
+On the contour defined by \(\partial D(b_j,\varepsilon)\)\footnote{The outwards normal vector actually points directly into the interior, since the disk is removed from the pertinent region.},
+\[\nabla_{\vu{n}}G(\abs{f(z)})=-\pdv{}{\varepsilon}G(\abs{f(z)})=\frac{k_j}{\varepsilon}-\frac{\pdv{\varepsilon}\abs{\phi(z)}}{\abs{\phi(z)}}+\frac{\pdv{\varepsilon}\qty(\frac{1}{\abs{f(z)}^2})}{2+\frac2{\abs{f(z)}^2}}=\frac{k_j}{\varepsilon}+\order{1}\] as \(\varepsilon\to 0^+\), where \(\order{1}\rightrightarrows0\) uniformly in \(t\) (\(z=b_j+\varepsilon\ee^{\ii t}\)).
+By the lemma, {
+    \newlength{\intlength}%
+    \newlength{\minuslength}%
+    \setlength{\intlength}{\widthof{\(\oint_{\partial D(0,r)}\)}}%
+    \setlength{\minuslength}{\widthof{\(-\)}}%
+    \[\qty(\mathmakebox[\dimexpr\intlength-\minuslength\relax][l]{\oint_{\partial D(0,r)}}+\sum_{j=1}^n\oint_{\partial D\qty(b_j,\varepsilon)})\nabla_{\vu{n}}{G\qty(\abs{f(z)})}\abs{\ddz}=\iint_{D(0,r)\setminus\bigcup D\qty(b_j,\varepsilon)}{\frac{2\abs{f'\qty(z)}^2}{\qty(1+\abs{f\qty(z)}^2)^2}}\dd{A}.\]
+}
+which requires the computation \[\oint_{\partial D\qty(b_j,\varepsilon)}\qty(\frac{k_j}\varepsilon+\order{1})\abs{\ddz}=\int_0^{2\uppi}\qty(k_j+\varepsilon\order{1})\dd{\theta}=2\uppi k_j+\order{\varepsilon}.\]
+Taking the limit \(\varepsilon\to 0^+\) hence gives \[\frac{1}{2\uppi}\int_0^{2\uppi}\nabla_{\vu{n}}{G\qty(\abs{f(z)})}\abs{\ddz}+n(r,f)=\frac1{4\uppi}\int_0^{2\uppi}\int_0^r{f^\sharp\qty(\rho\ee^{\ii\theta})^2}\rho\dd{\rho}\dd{\theta}.\]
