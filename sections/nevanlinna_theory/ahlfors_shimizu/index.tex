@@ -14,18 +14,18 @@ We now provide a second formulation of the first fundamental theorem, given by A
     \begin{equation}
         I=\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}}}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\label{eq:ahlforsshimizugreens_greensapplication}
     \end{equation}
-    Letting \(R=\abs{f(z)}=\sqrt{f(z)\overline{f(z)}}\) along with the notation \(\partial_z=\pdv*{z},\partial_{\overline{z}}=\pdv*{\overline{z}}\) etc.,
+    Letting \(R=\abs{f(z)}=\sqrt{f(z)\overline{f(z)}}\) and adopting the elliptic notation \(\partial_z=\pdv*{z},\partial_{\overline{z}}=\pdv*{\overline{z}}\) etc.,
     \[\partial_zR=\frac{\partial_z\qty(f\overline{f})}{2R}=\frac{f'\overline{f}+f\overline{\partial_{\overline{z}}f}}{2R}=\frac{f'\overline{f}}{2R},\qquad\partial_{\overline{z}}R=\frac{\partial_{\overline{z}}\qty(f\overline{f})}{2R}=\frac{f\overline{f'}}{2R},\]
     and
     \begin{align*}
-        \qty(\partial_zR)\qty(\partial_{\overline{z}}R)&=\frac{\abs{f}^2\abs{f'}^2}{4R^2}=\frac{\abs{f'}^2}4,&\partial_{z\overline{z}}R&=\partial_{\overline{z}}\qty(\frac{f'\overline{f}}{2R})=\frac{2f'\overline{f'}R-2f'\overline{f}\qty(\frac{f\overline{f'}}{2R})}{4R^2}\\
-        &&&=\frac{2\abs{f'}^2R^2-\abs{f'f}^2}{4R^3}=\frac{\abs{f'}^2}{4R},
+        \qty(\partial_zR)\qty(\partial_{\overline{z}}R) & =\frac{\abs{f}^2\abs{f'}^2}{4R^2}=\frac{\abs{f'}^2}4, & \partial_{z\overline{z}}R & =\partial_{\overline{z}}\qty(\frac{f'\overline{f}}{2R})=\frac{2f'\overline{f'}R-2f'\overline{f}\qty(\frac{f\overline{f'}}{2R})}{4R^2} \\
+        &                                                       &                           & =\frac{2\abs{f'}^2R^2-\abs{f'f}^2}{4R^3}=\frac{\abs{f'}^2}{4R},
     \end{align*}
     since
     \begin{align*}
-        \partial_{\overline{z}}G(R)&=G'(R)\partial_{\overline{z}}R,&\quad\partial_z\partial_{\overline{z}} G(R)&=\partial_zG'(R)\partial_{\overline{z}}R+G'(R)\partial_{\overline{z}z}R\\
-        \partial_zG'(R)&=G''(R)\partial_zR&&=G''(R)\frac{f'\overline{f}}{2R}\cdot\frac{f\overline{f'}}{2R}+G'(R)\frac{\abs{f'}^2}{4R}\\
-        &=\frac{\abs{f'}^2}4\qty(G''(R)+\frac{G'(R)}{R}),
+        \partial_{\overline{z}}G(R) & =G'(R)\partial_{\overline{z}}R,                  & \quad\partial_z\partial_{\overline{z}} G(R) & =\partial_zG'(R)\partial_{\overline{z}}R+G'(R)\partial_{\overline{z}z}R                   \\
+        \partial_zG'(R)             & =G''(R)\partial_zR                               &                                             & =G''(R)\frac{f'\overline{f}}{2R}\cdot\frac{f\overline{f'}}{2R}+G'(R)\frac{\abs{f'}^2}{4R} \\
+        & =\frac{\abs{f'}^2}4\qty(G''(R)+\frac{G'(R)}{R}),
     \end{align*}
     it follows that \(\laplacian{G\qty(\abs{f(z)})}=g(R)\abs{f'}^2\). Substituting this in \cref{eq:ahlforsshimizugreens_greensapplication} gives \[\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}}}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\]
     As \(\varepsilon\to 0^+\), the right-hand side is simply the desired quantity in \cref{eq:ahlforsshimizugreens_statement}. By the continuous differentiability of \(G\), \(\exists M>0\) such that \(\abs{\grad{G}\cdot\vu{n}}\leq M\) on \(\textstyle\bigcup_k\overline{D\qty(z_k,\varepsilon)}\), thus
@@ -38,22 +38,50 @@ Let \(f\) be meromorphic on \(\overline{D(0,r)}\) with no poles on the boundary,
 In a prescribed small disk containing a pole (fix \(j\)), \(f\) has the Laurent series \[f(z)=\sum_{i=-k_j}^\infty c_i\qty(z-b_j)^i=\frac{\phi(z)}{\qty(z-b_j)^{k_j}},\] where \(\phi\) is analytic and non-vanishing in the closed disk (choose \(\varepsilon\) such that \(\frac1f\) is analytic therein too). On the boundary \(\partial D\qty(b_j,\varepsilon)\), \[\abs{f(z)}=\abs{\phi(z)}\varepsilon^{-k_j}.\]
 This implies that \[G(\abs{f(z)})=\log\abs{f(z)}+\log\sqrt{1+\frac1{\abs{f(z)}^2}}=\log\abs{\phi(z)}-k_j\log\varepsilon+\log\sqrt{1+\frac1{\abs{f(z)}^2}}.\]
 On the contour defined by \(\partial D(b_j,\varepsilon)\)\footnote{The outwards normal vector actually points directly into the interior, since the disk is removed from the pertinent region.},
-\[\nabla_{\vu{n}}G(\abs{f(z)})=-\pdv{}{\varepsilon}G(\abs{f(z)})=\frac{k_j}{\varepsilon}-\frac{\pdv{\varepsilon}\abs{\phi(z)}}{\abs{\phi(z)}}+\frac{\pdv{\varepsilon}\qty(\frac{1}{\abs{f(z)}^2})}{2+\frac2{\abs{f(z)}^2}}=\frac{k_j}{\varepsilon}+\order{1}\] as \(\varepsilon\to 0^+\), where \(\order{1}\rightrightarrows0\) uniformly in \(t\) (\(z=b_j+\varepsilon\ee^{\ii t}\)).
-By the lemma, {
-    \newlength{\intlength}%
-    \newlength{\minuslength}%
-    \setlength{\intlength}{\widthof{\(\oint_{\partial D(0,r)}\)}}%
-    \setlength{\minuslength}{\widthof{\(-\)}}%
+\[\nabla_{\vu{n}}G(\abs{f(z)})=-\pdv{}{\varepsilon}G(\abs{f(z)})=\frac{k_j}{\varepsilon}-\frac{\pdv{\varepsilon}\abs{\phi(z)}}{\abs{\phi(z)}}+\frac{\pdv{\varepsilon}\qty(\frac{1}{\abs{f(z)}^2})}{2+\frac2{\abs{f(z)}^2}}=\frac{k_j}{\varepsilon}+\order{1}\] as \(\varepsilon\to 0^+\), where \(\order{1}\rightrightarrows0\) uniformly in \(t\) (\(z=b_j+\varepsilon\ee^{\ii t}\)). By the lemma, { \newlength{\intlength}\newlength{\minuslength}\setlength{\intlength}{\widthof{\(\oint_{\partial D(0,r)}\)}}\setlength{\minuslength}{\widthof{\(-\)}}%%%%
     \[\qty(\mathmakebox[\dimexpr\intlength-\minuslength\relax][l]{\oint_{\partial D(0,r)}}+\sum_{j=1}^n\oint_{\partial D\qty(b_j,\varepsilon)})\nabla_{\vu{n}}{G\qty(\abs{f(z)})}\abs{\ddz}=\iint_{D(0,r)\setminus\bigcup D\qty(b_j,\varepsilon)}{\frac{2\abs{f'\qty(z)}^2}{\qty(1+\abs{f\qty(z)}^2)^2}}\dd{A}.\]
 }
 which requires the computation \[\oint_{\partial D\qty(b_j,\varepsilon)}\qty(\frac{k_j}\varepsilon+\order{1})\abs{\ddz}=\int_0^{2\uppi}\qty(k_j+\varepsilon\order{1})\dd{\theta}=2\uppi k_j+\order{\varepsilon}.\]
 Taking the limit \(\varepsilon\to 0^+\) hence gives \[\frac{1}{2\uppi}\int_0^{2\uppi}\nabla_{\vu{n}}{G\qty(\abs{f\qty(r\ee^{\ii\theta})})}r\dd{\theta}+n(r,f)=\frac1{4\uppi}\int_0^{2\uppi}\int_0^r{f^\sharp\qty(\rho\ee^{\ii\theta})^2}\rho\dd{\rho}\dd{\theta},\]
-where \(f^\sharp\) is the spherical derivative (\cref{def:sphericalderivative}). Let the expression on the right-hand side by denoted by \(A(r)\). We thus derive \[A(r)=\frac{r}{2\uppi}\int_0^{2\uppi}\pdv{r}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}+n(r,f).\]
-By dividing by \(r\), changing variables, and integrating from 0 to \(r\), we have 
+where \(f^\sharp\) is the spherical derivative (\cref{def:sphericalderivative}). Let the expression on the right-hand side by denoted by \(A(r,f)\). We thus derive \[A(r,f)=\frac{r}{2\uppi}\int_0^{2\uppi}\pdv{r}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}+n(r,f).\]
+By dividing by \(r\), changing variables, and integrating from 0 to \(r\), we have
+\begin{align}
+    \int_0^r\frac{A(t,f)\dd{t}}t & =\lim_{\varepsilon\to 0^+}\int_\varepsilon^r\frac{1}{2\uppi}\dv{t}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(t\ee^{\ii\theta})}^2}\dd{\theta}\ddt+\int_\varepsilon^r\frac{n(0,f)}{t}\ddt\nonumber \\
+    & \quad+N(r,f)-n(0,f)\log r.\nonumber                                                                                                                                                          \\
+    & =\lim_{\varepsilon\to 0^+}\int_\varepsilon^r\frac{n(0,f)}{t}\ddt-\frac{1}{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(\varepsilon\ee^{\ii\theta})}^2}\dd{\theta}\nonumber                   \\
+    & \quad+N(r,f)-n(0,f)\log r+\frac{1}{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}\label{eq:ahlforsshimizuderivation_convergentintegral}                       \\
+    & =\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}-\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f(0)}^2}\dd{\theta}\nonumber                             \\
+    & \quad+N(r,f)\qq{if}f(0)\neq\infty.\label{eq:ahlforsshimizuderivation_regularcase}
+\end{align}
+The limit expression of \cref{eq:ahlforsshimizuderivation_convergentintegral} is written in its present form to ensure convergence in the event of a pole. Thus assume a pole; let \(f(z)=cz^k+\order{z^{k+1}}\), where \(k<0\) and \(c\neq 0\). It follows that
+\begin{gather*}
+    \abs{f\qty(\varepsilon\ee^{\ii\theta})}=\abs{c}\varepsilon^k+\order{\varepsilon^{k+1}}=\abs{c}\varepsilon^k\qty(1+\order{\varepsilon})\\
+    \log\abs{f\qty(\varepsilon\ee^{\ii\theta})}=\log\abs{c}+k\log\varepsilon+\log\qty(1+\order{\varepsilon})
+\end{gather*} where the errors are uniform in \(\theta\). Since
 \begin{align*}
-    \int_0^r\frac{A(t)\dd{t}}t&=\lim_{\varepsilon\to 0^+}\int_\varepsilon^r\frac{1}{2\uppi}\dv{t}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(t\ee^{\ii\theta})}^2}\dd{\theta}\ddt+\int_\varepsilon^r\frac{n(0,f)}{t}\ddt\\
-    &\quad+N(r,f)-n(0,f)\log r.\\
-    &=\lim_{\varepsilon\to 0^+}\int_\varepsilon^r\frac{n(0,f)}{t}\ddt-\frac{1}{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(\varepsilon\ee^{\ii\theta})}^2}\dd{\theta}\\
-    &\quad+N(r,f)-n(0,f)\log r+\frac{1}{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}.
+    \log\sqrt{1+\abs{f\qty(\varepsilon\ee^{\ii\theta})}^2} & =\log\abs{f\qty(\varepsilon\ee^{\ii\theta})}+\log\sqrt{1+\frac1{\abs{f\qty(\varepsilon\ee^{\ii\theta})}^2}} \\
+    & =\log\abs{f\qty(\varepsilon\ee^{\ii\theta})}+\order{\abs{f\qty(\varepsilon\ee^{\ii\theta})}^{-2}}           \\
+    & =\log\abs{c}+k\log\varepsilon+\order{\varepsilon},
 \end{align*}
-The integral expression is written in its present form to ensure convergence. 
+it follows from \(k=-n(0,f)\), that
+\begin{multline*}
+    \int_\varepsilon^r\frac{n(0,f)}t\ddt-\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(\varepsilon\ee^{\ii\theta})}^2}=-k\log r-\log\abs{c}+\order{\varepsilon}\\\to n(0,f)\log r-\log\abs{c}\qq{as}\varepsilon\to 0.
+\end{multline*}
+Hence, from \cref{eq:ahlforsshimizuderivation_convergentintegral}, we have
+\begin{equation}
+    \int_0^r\frac{A(t,f)\ddt}t=N(r,f)-\log\abs{c}+\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}\qif f(0)=\infty.\label{eq:ahlforsshimizuderivation_singularcase}
+\end{equation}
+For each finite \(a\in\mathbb{C}\), let \(W=\tfrac{1+\overline{a}w}{w-a}\), where \(w=f(z)\), and denote the function \(W=F(z)\). Set \[k(w,a)=\frac1{\sqrt{1+\abs{W}^2}}=\frac{\abs{w-a}}{\sqrt{\abs{w-a}^2+\abs{1+\overline{a}w}^2}}=\frac{\abs{w-a}}{\sqrt{\qty(1+\abs{w}^2)\qty(1+\abs{a}^2)}}.\] For \(w=\infty\), taking the corresponding limit then gives
+\[k(\infty,a)=\frac{1}{\sqrt{1+\abs{a}^2}}.\]
+Moreover, \[\abs{\dv{W}{z}}=\frac{\abs{a}^2+1}{\abs{w-a}^2}\abs{\dv{w}{z}}.\]
+Therefore, \[\frac{1}{1+\abs{W}^2}\abs{\dv{W}{z}}=\frac{\abs{a}^2+1}{\abs{w-a}^2}k(w,a)^2\abs{\dv{w}{z}}=\frac{1}{1+\abs{w}^2}\abs{\dv{w}{z}}.\]
+Substituting in their corresponding functions, it follows that \[f^\sharp\equiv F^\sharp\implies A(r,f)=A(r,F).\]
+Let \[T_0(r,f)=T_0(r,F)=\int_0^r\frac{A(t,f)\ddt}t=\int_0^r \frac{A(t,F)\ddt}t,\] which is known as the \textit{Ahlfors-Shimizu characteristic function} of \(f\) and \(F\). 
+Observe that if \(w=f(z)\) attains \(a\) with order \(k\), then \(1+\overline{a}f(z)=1+\abs{a}^2\geq 1\), and \(f(z)-a\) has a zero of multiplicity \(k\). Hence, \(F\) has a pole at \(z\) of order \(k\). More importantly, \[N(r,F)=N(r,a,f).\]
+Define 
+\begin{equation}
+    m_0(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\qty(\frac1{k\qty(f\qty(r\ee^{\ii\theta}),a)})\dd{\theta}=\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})^2}}\dd{\theta}
+\end{equation}
+Assume \(F(0)\neq\infty\), or when \(f(0)\neq a\), Applying \cref{eq:ahlforsshimizuderivation_regularcase} on the function \(F\), we have \[T_0(r,F)=N(r,F)+\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})^2}}\dd{\theta}-\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{F\qty(0)^2}}\dd{\theta},\]
+which in terms of \(f\), gives \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-m_0(0,a,f).\] %make a theorem box
+% give singular case?
