@@ -14,7 +14,7 @@ We now provide a second formulation of the first fundamental theorem, given by A
     \begin{equation}
         I=\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}}}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\label{eq:ahlforsshimizugreens_greensapplication}
     \end{equation}
-    Letting \(R=\abs{f(z)}=\sqrt{f(z)\overline{f(z)}}\) and adopting the elliptic notation \(\partial_z=\pdv*{z},\partial_{\overline{z}}=\pdv*{\overline{z}}\) etc.,
+    Letting \(R=\abs{f(z)}=\sqrt{f(z)\overline{f(z)}}\) and adopting the elliptic notations \(\partial_z=\pdv*{z},\partial_{\overline{z}}=\pdv*{\overline{z}}\) etc.,
     \[\partial_zR=\frac{\partial_z\qty(f\overline{f})}{2R}=\frac{f'\overline{f}+f\overline{\partial_{\overline{z}}f}}{2R}=\frac{f'\overline{f}}{2R},\qquad\partial_{\overline{z}}R=\frac{\partial_{\overline{z}}\qty(f\overline{f})}{2R}=\frac{f\overline{f'}}{2R},\]
     and
     \begin{align*}
@@ -80,8 +80,23 @@ Let \[T_0(r,f)=T_0(r,F)=\int_0^r\frac{A(t,f)\ddt}t=\int_0^r \frac{A(t,F)\ddt}t,\
 Observe that if \(w=f(z)\) attains \(a\) with order \(k\), then \(1+\overline{a}f(z)=1+\abs{a}^2\geq 1\), and \(f(z)-a\) has a zero of multiplicity \(k\). Hence, \(F\) has a pole at \(z\) of order \(k\). More importantly, \[N(r,F)=N(r,a,f).\]
 Define 
 \begin{equation}
-    m_0(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\qty(\frac1{k\qty(f\qty(r\ee^{\ii\theta}),a)})\dd{\theta}=\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})^2}}\dd{\theta}
+    m_0(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\qty(\frac1{k\qty(f\qty(r\ee^{\ii\theta}),a)})\dd{\theta}=\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})}^2}\dd{\theta}\label{eq:ahlforsshimizuproximity}
 \end{equation}
-Assume \(F(0)\neq\infty\), or when \(f(0)\neq a\), Applying \cref{eq:ahlforsshimizuderivation_regularcase} on the function \(F\), we have \[T_0(r,F)=N(r,F)+\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})^2}}\dd{\theta}-\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{F\qty(0)^2}}\dd{\theta},\]
-which in terms of \(f\), gives \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-m_0(0,a,f).\] %make a theorem box
+Assume \(F(0)\neq\infty\), or when \(f(0)\neq a\), Applying \cref{eq:ahlforsshimizuderivation_regularcase} on the function \(F\), we have 
+\begin{equation}
+    T_0(r,F)=N(r,F)+\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})}^2}\dd{\theta}-\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\log\sqrt{1+\abs{F\qty(0)}^2}\dd{\theta}.\label{eq:ahlforsshimizufirstfundamentaltheorem_regularcase}
+\end{equation}
+If \(f(z)=a+c_kz^k+c_{k+1}z^{k+1}+\cdots\) (\(k\geq1\), \(c=c_k\)), since \(F(z)=\tfrac{1+\abs{a}^2}{cz^k}+\order{\tfrac1{z^{k-1}}}\), applying \cref{eq:ahlforsshimizuderivation_singularcase} on \(F\) yields 
+\begin{equation}
+    T_0=N(r,F)+\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})}^2}\dd{\theta}-\log\abs{\frac{1+\abs{a}^2}{c}}.\label{eq:ahlforsshimizufirstfundamentaltheorem_singularcase}
+\end{equation}
+\begin{theorem}[First Fundamental Theorem in Ahlfors--Shimizu Form]
+    Let \(f\) be meromorphic on \(\D(0,R)\) (where \(0<R\leq\infty\)). For \(0<r<R\) and \(a\in\mathbb{C}\) such that \(f(0)\neq a\),
+    \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-m_0(0,a,f).\]
+    If \(f(0)=a\), then \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-\log\abs{\frac{1+\abs{a}^2}{c}},\] where \(c\) is the first nonzero coefficient of the Laurent expansion of \(f-a\).  
+\end{theorem}
+\begin{proof}
+    The conclusion follows from substituting \cref{eq:ahlforsshimizuproximity} into \cref{eq:ahlforsshimizufirstfundamentaltheorem_regularcase,eq:ahlforsshimizufirstfundamentaltheorem_singularcase}.
+\end{proof}
+%make a theorem box
 % give singular case?
