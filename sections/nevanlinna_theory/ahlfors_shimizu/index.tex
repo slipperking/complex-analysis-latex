@@ -10,7 +10,7 @@ We now provide a second formulation of the first fundamental theorem, given by A
 \begin{proof}
     Let the zeros of \(f\) in \(U\) (which are finite, otherwise they accumulate) be \(\qty{z_k}_{k=1}^n\). Choose \(\varepsilon'>0\) so that for any \(0<\varepsilon<\varepsilon'\) the disks \(\qty{D\qty(z_k,\varepsilon)}_{k=1}^n\) each line in the open set \(U\) and are pairwise disjoint from one another.
 
-    Applying Green's Theorem (\cref{thm:realgreen})\footnote{We define \(\vu{n}\) to be the normal vector pointing into the region, so for the \(\partial U\) integral, \(\vu{n}\) points outwards and for the summation integrals \(\vu{n}\) points into the disks.} \[\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\vb{v}\cdot\vu{n}\dd{s}=\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}\divergence{\vb{v}}\dd{A}\] to \(I\), we have
+    Applying Green's Theorem (\cref{thm:realgreen})\footnote{We define \(\vu{n}\) to be the normal vector pointing into the region, so for the \(\partial U\) integral, \(\vu{n}\) points outwards and for the summation integrals \(\vu{n}\) points into the disks.} \[\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\symbf{v}\cdot\vu{n}\dd{s}=\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}\divergence{\symbf{v}}\dd{A}\] to \(I\), we have
     \begin{equation}
         I=\qty(\oint_{\partial U}+\sum_{k=1}^n\oint_{\partial D\qty(z_k,\varepsilon)})\grad{G\qty(\abs{f(z)})}\cdot\vu{n}\abs{\ddz}=\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{U\setminus\bigcup D\qty(z_k,\varepsilon)}}}\laplacian{G\qty(\abs{f(z)})}r\dd{r}\dd{\theta}.\label{eq:ahlforsshimizugreens_greensapplication}
     \end{equation}
@@ -38,7 +38,8 @@ Let \(f\) be meromorphic on \(\overline{D(0,r)}\) with no poles on the boundary,
 In a prescribed small disk containing a pole (fix \(j\)), \(f\) has the Laurent series \[f(z)=\sum_{i=-k_j}^\infty c_i\qty(z-b_j)^i=\frac{\phi(z)}{\qty(z-b_j)^{k_j}},\] where \(\phi\) is analytic and non-vanishing in the closed disk (choose \(\varepsilon\) such that \(\frac1f\) is analytic therein too). On the boundary \(\partial D\qty(b_j,\varepsilon)\), \[\abs{f(z)}=\abs{\phi(z)}\varepsilon^{-k_j}.\]
 This implies that \[G(\abs{f(z)})=\log\abs{f(z)}+\log\sqrt{1+\frac1{\abs{f(z)}^2}}=\log\abs{\phi(z)}-k_j\log\varepsilon+\log\sqrt{1+\frac1{\abs{f(z)}^2}}.\]
 On the contour defined by \(\partial D(b_j,\varepsilon)\)\footnote{The outwards normal vector actually points directly into the interior, since the disk is removed from the pertinent region.},
-\[\nabla_{\vu{n}}G(\abs{f(z)})=-\pdv{}{\varepsilon}G(\abs{f(z)})=\frac{k_j}{\varepsilon}-\frac{\pdv{\varepsilon}\abs{\phi(z)}}{\abs{\phi(z)}}+\frac{\pdv{\varepsilon}\qty(\frac{1}{\abs{f(z)}^2})}{2+\frac2{\abs{f(z)}^2}}=\frac{k_j}{\varepsilon}+\order{1}\] as \(\varepsilon\to 0^+\), where \(\order{1}\rightrightarrows0\) uniformly in \(t\) (\(z=b_j+\varepsilon\ee^{\ii t}\)). By the lemma, { \newlength{\intlength}\newlength{\minuslength}\setlength{\intlength}{\widthof{\(\oint_{\partial D(0,r)}\)}}\setlength{\minuslength}{\widthof{\(-\)}}%%%%
+\[\nabla_{\vu{n}}G(\abs{f(z)})=-\pdv{}{\varepsilon}G(\abs{f(z)})=\frac{k_j}{\varepsilon}-\frac{\pdv{\varepsilon}\abs{\phi(z)}}{\abs{\phi(z)}}-\frac{\pdv{\varepsilon}\qty(\frac{1}{\abs{f(z)}^2})}{2+\frac2{\abs{f(z)}^2}}=\frac{k_j}{\varepsilon}+\order{1}\]
+as \(\varepsilon\to 0^+\), where \(\order{1}\) is uniform in \(t\) (for \(z=b_j+\varepsilon\ee^{\ii t}\)). By the lemma, { \newlength{\intlength}\newlength{\minuslength}\setlength{\intlength}{\widthof{\(\oint_{\partial D(0,r)}\)}}\setlength{\minuslength}{\widthof{\(-\)}}%%%%
     \[\qty(\mathmakebox[\dimexpr\intlength-\minuslength\relax][l]{\oint_{\partial D(0,r)}}+\sum_{j=1}^n\oint_{\partial D\qty(b_j,\varepsilon)})\nabla_{\vu{n}}{G\qty(\abs{f(z)})}\abs{\ddz}=\iint_{D(0,r)\setminus\bigcup D\qty(b_j,\varepsilon)}{\frac{2\abs{f'\qty(z)}^2}{\qty(1+\abs{f\qty(z)}^2)^2}}\dd{A}.\]
 }
 which requires the computation \[\oint_{\partial D\qty(b_j,\varepsilon)}\qty(\frac{k_j}\varepsilon+\order{1})\abs{\ddz}=\int_0^{2\uppi}\qty(k_j+\varepsilon\order{1})\dd{\theta}=2\uppi k_j+\order{\varepsilon}.\]
@@ -71,32 +72,62 @@ Hence, from \cref{eq:ahlforsshimizuderivation_convergentintegral}, we have
 \begin{equation}
     \int_0^r\frac{A(t,f)\ddt}t=N(r,f)-\log\abs{c}+\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}\qif f(0)=\infty.\label{eq:ahlforsshimizuderivation_singularcase}
 \end{equation}
-For each finite \(a\in\mathbb{C}\), let \(W=\tfrac{1+\overline{a}w}{w-a}\), where \(w=f(z)\), and denote the function \(W=F(z)\). Set \[k(w,a)=\frac1{\sqrt{1+\abs{W}^2}}=\frac{\abs{w-a}}{\sqrt{\abs{w-a}^2+\abs{1+\overline{a}w}^2}}=\frac{\abs{w-a}}{\sqrt{\qty(1+\abs{w}^2)\qty(1+\abs{a}^2)}}.\] For \(w=\infty\), taking the corresponding limit then gives
+For each \(a\in\extcomplex\), let \(W=\tfrac{1+\overline{a}w}{w-a}\) (for \(a=\infty\), \(W\equiv w\)), where \(w=f(z)\), and denote the function \(W=F(z)\). Set using limits on \(w\) and \(a\): \[k(w,a)=\frac1{\sqrt{1+\abs{W}^2}}=\frac{\abs{w-a}}{\sqrt{\abs{w-a}^2+\abs{1+\overline{a}w}^2}}=\frac{\abs{w-a}}{\sqrt{\qty(1+\abs{w}^2)\qty(1+\abs{a}^2)}}.\] For \(w=\infty\), taking the corresponding limit then gives
 \[k(\infty,a)=\frac{1}{\sqrt{1+\abs{a}^2}}.\]
 Moreover, \[\abs{\dv{W}{z}}=\frac{\abs{a}^2+1}{\abs{w-a}^2}\abs{\dv{w}{z}}.\]
 Therefore, \[\frac{1}{1+\abs{W}^2}\abs{\dv{W}{z}}=\frac{\abs{a}^2+1}{\abs{w-a}^2}k(w,a)^2\abs{\dv{w}{z}}=\frac{1}{1+\abs{w}^2}\abs{\dv{w}{z}}.\]
 Substituting in their corresponding functions, it follows that \[f^\sharp\equiv F^\sharp\implies A(r,f)=A(r,F).\]
-Let \[T_0(r,f)=T_0(r,F)=\int_0^r\frac{A(t,f)\ddt}t=\int_0^r \frac{A(t,F)\ddt}t,\] which is known as the \textit{Ahlfors-Shimizu characteristic function} of \(f\) and \(F\). 
-Observe that if \(w=f(z)\) attains \(a\) with order \(k\), then \(1+\overline{a}f(z)=1+\abs{a}^2\geq 1\), and \(f(z)-a\) has a zero of multiplicity \(k\). Hence, \(F\) has a pole at \(z\) of order \(k\). More importantly, \[N(r,F)=N(r,a,f).\]
-Define 
+Let \[T_0(r,f)=T_0(r,F)=\int_0^r\frac{A(t,f)\ddt}t=\int_0^r \frac{A(t,F)\ddt}t,\] which is known as the \textit{Ahlfors--Shimizu characteristic function} of \(f\) and \(F\).
+Observe that if \(w=f(z)\) attains \(a\) with order \(k\), then \(1+\overline{a}f(z)=1+\abs{a}^2\geq 1\), and \(f(z)-a\) has a zero of multiplicity \(k\). Hence, \(F\) has a pole at \(z\) of order \(k\). More importantly,
 \begin{equation}
-    m_0(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\qty(\frac1{k\qty(f\qty(r\ee^{\ii\theta}),a)})\dd{\theta}=\frac1{2\uppi}\int_0^{2\uppi}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})}^2}\dd{\theta}\label{eq:ahlforsshimizuproximity}
+    N(r,F)=N(r,a,f).\label{eq:ahlforsshimizuriemannsphererotationcountingfunction}
 \end{equation}
-Assume \(F(0)\neq\infty\), or when \(f(0)\neq a\), Applying \cref{eq:ahlforsshimizuderivation_regularcase} on the function \(F\), we have 
+Define the \textit{Ahlfors--Shimizu proximity function} to be equal to:
 \begin{equation}
-    T_0(r,F)=N(r,F)+\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})}^2}\dd{\theta}-\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\log\sqrt{1+\abs{F\qty(0)}^2}\dd{\theta}.\label{eq:ahlforsshimizufirstfundamentaltheorem_regularcase}
+    m_0(r,F)=\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int_{\uppi}\)}][l]{\int_0^{2\uppi}}}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})}^2}\dd{\theta}=m_0(r,a,f)=\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int_{\uppi}\)}][l]{\int_0^{2\uppi}}}\log\qty(\frac1{k\qty(f\qty(r\ee^{\ii\theta}),a)})\dd{\theta}\label{eq:ahlforsshimizuproximity}
 \end{equation}
-If \(f(z)=a+c_kz^k+c_{k+1}z^{k+1}+\cdots\) (\(k\geq1\), \(c=c_k\)), since \(F(z)=\tfrac{1+\abs{a}^2}{cz^k}+\order{\tfrac1{z^{k-1}}}\), applying \cref{eq:ahlforsshimizuderivation_singularcase} on \(F\) yields 
+Assume \(F(0)\neq\infty\), or when \(f(0)\neq a\), Applying \cref{eq:ahlforsshimizuderivation_regularcase} on the function \(F\), we have
 \begin{equation}
-    T_0=N(r,F)+\frac1{2\uppi}\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}}\log\sqrt{1+\abs{F\qty(r\ee^{\ii\theta})}^2}\dd{\theta}-\log\abs{\frac{1+\abs{a}^2}{c}}.\label{eq:ahlforsshimizufirstfundamentaltheorem_singularcase}
+    T_0(r,F)=N(r,F)+m_0(r,F)-m_0(0,F).\label{eq:ahlforsshimizufirstfundamentaltheorem_regularcase}
 \end{equation}
-\begin{theorem}[First Fundamental Theorem in Ahlfors--Shimizu Form]
-    Let \(f\) be meromorphic on \(\D(0,R)\) (where \(0<R\leq\infty\)). For \(0<r<R\) and \(a\in\mathbb{C}\) such that \(f(0)\neq a\),
+If \(a\neq\infty\) and \(f(z)=a+c_kz^k+c_{k+1}z^{k+1}+\cdots\) (\(k\geq1\), \(c=c_k\)), since \(F(z)=\tfrac{1+\abs{a}^2}{cz^k}+\order{\tfrac1{z^{k-1}}}\), applying \cref{eq:ahlforsshimizuderivation_singularcase} on \(F\) yields
+\begin{equation}
+    T_0(r,F)=N(r,F)+m_0(r,F)-\log\abs{\frac{1+\abs{a}^2}{c}}.\label{eq:ahlforsshimizufirstfundamentaltheorem_singularcase}
+\end{equation}
+\begin{theorem}[First Fundamental Theorem in Ahlfors--Shimizu Form]\label{thm:nevanlinnafirstfundamentaltheoremahlforsshimizu}
+    Let \(f\) be meromorphic on \(D(0,R)\) (where \(0<R\leq\infty\)). For \(0<r<R\) and \(a\in\extcomplex\) such that \(f(0)\neq a\),
     \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-m_0(0,a,f).\]
-    If \(f(0)=a\), then \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-\log\abs{\frac{1+\abs{a}^2}{c}},\] where \(c\) is the first nonzero coefficient of the Laurent expansion of \(f-a\).  
+    If \(f(0)=a\neq\infty\), then \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-\log\abs{\frac{1+\abs{a}^2}{c}},\] where \(c\) is the first nonzero coefficient of the Laurent expansion of \(f-a\). If \(f(0)=a=\infty\), then \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-\log\abs{c}\] where \(c\) is the first non-zero coefficient of the Laurent series of \(f\).
 \end{theorem}
 \begin{proof}
-    The conclusion follows from substituting \cref{eq:ahlforsshimizuproximity} into \cref{eq:ahlforsshimizufirstfundamentaltheorem_regularcase,eq:ahlforsshimizufirstfundamentaltheorem_singularcase}.
+    The first two cases follow from substituting \cref{eq:ahlforsshimizuriemannsphererotationcountingfunction,eq:ahlforsshimizuproximity} into \cref{eq:ahlforsshimizufirstfundamentaltheorem_regularcase,eq:ahlforsshimizufirstfundamentaltheorem_singularcase}.
+
+    The final case is simply a rewriting of \cref{eq:ahlforsshimizuderivation_singularcase}.
 \end{proof}
-%make a theorem box
-% give singular case?
+\begin{theorem}
+    Let \(f:D(0,R)\to\extcomplex\) be meromorphic. Then for each \(0<r<R\), the Nevanlinna characteristic \(T\) and the Ahlfors--Shimizu characteristic \(T_0\) differ by a term that is uniformly bounded in \(r\).
+\end{theorem}
+\begin{proof}
+    Observe that for \(z\in\partial D(0,r)\), \[\log^+\abs{f(z)}\leq\log\sqrt{1+\abs{f(z)}^2}=\frac12\log\qty(1+\abs{f(z)}^2).\]
+    Since \(1+x^2\leq2\max\qty{1,x^2}\) for any real \(x\), \[\frac12\log\qty(1+\abs{f(z)}^2)\leq\frac12\log2+\log^+\abs{f(z)}.\] Integrating and adding \(N\), we have \[T(r,f)\leq m_0(r,f)+N(r,f)\leq\frac12\log 2+T(r,f).\]
+    By the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheoremahlforsshimizu}) with \(a=\infty\), let \[C=
+        \begin{cases}
+            m_0(0,a,f)&\qif*f(0)\neq\infty\\
+            \log\abs{c}
+    \end{cases},\] where \(c\) is the first nonzero coefficient of the Laurent expansion of \(f\).
+    It follows that \[T(r,f)-C\leq T_0(r,f)\leq T(r,f)+\frac12\log2-C,\] where \(C\) does not depend on \(R\).
+\end{proof}
+Let \(S\) be the Riemann sphere but centered at \(\qty(0,0,\tfrac12)\), diameter 1, with a stereographic projection with center \((0,0,1)\). Letting \[\symbf{\sigma}\qty(w)=\frac1{\abs{w}^2+1}\qty(\Re{w},\Im{w},\abs{w}^2),\]
+for two points \(w_1,w_2\in\extcomplex\), their spherical points are \(\symbf{\sigma}\qty(w_1),\symbf{\sigma}\qty(w_2)\). The Euclidean distance between the two points on the sphere is verifiable (after manual simplification) to be \(k\qty(w_1,w_2)\). Thus, \(k\) is the \textit{chordal} distance function, and is thus geometrically invariant under rotations of the sphere. The mapping \(W\) of \(w\) is precisely such a transformation: geometrically it rotates points on the Riemann sphere. 
+
+Let \(w=u+\ii v\) be a point in the projected plane and let \(\dd{u}\dd{v}\) be an area element on the plane. Then the corresponding area element on the sphere is equal to:
+\begin{align*}
+    \dd{A}_S&=\norm{\symbf{\sigma}'_u\times\symbf{\sigma}'_v}\dd{u}\dd{v}=\frac{\dd{u}\dd{v}}{\qty(\abs{w}^2+1)^4}\norm{\mqty(-u^2+v^2+1\\-2uv\\2u)\times\mqty(-2uv\\u^2-v^2+1\\2v)}\\
+    &=\frac{\dd{u}\dd{v}}{\qty(\abs{w}^2+1)^4}\norm{\qty(-2uv^2-2u^3-2u,-2u^2v-2v^3-2v,1-\qty(u^2+v^2)^2)}\\
+    &=\frac{\dd{u}\dd{v}}{\qty(\abs{w}^2+1)^3}\norm{\qty(-2u,-2v,1-\abs{w}^2)}=\frac{\dd{u}\dd{v}}{\qty(\abs{w}^2+1)^3}\sqrt{2\abs{w}^2+1+\abs{w}^4}\\
+    &=\frac{\dd{u}\dd{v}}{\qty(\abs{w}^2+1)^2}
+\end{align*}
+The surface area of a surface \(E\subseteq S\) is given by \[\int_E\dd{A}_S=\int_{\symbf{\sigma}^{-1}(E)}\frac{\dd{u}\dd{v}}{\qty(\abs{w}^2+1)^2}.\]
+For \(w=f(z)\), pulling back to \(z\) gives \[\uppi A(r)=\int_{\symbf{\sigma}(f\qty(D(0,r)))}\dd{A},\] or the area of the image of \(f\) on the Riemann sphere, counted according to multiplicities (referring to overlaps when not univalent). 
+
+This yields another explanation for \cref{thm:nevanlinnafirstfundamentaltheoremahlforsshimizu}. This area is invariant under rotations of \(S\). In particular, we rotate the north pole \((0,0,1)\) corresponding to \(\infty\) to the point corresponding to \(a\).
