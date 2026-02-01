@@ -2,6 +2,7 @@
 \begin{proposition}\label{prop:nevanlinnathreefunctionsmiscproperties}
     If \(f_k\) (\(k=1,\dots,n\)) are meromorphic in \(D(0,R)\), then for \(0<r<R\),
     \begin{enumerate}
+        \item \(\textstyle N\qty(r,\prod_{k=1}^nf_k)\leq\sum_{k=1}^n N\qty(r,f_k)\).\label{itm:nevanlinnathreefunctionsmiscproperties_Nprodsubadd}
         \item \(\textstyle N\qty(r,\sum_{k=1}^nf_k)\leq\sum_{k=1}^n N\qty(r,f_k)\) (subadditivity).\label{itm:nevanlinnathreefunctionsmiscproperties_Nsubadd}
         \item \(\textstyle m\qty(r,\prod_{k=1}^nf_k)\leq\sum_{k=1}^nm\qty(r,f_k)\).\label{itm:nevanlinnathreefunctionsmiscproperties_mprodsubadd}
         \item \(\textstyle m\qty(r,\sum_{k=1}^nf_k)\leq\log n+\sum_{k=1}^nm\qty(r,f_k)\).\label{itm:nevanlinnathreefunctionsmiscproperties_msubaddconst}
@@ -10,12 +11,14 @@
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Let \(z\) be an arbitrary point in the disk. If \(m_k\) is the pole order of \(f_k\) at \(z\) (0 if it is not a pole), then the pole order at \(z\) of \(\textstyle\sum_kf_k\) does not exceed \(\textstyle\max_k m_k\). It is hence clear that \(n(r,\textstyle\sum_kf_k)\leq\textstyle\sum_kn\qty(r,f_k)\). Moreover, if \(\qty{b_k^{(j)}}_j\) are the poles of \(f_k\) in the disk counted according to orders, and \(\qty{b^{(j)}}_j\) are the poles of \(\textstyle\sum_kf_k\), then \[\sum_{k=1}^n\sum_j\log\abs{\frac r{b_k^{(j)}}}\geq\sum_j\log\abs{\frac r{b^{(j)}}}.\]
+    Let \(z\) be an arbitrary point in the disk. If \(m_k\) is the pole order of \(f_k\) at \(z\) (0 if it is not a pole), then the pole order at \(z\) of \(\textstyle\sum_kf_k\) does not exceed \(\textstyle\max_k m_k\). It is hence clear that \(n(r,\textstyle\sum_kf_k)\leq\textstyle\sum_kn\qty(r,f_k)\).
+
+    Moreover, if \(\textstyle \qty{b_k^{(j)}}_j\) are the poles of \(f_k\) in the disk counted according to orders, and \(\textstyle\qty{b^{(j)}}_j\) are the poles of \(\textstyle\sum_kf_k\), then \[\sum_{k=1}^n\sum_j\log\abs{\frac r{b_k^{(j)}}}\geq\sum_j\log\abs{\frac r{b^{(j)}}}.\]
     Recognizing that
     \begin{gather*}
         N\qty(r,\sum_kf_k)=\sum_j\log\abs{\frac r{b^{(j)}}}+n\qty(0,\sum_kf_k)\log r,\\
         \sum_{k=1}^n N\qty(r,f_k)=\sum_{k=1}^n\sum_j\log\abs{\frac r{b_k^{(j)}}}+\sum_kn\qty(0,f_k)\log r,
-    \end{gather*} \cref{itm:nevanlinnathreefunctionsmiscproperties_Nsubadd} then follows.
+    \end{gather*} \cref{itm:nevanlinnathreefunctionsmiscproperties_Nsubadd} then follows. Since the pole order at \(z\) of \(\textstyle\prod_k f_k\) does not exceed \(\textstyle\sum_k m_k\), it also follows that \(n(r,\textstyle\prod_kf_k)\leq\textstyle\sum_kn\qty(r,f_k)\). The same logic can be applied henceforth to prove \cref{itm:nevanlinnathreefunctionsmiscproperties_Nprodsubadd}.
 
     \Cref{itm:nevanlinnathreefunctionsmiscproperties_mprodsubadd,itm:nevanlinnathreefunctionsmiscproperties_msubaddconst} are clear from \cref{prop:lognonnegativepartproperties}. \Cref{itm:nevanlinnathreefunctionsmiscproperties_Tprodsubadd,itm:nevanlinnathreefunctionsmiscproperties_Tsubaddconst} follow the previous inequalities.
 \end{proof}
@@ -111,7 +114,20 @@ As we have seen before, it is often pedantic and somewhat annoying to account fo
 \begin{remark}
     Since \(m\) is bounded in the integrated sense, if \(T\) is generally large, then for most values, \(N\) will be nearly equal to \(T\).
 \end{remark}
-\begin{proposition}
-
+\begin{proposition}\label{prop:nevanlinnacharacteristicproperties}
+    Let \(f,g\) be meromorphic on \(D(0,R)\) and suppose \(m\in\mathbb{N}\). For any \(0<r<R\), the following properties hold:
+    \begin{enumerate}
+        \item \(T\qty(r,fg)\leq T(r,f)+T(r,g)\).\label{itm:nevanlinnacharacteristicproperties_prodsubadd}
+        \item \(T\qty(r,f+g)\leq T(r,f)+T(r,g)+\order{1}\).\label{itm:nevanlinnacharacteristicproperties_subadd}
+        \item \(T\qty(r,\tfrac1f)=T(r,f)+\order{1}\).\label{itm:nevanlinnacharacteristicproperties_inversion}
+        \item \(T\qty(r,f^n)=nT(r,f)\).\label{itm:nevanlinnacharacteristicproperties_power}
+    \end{enumerate}
 \end{proposition}
+\begin{proof}
+    Since \[N(r,fg),N(r,f+g)\leq N(r,f)+N(r,g),\]
+    and by \[\log^+\abs{fg}\leq\log^+\abs{f}+\log^+\abs{g},\qquad\log^+\abs{f+g}\leq\log 2+\log^+\abs{f}+\log^+\abs{g},\]
+    it follows that \[m(r,fg)\leq m(r,f)+m(r,g),\quad m(r,f+g)\leq m(r,f)+m(r,g)+\order{1},\] and the conclusions of \cref{itm:nevanlinnacharacteristicproperties_prodsubadd,itm:nevanlinnacharacteristicproperties_subadd}. \Cref{itm:nevanlinnacharacteristicproperties_inversion} is a corollary of the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}). Lastly, because a pole of \(f^n\) has order \(n\) times of that of \(f\), it follows that \(N\qty(r,f^n)=nN(r,f)\). If \(\abs{f}\geq1\), it follows that \(\log^+\abs{f^n}=n\log^+\abs{f}\) exactly. If \(\abs{f}<1\), \(\log^+\abs{f^n}=n\log^+\abs{f}=0\). Hence, \(m\qty(r,f^n)=nm\qty(r,f)\).
+
+    Adding the two quantities \(N\) and \(m\) together gives \cref{itm:nevanlinnacharacteristicproperties_power}.
+\end{proof}
 \subimport{classifying_growth_factorization/}{index.tex}
