@@ -132,7 +132,27 @@ As we have seen before, it is often pedantic and somewhat annoying to account fo
 \end{proof}
 We now provide some classical examples of the Nevanlinna characteristic:
 \begin{enumerate}
-    \item Let \[f(z)=c\frac{z^p+a_1z^{p-1}+\cdots+a_p}{z^q+b_1z^{q-1}+\cdots+b_q}\] be an arbitrary rational function.
+    \item Let \[f(z)=c\frac{z^p+a_1z^{p-1}+\cdots+a_p}{z^q+b_1z^{q-1}+\cdots+b_q},\qquad c\neq0\] be an arbitrary rational function in reduced form. If \(p>q\), then for sufficiently large \(r\), \(f\to\infty\) in every direction. This implies \(\log^+\abs{\tfrac1{f(z)-a}}=0\) for any complex \(a\) and sufficiently large \(r\) (\(\abs{z}>r\)). This implies \(m(r,a,f)=0\). Additionally, the equation \(f(z)=a\) has \(p\) complex solutions by the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}). Thus, for sufficiently large \(r\) (\(r>r'\)), any \(\abs{z}>r\) has the property that \(n(r,a,f)=n(\abs{z},a,f)\),
+    \begin{align*}
+        N(r,a,f)&=\qty(\int_0^{r'}+\int_{r'}^r)\frac{n(x,a,f)-n(0,a,f)}{x}+n(0,a,f)\log r\\
+        &=\order{1}+\qty(n\qty(r',a,f)-n(0,a,f))\qty(\log r-\log{r'})+n(0,a,f)\log r\\
+        &=p\log r+\order{1},\qquad a\neq\infty.
+    \end{align*}
+    Hence, \[T(r,f)=p\log r+\order{1}.\] Similarly, \(T\qty(r,\tfrac1f)=T\qty(r,f)+\order{1}\) by a preceding result. It then follows that if \(p<q\), 
+    \[T(r,f)=q\log r+\order{1}.\]
+    Lastly, the case where \(p=q\) (derived with \(a\neq c\)) is resolvable with \[T(r,f)=p\log r+\order{1}=q\log r+\order{1}.\]
+    In all cases, \[T(r,f)=d\log r+\order{1},\] where \(d=\max\qty{p,q}\) is defined to be the \textit{degree of the rational function} \(f\).
+    
+    Unless \(f(\infty)=a\), the proximity function vanishes for sufficiently large \(r\). In this case, let \(\alpha\) be the multiplicity at which \(f\) attains \(a\) at \(z=\infty\). If \(a\) is finite, 
+    \begin{gather*}
+        m\qty(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{\frac1{\paren{r\ee^{\ii\theta}}^{-\alpha}\order{1}}}\dd{\theta}=\alpha\log r+\order{1}\\
+        N(r,a,f)=\qty(d-\alpha)\log r+\order{1}.
+    \end{gather*}
+    If \(f\) has a pole of order \(\alpha\) at \(\infty\), we have likewise that
+    \begin{gather*}
+        m\qty(r,a,f)=\alpha\log r+\order{1},\qquad N(r,a,f)=\qty(d-\alpha)\log r+\order{1}.
+    \end{gather*}
+    \item Consider \[\exp(z)=\exp\qty(r\cos\theta+\ii r\sin\theta),\qquad z=r\ee^{\ii\theta}.\]
 \end{enumerate}
 \subimport{classifying_meromorphic_growth/}{index.tex}
 \subimport{factorization_of_meromorphic_function/}{index.tex}
