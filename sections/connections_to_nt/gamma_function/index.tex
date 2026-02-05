@@ -162,8 +162,22 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
     where the last step recognizes the form of \cref{eq:betagammafunctionrelationship_intermediate}. \Cref{thm:betagammafunctionrelationship} then gives \[I=\frac{\Gamma\qty(\frac{2}{3})\Gamma\qty(\frac{4}{3})}{\Gamma(2)}=\frac{1}{3}\Gamma\qty(\frac{1}{3})\Gamma\qty(\frac{2}{3}).\] Lastly, the Reflection Formula (\cref{thm:gammafunction_eulerreflection}) gives that \[I=\frac{\uppi}{3\sin(\frac{\uppi}{3})}=\frac{2\uppi\sqrt{3}}{9}.\qedhere\]
 \end{proof}
 \begin{example}
-    Evaluate \[I=\int_0^{\frac{\uppi}2}x\sqrt{\arctan{x}}\ddx.\]
+    Evaluate \[I=\int_0^{\frac{\uppi}2}x\sqrt{\tan{x}}\ddx.\]
 \end{example}
 \begin{proof}
-
+    Apply the substitution \(u=\tan x\), \(s=u^2\) and the integral representation \(\textstyle\arctan{u}=\int_0^u\frac{\dd{v}}{1+v^2}=\int_0^1\frac{u\dd{v}}{1+u^2v^2}\) to get 
+    \begin{align*}
+        I&=\int_0^{\infty}\arctan{u}\frac{\sqrt{u}\dd{u}}{1+u^2}=\int_0^\infty\qty(\int_0^1\frac{u}{1+u^2v^2}\dd{v})\frac{\sqrt{u}}{1+u^2}\dd{u}\\
+        &=\int_0^1\int_0^\infty\frac{u^{\frac32}}{\qty(1+u^2v^2)\qty(1+u^2)}\dd{u}\dd{v}=\int_0^1\int_0^\infty\frac{s^{\frac14}}{2\qty(1+sv^2)\qty(1+s)}\dd{s}\dd{v}.
+    \end{align*}
+    The integral switch is justified since the integrand \(\geq 0\) throughout. Consider the integral for \[\int_0^\infty\frac{s^{\frac14}\dd{s}}{\qty(1+sv^2)\qty(s+1)}=\frac1{1-v^2}\int_0^{\infty}s^{\beta}\qty(\frac1{1+s}-\frac{1}{c+s})\dd{s},\qquad c=v^{-2},\quad\beta=\frac14\]
+    Let the integral in the last expression be a complex function of \(\beta\), more explicitly \(J(\beta)\).
+    Notice that for \(c>0\), the integral maybe written as the difference of two convergent integrals for \(-1<\Re\beta<0\): \[J(\beta)=\int_0^\infty\frac{s^\beta\dd{s}}{1+s}-\int_0^\infty\frac{s^\beta c^{\beta}\dd{s}}{1+s}=\qty(1-c^\beta)\operatorname{B}(-\beta,\beta+1)=\qty(c^\beta-1)\uppi\csc\qty(\uppi\beta)\] by the reflection formula (\cref{thm:gammafunction_eulerreflection}), which derives an analytic continuation to everywhere in \(\mathbb{C}\setminus\mathbb{Z}\). 
+    
+    One can show by differentiation under the integral sign, that the integral \(J(\beta)\) is holomorphic for \(-1<\Re{\beta}<1\). The identity theorem (\cref{thm:identity}) then allows the computed cosecant expression to be assigned to \(J(\beta)\): 
+    \begin{align*}
+        I&=\int_0^1\frac{\qty(v^{-\frac12}-1)\uppi\csc\qty(\frac{\uppi}4)}{2-2v^2}\dd{v}=\frac{\uppi\sqrt{2}}2\int_0^1\frac{\qty(v^{-\frac12}-1)}{1-v^2}\dd{v}={\uppi\sqrt{2}}\int_0^1\frac{\qty(1-u)}{1-u^4}\dd{u}\\
+        &={\uppi\sqrt{2}}\int_0^1\frac{\dd{u}}{\qty(1+u)\qty(1+u^2)}=\frac{\uppi\sqrt{2}}2\int_0^1\qty(\frac{1}{1+u}+\frac{1-u}{1+u^2})\\
+        &=\frac{\uppi\sqrt{2}}2\qty(\ln{2}+\arctan 1-\frac12\ln2)=\frac{\uppi^2\sqrt2}8+\frac{\uppi\sqrt{2}}4\ln 2.
+    \end{align*}
 \end{proof}
