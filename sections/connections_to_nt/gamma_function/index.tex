@@ -171,13 +171,14 @@ The Beta function is commonly treated as an auxiliary function in many cases of 
         &=\int_0^1\int_0^\infty\frac{u^{\frac32}}{\qty(1+u^2v^2)\qty(1+u^2)}\dd{u}\dd{v}=\int_0^1\int_0^\infty\frac{s^{\frac14}}{2\qty(1+sv^2)\qty(1+s)}\dd{s}\dd{v}.
     \end{align*}
     The integral switch is justified since the integrand \(\geq 0\) throughout. Consider the integral for \[\int_0^\infty\frac{s^{\frac14}\dd{s}}{\qty(1+sv^2)\qty(s+1)}=\frac1{1-v^2}\int_0^{\infty}s^{\beta}\qty(\frac1{1+s}-\frac{1}{c+s})\dd{s},\qquad c=v^{-2},\quad\beta=\frac14\]
-    Let the integral in the last expression be a complex function of \(\beta\), more explicitly \(J(\beta)\).
-    Notice that for \(c>0\), the integral maybe written as the difference of two convergent integrals for \(-1<\Re\beta<0\): \[J(\beta)=\int_0^\infty\frac{s^\beta\dd{s}}{1+s}-\int_0^\infty\frac{s^\beta c^{\beta}\dd{s}}{1+s}=\qty(1-c^\beta)\operatorname{B}(-\beta,\beta+1)=\qty(c^\beta-1)\uppi\csc\qty(\uppi\beta)\] by the reflection formula (\cref{thm:gammafunction_eulerreflection}), which derives an analytic continuation to everywhere in \(\mathbb{C}\setminus\mathbb{Z}\). 
+    Let the integral in the last expression be a complex function of \(\beta\), more explicitly \(J(\beta)\), defined for \(-1<\Re\beta<1\).
+
+    Notice that the integral maybe written as the difference of two convergent integrals for \(-1<\Re\beta<0\): \[J(\beta)=\int_0^\infty\frac{s^\beta\dd{s}}{1+s}-\int_0^\infty\frac{s^\beta c^{\beta}\dd{s}}{1+s}=\qty(1-c^\beta)\operatorname{B}(-\beta,\beta+1)=\qty(c^\beta-1)\uppi\csc\qty(\uppi\beta)\] by the reflection formula (\cref{thm:gammafunction_eulerreflection}), which derives an analytic continuation of \(J\restriction_{-1<\Re\beta<1}\) to everywhere in \(\mathbb{C}\setminus\mathbb{Z}\). 
     
     One can show by differentiation under the integral sign, that the integral \(J(\beta)\) is holomorphic for \(-1<\Re{\beta}<1\). The identity theorem (\cref{thm:identity}) then allows the computed cosecant expression to be assigned to \(J(\beta)\): 
     \begin{align*}
         I&=\int_0^1\frac{\qty(v^{-\frac12}-1)\uppi\csc\qty(\frac{\uppi}4)}{2-2v^2}\dd{v}=\frac{\uppi\sqrt{2}}2\int_0^1\frac{\qty(v^{-\frac12}-1)}{1-v^2}\dd{v}={\uppi\sqrt{2}}\int_0^1\frac{\qty(1-u)}{1-u^4}\dd{u}\\
-        &={\uppi\sqrt{2}}\int_0^1\frac{\dd{u}}{\qty(1+u)\qty(1+u^2)}=\frac{\uppi\sqrt{2}}2\int_0^1\qty(\frac{1}{1+u}+\frac{1-u}{1+u^2})\\
-        &=\frac{\uppi\sqrt{2}}2\qty(\ln{2}+\arctan 1-\frac12\ln2)=\frac{\uppi^2\sqrt2}8+\frac{\uppi\sqrt{2}}4\ln 2.
+        &={\uppi\sqrt{2}}\int_0^1\frac{\dd{u}}{\qty(1+u)\qty(1+u^2)}=\frac{\uppi\sqrt{2}}2\int_0^1\qty(\frac{1}{1+u}+\frac{1-u}{1+u^2})\dd{u}\\
+        &=\frac{\uppi\sqrt{2}}2\qty(\ln{2}+\arctan 1-\frac12\ln2)=\frac{\uppi^2\sqrt2}8+\frac{\uppi\sqrt{2}}4\ln 2.\qedhere
     \end{align*}
 \end{proof}

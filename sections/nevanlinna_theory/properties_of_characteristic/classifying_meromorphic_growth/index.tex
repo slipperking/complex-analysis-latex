@@ -14,12 +14,35 @@
     (The Möbius transformation-like terms of the zeros \(\leq 0\) since they map to the unit disk, and the second summation vanishes since there are no \(b_k\) by holomorphy).
 \end{proof}
 \begin{definition}\label{def:orderofmeromorphicfunction}
-    The \textit{order of a meromorphic function} \(f:\mathbb{C}\to\extcomplex\), denoted \(\rho=\rho(f)\), is given by \[\rho=\varlimsup_{r\to\infty}\frac{\log^+T(r,f)}{\log r}.\]
+    The \textit{order of a meromorphic function} \(f:\mathbb{C}\to\extcomplex\), denoted \(\rho=\rho(f)\), is given by \[\rho=\varlimsup_{r\to\infty}\frac{\log^+T(r,f)}{\log r},\]
+    so that \(T(r,f)=\order{r^{\rho+\varepsilon}}\) for any \(\varepsilon>0\) but not for \(\varepsilon<0\).
 \end{definition}
+\begin{proof}[Proof of equivalent definitions]
+    For any prescribed \(\varepsilon>0\) there exists \(r'>0\) such that for any \(r>r'\), \[\frac{\log^+T(r,f)}{\log r}\leq\rho+\varepsilon\implies T(r,f)\leq r^{\rho+\varepsilon}.\qedhere\]
+\end{proof}
 \begin{theorem}
     Let \(\rho_M\) be the order of a non-constant entire function \(f\) as defined in \cref{sec:classifyinggrowthofentirefunctions} and let \(\rho_T\) be the order as defined in \cref{def:orderofmeromorphicfunction}. Then \(\rho_M=\rho_T\).
 \end{theorem}
 \begin{proof}
-    Since \(f\) is non-constant, for sufficiently large \(r\), \(\log^+ M(r,f)=\log M(r,f)\). For the remainder of this proof we will assume the two are equivalent. From \cref{thm:nevanlinnaentirefunctionmaximummodulussandwich} it is apparent that (under \(R=2r\) for sufficiently large \(r\)) \[\frac{\log^+ T(r,f)}{r}\leq\frac{\log^+\log M(r,f)}r\leq\frac{\log3}r+\frac{\log^+ T(2r,f)}{\log(2r)}\cdot\frac{\log(2r)}r.\]
+    Since \(f\) is non-constant, for sufficiently large \(r\), \(\log^+ M(r,f)=\log M(r,f)\). For the remainder of this proof we will assume the two are equivalent. From \cref{thm:nevanlinnaentirefunctionmaximummodulussandwich} it is apparent that (under \(R=2r\) for sufficiently large \(r\)) \[\frac{\log^+ T(r,f)}{\log r}\leq\frac{\log^+\log M(r,f)}{\log r}\leq\frac{\log3}{\log r}+\frac{\log^+ T(2r,f)}{\log(2r)}\cdot\frac{\log(2r)}{\log r}.\]
     Letting \(r\to\infty\) in the limit superior gives that \[\rho_T\leq\rho_M\leq\rho_T\implies\rho_T=\rho_M.\qedhere\]
+\end{proof}
+\begin{theorem}\label{thm:meromorphicfunctionfiniteorderestimates}
+    Let \(f\) be a meromorphic function of finite order \(\rho\). For \(a\in\mathbb{C}\), let \(r_n(a)\) denote the moduli of the zeros of \(f(z)-a\) (counted with multiplicity), and let \(r_n(\infty)\) denote the moduli of the poles of \(f\). Then for every \(\varepsilon>0\) and every \(a\in\extcomplex\),
+    \begin{enumerate}
+        \item \(m(r,a,f)=\order{r^{\rho+\varepsilon}}\).\label{itm:meromorphicfunctionfiniteorderestimates_proximity}
+        \item \(N(r,a,f)=\order{r^{\rho+\varepsilon}}\).\label{itm:meromorphicfunctionfiniteorderestimates_counting}
+        \item \(n(r,a,f)=\order{r^{\rho+\varepsilon}}\).\label{itm:meromorphicfunctionfiniteorderestimates_discretecounting}
+        \item \(\textstyle\sum_n\frac{1}{r_n(a)^{\rho+\varepsilon}}<\infty\).\label{itm:meromorphicfunctionfiniteorderestimates_zerossum}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    By the First Fundamental Theorem of Nevanlinna theory (\cref{thm:nevanlinnafirstfundamentaltheorem}),
+    \[m(r,a)=T(r,f)+\order{1}-N(r,a)\]
+    and since \(m(r,a)\ge0\) and \(N(r,a)\ge0\), we obtain
+    \[m(r,a)\le T(r,f)+\order{1}\qand N(r,a)\le T(r,f)+\order{1}.\]
+    Because \(f\) has order \(\rho\), we have
+    \[T(r,f)=\order{r^{\rho+\varepsilon}},\]
+    which proves \cref{itm:meromorphicfunctionfiniteorderestimates_proximity,itm:meromorphicfunctionfiniteorderestimates_counting}. Since \[N(2r,a,f)-N(r,a,f)=\int_r^{2r}\frac{n(x,a,f)}{x}\ddx\geq n(r,a,f)\int_r^{2r}\frac{\ddx}x=\log2\cdot n(r,a,f),\]
+    it follows from \cref{itm:meromorphicfunctionfiniteorderestimates_counting} that \[n(r,a,f)\leq\frac{N(2r,a,f)-N(r,a,f)}{\log 2}\leq\frac{N(2r,a,f)}{\log 2}=\order{\qty(2r)^{\rho+\varepsilon}}=\order{r^{\rho+\varepsilon}}\] and hence \cref{itm:meromorphicfunctionfiniteorderestimates_discretecounting} follows.
 \end{proof}
