@@ -142,6 +142,15 @@ For the following discussions, let \(n\qty(r,0,f)\) count the zeros of \(f\) in 
     By Jensen's formula (\cref{thm:jensensformula}), for \(r>0\), we have
     \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n\qty(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta},\] where \(a_1,\dots,a_{n(2r,0,f)}\) are the zeros of \(f\) in \(D(0,2r)\), ordered such that each \(\abs{a_k}\leq\abs{a_{k+1}}\). Then \[\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{\mathmakebox[\widthof{\(\sum\)}][l]{n(r,0,f)}}}\log2\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}\log\abs{\frac{2r}{a_k}}\leq\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(2r,0,f)}}\log\abs{\frac{2r}{a_k}}=\frac1{2\uppi}\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{2\uppi}}\log\abs{f\qty(2r\ee^{\ii\theta})}\dd{\theta}\leq\log M(2r,f).\qedhere\]
 \end{proof}
+\begin{theorem}\label{thm:entirefunctionzerossummationconvergence}
+    For an entire function \(f\) (not identically 0) whose zeros are at \(\qty{a_k}_{k\in\mathbb{N}}\) counting multiplicities (such that \(\abs{a_1}\leq\abs{a_2}\), etc.), the sum \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{\sigma}}\] converges for any \[\sigma>\varlimsup_{r\to\infty}\frac{\log n(r,0,f)}{\log r}.\]
+\end{theorem}
+\begin{proof}
+    Choose \(\sigma'\) such that \[\sigma>\sigma'>\varlimsup_{r\to\infty}\frac{\log n(r,0,f)}{\log r}.\]
+    For sufficiently large \(r\), \[\frac{\log n(r,0,f)}{\log r}<\sigma'\implies n(r,0,f)\leq r^{\sigma'}.\]
+    For sufficiently large \(k\in\mathbb{N}\), by the ordering of zeros, it follows that \[k\leq n\qty(\abs{a_k}+\delta,0,f)\leq\qty(\abs{a_k}+\delta)^{\sigma'}\] for sufficiently small \(\delta\). As \(\delta\to 0^+\), we have \[k\leq\abs{a_k}^{\sigma'}\implies\frac1k\geq\frac{1}{\abs{a_k}^{\sigma'}}\implies \frac1{k^{\frac{\sigma}{\sigma'}}}\geq\frac1{\abs{a_k}^{\sigma}}.\]
+    By the comparison test, we then have the convergence of \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{\sigma}}.\qedhere\]
+\end{proof}
 \begin{theorem}\label{thm:entirefunctionfiniteorderzerossummationconvergence}
     For an entire function \(f\) (\(f(0)=1\)) of finite order \(\rho(f)\) whose zeros are at \(\qty{a_k}_{k\in\mathbb{N}}\) counting multiplicities (such that \(\abs{a_1}\leq\abs{a_2}\), etc.), the sum \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{\rho(f)+\eta}}\] converges for any \(\eta>0\).
 \end{theorem}
@@ -154,7 +163,16 @@ For the following discussions, let \(n\qty(r,0,f)\) count the zeros of \(f\) in 
 \end{proof}
 Therefore, for any \(r>0\), the series \[\sum_{k=1}^\infty\abs{\frac{r}{a_k}}^{\rho(f)+\eta}\leq\sum_{k=1}^\infty\abs{\frac{r}{a_k}}^{\floor{\rho}+1}\quad\text{for sufficiently small }\eta\]
 converges. Then by the Weierstrass Factorization Theorem (\cref{thm:weierstrassfactorization}), \[f(z)=z^m\ee^{\varphi(z)}\prod_{k=1}^\infty E_{\floor{\rho}}\qty(\frac z{a_k})\]
-locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This particular Weierstrass factorization is the \textit{Weierstrass canonical factorization} of \(f\) (the portion corresponding to the product of elementary factors itself is the \textit{Weierstrass canonical product}). Now that we have indulged in the implications of \(\rho(f)\) to its zero distribution, we now turn to the function \(\varphi\) in the exponential.
+locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire.
+\begin{definition}
+    The \textit{rank} of an entire function is the smallest \(p\in\mathbb{Z}_{\geq0}\) for which the associated sum \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{p+1}}\] converges, where \(\qty{a_k}_k\) are its zeros in \(\mathbb{C}^*\).
+\end{definition}
+The conclusion of \cref{thm:entirefunctionfiniteorderzerossummationconvergence} is that the rank of an entire function with finite order is finite. Moreover, the rank \(\leq\floor{\rho}\).
+\begin{definition}
+    Let \(f\) be entire of finite rank \(p\). By the Weierstrass Factorization theorem (\cref{thm:weierstrassfactorization}), \[f(z)=z^m\ee^{\varphi(z)}\prod_{k=1}^\infty E_p\qty(\frac z{a_k}).\]
+    If \(\varphi\) is a polynomial of degree \(q\), then \(f\) is said to be of finite \textit{genus} \(\mu=\max\qty{p,q}\).
+\end{definition}
+This particular Weierstrass factorization is the \textit{Weierstrass canonical factorization} of \(f\) (the portion corresponding to the product of elementary factors itself is the \textit{Weierstrass canonical product}). Now that we have indulged in the implications of \(\rho(f)\) to its zero distribution, we now turn to the function \(\varphi\) in the exponential.
 \begin{lemma}\label{lem:entirefunctionfiniteorderserieslimitzero}
     Let \(f\) be entire with finite order such that \(f(0)=1\). Let \(\cbraces{a_k}_{k\in\mathbb{N}}\) be the zeros of \(f\), listed with multiplicities, such that \(\abs{a_1}\leq\abs{a_2}\leq\abs{a_3}\leq\cdots\). Suppose \(p>\rho(f)-1\); then for any \(z\in\mathbb{C}\),
     \[\lim_{r\to\infty}\mathop{\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}}\overline{a_k}^{p+1}\qty(r^2-\overline{a_k}z)^{-p-1}=0.\]
@@ -209,11 +227,11 @@ locally uniformly converges on \(\mathbb{C}\), where \(\varphi\) is entire. This
     The first two terms vanish as \(r\to\infty\) by \cref{thm:poissonjensenlogdiffintegralterm,lem:entirefunctionfiniteorderserieslimitzero}.
 \end{proof}
 \begin{lemma}[Logarithmic Factorization]\label{lem:entirefunctionweierstrassproductfiniteorderlogdiffderivatives}
-    Let \(f\) be entire, non-constant, and of finite order \(\rho\) such that \(f(0)=1\). Let \[P(z)=\prod_{k=1}^\infty E_{\floor{\rho}}\qty(\frac z{a_k})\] be the associated canonical product. If \(p>\rho(f)-1\) is an integer, then \[\dv[p]{}{z} \qty(\frac{P'(z)}{P(z)})\equiv-\sum_{k=1}^\infty\frac{p!}{\qty(a_k-z)^{p+1}}\] for all \(z\in\mathbb{C}\).
+    Let \(f\) be entire, non-constant, and of finite order \(\rho\) such that \(f(0)=1\). Let \[P(z)=\prod_{k=1}^\infty E_{\operatorname{rank}f}\qty(\frac z{a_k})\] be the associated product. If \(p>\rho(f)-1\) is an integer, then \[\dv[p]{}{z} \qty(\frac{P'(z)}{P(z)})\equiv-\sum_{k=1}^\infty\frac{p!}{\qty(a_k-z)^{p+1}}\] for all \(z\in\mathbb{C}\).
 \end{lemma}
 \begin{proof}
-    Let \(P_n\) be the \(n\)-th partial product of \(P\). Then \[\frac{P'_n(z)}{P_n(z)}=\sum_{k=1}^n\frac{\dv{}{z}E_{\floor{\rho}}\qty(\frac{z}{a_k})}{E_{\floor{\rho}}\qty(\frac{z}{a_k})}=\sum_{k=1}^{\floor{\rho}}\qty[\frac{1}{z-a_k}+\sum_{j=1}^{\floor{\rho}}\frac{z^{j-1}}{a_k^j}],\] implying that \[\dv[p]{}{z} \qty(\frac{P_n'(z)}{P_n(z)})=-\sum_{k=1}^n\frac{p!}{\qty(a_k-z)^{p+1}}+\dv[p]{}{z}\sum_{j=1}^{\floor{\rho}}\sum_{k=1}^n\frac{z^{j-1}}{a_k^j}.\]
-    Since the polynomial in the rightmost term has degree \(\max j-1\leq\floor{\rho}\), since \(p>\floor{\rho}-1\), after \(p\) derivatives each term of the expression vanishes. For an arbitrarily chosen compact \(K\subset\mathbb{C}\) avoiding \(a_k\), some \(N\in\mathbb{N}\) such that \(\abs{a_k}\geq\max_{z\in K}\abs{z}\) for all \(k>N\), we have \(\forall z\in K\), \(\abs{a_k-z}\leq\abs{a_k}+\abs{z}\leq2\abs{a_k}\). Then the convergence of \[\sum_{k=1}^\infty\frac1{2\abs{a_k}^{p+1}}\] from \cref{thm:entirefunctionfiniteorderzerossummationconvergence} implies the absolute convergence of \[\sum_{k=1}^\infty\frac1{\qty(a_k-z)^{p+1}}\] in \(K\). Moreover, it can be shown that the uniform convergence of \(P_n\to P\) (from the Weierstrass factorization) and \(P'_n\to P'_n\) (by the Weierstrass Convergence Theorem, \cref{thm:weierstrassconvergence}) in \(K\) implies that of \(\flatfrac{P'(z)}{P(z)}\). Hence, the Weierstrass Convergence Theeorem implies that
+    Let \(P_n\) be the \(n\)-th partial product of \(P\). Then \[\frac{P'_n(z)}{P_n(z)}=\sum_{k=1}^n\frac{\dv{}{z}E_{\operatorname{rank}f}\qty(\frac{z}{a_k})}{E_{\operatorname{rank}f}\qty(\frac{z}{a_k})}=\sum_{k=1}^{n}\qty[\frac{1}{z-a_k}+\sum_{j=1}^{\operatorname{rank}f}\frac{z^{j-1}}{a_k^j}],\] implying that \[\dv[p]{}{z} \qty(\frac{P_n'(z)}{P_n(z)})=-\sum_{k=1}^n\frac{p!}{\qty(a_k-z)^{p+1}}+\dv[p]{}{z}\sum_{j=1}^{\operatorname{rank}f}\sum_{k=1}^n\frac{z^{j-1}}{a_k^j}.\]
+    Since the polynomial in the rightmost term has degree \(\max j-1\geq\operatorname{rank}f-1\), and because \(p>\floor{\rho}-1\geq\operatorname{rank}f-1\), after \(p\) derivatives each term of the expression vanishes. For an arbitrarily chosen compact \(K\subset\mathbb{C}\) avoiding \(a_k\), some \(N\in\mathbb{N}\) such that \(\abs{a_k}\geq\max_{z\in K}\abs{z}\) for all \(k>N\), we have \(\forall z\in K\), \(\abs{a_k-z}\leq\abs{a_k}+\abs{z}\leq2\abs{a_k}\). Then the convergence of \[\sum_{k=1}^\infty\frac1{2\abs{a_k}^{p+1}}\] from \cref{thm:entirefunctionfiniteorderzerossummationconvergence} implies the absolute convergence of \[\sum_{k=1}^\infty\frac1{\qty(a_k-z)^{p+1}}\] in \(K\). Moreover, it can be shown that the uniform convergence of \(P_n\to P\) (from the Weierstrass factorization) and \(P'_n\to P'_n\) (by the Weierstrass Convergence Theorem, \cref{thm:weierstrassconvergence}) in \(K\) implies that of \(\flatfrac{P'(z)}{P(z)}\). Hence, the Weierstrass Convergence Theeorem implies that
     \[\lim_{n\to\infty}\dv[p]{}{z} \qty(\frac{P_n'(z)}{P_n(z)})=\frac{P'(z)}{P(z)}=-\lim_{n\to\infty}\sum_{k=1}^n\frac{p!}{\qty(a_k-z)^{p+1}}=-\sum_{k=1}^\infty\frac{p!}{\qty(a_k-z)^{p+1}}.\qedhere\]
 \end{proof}
 The two preceding results are similar in conclusion, but \cref{lem:entirefunctionweierstrassproductfiniteorderlogdiffderivatives} is not a special case of \cref{prop:entirefunctionfiniteorderlogdiffderivatives} since we have not asserted that the canonical product is of finite order.
@@ -242,12 +260,8 @@ The two preceding results are similar in conclusion, but \cref{lem:entirefunctio
 
     By \cref{thm:entirefunctionfiniteordercanonicalweierstrassfactorizationpolynomialdegree} on \(h\), \(\varphi-\Log c\) is a polynomial of degree \(\leq\rho\), and so is \(\varphi\).
 \end{proof}
-\begin{definition}
-    The \textit{rank} of an entire function is the smallest \(p\in\mathbb{Z}_{\geq0}\) for which the associated sum \[\sum_{k=1}^\infty\frac1{\abs{a_k}^{p+1}}\] converges.
-\end{definition}
-The conclusion of \cref{thm:entirefunctionfiniteorderzerossummationconvergence}, the rank of an entire function with finite order exists. Moreover, the rank \(\leq\floor{\rho}\).
-
-The \textit{genus} of an entire function \(f\) of finite order is then defined as \(\max\qty{p,q}\), where \(p=\operatorname{rank}(f)\) and \(q\) is the degree of \(\varphi\) in the canonical factorization \(z^m\ee^{\varphi(z)}P(z)\). Then the results of \cref{cor:hadamardfactorizationpolynomial,thm:entirefunctionfiniteorderzerossummationconvergence} may be consolidated into a single statement:
+%TODO
+Then the results of \cref{cor:hadamardfactorizationpolynomial,thm:entirefunctionfiniteorderzerossummationconvergence} may be consolidated into a single statement:
 \begin{theorem}[Hadamard Factorization Theorem]\label{thm:hadamardfactorization}
     Let \(\mu\) be the genus of \(f\) and let \(\rho\) be the order of \(f\), where \(f\) is entire with finite order. Then \(\mu\leq\rho\).
 \end{theorem}
