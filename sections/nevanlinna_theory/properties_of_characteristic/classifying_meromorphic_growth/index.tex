@@ -15,10 +15,12 @@
 \end{proof}
 \begin{definition}\label{def:orderofmeromorphicfunction}
     The \textit{order of a meromorphic function} \(f:\mathbb{C}\to\extcomplex\), denoted \(\rho=\rho(f)\), is given by \[\rho=\varlimsup_{r\to\infty}\frac{\log^+T(r,f)}{\log r},\]
-    so that \(T(r,f)=\order{r^{\rho+\varepsilon}}\) for any \(\varepsilon>0\) but not for \(\varepsilon<0\).
+    equivalent to the condition that \(T(r,f)=\order{r^{\rho+\varepsilon}}\) for any \(\varepsilon>0\) but not for \(\varepsilon<0\).
 \end{definition}
 \begin{proof}[Proof of equivalent definitions]
-    For any prescribed \(\varepsilon>0\) there exists \(r'>0\) such that for any \(r>r'\), \[\frac{\log^+T(r,f)}{\log r}\leq\rho+\varepsilon\implies T(r,f)\leq r^{\rho+\varepsilon}.\qedhere\]
+    For any prescribed \(\varepsilon>0\) there exists \(r'>0\) such that for any \(r>r'\), \[\frac{\log^+T(r,f)}{\log r}\leq\rho+\varepsilon\implies T(r,f)\leq r^{\rho+\varepsilon}.\]
+    Assume there exists some \(\varepsilon<0\) such that \[T(r,f)=\order{r^{\rho+\varepsilon}}.\] Then there exist finite \(c,r'\) such that \(\forall r>r'\), \[T(r,f)\leq cr^{\rho+\varepsilon}\implies\log^+T(r,f)\leq\order{1}+\qty(\rho+\varepsilon)\log r\implies\frac{\log^+T(r,f)}{\log r}\leq\rho+\varepsilon<\rho,\]
+    which is a contradiction. The converse follows similarly to the case of entire functions in \cref{sec:classifyinggrowthofentirefunctions}.
 \end{proof}
 \begin{theorem}
     Let \(\rho_M\) be the order of a non-constant entire function \(f\) as defined in \cref{sec:classifyinggrowthofentirefunctions} and let \(\rho_T\) be the order as defined in \cref{def:orderofmeromorphicfunction}. Then \(\rho_M=\rho_T\).

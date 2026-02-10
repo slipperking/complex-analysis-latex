@@ -1,2 +1,11 @@
 % decide whether or not to have log diff lemma
 \subsection{The Second Fundamental Theorem}
+Whereas the First Fundamental Theorem gives the relation between the general size of \(T\) relative to \(m\) and \(N\), efforts have been made to quantify the relative size of \(m\) and \(N\). This question was answered by R. Nevanlinna in July 1924 with considerable accuracy via the inequality \[T(r,f)\leq N(r,a,f)+N(r,b,f)+N(r,c,f)+S(r,f),\] where \(a,b,c\in\extcomplex\) are distinct and \(S(r,f)\) is a term that is generally small relative to \(T(r,f)\) (is \(o\qty(T(r,f))\) for most \(r\)). It also implies that in most cases, \(N(r,a,f)\) will be much larger than \(m(r,a,f)\). For example, assume \(f\)'s meromorphy is on all of \(\mathbb{C}\). Then if there are two values \(a,b\) where the proximity dwarfs the counting function, such as when \[\liminf_{r\to\infty}\frac{m(r,a,f)}{T(r,f)}=1,\qquad\liminf_{r\to\infty}\frac{m(r,b,f)}{T(r,f)}=1,\] then for all other values \(c\) on the Riemann sphere,
+\begin{align*}
+    1&\leq\varlimsup_{r_n\to\infty}\frac{N\qty(r_n,a,f)}{T\qty(r_n,f)}+\varlimsup_{r_n\to\infty}\frac{N\qty(r_n,b,f)}{T\qty(r_n,f)}+\varlimsup_{r_n\to\infty}\frac{N\qty(r_n,c,f)}{T(r_n,f)}+\varlimsup_{r_n\to\infty}\frac{S\qty(r_n,f)}{T\qty(r_n,f)}\\
+    &\leq\varlimsup_{r\to\infty}\frac{N\qty(r,a,f)}{T\qty(r,f)}+\varlimsup_{r\to\infty}\frac{N\qty(r,b,f)}{T\qty(r,f)}+\varlimsup_{r\to\infty}\frac{N\qty(r,c,f)}{T(r,f)}+\varlimsup_{r_n\to\infty}\frac{S\qty(r_n,f)}{T\qty(r_n,f)}\\
+    &=\varlimsup_{r\to\infty}\frac{N(r,c,f)}{T(r,f)},
+\end{align*}
+where the precise formulation allows for a sequence \(\qty{r_n}\) diverging to \(\infty\) to be chosen so that \(S(r,f)=o\qty(T(r,f))\) for \(r\) in this sequence. This implies \(\textstyle\limsup_{r\to\infty}\frac{N(r,c,f)}{T(r,f)}=1\). This in turn then proves Picard's theorems (see \cref{sec:deficiencyrelation}).
+
+Regarding Nevanlinna's original paper containing the result, mathematician Hermann Weyl has stated in 1943 that ``the appearance of this paper has been one of the few great mathematical events of our century.''
