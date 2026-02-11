@@ -1,5 +1,5 @@
 \subsection{A Note on Curvature}
-We will give a brief introduction to the curvature of a surface for convenience.
+We will give a brief introduction to the curvature of a surface for heuristic intuition.
 
 Suppose \(U\subseteq\mathbb{R}^2\) is a region, and let \(\qty(u,v)\in U\). Consider a surface parameterized via \[\va{r}(u,v)=\qty(x(u,v),y(u,v),z(u,v))\in\mathbb{R}^3,\] where \(x,y,z\in C^2\qty(U)\). If \(\va{r}'_u\times\va{r}'_v\) never vanishes for \(\qty(u,v)\in U\), then \(\va{r}(U)\) defines a smooth surface \(\Sigma\). For a fixed \(\qty(u,v)\in U\), the vectors \(\va{r}'_u\) and \(\va{r}'_v\) form the basis of the tangent space (a plane) of \(\Sigma\) at \(P=\va{r}\qty(u,v)\), denoted by \(T_P\Sigma=\mathrm{span}\qty(\va{r}'_u(P),\va{r}'_v(P))\).
 
@@ -29,9 +29,35 @@ It follows that \(L=-\va{r}'_u\cdot\vu{n}'_u\), \(M=-\va{r}'_u\cdot\vu{n}'_v=-\v
 Let \(\gamma\subset\Sigma\) be a curve parameterized by arc length, \(\va{r}(s)=\va{r}\qty(u(s),v(s))\). Then the unit tangent vector at \(P=\va{r}(s)\) is \[\va{T}(s)=\dv{\va{r}}{s}=\va{r}'_u\dv{u}{s}+\va{r}'_v\dv{v}{s}.\]
 Consequently, \[\va{T}'(s)=\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2+\va{r}'_u\dv[2]{u}{s}+\va{r}'_v\dv[2]{v}{s},\]
 where the last two terms are in \(T_P\Sigma\). Because \(\norm{\va{T}(s)}=1\) for all \(s\) by the arc-length parameterization, we have \[0=\dv{s}(\norm{\va{T}(s)}^2)=\dv{s}(\va{T}(s)\cdot\va{T}(s))=2\va{T}(s)\cdot\va{T}'(s).\]
-Hence, \(\va{T}(s)\) and \(\va{T}'(s)\) are orthogonal and \(\va{T}'(s)\) is a normal to the curve \(\gamma\). Let \(\vu{n}=\frac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\) be the unit normal to \(\Sigma\) at \(P\). The \textit{normal curvature} of \(\gamma\) at \(P\) in \(\Sigma\) is defined as \[\kappa_n=\va{T}'(s)\cdot\vu{n}=\qty[\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2]\cdot\vu{n}.\]
-The quotient \[\kappa_n=\frac{\mathrm{I\!I}}{\mathrm{I}}=\frac{L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2}{E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2},\] varies depending on the curve traversing \(\Sigma\) (and ultimately, depending on the direction induced by \(\dd{u}\) and \(\dd{v}\)). On \(\gamma\), the two representations are equivalent since \(\mathrm{I}=\dd{s}^2\). The maximum and minimum values of \(\kappa_n\) are known as the \textit{principal curvatures} \(\kappa_1\) and \(\kappa_2\) of \(\Sigma\) at \(P\), achieved along the \textit{principle directions} of the (unit) tangent vectors at \(P\).
+Hence, \(\va{T}(s)\) and \(\va{T}'(s)\) are orthogonal and \(\va{T}'(s)\) is a normal to the curve \(\gamma\). Let \(\vu{n}=\tfrac{\va{r}'_{u}\times\va{r}'_v}{\norm{\va{r}'_{u}\times\va{r}'_v}}\) be the unit normal to \(\Sigma\) at \(P\). The \textit{normal curvature} of \(\gamma\) at \(P\) in \(\Sigma\) is defined as \[\kappa_n=\va{T}'(s)\cdot\vu{n}=\qty[\va{r}''_{uu}\qty(\dv{u}{s})^2+2\va{r}''_{uv}\qty(\dv{u}{s})\qty(\dv{v}{s})+\va{r}''_{vv}\qty(\dv{v}{s})^2]\cdot\vu{n}.\]
+The quotient \[\kappa_n=\frac{\mathrm{I\!I}}{\mathrm{I}}=\frac{L\dd{u}^2+2M\dd{u}\dd{v}+N\dd{v}^2}{E\dd{u}^2+2F\dd{u}\dd{v}+G\dd{v}^2},\] varies depending on the curve traversing \(\Sigma\) (and ultimately, depending on the direction induced by \(\dd{u}\) and \(\dd{v}\)). On \(\gamma\), the two representations are equivalent since \(\mathrm{I}=\dd{s}^2\). The maximum and minimum values of \(\kappa_n\) are known as the \textit{principal curvatures} \(\kappa_1\) and \(\kappa_2\) of \(\Sigma\) at \(P\), achieved along the \textit{principal directions} of the (unit) tangent vectors at \(P\).
 
-The \textit{mean curvature} of \(\Sigma\) at \(P\) is defined to be \(H=\frac{\kappa_1+\kappa_2}{2}\). Let \(r_1,r_2\) be the radii of curvature corresponding to \(\kappa_1\) and \(\kappa_2\). Hence, we have \[H=\frac{\frac{1}{r_1}+\frac{1}{r_2}}{2}=\frac{r_1+r_2}{2r_1r_2}=\kappa_1\kappa_2\frac{r_1+r_2}{2}.\] The product of the two principle curvatures is known as the \textit{Gaussian curvature} of \(\Sigma\) at \(P\), denoted by \(K=\kappa_1\kappa_2\). We will now derive the explicit formulas for \(H\) and \(K\) in terms of \(E,F,G,L,M,N\).
+The \textit{mean curvature} of \(\Sigma\) at \(P\) is defined to be \(H=\tfrac{\kappa_1+\kappa_2}{2}\). Let \(r_1,r_2\) be the radii of curvature corresponding to \(\kappa_1\) and \(\kappa_2\). Hence, we have \[H=\tfrac{\tfrac{1}{r_1}+\tfrac{1}{r_2}}{2}=\frac{r_1+r_2}{2r_1r_2}=\kappa_1\kappa_2\frac{r_1+r_2}{2}.\] The product of the two principal curvatures is known as the \textit{Gaussian curvature} of \(\Sigma\) at \(P\), denoted by \(K=\kappa_1\kappa_2\). We will now heuristically derive the explicit formulas for \(H\) and \(K\) in terms of \(E,F,G,L,M,N\).
 
-Obviously, the matrix \(\mqty(E&F\\F&G)\) is symmetric and positive definite. Indeed, by Sylvester's Criterion, the assertion follows from the fact that \[\det\mqty(E&F\\F&G)=EG-F^2=\norm{\va{r}'_u}^2\norm{\va{r}'_v}^2-\qty(\va{r}'_u\cdot\va{r}'_v)^2=\norm{\va{r}'_u\times\va{r}'_v}^2>0\] and \(E=\norm{\va{r}_u}^2>0\).
+Suppose \(p\in\Sigma\). Adopt the matrix notation of \(\vb{I}\), \(\vb{I\!I}\) as in \[\vb{I}=\mqty(E&F\\F&G),\qquad\vb{I\!I}=\mqty(L&M\\M&N),\] to reduce to the optimization problem of \[\kappa_n=\frac{\va{v}^\top\vb{I\!I}\va{v}}{\va{v}^\top\vb{I}\va{v}},\qquad\va{v}\in T_p\Sigma.\]
+We may restrict \(\va{v}=\qty(v_1,v_2)\) so that the denominator is always \(1\), aiming to optimize the numerator. By the method of Lagrange multipliers, we write \[\mathcal{L}\qty(\va{v},\lambda)=\va{v}^\top\vb{I\!I}\va{v}-\lambda\qty(\va{v}^\top\vb{I}\va{v}-1).\]
+The equation \(\grad\mathcal{L}=\vb{0}\) for \(\textstyle\grad{}=\qty(\pdv{v_1},\pdv{v_2},\pdv{\lambda})\) can then be decomposed into (where \(\va{v}=\qty(v_1,v_2)\)):
+\begin{gather*}
+    2Lv_1+2Mv_2-\lambda\qty(2Ev_1+2Fv_2)=0,\\
+    2Mv_1+2Nv_2-\lambda\qty(2Fv_1+2Gv_2)=0,\\
+    \qty(\va{v}^\top\vb{I}\va{v}=1).
+\end{gather*}
+The first two equations can be written as
+\begin{equation}
+    \mqty(L-\lambda E&M-\lambda F\\M-\lambda F&N-\lambda G)\va{v}=\vb{0}.\label{eq:gaussiancurvaturelambdarootsmatrixvectorvanish}
+\end{equation}
+Let the matrix on the left be denoted by \(\vb{M}\). In order for non-trivial (\(\vb{v}\neq\vb{0}\)) to exist, we must have \(\det\vb{M}=0\). That is,
+\[(L-\lambda E)(N-\lambda G)-(M-\lambda F)^2=\lambda^2\qty(EG-F^2)+\lambda(2MF-EN-GL)+LN-M^2=0.\]
+This is a quadratic giving two solutions for \(\lambda\). From \[\grad\qty(\va{v}^\top\vb{I\!I}\va{v})=\lambda\grad\qty(\va{v}^\top\vb{I}\va{v})\] it is apparent that the roots \(\lambda_1,\lambda_2\in\mathbb{R}\). Moreover, from \cref{eq:gaussiancurvaturelambdarootsmatrixvectorvanish} we have \[\vb{I\!I}\va{v}=\lambda\vb{I}\va{v}\implies\lambda=\frac{\va{v}^\top\vb{I\!I}\va{v}}{\va{v}^\top\vb{I}\va{v}}.\]
+Hence, the two roots \(\lambda_1,\lambda_2\) are precisely the principal curvatures. Vieta's formulas give that \[K=\lambda_1\lambda_2=\frac{LN-M^2}{EG-F^2},\quad H=\lambda_1+\lambda_2=\frac{EN+GL-2MF}{EG-F^2}.\]
+Now, assume a parameterization of \(\Sigma\) by \(u,v\) such that \[\mathrm{I}(u,v)=\rho^2\dd{u}^2+\rho^2\dd{v}^2=\rho^2\qty(\dd{u}^2+\dd{v}^2)\] (which we will later formalize as a conformal metric). Then there is an alternate representation of the Gaussian curvature in terms of \(\rho\).
+
+By definition, \(E\equiv G\equiv\rho^2\) while \(F\equiv 0\). Moreover, 
+\begin{align*}
+    LN&=\qty(\va{r}''_{uu}\cdot\frac{\va{r}'_u\times\va{r}'_v}{\norm{\va{r}'_u\times\va{r}'_v}})\qty(\va{r}''_{vv}\cdot\frac{\va{r}'_u\times\va{r}'_v}{\norm{\va{r}'_u\times\va{r}'_v}})=\frac{\det\mqty(\va{r}''_{uu}&\va{r}'_u&\va{r}'_v)\det\mqty(\va{r}''_{vv}&\va{r}'_u&\va{r}'_v)}{\norm{\va{r}'_u}^2\norm{\va{r}'_v}^2-\qty(\va{r}'_u\cdot\va{r}'_v)^2}\\
+    &=\frac{\det\mqty(\va{r}''_{uu}&\va{r}'_u&\va{r}'_v)\det\mqty(\va{r}''_{vv}&\va{r}'_u&\va{r}'_v)}{EG-F^2}=\frac1{\rho^4}\det\mqty(\va{r}''_{vv}\cdot\va{r}''_{uu}&\va{r}''_{vv}\cdot\va{r}'_u&\va{r}''_{vv}\cdot\va{r}'_v\\\va{r}'_u\cdot\va{r}''_{uu}&\va{r}'_u\cdot\va{r}'_u&\va{r}'_u\cdot\va{r}'_v\\\va{r}'_v\cdot\va{r}''_{uu}&\va{r}'_v\cdot\va{r}'_u&\va{r}'_v\cdot\va{r}'_v).
+\end{align*}
+Similarly,
+\begin{align*}
+    M^2=
+\end{align*}
