@@ -4,130 +4,79 @@ Let \(\Omega\subseteq\mathbb{C}\) be a region and let \(\rho\in C^0(\Omega)\) be
 A \(C^2\) metric is said to be \textit{regular}. The (Gaussian) \textit{curvature} of the regular metric \(\rho\) at \(z\in\Omega\) is defined as
 \begin{equation}
     K_\rho(z)=-\frac{\laplacian(\log\rho)(z)}{\rho(z)^2},\label{eq:curvatureofmetric}
-\end{equation} where \(\laplacian=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in TO BE CONTINUED. % TODO
+\end{equation} where \(\laplacian=\pdv[2]{}{x}+\pdv[2]{}{y}=4\pdv[2]{}{\overline{z}}{z}\) is the Laplacian operator. This is the same definition as the Gaussian curvature in \cref{eq:gaussiancurvatureofsurface_gaussiancurvatureconformalmetricformula}.
 
 The three following metrics are of particular interest in complex differential geometry:
 \begin{enumerate}
-    \item Perhaps the most trivial metric is the \textit{Euclidean metric} (also known
-        as the \textit{parabolic metric}) on \(\mathbb{C}\), and is given by \[\rho=1,\qquad\dd{s}^2=\abs{\ddz}^2.\] The \textit{Euclidean distance} between two points \(z_1,z_2\in\mathbb{C}\)
-        is \[\inf_{\gamma}\int_\gamma\abs{\ddz}=\abs{z_2-z_1}\] is the length of the straight line segment connecting \(z_1\) and \(z_2\). The
-        group formed by all transformations in the form of
-        \(z\mapsto\ee^{\ii\theta}z+a\) (where \(a\in\mathbb{C}\) and
-        \(\theta\in\mathbb{R}\)) is known as \textit{the group of rigid motions}, or
-        more abstractly, the \textit{special Euclidean group} of order 2, denoted by
-        \(\mathrm{SE}(2)<\Aut(\mathbb{C})\), intuitively consists of all rotations and
-        translations and their compositions, while the \textit{Euclidean} group
-        \(\mathrm{E}(2)>\mathrm{SE}(2)\) consists of reflections in the form of
-        \(z\mapsto\ee^{\ii\theta}\overline{z}+a\). Obviously, the Euclidean metric is
-        invariant under both groups.
+    \item Perhaps the most trivial metric is the \textit{Euclidean metric} (also known as the \textit{parabolic metric}) on \(\mathbb{C}\), and is given by \[\rho=1,\qquad\dd{s}^2=\abs{\ddz}^2.\] The \textit{Euclidean distance} between two points \(z_1,z_2\in\mathbb{C}\) is \[\inf_{\gamma}\int_\gamma\abs{\ddz}=\abs{z_2-z_1}\] is the length of the straight line segment connecting \(z_1\) and \(z_2\). The group formed by all transformations in the form of \(z\mapsto\ee^{\ii\theta}z+a\) (where \(a\in\mathbb{C}\) and \(\theta\in\mathbb{R}\)) is known as \textit{the group of rigid motions}, or more abstractly, the \textit{special Euclidean group} of order 2, denoted by \(\mathrm{SE}(2)<\Aut(\mathbb{C})\), intuitively consists of all rotations and translations and their compositions, while the \textit{Euclidean} group \(\mathrm{E}(2)>\mathrm{SE}(2)\) consists of reflections in the form of \(z\mapsto\ee^{\ii\theta}\overline{z}+a\). Obviously, the Euclidean metric is invariant under both groups.
 
-        From \cref{eq:curvatureofmetric}, we find that Euclidean metric has curvature
-        \(K=0\).
-    \item The \textit{Poincaré metric} (also referred to as the \textit{hyperbolic
-        metric}) on \(\mathbb{D}\) is given by
-        \begin{equation}
-            \rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\label{eq:poincaremetricdefinition}
-        \end{equation}
-        In \cref{lem:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\).
+          From \cref{eq:curvatureofmetric}, we find that Euclidean metric has curvature \(K=0\).
+    \item The \textit{Poincaré metric} (also referred to as the \textit{hyperbolic metric}) on \(\mathbb{D}\) is given by
+          \begin{equation}
+              \rho=\lambda(z)=\frac{2}{1-\abs{z}^2},\qquad\dd{s}_{\lambda}^2=\frac{4\abs{\ddz}^2}{\qty(1-\abs{z}^2)^2}\label{eq:poincaremetricdefinition}
+          \end{equation}
+          In \cref{lem:schwarzpick}, it was shown that the metric is invariant under \(\Aut(\mathbb{D})\).
 
-        We will now calculate the Poincaré distance between two points
-        \(z_1,z_2\in\mathbb{C}\). First assume the case where \(z_1=0\) and \(z_2=R\in
-        (0,1)\). Consider a piecewise smooth curve \(\gamma\subset\mathbb{D}\)
-        parameterized by \(z(t)\) connecting \(z_1\) and \(z_2\); or in other words \[z(t)=x(t)+\ii y(t),\qquad z(0)=z_1=0,\quad z(1)=z_2=R,\] where \(x\in C^1([0,1])\) and \(y\in C^1([0,1])\) are real-valued functions.
-        Then
-        \begin{align*}
-            \int_\gamma\dd{s} & =\int_0^1\frac{2\sqrt{x'(t)^2+y'(t)^2}}{1-x(t)^2-y(t)^2}\dd{t}\geq\int_0^1\frac{2\abs{x'(t)}}{1-x(t)^2}\ddt\geq\abs{\int_0^1\frac{2x'(t)}{1-x(t)^2}\dd{t}} \\
-            & =\abs{\int_0^R\frac{2}{1-x^2}\ddx}=\log(\frac{1+R}{1-R}).
-        \end{align*} Assuming that \(\gamma\) is in the form of \(z(t)=Rt, z'(t)=R\) where \(t\in[0,1]\), we have \[\int_\gamma\dd{s}=\int_0^1\frac{2R\ddt}{1-R^2t^2}=\log(\frac{1+R}{1-R}).\] Hence, the Poincaré distance between \(0\) and \(R\) is given by \[d\qty(0,R)=\log(\frac{1+R}{1-R})\] and the straight line segment connecting the two points is a
-        \textit{geodesic}. For fixed \(\theta\in\mathbb{R}\) since \(z\mapsto
-        z\ee^{\ii\theta}\in\Aut(\mathbb{D})\), by the Schwarz--Pick Lemma
-        (\cref{lem:schwarzpick}), we have \[d\qty(0,R)=d\qty(0,R\ee^{\ii\theta})=\log(\frac{1+R}{1-R})\] by the invariance under \(\Aut(\mathbb{D})\). Now let \(z_1\) and \(z_2\) be
-        arbitrary points in \(\mathbb{D}\). The Möbius transformation \[\varphi_{z_1}(z)=\frac{z-z_1}{1-\overline{z_1}z}\]
-        maps \(z_1\) to \(0\) and maps \(z_2\) to
-        \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\). Hence, we have \[d\qty(z_1,z_2)=d\qty(0,\frac{z_2-z_1}{1-\overline{z_1}z_2})=\log\qty[\frac{1+\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}{1-\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}]=\inf_{\gamma}\int_\gamma\dd{s},\] which is the Poincaré distance (or \textit{hyperbolic distance}) between
-        \(z_1\) and \(z_2\). The infimum is attained along the geodesic curve
-        \(\gamma\) parameterized by
-        \[z(t)=\qty(\varphi_{z_1})^{-1}\qty(\frac{z_2-z_1}{1-\overline{z_1}z_2}t)\]
-        for \(t\in[0,1]\). By
-        \cref{thm:linearfractionaltransformationmapscirclestocircles}, the geodesic is
-        either an arc or a straight line segment passing through \(z_1\) and \(z_2\).
-        Since \(\partial\mathbb{D}\) is orthogonal to the straight line passing through
-        \(0\) and \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\), by the conformality of
-        \(\varphi_{z_1}^{-1}\),
-        \(\varphi_{z_1}^{-1}\qty(\partial\mathbb{D})=\partial\mathbb{D}\) is orthogonal
-        to the circular (or straight line) extension of the geodesic curve.
+          We will now calculate the Poincaré distance between two points \(z_1,z_2\in\mathbb{C}\). First assume the case where \(z_1=0\) and \(z_2=R\in (0,1)\). Consider a piecewise smooth curve \(\gamma\subset\mathbb{D}\) parameterized by \(z(t)\) connecting \(z_1\) and \(z_2\); or in other words \[z(t)=x(t)+\ii y(t),\qquad z(0)=z_1=0,\quad z(1)=z_2=R,\] where \(x\in C^1([0,1])\) and \(y\in C^1([0,1])\) are real-valued functions. Then
+          \begin{align*}
+              \int_\gamma\dd{s} & =\int_0^1\frac{2\sqrt{x'(t)^2+y'(t)^2}}{1-x(t)^2-y(t)^2}\dd{t}\geq\int_0^1\frac{2\abs{x'(t)}}{1-x(t)^2}\ddt\geq\abs{\int_0^1\frac{2x'(t)}{1-x(t)^2}\dd{t}} \\
+                                & =\abs{\int_0^R\frac{2}{1-x^2}\ddx}=\log(\frac{1+R}{1-R}).
+          \end{align*} Assuming that \(\gamma\) is in the form of \(z(t)=Rt, z'(t)=R\) where \(t\in[0,1]\), we have \[\int_\gamma\dd{s}=\int_0^1\frac{2R\ddt}{1-R^2t^2}=\log(\frac{1+R}{1-R}).\] Hence, the Poincaré distance between \(0\) and \(R\) is given by \[d\qty(0,R)=\log(\frac{1+R}{1-R})\] and the straight line segment connecting the two points is a \textit{geodesic}. For fixed \(\theta\in\mathbb{R}\) since \(z\mapsto z\ee^{\ii\theta}\in\Aut(\mathbb{D})\), by the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), we have \[d\qty(0,R)=d\qty(0,R\ee^{\ii\theta})=\log(\frac{1+R}{1-R})\] by the invariance under \(\Aut(\mathbb{D})\). Now let \(z_1\) and \(z_2\) be arbitrary points in \(\mathbb{D}\). The Möbius transformation \[\varphi_{z_1}(z)=\frac{z-z_1}{1-\overline{z_1}z}\]
+          maps \(z_1\) to \(0\) and maps \(z_2\) to \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\). Hence, we have \[d\qty(z_1,z_2)=d\qty(0,\frac{z_2-z_1}{1-\overline{z_1}z_2})=\log\qty[\frac{1+\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}{1-\abs{\frac{z_2-z_1}{1-\overline{z_1}z_2}}}]=\inf_{\gamma}\int_\gamma\dd{s},\] which is the Poincaré distance (or \textit{hyperbolic distance}) between \(z_1\) and \(z_2\). The infimum is attained along the geodesic curve \(\gamma\) parameterized by
+          \[z(t)=\qty(\varphi_{z_1})^{-1}\qty(\frac{z_2-z_1}{1-\overline{z_1}z_2}t)\]
+          for \(t\in[0,1]\). By \cref{thm:linearfractionaltransformationmapscirclestocircles}, the geodesic is either an arc or a straight line segment passing through \(z_1\) and \(z_2\). Since \(\partial\mathbb{D}\) is orthogonal to the straight line passing through \(0\) and \(\frac{z_2-z_1}{1-\overline{z_1}z_2}\), by the conformality of \(\varphi_{z_1}^{-1}\), \(\varphi_{z_1}^{-1}\qty(\partial\mathbb{D})=\partial\mathbb{D}\) is orthogonal to the circular (or straight line) extension of the geodesic curve.
 
-        As a consequence of the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), for any
-        \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained iff \(f\in\Aut(\mathbb{D})\). The Poincaré metric
-        has constant negative curvature \(-1\) since
-        \begin{align*}
-            K_\lambda & =-\frac{4}{\lambda^2}\pdv[2]{}{\overline{z}}{z}\qty(\log\circ\lambda)=-\frac{4}{\lambda^2}\pdv{\overline{z}}(\frac{\lambda'_z}{\lambda})=-\frac{2}{\lambda^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1-\abs{z}^2}) \\
-            & =-\frac{2}{\lambda^2}\qty(\lambda+\overline{z}\lambda'_{\overline{z}})=-\frac{\qty(1-\abs{z}^2)^2}{2}\qty(\lambda+\overline{z}\qty(\frac{2z}{\qty(1-\abs{z}^2)^2}))                                                \\
-            & =-\qty(1-\abs{z}^2)-\abs{z}^2=-1,
-        \end{align*} where \(\lambda'_z=\pdv{\lambda}{z}\) and \(\lambda'_{\overline{z}}=\pdv{\lambda}{\overline{z}}\).
-    \item The \textit{spherical metric} (also referred to as the \textit{elliptic
-        metric}) on \(\extcomplex\) is given by
-        \begin{equation}
-            \rho=\sigma(z)=\frac{2}{1+\abs{z}^2},\qquad\dd{s}^2_\sigma=\frac{4\abs{\ddz}^2}{\qty(1+\abs{z}^2)^2}.\label{eq:sphericalmetricdefinition}
-        \end{equation}
-        Under the inverse stereographic projection of \(S^2\to\extcomplex\), for a given \(z\in\extcomplex\), the corresponding point in \(S^2\) is \[\qty(x_1,x_2,x_3)=\qty(\frac{z+\overline{z}}{\abs{z}^2+1},\frac{z-\overline{z}}{\ii\abs{z}^2+\ii},\frac{\abs{z}^2-1}{\abs{z}^2+1}).\] If we let \(P=\qty(x_1,x_2,x_3)\) and
-        \(Q=\qty(\widetilde{x_1},\widetilde{x_2},\widetilde{x_3})\) be two points in
-        \(S^2\), the distance between the two points is the length of the shortest arc
-        \(\widearc{PQ}\) (a subset of great circle passing the two points). By
-        considering \(P\) and \(Q\) as vectors from \(\qty(0,0,0)\), this distance is
-        equal to
-        \begin{align*}
-            \arccos(P\cdot Q) & =2\arctan\sqrt{\frac{1-x_1\widetilde{x_1}-x_2\widetilde{x_2}-x_3\widetilde{x_3}}{1+x_1\widetilde{x_1}+x_2\widetilde{x_2}+x_3\widetilde{x_3}}}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
-            & =2\arctan\sqrt{\frac{1-\frac{\qty(z+\overline{z})\qty(\widetilde{z}+\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}+\frac{\qty(z-\overline{z})\qty(\widetilde{z}-\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}-\frac{\qty(\abs{z}^2-1)\qty(\abs{\widetilde{z}}^2-1)}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}}{1+\frac{\qty(z+\overline{z})\qty(\widetilde{z}+\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}-\frac{\qty(z-\overline{z})\qty(\widetilde{z}-\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}+\frac{\qty(\abs{z}^2-1)\qty(\abs{\widetilde{z}}^2-1)}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}}} \\
-            & =2\arctan\sqrt{\frac{-z\overline{\widetilde{z}}-\overline{z}\widetilde{z}+\abs{z}^2+\abs{\widetilde{z}}^2}{z\overline{\widetilde{z}}+\overline{z}\widetilde{z}+\abs{z}^2\abs{\widetilde{z}}^2+1}}=2\arctan\sqrt{\frac{\qty(z-\widetilde{z})\qty(\overline{z}-\overline{\widetilde{z}})}{\qty(z\overline{\widetilde{z}}+1)\qty(\overline{z}\widetilde{z}+1)}}.
-        \end{align*}
-        Notice that the fraction within the square root is a product between a complex number and its conjugate. Thus, this distance is equal to \[d\qty(z,\widetilde{z})=2\arctan\abs{\frac{z-\widetilde{z}}{z\overline{\widetilde{z}}+1}}\] in the extended complex plane. Let \(\widetilde{z}=z+\Delta z\). It follows
-        that
-        \begin{align*}
-            d(z,z+\Delta z) & =2\arctan\abs{\frac{\Delta z}{\abs{z}^2+z\overline{\Delta z}+1}}=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\frac{1}{1+\frac{z\overline{\Delta z}}{\abs{z}^2+1}}} \\
-            & =2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\qty(1+\order{\Delta z})}=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}                               \\
-            & =2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}+\order{\Delta z^3\qty[\frac{1}{\abs{z}^2+1}+\order{\Delta z}]^3}]                                  \\
-            & =2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+o\qty(\Delta z^2)}],
-        \end{align*}
-        where we have taken the liberty to coalesce orders for simplification. Since \[\lim_{\Delta z\to 0}\abs{\frac{d\qty(z,z+\Delta z)}{\Delta z}}=\frac{2}{\abs{z}^2+1},\] the metric as defined in \cref{eq:sphericalmetricdefinition} has a clear
-        geometric meaning: the distance between two points \(z\) and \(\widetilde{z}\)
-        under the metric in \cref{eq:sphericalmetricdefinition} is the shortest
-        distance between the corresponding points in \(S^2\), or their spherical
-        distance.
+          As a consequence of the Schwarz--Pick Lemma (\cref{lem:schwarzpick}), for any \(f:\mathbb{D}\to\mathbb{D}\) is holomorphic, we have \[d\qty(f(z_1),f(z_2))\leq d\qty(z_1,z_2),\] where equality is attained iff \(f\in\Aut(\mathbb{D})\). The Poincaré metric has constant negative curvature \(-1\) since
+          \begin{align*}
+              K_\lambda & =-\frac{4}{\lambda^2}\pdv[2]{}{\overline{z}}{z}\qty(\log\circ\lambda)=-\frac{4}{\lambda^2}\pdv{\overline{z}}(\frac{\lambda'_z}{\lambda})=-\frac{2}{\lambda^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1-\abs{z}^2}) \\
+                        & =-\frac{2}{\lambda^2}\qty(\lambda+\overline{z}\lambda'_{\overline{z}})=-\frac{\qty(1-\abs{z}^2)^2}{2}\qty(\lambda+\overline{z}\qty(\frac{2z}{\qty(1-\abs{z}^2)^2}))                                                \\
+                        & =-\qty(1-\abs{z}^2)-\abs{z}^2=-1,
+          \end{align*} where \(\lambda'_z=\pdv{\lambda}{z}\) and \(\lambda'_{\overline{z}}=\pdv{\lambda}{\overline{z}}\).
+    \item The \textit{spherical metric} (also referred to as the \textit{elliptic metric}) on \(\extcomplex\) is given by
+          \begin{equation}
+              \rho=\sigma(z)=\frac{2}{1+\abs{z}^2},\qquad\dd{s}^2_\sigma=\frac{4\abs{\ddz}^2}{\qty(1+\abs{z}^2)^2}.\label{eq:sphericalmetricdefinition}
+          \end{equation}
+          Under the inverse stereographic projection of \(S^2\to\extcomplex\), for a given \(z\in\extcomplex\), the corresponding point in \(S^2\) is \[\qty(x_1,x_2,x_3)=\qty(\frac{z+\overline{z}}{\abs{z}^2+1},\frac{z-\overline{z}}{\ii\abs{z}^2+\ii},\frac{\abs{z}^2-1}{\abs{z}^2+1}).\] If we let \(P=\qty(x_1,x_2,x_3)\) and \(Q=\qty(\widetilde{x_1},\widetilde{x_2},\widetilde{x_3})\) be two points in \(S^2\), the distance between the two points is the length of the shortest arc \(\widearc{PQ}\) (a subset of great circle passing the two points). By considering \(P\) and \(Q\) as vectors from \(\qty(0,0,0)\), this distance is equal to
+          \begin{multline*}
+              \arccos(P\cdot Q)=2\arctan\sqrt{\frac{1-x_1\widetilde{x_1}-x_2\widetilde{x_2}-x_3\widetilde{x_3}}{1+x_1\widetilde{x_1}+x_2\widetilde{x_2}+x_3\widetilde{x_3}}}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+              =2\arctan\sqrt{\frac{1-\frac{\qty(z+\overline{z})\qty(\widetilde{z}+\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}+\frac{\qty(z-\overline{z})\qty(\widetilde{z}-\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}-\frac{\qty(\abs{z}^2-1)\qty(\abs{\widetilde{z}}^2-1)}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}}{1+\frac{\qty(z+\overline{z})\qty(\widetilde{z}+\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}-\frac{\qty(z-\overline{z})\qty(\widetilde{z}-\overline{\widetilde{z}})}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}+\frac{\qty(\abs{z}^2-1)\qty(\abs{\widetilde{z}}^2-1)}{\qty(\abs{z}^2+1)\qty(\abs{\widetilde{z}}^2+1)}}} \\
+              =2\arctan\sqrt{\frac{-z\overline{\widetilde{z}}-\overline{z}\widetilde{z}+\abs{z}^2+\abs{\widetilde{z}}^2}{z\overline{\widetilde{z}}+\overline{z}\widetilde{z}+\abs{z}^2\abs{\widetilde{z}}^2+1}}=2\arctan\sqrt{\frac{\qty(z-\widetilde{z})\qty(\overline{z}-\overline{\widetilde{z}})}{\qty(z\overline{\widetilde{z}}+1)\qty(\overline{z}\widetilde{z}+1)}}.
+          \end{multline*}
+          Notice that the fraction within the square root is a product between a complex number and its conjugate. Thus, this distance is equal to \[d\qty(z,\widetilde{z})=2\arctan\abs{\frac{z-\widetilde{z}}{z\overline{\widetilde{z}}+1}}\] in the extended complex plane. Let \(\widetilde{z}=z+\Delta z\). It follows that
+          \begin{align*}
+              d(z,z+\Delta z) & =2\arctan\abs{\frac{\Delta z}{\abs{z}^2+z\overline{\Delta z}+1}}=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\frac{1}{1+\frac{z\overline{\Delta z}}{\abs{z}^2+1}}} \\
+                              & =2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}\qty(1+\order{\Delta z})}=2\arctan\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}                               \\
+                              & =2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+\order{\Delta z^2}}+\order{\Delta z^3\qty[\frac{1}{\abs{z}^2+1}+\order{\Delta z}]^3}]                                  \\
+                              & =2\qty[\abs{\frac{\Delta z}{\abs{z}^2+1}+o\qty(\Delta z^2)}],
+          \end{align*}
+          where we have taken the liberty to coalesce orders for simplification. Since \[\lim_{\Delta z\to 0}\abs{\frac{d\qty(z,z+\Delta z)}{\Delta z}}=\frac{2}{\abs{z}^2+1},\] the metric as defined in \cref{eq:sphericalmetricdefinition} has a clear geometric meaning: the distance between two points \(z\) and \(\widetilde{z}\) under the metric in \cref{eq:sphericalmetricdefinition} is the shortest distance between the corresponding points in \(S^2\), or their spherical distance.
 
-        Thus, if curve \(\gamma\) joins \(z\) and \(\widetilde{z}\), we have \[d\qty(z,\widetilde{z})=\inf_{\gamma}\int_\gamma\sigma(z)\abs{\ddz},\] which attains its infimum when the inverse stereographic projection of
-        \(\gamma\) is a great circle of \(S^2\). Thus, \(\sigma\) is known as the
-        spherical metric.
+          Thus, if curve \(\gamma\) joins \(z\) and \(\widetilde{z}\), we have \[d\qty(z,\widetilde{z})=\inf_{\gamma}\int_\gamma\sigma(z)\abs{\ddz},\] which attains its infimum when the inverse stereographic projection of \(\gamma\) is a great circle of \(S^2\). Thus, \(\sigma\) is known as the spherical metric.
 
-        The corresponding curvature is given by
-        \begin{align*}
-            K_\sigma & =-\frac{4}{\sigma^2}\pdv[2]{}{\overline{z}}{z}\qty(\log(\sigma))=-\frac{4}{\sigma^2}\pdv{\overline{z}}(\frac{\sigma'_z}{\sigma})=\frac{2}{\sigma^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1+\abs{z}^2}) \\
-            & =\frac{2}{\sigma^2}\qty(\sigma+\overline{z}\sigma'_{\overline{z}})=\frac{\qty(1+\abs{z}^2)^2}{2}\qty(\frac{2}{1+\abs{z}^2}-\frac{2\abs{z}^2}{\qty(1+\abs{z}^2)^2})                                       \\
-            & =\qty(1+\abs{z}^2)-\abs{z}^2=1,
-        \end{align*} where \(\sigma'_z=\pdv{\sigma}{z}\) and \(\sigma'_{\overline{z}}=\pdv{\sigma}{\overline{z}}\).
+          The corresponding curvature is given by
+          \begin{align*}
+              K_\sigma & =-\frac{4}{\sigma^2}\pdv[2]{}{\overline{z}}{z}\qty(\log(\sigma))=-\frac{4}{\sigma^2}\pdv{\overline{z}}(\frac{\sigma'_z}{\sigma})=\frac{2}{\sigma^2}\pdv{\overline{z}}(\frac{2\overline{z}}{1+\abs{z}^2}) \\
+                       & =\frac{2}{\sigma^2}\qty(\sigma+\overline{z}\sigma'_{\overline{z}})=\frac{\qty(1+\abs{z}^2)^2}{2}\qty(\frac{2}{1+\abs{z}^2}-\frac{2\abs{z}^2}{\qty(1+\abs{z}^2)^2})                                       \\
+                       & =\qty(1+\abs{z}^2)-\abs{z}^2=1,
+          \end{align*} where \(\sigma'_z=\pdv{\sigma}{z}\) and \(\sigma'_{\overline{z}}=\pdv{\sigma}{\overline{z}}\). This can also be verified by computing the principal curvatures of the unit sphere, which are both one.
 \end{enumerate}
 The importance of the selected regions lies in the uniformization to be mentioned in \cref{sec:riemannsurfaces}.
 
-Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such
-that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by
-\cref{lem:univalentnonvanishingderivative}). If \(\rho\) is a metric on
-\(\Omega_2\), then
+Let \(\Omega_1\) and \(\Omega_2\) be two open regions in \(\mathbb{C}\) such that \(f:\Omega_1\to\Omega_2\) is univalent (implying that \(f'\neq 0\) by \cref{lem:univalentnonvanishingderivative}). If \(\rho\) is a metric on \(\Omega_2\), then
 \begin{equation}
     f^*\rho=(\rho\circ f)\abs{f'}\label{eq:pullbackmetric}
 \end{equation} defines a metric on \(\Omega_1\), referred to as the \textit{metric pullback of} \(\rho\) \textit{by} \(f\).
 
-Curvature as defined in \cref{eq:curvatureofmetric} is invariant under
-pullbacks of conformal mappings, or in the case above, we now aim to show that (under assumptions of regularity)
+Curvature as defined in \cref{eq:curvatureofmetric} is invariant under pullbacks of conformal mappings, or in the case above, we now aim to show that (under assumptions of regularity)
 \begin{equation}
     K_\rho(f(z))=K_{f^*\rho}(z).\label{eq:curvatureinvarianceunderholomorphicpullback}
 \end{equation}
-By explicit definition, \[K_{f^*\rho}(z)=-\frac{\laplacian(\log\circ f^*\rho)(z)}{(f^*\rho)(z)^2}=-\frac{\qty(\laplacian\log\circ\rho\qty(f))(z)+\laplacian\log\abs{f'(z)}}{\qty(f^*\rho)^2(z)}.\] Since \(f'(z)\neq 0\), \(\log\circ\abs{f'}=\Re\log(f')\) is harmonic on
-\(\Omega_1\) with a vanishing Laplacian. Hence,
+By explicit definition, \[K_{f^*\rho}(z)=-\frac{\laplacian(\log\circ f^*\rho)(z)}{(f^*\rho)(z)^2}=-\frac{\qty(\laplacian\log\circ\rho\qty(f))(z)+\laplacian\log\abs{f'(z)}}{\qty(f^*\rho)^2(z)}.\] Since \(f'(z)\neq 0\), \(\log\circ\abs{f'}=\Re\log(f')\) is harmonic on \(\Omega_1\) with a vanishing Laplacian. Hence,
 \begin{align*}
     K_{f^*\rho}(z) & =-\frac{\qty(\laplacian\log\circ\rho\qty(f))(z)}{\qty(\rho\circ f)^2\abs{f'}^2}=-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{\overline{z}}(\pdv{z}(\log\circ\rho\circ f(z))) \\
-    & =-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{\overline{z}}(\pdv{\log\circ\rho}{f}\pdv{f}{z}+\pdv{\log\circ\rho}{\overline{f}}\overline{\qty(\pdv{f}{\overline{z}})})        \\
-    & =-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{f}{z}\pdv{\overline{z}}(\pdv{\log\circ\rho}{f})                                                                                \\
-    & =-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{f}{z}\qty(\pdv[2]{\log\circ\rho}{f}\pdv{f}{\overline{z}}+\pdv[2]{\log\circ\rho}{\overline{f}}{f}\overline{\qty(\pdv{f}{z})})   \\
-    & =-\frac{4}{\qty(\rho\circ f)^2}\pdv[2]{}{\overline{f}}{f}\qty(\log\circ\rho)=-\frac{\laplacian_f\qty(\log\circ\rho)}{\qty(\rho\circ f)^2}=K_\rho\qty(f(z)).
+                   & =-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{\overline{z}}(\pdv{\log\circ\rho}{f}\pdv{f}{z}+\pdv{\log\circ\rho}{\overline{f}}\overline{\qty(\pdv{f}{\overline{z}})})        \\
+                   & =-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{f}{z}\pdv{\overline{z}}(\pdv{\log\circ\rho}{f})                                                                                \\
+                   & =-\frac{4}{\qty(\rho\circ f)^2\abs{f'}^2}\pdv{f}{z}\qty(\pdv[2]{\log\circ\rho}{f}\pdv{f}{\overline{z}}+\pdv[2]{\log\circ\rho}{\overline{f}}{f}\overline{\qty(\pdv{f}{z})})   \\
+                   & =-\frac{4}{\qty(\rho\circ f)^2}\pdv[2]{}{\overline{f}}{f}\qty(\log\circ\rho)=-\frac{\laplacian_f\qty(\log\circ\rho)}{\qty(\rho\circ f)^2}=K_\rho\qty(f(z)).
 \end{align*}
 For a given metric \(\dd{s}=\lambda(z)\abs{\ddz}\), if there is some other parameterization such that \(\dd{s}=\lambda'\qty(z')\abs{\dd{z'}}\), \(z'=f(z)\) is conformal, then the relation is given by \(\lambda=f^*\lambda'\). Under differing parameterizations of a metric \(\dd{s}\), we hence have the invariance of curvature.
