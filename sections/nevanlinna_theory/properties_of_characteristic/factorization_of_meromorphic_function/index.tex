@@ -21,6 +21,10 @@ We now give a meromorphic analog of the Hadamard Factorization Theorem:
         &\leq\sum_{\abs{b_n}\leq 2r}2^{\rho+\varepsilon-q}c'\frac{r^{\rho+\varepsilon}}{\abs{b_n}^{\rho+\varepsilon}}=\order{r^{\rho+\varepsilon}}.
     \end{align*}
     It follows that \[T(r,g)\leq\log\abs{P_2(z)}=\order{r^{\rho+\varepsilon}},\]
-    and thus \(g\) is of order \(\rho'\leq\rho\). For \(q=0\), the assertion is direct from \[\log\abs{E_q\qty(\frac{z}{b_n})}\leq\log\qty(1+\abs{\frac{z}{b_n}})\le\abs{\frac{z}{b_n}}\implies\log\abs{P_2^{\leq}}=\order{r}.\] % figure out a better estimate maybe
-    Similar logic then derives that \(g\) is of order \(incomplete\). There then exists an integer \(p\leq\rho'\) such that \(P_1\) converges and \(g(z)=\ee^{\varphi(z)}P_1(z)\) has the property that \(\varphi\) is a polynomial of degree \(g\leq\rho'\). Writing \(f=\flatfrac{g}{P_2}\) then yields the desired representation.
+    and thus \(g\) is of order \(\rho'\leq\rho\). For any \(\varepsilon\), there is some \(c\) such that \(\log(1+\abs{w})\leq c\abs{w}^\varepsilon\); thus for \(q=0\), the assertion is direct from \cref{prop:meromorphicfunctionfiniteorderestimates}: 
+    \begin{gather*}
+        \log\abs{E_q\qty(\frac{z}{b_n})}\leq\log\qty(1+\abs{\frac{z}{b_n}})\le c\frac{r^\varepsilon}{\abs{b_n}^\varepsilon}\leq c\frac{r^\varepsilon}{\abs{b_1}^\varepsilon}\\
+        \log\abs{P_2^{\leq}}\leq n(2r,0,f)\frac{r^\varepsilon}{\abs{b_1}^\varepsilon}=\order{r^{\rho+2\varepsilon}}.
+    \end{gather*}
+    Similar logic then derives that \(g\) is of order \(\leq\rho\). There then exists an integer \(p\leq\rho'\) such that \(P_1\) converges and \(g(z)=\ee^{\varphi(z)}P_1(z)\) has the property that \(\varphi\) is a polynomial of degree \(g\leq\rho'\) by the Hadamard Factorization Theorem (\cref{thm:hadamardfactorization}) for entire functions. Writing \(f=\flatfrac{g}{P_2}\) then yields the desired representation.
 \end{proof}
