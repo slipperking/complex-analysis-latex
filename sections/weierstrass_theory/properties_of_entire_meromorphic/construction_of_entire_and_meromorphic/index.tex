@@ -26,7 +26,7 @@ Similar to series, absolute convergence is a stronger condition than convergence
     which therefore satisfies \cref{thm:cauchycriterionsequenceconvergence}.
 \end{proof} We will now provide the following assertions on the \textit{locally uniform convergence} of infinite products:
 \begin{lemma}\label{lem:infiniteproductlocallyuniformconvergencecriterion}
-    Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\sum_{k=1}^\infty f_k(z)\) uniformly converges on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\prod_{k=1}^\infty \exp\qty[f_k(z)]\) is uniformly convergent on compact subsets of \(U\).
+    Let \(U\subseteq\mathbb{C}\) be open and connected. Suppose \(\textstyle\sum_{k=1}^\infty f_k(z)\) uniformly converges on compact subsets of \(U\) such that each \(f_k\) is holomorphic on \(U\). Then the infinite product \(\textstyle\prod_{k=1}^\infty \exp\qty[f_k(z)]\) is uniformly convergent on compact subsets of \(U\).
 \end{lemma}
 \begin{proof}
     Let \(K\) be an arbitrary compact subset of \(U\). Since \(\sum_{k=1}^\infty f_k(z)\) converges uniformly on \(K\), it follows that \(\forall\varepsilon>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n>m>N\), \(\abs{\sum_{k=m+1}^n f_k(z)}<\varepsilon\) for all \(z\in K\). Additionally, we have: \[\abs{\prod_{k=1}^n \exp\qty[f_k(z)]-\prod_{k=1}^m\exp\qty[f_k(z)]}=\abs{\exp[\sum_{k=1}^n f_k(z)]-\exp[\sum_{k=1}^m f_k(z)]}.\]
@@ -47,9 +47,9 @@ We also have:
         & \leq\abs{F_m(z)}\abs{\exp\qty(\sum_{k=m+1}^n\abs{f_k(z)})-1}                    \\
         & \leq \ee^M\qty(\ee^\varepsilon -1),
     \end{align*}
-    where the second inequality can be easily verified by expanding the product \(\prod_{k=m+1}^n\qty(1+{f_k(z)})-1\) and the triangle inequality.
+    where the second inequality can be easily verified by expanding the product \(\textstyle\prod_{k=m+1}^n\qty(1+{f_k(z)})-1\) and the triangle inequality.
 
-    Since \(\ee^{\varepsilon}-1\to 0^+\), it follows that \(F(z)=\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on \(K\). Let \(\xi\in U\) be a point satisfying \(F(\xi)=0\). Since there exists an \(m\in\mathbb{N}\) such that \[\prod_{k=m+1}^\infty \qty(1+f_k(z))\] is non-vanishing at \(z=\xi\), and from the fact that \[F(z)=\prod_{k=1}^m \qty(1+f_k(z))\cdot\prod_{k=m+1}^\infty \qty(1+f_k(z)),\] we can analyze the zeros of the finite product to obtain the conclusion.
+    Since \(\ee^{\varepsilon}-1\to 0^+\), it follows that \(\textstyle F(z)=\prod_{k=1}^\infty \qty[1+f_k(z)]\) is uniformly convergent on \(K\). Let \(\xi\in U\) be a point satisfying \(F(\xi)=0\). Since there exists an \(m\in\mathbb{N}\) such that \[\prod_{k=m+1}^\infty \qty(1+f_k(z))\] is non-vanishing at \(z=\xi\), and from the fact that \[F(z)=\prod_{k=1}^m \qty(1+f_k(z))\cdot\prod_{k=m+1}^\infty \qty(1+f_k(z)),\] we can analyze the zeros of the finite product to obtain the conclusion.
 \end{proof}
 We will now study the construction of an entire function \(f(z)\) via its zeros. We have the following cases:
 \begin{enumerate}
@@ -77,14 +77,14 @@ We will now study the construction of an entire function \(f(z)\) via its zeros.
         \end{equation*}
         The expression in \cref{eq:weierstrasselementaryfactor} is known as the \(p\)-th \textit{Weierstrass elementary factor}.
 
-        By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\) (the coefficient is an arbitrary constant greater than one). Consider the product \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\qty|\frac{z}{a_n}|\le\frac{1}{2}\). The Taylor expansion \(\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then,
+        By \(\varepsilon\)--\(N\), for a fixed \(R>0\), \(\exists N\in\mathbb{N}\) such that \(\forall n\geq N\), \(\abs{a_n}>2R\). Consider the product \(\textstyle\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\). For \(z\in \overline{D(0,R)}\) and \(n\ge N\), we have \(\textstyle\qty|\flatfrac{z}{a_n}|\le\flatfrac{1}{2}\). The Taylor expansion \(\textstyle\log(1-w)=-\sum_{k=1}^\infty\frac{w^k}{k}\) has a convergence disk of \(D(0,1)\). Then,
         \begin{align}
             \abs{Q_{p_n}\qty(\frac{z}{a_n})} & =\abs{-\sum_{k=1}^\infty\frac{1}{k}\qty(\frac{z}{a_n})^k+\sum_{j=1}^{p_n}\frac{1}{k}\qty(\frac{z}{a_n})^k}\leq\sum_{k=p_n+1}^\infty\frac{1}{k}\abs{\frac{z}{a_n}}^k\nonumber                                      \\
-            & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\frac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}(\leq 1).\label{eq:infiniteproductweierstrassfactorizationuniformbound}
+            & \leq\sum_{k=p_n+1}^\infty\abs{\frac{z}{a_n}}^k=\abs{\frac{z}{a_n}}^{p_n+1}\frac{1}{1-\abs{\frac{z}{a_n}}}\leq 2\abs{\frac{R}{a_n}}^{p_n+1}.\label{eq:infiniteproductweierstrassfactorizationuniformbound}
         \end{align}
-        By the definition of \(\cbraces{p_n}_{n\in\mathbb{N}}\), the series \(2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). We then get that \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\), and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \cref{lem:infiniteproductlocallyuniformconvergencecriterion}, \cref{thm:weierstrassconvergence}, and \cref{thm:hurwitzsimplecase}.
+        By the definition of \(\cbraces{p_n}_{n\in\mathbb{N}}\), the series \(\textstyle 2\sum_{n=1}^\infty\abs{\frac{R}{a_n}}^{p_n+1}\) converges. Therefore, \(\textstyle \sum_{n=1}^\infty Q_{p_n}\qty(\frac{z}{a_n})\) is uniformly and absolutely convergent on \(\overline{D(0,R)}\) by the Weierstrass \(M\)--Test (\cref{thm:weierstrassmtest}). We then get that \(\textstyle\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})=\exp(\sum_{n=N}^\infty Q_{p_n}\qty(\frac{z}{a_n}))\), and it uniformly converges on \(\overline{D(0,R)}\) to a nonzero holomorphic function \(f(z)\) on \({D(0,R)}\) by \cref{lem:infiniteproductlocallyuniformconvergencecriterion}, \cref{thm:weierstrassconvergence}, and \cref{thm:hurwitzsimplecase}.
 
-        The zeros of \[\prod_{n=1}^\infty E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{\ee-1}\abs{\zeta}\). By \cref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
+        The zeros of \[\prod_{n=1}^{N-1} E_{p_n}\qty(\frac{z}{a_n})\] are \(a_1,\ldots, a_{N-1}\) and lie in \(\overline{D(0,2R)}\). To prove the absolute convergence of \(\textstyle\prod_{n=N}^\infty E_{p_n}\qty(\frac{z}{a_n})\) on \(\overline{D(0,R)}\), we will show that \(\textstyle\sum_{n=N}^\infty\abs{E_{p_n}\qty(\frac{z}{a_n})-1}\) is convergent. Trivially, when \(\zeta\in\overline{\mathbb{D}}\), we have \(\abs{\exp(\zeta)-1}\leq\exp\qty|\zeta|-1\leq\paren{\ee-1}\abs{\zeta}\). By \cref{eq:infiniteproductweierstrassfactorizationuniformbound} above, we get that \(\textstyle\qty|Q_{p_n}\qty(\frac{z}{a_n})|\leq 1\) when \(n\geq N\).
 
         Therefore, we have
         \begin{align*}

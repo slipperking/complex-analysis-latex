@@ -1,14 +1,26 @@
 \subsubsection{The Factorization of Transcendental Meromorphic Functions}
 We now give a meromorphic analog of the Hadamard Factorization Theorem:
 \begin{theorem}
-    Let \(f:\mathbb{C}\to\extcomplex\) be non-constant and meromorphic of finite order \(\rho\) such that \(f(0)\neq 0,\infty\). If \(\qty{a_n}_{n=1}^\infty\) and \(\qty{b_n}_{n=1}^\infty\) are its zeros and poles in \(\mathbb{C}^*\) listed in order of nondecreasing moduli, counting multiplicities and zeros, then the products \[P_1(z)=\prod_{n=1}^\infty E_{\floor{\rho}}\qty(\frac{z}{a_n}),\quad P_2(z)=\prod_{n=1}^\infty E_{\floor{\rho}}\qty(\frac{z}{b_n})\] locally uniformly converge in \(\mathbb{C}\). Then \(f(z)=\ee^{\varphi(z)}\flatfrac{P_1(z)}{P_2(z)}\), where \(\varphi\) is a polynomial of degree \(\leq\rho\).
+    Let \(f:\mathbb{C}\to\extcomplex\) be non-constant and meromorphic of finite order \(\rho\) such that \(f(0)\neq 0,\infty\). If \(\qty{a_n}_{n=1}^\infty\) and \(\qty{b_n}_{n=1}^\infty\) are its zeros and poles in \(\mathbb{C}^*\) listed in order of nondecreasing moduli, counting multiplicities and zeros, then the products \[P_1(z)=\prod_{n=1}^\infty E_{p}\qty(\frac{z}{a_n}),\quad P_2(z)=\prod_{n=1}^\infty E_{q}\qty(\frac{z}{b_n})\] locally uniformly converge in \(\mathbb{C}\) for some \(p,q\leq\floor{\rho}\). Then \(f(z)=\ee^{\varphi(z)}\flatfrac{P_1(z)}{P_2(z)}\), where \(\varphi\) is a polynomial of degree \(\leq\rho\).
 \end{theorem}
 \begin{proof}
-    By the convergence of \(\textstyle\sum_n\frac1{a_n^{\rho+\varepsilon}}\) and \(\textstyle\sum_n\frac1{b_n^{\rho+\varepsilon}}\) given by \cref{thm:meromorphicfunctionfiniteorderestimatessum}, the two products converge by the Weierstrass Product Theorem (\cref{thm:weierstrassproduct}).
-
-    Let \(f_1(z)=f(z)P_2(z)\), which is entire. Since \(N\qty(r,P_2)\equiv 0\), we have for sufficiently large \(r\) that
+    By \cref{thm:meromorphicfunctionfiniteorderestimatessum}, here then exists \(q\leq\floor{\rho}\) such that the two given products converge locally uniformly and the corresponding summation of exponent \(q+1\) converge. Define \(g\) to be the analytic continuation across all removable singularities of \(f\cdot P_2\) such that \(g\) is entire and vanishes at each \(\qty{a_n}\). Observe that \[T(r,g)\leq T(r,f)+T\qty(r,P_2),\quad T(r,f)=\order{r^{\rho+\varepsilon}}\] by \cref{prop:nevanlinnacharacteristicproperties,prop:meromorphicfunctionfiniteorderestimates}. For sufficiently large \(r\), \[T\qty(r,P_2)=m\qty(r,P_2)\leq\log M\qty(r,P_2).\]
+    Define \[P_2(z)=\prod_{\abs{b_n}\leq 2\abs{z}}E_q\qty(\frac z{b_n})\cdot\prod_{\abs{b_n}>2\abs{z}}E_q\qty(\frac z{b_n})=P^{\leq}_{2}(z)\cdot P^{>}_2(z).\]
+    Since \(\abs{\flatfrac{z}{b_n}}<\flatfrac12\) for \(P_2^>\), \[\abs{\Log E_q\qty(\frac{z}{b_n})}\leq\sum_{k>q}^\infty\frac1{k}\abs{\frac{z}{b_n}}^{q+1}\leq\abs{\frac{z}{b_n}}^{q+1}\sum_{k>q}^\infty\frac1{k}\abs{\frac12}^{k-q-1}\leq cr^{q+1}\abs{b_n}^{-q-1},\] where \(c\) is a constant dependent only on \(q\) and \(r=\abs{z}\) (see). Thus,
     \begin{align*}
-        T\qty(r,P_2)&=m(r,P_2)\leq\log^+ M\qty(r,P_2)=\log M\qty(r,P_2).
+        \log\abs{P_2^>(z)}&\leq\abs{\Log P_2^>(z)}\leq\sum_{\abs{b_n}>2r}\abs{\Log E_q\qty(\frac{z}{b_n})}\leq cr^{q+1}\sum_{\abs{b_n}>2r}\frac{1}{\abs{b_n}^{q+1}}\\
+        &\leq cr^{\rho+\varepsilon}\sum_{\abs{b_n}>2r}\frac{r^{q+1-\qty(\rho+\varepsilon)}}{\abs{b_n}^{\rho+\varepsilon}\abs{b_n}^{q+1-\qty(\rho+\varepsilon)}}\leq 2^{\rho+\varepsilon-q-1}cr^{\rho+\varepsilon}\sum_{\abs{b_n}>2r}\abs{b_n}^{-\rho-\varepsilon}\\
+        &=\order{r^{\rho+\varepsilon}} %double check this later since it seems just a bit scuffed
+    \end{align*} (the summation of converges by \cref{thm:meromorphicfunctionfiniteorderestimatessum}). Assume now that \(\abs{b_n}\leq 2r\), or \(\textstyle2\abs{\flatfrac{z}{b_n}}\geq1\). Then,
+    \begin{align*}
+        \log\abs{E_q\qty(\frac{z}{b_n})}&=\log\abs{1-\frac{z}{b_n}}+\Re\qty(\sum_{k=1}^q\frac1k\frac{z^k}{b_n^k})\leq\log\qty(1+\abs{\frac{z}{b_n}})+c\abs{\frac{z}{b_n}}^q
+    \end{align*} for some \(c\) such that \(\textstyle\Re\qty(\sum_{k=1}^q\frac1kw^k)\leq c\abs{w}^q\) for all \(\abs{w}\geq\textstyle\flatfrac12\), which depends only on \(q\). First assume that \(q\geq 1\), and it then follows that
+    \begin{align*}
+        \log\abs{P_2^\leq(z)}&\leq\sum_{\abs{b_n}\leq 2r}\qty[c\abs{\frac{r}{b_n}}^q+\log\qty(1+\abs{\frac{r}{b_n}})]\leq\sum_{\abs{b_n}\leq 2r}\qty[c\abs{\frac{r}{b_n}}^q+\abs{\frac{r}{b_n}}]\\
+        &\leq\sum_{\abs{b_n}\leq 2r}\qty(c+2^{q-1})\abs{\frac{z}{b_n}}^q=\sum_{\abs{b_n}\leq 2r}c'\frac{r^{\rho+\varepsilon}}{\abs{b_n}^{\rho+\varepsilon}}\qty(\frac{\abs{b_n}}{r})^{\rho+\varepsilon-q}\\
+        &\leq\sum_{\abs{b_n}\leq 2r}2^{\rho+\varepsilon-q}c'\frac{r^{\rho+\varepsilon}}{\abs{b_n}^{\rho+\varepsilon}}=\order{r^{\rho+\varepsilon}}.
     \end{align*}
-    % prove P2 order
+    It follows that \[T(r,g)\leq\log\abs{P_2(z)}=\order{r^{\rho+\varepsilon}},\]
+    and thus \(g\) is of order \(\rho'\leq\rho\). For \(q=0\), the assertion is direct from \[\log\abs{E_q\qty(\frac{z}{b_n})}\leq\log\qty(1+\abs{\frac{z}{b_n}})\le\abs{\frac{z}{b_n}}\implies\log\abs{P_2^{\leq}}=\order{r}.\] % figure out a better estimate maybe
+    Similar logic then derives that \(g\) is of order \(incomplete\). There then exists an integer \(p\leq\rho'\) such that \(P_1\) converges and \(g(z)=\ee^{\varphi(z)}P_1(z)\) has the property that \(\varphi\) is a polynomial of degree \(g\leq\rho'\). Writing \(f=\flatfrac{g}{P_2}\) then yields the desired representation.
 \end{proof}
