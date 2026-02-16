@@ -1,32 +1,32 @@
 \subsubsection{Classifying Growth of Meromorphic Functions}
 \begin{theorem}\label{thm:nevanlinnaentirefunctionmaximummodulussandwich}
-    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) for \(R>0\) and define \(M(r,f)\) to be \(\max_{\abs{z}\leq r}\abs{f(z)}=\max_{\abs{z}=r}\abs{f(z)}\) for \(0<r<R\); then \[T(r,f)\leq\log^+M(r,f)\leq\frac{R+r}{R-r}T(R,f).\]
+    Let \(f\) be holomorphic on \(\overline{D(0,R)}\) for \(R>0\) and define \(M(r,f)\) to be \(\max_{\abs{z}\leq r}\abs{f(z)}=\max_{\abs{z}=r}\abs{f(z)}\) for \(0<r<R\); then \[T(r,f)\leq\logp M(r,f)\leq\frac{R+r}{R-r}T(R,f).\]
 \end{theorem}
 \begin{proof}
-    Since \(f\) is holomorphic in \(D(0,r)\), \(N(r,f)\equiv 0\) and hence \[T(r,f)=m(r,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\leq\frac1{2\uppi}\int_0^{2\uppi}\log^+M(r,f)\dd{\theta},\] which proves the first inequality. Since \(T\geq0\) trivially, if \(M\leq 1\) the second assertion holds trivially. Hence, assume \(M>1\); by the Poisson--Jensen formula (\cref{thm:poissonjensenformula}), letting \(z\in\partial D(0,r)\) be where \(\abs{f}\) attains \(M\), we have
+    Since \(f\) is holomorphic in \(D(0,r)\), \(N(r,f)\equiv 0\) and hence \[T(r,f)=m(r,f)=\frac1{2\uppi}\int_0^{2\uppi}\logp \abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\leq\frac1{2\uppi}\int_0^{2\uppi}\logp M(r,f)\dd{\theta},\] which proves the first inequality. Since \(T\geq0\) trivially, if \(M\leq 1\) the second assertion holds trivially. Hence, assume \(M>1\); by the Poisson--Jensen formula (\cref{thm:poissonjensenformula}), letting \(z\in\partial D(0,r)\) be where \(\abs{f}\) attains \(M\), we have
     \begin{align*}
-        \log^+M(r,f)&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\frac{R^2-r^2}{\abs{R\ee^{\ii\theta}-z}}\dd{\theta}\\
+        \logp M(r,f)&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\frac{R^2-r^2}{\abs{R\ee^{\ii\theta}-z}}\dd{\theta}\\
         &\quad+\sum_{j=1}^m\log\abs{\frac{R\qty(z-a_j)}{R^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{R\qty(z-b_k)}{R^2-\overline{b_k}z}}\\
         &\leq\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\frac{R^2-r^2}{\abs{R\ee^{\ii\theta}-z}^2}\dd{\theta}\\
         &\leq\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(R\ee^{\ii\theta})}\frac{R^2-r^2}{(R-r)^2}\dd{\theta}\\
-        &\leq\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{f\qty(R\ee^{\ii\theta})}\frac{R+r}{R-r}\dd{\theta}=\frac{R+r}{R-r}T(R,f).
+        &\leq\frac1{2\uppi}\int_0^{2\uppi}\logp \abs{f\qty(R\ee^{\ii\theta})}\frac{R+r}{R-r}\dd{\theta}=\frac{R+r}{R-r}T(R,f).
     \end{align*}
     (The Möbius transformation-like terms of the zeros \(\leq 0\) since they map to the unit disk, and the second summation vanishes since there are no \(b_k\) by holomorphy).
 \end{proof}
 \begin{definition}\label{def:orderofmeromorphicfunction}
-    The \textit{order of a meromorphic function} \(f:\mathbb{C}\to\extcomplex\), denoted \(\rho=\rho(f)\), is given by \[\rho=\varlimsup_{r\to\infty}\frac{\log^+T(r,f)}{\log r},\]
+    The \textit{order of a meromorphic function} \(f:\mathbb{C}\to\extcomplex\), denoted \(\rho=\rho(f)\), is given by \[\rho=\varlimsup_{r\to\infty}\frac{\logp T(r,f)}{\log r},\]
     equivalent to the condition that \(T(r,f)=\order{r^{\rho+\varepsilon}}\) for any \(\varepsilon>0\) but not for \(\varepsilon<0\).
 \end{definition}
 \begin{proof}[Proof of equivalent definitions]
-    For any prescribed \(\varepsilon>0\) there exists \(r'>0\) such that for any \(r>r'\), \[\frac{\log^+T(r,f)}{\log r}\leq\rho+\varepsilon\implies T(r,f)\leq r^{\rho+\varepsilon}.\]
-    Assume there exists some \(\varepsilon<0\) such that \[T(r,f)=\order{r^{\rho+\varepsilon}}.\] Then there exist finite \(c,r'\) such that \(\forall r>r'\), \[T(r,f)\leq cr^{\rho+\varepsilon}\implies\log^+T(r,f)\leq\order{1}+\qty(\rho+\varepsilon)\log r\implies\frac{\log^+T(r,f)}{\log r}\leq\rho+\varepsilon<\rho,\]
+    For any prescribed \(\varepsilon>0\) there exists \(r'>0\) such that for any \(r>r'\), \[\frac{\logp T(r,f)}{\log r}\leq\rho+\varepsilon\implies T(r,f)\leq r^{\rho+\varepsilon}.\]
+    Assume there exists some \(\varepsilon<0\) such that \[T(r,f)=\order{r^{\rho+\varepsilon}}.\] Then there exist finite \(c,r'\) such that \(\forall r>r'\), \[T(r,f)\leq cr^{\rho+\varepsilon}\implies\logp T(r,f)\leq\order{1}+\qty(\rho+\varepsilon)\log r\implies\frac{\logp T(r,f)}{\log r}\leq\rho+\varepsilon<\rho,\]
     which is a contradiction. The converse follows similarly to the case of entire functions in \cref{sec:classifyinggrowthofentirefunctions}.
 \end{proof}
 \begin{theorem}
     Let \(\rho_M\) be the order of a non-constant entire function \(f\) as defined in \cref{sec:classifyinggrowthofentirefunctions} and let \(\rho_T\) be the order as defined in \cref{def:orderofmeromorphicfunction}. Then \(\rho_M=\rho_T\).
 \end{theorem}
 \begin{proof}
-    Since \(f\) is non-constant, for sufficiently large \(r\), \(\log^+ M(r,f)=\log M(r,f)\). For the remainder of this proof we will assume the two are equivalent. From \cref{thm:nevanlinnaentirefunctionmaximummodulussandwich} it is apparent that (under \(R=2r\) for sufficiently large \(r\)) \[\frac{\log^+ T(r,f)}{\log r}\leq\frac{\log^+\log M(r,f)}{\log r}\leq\frac{\log3}{\log r}+\frac{\log^+ T(2r,f)}{\log(2r)}\cdot\frac{\log(2r)}{\log r}.\]
+    Since \(f\) is non-constant, for sufficiently large \(r\), \(\logp  M(r,f)=\log M(r,f)\). For the remainder of this proof we will assume the two are equivalent. From \cref{thm:nevanlinnaentirefunctionmaximummodulussandwich} it is apparent that (under \(R=2r\) for sufficiently large \(r\)) \[\frac{\logp  T(r,f)}{\log r}\leq\frac{\logp \log M(r,f)}{\log r}\leq\frac{\log3}{\log r}+\frac{\logp  T(2r,f)}{\log(2r)}\cdot\frac{\log(2r)}{\log r}.\]
     Letting \(r\to\infty\) in the limit superior gives that \[\rho_T\leq\rho_M\leq\rho_T\implies\rho_T=\rho_M.\qedhere\]
 \end{proof}
 \begin{proposition}\label{prop:meromorphicfunctionfiniteorderestimates}
@@ -52,7 +52,7 @@
     \[\sum_n\frac{1}{r_n(a)^{\rho+\varepsilon}}<\infty.\]
 \end{theorem}
 \begin{proof}
-    Observe that \[\rho+\varepsilon>\limsup_{r\to\infty}\frac{\log^+T(r,f)}{\log r}\geq\limsup_{r\to\infty}\frac{\log N(r,f)}{\log r}.\]
+    Observe that \[\rho+\varepsilon>\limsup_{r\to\infty}\frac{\logp T(r,f)}{\log r}\geq\limsup_{r\to\infty}\frac{\log N(r,f)}{\log r}.\]
     Since \[N(\ee r,f)-N(r,f)=\int_r^{\ee r}\frac{n(x,f)\ddx}{x}\geq\int_r^{\ee r}\frac{n(r,f)\ddx}{x}=n(r,f),\]
     it follows that \(n\leq N\), and \[\rho+\varepsilon>\limsup_{r\to\infty}\frac{\log n(r,f)}{\log r},\] and hence the conclusion follows for \(a=\infty\) by \cref{thm:nonzerosequencepowersummationconvergence}. Assume \(a\) is finite; observe that \[T(r,f)=T(r,a,f)+\order{1}=T\qty(r,\frac1{f-a})+\order{1}\] by the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}). It follows that \(\rho\) is the order of \(\flatfrac1{(f-a)}\). Applying the previous result to this function, whose poles are precisely at \(\cbraces{r_n(a)}\), the conclusion follows.
 \end{proof}

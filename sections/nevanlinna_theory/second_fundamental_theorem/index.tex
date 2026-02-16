@@ -10,11 +10,11 @@ where the precise formulation allows for a sequence \(\qty{r_n}\) diverging to \
 
 Regarding Nevanlinna's original paper containing the result, mathematician Hermann Weyl has stated in 1943 that ``the appearance of this paper has been one of the few great mathematical events of our century.''
 \begin{theorem}[\textsc{Second Fundamental Theorem of Nevanlinna Theory}]\label{thm:nevanlinnasecondfundamentaltheorem}
-    Let \(f:D(0,R)\to\extcomplex\) be meromorphic and non-constant (\(0<R\leq\infty\)). If \(a_1,\ldots,a_q\) are \(q\geq 2\) distinct finite complex numbers. Then for \(0<\delta\leq\min\cbraces{a_\mu-a_\nu}{1\leq\mu<\nu\leq q}\), \[m(r,f)+\sum_{\nu=1}^q m\qty(r,a_\nu,f)\leq 2T(r,f)-N_1(r,f)+S(r,f),\]
+    Let \(f:D(0,R)\to\extcomplex\) be meromorphic and non-constant (\(0<R\leq\infty\)). Suppose that \(a_1,\ldots,a_q\) are \(q\geq 2\) distinct finite complex numbers. Then for any positive \(\delta\leq\min\cbraces{a_\mu-a_\nu}{1\leq\mu<\nu\leq q}\), \[m(r,f)+\sum_{\nu=1}^q m\qty(r,a_\nu,f)\leq 2T(r,f)-N_1(r,f)+S(r,f),\]
     where \[0<N_1(r)=N(r,0,f')+2N(r,f)-N(r,f')\]
     and
     \begin{equation}
-        S(r,f)=m\qty(r,\frac{f'}f)+m\qty(r,\sum_{\nu=1}^q\frac{f'}{f-a_\nu})+q\log^+\frac{3q}{\delta}+\log 2-\log\abs{f'(0)}\label{eq:nevanlinnasecondfundamentaltheorem_smallerrorterm}
+        S(r,f)=m\qty(r,\frac{f'}f)+m\qty(r,\sum_{\nu=1}^q\frac{f'}{f-a_\nu})+q\logp \frac{3q}{\delta}+\log 2-\log\abs{f'(0)}\label{eq:nevanlinnasecondfundamentaltheorem_smallerrorterm}
     \end{equation}
     (with modifications for the singular cases of \(f(0)=\infty,f'(0)=0\)). %figure out what these are
 \end{theorem}
@@ -23,5 +23,25 @@ Regarding Nevanlinna's original paper containing the result, mathematician Herma
 \end{remark}
 \begin{proof}
     Define \[F(z)=\sum_{\nu=1}^q\frac1{f(z)-a_\nu}.\]
-    For all \(\nu,z\) such that \(\textstyle\abs{f(z)-a_\nu}<\flatfrac{\delta}{3q}\), for any \(\mu\neq\nu\), we have \[\]
+    Fixing \(z\in D(0,R)\), we then assume two cases
+    \begin{enumerate}
+        \item \(\exists\nu\) such that \(\textstyle\abs{f(z)-a_\nu}<\flatfrac{\delta}{(3q)}\).
+
+            For any \(\mu\neq\nu\), we have \[\abs{f(z)-a_\mu}\geq\abs{\abs{a_\nu-a_\mu}-\abs{f(z)-a_\nu}}\geq\delta-\flatfrac{\delta}{(3q)}>\flatfrac{2\delta}{3}.\]
+            It follows that \[\frac1{\abs{f(z)-a_\mu}}<\frac3{2\delta}<\frac1{2q\abs{f(z)-a_\nu}}.\]
+            Then
+            \begin{align*}
+                \abs{F(z)}&\geq\abs{\frac1{f(z)-a_\nu}}-\abs{\sum_{\mu\neq\nu}^q\frac1{f(z)-a_\mu}}\\
+                &\geq\frac1{\abs{f(z)-a_\nu}}-\frac{q-1}{2q\abs{f(z)-a_\nu}}\geq\frac1{2\abs{f(z)-a_\nu}}.
+            \end{align*}
+            Since \[\logp \frac1{\abs{f(z)-a_\nu}}=\logp \qty(2\cdot\frac1{2\abs{f(z)-a_\nu}})\leq\log 2+\log\frac1{2\abs{f(z)-a_\nu}}\] from \cref{prop:lognonnegativepartproperties}, it follows that
+            \[\logp \abs{F(z)}\geq\logp \frac1{2\abs{f(z)-a_\nu}}\geq\logp \frac1{\abs{f(z)-a_\nu}}-\log2.\]
+            Observe that for each \(\mu\neq\nu\), \(\textstyle\logp \abs{f(z)-a_\mu}^{-1}>\logp \flatfrac{3}{2\delta}\),
+            and therefore
+            \begin{align*}
+                \logp \abs{F(z)}&\geq\sum_{\mu=1}^q\frac1{\abs{f(z)-a_\nu}}+\qty(q-1)\logp \frac3{2\delta}-\log2\\
+                &\geq\sum_{\mu=1}^q\frac1{\abs{f(z)-a_\nu}}+q\logp {\frac3\delta}-\log2.
+            \end{align*}
+        \item There exists no such \(\nu\). Then all \(\mu\) have the property that \(\textstyle\abs{f(z)-a_\nu}\geq\flatfrac{\delta}{3q}\).
+    \end{enumerate}
 \end{proof}

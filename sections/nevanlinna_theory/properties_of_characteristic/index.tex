@@ -29,7 +29,7 @@
         &=\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}+
         \begin{cases}
             \log\abs{c}&\qif*{k<0}\\
-            \log^+\abs{c}&\qif*{k=0}\\
+            \logp \abs{c}&\qif*{k=0}\\
             0&\qif*k>0,
         \end{cases}
     \end{align*} where \(c_\theta\) is the first nonzero coefficient of the Laurent expansion of \(f-\ee^{\ii\theta}\).
@@ -43,9 +43,9 @@
     \end{align}
     For any \(w\in\mathbb{C}^*\),
     \begin{equation}
-        \log^+\abs{w}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{w-\ee^{\ii\theta}}\dd{\theta},\label{eq:jensensformulalinearcase}
+        \logp \abs{w}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{w-\ee^{\ii\theta}}\dd{\theta},\label{eq:jensensformulalinearcase}
     \end{equation} which follows directly from Jensen's formula on the function \(z\mapsto w-z\) (by considering when \(w\in\overline{\mathbb{D}}\) and \(\abs{w}>1\)). Letting \(\phi\in[0,2\uppi]\), we have by setting \(w=f\qty(r\ee^{\ii\phi})\),
-    \[\log^+\abs{f\qty(r\ee^{\ii\phi})}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi})-\ee^{\ii\theta}}\dd{\theta}.\]
+    \[\logp \abs{f\qty(r\ee^{\ii\phi})}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi})-\ee^{\ii\theta}}\dd{\theta}.\]
     Hence, from absolute convergence we have
     \begin{align*}
         m\qty(r,f)&=\frac1{2\uppi}\int_0^{2\uppi}\qty[\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\phi})-\ee^{\ii\theta}}\dd{\theta}]\dd{\phi}\\
@@ -55,7 +55,7 @@
     If \(f(0)=\infty\), then subtracting \(\ee^{\ii\theta}\) from \(f\) does not modify the first nonzero coefficient of the Laurent series (\(c=c_\theta\)). Thus, in this case \[T(r,f)=\frac1{2\uppi}\int_0^{2\uppi}N\qty(r,\ee^{\ii\theta},f)\dd{\theta}+\log\abs{c}\]
     Otherwise, \(c_\theta=f(0)-\ee^{\ii\theta}\) unless this quantity is 0 (cancels), which can happen for at most one \(\theta\) value, which is negligible when integrated. Thus by \cref{eq:jensensformulalinearcase}, \[\frac1{2\uppi}\int_0^{2\uppi}\log\abs{c_\theta}\dd{\theta}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f(0)-\ee^{\ii\theta}}\dd{\theta}=
         \begin{cases}
-            \log^+\abs{c}&\qif* f(0)\neq 0\\
+            \logp \abs{c}&\qif* f(0)\neq 0\\
             0&\text{otherwise}.
     \end{cases}\qedhere\]
 \end{proof}
@@ -74,15 +74,15 @@
 \begin{theorem}[\textsc{First Fundamental Theorem of Nevanlinna Theory}]\label{thm:nevanlinnafirstfundamentaltheorem}
     Let \(f\) be (non-constant) meromorphic on \(D(0,R)\) where \(0<r\leq\infty\). Then for any \(a\in\mathbb{C}\),
     \[T(r,a,f)=T(r,f)-\log\abs{c}+\varepsilon(r,a,f),\]
-    where \(\abs{\varepsilon(r,a,f)}\leq\log^+\abs{a}+\log 2\) for \(0<r<R\) and \(c\) is the first nonzero coefficient of the innermost Laurent series expansion of \(f(z)-a\) about the origin.
+    where \(\abs{\varepsilon(r,a,f)}\leq\logp \abs{a}+\log 2\) for \(0<r<R\) and \(c\) is the first nonzero coefficient of the innermost Laurent series expansion of \(f(z)-a\) about the origin.
 \end{theorem}
 \begin{proof}
-    Since for \(z\in\partial D(0,r)\), by the properties of \(\log^+\) as in \cref{prop:lognonnegativepartproperties},
-    \[\log^+\abs{f(z)-a}\leq\log^+\qty(\abs{f(z)}+\abs{a})\leq\log 2+\log^+\abs{f(z)}+\log^+\abs{a}.\]
-    Integrating over \(\partial D(0,r)\) implies \[m(r,f-a)\leq\log 2+m(r,f)+\log^+\abs{a}.\]
-    From \[\log^+\abs{f(z)-a+a}\leq\log^+\qty(\abs{f(z)-a}+\abs{a})\leq\log 2+\log^+\abs{f(z)-a}+\log^+\abs{a},\] we obtain
-    \[m(r,f)\leq\log 2+m(r,f-a)+\log^+\abs{a}.\]
-    Letting \(\varepsilon(r,a,f)=m(r,f-a)-m(r,f)\), the two proximity-related inequalities give \[\abs{\varepsilon(r,a,f)}\leq\log 2+\log^+\abs{a}.\]
+    Since for \(z\in\partial D(0,r)\), by the properties of \(\logp \) as in \cref{prop:lognonnegativepartproperties},
+    \[\logp \abs{f(z)-a}\leq\logp \qty(\abs{f(z)}+\abs{a})\leq\log 2+\logp \abs{f(z)}+\logp \abs{a}.\]
+    Integrating over \(\partial D(0,r)\) implies \[m(r,f-a)\leq\log 2+m(r,f)+\logp \abs{a}.\]
+    From \[\logp \abs{f(z)-a+a}\leq\logp \qty(\abs{f(z)-a}+\abs{a})\leq\log 2+\logp \abs{f(z)-a}+\logp \abs{a},\] we obtain
+    \[m(r,f)\leq\log 2+m(r,f-a)+\logp \abs{a}.\]
+    Letting \(\varepsilon(r,a,f)=m(r,f-a)-m(r,f)\), the two proximity-related inequalities give \[\abs{\varepsilon(r,a,f)}\leq\log 2+\logp \abs{a}.\]
     Then by \cref{prop:nevanlinnafirsttheorematzero}, and the fact that the poles of \(f\) match those of \(f-a\) (more importantly, \(N(r,f-a)=N(r,f)\)),
     \begin{align*}
         T\qty(r,0,f-a)&=N(r,0,f-a)+m(r,0,f-a)\\
@@ -94,7 +94,7 @@
 \end{proof}
 For \(R=\infty\), we have \[N(r,a,f)+m(r,a,f)=T(r,f)+\order{1},\] which shows that \(T\) is essentially independent of the choice of \(a\), except for a bounded \(\order{1}\) term. Thus, this motivates why \(T\) is \textit{characteristic} of \(f\).
 
-As we have seen before, it is often pedantic and somewhat annoying to account for cases where \(f(0)\) is either zero or infinity, which is a minor grievance in Nevanlinna theory. Expositions in~\cite{hayman1964meromorphic} and~\cite{holland1973introduction} tend to leave out this tedious treatment. However, here we will make this distinction whenever necessary for completeness.
+As we have seen before, it is often pedantic and somewhat annoying to account for cases where \(f(0)\) is either zero or infinity, which is a minor grievance in Nevanlinna theory. Expositions from~\cite{hayman1964meromorphic} and~\cite{holland1973introduction} tend to leave out this tedious treatment. However, here we will make this distinction whenever necessary for completeness.
 \begin{corollary}
     Let \(f\) be (non-constant) meromorphic on \(D(0,R)\). Then for \(0<r\leq\infty\),
     \[\frac1{2\uppi}\int_0^{2\uppi}m\qty(r,\ee^{\ii\theta},f)\dd{\theta}\leq\log 2.\]
@@ -125,14 +125,14 @@ As we have seen before, it is often pedantic and somewhat annoying to account fo
 \end{proposition}
 \begin{proof}
     Since \[N(r,fg),N(r,f+g)\leq N(r,f)+N(r,g),\]
-    and by \[\log^+\abs{fg}\leq\log^+\abs{f}+\log^+\abs{g},\qquad\log^+\abs{f+g}\leq\log 2+\log^+\abs{f}+\log^+\abs{g},\]
-    it follows that \[m(r,fg)\leq m(r,f)+m(r,g),\quad m(r,f+g)\leq m(r,f)+m(r,g)+\order{1},\] and the conclusions of \cref{itm:nevanlinnacharacteristicproperties_prodsubadd,itm:nevanlinnacharacteristicproperties_subadd}. \Cref{itm:nevanlinnacharacteristicproperties_inversion} is a corollary of the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}). Lastly, because a pole of \(f^n\) has order \(n\) times of that of \(f\), it follows that \(N\qty(r,f^n)=nN(r,f)\). If \(\abs{f}\geq1\), it follows that \(\log^+\abs{f^n}=n\log^+\abs{f}\) exactly. If \(\abs{f}<1\), \(\log^+\abs{f^n}=n\log^+\abs{f}=0\). Hence, \(m\qty(r,f^n)=nm\qty(r,f)\).
+    and by \[\logp \abs{fg}\leq\logp \abs{f}+\logp \abs{g},\qquad\logp \abs{f+g}\leq\log 2+\logp \abs{f}+\logp \abs{g},\]
+    it follows that \[m(r,fg)\leq m(r,f)+m(r,g),\quad m(r,f+g)\leq m(r,f)+m(r,g)+\order{1},\] and the conclusions of \cref{itm:nevanlinnacharacteristicproperties_prodsubadd,itm:nevanlinnacharacteristicproperties_subadd}. \Cref{itm:nevanlinnacharacteristicproperties_inversion} is a corollary of the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}). Lastly, because a pole of \(f^n\) has order \(n\) times of that of \(f\), it follows that \(N\qty(r,f^n)=nN(r,f)\). If \(\abs{f}\geq1\), it follows that \(\logp \abs{f^n}=n\logp \abs{f}\) exactly. If \(\abs{f}<1\), \(\logp \abs{f^n}=n\logp \abs{f}=0\). Hence, \(m\qty(r,f^n)=nm\qty(r,f)\).
 
     Adding the two quantities \(N\) and \(m\) together gives \cref{itm:nevanlinnacharacteristicproperties_power}.
 \end{proof}
 We now provide some classical examples of the Nevanlinna characteristic:
 \begin{enumerate}
-    \item Let \[f(z)=c\frac{z^p+a_1z^{p-1}+\cdots+a_p}{z^q+b_1z^{q-1}+\cdots+b_q},\qquad c\neq0\] be an arbitrary rational function in reduced form. If \(p>q\), then for sufficiently large \(r\), \(f\to\infty\) in every direction. This implies \(\log^+\abs{\tfrac1{f(z)-a}}=0\) for any complex \(a\) and sufficiently large \(r\) (\(\abs{z}>r\)). This implies \(m(r,a,f)=0\). Additionally, the equation \(f(z)=a\) has \(p\) complex solutions by the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}). Thus, for sufficiently large \(r\) (\(r>r'\)), any \(\abs{z}>r\) has the property that \(n(r,a,f)=n(\abs{z},a,f)\),
+    \item Let \[f(z)=c\frac{z^p+a_1z^{p-1}+\cdots+a_p}{z^q+b_1z^{q-1}+\cdots+b_q},\qquad c\neq0\] be an arbitrary rational function in reduced form. If \(p>q\), then for sufficiently large \(r\), \(f\to\infty\) in every direction. This implies \(\logp \abs{\tfrac1{f(z)-a}}=0\) for any complex \(a\) and sufficiently large \(r\) (\(\abs{z}>r\)). This implies \(m(r,a,f)=0\). Additionally, the equation \(f(z)=a\) has \(p\) complex solutions by the Fundamental Theorem of Algebra (\cref{thm:fundamentaltheoremofalgebra}). Thus, for sufficiently large \(r\) (\(r>r'\)), any \(\abs{z}>r\) has the property that \(n(r,a,f)=n(\abs{z},a,f)\),
     \begin{align*}
         N(r,a,f)&=\qty(\int_0^{r'}+\int_{r'}^r)\frac{n(x,a,f)-n(0,a,f)}{x}+n(0,a,f)\log r\\
         &=\order{1}+\qty(n\qty(r',a,f)-n(0,a,f))\qty(\log r-\log{r'})+n(0,a,f)\log r\\
@@ -145,7 +145,7 @@ We now provide some classical examples of the Nevanlinna characteristic:
     
     Unless \(f(\infty)=a\), the proximity function vanishes for sufficiently large \(r\). In this case, let \(\alpha\) be the multiplicity at which \(f\) attains \(a\) at \(z=\infty\). If \(a\) is finite, 
     \begin{gather*}
-        m\qty(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{\frac1{\paren{r\ee^{\ii\theta}}^{-\alpha}\order{1}}}\dd{\theta}=\alpha\log r+\order{1}\\
+        m\qty(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\logp \abs{\frac1{\paren{r\ee^{\ii\theta}}^{-\alpha}\order{1}}}\dd{\theta}=\alpha\log r+\order{1}\\
         N(r,a,f)=\qty(d-\alpha)\log r+\order{1}.
     \end{gather*}
     If \(f\) has a pole of order \(\alpha\) at \(\infty\), we have likewise that
@@ -153,7 +153,7 @@ We now provide some classical examples of the Nevanlinna characteristic:
         m\qty(r,a,f)=\alpha\log r+\order{1},\qquad N(r,a,f)=\qty(d-\alpha)\log r+\order{1}.
     \end{gather*}
     \item Consider \[\exp(z)=\exp\qty(r\cos\theta+\ii r\sin\theta),\qquad z=r\ee^{\ii\theta}.\]
-    By its entireness, \(N(r,f)=0\) for any \(r>0\), and the proximity is given by \[m(r,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{\ee^{r\ee^{\ii\theta}}}\dd{\theta}=\frac1{2\uppi}\qty(\int_0^{\frac{\uppi}2}+\int_{\frac{3\uppi}2}^{2\uppi})\qty(r\cos\theta)^+\dd{\theta}=\frac{r}{\uppi}.\]
+    By its entireness, \(N(r,f)=0\) for any \(r>0\), and the proximity is given by \[m(r,f)=\frac1{2\uppi}\int_0^{2\uppi}\logp \abs{\ee^{r\ee^{\ii\theta}}}\dd{\theta}=\frac1{2\uppi}\qty(\int_0^{\frac{\uppi}2}+\int_{\frac{3\uppi}2}^{2\uppi})\qty(r\cos\theta)^+\dd{\theta}=\frac{r}{\uppi}.\]
     Therefore, \[T(r)=m(r,f)+N(r,f)=\frac{r}{\uppi}.\]
     Moreover, \(m(r,0,f)=\tfrac{r}{\uppi}\) and \(N(r,0,f)=0\), whereas for \(a\in\mathbb{C}^*\), the solutions to \(e^z=a\) are in the form of \(z_k=z_0+2k\uppi\ii\), where \(z_0=x_0+\ii y_0\). The condition \(\abs{z_k}\leq r\) is equivalent to \[\abs{y_0+2k\uppi}^2+\abs{x_0}^2\leq r^2\implies\abs{y_0+2k\uppi}\leq r+\order{1}.\]
     It follows that \[n(r,a,f)=\frac{r}{\uppi}+\order{1}\implies N(r,a,f)=\frac{r}{\uppi}+\order{1},\quad m(r,a,f)=\order{1}.\]

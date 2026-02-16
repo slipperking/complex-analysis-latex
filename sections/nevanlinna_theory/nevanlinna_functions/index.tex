@@ -17,26 +17,26 @@ Then \cref{eq:nevanlinnacountingjensensformulaexposition1} is simply
 \begin{equation}
     N(r,0,f)-N(r,\infty,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}-\log\abs{c}.\label{eq:nevanlinnacountingjensensformulaexposition2}
 \end{equation}
-Define the \textit{nonnegative part of the logarithm}, denoted \(\log^+(x)\), to be \[\log^+(x)=\max\qty{\log(x),0}.\]
+Define the \textit{nonnegative part of the logarithm}, denoted \(\logp (x)\), to be \[\logp (x)=\max\qty{\log(x),0}.\]
 \begin{proposition}\label{prop:lognonnegativepartproperties}
     The following easily verifiable properties hold:
     \begin{enumerate}
-        \item \(\log^+ x\geq\log x\) for \(x>0\),
-        \item \(\log^+ x\leq\log^+ y\) for \(x\leq y\) (nondecreasing),
-        \item \(\log x=\log^+x-\log^+\tfrac1x\) for \(x>0\),
-        \item \(\textstyle\log^+\qty(\prod_k x_k)\leq\sum_k\log^+x_k\) for (finitely many) positive \(x_k\),\label{itm:lognonnegativepartproperties_multiplicativesubadditivity}
-        \item \(\textstyle\log^+\qty(\sum_{k=1}^n x_k)\leq\log n+\sum_{k=1}^n\log^+x_k\) for (finitely many) positive \(x_k\).\label{itm:lognonnegativepartproperties_weaksubadditivity}
+        \item \(\logp  x\geq\log x\) for \(x>0\),
+        \item \(\logp  x\leq\logp  y\) for \(x\leq y\) (nondecreasing),
+        \item \(\log x=\logp x-\logp \tfrac1x\) for \(x>0\),
+        \item \(\textstyle\logp \qty(\prod_k x_k)\leq\sum_k\logp x_k\) for (finitely many) positive \(x_k\),\label{itm:lognonnegativepartproperties_multiplicativesubadditivity}
+        \item \(\textstyle\logp \qty(\sum_{k=1}^n x_k)\leq\log n+\sum_{k=1}^n\logp x_k\) for (finitely many) positive \(x_k\).\label{itm:lognonnegativepartproperties_weaksubadditivity}
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    The first four properties are trivial. We now prove \cref{itm:lognonnegativepartproperties_weaksubadditivity}. Observing that \(x_k\leq\ee^{\log^+ x_k}\), it follows that \[\log^+\sum_{k=1}^n x_k\leq\log^+\sum_{k=1}^n\ee^{\log^+ x_k}\mathmakebox[\widthof{\(\quad\)}][c]{\overset{\text{\raisebox{0.7\baselineskip}{(\cref{itm:lognonnegativepartproperties_multiplicativesubadditivity})}}}{\leq}}\log^+n+\log^+\qty(\ee^{\max_{k}\log^+x_k})=\log n+\max_k\log^+x_k.\] The last step uses the fact that \(\log^+\) is simply \(\log\) when the argument \(\geq 1\).
+    The first four properties are trivial. We now prove \cref{itm:lognonnegativepartproperties_weaksubadditivity}. Observing that \(x_k\leq\ee^{\logp  x_k}\), it follows that \[\logp \sum_{k=1}^n x_k\leq\logp \sum_{k=1}^n\ee^{\logp  x_k}\mathmakebox[\widthof{\(\quad\)}][c]{\overset{\text{\raisebox{0.7\baselineskip}{(\cref{itm:lognonnegativepartproperties_multiplicativesubadditivity})}}}{\leq}}\logp n+\logp \qty(\ee^{\max_{k}\logp x_k})=\log n+\max_k\logp x_k.\] The last step uses the fact that \(\logp \) is simply \(\log\) when the argument \(\geq 1\).
 \end{proof}
 \begin{definition}
-    For \(r>0\), \(a\in\mathbb{C}\), define the \textit{Nevanlinna proximity function} by \[m(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{\frac1{f\qty(r\ee^{\ii\theta})-a}}\dd{\theta}\] and \[m(r,f)=m(r,\infty,f)=\frac1{2\uppi}\int_0^{2\uppi}\log^+\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\] in the infinite case. Observe that \(m(r,a,f)=m\qty(r,\flatfrac1{(f-a)})\).
+    For \(r>0\), \(a\in\mathbb{C}\), define the \textit{Nevanlinna proximity function} by \[m(r,a,f)=\frac1{2\uppi}\int_0^{2\uppi}\logp \abs{\frac1{f\qty(r\ee^{\ii\theta})-a}}\dd{\theta}\] and \[m(r,f)=m(r,\infty,f)=\frac1{2\uppi}\int_0^{2\uppi}\logp \abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}\] in the infinite case. Observe that \(m(r,a,f)=m\qty(r,\flatfrac1{(f-a)})\).
 \end{definition}
 Since
 \begin{gather*}
-    \log^+\abs{f\qty(r\ee^{\ii\theta})}-\log^+\abs{\frac1{f\qty(r\ee^{\ii\theta})}}=\log\abs{f\qty(r\ee^{\ii\theta})},
+    \logp \abs{f\qty(r\ee^{\ii\theta})}-\logp \abs{\frac1{f\qty(r\ee^{\ii\theta})}}=\log\abs{f\qty(r\ee^{\ii\theta})},
 \end{gather*}
 this implies \[m(r,\infty,f)-m(r,0,f)=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}.\]
 \Cref{eq:nevanlinnacountingjensensformulaexposition2} then can be written as
