@@ -6,6 +6,22 @@ Whereas the First Fundamental Theorem gives the relation between the general siz
     &\leq\varlimsup_{r\to\infty}\frac{N\qty(r,a,f)}{T\qty(r,f)}+\varlimsup_{r\to\infty}\frac{N\qty(r,b,f)}{T\qty(r,f)}+\varlimsup_{r\to\infty}\frac{N\qty(r,c,f)}{T(r,f)}+\varlimsup_{r_n\to\infty}\frac{S\qty(r_n,f)}{T\qty(r_n,f)}\\
     &=\varlimsup_{r\to\infty}\frac{N(r,c,f)}{T(r,f)},
 \end{align*}
-where the precise formulation allows for a sequence \(\qty{r_n}\) diverging to \(\infty\) to be chosen so that \(S(r,f)=o\qty(T(r,f))\) for \(r\to\infty\) in this sequence. This implies \(\textstyle\limsup_{r\to\infty}\frac{N(r,c,f)}{T(r,f)}=1\). This in turn then proves Picard's theorems (see \cref{sec:deficiencyrelation}).
+where the precise formulation allows for a sequence \(\qty{r_n}\) diverging to \(\infty\) to be chosen so that \(S(r,f)=o\qty(T(r,f))\) for \(r\to\infty\) in this sequence. This implies \(\textstyle\limsup_{r\to\infty}\frac{N(r,c,f)}{T(r,f)}=1\). This in turn then proves Picard's theorems (see \cref{sec:deficiencyrelation}). As we shall later see, the conclusions of the theorem have even further extensibility.
 
 Regarding Nevanlinna's original paper containing the result, mathematician Hermann Weyl has stated in 1943 that ``the appearance of this paper has been one of the few great mathematical events of our century.''
+\begin{theorem}[\textsc{Second Fundamental Theorem of Nevanlinna Theory}]\label{thm:nevanlinnasecondfundamentaltheorem}
+    Let \(f:D(0,R)\to\extcomplex\) be meromorphic and non-constant (\(0<R\leq\infty\)). If \(a_1,\ldots,a_q\) are \(q\geq 2\) distinct finite complex numbers. Then for \(0<\delta\leq\min\cbraces{a_\mu-a_\nu}{1\leq\mu<\nu\leq q}\), \[m(r,f)+\sum_{\nu=1}^q m\qty(r,a_\nu,f)\leq 2T(r,f)-N_1(r,f)+S(r,f),\]
+    where \[0<N_1(r)=N(r,0,f')+2N(r,f)-N(r,f')\]
+    and
+    \begin{equation}
+        S(r,f)=m\qty(r,\frac{f'}f)+m\qty(r,\sum_{\nu=1}^q\frac{f'}{f-a_\nu})+q\log^+\frac{3q}{\delta}+\log 2-\log\abs{f'(0)}\label{eq:nevanlinnasecondfundamentaltheorem_smallerrorterm}
+    \end{equation}
+    (with modifications for the singular cases of \(f(0)=\infty,f'(0)=0\)). %figure out what these are
+\end{theorem}
+\begin{remark}
+    For interpretive purposes, \(S(r,f)\) will serve the purpose of a generally unimportant small error term. The utility of this theorem is not realized until more useful conclusions are drawn on its estimation.
+\end{remark}
+\begin{proof}
+    Define \[F(z)=\sum_{\nu=1}^q\frac1{f(z)-a_\nu}.\]
+    For all \(\nu,z\) such that \(\textstyle\abs{f(z)-a_\nu}<\flatfrac{\delta}{3q}\), for any \(\mu\neq\nu\), we have \[\]
+\end{proof}
