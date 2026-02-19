@@ -93,12 +93,12 @@ Assume \(F(0)\neq\infty\), or when \(f(0)\neq a\), Applying \cref{eq:ahlforsshim
 \end{equation}
 If \(a\neq\infty\) and \(f(z)=a+c_kz^k+c_{k+1}z^{k+1}+\cdots\) (\(k\geq1\), \(c=c_k\)), since \(F(z)=\tfrac{1+\abs{a}^2}{cz^k}+\order{\tfrac1{z^{k-1}}}\), applying \cref{eq:ahlforsshimizuderivation_singularcase} on \(F\) yields
 \begin{equation}
-    T_0(r,F)=N(r,F)+m_0(r,F)-\log\abs{\frac{1+\abs{a}^2}{c}}.\label{eq:ahlforsshimizufirstfundamentaltheorem_singularcase}
+    T_0(r,F)=N(r,F)+m_0(r,F)-\log\abs{\tfrac{1+\abs{a}^2}{c}}.\label{eq:ahlforsshimizufirstfundamentaltheorem_singularcase}
 \end{equation}
 \begin{theorem}[First Fundamental Theorem in Ahlfors--Shimizu Form]\label{thm:nevanlinnafirstfundamentaltheoremahlforsshimizu}
     Let \(f\) be meromorphic on \(D(0,R)\) (where \(0<R\leq\infty\)). For \(0<r<R\) and \(a\in\extcomplex\) such that \(f(0)\neq a\),
     \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-m_0(0,a,f).\]
-    If \(f(0)=a\neq\infty\), then \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-\log\abs{\frac{1+\abs{a}^2}{c}},\] where \(c\) is the first nonzero coefficient of the Laurent expansion of \(f-a\). If \(f(0)=a=\infty\), then \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-\log\abs{c}\] where \(c\) is the first non-zero coefficient of the Laurent series of \(f\).
+    If \(f(0)=a\neq\infty\), then \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-\log\abs{\tfrac{1+\abs{a}^2}{c}},\] where \(c\) is the first nonzero coefficient of the Laurent expansion of \(f-a\). If \(f(0)=a=\infty\), then \[T_0(r,f)=N(r,a,f)+m_0(r,a,f)-\log\abs{c}\] where \(c\) is the first non-zero coefficient of the Laurent series of \(f\).
 \end{theorem}
 \begin{proof}
     The first two cases follow from substituting \cref{eq:ahlforsshimizuriemannsphererotationcountingfunction,eq:ahlforsshimizuproximity} into \cref{eq:ahlforsshimizufirstfundamentaltheorem_regularcase,eq:ahlforsshimizufirstfundamentaltheorem_singularcase}.
@@ -109,14 +109,14 @@ If \(a\neq\infty\) and \(f(z)=a+c_kz^k+c_{k+1}z^{k+1}+\cdots\) (\(k\geq1\), \(c=
     Let \(f:D(0,R)\to\extcomplex\) be meromorphic. Then for each \(0<r<R\), the Nevanlinna characteristic \(T\) and the Ahlfors--Shimizu characteristic \(T_0\) differ by a term that is uniformly bounded in \(r\).
 \end{theorem}
 \begin{proof}
-    Observe that for \(z\in\partial D(0,r)\), \[\logp \abs{f(z)}\leq\log\sqrt{1+\abs{f(z)}^2}=\frac12\log\qty(1+\abs{f(z)}^2).\]
-    Since \(1+x^2\leq2\max\qty{1,x^2}\) for any real \(x\), \[\frac12\log\qty(1+\abs{f(z)}^2)\leq\frac12\log2+\logp \abs{f(z)}.\] Integrating and adding \(N\), we have \[T(r,f)\leq m_0(r,f)+N(r,f)\leq\frac12\log 2+T(r,f).\]
+    Observe that for \(z\in\partial D(0,r)\), \[\logp \abs{f(z)}\leq\log\sqrt{1+\abs{f(z)}^2}=\tfrac12\log\qty(1+\abs{f(z)}^2).\]
+    Since \(1+x^2\leq2\max\qty{1,x^2}\) for any real \(x\), \[\tfrac12\log\qty(1+\abs{f(z)}^2)\leq\tfrac12\log2+\logp \abs{f(z)}.\] Integrating and adding \(N\), we have \[T(r,f)\leq m_0(r,f)+N(r,f)\leq\tfrac12\log 2+T(r,f).\]
     By the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheoremahlforsshimizu}) with \(a=\infty\), let \[C=
         \begin{cases}
             m_0(0,a,f)&\qif*f(0)\neq\infty\\
             \log\abs{c}
     \end{cases},\] where \(c\) is the first nonzero coefficient of the Laurent expansion of \(f\).
-    It follows that \[T(r,f)-C\leq T_0(r,f)\leq T(r,f)+\frac12\log2-C,\] where \(C\) does not depend on \(R\).
+    It follows that \[T(r,f)-C\leq T_0(r,f)\leq T(r,f)+\tfrac12\log2-C,\] where \(C\) does not depend on \(R\).
 \end{proof}
 Let \(S\) be the Riemann sphere but centered at \(\qty(0,0,\tfrac12)\), diameter 1, with a stereographic projection with center \((0,0,1)\). Letting \[\symbf{\sigma}\qty(w)=\frac1{\abs{w}^2+1}\qty(\Re{w},\Im{w},\abs{w}^2),\]
 for two points \(w_1,w_2\in\extcomplex\), their spherical points are \(\symbf{\sigma}\qty(w_1),\symbf{\sigma}\qty(w_2)\). The Euclidean distance between the two points on the sphere is verifiable (after manual simplification) to be \(k\qty(w_1,w_2)\). Thus, \(k\) is the \textit{chordal} distance function, and is thus geometrically invariant under rotations of the sphere. The mapping \(W\) of \(w\) is precisely such a transformation: geometrically it rotates points on the Riemann sphere. Geometrically, the invariance of \(m\) is now clear.

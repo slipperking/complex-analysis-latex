@@ -7,7 +7,7 @@
     Because the exponential is periodic every \(2\uppi\ii\), we may assume that \(E'_k\) is restricted to \(-\uppi<\vartheta<\uppi\) instead of \(-\uppi-\psi<\vartheta<\uppi-\psi\). The expression \(\abs{\rho-r\ee^{\ii\vartheta}}=kr\) gives at most two symmetric solutions \(\pm\vartheta_0\) (let \(\vartheta_0\geq0\)).
 
     Evidently, for \(\vartheta>\flatfrac{\uppi}2\) or \(\vartheta<-\flatfrac{\uppi}2\), \(\abs{\rho-r\ee^{\ii\vartheta}}\geq r\geq kr\), so it follows that \(\vartheta_0\leq\flatfrac{\uppi}2\), and furthermore, all \(-\vartheta_0<\vartheta<\vartheta_0\) lie in \(E'_k\) by the geometry of a circle. Since \[\abs{\rho-r\ee^{\ii\vartheta}}\geq\abs{\Im\qty(\rho-r\ee^{\ii\vartheta})}=r\abs{\sin\vartheta},\]
-    assuming that \(E'_k\neq\emptyset\), it follows that 
+    assuming that \(E'_k\neq\emptyset\), it follows that
     \begin{align*}
         I&=2\int_0^{\vartheta_0}\log\abs{\frac{r}{\rho-r\ee^{\ii\vartheta}}}\dd{\vartheta}\leq2\int_0^{\vartheta_0}\log\csc\vartheta\dd{\vartheta}\leq2\int_0^{\vartheta_0}\log\tfrac{\uppi}{2\vartheta}\dd{\vartheta}\\
         &=2\vartheta_0\log\tfrac{\uppi}2-2\mathop{\mathmakebox[\widthof{\(\int\)}][l]{\int_0^{\vartheta_0}}}\log\vartheta\dd{\vartheta}=2\vartheta_0\log\tfrac{\uppi}2-2\qty(\vartheta_0\log\vartheta_0-\vartheta_0)=2\vartheta_0\qty(\log\tfrac{\uppi}{2\vartheta_0}+1).
@@ -16,5 +16,14 @@
     Moreover, \(\vartheta\mapsto2\vartheta\qty(\log\tfrac{\uppi}{2\vartheta}+1)\) is an increasing function of \(0\leq\vartheta\leq\flatfrac{\uppi}2\); thus we may replace all instances of \(\vartheta_0\) with \(\flatfrac{\uppi k}2\), proving the lemma.
 \end{proof}
 \begin{lemma}
-    Let \(\qty{z_\nu}_{\nu=1}^n\) be \(n\geq1\) (possibly indistinct) complex numbers. Define \(\textstyle\delta(z)=\min\cbraces{\abs{z-z_\nu}}{\nu\in\mathbb{N}_{\leq n}}\). It follows that \[\frac1{2\uppi}\int_0^{2\uppi}\logp\frac{r}{\delta\qty(r\ee^{\ii\theta})}\dd{\theta}\leq2\log n+\tfrac12\]
+    Let \(\qty{z_\nu}_{\nu=1}^n\) be \(n\geq1\) (possibly indistinct) complex numbers. Define \(\textstyle\delta(z)=\min\cbraces{\abs{z-z_\nu}}{\nu\in\mathbb{N}_{\leq n}}\). It follows that for any \(r>0\), \[\frac1{2\uppi}\int_0^{2\uppi}\logp\frac{r}{\delta\qty(r\ee^{\ii\theta})}\dd{\theta}\leq2\log n+\tfrac12\]
 \end{lemma}
+\begin{proof}
+    Define the set \[E_\nu=\cbraces{\theta\in(-\uppi,\uppi)}{\abs{z_\nu-r\ee^{\ii\theta}}<\tfrac{r}{n}}\]
+    and let \(E=\textstyle\bigcup_{\nu=1}^n E_\nu\). For \(\theta\in E\), \(\delta\qty(r\ee^{\ii\theta})<\flatfrac{r}{n}\), implying that \(\frac{r}{\delta\qty(r\ee^{\ii\theta})}>n\). Define \[\log_0x=\begin{cases}
+        \log x&x\geq n,\\
+        0&\text{otherwise},
+    \end{cases},\]
+    so that for \(\theta\) in the prescribed range, we have \[\]
+    Since \(0<\flatfrac1n\leq1\),
+\end{proof}
