@@ -42,40 +42,40 @@ Regarding Nevanlinna's original paper containing the result, mathematician Herma
                 \logp \abs{F(z)}&\geq\sum_{\mu=1}^q\logp\frac1{\abs{f(z)-a_\mu}}-\qty(q-1)\logp \frac3{2\delta}-\log2\nonumber\\
                 &\geq\sum_{\mu=1}^q\logp\frac1{\abs{f(z)-a_\mu}}-q\logp {\frac{3q}\delta}-\log2.\label{eq:nevanlinnasecondfundamentaltheorem_logpFlowerbound}
             \end{align}
-        \item There exists no such \(\nu\). Then all \(\nu\) have the property that \(\textstyle\abs{f(z)-a_\nu}\geq\flatfrac{\delta}{3q}\). It follows that \[\frac1{\abs{f(z)-a_\nu}}\leq\frac{3q}\delta\implies\sum_{\mu=1}^q\logp\frac1{\abs{f(z)-a_\mu}}-q\logp {\frac{3q}\delta}\leq0\leq \log^+\abs{F(z)}.\]
+        \item There exists no such \(\nu\). Then all \(\nu\) have the property that \(\textstyle\abs{f(z)-a_\nu}\geq\flatfrac{\delta}{3q}\). It follows that \[\frac1{\abs{f(z)-a_\nu}}\leq\frac{3q}\delta\implies\sum_{\mu=1}^q\logp\frac1{\abs{f(z)-a_\mu}}-q\logp {\frac{3q}\delta}\leq0\leq \logp\abs{F(z)}.\]
             Then \cref{eq:nevanlinnasecondfundamentaltheorem_logpFlowerbound} holds for this case trivially.
     \end{enumerate}
     Integrating the relation \cref{eq:nevanlinnasecondfundamentaltheorem_logpFlowerbound} (which holds in all cases) gives that
     \begin{equation}
-        m(r,F)\geq\sum_{\nu=1}^qm\qty(r,a_\nu,f)-q\log^+\frac{3q}\delta-\log 2.\label{eq:nevanlinnasecondfundamentaltheorem_proximityFlowerbound}
+        m(r,F)\geq\sum_{\nu=1}^qm\qty(r,a_\nu,f)-q\logp\tfrac{3q}\delta-\log 2.\label{eq:nevanlinnasecondfundamentaltheorem_proximityFlowerbound}
     \end{equation}
-    Observe that \[m(r,F)=m\qty(r,\qty(\frac1{f}\frac{f}{f'}f'F))\leq m\qty(r,\frac1f)+m\qty(r,\frac{f}{f'})+m(r,f'F).\]
+    Observe that \[m(r,F)=m\qty(r,\qty(\tfrac1{f}\tfrac{f}{f'}f'F))\leq m\qty(r,\tfrac1f)+m\qty(r,\tfrac{f}{f'})+m(r,f'F).\]
     Let \(c=c_k\) be the first nonzero coefficient of the Laurent expansion for \(f\). It follows that \[f(z)=\sum_{j=k}^\infty c_jz^j=cz^k\qty(1+\order{z}),\quad f'(z)=\sum_{j=k}^\infty jc_jz^{j-1}=kcz^{k-1}\qty(1+\order{z}),\]
     so the first nonzero coefficient of the Laurent expansion of \(f'\) is \(c'=kc\) and that of \(\flatfrac{f}{f'}\) is \(c''=\flatfrac{c}{c'}=\flatfrac{1}{k}\). It follows from
     \begin{gather*}
-        T(r,f)=T\qty(r,\frac1f)+\log\abs{c}\implies m\qty(r,\frac1f)=T(r,f)-N\qty(r,\frac1f)-\log\abs{c},\\
-        m\qty(r,\frac{f}{f'})=T\qty(r,\frac{f'}{f})-N\qty(r,\frac{f}{f'})+\log\abs{c''}
+        T(r,f)=T\qty(r,\tfrac1f)+\log\abs{c}\implies m\qty(r,\tfrac1f)=T(r,f)-N\qty(r,\tfrac1f)-\log\abs{c},\\
+        m\qty(r,\tfrac{f}{f'})=T\qty(r,\tfrac{f'}{f})-N\qty(r,\tfrac{f}{f'})+\log\abs{c''}
     \end{gather*}
-    that \[m(r,F)\leq T(r,f)-N\qty(r,\frac1f)-\log\abs{c}+T\qty(r,\frac{f'}{f})-N\qty(r,\frac{f}{f'})+\log\abs{c''}+m(r,f'F).\]
+    that \[m(r,F)\leq T(r,f)-N\qty(r,\tfrac1f)-\log\abs{c}+T\qty(r,\tfrac{f'}{f})-N\qty(r,\tfrac{f}{f'})+\log\abs{c''}+m(r,f'F).\]
     Combining this with \cref{eq:nevanlinnasecondfundamentaltheorem_proximityFlowerbound} gives
     \begin{align*}
-        m(r,f)+\sum_{\nu=1}^q m\qty(r,a_\nu,f)&\leq m(r,f)+m(r,F)+q\logp\frac{3q}\delta+\log 2\\
-        &\leq T(r,f)-N(r,f)+q\logp\frac{3q}\delta+\log 2\\
-        &\quad+T(r,f)-N\qty(r,\frac1f)-\log\abs{c}+m\qty(r,\frac{f'}{f})\\
-        &\qquad+N\qty(r,\frac{f'}{f})-N\qty(r,\frac{f}{f'})+\log\abs{c''}+m(r,f'F)
+        m(r,f)+\sum_{\nu=1}^q m\qty(r,a_\nu,f)&\leq m(r,f)+m(r,F)+q\logp\tfrac{3q}\delta+\log 2\\
+        &\leq T(r,f)-N(r,f)+q\logp\tfrac{3q}\delta+\log 2\\
+        &\quad+T(r,f)-N\qty(r,\tfrac1f)-\log\abs{c}+m\qty(r,\tfrac{f'}{f})\\
+        &\qquad+N\qty(r,\tfrac{f'}{f})-N\qty(r,\tfrac{f}{f'})+\log\abs{c''}+m(r,f'F)
     \end{align*}
     Using \cref{eq:nevanlinnacountingjensensformulaexposition2} three times gives that
     \begin{align*}
-        N\qty(r,\frac{f'}f)-N\qty(r,\frac{f}{f'})&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{\frac{f\qty(r\ee^{\ii\theta})}{f'\qty(r\ee^{\ii\theta})}}\dd{\theta}-\log\abs{c''}\\
+        N\qty(r,\tfrac{f'}f)-N\qty(r,\tfrac{f}{f'})&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{\tfrac{f\qty(r\ee^{\ii\theta})}{f'\qty(r\ee^{\ii\theta})}}\dd{\theta}-\log\abs{c''}\\
         &=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\dd{\theta}-\log\abs{c}\\
         &\qquad-\qty(\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f'\qty(r\ee^{\ii\theta})}\dd{\theta}-\log\abs{c'})\\
-        &=N\qty(r,\frac1f)-N(r,f)-N\qty(r,\frac1{f'})+N(r,f').
+        &=N\qty(r,\tfrac1f)-N(r,f)-N\qty(r,\tfrac1{f'})+N(r,f').
     \end{align*}
     Thus, we obtain
     \begin{align*}
-        m(r,f)+\sum_{\nu=1}^qm\qty(r,a_\nu,f)&\leq 2T(r,f)-2N(r,f)+q\logp\frac{3q}\delta+\log 2+m\qty(r,\frac{f'}{f})\\
-        &\quad-N\qty(r,\frac1{f'})+N(r,f')-\log\abs{c'}+m(r,f'F)\\
-        &=2T(r,f)-\qty[N\qty(r,\frac1{f'})+2N(r,f)-N(r,f')]+S(r,f),
+        m(r,f)+\sum_{\nu=1}^qm\qty(r,a_\nu,f)&\leq 2T(r,f)-2N(r,f)+q\logp\tfrac{3q}\delta+\log 2+m\qty(r,\tfrac{f'}{f})\\
+        &\quad-N\qty(r,\tfrac1{f'})+N(r,f')-\log\abs{c'}+m(r,f'F)\\
+        &=2T(r,f)-\qty[N\qty(r,\tfrac1{f'})+2N(r,f)-N(r,f')]+S(r,f),
     \end{align*}
     where \(S(r,f)\) is defined as in \cref{eq:nevanlinnasecondfundamentaltheorem_smallerrorterm}. This concludes the proof.
 \end{proof}
