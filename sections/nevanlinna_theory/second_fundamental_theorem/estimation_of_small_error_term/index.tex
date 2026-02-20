@@ -1,5 +1,5 @@
 \subsubsection{The Estimation of \texorpdfstring{\(S(r,f)\)}{the Small Error Term}}
-\begin{lemma}
+\begin{lemma}\label{lem:nevanlinnasmallerrortermestimation1}
     Let \(z\in\mathbb{C}\) be arbitrary and fixed and suppose \(0<r<\infty\). Let \[E_k=\cbraces{\theta}{-\uppi<\theta<\uppi\wedge\abs{z-r\ee^{\ii\theta}}<kr}\] for each \(0<k\leq 1\). It follows that \[I=\int_{E_k}\log\abs{\frac{r}{z-r\ee^{\ii\theta}}}\dd{\theta}<\uppi k\qty(1-\log k).\]
 \end{lemma}
 \begin{proof}
@@ -15,15 +15,25 @@
     Since \(\qty(\flatfrac{\uppi}2)\sin x\geq x\) for \(x\in\qty[0,\flatfrac{\uppi}2]\), it follows that \[\vartheta_0\leq\tfrac{\uppi}2\sin\vartheta_0=\tfrac{\uppi k}2.\]
     Moreover, \(\vartheta\mapsto2\vartheta\qty(\log\tfrac{\uppi}{2\vartheta}+1)\) is an increasing function of \(0\leq\vartheta\leq\flatfrac{\uppi}2\); thus we may replace all instances of \(\vartheta_0\) with \(\flatfrac{\uppi k}2\), proving the lemma.
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{lem:nevanlinnasmallerrortermestimation2}
     Let \(\qty{z_\nu}_{\nu=1}^n\) be \(n\geq1\) (possibly indistinct) complex numbers. Define \(\textstyle\delta(z)=\min\cbraces{\abs{z-z_\nu}}{\nu\in\mathbb{N}_{\leq n}}\). It follows that for any \(r>0\), \[\frac1{2\uppi}\int_0^{2\uppi}\logp\frac{r}{\delta\qty(r\ee^{\ii\theta})}\dd{\theta}\leq2\log n+\tfrac12\]
 \end{lemma}
 \begin{proof}
     Define the set \[E_\nu=\cbraces{\theta\in(-\uppi,\uppi)}{\abs{z_\nu-r\ee^{\ii\theta}}<\tfrac{r}{n}}\]
-    and let \(E=\textstyle\bigcup_{\nu=1}^n E_\nu\). For \(\theta\in E\), \(\delta\qty(r\ee^{\ii\theta})<\flatfrac{r}{n}\), implying that \(\frac{r}{\delta\qty(r\ee^{\ii\theta})}>n\). Define \[\log_0x=\begin{cases}
-        \log x&x\geq n,\\
-        0&\text{otherwise},
-    \end{cases},\]
-    so that for \(\theta\) in the prescribed range, we have \[\]
-    Since \(0<\flatfrac1n\leq1\),
+    and let \(E=\textstyle\bigcup_{\nu=1}^n E_\nu\). For \(\theta\in E\), \(\delta\qty(r\ee^{\ii\theta})<\flatfrac{r}{n}\), implying that \(\frac{r}{\delta\qty(r\ee^{\ii\theta})}>n\). Define \[\log_0x=
+        \begin{cases}
+            \log x&x\geq n,\\
+            0&\text{otherwise},
+    \end{cases}(\geq 0)\]
+    so that for \(\theta\) in the prescribed range, we have \[\logp\frac{r}{\delta\qty(r\ee^{\ii\theta})}=\log_0\frac{r}{\delta\qty(r\ee^{\ii\theta})}=\log_0\frac{r}{\min_{\nu\in\mathbb{N}_{\leq n}}\abs{r\ee^{\ii\theta}-z_\nu}}\leq\sum_{\nu=1}^n\log_0\frac{r}{\abs{r\ee^{\ii\theta}-z_\nu}}\]
+    Since \(0<\flatfrac1n\leq1\), by virtue of \cref{lem:nevanlinnasmallerrortermestimation1} for \(k=\flatfrac1n\),
+    \begin{multline}
+        \frac1{2\uppi}\int_E\logp\frac{r}{\delta\qty(r\ee^{\ii\theta})}\dd{\theta}\leq\frac1{2\uppi}\sum_{\nu=1}^n\int_0^{2\uppi}\log_0\frac{r}{\abs{r\ee^{\ii\theta}-z_\nu}}\dd{\theta}\\
+        =\frac1{2\uppi}\sum_{\nu=1}^n\int_0^{2\uppi}\log\frac{r}{\abs{r\ee^{\ii\theta}-z_\nu}}\dd{\theta}<\frac1{2\uppi}\sum_{\nu=1}^n\frac{\uppi}{n}\qty(1+\log n)=\tfrac12+\tfrac{\log n}2.\label{eq:nevanlinnasmallerrortermestimation2_Eset}
+    \end{multline}
+    For \(\theta\notin E\), for each \(\nu\) we have \(\abs{z_\nu-r\ee^{\ii\theta}}\geq\flatfrac{r}{n}\) and thus \(\delta\qty(r\ee^{\ii\theta})\geq\flatfrac{r}{n}\). It follows that
+    \begin{equation}
+        \frac1{2\uppi}\int_{\theta\notin E}\logp\frac{r}{\delta\qty(r\ee^{\ii\theta})}\dd{\theta}\leq\frac1{2\uppi}\int_0^{2\uppi}\logp n\dd{\theta}\leq\log n.\label{eq:nevanlinnasmallerrortermestimation2_Ecomplement}
+    \end{equation}
+    Combining \cref{eq:nevanlinnasmallerrortermestimation2_Eset,eq:nevanlinnasmallerrortermestimation2_Ecomplement} gives the desired result.
 \end{proof}
