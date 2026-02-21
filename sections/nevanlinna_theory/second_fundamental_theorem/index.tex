@@ -9,12 +9,12 @@ Whereas the First Fundamental Theorem gives the relation between the general siz
 where the precise formulation allows for a sequence \(\qty{r_n}\) diverging to \(\infty\) to be chosen so that \(S(r,f)=o\qty(T(r,f))\) for \(r\to\infty\) in this sequence. This implies \(\textstyle\limsup_{r\to\infty}\frac{N(r,c,f)}{T(r,f)}=1\). This in turn then proves Picard's theorems (see \cref{sec:deficiencyrelation}). As we shall later see, the conclusions of the theorem have even further extensibility.
 
 Regarding Nevanlinna's original paper containing the result, mathematician Hermann Weyl has stated in 1943 that ``the appearance of this paper has been one of the few great mathematical events of our century.''
-\begin{theorem}[\textsc{Second Fundamental Theorem of Nevanlinna Theory, Part 1}]\label{thm:nevanlinnasecondfundamentaltheorem}
+\begin{theorem}[\textsc{Second Fundamental Theorem of Nevanlinna Theory, Part 1}]\label{thm:nevanlinnasecondfundamentaltheorempart1}
     Let \(f:D(0,R)\to\extcomplex\) be meromorphic and non-constant (\(0<R\leq\infty\)). Suppose that \(a_1,\ldots,a_q\) are \(q\geq 2\) distinct finite complex numbers. Then for any positive \(\delta\leq\min\cbraces{a_\mu-a_\nu}{1\leq\mu<\nu\leq q}\), \[m(r,f)+\sum_{\nu=1}^q m\qty(r,a_\nu,f)\leq 2T(r,f)-N_1(r,f)+S(r,f),\]
     where \[N_1(r)=N(r,0,f')+2N(r,f)-N(r,f')\]
     and
     \begin{equation}
-        S(r,f)=m\qty(r,\frac{f'}f)+m\qty(r,\sum_{\nu=1}^q\frac{f'}{f-a_\nu})+q\logp \frac{3q}{\delta}+\log 2-\log\abs{c'},\label{eq:nevanlinnasecondfundamentaltheorem_smallerrorterm}
+        S(r,f)=m\qty(r,\frac{f'}f)+m\qty(r,\sum_{\nu=1}^q\frac{f'}{f-a_\nu})+q\logp \frac{3q}{\delta}+\log 2-\log\abs{c'},\label{eq:nevanlinnasecondfundamentaltheorempart1_smallerrorterm}
     \end{equation}
     where \(c'\) is the first nonzero coefficient of the Laurent expansion of \(f'\) (at the origin).
 \end{theorem}
@@ -34,20 +34,20 @@ Regarding Nevanlinna's original paper containing the result, mathematician Herma
                 \abs{F(z)}&\geq\abs{\frac1{f(z)-a_\nu}}-\abs{\sum_{\mu\neq\nu}^q\frac1{f(z)-a_\mu}}\\
                 &\geq\frac1{\abs{f(z)-a_\nu}}-\frac{q-1}{2q\abs{f(z)-a_\nu}}\geq\frac1{2\abs{f(z)-a_\nu}}.
             \end{align*}
-            Since \[\logp \frac1{\abs{f(z)-a_\nu}}=\logp \qty(2\cdot\tfrac1{2\abs{f(z)-a_\nu}})\leq\log 2+\log\frac1{2\abs{f(z)-a_\nu}}\] from \cref{prop:lognonnegativepartproperties}, it follows that
+            Since \[\logp \frac1{\abs{f(z)-a_\nu}}=\logp \qty(2\cdot\frac1{2\abs{f(z)-a_\nu}})\leq\log 2+\log\frac1{2\abs{f(z)-a_\nu}}\] from \cref{prop:lognonnegativepartproperties}, it follows that
             \[\logp \abs{F(z)}\geq\logp \frac1{2\abs{f(z)-a_\nu}}\geq\logp \frac1{\abs{f(z)-a_\nu}}-\log2.\]
             Observe that for each \(\mu\neq\nu\), \(\textstyle\logp \abs{f(z)-a_\mu}^{-1}<\logp \flatfrac{3}{2\delta}\),
             and therefore
             \begin{align}
                 \logp \abs{F(z)}&\geq\sum_{\mu=1}^q\logp\frac1{\abs{f(z)-a_\mu}}-\qty(q-1)\logp\tfrac3{2\delta}-\log2\nonumber\\
-                &\geq\sum_{\mu=1}^q\logp\frac1{\abs{f(z)-a_\mu}}-q\logp {\tfrac{3q}\delta}-\log2.\label{eq:nevanlinnasecondfundamentaltheorem_logpFlowerbound}
+                &\geq\sum_{\mu=1}^q\logp\frac1{\abs{f(z)-a_\mu}}-q\logp {\tfrac{3q}\delta}-\log2.\label{eq:nevanlinnasecondfundamentaltheorempart1_logpFlowerbound}
             \end{align}
         \item There exists no such \(\nu\). Then all \(\nu\) have the property that \(\textstyle\abs{f(z)-a_\nu}\geq\flatfrac{\delta}{3q}\). It follows that \[\frac1{\abs{f(z)-a_\nu}}\leq\tfrac{3q}\delta\implies\sum_{\mu=1}^q\logp\frac1{\abs{f(z)-a_\mu}}-q\logp {\tfrac{3q}\delta}\leq0\leq \logp\abs{F(z)}.\]
-            Then \cref{eq:nevanlinnasecondfundamentaltheorem_logpFlowerbound} holds for this case trivially.
+            Then \cref{eq:nevanlinnasecondfundamentaltheorempart1_logpFlowerbound} holds for this case trivially.
     \end{enumerate}
-    Integrating the relation \cref{eq:nevanlinnasecondfundamentaltheorem_logpFlowerbound} (which holds in all cases) gives that
+    Integrating the relation \cref{eq:nevanlinnasecondfundamentaltheorempart1_logpFlowerbound} (which holds in all cases) gives that
     \begin{equation}
-        m(r,F)\geq\sum_{\nu=1}^qm\qty(r,a_\nu,f)-q\logp\tfrac{3q}\delta-\log 2.\label{eq:nevanlinnasecondfundamentaltheorem_proximityFlowerbound}
+        m(r,F)\geq\sum_{\nu=1}^qm\qty(r,a_\nu,f)-q\logp\tfrac{3q}\delta-\log 2.\label{eq:nevanlinnasecondfundamentaltheorempart1_proximityFlowerbound}
     \end{equation}
     Observe that \[m(r,F)=m\qty(r,\qty(\tfrac1{f}\tfrac{f}{f'}f'F))\leq m\qty(r,\tfrac1f)+m\qty(r,\tfrac{f}{f'})+m(r,f'F).\]
     Let \(c=c_k\) be the first nonzero coefficient of the Laurent expansion for \(f\). It follows that \[f(z)=\sum_{j=k}^\infty c_jz^j=cz^k\qty(1+\order{z}),\quad f'(z)=\sum_{j=k}^\infty jc_jz^{j-1}=kcz^{k-1}\qty(1+\order{z}),\]
@@ -57,7 +57,7 @@ Regarding Nevanlinna's original paper containing the result, mathematician Herma
         m\qty(r,\tfrac{f}{f'})=T\qty(r,\tfrac{f'}{f})-N\qty(r,\tfrac{f}{f'})+\log\abs{c''}
     \end{gather*}
     that \[m(r,F)\leq T(r,f)-N\qty(r,\tfrac1f)-\log\abs{c}+T\qty(r,\tfrac{f'}{f})-N\qty(r,\tfrac{f}{f'})+\log\abs{c''}+m(r,f'F).\]
-    Combining this with \cref{eq:nevanlinnasecondfundamentaltheorem_proximityFlowerbound} gives
+    Combining this with \cref{eq:nevanlinnasecondfundamentaltheorempart1_proximityFlowerbound} gives
     \begin{align*}
         m(r,f)+\sum_{\nu=1}^q m\qty(r,a_\nu,f)&\leq m(r,f)+m(r,F)+q\logp\tfrac{3q}\delta+\log 2\\
         &\leq T(r,f)-N(r,f)+q\logp\tfrac{3q}\delta+\log 2\\
@@ -77,6 +77,6 @@ Regarding Nevanlinna's original paper containing the result, mathematician Herma
         &\quad-N\qty(r,\tfrac1{f'})+N(r,f')-\log\abs{c'}+m(r,f'F)\\
         &=2T(r,f)-\qty[N\qty(r,\tfrac1{f'})+2N(r,f)-N(r,f')]+S(r,f),
     \end{align*}
-    where \(S(r,f)\) is defined as in \cref{eq:nevanlinnasecondfundamentaltheorem_smallerrorterm}. This concludes the proof.
+    where \(S(r,f)\) is defined as in \cref{eq:nevanlinnasecondfundamentaltheorempart1_smallerrorterm}. This concludes the proof.
 \end{proof}
 \subimport{estimation_of_small_error_term/}{index.tex}

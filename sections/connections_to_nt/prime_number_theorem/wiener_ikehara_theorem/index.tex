@@ -1,12 +1,7 @@
 \subsubsection{The Wiener--Ikehara Theorem}
-Previously we have seen the subtle relation between \(\zeta\) and \(\psi\).
-Given the properties of the Laplace transform of \(\psi\circ\exp\) and certain
-conditions established above, we apply now prove what is known as a
-\textit{Tauberian} theorem to extract sufficient information (such as
-convergence) of the function itself.
+Previously we have seen the subtle relation between \(\zeta\) and \(\psi\). Given the properties of the Laplace transform of \(\psi\circ\exp\) and certain conditions established above, we apply now prove what is known as a \textit{Tauberian} theorem to extract sufficient information (such as convergence) of the function itself.
 
-For arbitrary \(x\in\mathbb{R}\) and \(\lambda>0\), define a triangular kernel
-cutoff by \[K_\lambda(x)=
+For arbitrary \(x\in\mathbb{R}\) and \(\lambda>0\), define a triangular kernel cutoff by \[K_\lambda(x)=
     \begin{dcases}
         1-\frac{\abs{x}}{2\lambda} & \abs{x}<2\lambda, \\
         0                          & \text{otherwise},
@@ -46,18 +41,18 @@ The two kernels are related by a angular unitary Fourier transform:
         \begin{dcases}
             +\infty & x-2\lambda>0, \\
             -\infty & x-2\lambda<0.
-    \end{dcases}\] By the Dirichlet integral \(\int_0^\infty\frac{\sin u}u\dd{u}=\frac\uppi2\), we
-    have that \[\mathrm{I}=\frac\uppi4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\uppi4\operatorname{sgn}(x-2\lambda).\]
-    Similarly, \(\mathrm{I\!I\!I}=\frac\uppi2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\uppi4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)]=\frac{\uppi}4\begin{dcases}
-        0& \abs{x}>2\lambda, \\
-        1& -2\lambda<x<0, \\
-        -1& 0<x<2\lambda,
+    \end{dcases}\] By the Dirichlet integral \(\int_0^\infty\frac{\sin u}u\dd{u}=\frac\uppi2\), we have that \[\mathrm{I}=\frac\uppi4\operatorname{sgn}(x+2\lambda),\qquad\mathrm{I\!I}=\frac\uppi4\operatorname{sgn}(x-2\lambda).\]
+    Similarly, \(\mathrm{I\!I\!I}=\frac\uppi2\operatorname{sgn}(x)\). Hence, \[\dv{I}{x}=\frac\uppi4\qty[\operatorname{sgn}(x+2\lambda)+\operatorname{sgn}(x-2\lambda)-2\operatorname{sgn}(x)]=\frac{\uppi}4
+        \begin{dcases}
+            0  & \abs{x}>2\lambda, \\
+            1  & -2\lambda<x<0,    \\
+            -1 & 0<x<2\lambda,
     \end{dcases}\] and \[I(0)+\int_0^x\dv{I}{t}\ddt=I(0)+
         \begin{dcases}
             \qty(\mathmakebox[\widthof{\(\int^-\)}][l]{\int_0^{-2\lambda}}+\int_{-2\lambda}^x)\dv{I}{t}\ddt & x<-2\lambda,   \\
-            \int_0^x\dv{I}{t}\ddt                                   & -2\lambda<x<0, \\
-            \int_0^x\dv{I}{t}\ddt & 0<x<2\lambda,  \\
-            \qty(\mathmakebox[\widthof{\(\int^-\)}][l]{\int_0^{2\lambda}}+\int_{2\lambda}^x)\dv{I}{t}\ddt                           & x>2\lambda,
+            \int_0^x\dv{I}{t}\ddt                                                                           & -2\lambda<x<0, \\
+            \int_0^x\dv{I}{t}\ddt                                                                           & 0<x<2\lambda,  \\
+            \qty(\mathmakebox[\widthof{\(\int^-\)}][l]{\int_0^{2\lambda}}+\int_{2\lambda}^x)\dv{I}{t}\ddt   & x>2\lambda,
     \end{dcases}\] which after simplification, becomes \[I(x)=I(0)+\uppi
         \begin{dcases}
             -\lambda  & x<-2\lambda,   \\
@@ -85,8 +80,7 @@ The two kernels are related by a angular unitary Fourier transform:
     \end{dcases}\] which confirms the second equivalence.
 \end{proof}
 \begin{definition}
-    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textit{slowly decreasing} if \[\liminf_{\delta\to0^+}\liminf_{x\to+\infty}\qty[f(x+\delta)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\),
-    \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
+    A function \(f:\mathbb{R}\to\mathbb{R}\) is said to be \textit{slowly decreasing} if \[\liminf_{\delta\to0^+}\liminf_{x\to+\infty}\qty[f(x+\delta)-f(x)]\geq 0,\] or equivalently, for every \(\varepsilon>0\), \(\exists x_0\), \(\exists\delta>0\) such that \[\forall x,y>x_0,\quad0<y-x<\delta\implies f(y)-f(x)>-\varepsilon.\]
 \end{definition}
 \begin{proof}[Proof of equivalence]
 
@@ -112,11 +106,8 @@ The two kernels are related by a angular unitary Fourier transform:
             \end{align*}
             we then have for any \(n>N\), that \[\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)\geq\frac{2L+\varepsilon}{2\sqrt{2\uppi}}\int_{-\delta}^{\delta}\frac{2\lambda}{\sqrt{2\uppi}}\qty(\frac{\sin\qty(\lambda u)}{\lambda u})^2\dd{u}-\frac{2M}{\uppi}\int_{\delta\lambda}^\infty\qty(\frac{\sin t}{t})^2\ddt.\]
             Letting \(\lambda\to\infty\), we have \[\frac{2L+\varepsilon}{2\uppi}\int_{-\delta\lambda}^{\delta\lambda}\mathmakebox[\widthof{\(\qty(\frac{\sin t}{t})\)}][l]{\qty(\frac{\sin t}{t})^2}\ddt-\frac{2M}{\uppi}\int_{\delta\lambda}^\infty\mathmakebox[\widthof{\(\qty(\frac{\sin t}{t})\)}][l]{\qty(\frac{\sin t}{t})^2}\ddt\to\frac{2L+\varepsilon}{2\uppi}\int_{\mathbb{R}}\mathmakebox[\widthof{\(\qty(\frac{\sin t}{t})\)}][l]{\qty(\frac{\sin t}{t})^2}\ddt=L+\frac{\varepsilon}{2}.\]
-            Because \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)=L\geq
-            L+\frac\varepsilon2\), we reach a contradiction.
-        \item \(f(x_n)-L<-\varepsilon\). Then there exist \(\delta>0\), \(N\in\mathbb{N}\) such that \[f\qty(x_n)-f(y)>-\frac\varepsilon2\implies f(y)<f\qty(x_n)+\frac\varepsilon2<L-\frac\varepsilon2\] for any \(n>N\) and \(0<x_n-y<2\delta\). Splitting the convolution integral
-            into \(\int_\infty^{x_n-2\delta}\), \(\int_{x_n-2\delta}^{x_n}\), and
-            \(\int_{x_n}^\infty\), we have
+            Because \(\lim_{n\to\infty}(f*k_\lambda)\qty(x_n+\delta)=L\geq L+\frac\varepsilon2\), we reach a contradiction.
+        \item \(f(x_n)-L<-\varepsilon\). Then there exist \(\delta>0\), \(N\in\mathbb{N}\) such that \[f\qty(x_n)-f(y)>-\frac\varepsilon2\implies f(y)<f\qty(x_n)+\frac\varepsilon2<L-\frac\varepsilon2\] for any \(n>N\) and \(0<x_n-y<2\delta\). Splitting the convolution integral into \(\int_\infty^{x_n-2\delta}\), \(\int_{x_n-2\delta}^{x_n}\), and \(\int_{x_n}^\infty\), we have
             \begin{align*}
                 \qty(f*k_\lambda)\qty(x_n-\delta) & =\frac1{\sqrt{2\uppi}}\int_{-\infty}^\infty f(t)k_\lambda\qty(x_n-\delta-t)\ddt                                                                                              \\
                 & =\frac1{\sqrt{2\uppi}}\qty(\int_{-\infty}^{x_n-2\delta}+\int_{x_n-2\delta}^{x_n}+\int_{x_n}^\infty)f(t)k_\lambda\qty(x_n-\delta-t)\ddt                                       \\
@@ -151,9 +142,7 @@ The two kernels are related by a angular unitary Fourier transform:
             c & t\geq 0, \\
             0 & t<0.
     \end{dcases}\]
-    The convergence of \cref{eq:wienerikehara_laplacetransform} implies that for
-    \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\uppi}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt\] converges. Since \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of
-    \cref{lem:wienerikehara_kernels_fouriertransform}, that
+    The convergence of \cref{eq:wienerikehara_laplacetransform} implies that for \(\varepsilon,\lambda>0\), the convolution \[I_{\lambda,\varepsilon}=\frac1{\sqrt{2\uppi}}\int_{-\infty}^\infty k_\lambda(x-t)\qty(\frac{a(t)-A(t)}{\ee^{\varepsilon t}})\ddt\] converges. Since \[\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\qty(\varepsilon+\ii y)t}}\ddt\] converges uniformly for \(\abs{y}<2\lambda\), we have by virtue of \cref{lem:wienerikehara_kernels_fouriertransform}, that
     \begin{align*}
         I_{\lambda,\varepsilon}(x) & =\frac{1}{2\uppi}\int_{-\infty}^\infty\frac{a(t)-A(t)}{\ee^{\varepsilon t}}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii(x-t)y}\ddy\ddt             \\
         & =\frac{1}{2\uppi}\int_{-2\lambda}^{2\lambda}K_\lambda(y)\ee^{\ii xy}\int_0^\infty\frac{a(t)-A(t)}{\ee^{(\varepsilon+\ii y)t}}\ddt\ddy                 \\
@@ -166,29 +155,19 @@ The two kernels are related by a angular unitary Fourier transform:
     \end{equation}
     Therefore, \(\exists x_0>0\) such that \[\qty(a*k_\lambda)(x)<c+1\implies\frac{1}{\uppi}\int_{-\infty}^\infty\qty(\frac{\sin t}{t})^2a\qty(x-\frac t\lambda)\ddt<c+1\] for all \(x>x_0\). Substituting \(x+\frac2{\sqrt{\lambda}}\) for \(x\) in the integral, we have (after further restricting the integration bounds, which preserves the inequality)
     \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2a\qty(x+\frac{2\sqrt{\lambda}-t}\lambda)\ddt<\uppi(c+1)\]
-    Since \(\ee^{u}a(u)=f(u)\) (for \(u=x+\frac{2\sqrt{\lambda}-t}\lambda>0\)) is
-    nondecreasing in \(u\), it is bounded below by
-    \(f\qty(x+\frac{\sqrt{\lambda}}\lambda)>f(x)\). Thus, we have \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\exp\qty(\frac{t-2\sqrt{\lambda}}{\lambda}-x)f\qty(x)\ddt<\uppi\qty(c+1),\] implying that \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ee^{\frac{t-2\sqrt{\lambda}}{\lambda}}a\qty(x)\ddt<\uppi\qty(c+1)\implies a(x)\ee^{-\frac{3}{\sqrt{\lambda}}}\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ddt<\uppi(c+1),\]
-    which is satisfied for all \(\lambda>0\) and \(x>x_0\). Letting \(\lambda\to\infty\), we have that \(a(x)<c+1\). Compactness shows that \(a\)
-    is bounded on \([0,x_0]\) (\cref{thm:continuousfunctionboundedoncompact}).
-    Hence, \(a\) is bounded (above) on \(\mathbb{R}\) by some \(M>0\).
+    Since \(\ee^{u}a(u)=f(u)\) (for \(u=x+\frac{2\sqrt{\lambda}-t}\lambda>0\)) is nondecreasing in \(u\), it is bounded below by \(f\qty(x+\frac{\sqrt{\lambda}}\lambda)>f(x)\). Thus, we have \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\exp\qty(\frac{t-2\sqrt{\lambda}}{\lambda}-x)f\qty(x)\ddt<\uppi\qty(c+1),\] implying that \[\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ee^{\frac{t-2\sqrt{\lambda}}{\lambda}}a\qty(x)\ddt<\uppi\qty(c+1)\implies a(x)\ee^{-\frac{3}{\sqrt{\lambda}}}\int_{-\sqrt{\lambda}}^{\sqrt{\lambda}}\qty(\frac{\sin t}t)^2\ddt<\uppi(c+1),\]
+    which is satisfied for all \(\lambda>0\) and \(x>x_0\). Letting \(\lambda\to\infty\), we have that \(a(x)<c+1\). Compactness shows that \(a\) is bounded on \([0,x_0]\) (\cref{thm:continuousfunctionboundedoncompact}). Hence, \(a\) is bounded (above) on \(\mathbb{R}\) by some \(M>0\).
 
-    The final hypothesis required is the slow decrease of \(a\): for any
-    \(\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y>0\) with
-    \(0<y-x<\delta\), we have 
+    The final hypothesis required is the slow decrease of \(a\): for any \(\varepsilon>0\), \(\exists\delta>0\) such that \(\forall x,y>0\) with \(0<y-x<\delta\), we have
     \begin{align*}
-        a(y)-a(x)&=\ee^{-x}\qty(\ee^{x-y}f(y)-f(x))>\ee^{-x}f(x)\qty(\ee^{-\delta}-1)\\
-        &=a(x)\qty(\ee^{-\delta}-1)>M\qty(\ee^{-\delta}-1).
+        a(y)-a(x) & =\ee^{-x}\qty(\ee^{x-y}f(y)-f(x))>\ee^{-x}f(x)\qty(\ee^{-\delta}-1) \\
+        & =a(x)\qty(\ee^{-\delta}-1)>M\qty(\ee^{-\delta}-1).
     \end{align*}
     If \(\delta\) is chosen so that \(M\qty(1-\ee^{-\delta})<\varepsilon\), namely
     \(0<\delta<\ln\qty(\frac M{M-\varepsilon})\), then \(a(y)-a(x)>-\varepsilon\),
     and \(a\) then exhibits slow decrease.
 
-    The slow decrease, boundedness, and the condition in
-    \cref{eq:wienerikehara_convolutionlimit} are sufficient by
-    \cref{prop:wienerikehara_intermediatetauberiantheorem}, to show that
-    \(\lim_{x\to+\infty}a(x)=c\), or equivalently,
-    \(\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c\).
+    The slow decrease, boundedness, and the condition in \cref{eq:wienerikehara_convolutionlimit} are sufficient by \cref{prop:wienerikehara_intermediatetauberiantheorem}, to show that \(\lim_{x\to+\infty}a(x)=c\), or equivalently, \(\lim_{x\to+\infty}\frac{f(x)}{\ee^x}=c\).
 \end{proof}
 \begin{theorem}[name=\textit{Prime Number Theorem},store=thm:primenumber]\label{thm:primenumber}
     The prime counting function \(\pi(x)\) is asymptotically equal to \(\frac x{\log x}\), i.e., \(\lim_{x\to+\infty}\frac{\pi(x)\log x}x=1\).

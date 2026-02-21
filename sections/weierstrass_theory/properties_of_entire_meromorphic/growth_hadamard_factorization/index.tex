@@ -39,8 +39,7 @@ As an immediate consequence, we have:
 \begin{theorem}[\textsc{Poisson--Jensen Formula}]\label{thm:poissonjensenformula}
     Suppose \(f\) is a meromorphic function on \(\overline{D(0,r)}\) such that \(f\not\equiv 0\) on \(D(0,r)\) and is non-vanishing and non-infinity on \(\partial D(0,r)\). Let \(a_1,\ldots,a_m\) and \(b_1,\ldots,b_n\) be the zeros and poles of \(f\) in \(D(0,r)\), counted with multiplicity and order, respectively (multiplicities and orders count as multiple zeros or poles). Then it follows that
     \begin{align}
-        \log\abs{f(z)} & =\int_0^{2\uppi}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}\nonumber                                                                                                          \\
-        & \quad+\sum_{j=1}^m\log\abs{\frac{r\qty(z-a_j)}{r^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{r\qty(z-b_k)}{r^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
+        \log\abs{f(z)} & =\int_0^{2\uppi}\log\abs{f(\zeta)}P\qty(\zeta,z)\dd{\theta}+\sum_{j=1}^m\log\abs{\frac{r\qty(z-a_j)}{r^2-\overline{a_j}z}}-\sum_{k=1}^n\log\abs{\frac{r\qty(z-b_k)}{r^2-\overline{b_k}z}},\label{eq:poissonjensenformula_statement}
     \end{align}
     where \(\zeta=r\ee^{\ii\theta}\), \(z\in D(0,r)\setminus\qty(\cbraces{a_j}_{j=1}^m\cup\cbraces{b_k}_{j=1}^n)\), and \(P(\zeta,z)\) is the Poisson kernel in \cref{eq:poissonkernelgeneralform}.
 \end{theorem}
@@ -213,7 +212,10 @@ This particular Weierstrass factorization is the \textit{Weierstrass canonical f
 \begin{proof}
     Let \(r>2\abs{z}\). By the Poisson--Jensen Formula (\cref{thm:poissonjensenformula}), at each non-singular point, we have (the kernel representation derived in \cref{eq:poissonkernelgeneralform})
     \[\Re\log{f(z)}=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\Re\qty(\frac{r\ee^{\ii\theta}+z}{r\ee^{\ii\theta}-z})\dd{\theta}+\mathmakebox[\widthof{\(\sum\)}][c]{\sum_{k=1}^{n(r,0,f)}}\Re\log\paren{\frac{r(z-a_k)}{r^2-\overline{a_k}z}}.\]
-    For any holomorphic \(g=u+\ii v\), we have \[\pdv{\qty(\Re{g(z)})}{z}=\frac12\qty(\pdv{u(z)}{x}-\ii\pdv{u(z)}{y})=\frac12\qty(\pdv{u(z)}{x}+\ii\pdv{v}{x})=\frac12\pdv{g(z)}{x}=\frac{g'(z)}{2}.\]
+    For any holomorphic \(g=u+\ii v\), we have 
+    \begin{equation}
+        \pdv{\qty(\Re{g(z)})}{z}=\frac12\qty(\pdv{u(z)}{x}-\ii\pdv{u(z)}{y})=\frac12\qty(\pdv{u(z)}{x}+\ii\pdv{v}{x})=\frac12\pdv{g(z)}{x}=\frac{g'(z)}{2}.\label{eq:wirtingerderivativeofrealpartofholomorphicfunction}
+    \end{equation}
     Therefore, by differentiation under the integral sign,
     \begin{align*}
         \frac{f'(z)}{f(z)} & =\frac1{\uppi}\int_0^{2\uppi}\log\abs{f\qty(r\ee^{\ii\theta})}\frac{r\ee^{\ii\theta}\dd{\theta}}{(r\ee^{\ii\theta}-z)^2}+\sum_{k=1}^{n\qty(r,0,f)}\frac{r^2-\abs{a_k}^2}{\qty(r^2-\overline{a_k}z)\qty(z-a_k)}                                                                                                                 \\

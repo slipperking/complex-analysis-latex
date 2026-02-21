@@ -1,4 +1,7 @@
 \subsubsection{The Estimation of \texorpdfstring{\(S(r,f)\)}{the Small Error Term}}
+The second part of the Second Fundamental Theorem is typically a suitable estimate on \(S(r,f)\).
+\getkeytheorem{thm:nevanlinnasecondfundamentaltheorempart2}
+Modern results vastly improve said estimations, and the search for a sharp estimation is one of the most challenging questions in Nevanlinna Theory.
 \begin{lemma}\label{lem:nevanlinnasmallerrortermestimation1}
     Let \(z\in\mathbb{C}\) be arbitrary and fixed and suppose \(0<r<\infty\). Let \[E_k=\cbraces{\theta}{-\uppi<\theta<\uppi\wedge\abs{z-r\ee^{\ii\theta}}<kr}\] for each \(0<k\leq 1\). It follows that \[I=\int_{E_k}\log\abs{\frac{r}{z-r\ee^{\ii\theta}}}\dd{\theta}<\uppi k\qty(1-\log k).\]
 \end{lemma}
@@ -20,7 +23,7 @@
 \end{lemma}
 \begin{proof}
     Define the set \[E_\nu=\cbraces{\theta\in(-\uppi,\uppi)}{\abs{z_\nu-r\ee^{\ii\theta}}<\tfrac{r}{n}}\]
-    and let \(E=\textstyle\bigcup_{\nu=1}^n E_\nu\). For \(\theta\in E\), \(\delta\qty(r\ee^{\ii\theta})<\flatfrac{r}{n}\), implying that \(\frac{r}{\delta\qty(r\ee^{\ii\theta})}>n\). Define \[\log_0x=
+    and let \(E=\textstyle\bigcup_{\nu=1}^n E_\nu\). For \(\theta\in E\), \(\delta\qty(r\ee^{\ii\theta})<\flatfrac{r}{n}\), implying that \(\tfrac{r}{\delta\qty(r\ee^{\ii\theta})}>n\). Define \[\log_0x=
         \begin{cases}
             \log x&x\geq n,\\
             0&\text{otherwise},
@@ -37,3 +40,110 @@
     \end{equation}
     Combining \cref{eq:nevanlinnasmallerrortermestimation2_Eset,eq:nevanlinnasmallerrortermestimation2_Ecomplement} gives the desired result.
 \end{proof}
+\begin{proposition}\label{prop:nevanlinnalogdiffproximityestimate}
+    If \(f\) is meromorphic on a neighborhood of \(\overline{D(0,R)}\), then for \(0<r<R\), letting \(c\) be the first nonzero coefficient of the Laurent of expansion of \(f\) about the origin,
+    \begin{multline}
+        m\qty(r,\tfrac{f'}f)<4\logp T(R,f)+4\logp\circ\logp\abs{\tfrac1c}\\
+        +5\logp R+6\logp\tfrac1{R-r}+\logp\tfrac1r+14.\label{eq:nevanlinnalogdiffproximityestimate_statement}
+    \end{multline}
+\end{proposition}
+\begin{proof}
+    By the Poisson--Jensen Formula (\cref{thm:poissonjensenformula}), letting \(\rho=\tfrac12(R+r)\), for each non-singular point \(z\in\partial D(0,r)\),
+    \begin{align*}
+        \Re\log f(z)&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(\rho\ee^{\ii\theta})}\Re\qty(\frac{\rho\ee^{\ii\theta}+z}{\rho\ee^{\ii\theta}-z})\dd{\theta}\\
+        &\quad+\sum_{k=1}^{n(\rho,0,f)}\Re\log\qty(\frac{\rho\qty(z-a_k)}{\rho^2-\overline{a_k}z})-\sum_{j=1}^{n(\rho,f)}\Re\log\qty(\frac{\rho\qty(z-b_j)}{\rho^2-\overline{b_j}z}),
+    \end{align*}
+    where \(\qty{a_k}\) and \(\qty{b_j}\) are the respective zeros and poles. By \cref{eq:wirtingerderivativeofrealpartofholomorphicfunction}, we have \(\textstyle\pdv{z}(\Re g(z))=\tfrac12g'(z)\) for all holomorphic \(g\). Applying this with differentiation under the integral sign, we have that
+    \begin{align*}
+        \frac{f'(z)}{f(z)}&=\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(\rho\ee^{\ii\theta})}\frac{2\rho\ee^{\ii\theta}\dd{\theta}}{\qty(\rho\ee^{\ii\theta}-z)^2}\\
+        &\quad+\sum_{k=1}^{n(\rho,0,f)}\qty(\frac{\overline{a_k}}{\rho^2-\overline{a_k}z}-\frac1{a_k-z})+\sum_{j=1}^{n(\rho,f)}\qty(\frac1{b_j-z}-\frac{\overline{b_j}}{\rho^2-\overline{b_j}z}).
+    \end{align*}
+    Define \(\delta(z)=\min\qty(\cbraces{\abs{z-a_k}}{k\in\mathbb{N}_{\leq n(\rho,0,f)}}\cup\cbraces{\abs{z-b_j}}{j\in\mathbb{N}_{\leq n(\rho,f)}})\). Evidently the number of zeros and poles is given by \[n=n(\rho,f)+n(\rho,0,f).\]
+    Since \[\abs{\rho^2-\overline{a_k}z}\geq\rho^2-r\abs{a_k}\geq\rho^2-r\rho,\qquad\abs{\rho^2-\overline{b_j}z}\geq\rho^2-r\rho,\]
+    it follows that
+    \begin{equation}
+        \abs{\frac{\overline{a_k}}{\rho^2-\overline{a_k}z}}\leq\frac{\rho}{\rho^2-r\rho}=\frac1{\rho-r},\quad\abs{\frac{\overline{b_j}}{\rho^2-\overline{b_j}z}}\leq\frac{\rho}{\rho^2-r\rho}=\frac1{\rho-r},\label{eq:nevanlinnalogdiffproximityestimate_mobiusbounds}
+    \end{equation} and additionally,
+    \begin{equation}
+        \abs{\frac1{b_j-z}}\leq\frac1{\delta(z)},\qquad\abs{\frac1{a_k-z}}\leq\frac1{\delta(z)}.\label{eq:nevanlinnalogdiffproximityestimate_inversionbounds}
+    \end{equation}
+    Furthermore,
+    \begin{multline}
+        \abs{\frac1{2\uppi}\int_0^{2\uppi}\log\abs{f\qty(\rho\ee^{\ii\theta})}\frac{2\rho\ee^{\ii\theta}\dd{\theta}}{\qty(\rho\ee^{\ii\theta}-z)^2}}\leq\frac1{2\uppi}\frac{2\rho}{\qty(\rho-r)^2}\int_0^{2\uppi}\abs{\log\abs{f\qty(\rho\ee^{\ii\theta})}}\dd{\theta}\\
+        =\frac{2\rho}{\qty(\rho-r)^2}\qty[m\qty(\rho,f)+m\qty(\rho,\tfrac1f)]\label{eq:nevanlinnalogdiffproximityestimate_integralbounds}
+    \end{multline}
+    by \cref{itm:lognonnegativepartproperties_sumofreciprocallogs} of \cref{prop:lognonnegativepartproperties}. Combining \cref{eq:nevanlinnalogdiffproximityestimate_mobiusbounds,eq:nevanlinnalogdiffproximityestimate_inversionbounds,eq:nevanlinnalogdiffproximityestimate_integralbounds}, we have
+    \begin{align*}
+        \abs{\frac{f'(z)}{f(z)}}&\leq\frac{2\rho}{\qty(\rho-r)^2}\qty[m\qty(\rho,f)+m\qty(\rho,\tfrac1f)]+\sum_{k=1}^{n(\rho,0,f)}\qty(\frac1{\rho-r}+\frac1{\delta(z)})+\sum_{j=1}^{n(\rho,f)}\qty(\frac1{\rho-r}+\frac1{\delta(z)})\\
+        &=\frac{2\rho}{\qty(\rho-r)^2}\qty[m\qty(\rho,f)+m\qty(\rho,\tfrac1f)]+n\qty(\frac{1}{\rho-r}+\frac{1}{\delta(z)}).
+    \end{align*}
+    By \cref{prop:nevanlinnafirsttheorematzero}, we have \(T(\rho,0,f)=T(\rho,f)-\log\abs{c}\), where \(c\) is the first nonzero coefficient of the Laurent expansion of \(f\) about the origin. It follows that \(m\qty(\rho,\tfrac1f)=T(\rho,f)-\log\abs{c}-N\qty(\rho,0,f)\) and \(m\qty(\rho,f)=T(\rho,f)-N\qty(\rho,f)\), thus \[m\qty(\rho,\tfrac1f)+m(\rho,f)=2T(\rho,f)-\log\abs{c}-N\qty(\rho,\tfrac1f)-N\qty(\rho,f)\leq 2T(\rho,f)+2\logp\abs{\tfrac1{c}},\]
+    and
+    \begin{align*}
+        \abs{\frac{f'(z)}{f(z)}}&\leq\frac{4\rho}{\qty(\rho-r)^2}\qty[T(\rho,f)+\logp\abs{\frac1{c}}]+\frac{n}{r}\qty(\frac{r}{\rho-r}+\frac{r}{\delta(z)}).
+    \end{align*}
+    By the subadditive properties of \cref{prop:lognonnegativepartproperties}, we have
+    \begin{align*}
+        \logp\abs{\tfrac{f'(z)}{f(z)}}&\leq\logp\qty[\tfrac{4\rho}{\qty(\rho-r)^2}\qty[T(\rho,f)+\logp\abs{\tfrac1{c}}]]+\logp\qty[\tfrac{n}{r}\qty(\tfrac{r}{\rho-r}+\tfrac{r}{\delta(z)})]+\log 2\\
+        &\leq\logp\rho+\logp\qty[\qty(\tfrac{2}{\rho-r})^2]+\logp\qty[T(\rho,f)+\logp\abs{\tfrac1{c}}]+\logp\tfrac{n}{r}\\
+        &\quad+\logp\qty(\tfrac{r}{\rho-r}+\tfrac{r}{\delta(z)})+\log2\\
+        &\leq\logp\rho+2\logp\tfrac{1}{\rho-r}+\logp T(\rho,f)+\logp\circ\logp\abs{\tfrac1{c}}+\logp\tfrac{n}{r}\\
+        &\quad+\logp\tfrac{r}{\rho-r}+\logp\tfrac{r}{\delta(z)}+5\log2.
+    \end{align*}
+    Integrating on \(\abs{z}=r\) with \cref{lem:nevanlinnasmallerrortermestimation2} gives
+    \begin{align}
+        m\qty(r,\tfrac{f'}f)&\leq\logp\rho+2\logp\frac{1}{\rho-r}+\logp T(\rho,f)+\logp\circ\logp\abs{\tfrac1{c}}+\logp\tfrac{n}{r}\nonumber\\
+        &\quad+\logp\frac{r}{\rho-r}+\frac1{2\uppi}\int_0^{2\uppi}\logp\frac{r}{\delta\qty(r\ee^{\ii\theta})}\dd{\theta}+5\log2\nonumber\\
+        &\leq\logp\rho+3\logp\frac{1}{\rho-r}+\logp T(\rho,f)+\logp\circ\logp\abs{\frac1{c}}+3\logp n+\logp\tfrac{1}{r}\nonumber\\
+        &\quad+\logp r+\tfrac12+5\log2.\label{eq:nevanlinnalogdiffproximityestimate_proximityprimaryestimate}
+    \end{align}
+    To derive a more useful estimate for \(n\), we note that
+    \begin{gather*}
+        N(R,f)\geq\int_\rho^R\frac{n(x,f)\ddx}{x}\geq\int_\rho^R\frac{n(\rho,f)\ddx}{R}=n(\rho,f)\frac{R-\rho}{R},\\
+        N(R,0,f)\geq n(\rho,0,f)\frac{R-\rho}R.
+    \end{gather*}
+    Thus,
+    \begin{align*}
+        n&=n(\rho,f)+n(\rho,0,f)\leq\tfrac{R}{R-\rho}\qty[N(R,f)+N(R,0,f)]\\
+        &\leq\tfrac{R}{R-\rho}\qty[T(R,f)+T(R,0,f)-m(R,f)-m(R,0,f)]\\
+        &\leq\tfrac{R}{R-\rho}\qty[2T(R,f)+\log\abs{\tfrac1{c}}]\leq\tfrac{2R}{R-\rho}\qty[T(R,f)+\logp\abs{\tfrac1{c}}].
+    \end{align*}
+    Using the \(\logp{}\) subadditivity properties (as with earlier), we have
+    \begin{align*}
+        \logp{n}&\leq\logp{\frac{2R}{R-\rho}}+\logp T(R,f)+\logp\circ\logp\abs{\frac1c}+\log 2\\
+        &\leq\logp R+\logp{\frac{1}{R-\rho}}+\logp T(R,f)+\logp\circ\logp\abs{\frac1c}+2\log 2
+    \end{align*}
+    Substituting this into \cref{eq:nevanlinnalogdiffproximityestimate_proximityprimaryestimate}, and using \(R-\rho=\rho-r=\tfrac{R-r}2\) we have that (recognizing \(\logp r,\logp\rho<\logp R\))
+    \begin{multline*}
+        \begin{aligned}
+            m\qty(r,\frac{f'}f)&\leq\logp\rho+3\logp\frac{2}{R-r}+\logp T(\rho,f)+\logp\circ\logp\abs{\frac1{c}}+\logp\frac{1}{r}\nonumber\\
+            &\qquad+\logp r+\tfrac12+5\log2+3\logp R+3\logp{\frac{2}{R-r}}\\
+            &\qquad\qquad+3\logp T(R,f)+3\logp\circ\logp\abs{\frac1c}+6\log 2
+        \end{aligned}\\
+        \begin{aligned}
+            {\!}&<5\logp R+17\log 2+6\logp\frac1{R-r}+4\logp T(\rho,f)+4\logp\circ\logp\abs{\frac1c}+\logp\frac1r+\frac12\\
+            {\!}&\leq 5\logp R+17\log 2+6\logp\frac1{R-r}+4\logp T(R,f)+4\logp\circ\logp\abs{\frac1c}+\logp\frac1r+\frac12,
+        \end{aligned}
+    \end{multline*}
+    since \(T(\rho,f)\leq T(R,f)\) (\cref{thm:nevanlinnacharacteristicnondecreasingconvex}). This proves the proposition.
+\end{proof}
+%%%
+\begin{theorem}[name=\textsc{Second Fundamental Theorem of Nevanlinna Theory, Part 2},store=thm:nevanlinnasecondfundamentaltheorempart2]\label{thm:nevanlinnasecondfundamentaltheorempart2}
+    Let \(f:D\qty(0,R_0)\to\extcomplex\) (\(0<R_0\leq\infty\)) be meromorphic and non-constant.
+    \begin{enumerate}
+        \item If \(R_0=\infty\) and \(f\) has finite order, then
+            \begin{equation}
+                S(r,f)=\order{\log T(r,f)}+\order{\log r}\label{eq:nevanlinnasecondfundamentaltheorempart2_entirecomplexplane}
+            \end{equation} as \(r\to\infty\) through all values.
+        \item If \(R_0=\infty\) and \(f\) has infinite order, then \cref{eq:nevanlinnasecondfundamentaltheorempart2_entirecomplexplane} as \(r\to\infty\) through all values of \(r\) outside a set \(E\) of finite (linear) measure (satisfying \(\textstyle\int_E\dd{r}<\infty\) with respect to the Lebesgue measure\footnote{Heuristically, ``finite linear measure'' means its length is finite. Here, the condition is equivalent to \(\textstyle\inf\cbraces{\sum_k\abs{I_k}}{E\subseteq\bigcup_k I_k}<\infty\) where \(\cbraces{I_k}\) are finite open intervals.}).
+        \item If \(R_0<\infty\), then
+            \begin{equation}
+                S(r,f)=\order{\logp T(r,f)+\log\frac1{R_0-r}}\label{eq:nevanlinnasecondfundamentaltheorempart2_largedisk}
+            \end{equation}
+            as \(r\to R_0^-\) outside a set \(E\) satisfying
+            \begin{equation}
+                \int_E\frac{\dd{r}}{R_0-r}<\infty.
+            \end{equation}
+            Moreover, for any \(R,\rho,\rho'\in\qty(0,R_0)\) such that \(R-\rho'<\ee^{-2}\qty(R-\rho)\) (implying that \(\rho<\rho'\)), \(\exists r\in(\rho,\rho')\) such that \(r\notin E\).
+    \end{enumerate}
+\end{theorem}
