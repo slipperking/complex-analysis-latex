@@ -1,5 +1,5 @@
 \subsection{The Ahlfors--Shimizu Characteristic}
-We now provide a second formulation of the first fundamental theorem, given by Ahlfors and Shimizu, found independently of each other.
+We now provide a second formulation of the first fundamental theorem, given by Ahlfors and Shimizu, found independently of each other. 
 \begin{lemma}\label{lem:ahlforsshimizugreens}
     Let \(U\) be a positively oriented bounded region by a piecewise \(C^1\) simple closed boundary. Let \(f\) be a (not identically 0) holomorphic function on an open neighborhood of \(\overline{U}\), \(G\in C^2\qty(\cbraces{\abs{f(z)}}{z\in\overline{U}})\). Then
     \begin{equation}
@@ -43,8 +43,8 @@ as \(\varepsilon\to 0^+\), where \(\order{1}\) is uniform in \(t\) (for \(z=b_j+
     \[\qty(\mathmakebox[\dimexpr\intlength-\minuslength\relax][l]{\oint_{\partial D(0,r)}}+\sum_{j=1}^n\oint_{\partial D\qty(b_j,\varepsilon)})\nabla_{\vu{n}}{G\qty(\abs{f(z)})}\abs{\ddz}=\iint_{D(0,r)\setminus\bigcup D\qty(b_j,\varepsilon)}{\frac{2\abs{f'\qty(z)}^2}{\qty(1+\abs{f\qty(z)}^2)^2}}\dd{A}.\]
 }
 which requires the computation \[\oint_{\partial D\qty(b_j,\varepsilon)}\qty(\frac{k_j}\varepsilon+\order{1})\abs{\ddz}=\int_0^{2\uppi}\qty(k_j+\varepsilon\order{1})\dd{\theta}=2\uppi k_j+\order{\varepsilon}.\]
-Taking the limit \(\varepsilon\to 0^+\) hence gives \[\frac{1}{2\uppi}\int_0^{2\uppi}\nabla_{\vu{n}}{G\qty(\abs{f\qty(r\ee^{\ii\theta})})}r\dd{\theta}+n(r,f)=\frac1{4\uppi}\int_0^{2\uppi}\int_0^r{f^\sharp\qty(\rho\ee^{\ii\theta})^2}\rho\dd{\rho}\dd{\theta},\]
-where \(f^\sharp\) is the spherical derivative (\cref{def:sphericalderivative}). Let the expression on the right-hand side by denoted by \(A(r,f)\). We thus derive \[A(r,f)=\frac{r}{2\uppi}\int_0^{2\uppi}\pdv{r}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}+n(r,f).\]
+Taking the limit \(\varepsilon\to 0^+\) hence gives \[\frac{1}{2\uppi}\int_0^{2\uppi}\nabla_{\vu{n}}{G\qty(\abs{f\qty(r\ee^{\ii\theta})})}r\dd{\theta}+n(r,f)=\frac1{\uppi}\int_0^{2\uppi}\int_0^r \frac{\abs{f'\qty(\rho\ee^{\ii\theta})^2}}{\qty(1+\abs{f'\qty(\rho\ee^{\ii\theta})^2}^2)^2}\rho\dd{\rho}\dd{\theta}.\]
+Let the expression on the right-hand side by denoted by \(A(r,f)\). We thus derive \[A(r,f)=\frac{r}{2\uppi}\int_0^{2\uppi}\pdv{r}\log\sqrt{1+\abs{f\qty(r\ee^{\ii\theta})}^2}\dd{\theta}+n(r,f).\]
 By dividing by \(r\), changing variables, and integrating from 0 to \(r\), we have
 \begin{align}
     \int_0^r\frac{A(t,f)\dd{t}}t & =\lim_{\varepsilon\to 0^+}\int_\varepsilon^r\frac{1}{2\uppi}\dv{t}\int_0^{2\uppi}\log\sqrt{1+\abs{f\qty(t\ee^{\ii\theta})}^2}\dd{\theta}\ddt+\int_\varepsilon^r\frac{n(0,f)}{t}\ddt\nonumber \\
@@ -130,5 +130,5 @@ Let \(w=u+\ii v\) be a point in the projected plane and let \(\dd{u}\dd{v}\) be 
 \end{align*}
 The surface area of a surface \(E\subseteq S\) is given by \[\int_E\dd{A}_S=\iint_{\symbf{\sigma}^{-1}(E)}\frac{\dd{u}\dd{v}}{\qty(\abs{w}^2+1)^2}.\]
 For \(w=f(z)\), pulling back to \(z\) gives \[A(r)=\frac1{\uppi}\mathop{\mathmakebox[\widthof{\(\iint\)}][l]{\iint_{\symbf{\sigma}(f\qty(D(0,r)))}}}{\mathmakebox[\widthof{\(\iint_{\symbf{\sigma}(f\qty(D(0,r)))}\)}][l]{\dd{A}}}\] or the area of the image of \(f\) on the Riemann sphere, counted according to multiplicities (referring to overlaps when not univalent), divided by the area of the Riemann sphere.
- 
+
 This completes the geometric explanation for \cref{thm:nevanlinnafirstfundamentaltheoremahlforsshimizu}. This area is invariant under rotations of \(S\). In particular, we rotate the north pole \((0,0,1)\) corresponding to \(\infty\) to the point corresponding to \(a\).
