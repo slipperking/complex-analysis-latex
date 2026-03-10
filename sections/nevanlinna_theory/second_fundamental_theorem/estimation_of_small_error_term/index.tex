@@ -144,18 +144,18 @@ Modern results vastly improve said estimations, and the search for a sharp estim
 \begin{proof}
     We observe the two cases separately.
     \begin{enumerate}
-        \item Assume \(R_0=\infty\). Then define \(r'_0=r_0\), and \[r_1=\inf\cbraces{r>r'_0}{\text{\cref{eq:nevanlinnaborel_infiniteradius} fails}},\quad r'_1=r_1+\flatfrac1{T\qty(r_1)}>r_1,\]
+        \item Assume \(R_0=\infty\). Then define \(r'_0=r_0+\flatfrac1{T\qty(r_0)}\), and \[r_1=\inf\cbraces{r>r'_0}{\text{\cref{eq:nevanlinnaborel_infiniteradius} fails}},\quad r'_1=r_1+\flatfrac1{T\qty(r_1)}>r_1,\]
             and let \[r_2=\inf\cbraces{r>r'_1}{\text{\cref{eq:nevanlinnaborel_infiniteradius} fails}},\quad r'_2=r_2+\flatfrac1{T\qty(r_2)}>r_2,\] repeating this process recursively by \[r_n=\inf\cbraces{r>r'_{n-1}}{\text{\cref{eq:nevanlinnaborel_infiniteradius} fails}},\quad r'_n=r_n+\flatfrac1{T\qty(r_n)}>r_n.\] It follows that \(r_n\geq r'_{n-1}>r_{n-1}\), and \(r_n-r_{n-1}\geq r'_{n-1}-r_{n-1}\).
 
-            Assume, for the sake of contradiction, that \(r_n\to r'<\infty\). Then \(r_n-r_{n-1}\to 0\), implying that \(r'_n-r_n=\flatfrac1{T\qty(r_n)}\to 0\). Then \(T\qty(r_n)\to\infty\) as \(r_n\to r'\), contradicting the continuity of \(T\) at \(r'\).
-
-            Thus, the sequence of \(\qty{r_n}\) accumulates at \(\infty\). Observe that by the definition of the infimum, for each \(n\), \cref{eq:nevanlinnaborel_infiniteradius} must be satisfied throughout each \(\qty(r'_{n-1},r_n)\). Indeed, if there exists some value within this interval for which \cref{eq:nevanlinnaborel_infiniteradius} fails, then \(r_n\), which was defined by an infimum, would then be at most this new value, contradicting the assertion that it lay within the interval. It follows that the exceptional set must lie outside of the disjoint union; in other words, \[E_0\subseteq\mathbb{R}_{\geq r_0}\setminus\bigcup_{n=1}^\infty\qty(r'_{n-1},r_n)=\bigcup_{n=0}^\infty\qty[r_n,r'_n].\]
+            Let \(N\in\mathbb{N}\cup\qty{\infty}\) be the largest \(n\) for which the infimum in \(r_n\) is defined. Observe that by the definition of the infimum, for each \(n\), \cref{eq:nevanlinnaborel_infiniteradius} must be satisfied throughout each \(\qty(r'_{n-1},r_n)\). Indeed, if there exists some value within this interval for which \cref{eq:nevanlinnaborel_infiniteradius} fails, then \(r_n\), which was defined by an infimum, would then be at most this new value, contradicting the assertion that it lay within the interval. It follows that the exceptional set must lie outside of the disjoint union; in other words, \[E_0\subseteq\mathbb{R}_{\geq r_0}\setminus\bigcup_{n=1}^N\qty(r'_{n-1},r_n)=\bigcup_{n=0}^N\qty[r_n,r'_n].\]
             We state without proof, that subadditivity holds:
-            \[\int_{E_0}\dd{r}\leq\sum_{n=0}^\infty\qty(r'_n-r_n).\]
+            \[\int_{E_0}\dd{r}\leq\sum_{n=0}^N\qty(r'_n-r_n).\]
             By construction, for points arbitrarily close to \(r_n\) or at \(r_n\) itself, \[T\qty(r+\frac1{T(r)})\geq 2T(r),\]
             continuity allows (in either case) this inequality to be extended to \(r=r_n\). Then for each \(n\), \[T\qty(r'_n)=T\qty(r_n+\frac1{T\qty(r_n)})\geq 2T\qty(r_n),\quad T\qty(r'_n)\leq T\qty(r_{n+1})\implies T\qty(r_{n+1})\geq 2T\qty(r_n).\]
-            Using induction, \(T(r_n)\geq 2^nT\qty(r_0)\), implying that \[r'_n-r_n=\frac1{T(r_n)}\leq\frac1{2^nT\qty(r_0)}\implies\sum_{n=0}^\infty\qty(r'_n-r_n)=\frac1{T(r_0)}\sum_{n=0}^\infty\frac1{2^n}=\frac2{T\qty(r_0)}\leq2.\]
-        \item Suppose \(R_0<\infty\) in the theorem statement.
+            Using induction, \(T(r_n)\geq 2^nT\qty(r_0)\), implying that \[r'_n-r_n=\frac1{T(r_n)}\leq\frac1{2^nT\qty(r_0)}\implies\sum_{n=0}^N\qty(r'_n-r_n)\leq\frac1{T(r_0)}\sum_{n=0}^\infty\frac1{2^n}=\frac2{T\qty(r_0)}\leq2.\]
+        \item Suppose \(R_0<\infty\) in the theorem statement. Let \(T_0(\rho)=T\qty(R_0-\ee^{-\rho})\), where \(\rho_0=\log\tfrac1{R_0-r_0}\leq\rho<\infty\), so that \(T_0\) is an increasing function on \(\left[\rho_0,\infty\right)\). By the result above, \(\exists E_0'\subseteq\left[\rho_0,\infty\right)\) such that \[\int_{E_0'}\dd{\rho}\leq 2,\qquad T_0\qty(\rho+\frac1{T_0(\rho)})<2T_0(\rho)\quad\forall \rho\notin E'_0.\]
+            Substitute \(\rho=\log\tfrac1{R_0-r}\), \(r=R_0-\ee^{-\rho}\), \(E_0=\qty(\rho\mapsto R_0-\ee^{\rho})\qty(E'_0)\), so that \(T_0(\rho)=T(r)\), and \[\int_{E_0}\frac{\dd{r}}{R_0-r}\leq 2,\qquad T\qty(R_0-(R_0-r)\ee^{-\frac1{T(r)}})<2T(r)\quad\forall r\notin E_0.\]
+            We are left to bound the inequality to be in the form of \cref{eq:nevanlinnaborel_finiteradius}. For \(x\in(0,1)\), \(\ee^{-x}<1-\tfrac{\ee-1}\ee x<1-\flatfrac{x}{\ee}\), thus for \(r\) within \([r_0,R_0)\) outside \(E_0\), we have from \(\ee^{-\frac1{T(r)}}<1-\tfrac{1}{\ee T(r)}\). Hence, \[T\qty(R_0-(R_0-r)\ee^{-\frac1{T(r)}})\geq T\qty(R_0-(R_0-r)\qty(1-\frac{1}{\ee T(r)}))=T\qty(r+\frac{R_0-r}{\ee T(r)}).\qedhere\]
     \end{enumerate}
 \end{proof}
 \begin{theorem}[name=\textsc{Second Fundamental Theorem of Nevanlinna Theory, Part 2},store=thm:nevanlinnasecondfundamentaltheorempart2]\label{thm:nevanlinnasecondfundamentaltheorempart2}
