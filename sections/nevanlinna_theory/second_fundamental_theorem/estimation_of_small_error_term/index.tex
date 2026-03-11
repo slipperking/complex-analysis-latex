@@ -159,7 +159,7 @@ Modern results vastly improve said estimations, and the search for a sharp estim
     \end{enumerate}
 \end{proof}
 \begin{theorem}[name=\textsc{Second Fundamental Theorem of Nevanlinna Theory, Part 2},store=thm:nevanlinnasecondfundamentaltheorempart2]\label{thm:nevanlinnasecondfundamentaltheorempart2}
-    Let \(f:D\qty(0,R_0)\to\extcomplex\) (\(0<R_0\leq\infty\)) be meromorphic and non-constant.
+    Let \(f:D\qty(0,R_0)\to\extcomplex\) (\(0<R_0\leq\infty\)) be meromorphic and non-constant. Define \(S(r,f)\) as in \cref{eq:nevanlinnasecondfundamentaltheorempart1_smallerrorterm}. Then
     \begin{enumerate}
         \item If \(R_0=\infty\) and \(f\) has finite order, then
             \begin{equation}
@@ -177,3 +177,27 @@ Modern results vastly improve said estimations, and the search for a sharp estim
             Moreover, for any \(R,\rho,\rho'\in\qty(0,R_0)\) such that \(R-\rho'<\ee^{-2}\qty(R-\rho)\) (implying that \(\rho<\rho'\)), \(\exists r\in(\rho,\rho')\) such that \(r\notin E\).
     \end{enumerate}
 \end{theorem}
+\begin{proof}
+    As a function of \(r\), \[S(r,f)=m\qty(r,\frac{f'}f)+m\qty(r,\frac{\phi'}{\phi})+\text{constant},\]
+    where \(\textstyle\phi(z)=\prod_{\nu=1}^q\qty(f(z)-a_{\nu})\), where the constant term does not depend on \(r\).
+
+    In all three perceivable cases,
+    \begin{equation}
+        T\qty(r,\phi)\leq\sum_{\nu=1}^q T\qty(r,f-a_\nu)=qT\qty(r,f)+\order{1},\qquad\logp T(r,\phi)=\logp T(r,f)+\order{1}\label{eq:nevanlinnasecondfundamentaltheorempart2}
+    \end{equation}
+    by \cref{prop:nevanlinnacharacteristicproperties,thm:nevanlinnafirstfundamentaltheorem}. In the first case, where \(R_0=\infty\), by \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=2r\),
+    \begin{gather*}
+        m\qty(r,\frac{f'}f)<4\logp T(R,f)+\order{1}+5\logp\qty(2r)=\order{\logp T(2r,f)}+\order{\logp r}.\\
+        m\qty(r,\frac{\phi'}\phi)<4\logp T(R,\phi)+\order{1}+5\logp\qty(2r)=\order{\logp T(2r,\phi)}+\order{\logp r}.
+    \end{gather*}
+    Since \(f\) has finite order, \(T(2r,f)=\order{(2r)^{\rho+\varepsilon}}=\order{r^{\varrho}}\), so \(\logp T(R,f)=\order{\logp r}\), thus as \(r\to\infty\), using \cref{eq:nevanlinnasecondfundamentaltheorempart2} we have \[m\qty(r,\frac{f'}f)=\order{\log r},\qquad m\qty(r,\frac{\phi'}\phi)=\order{\logp T(2r,\phi)}+\order{\logp r}=\order{\log r}.\] Then \(S(r,f)=\order{\log r}\), clearly satisfying \cref{eq:nevanlinnasecondfundamentaltheorempart2_entirecomplexplane}.
+
+    Now assume \(f\) is not necessarily of finite order and \(R_0=\infty\). Then by \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=r+\frac1{T(r)}\),
+    \begin{gather*}
+        m\qty(r,\frac{f'}f)<\order{\logp T\qty(r+\frac1{T(r)},f)}+\order{1}+\order{\logp r}\\
+        m\qty(r,\frac{\phi'}\phi)<\order{\logp T\qty(r+\frac1{T(r)},f)}+\order{1}+\order{\logp r}.
+    \end{gather*} By \cref{lem:nevanlinnaborel}, there is some exceptional set \(E_0\) of linear measure not exceeding 2 such that \[\logp T\qty(r+\frac1{T(r)},f)\leq\logp T\qty(r+\frac1{T(r)},f)+\order{1},\]
+    thus for \(r\to\infty\) with \(r\notin E_0\),
+    \[S(r,f)=\order{\logp T\qty(r,f)}+\order{\logp r}.\]
+    Lastly, assume that \(R_0<\infty\). Now apply \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=r+\frac{R_0-r}{\ee T(r,f)}\), then outside an exceptional set satisfying
+\end{proof}
