@@ -139,6 +139,7 @@ Modern results vastly improve said estimations, and the search for a sharp estim
             \begin{equation}
                 T\qty(r+\frac{R_0-r}{\ee T(r)})<2T(r)\label{eq:nevanlinnaborel_finiteradius}
             \end{equation}
+            Moreover, for any \(R,\rho,\rho'\in\qty(0,R_0)\) such that \(R-\rho'<\ee^{-2}\qty(R-\rho)\) (implying that \(\rho<\rho'\)), \(\exists r\in(\rho,\rho')\) such that \(r\notin E_0\).
     \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -155,7 +156,9 @@ Modern results vastly improve said estimations, and the search for a sharp estim
             Using induction, \(T(r_n)\geq 2^nT\qty(r_0)\), implying that \[r'_n-r_n=\frac1{T(r_n)}\leq\frac1{2^nT\qty(r_0)}\implies\sum_{n=0}^N\qty(r'_n-r_n)\leq\frac1{T(r_0)}\sum_{n=0}^\infty\frac1{2^n}=\frac2{T\qty(r_0)}\leq2.\]
         \item Suppose \(R_0<\infty\) in the theorem statement. Let \(T_0(\rho)=T\qty(R_0-\ee^{-\rho})\), where \(\rho_0=\log\tfrac1{R_0-r_0}\leq\rho<\infty\), so that \(T_0\) is an increasing function on \(\left[\rho_0,\infty\right)\). By the result above, \(\exists E_0'\subseteq\left[\rho_0,\infty\right)\) such that \[\int_{E_0'}\dd{\rho}\leq 2,\qquad T_0\qty(\rho+\frac1{T_0(\rho)})<2T_0(\rho)\quad\forall \rho\notin E'_0.\]
             Substitute \(\rho=\log\tfrac1{R_0-r}\), \(r=R_0-\ee^{-\rho}\), \(E_0=\qty(\rho\mapsto R_0-\ee^{\rho})\qty(E'_0)\), so that \(T_0(\rho)=T(r)\), and \[\int_{E_0}\frac{\dd{r}}{R_0-r}\leq 2,\qquad T\qty(R_0-(R_0-r)\ee^{-\frac1{T(r)}})<2T(r)\quad\forall r\notin E_0.\]
-            We are left to bound the inequality to be in the form of \cref{eq:nevanlinnaborel_finiteradius}. For \(x\in(0,1)\), \(\ee^{-x}<1-\tfrac{\ee-1}\ee x<1-\flatfrac{x}{\ee}\), thus for \(r\) within \([r_0,R_0)\) outside \(E_0\), we have from \(\ee^{-\frac1{T(r)}}<1-\tfrac{1}{\ee T(r)}\). Hence, \[T\qty(R_0-(R_0-r)\ee^{-\frac1{T(r)}})\geq T\qty(R_0-(R_0-r)\qty(1-\frac{1}{\ee T(r)}))=T\qty(r+\frac{R_0-r}{\ee T(r)}).\qedhere\]
+            We are left to bound the inequality to be in the form of \cref{eq:nevanlinnaborel_finiteradius}. For \(x\in(0,1)\), \(\ee^{-x}<1-\tfrac{\ee-1}\ee x<1-\flatfrac{x}{\ee}\), thus for \(r\) within \([r_0,R_0)\) outside \(E_0\), we have from \(\ee^{-\frac1{T(r)}}<1-\tfrac{1}{\ee T(r)}\). Hence, \[\textstyle T\qty(R_0-(R_0-r)\ee^{-\frac1{T(r)}})\geq T\qty(R_0-(R_0-r)\qty(1-\frac{1}{\ee T(r)}))=T\qty(r+\frac{R_0-r}{\ee T(r)}).\]
+            If \(\rho,\rho'\) are chosen such that \(R_0-\rho'<\ee^{-2}\qty(R_0-\rho)\), then \[\int_{\rho}^{\rho'}\frac{\dd{r}}{R_0-r}=\log\qty(\frac{R_0-\rho}{R_0-\rho'})>\log\qty(\ee^2)=2.\]
+            Since \(\textstyle\int_{E_0}\frac{\dd{r}}{r_0-r}\leq 2\), there then \((\rho,\rho')\not\subseteq E_0\). Thus, \(\exists r\in(\rho,\rho')\) such that \(r\notin E_0\).\qedhere
     \end{enumerate}
 \end{proof}
 \begin{theorem}[name=\textsc{Second Fundamental Theorem of Nevanlinna Theory, Part 2},store=thm:nevanlinnasecondfundamentaltheorempart2]\label{thm:nevanlinnasecondfundamentaltheorempart2}
@@ -174,7 +177,7 @@ Modern results vastly improve said estimations, and the search for a sharp estim
             \begin{equation}
                 \int_E\frac{\dd{r}}{R_0-r}<\infty.
             \end{equation}
-            Moreover, for any \(R,\rho,\rho'\in\qty(0,R_0)\) such that \(R-\rho'<\ee^{-2}\qty(R-\rho)\) (implying that \(\rho<\rho'\)), \(\exists r\in(\rho,\rho')\) such that \(r\notin E\).
+            Moreover, for any \(\rho,\rho'\in\qty(0,R_0)\) such that \(R_0-\rho'<\ee^{-2}\qty(R_0-\rho)\) (implying that \(\rho<\rho'\)), \(\exists r\in(\rho,\rho')\) such that \(r\notin E\).
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -192,12 +195,16 @@ Modern results vastly improve said estimations, and the search for a sharp estim
     \end{gather*}
     Since \(f\) has finite order, \(T(2r,f)=\order{(2r)^{\rho+\varepsilon}}=\order{r^{\varrho}}\), so \(\logp T(R,f)=\order{\logp r}\), thus as \(r\to\infty\), using \cref{eq:nevanlinnasecondfundamentaltheorempart2} we have \[m\qty(r,\frac{f'}f)=\order{\log r},\qquad m\qty(r,\frac{\phi'}\phi)=\order{\logp T(2r,\phi)}+\order{\logp r}=\order{\log r}.\] Then \(S(r,f)=\order{\log r}\), clearly satisfying \cref{eq:nevanlinnasecondfundamentaltheorempart2_entirecomplexplane}.
 
-    Now assume \(f\) is not necessarily of finite order and \(R_0=\infty\). Then by \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=r+\frac1{T(r)}\),
+    Now assume \(f\) is not necessarily of finite order and \(R_0=\infty\). Then by \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=r+\tfrac1{T(r)}\),
     \begin{gather*}
         m\qty(r,\frac{f'}f)<\order{\logp T\qty(r+\frac1{T(r)},f)}+\order{1}+\order{\logp r}\\
         m\qty(r,\frac{\phi'}\phi)<\order{\logp T\qty(r+\frac1{T(r)},f)}+\order{1}+\order{\logp r}.
     \end{gather*} By \cref{lem:nevanlinnaborel}, there is some exceptional set \(E_0\) of linear measure not exceeding 2 such that \[\logp T\qty(r+\frac1{T(r)},f)\leq\logp T\qty(r+\frac1{T(r)},f)+\order{1},\]
     thus for \(r\to\infty\) with \(r\notin E_0\),
     \[S(r,f)=\order{\logp T\qty(r,f)}+\order{\logp r}.\]
-    Lastly, assume that \(R_0<\infty\). Now apply \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=r+\frac{R_0-r}{\ee T(r,f)}\), then outside an exceptional set satisfying
+    Lastly, assume that \(R_0<\infty\). Now apply \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=r+\frac{R_0-r}{\ee T(r,f)}\) outside an exceptional set satisfying \(\textstyle\int_E\frac{\dd{r}}{R_0-r}<\infty\) to get that
+    \begin{gather*}
+        m\qty(r,\frac{f'}f)<\order{\logp T(R,f)}+\order{1}+\order{\logp\qty(r+\frac{R_0-r}{\ee T(r,f)})}+\order{\logp\frac{\ee T(r,f)}{R_0-r}},\\
+        S(r,f)=\order{\logp T(r,f)+\log\frac1{R_0-r}}
+    \end{gather*}
 \end{proof}
