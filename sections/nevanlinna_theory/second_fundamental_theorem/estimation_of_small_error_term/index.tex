@@ -166,12 +166,12 @@ Modern results vastly improve said estimations, and the search for a sharp estim
     \begin{enumerate}
         \item If \(R_0=\infty\) and \(f\) has finite order, then
             \begin{equation}
-                S(r,f)=\order{\log T(r,f)}+\order{\log r}\label{eq:nevanlinnasecondfundamentaltheorempart2_entirecomplexplane}
+                S(r,f)=\order{\log T(r,f)}+\order{\log r}\label{eq:nevanlinnasecondfundamentaltheorempart2_intermediate_entirecomplexplane}
             \end{equation} as \(r\to\infty\) through all values.
-        \item If \(R_0=\infty\) and \(f\) has infinite order, then \cref{eq:nevanlinnasecondfundamentaltheorempart2_entirecomplexplane} as \(r\to\infty\) through all values of \(r\) outside a set \(E\) of finite linear measure.
+        \item If \(R_0=\infty\) and \(f\) has infinite order, then \cref{eq:nevanlinnasecondfundamentaltheorempart2_intermediate_entirecomplexplane} as \(r\to\infty\) through all values of \(r\) outside a set \(E\) of finite linear measure.
         \item If \(R_0<\infty\), then
             \begin{equation}
-                S(r,f)=\order{\logp T(r,f)+\log\frac1{R_0-r}}\label{eq:nevanlinnasecondfundamentaltheorempart2_largedisk}
+                S(r,f)=\order{\logp T(r,f)+\log\frac1{R_0-r}}\label{eq:nevanlinnasecondfundamentaltheorempart2_intermediate_largedisk}
             \end{equation}
             as \(r\to R_0^-\) outside a set \(E\) satisfying
             \begin{equation}
@@ -186,14 +186,14 @@ Modern results vastly improve said estimations, and the search for a sharp estim
 
     In all three perceivable cases,
     \begin{equation}
-        T\qty(r,\phi)\leq\sum_{\nu=1}^q T\qty(r,f-a_\nu)=qT\qty(r,f)+\order{1},\qquad\logp T(r,\phi)=\logp T(r,f)+\order{1}\label{eq:nevanlinnasecondfundamentaltheorempart2}
+        T\qty(r,\phi)\leq\sum_{\nu=1}^q T\qty(r,f-a_\nu)=qT\qty(r,f)+\order{1},\qquad\logp T(r,\phi)=\logp T(r,f)+\order{1}\label{eq:nevanlinnasecondfundamentaltheorempart2_intermediate}
     \end{equation}
     by \cref{prop:nevanlinnacharacteristicproperties,thm:nevanlinnafirstfundamentaltheorem}. In the first case, where \(R_0=\infty\), by \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=2r\),
     \begin{gather*}
         m\qty(r,\frac{f'}f)<4\logp T(R,f)+\order{1}+5\logp\qty(2r)=\order{\logp T(2r,f)}+\order{\logp r}.\\
         m\qty(r,\frac{\phi'}\phi)<4\logp T(R,\phi)+\order{1}+5\logp\qty(2r)=\order{\logp T(2r,\phi)}+\order{\logp r}.
     \end{gather*}
-    Since \(f\) has finite order, \(T(2r,f)=\order{(2r)^{\rho+\varepsilon}}=\order{r^{\varrho}}\), so \(\logp T(R,f)=\order{\logp r}\), thus as \(r\to\infty\), using \cref{eq:nevanlinnasecondfundamentaltheorempart2} we have \[m\qty(r,\frac{f'}f)=\order{\log r},\qquad m\qty(r,\frac{\phi'}\phi)=\order{\logp T(2r,\phi)}+\order{\logp r}=\order{\log r}.\] Then \(S(r,f)=\order{\log r}\), clearly satisfying \cref{eq:nevanlinnasecondfundamentaltheorempart2_entirecomplexplane}.
+    Since \(f\) has finite order, \(T(2r,f)=\order{(2r)^{\rho+\varepsilon}}=\order{r^{\varrho}}\), so \(\logp T(R,f)=\order{\logp r}\), thus as \(r\to\infty\), using \cref{eq:nevanlinnasecondfundamentaltheorempart2_intermediate} we have \[m\qty(r,\frac{f'}f)=\order{\log r},\qquad m\qty(r,\frac{\phi'}\phi)=\order{\logp T(2r,\phi)}+\order{\logp r}=\order{\log r}.\] Then \(S(r,f)=\order{\log r}\), clearly satisfying \cref{eq:nevanlinnasecondfundamentaltheorempart2_intermediate_entirecomplexplane}.
 
     Now assume \(f\) is not necessarily of finite order and \(R_0=\infty\). Then by \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=r+\tfrac1{T(r)}\),
     \begin{gather*}
@@ -210,7 +210,7 @@ Modern results vastly improve said estimations, and the search for a sharp estim
     The final assertion is also evident from \cref{lem:nevanlinnaborel}.
 \end{proof}
 \begin{definition}
-    Let \(f:D\qty(0,R_0)\to\extcomplex\) be meromorphic for \(R_0\in\mathbb{R}_{\geq 0}\cup\qty{\infty}\). Then \(f\) is said to be \textit{admissible} if either of the following are true:
+    Let \(f:D\qty(0,R_0)\to\extcomplex\) be meromorphic for \(R_0\in\mathbb{R}_{>0}\cup\qty{\infty}\). Then \(f\) is said to be \textit{admissible} if either of the following are true:
     \begin{enumerate}
         \item \(R_0=\infty\) and \(f\) is non-constant.
         \item \(R_0<\infty\) and \(\varlimsup_{r\to R_0^-}\tfrac{T(r,f)}{\log\qty[\flatfrac{1}{\qty(R_0-r)}]}=\infty\).
@@ -220,11 +220,20 @@ These definitions ensure that \(S(r,f)\) is generally sufficiently small:
 \begin{theorem}
     An admissible meromorphic function \(f:D\qty(0,R_0)\to\extcomplex\) (given for \(R_0\in\mathbb{R}_{>0}\cup\qty{\infty}\)) pertains to one of the following cases:
     \begin{enumerate}
-        \item If \(R_0=\infty\) and \(f\) has finite order, then \(S(r,f)=\order{T(r,f)}\) for \(r\to R_0^-\) through all values.
-        \item If \(R_0=\infty\) and \(f\) has infinite order, then \(S(r,f)=\order{T(r,f)}\) for \(r\to R_0^-\) outside a set \(E_0\) of finite linear measure, which depends on \(f\) but not on \(\qty{a_\nu}\) and \(q\).
-        \item If \(R_0<\infty\), then \(S(r,f)=\order{T(r,f)}\) for \(r\to R_0^-\) through a sequence \(\qty{r_n}_n\) dependent on \(f\) but not on \(\qty{a_\nu}\) and \(q\).
+        \item If \(R_0=\infty\) and \(f\) has finite order, then \(S(r,f)=o\qty[T(r,f)]\) for \(r\to R_0^-\) through all values.
+        \item If \(R_0=\infty\) and \(f\) has infinite order, then \(S(r,f)=o\qty[T(r,f)]\) for \(r\to R_0^-\) outside a set \(E_0\) of finite linear measure, which depends on \(f\) but not on \(\qty{a_\nu}\) and \(q\).
+        \item If \(R_0<\infty\), then \(S(r,f)=o\qty[T(r,f)]\) for \(r\to R_0^-\) through a sequence \(\qty{r_n}_n\) dependent on \(f\) but not on \(\qty{a_\nu}\) and \(q\).
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    If
+    Assume the conditions of the theorem.
+    \begin{enumerate}
+        \item Assume \(R_0=\infty\) and \(f\) has finite order. Then \(T(r,f)=\order{r^{\rho+\varepsilon}}\), \(r^{\rho-\varepsilon}=o\qty[T(r,f)]\) (assuming that \(\rho>0\)), so \(\log T(r,f)=\order{\log r}\). Therefore, by \cref{thm:nevanlinnasecondfundamentaltheorempart2}, it follows that through all values as \(r\to\infty\),
+            \[S(r,f)=\order{\log T(r,f)}+\order{\log r}=\order{\log T(r,f)}=o\qty[T(r,f)].\]
+            % tbc: 0 order case
+        \item Assume \(R_0=\infty\) and \(f\) has infinite order. Then by \cref{thm:nevanlinnasecondfundamentaltheorempart2}, it follows that for \(r\to R_0^-\) outside a set \(E_0\) of finite linear measure, \(S(r,f)=\order{\log T(r,f)}+\order{\log r}\). Since \(\tfrac{\log T(r,f)}{\log r}\to\infty\), then \(\log r=o\qty[T(r,f)]\), and thus \(S(r,f)=o\qty[T(r,f)]\) outside this exceptional set.
+        \item Assume \(R_0<\infty\). Construct two sequences \(\qty{\rho}_n,\qty{\rho'}_n\) such that \(\rho_n<\rho'_n\), \(\rho_n,\rho'_n\to R_0^-\), and \[\lim_{n\to\infty}\frac{T\qty(\rho_n,f)}{\log\qty[\flatfrac1{\qty(R_0-\rho_n)}]}=\infty\] (observe that this is no longer a limit superior) and \(\rho'_n=R_0-\ee^{-2}\tfrac{R_0-\rho_n}2\), so that \(R_0-\rho'_n<\ee^{-2}\qty(R_0-\rho_n)\).
+        
+        Then by \cref{thm:nevanlinnasecondfundamentaltheorempart2}, there exists some \(r_n\in(\rho_n,\rho'_n)\) such that \(r_n\notin E_0\). It follows that \(R_0-\rho_n>R_0-r_n>R_0-\rho'_n=\tfrac{R_0-\rho_n}{2\ee^2}\). Then for \(n\to\infty\), \[\frac1{R_0-\rho_n}=o\qty(T\qty(\rho_n))=o\qty(T\qty(r_n)),\] since \(T\) is a non-decreasing function of radius. Then \[S\qty(r_n,f)=\order{\logp T(r_n,f)+\log\qty[o\qty(T\qty(r_n,f))]}=o\qty[T(r_n,f)]\qq{as}n\to\infty.\qedhere\]
+    \end{enumerate}
 \end{proof}
