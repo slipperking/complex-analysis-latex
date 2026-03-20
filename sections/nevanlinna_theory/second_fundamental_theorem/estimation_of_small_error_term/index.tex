@@ -205,6 +205,26 @@ Modern results vastly improve said estimations, and the search for a sharp estim
     Lastly, assume that \(R_0<\infty\). Now apply \cref{prop:nevanlinnalogdiffproximityestimate} with \(R=r+\frac{R_0-r}{\ee T(r,f)}\) outside an exceptional set satisfying \(\textstyle\int_E\frac{\dd{r}}{R_0-r}<\infty\) to get that
     \begin{gather*}
         m\qty(r,\frac{f'}f)<\order{\logp T(R,f)}+\order{1}+\order{\logp\qty(r+\frac{R_0-r}{\ee T(r,f)})}+\order{\logp\frac{\ee T(r,f)}{R_0-r}},\\
-        S(r,f)=\order{\logp T(r,f)+\log\frac1{R_0-r}}
+        S(r,f)=\order{\logp T(r,f)+\log\frac1{R_0-r}}.
     \end{gather*}
+    The final assertion is also evident from \cref{lem:nevanlinnaborel}.
+    \begin{definition}
+        Let \(f:D\qty(0,R_0)\to\extcomplex\) be meromorphic for \(R_0\in\mathbb{R}_{\geq 0}\cup\qty{\infty}\). Then \(f\) is said to be \textit{admissible} if either of the following are true:
+        \begin{enumerate}
+            \item \(R_0=\infty\) and \(f\) is non-constant.
+            \item \(R_0<\infty\) and \(\varlimsup_{r\to R_0^-}\tfrac{T(r,f)}{\log\qty[\flatfrac{1}{\qty(R_0-r)}]}=\infty\).
+        \end{enumerate}
+    \end{definition}
+    These definitions ensure that \(S(r,f)\) is generally sufficiently small:
+    \begin{theorem}
+        An admissible meromorphic function \(f:D\qty(0,R_0)\to\extcomplex\) (given for \(R_0\in\mathbb{R}_{>0}\cup\qty{\infty}\)) pertains to one of the following cases:
+        \begin{enumerate}
+            \item If \(R_0=\infty\) and \(f\) has finite order, then \(S(r,f)=\order{T(r,f)}\) for \(r\to R_0^-\) through all values.
+            \item If \(R_0=\infty\) and \(f\) has infinite order, then \(S(r,f)=\order{T(r,f)}\) for \(r\to R_0^-\) outside a set \(E_0\) of finite linear measure, which depends on \(f\) but not on \(\qty{a_\nu}\) and \(q\).
+            \item If \(R_0<\infty\), then \(S(r,f)=\order{T(r,f)}\) for \(r\to R_0^-\) through a sequence \(\qty{r_n}_n\) dependent on \(f\) but not on \(\qty{a_\nu}\) and \(q\).
+        \end{enumerate}
+    \end{theorem}
+    \begin{proof}
+        If
+    \end{proof}
 \end{proof}
