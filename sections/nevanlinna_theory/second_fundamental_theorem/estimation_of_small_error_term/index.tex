@@ -209,6 +209,17 @@ Modern results vastly improve said estimations, and the search for a sharp estim
     \end{gather*}
     The final assertion is also evident from \cref{lem:nevanlinnaborel}.
 \end{proof}
+\begin{proposition}\label{prop:nevanlinnaorderrationalcondition}
+    If \(f:\mathbb{C}\to\extcomplex\) is meromorphic and \(T(r,f)=\order{\log r}\), then \(f\) is a rational function.
+\end{proposition}
+\begin{proof}
+    We must have (for any \(a\in\extcomplex\)) \(N(r,a,f)=\order{\log r}\). We assert that \(f\) attains each value finitely many times. Otherwise, for each \(k\in\mathbb{N}\), there exists \(r'\) such that \(\forall r>r'\), \(n\qty(r,a,f)>k\). Then \[N(r,a,f)=c+\int_{r'}^{r}\frac{n(x,a,f)-n(0,a,f)}{x}\ddx+n(0,a,f)\log r>c+k\log r.\]
+    Thus, \(N\) eventually grows faster than \(k\log r\) for any \(k\). It follows that each \(a\) is attained finitely many times by contradiction. Construct \(g=\order{\abs{z}^d}\) to be a polynomial with its zeros at each pole (finitely many) of \(f\).
+
+    Then \(h=fg\) is entire, and furthermore, \(T(r,h)\leq T(r,f)+T(r,g)\). Then \(T(r,f)=\order{\log r}\) and \[T(r,g)=m(r,g)<\logp M(r,g)=\order{\log r}.\]
+    Then \[\log M(r,h)\leq 3T(2r,h)=\order{\log r}\] by \cref{thm:nevanlinnaentirefunctionmaximummodulussandwich}. Then \[M(r,h)\leq ar^b,\] where \(a\), \(b\) are constants. Thus the growth of \(h\) may not exceed that of a polynomial. By Cauchy's Estimate (\cref{thm:cauchysestimate}), for any natural number \(n\) and any \(r>0\), \[M\qty(r,h^{(n)})\leq n!r^{b-n}.\]
+    For \(n>b\), let \(r\to\infty\) to find that the derivatives of \(h\) eventually vanish. Therefore, \(h\) is a polynomial, and consequently \(f\) is the quotient of two polynomials.
+\end{proof}
 \begin{definition}
     Let \(f:D\qty(0,R_0)\to\extcomplex\) be meromorphic for \(R_0\in\mathbb{R}_{>0}\cup\qty{\infty}\). Then \(f\) is said to be \textit{admissible} if either of the following are true:
     \begin{enumerate}
@@ -228,12 +239,14 @@ These definitions ensure that \(S(r,f)\) is generally sufficiently small:
 \begin{proof}
     Assume the conditions of the theorem.
     \begin{enumerate}
-        \item Assume \(R_0=\infty\) and \(f\) has finite order. Then \(T(r,f)=\order{r^{\rho+\varepsilon}}\), \(r^{\rho-\varepsilon}=o\qty[T(r,f)]\) (assuming that \(\rho>0\)), so \(\log T(r,f)=\order{\log r}\). Therefore, by \cref{thm:nevanlinnasecondfundamentaltheorempart2}, it follows that through all values as \(r\to\infty\),
+        \item Assume \(R_0=\infty\) and \(f\) has finite order. Then \(T(r,f)=\order{r^{\rho+\varepsilon}}\), \(r^{\rho-\varepsilon}=o\qty[T(r,f)]\) (assuming that \(\rho>0\)), so \(\log r=o\qty[T(r,f)]\). Therefore, by \cref{thm:nevanlinnasecondfundamentaltheorempart2}, it follows that through all values as \(r\to\infty\),
             \[S(r,f)=\order{\log T(r,f)}+\order{\log r}=\order{\log T(r,f)}=o\qty[T(r,f)].\]
-            % tbc: 0 order case
+            If \(\rho=0\), we have for any \(\varepsilon\) that for sufficiently large \(r\), either \(\log r=o\qty(T(r,f))\) or \(T\qty(r,f)=\order{\log r}\). The former case is the same as above.
+
+            In the latter case, \cref{prop:nevanlinnaorderrationalcondition} gives that \(f\) is rational. Hence, as \(r\to\infty\), \(M\qty(r,\tfrac{f'}{f}),M\qty(r,\sum_\nu\tfrac{f'}{f-a_\nu})\to 0\). Hence for sufficiently large \(r\), \(m(r,\tfrac{f'}f)\) and \(m\qty(r,\sum_\nu\tfrac{f'}{f-a_\nu})\) vanish and \(S(r,f)=\order{1}\), \(\therefore\flatfrac{S}{T}\to 0\).
         \item Assume \(R_0=\infty\) and \(f\) has infinite order. Then by \cref{thm:nevanlinnasecondfundamentaltheorempart2}, it follows that for \(r\to R_0^-\) outside a set \(E_0\) of finite linear measure, \(S(r,f)=\order{\log T(r,f)}+\order{\log r}\). Since \(\tfrac{\log T(r,f)}{\log r}\to\infty\), then \(\log r=o\qty[T(r,f)]\), and thus \(S(r,f)=o\qty[T(r,f)]\) outside this exceptional set.
         \item Assume \(R_0<\infty\). Construct two sequences \(\qty{\rho}_n,\qty{\rho'}_n\) such that \(\rho_n<\rho'_n\), \(\rho_n,\rho'_n\to R_0^-\), and \[\lim_{n\to\infty}\frac{T\qty(\rho_n,f)}{\log\qty[\flatfrac1{\qty(R_0-\rho_n)}]}=\infty\] (observe that this is no longer a limit superior) and \(\rho'_n=R_0-\ee^{-2}\tfrac{R_0-\rho_n}2\), so that \(R_0-\rho'_n<\ee^{-2}\qty(R_0-\rho_n)\).
-        
-        Then by \cref{thm:nevanlinnasecondfundamentaltheorempart2}, there exists some \(r_n\in(\rho_n,\rho'_n)\) such that \(r_n\notin E_0\). It follows that \(R_0-\rho_n>R_0-r_n>R_0-\rho'_n=\tfrac{R_0-\rho_n}{2\ee^2}\). Then for \(n\to\infty\), \[\frac1{R_0-\rho_n}=o\qty(T\qty(\rho_n))=o\qty(T\qty(r_n)),\] since \(T\) is a non-decreasing function of radius. Then \[S\qty(r_n,f)=\order{\logp T(r_n,f)+\log\qty[o\qty(T\qty(r_n,f))]}=o\qty[T(r_n,f)]\qq{as}n\to\infty.\qedhere\]
+
+            Then by \cref{thm:nevanlinnasecondfundamentaltheorempart2}, there exists some \(r_n\in(\rho_n,\rho'_n)\) such that \(r_n\notin E_0\). It follows that \(R_0-\rho_n>R_0-r_n>R_0-\rho'_n=\tfrac{R_0-\rho_n}{2\ee^2}\). Then for \(n\to\infty\), \[\frac1{R_0-\rho_n}=o\qty(T\qty(\rho_n))=o\qty(T\qty(r_n)),\] since \(T\) is a non-decreasing function of radius. Then \[S\qty(r_n,f)=\order{\logp T(r_n,f)+\log\qty[o\qty(T\qty(r_n,f))]}=o\qty[T(r_n,f)]\qq{as}n\to\infty.\qedhere\]
     \end{enumerate}
 \end{proof}
