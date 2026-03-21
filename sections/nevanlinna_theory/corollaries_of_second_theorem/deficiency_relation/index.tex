@@ -1,13 +1,19 @@
 \subsubsection{Deficiency Relation}\label{sec:deficiencyrelation}
 One of the reformulations of the Second Fundamental Theorem is characterized in a way so that it comprises the statements of Picard-like theorems in a compact manner (of course, the conclusions are substantially more far-reaching than just the Picard theorems themselves). We first introduce the relevant terminology.
 \begin{definition}
+    Let \(a\in\extcomplex\), \(f:D(0,R)\to\extcomplex\) be meromorphic. For \(k\in\mathbb{N}\), \(r<R\), define \(n^{(k)}\qty(r,a,f)\) be the number of zeros of \(f-a\) or \(\flatfrac1f\) (if \(a=\infty\)) within \(D(0,r)\), where a repeated zero is counted at most \(k\) times.
+
+    Then define the \textit{truncated} Nevanlinna counting function (of order \(k\)) by \[N^{(k)}(r,a,f)=\int_0^r\frac{n^{(k)}(x,a,f)-n^{(k)}(0,a,f)}x\ddx+n^{(k)}(0,a,f)\log r.\]
+    Denote the functions for when \(k=1\) by \(\overline{N}(r,a,f)=N^{(1)}(r,a,f)\) and \(\overline{n}(r,a,f)=n^{(1)}(r,a,f)\).
+\end{definition}
+\begin{definition}
     For any \(a\in\extcomplex\) and a meromorphic function \(f:D(0,R)\to\extcomplex\), define the \textit{deficiency} (or \textit{defect}) \(a\) in \(f\) by \[\delta(a,f)=\liminf_{r\to R^-}\frac{m(r,f)}{T(r,f)}=1-\limsup_{r\to R^-}\frac{N(r,f)}{T(r,f)}.\]
     Then \(a\) is said to be a deficient value of \(f\) if its deficiency is nonzero.
 \end{definition}
 \begin{remark}
     Because \(N(r,f)\leq T(r,f)\) holds by definition, the deficiency will always be a nonnegative real value.
 \end{remark}
-The deficiency is the primary value we are interested in. We also have the \textit{Verzweigungsindex} (ramification index) \(\theta\) and the truncated deficiency \(\Theta\) (of order 1): \[\theta(a,f)=1-\limsup_{r\to R^-}\frac{\overline{N}(r,f)}{T(r,f)},\qquad\Theta(a,f)=\liminf_{r\to R^-}\frac{N(r,f)-\overline{N}(r,f)}{T(r,f)}.\]
+The deficiency is the primary value we are interested in. We also observe the use of the \textit{Verzweigungsindex} (ramification index) \(\theta\) and the truncated deficiency \(\Theta\) (of order 1): \[\theta(a,f)=\liminf_{r\to R^-}\frac{N(r,f)-\overline{N}(r,f)}{T(r,f)},\qquad\Theta(a,f)=1-\limsup_{r\to R^-}\frac{\overline{N}(r,f)}{T(r,f)}.\]
 \begin{proposition}
     If \(f:D(0,R)\to\extcomplex\) meromorphic and non-constant omits a value \(a\in\extcomplex\), then \(a\) has deficiency 1.
 \end{proposition}
