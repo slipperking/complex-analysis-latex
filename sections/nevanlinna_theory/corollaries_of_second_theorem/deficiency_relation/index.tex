@@ -7,24 +7,39 @@ One of the reformulations of the Second Fundamental Theorem is characterized in 
     Denote the functions for when \(k=1\) by \(\overline{N}(r,a,f)=N^{(1)}(r,a,f)\) and \(\overline{n}(r,a,f)=n^{(1)}(r,a,f)\).
 \end{definition}
 \begin{definition}
-    For any \(a\in\extcomplex\) and a meromorphic function \(f:D(0,R)\to\extcomplex\), define the \textit{deficiency} (or \textit{defect}) \(a\) in \(f\) by \[\delta(a,f)=\liminf_{r\to R^-}\frac{m(r,f)}{T(r,f)}=1-\limsup_{r\to R^-}\frac{N(r,f)}{T(r,f)}.\]
+    For any \(a\in\extcomplex\) and a meromorphic function \(f:D(0,R)\to\extcomplex\), define the \textit{deficiency} (or \textit{defect}) \(a\) in \(f\) by \[\delta(a,f)=\liminf_{r\to R^-}\frac{m(r,a,f)}{T(r,f)}=1-\limsup_{r\to R^-}\frac{N(r,a,f)}{T(r,f)}.\]
     Then \(a\) is said to be a deficient value of \(f\) if its deficiency is nonzero.
 \end{definition}
 \begin{remark}
-    Because \(N(r,f)\leq T(r,f)\) holds by definition, the deficiency will always be a nonnegative real value.
+    Because \(N(r,a,f)\leq T(r,f)+\order{1}\) holds by definition, the deficiency will always be a nonnegative real value.
 \end{remark}
-The deficiency is the primary value we are interested in. We also observe the use of the \textit{Verzweigungsindex} (ramification index) \(\theta\) and the truncated deficiency \(\Theta\) (of order 1): \[\theta(a,f)=\liminf_{r\to R^-}\frac{N(r,f)-\overline{N}(r,f)}{T(r,f)},\qquad\Theta(a,f)=1-\limsup_{r\to R^-}\frac{\overline{N}(r,f)}{T(r,f)}.\]
+The deficiency is the primary value we are interested in. We also observe the use of the \textit{Verzweigungsindex} (ramification index) \(\theta\) and the truncated deficiency \(\Theta\) (of order 1): \[\theta(a,f)=\liminf_{r\to R^-}\frac{N(r,a,f)-\overline{N}(r,a,f)}{T(r,f)},\qquad\Theta(a,f)=1-\limsup_{r\to R^-}\frac{\overline{N}(r,a,f)}{T(r,f)}.\]
 \begin{proposition}
     If \(f:D(0,R)\to\extcomplex\) meromorphic and non-constant omits a value \(a\in\extcomplex\), then \(a\) has deficiency 1.
 \end{proposition}
 \begin{proof}
-    The assertion is trivial from \(N(r,a)=0\).
+    The assertion is trivial from \(N(r,a,f)=0\).
 \end{proof}
-\begin{theorem}[\textsc{Deficiency Relation}]
+\begin{theorem}[\textsc{Deficiency Relation}]\label{thm:deficiencyrelation}
     Suppose \(f:D\qty(0,R_0)\to\extcomplex\) (\(0<R_0\leq\infty\)) be meromorphic and admissible. Then \(S=\cbraces{a\in\extcomplex}{\Theta(a)>0}\) is a countable set and \[\sum_{a\in S}\qty[\delta(a)+\theta(a)]\leq\sum_{a\in S}\Theta(a)\leq 2.\]
 \end{theorem}
 \begin{proof}
-    %
+    Choose a sequence \(\qty{r_n}\) such that \(\lim_{n\to\infty}\tfrac{S\qty(r_n,f)}{T\qty(r_n,f)}=0\) whose existence is given by \cref{thm:nevanlinnaadmissibilityerrortermgrowth}. Then for any \(q\) numbers \(\qty{a_\nu}_{\nu=1}^q\subset\mathbb{C}\), \[\frac{m(r_n,f)}{T(r_n,f)}+\sum_{\nu=1}^\infty\frac{m\qty(r_n,a_\nu,f)}{T\qty(r_n,f)}+\frac{N_1(r_n,f)}{T(r_n,f)}\leq 2+o\qty(1)\] as \(n\to\infty\) by the Second Fundamental Theorem of Nevanlinna Theory (\cref{thm:nevanlinnasecondfundamentaltheorempart1,thm:nevanlinnasecondfundamentaltheorempart2}). Then, \[q-1+o(1)\leq\frac{N(r_n,f')-N\qty(r_n,\tfrac1{f'})-2N(r_n,f)}{T(r_n,f)}+\frac{N\qty(r_n,f)}{T(r_n,f)}+\sum_{\nu=1}^q\frac{N\qty(r_n,a_\nu,f)}{T(r_n,f)}.\]
+    At each pole of \(f\) with multiplicity \(p\), \(f'\) will have a pole of multiplicity \(p+1\). Then distinct poles can be counted as \(N(r,f')-N(r,f)=\overline{N}(r,f)\). Then \[q-1+o(1)\leq\frac{\overline{N}(r_n,f')-N\qty(r_n,\tfrac1{f'})}{T(r_n,f)}+\sum_{\nu=1}^q\frac{N\qty(r_n,a_\nu,f)}{T(r_n,f)}.\]
+    Each zero \(z\) of multiplicity \(m\) of \(f-a_\nu\) gives rise to a zero of multiplicity \(m-1\) of \(f'\). Then \(\overline{n}\qty(r,a_\nu,f)=n\qty(r,a_\nu,f)-n_{a_\nu}\qty(r,0,f')\) where \(n_{a_\nu}\qty(r,0,f')\) is the discrete counting function with the proviso that points are counted at points where \(f=a_\nu\). Then \(\overline{N}\qty(r_n,a_\nu,f)=N\qty(r_n,a_\nu,f)-N_{\qty{a_\nu}_\nu}\qty(r_n,0,f')\) (where \(N_{\qty{a_\nu}_\nu}\) is the counting function with the condition that the points satisfy \(f\in\qty{a_\nu}_\nu\)). Hence,
+    \begin{align*}
+        q-1+o(1)&\leq\frac{\overline{N}(r_n,f)}{T(r_n,f)}+\sum_{\nu=1}^q\frac{\overline{N}\qty(r_n,a_\nu,f)}{T(r_n,f)}-\frac{N\qty(r_n,0,f')-N_{\qty{a_\nu}_\nu}\qty(r_n,0,f')}{T\qty(r_n,f)}\\
+        &=\frac{\overline{N}(r_n,f')}{T(r_n,f)}+\sum_{\nu=1}^q\frac{\overline{N}\qty(r_n,a_\nu,f)}{T(r_n,f)}-\frac{N_0\qty(r_n,0,f')}{T\qty(r_n,f)},
+    \end{align*}
+    where \(N_0\qty(r_n,0,f')\) counts the critical points of \(f\) that satisfy \(f\notin\qty{a_\nu}_\nu\). Then taking the superior limits on both side and loosening the inequality by removing the \(N_0\) term,
+    \begin{align*}
+        q-1&\leq\varlimsup_{n\to\infty}\frac{\overline{N}\qty(r_n,\infty,f)}{T\qty(r_n,f)}+\sum_{\nu=1}^q\varlimsup_{n\to\infty}\frac{\overline{N}\qty(r_n,a_\nu,f)}{T\qty(r_n,f)}\\
+        &\leq\varlimsup_{r\to R_0^-}\frac{\overline{N}\qty(r,\infty,f)}{T\qty(r,f)}+\sum_{\nu=1}^q\varlimsup_{r\to R_0^-}\frac{\overline{N}\qty(r,a_\nu,f)}{T\qty(r,f)}\\
+        &=1-\Theta(\infty,f)+\sum_{\nu=1}^q\qty[1-\Theta\qty(\infty,f)].
+    \end{align*}
+    Therefore, \(\textstyle\sum_{\nu=1}^q\Theta\qty(a_\nu,f)+\Theta\qty(\infty,f)\leq 2\). The \(\Theta\qty(\infty,f)\) term may or may not be truncated. Without loss of generality, we allow the arbitrary distinct \(\qty{a_\nu}_{\nu}^q\) to comprise \(\infty\), to obtain a more uniformized expression.
+
+    Assume some arbitrary \(N\in\mathbb{N}\). If \(2N+1\) values in the Riemann sphere have truncated deficiencies each exceeding \(\flatfrac1N\), then applying the previous to result to these \(2N+1\) values, their truncated sufficiency sum exceeds 2, which is a contradiction. Thus, \(\forall N\in\mathbb{N}\), at most \(2N\) values have truncated deficiencies exceeding \(\flatfrac1N\). Let these exceeding values form the finite set \(S_N\). Then \[S=\bigcup_{N=1}^\infty S_N=\cbraces{a\in\extcomplex}{\Theta(a,f)>0}\] is a countable set, and hence can be described with a sequence \(\qty{a_\nu}_{\nu=1}^q\). Then by the inequality, \[\sum_{\nu=1}^q\Theta\qty(a_\nu,f)\leq 2\implies\sum_{\nu=1}^{\infty}\Theta\qty(a_\nu,f)\leq 2.\qedhere\]
 \end{proof}
 \begin{remark}
     Ahlfors' geometric formulation of the second fundamental theorem suggests that the value 2 in the inequality is connected to the Euler characteristic of the Riemann sphere via triangulation.
