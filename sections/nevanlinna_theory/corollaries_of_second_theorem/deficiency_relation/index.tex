@@ -16,16 +16,16 @@ One of the reformulations of the Second Fundamental Theorem is characterized in 
 The deficiency is the primary value we are interested in. We also observe the use of the \textit{Verzweigungsindex} (ramification index) \(\theta\) and the truncated deficiency \(\Theta\) (of order 1): \[\theta(a,f)=\liminf_{r\to R^-}\frac{N(r,a,f)-\overline{N}(r,a,f)}{T(r,f)},\qquad\Theta(a,f)=1-\limsup_{r\to R^-}\frac{\overline{N}(r,a,f)}{T(r,f)}.\]
 Using these formulations, we now have
 \begin{theorem}[\textsc{Deficiency Relation}]\label{thm:deficiencyrelation}
-    Suppose \(f:D\qty(0,R_0)\to\extcomplex\) (\(0<R_0\leq\infty\)) be meromorphic and admissible. Then \(S=\cbraces{a\in\extcomplex}{\Theta(a)>0}\) is a countable set and \[\sum_{a\in S}\qty[\delta(a)+\theta(a)]\leq\sum_{a\in S}\Theta(a)\leq 2.\]
+    Suppose \(f:D\qty(0,R_0)\to\extcomplex\) (\(0<R_0\leq\infty\)) is meromorphic and admissible. Then \(S=\cbraces{a\in\extcomplex}{\Theta(a)>0}\) is a countable set and \[\sum_{a\in S}\qty[\delta(a)+\theta(a)]\leq\sum_{a\in S}\Theta(a)\leq 2.\]
 \end{theorem}
 \begin{proof}
     Choose a sequence \(\qty{r_n}\) such that \(\lim_{n\to\infty}\tfrac{S\qty(r_n,f)}{T\qty(r_n,f)}=0\) whose existence is given by \cref{thm:nevanlinnaadmissibilityerrortermgrowth}. Then for any \(q\) numbers \(\qty{a_\nu}_{\nu=1}^q\subset\mathbb{C}\), \[\frac{m(r_n,f)}{T(r_n,f)}+\sum_{\nu=1}^\infty\frac{m\qty(r_n,a_\nu,f)}{T\qty(r_n,f)}+\frac{N_1(r_n,f)}{T(r_n,f)}\leq 2+o\qty(1)\] as \(n\to\infty\) by the Second Fundamental Theorem of Nevanlinna Theory (\cref{thm:nevanlinnasecondfundamentaltheorempart1,thm:nevanlinnasecondfundamentaltheorempart2}). Then, \[q-1+o(1)\leq\frac{N(r_n,f')-N\qty(r_n,\tfrac1{f'})-2N(r_n,f)}{T(r_n,f)}+\frac{N\qty(r_n,f)}{T(r_n,f)}+\sum_{\nu=1}^q\frac{N\qty(r_n,a_\nu,f)}{T(r_n,f)}.\]
     At each pole of \(f\) with multiplicity \(p\), \(f'\) will have a pole of multiplicity \(p+1\). Then distinct poles can be counted as \(N(r,f')-N(r,f)=\overline{N}(r,f)\). Then \[q-1+o(1)\leq\frac{\overline{N}(r_n,f')-N\qty(r_n,\tfrac1{f'})}{T(r_n,f)}+\sum_{\nu=1}^q\frac{N\qty(r_n,a_\nu,f)}{T(r_n,f)}.\]
     Each zero \(z\) of multiplicity \(m\) of \(f-a_\nu\) gives rise to a zero of multiplicity \(m-1\) of \(f'\). Then \(\overline{n}\qty(r,a_\nu,f)=n\qty(r,a_\nu,f)-n_{a_\nu}\qty(r,0,f')\) where \(n_{a_\nu}\qty(r,0,f')\) is the discrete counting function with the proviso that points are counted at points where \(f=a_\nu\). Then \(\overline{N}\qty(r_n,a_\nu,f)=N\qty(r_n,a_\nu,f)-N_{\qty{a_\nu}_\nu}\qty(r_n,0,f')\) (where \(N_{\qty{a_\nu}_\nu}\) is the counting function with the condition that the points satisfy \(f\in\qty{a_\nu}_\nu\)). Hence,
-    \begin{align*}
-        q-1+o(1)&\leq\frac{\overline{N}(r_n,f)}{T(r_n,f)}+\sum_{\nu=1}^q\frac{\overline{N}\qty(r_n,a_\nu,f)}{T(r_n,f)}-\frac{N\qty(r_n,0,f')-N_{\qty{a_\nu}_\nu}\qty(r_n,0,f')}{T\qty(r_n,f)}\\
-        &=\frac{\overline{N}(r_n,f')}{T(r_n,f)}+\sum_{\nu=1}^q\frac{\overline{N}\qty(r_n,a_\nu,f)}{T(r_n,f)}-\frac{N_0\qty(r_n,0,f')}{T\qty(r_n,f)},
-    \end{align*}
+    \begin{align}
+        q-1+o(1)&\leq\frac{\overline{N}(r_n,f)}{T(r_n,f)}+\sum_{\nu=1}^q\frac{\overline{N}\qty(r_n,a_\nu,f)}{T(r_n,f)}-\frac{N\qty(r_n,0,f')-N_{\qty{a_\nu}_\nu}\qty(r_n,0,f')}{T\qty(r_n,f)}\nonumber\\
+        &=\frac{\overline{N}(r_n,f)}{T(r_n,f)}+\sum_{\nu=1}^q\frac{\overline{N}\qty(r_n,a_\nu,f)}{T(r_n,f)}-\frac{N_0\qty(r_n,0,f')}{T\qty(r_n,f)},\label{eq:deficiencyrelation_fundamentalinequality}
+    \end{align}
     where \(N_0\qty(r_n,0,f')\) counts the critical points of \(f\) that satisfy \(f\notin\qty{a_\nu}_\nu\). Then taking the superior limits on both side and loosening the inequality by removing the \(N_0\) term,
     \begin{align*}
         q-1&\leq\varlimsup_{n\to\infty}\frac{\overline{N}\qty(r_n,\infty,f)}{T\qty(r_n,f)}+\sum_{\nu=1}^q\varlimsup_{n\to\infty}\frac{\overline{N}\qty(r_n,a_\nu,f)}{T\qty(r_n,f)}\\
@@ -40,8 +40,8 @@ Using these formulations, we now have
     Ahlfors' geometric formulation of the second fundamental theorem suggests that the value 2 in the inequality is connected to the Euler characteristic of the Riemann sphere via triangulation.
 \end{remark}
 Therefore, we have
-\begin{corollary}\label{thm:picardtranscendentalmeromorphic}
-    A transcendental meromorphic function omits at most two values on the Riemann sphere.
+\begin{corollary}\label{cor:picardtranscendentalmeromorphic}
+    A non-constant meromorphic function omits at most two values on the Riemann sphere.
 \end{corollary}
 \begin{proof}
     Assume there exists three values \(a,b,c\in\extcomplex\) that meromorphic function \(f\) does not ever attain. Then \(N(r,a,f)\), \(N(r,a,b)\), \(N(r,a,c)\) all vanish identically with respect to radius while \(T>0\).
@@ -53,7 +53,7 @@ Therefore, we have
     Any non-constant entire function omits at most one value.
 \end{corollary}
 \begin{proof}
-    Any such function can be regarded as a meromorphic function on the plane that omits \(\infty\). Then the conclusion follows from \cref{thm:picardtranscendentalmeromorphic}.
+    Any such function can be regarded as a meromorphic function on the plane that omits \(\infty\). Then the conclusion follows from \cref{cor:picardtranscendentalmeromorphic}.
 \end{proof}
 The use of spherically normal families in the proof of the Great Picard Theorem for more general domains is unavoidable. For further treatment, refer to \cite{hayman1964meromorphic}.
 %deficient functions etc

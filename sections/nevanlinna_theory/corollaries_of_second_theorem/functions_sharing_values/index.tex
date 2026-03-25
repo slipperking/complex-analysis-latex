@@ -1,0 +1,21 @@
+%
+\subsubsection{Functions Sharing Values}
+In Nevanlinna's explanation of the various applications of the Second Fundamental Theorem, he proved:
+\begin{theorem}[\textsc{Nevanlinna's Five-Value Theorem}]
+    Let \(f_1,f_2\) be two meromorphic functions on the plane. For each \(a\in\extcomplex\), let \(E_1(a)=\cbraces{z\in\mathbb{C}}{f_1(z)=a}\), \(E_2(a)=\cbraces{z\in\mathbb{C}}{f_2(z)=a}\). Then if \(E_1(a)\equiv E_2(a)\) for at least five different values\footnote{The compared sets are allowed to be empty (in this case both functions omit \(a\)), and we do not consider the multiplicities at each potential solution. For instance, for \(f_1(z)=z\) and \(f_1(z)=z^2\), 0 is a shared value.} of \(a\in\extcomplex\), then either \(f_1,f_2\) are both constant or identically equal to each other.
+\end{theorem}
+\begin{proof}
+    Assume that five values \(a_1\) to \(a_5\) exist for which \(E_1\qty(a_1)=E_2\qty(a_1),\ldots E_1\qty(a_5)=E_2\qty(a_5)\).
+
+    Assume, for the sake of contradiction, that \(f_1,f_2\) are not simultaneously constant nor identical. Because \[\overline{N}\qty(r,a_\nu,f_1)=\overline{N}\qty(r,a_\nu,f_2)\] for \(\nu=1,\dots,5\), quantify this value by \(N_\nu(r)\). Without loss of generality, we may assume, that either \(f_1\) is constant and not \(f_2\), or both \(f_1,f_2\) are non-constant.
+
+    If \(f_1\) is constant and not \(f_2\), observe that \(f_1\) omits all but one value. If five of these values are shared with \(f_2\), they are either omitted by both functions or four of them are omitted by both while one of them is attained by both. In either case, they must both be constant as they omit more than two values (\cref{cor:picardtranscendentalmeromorphic}).
+
+    Thus, we assume the latter case where both functions are non-constant. By \cref{eq:deficiencyrelation_fundamentalinequality}, through a suitable sequence of \(r\) not depending on \(j\) (the exceptional set is outside the union of two exceptional sets of finite linear measure), \[\qty[4+o(1)]T\qty(r,f_j)\leq\overline{N}\qty(r,f_j)+\sum_{\nu=1}^5N_\nu\qty(r),\qquad j=1,2,\]
+    which implies that \[\qty[3+o(1)]T\qty(r,f_j)\leq\sum_{\nu=1}^5N_\nu\qty(r).\]
+
+\end{proof}
+\begin{remark}
+    The functions \(f_1:z\mapsto\exp\qty(z)\) and \(f_2:z\mapsto\exp\qty(-z)\) imply that five cannot be sharpened to four. Indeed, \(E_1(0)=E_2(0)=\emptyset=E_1(\infty)=E_2(\infty)\), \(E_1(1)=E_2(1)=\qty{2\uppi\ii k}_{k\in\mathbb{Z}}\), and \(E_1(-1)=E_2(-1)=\qty{2\uppi\ii k+\uppi\ii}_{k\in\mathbb{Z}}\). It can be verified algebraically that \(0,\infty,1,-1\) are the only ``shared'' values; the first two are omitted values while any solution must satisfy \(\ee^{2z}=1\), which corresponds to points where \(\exp\) attains \(1\) and \(-1\).
+\end{remark}
+%admissibility generalization?
