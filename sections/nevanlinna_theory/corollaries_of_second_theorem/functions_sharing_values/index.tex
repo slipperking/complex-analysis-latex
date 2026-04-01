@@ -2,18 +2,36 @@
 \subsubsection{Functions Sharing Values}
 In Nevanlinna's explanation of the various applications of the Second Fundamental Theorem, he proved:
 \begin{theorem}[\textsc{Nevanlinna's Five-Value Theorem}]
-    Let \(f_1,f_2\) be two meromorphic functions on the plane. For each \(a\in\extcomplex\), let \(E_1(a)=\cbraces{z\in\mathbb{C}}{f_1(z)=a}\), \(E_2(a)=\cbraces{z\in\mathbb{C}}{f_2(z)=a}\). Then if \(E_1(a)\equiv E_2(a)\) for at least five different values\footnote{The compared sets are allowed to be empty (in this case both functions omit \(a\)), and we do not consider the multiplicities at each potential solution. For instance, for \(f_1(z)=z\) and \(f_1(z)=z^2\), 0 is a shared value.} of \(a\in\extcomplex\), then either \(f_1,f_2\) are both constant or identically equal to each other.
+    Let \(f_1,f_2\) be two meromorphic, admissible functions on \(D(0,R_0)\) (\(R_0<\infty\)). For each \(a\in\extcomplex\), let \(E_1(a)=\cbraces{z}{f_1(z)=a}\), \(E_2(a)=\cbraces{z}{f_2(z)=a}\). Then if \(E_1(a)\equiv E_2(a)\) for at least five different values\footnote{The compared sets are allowed to be empty (in this case both functions omit \(a\)), and we do not consider the multiplicities at each potential solution. For instance, for \(f_1(z)=z\) and \(f_1(z)=z^2\), 0 is a shared value.} of \(a\in\extcomplex\), then \(f_1\equiv f_2\).
+
+    If \(f_1,f_2\) are two merely meromorphic (not necessarily admissible) functions on \(\mathbb{C}\) and if \(E_1(a)\equiv E_2(a)\) for at least five different values of \(a\in\extcomplex\), then either \(f_1\equiv f_2\) everywhere or they are both constant.
 \end{theorem}
 \begin{proof}
-    Assume that five values \(a_1\) to \(a_5\) exist for which \(E_1\qty(a_1)=E_2\qty(a_1),\ldots E_1\qty(a_5)=E_2\qty(a_5)\).
+    Assume that five values \(a_1\) to \(a_5\) exist for which \(E_1\qty(a_1)=E_2\qty(a_1),\ldots E_1\qty(a_5)=E_2\qty(a_5)\). Without loss of generality, assume they are finite (otherwise a Möbius transformation can be utilized to map a value outside these five to the infinity point).
 
-    Assume, for the sake of contradiction, that \(f_1,f_2\) are not simultaneously constant nor identical. Because \[\overline{N}\qty(r,a_\nu,f_1)=\overline{N}\qty(r,a_\nu,f_2)\] for \(\nu=1,\dots,5\), quantify this value by \(N_\nu(r)\). Without loss of generality, we may assume, that either \(f_1\) is constant and not \(f_2\), or both \(f_1,f_2\) are non-constant.
+    Because \[\overline{N}\qty(r,a_\nu,f_1)=\overline{N}\qty(r,a_\nu,f_2)\] for \(\nu=1,\dots,5\), \(0<r<R_0\), quantify this value by \(N_\nu(r)\). We now assume that \(f_1\not\equiv f_2\). Now each shared value corresponds to an infinity of \(\Psi=\tfrac1{f_2-f_1}\).
 
-    If \(f_1\) is constant and not \(f_2\), observe that \(f_1\) omits all but one value. If five of these values are shared with \(f_2\), they are either omitted by both functions or four of them are omitted by both while one of them is attained by both. In either case, they must both be constant as they omit more than two values (\cref{cor:picardtranscendentalmeromorphic}).
+    Now assuming that \(f_1\), \(f_2\) are not identically equal, we have \[\sum_{\nu=1}^5 N_\nu(r)\leq N(r,\Psi)\leq T(r,\Psi)=T(r,f_2-f_1)+\order{1}\leq T(r,f_1)+T(r,f_2)+\order{1}\] trivially by the First Fundamental Theorem (\cref{thm:nevanlinnafirstfundamentaltheorem}) and the properties of the characteristic. Applying \cref{eq:deficiencyrelation_fundamentalinequality} gives
+    \begin{align*}
+        4T\qty(r,f_j)-S\qty(r,f_j)&\leq\overline{N}\qty(r,f_j)+\sum_{\nu=1}^5N_\nu(r)-N_0\qty(r,0,f_j'),\qquad j=1,2,\\
+        3T(r,f_j)&\leq S\qty(r,f_j)+\sum_{\nu=1}^5N_\nu(r).
+    \end{align*}
+    Summing this inequality for both values of \(j\) and applying the upper bound gives
+    \begin{align*}
+        T\qty(r,f_1)+T\qty(r,f_2)&\leq\tfrac13\qty[S\qty(r,f_1)+S\qty(r,f_2)]+\tfrac23\sum_{\nu=1}^5N_\nu(r)\\
+        &\leq\tfrac13\qty[S\qty(r,f_1)+S\qty(r,f_2)]+\tfrac23\qty[T\qty(r,f_1)+T\qty(r,f_2)]+\order{1}.
+    \end{align*}
+    If \(R_0<\infty\), then outside a set \(E_0\) of logarithmic measure not exceeding 4, or \(\textstyle\int_{E_0}\frac{\dd{r}}{R_0-r}\leq 4\), by the Second Fundamental Theorem estimates (\cref{thm:nevanlinnasecondfundamentaltheorempart2}) and the fact that \(\logp T(r,f)=o\qty[T(r,f)]\), \[\qty(1-o(1))\qty[T\qty(r,f_1)+T\qty(r,f_2)]\leq\order{\log\frac1{R_0-r}}\implies\limsup_{\substack{r\to R_0^-\\r\notin E_0}}\frac{T(r,f_j)}{\log\frac1{R_0-r}}=\order{1}.\]
+    We now aim to extend this outside of \(E_0\).
 
-    Thus, we assume the latter case where both functions are non-constant. By \cref{eq:deficiencyrelation_fundamentalinequality}, through a suitable sequence of \(r\) not depending on \(j\) (the exceptional set is outside the union of two exceptional sets of finite linear measure), \[\qty[4+o(1)]T\qty(r,f_j)\leq\overline{N}\qty(r,f_j)+\sum_{\nu=1}^5N_\nu\qty(r),\qquad j=1,2,\]
-    which implies that \[\qty[3+o(1)]T\qty(r,f_j)\leq\sum_{\nu=1}^5N_\nu\qty(r).\]
+    For any \(r^*\in E_0\), let \(r'\in\qty{r_n}\) be the infimum of values exceeding \(r^*\) not in \(E_0\). If \(r^*=r'\), then arbitrarily close to \(r^*\), there are points for which the limit superior assertion holds. By continuity, this holds at \(r^*\) as well.
 
+    Hence, assume \(r'>r^*\). Then \([r^*,r_n)\subseteq E_0\), we must have \(\textstyle\int_{r^*}^{r_n}\frac{\dd{r}}{R_0-r}=\log\frac{R_0-r^*}{R_0-r'}\leq 4\), so \(\log\tfrac1{R_0-r^*}\geq\log\tfrac1{R_0-r'}-4\). Since \(\log\tfrac1{R_0-r}\) is continuous and non-vanishing for \(r\) sufficiently close to \(R_0\) and \(T\) is non-decreasing, \[\frac{T\qty(r^*,f_j)}{\log\frac1{R_0-r^*}}\leq\frac{T\qty(r',f_j)}{\log\frac1{R_0-r'}}\qty(1+\frac4{\log\frac1{R_0-r'}-4})=\order{\frac{T\qty(r',f_j)}{\log\frac1{R_0-r'}}}.\]
+    This shows that \[\limsup_{r\to R_0^-}\frac{T(r,f_j)}{\log\frac1{R_0-r}}=\order{1},\]
+    which contradicts the admissibility of \(f_j\). Hence, our original assumption that \(f_1\not\equiv f_2\) is false, completing the first statement of the theorem.
+
+    On the other hand, if \(R_0=\infty\), then outside a set \(E_0\) of linear measure not exceeding 4, by the Second Fundamental Theorem estimates (\cref{thm:nevanlinnasecondfundamentaltheorempart2}), \(S\qty(r,f_j)=o\qty[T\qty(r,f_j)]\), and thus \[T\qty(r,f_1)+T\qty(r,f_2)\leq o\qty[T\qty(r,f_1)]+o\qty[T\qty(r,f_2)]+\order{1}\implies T\qty(r,f_1)+T\qty(r,f_2)=\order{1}.\]
+    Then \(f_1,f_2\) are constant, or the assumption that \(f_1\not\equiv f_2\) was false. This concludes the theorem.
 \end{proof}
 \begin{remark}
     The functions \(f_1:z\mapsto\exp\qty(z)\) and \(f_2:z\mapsto\exp\qty(-z)\) imply that five cannot be sharpened to four. Indeed, \(E_1(0)=E_2(0)=\emptyset=E_1(\infty)=E_2(\infty)\), \(E_1(1)=E_2(1)=\qty{2\uppi\ii k}_{k\in\mathbb{Z}}\), and \(E_1(-1)=E_2(-1)=\qty{2\uppi\ii k+\uppi\ii}_{k\in\mathbb{Z}}\). It can be verified algebraically that \(0,\infty,1,-1\) are the only ``shared'' values; the first two are omitted values while any solution must satisfy \(\ee^{2z}=1\), which corresponds to points where \(\exp\) attains \(1\) and \(-1\).
