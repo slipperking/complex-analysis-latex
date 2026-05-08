@@ -108,7 +108,7 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
 \end{theorem}
 \begin{proof}
     Let \(z_0\in U\) be arbitrary. Since \(U\) is open, \(\exists r>0\) such that
-    \(\overline{D}=\overline{D\qty(z_0,r)}\subset U\). Define \[F(z)=\int_{z_0}^z f(\zeta)\ddzeta,\] where the path is a straight line segment, and \(F\) is well-defined for \(z\in D\). Now \[F'(z)=\lim_{\Delta z\to 0}\frac{F(z+\Delta z)-F(z)}{\Delta z}=\lim_{\Delta z\to 0}\frac{\qty(\int_a^{z+\Delta z}+\int_z^a+\int_{z+\Delta z}^z+\int_z^{z+\Delta z})f(\zeta)\ddzeta}{\Delta z}.\] Note that the first three integrals sum to form a closed triangular curve and hence vanish by assumption. Therefore, \[F'(z)=\lim_{\Delta z\to 0}\frac{1}{\Delta z}\int_z^{z+\Delta z}f(\zeta)\ddzeta.\] By the continuity of \(f\) at \(z\), for any \(\varepsilon>0\), \(\exists\delta>0\) such that \(\abs{\zeta-z}<\delta\implies\abs{f(\zeta)-f(z)}<\varepsilon\). Then, for \(\abs{\Delta z}<\delta\), \[\abs{\frac{1}{\Delta z}\int_z^{z+\Delta z}f(\zeta)\ddzeta-f(z)}=\abs{\frac{1}{\Delta z}\int_z^{z+\Delta z}(f(\zeta)-f(z))\ddzeta}\leq\varepsilon.\] Thus, \(F'(z)=f(z)\) for all \(z\in D\). Since \(z_0\) was arbitrary, \(f\) is holomorphic over \(U\).
+    \(\overline{D}=\overline{D\qty(z_0,r)}\subset U\). Define \[F(z)=\int_{z_0}^z f(\zeta)\ddzeta,\] where the path is a straight line segment, and \(F\) is well-defined for \(z\in D\). Now \[F'(z)=\lim_{\Delta z\to 0}\frac{F(z+\Delta z)-F(z)}{\Delta z}=\lim_{\Delta z\to 0}\frac{\qty(\int_{z_0}^{z+\Delta z}+\int_z^{z_0}+\int_{z+\Delta z}^z+\int_z^{z+\Delta z})f(\zeta)\ddzeta}{\Delta z}.\] Note that the first three integrals sum to form a closed triangular curve and hence vanish by assumption. Therefore, \[F'(z)=\lim_{\Delta z\to 0}\frac{1}{\Delta z}\int_z^{z+\Delta z}f(\zeta)\ddzeta.\] By the continuity of \(f\) at \(z\), for any \(\varepsilon>0\), \(\exists\delta>0\) such that \(\abs{\zeta-z}<\delta\implies\abs{f(\zeta)-f(z)}<\varepsilon\). Then, for \(\abs{\Delta z}<\delta\), \[\abs{\frac{1}{\Delta z}\int_z^{z+\Delta z}f(\zeta)\ddzeta-f(z)}=\abs{\frac{1}{\Delta z}\int_z^{z+\Delta z}(f(\zeta)-f(z))\ddzeta}\leq\varepsilon.\] Thus, \(F'(z)=f(z)\) for all \(z\in D\). Since \(z_0\) was arbitrary, \(f\) is holomorphic over \(U\).
 \end{proof}
 \begin{theorem}\label{thm:nthderivativeboundedl1norm}
     Let \(U\subseteq\mathbb{C}\) be open, let \(K\subset U\) be compact and \(V\supset K\) be open such that \(\overline{V}\subset U\) (\(V\) is a neighborhood of \(K\) that is relatively compact in \(U\)). Let \(f(z)\) be holomorphic in \(U\). Then there exists a sequence \(\cbraces{c_n}\subset\mathbb{R}\) dependent only on \(K\) and \(V\) (independent of \(f\) and \(z\)) such that \(\forall n\in\mathbb{N}\),
@@ -138,7 +138,7 @@ The following theorem, albeit originally proven by Cauchy in 1844, shows a funda
 For the next theorem we will briefly introduce the concept of \textit{analytic continuation}.
 \begin{definition}[Analytic Continuation]\label{def:analyticcontinuation}
     Let \(U\subseteq\mathbb{C}\) be open, and let \(f:U\to\mathbb{C}\) be holomorphic. Let \(V\subseteq\mathbb{C}\) be open with \(U\subseteq V\). A function
-    \(F:U\cap V\to\mathbb{C}\) is an \textit{analytic continuation} of \(f\) to \(V\) if:
+    \(F:V\to\mathbb{C}\) is an \textit{analytic continuation} of \(f\) to \(V\) if:
     \begin{enumerate}
         \item \(F\) is holomorphic on \(V\), and
         \item \(F\equiv f\) on \(U\).
