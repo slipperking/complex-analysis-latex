@@ -1,4 +1,22 @@
 \subsection{Topological Equivalence and Biholomorphic Equivalence}
+\begin{lemma}\label{lem:monomial_matrix_diagonal_multiplication_commute}
+    If \(\symbf{P}\) is a permutation matrix, and \(\symbf{D}\) is a diagonal matrix, then there exists a diagonal matrix \(\symbf{D}'\) such that
+    \(\symbf{P}\,\symbf{D}=\symbf{D}'\,\symbf{P}\). Similarly, there exists a diagonal matrix \(\symbf{D}''\) such that
+    \(\symbf{D}\,\symbf{P}=\symbf{P}\,\symbf{D}''\).
+\end{lemma}
+\begin{proof}
+    Let \(\symbf{D}=\operatorname{diag}(d_1,\dots,d_n)\) and let \(\sigma\) be the permutation corresponding to \(\symbf{P}\), so that \(\symbf{P}\symbf{e}_i=\symbf{e}_{\sigma(i)}\) for each standard basis vector \(\symbf{e}_i\).
+
+    Define \[\symbf{D}'=\operatorname{diag}\bigl(d_{\sigma^{-1}(1)},\dots,d_{\sigma^{-1}(n)}\bigr).\]
+    For every \(i\) we have
+    \[\symbf{P}\symbf{D}\symbf{e}_i=\symbf{P}(d_i\symbf{e}_i)=d_i\symbf{e}_{\sigma(i)},\]
+    while
+    \[\symbf{D}'\symbf{P}\symbf{e}_i=\symbf{D}'\symbf{e}_{\sigma(i)}=d_i\symbf{e}_{\sigma(i)}.\]
+    Hence \(\symbf{P}\symbf{D}\symbf{e}_i=\symbf{D}'\symbf{P}\symbf{e}_i\) for all \(i\), and therefore
+    \(\symbf{P}\symbf{D}=\symbf{D}'\symbf{P}\).
+
+    To obtain the second equality, apply the same argument to \(\symbf{P}^\top\). There exists a diagonal matrix \(\symbf{D}''\) with \(\symbf{P}^\top\symbf{D}=(\symbf{D}''\symbf{P}^\top)\). Taking transposes and using that diagonal matrices are invariant under transposition yields \(\symbf{D}\symbf{P}=\symbf{P}\symbf{D}''\), as required.
+\end{proof}
 \begin{theorem}[Poincaré]\label{thm:poincarepolydiskandunitball}
     For any \(n\geq2\), the \(n\)-dimensional unit ball \(B^n\) and the \(n\)-dimensional polydisk \(\mathbb{D}^n\) are not biholomorphically equivalent.
 \end{theorem}
@@ -15,8 +33,8 @@
 
     For \(\symbf{U}\in\mathrm{U}(n)\), the spectral theorem allows it to be expressed in the form of \(\symbf{V}\operatorname{diag}\qty(\ee^{\ii\theta_1},\ldots,\ee^{\ii\theta_n})\symbf{V}^\dagger\). Hence, for any positive integer \(m\), we have \[\symbf{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\symbf{V}^\dagger\in\mathrm{U}(n)\] and \[\qty(\symbf{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\symbf{V}^\dagger)^m=\symbf{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\symbf{V}^\dagger\cdots\symbf{V}\operatorname{diag}\qty(\ee^{\ii\frac{\theta_1}m},\ldots,\ee^{\ii\frac{\theta_n}m})\symbf{V}^\dagger.\] The adjacent products of \(\symbf{V}^\dagger\symbf{V}\) simplify to the identity and the entire expression then simplifies to \(\symbf{U}\). Hence the unitary group is divisible.
 
-    Consider the unitary monomial matrix \[\symbf{P}_\tau=\mqty(0&1&0&0&\cdots&0\\1&0&0&0&\cdots&0\\0&0&1&0&\cdots&0\\0&0&0&1&\cdots&0\\\vdots&\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&0&\cdots&1).\] inducing the permutation \(\tau\), swapping the first and second entries. Assume that there exists some unitary monomial matrix \(\symbf{Q}=\symbf{P}_\sigma\symbf{D}\) (where \(\symbf{D}\) is diagonal and \(\symbf{P}_\sigma\) is a permutation matrix corresponding to the permutation \(\sigma\)) such that \(\symbf{Q}^2=\symbf{P}_\tau\). This is equivalent to \[\symbf{P}_\sigma\symbf{D}\symbf{P}_\sigma\symbf{D}=\symbf{P}_\tau\implies\symbf{P}^2_\sigma\symbf{P}^{-1}_\sigma\symbf{D}\symbf{P}_\sigma\symbf{D}=\symbf{P}_\tau\implies\symbf{P}^2_\sigma\symbf{D}^2=\symbf{P}_\tau\]
-    because \(\symbf{P}^{-1}_\sigma\symbf{D}\symbf{P}_\sigma=\symbf{D}\). Thus, \(\symbf{P}^2_\sigma=\symbf{P}_\tau\) (and \(\symbf{D}^2=\symbf{I}\)) since their permutation parts must match. This is an impossibility since \(\symbf{P}^2_\sigma\) corresponds to an even permutation, while \(\symbf{P}_\tau\) corresponds to an odd permutation. Thus, the unitary monomial group is not divisible.
+    Consider the unitary monomial matrix \[\symbf{P}_\tau=\mqty(0&1&0&0&\cdots&0\\1&0&0&0&\cdots&0\\0&0&1&0&\cdots&0\\0&0&0&1&\cdots&0\\\vdots&\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&0&0&\cdots&1),\] inducing the permutation \(\tau\), swapping the first and second entries. Assume that there exists some unitary monomial matrix \(\symbf{Q}=\symbf{P}_\sigma\symbf{D}\) (where \(\symbf{D}\) is diagonal and \(\symbf{P}_\sigma\) is a permutation matrix corresponding to the permutation \(\sigma\)) such that \(\symbf{Q}^2=\symbf{P}_\tau\). This is equivalent to \[\symbf{P}_\sigma\symbf{D}\symbf{P}_\sigma\symbf{D}=\symbf{P}_\tau\implies\symbf{P}_\sigma\symbf{P}_\sigma\symbf{D}\symbf{D}'=\symbf{P}_\tau\implies\symbf{P}^2_\sigma\symbf{D}''=\symbf{P}_\tau,\]
+    where \(\symbf{D}'\) and \(\symbf{D}''\) are diagonal matrices, where the former existence is given by \cref{lem:monomial_matrix_diagonal_multiplication_commute}. Thus, \(\symbf{P}^2_\sigma=\symbf{P}_\tau\) (and \(\symbf{D}''=\symbf{I}\)) since their permutation parts must match. This is an impossibility since \(\symbf{P}^2_\sigma\) corresponds to an even permutation, while \(\symbf{P}_\tau\) corresponds to an odd permutation. Thus, the unitary monomial group is not divisible.
 
     By \cref{prop:groupdivisibilitypreservedunderisomorphisms}, the two groups cannot be isomorphic to each other.
 
